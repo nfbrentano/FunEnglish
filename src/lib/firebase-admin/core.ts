@@ -17,8 +17,13 @@ export function getAdminApp(): App {
   // The emulators accept any project id and need no credentials.
   if (isUsingEmulators()) return initializeApp({ projectId: projectId || "demo-fun-english" });
 
+  // Path to a downloaded key file (Google's standard variable): the SDK reads it itself.
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS) return initializeApp({ projectId });
+
   const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-  if (!serviceAccount) throw new MissingEnvError(["FIREBASE_SERVICE_ACCOUNT_KEY"]);
+  if (!serviceAccount) {
+    throw new MissingEnvError(["GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_KEY"]);
+  }
 
   return initializeApp({ credential: cert(JSON.parse(serviceAccount)), projectId });
 }
