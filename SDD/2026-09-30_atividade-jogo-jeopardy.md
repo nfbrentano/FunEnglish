@@ -5,7 +5,7 @@
 
 ## Detalhes da Atividade
 
-- **O que precisa ser feito:** Implementar o plugin `jeopardy`: um tabuleiro com 3 a 6 categorias e 3 a 6 valores por categoria (100–500). A turma, dividida em equipes, escolhe uma célula; a pergunta abre em tela cheia; o professor revela a resposta e marca qual equipe acertou (ou ninguém); a célula fica desabilitada e o placar é atualizado.
+- **O que precisa ser feito:** Implementar o plugin `quiz-board` (nome exibido: "Quiz Board"): um tabuleiro com 3 a 6 categorias e 3 a 6 valores por categoria (100–500). A turma, dividida em equipes, escolhe uma célula; a pergunta abre em tela cheia; o professor revela a resposta e marca qual equipe acertou (ou ninguém); a célula fica desabilitada e o placar é atualizado.
 - **Problema e evidência:** Jogos de game show são destaque na categoria Fun do site de referência ("Jeopardy Basic 7", "Jeopardy Kids 2", "Jeopardy Genius 2", "Jeopardy Word Formation Academic 1"). São os preferidos para revisão em sala com a turma toda.
 - **Impacto de não fazer:** A categoria Fun fica sem seu formato mais popular de jogo em grupo.
 - **Para quem é destinado:** Professor conduzindo a turma com projetor.
@@ -39,7 +39,7 @@
 ### Dependências técnicas
 
 - [FEAT] Motor de atividades (shell com suporte a equipes, fullscreen).
-- [FEAT] Modelo de dados (registro do esquema `jeopardy`).
+- [FEAT] Modelo de dados (registro do esquema `quiz-board`, já criado em `src/lib/activities/schema/content.ts`).
 
 ### Recursos necessários
 

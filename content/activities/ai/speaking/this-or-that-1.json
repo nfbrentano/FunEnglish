@@ -1,0 +1,38 @@
+{
+  "slug": "this-or-that-1",
+  "title": "This or That 1",
+  "description": "Pick one option and explain why. Great for warm-ups and fluency practice.",
+  "category": "speaking",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "advanced",
+  "tags": ["warm-up", "opinions", "fluency", "conversation"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/this-or-that-1/thumb.webp",
+    "alt": "Two doors side by side, one blue and one orange",
+    "source": "ai"
+  },
+  "content": {
+    "cards": [
+      {
+        "prompt": "Which do you prefer?",
+        "options": ["Beach", "Mountains"],
+        "followUps": ["When was your last trip there?", "What do you like to do there?"],
+        "vocabulary": ["relaxing", "scenery", "hiking"]
+      },
+      {
+        "prompt": "Which do you prefer?",
+        "options": ["Books", "Movies"],
+        "followUps": ["What is the best story you know?"],
+        "vocabulary": ["plot", "character", "ending"]
+      },
+      {
+        "prompt": "Which do you prefer?",
+        "options": ["Cooking at home", "Eating out"],
+        "followUps": ["What is your favorite dish?"],
+        "vocabulary": ["recipe", "restaurant", "delicious"]
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # [FEAT] Modelo de dados de atividades, categorias e níveis
 
-> **Status:** Rascunho
+> **Status:** Em andamento
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -18,7 +18,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RF01 | Coleção `activities` com os campos: `id`, `slug` (único), `title`, `description`, `category` (enum das 9 categorias), `levelMin` e `levelMax` (enum `beginner`/`intermediate`/`advanced`), `type` (enum de tipos de player), `thumbnailUrl`, `tags[]`, `content` (objeto específico do tipo), `status` (`draft`/`published`), `featured` (bool), `createdAt`, `updatedAt`, `searchTokens[]` | P0 | CA01 |
+| RF01 | Coleção `activities` com os campos: `id`, `slug` (único), `title`, `description`, `category` (enum das 9 categorias), `levelMin` e `levelMax` (enum `beginner`/`intermediate`/`advanced`), `type` (`quiz`, `flashcards`, `fill-blanks`, `quiz-board`, `prompt-cards`), `thumbnail` (`{src, alt, source}`), `tags[]`, `content` (objeto específico do tipo), `status` (`draft`/`published`), `featured` (bool), `createdAt`, `updatedAt`, `searchTokens[]` | P0 | CA01 |
 | RF02 | Categorias definidas como constante versionada no código (id, nome, subtítulo — ex.: "Fun · Games & activities" —, ícone, cor), não no banco | P0 | CA02 |
 | RF03 | Função utilitária que converte `levelMin/levelMax` no rótulo exibido: "Beg", "Inter", "Adv", "Beg–Inter", "Inter–Adv", "All levels" | P0 | CA03 |
 | RF04 | Esquemas Zod para a atividade base e para o `content` de cada tipo (discriminado por `type`), exportando os tipos TypeScript | P0 | CA01, CA04 |
@@ -27,7 +27,7 @@
 | RF07 | Índices compostos do Firestore (`firestore.indexes.json`) para: `status + category + createdAt`, `status + createdAt`, `status + title` | P0 | CA07 |
 | RF08 | Regras do Firestore: leitura pública apenas de atividades `published`; escrita apenas por usuários com claim `admin` | P0 | CA08 |
 | RF09 | Campos de procedência e revisão: `origin` (`ai` \| `human`), `reviewStatus` (`pending` \| `reviewed`), `reviewedAt?`, `reviewedBy?`. Atividades geradas por IA entram com `origin: "ai"` e `reviewStatus: "pending"` e podem ser publicadas antes da revisão | P0 | CA09 |
-| RF10 | Imagens com campo `imageSource` (`ai` \| `stock` \| `own`) e `alt` obrigatório | P1 | CA09 |
+| RF10 | Todo objeto de imagem (`{src, alt, source}`) tem `source` (`ai` \| `stock` \| `own`) e `alt` obrigatório | P1 | CA09 |
 
 ### Requisitos não-funcionais
 
@@ -49,15 +49,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um JSON de atividade com todos os campos obrigatórios, quando ele é validado pelo esquema, então a validação passa e o objeto resultante é tipado.
-- [ ] **CA02:** Dado que o código importa a lista de categorias, quando ela é lida, então contém exatamente as 9 categorias com id, nome, subtítulo, ícone e cor.
-- [ ] **CA03:** Dado `levelMin = beginner` e `levelMax = advanced`, quando o rótulo é gerado, então retorna "All levels"; dado `intermediate`/`advanced`, retorna "Inter–Adv"; dado `beginner`/`beginner`, retorna "Beg".
-- [ ] **CA04:** Dado um JSON com `type = "quiz"` mas `content` no formato de flashcards, quando o seed roda, então o script falha indicando o arquivo e o campo inválido, e nenhuma atividade desse arquivo é gravada.
-- [ ] **CA05:** Dado uma atividade com título "Café & Idioms", quando é salva, então `searchTokens` contém "cafe" e "idioms".
-- [ ] **CA06:** Dado o emulador vazio, quando rodo `npm run seed`, então todas as atividades válidas são criadas e rodar novamente não duplica registros (upsert por `slug`).
-- [ ] **CA07:** Dado os índices publicados, quando o catálogo consulta atividades publicadas de uma categoria ordenadas por data, então a consulta executa sem erro de índice ausente.
-- [ ] **CA08 (negativo):** Dado um usuário comum autenticado, quando tenta criar ou editar um documento em `activities`, ou ler uma atividade `draft`, então a operação é negada.
-- [ ] **CA09:** Dado um JSON do seed sem `origin` informado, quando o seed roda a partir de `content/activities/ai/`, então a atividade é gravada com `origin: "ai"` e `reviewStatus: "pending"`; e uma imagem sem `alt` é rejeitada.
+- [x] **CA01:** Dado um JSON de atividade com todos os campos obrigatórios, quando ele é validado pelo esquema, então a validação passa e o objeto resultante é tipado.
+- [x] **CA02:** Dado que o código importa a lista de categorias, quando ela é lida, então contém exatamente as 9 categorias com id, nome, subtítulo, ícone e cor.
+- [x] **CA03:** Dado `levelMin = beginner` e `levelMax = advanced`, quando o rótulo é gerado, então retorna "All levels"; dado `intermediate`/`advanced`, retorna "Inter–Adv"; dado `beginner`/`beginner`, retorna "Beg".
+- [x] **CA04:** Dado um JSON com `type = "quiz"` mas `content` no formato de flashcards, quando o seed roda, então o script falha indicando o arquivo e o campo inválido, e nenhuma atividade desse arquivo é gravada.
+- [x] **CA05:** Dado uma atividade com título "Café & Idioms", quando é salva, então `searchTokens` contém "cafe" e "idioms".
+- [ ] **CA06:** Dado o emulador vazio, quando rodo `npm run seed`, então todas as atividades válidas são criadas e rodar novamente não duplica registros (upsert por `slug`). _(pendente: teste em `tests/emulator/seed.test.ts`; requer Java)_
+- [ ] **CA07:** Dado os índices publicados, quando o catálogo consulta atividades publicadas de uma categoria ordenadas por data, então a consulta executa sem erro de índice ausente. _(pendente: índices em `firestore.indexes.json`; publicar com `npm run deploy:rules` no projeto real)_
+- [ ] **CA08 (negativo):** Dado um usuário comum autenticado, quando tenta criar ou editar um documento em `activities`, ou ler uma atividade `draft`, então a operação é negada. _(pendente: teste em `tests/emulator/firestore.rules.test.ts`; requer Java)_
+- [x] **CA09:** Dado um JSON do seed sem `origin` informado, quando o seed roda a partir de `content/activities/ai/`, então a atividade é gravada com `origin: "ai"` e `reviewStatus: "pending"`; e uma imagem sem `alt` é rejeitada.
 
 ## O que a atividade não inclui
 

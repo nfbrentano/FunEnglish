@@ -16,7 +16,7 @@ Every feature starts as a spec in [`SDD/`](SDD/) (see [`CLAUDE.md`](CLAUDE.md)).
 ## Requirements
 
 - Node.js 24 LTS (`nvm use`; `>=22.12` works)
-- Java 21+, only for the Firebase emulators and `npm run test:rules` (`brew install openjdk@21`)
+- Java 21+, only for the Firebase emulators and `npm run test:emulator` (`brew install openjdk@21`)
 
 ## Getting started
 
@@ -60,8 +60,11 @@ touches the production project.
 | `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier                            |
 | `npm test`                              | Unit tests (Vitest)                                     |
 | `npm run test:e2e`                      | End-to-end tests (Playwright, desktop + mobile)         |
-| `npm run test:rules`                    | Firestore rules tests against the emulator (needs Java) |
+| `npm run test:emulator`                 | Rules + seed tests against the emulator (needs Java)    |
 | `npm run emulators`                     | Firebase Emulator Suite                                 |
+| `npm run seed:check`                    | Validate `content/activities/**/*.json`                 |
+| `npm run seed:emulator`                 | Upsert the activities into the running emulator         |
+| `npm run seed -- --production`          | Upsert into the real project (needs service account)    |
 | `npm run deploy:rules`                  | Publish `firestore.rules` and `firestore.indexes.json`  |
 
 ## Deploy (Firebase App Hosting)

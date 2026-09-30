@@ -1,0 +1,37 @@
+{
+  "slug": "everyday-dialogues-at-the-cafe",
+  "title": "Everyday Dialogues: At the Café",
+  "description": "Listen to a short café conversation and type the missing words.",
+  "category": "listening",
+  "type": "fill-blanks",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["café", "ordering", "food", "dialogue"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/everyday-dialogues-at-the-cafe/thumb.webp",
+    "alt": "A barista handing a cup of coffee to a customer",
+    "source": "ai"
+  },
+  "content": {
+    "mode": "typing",
+    "items": [
+      {
+        "text": "Hi! Can I [[get]] a large coffee, please?",
+        "media": { "kind": "tts", "text": "Hi! Can I get a large coffee, please?" }
+      },
+      {
+        "text": "Sure. Would you like [[milk]] with that?",
+        "media": { "kind": "tts", "text": "Sure. Would you like milk with that?" }
+      },
+      {
+        "text": "Yes, please. And a [[blueberry]] muffin.",
+        "media": { "kind": "tts", "text": "Yes, please. And a blueberry muffin." }
+      },
+      {
+        "text": "That [[comes|will be]] to seven dollars.",
+        "media": { "kind": "tts", "text": "That comes to seven dollars." }
+      }
+    ]
+  }
+}

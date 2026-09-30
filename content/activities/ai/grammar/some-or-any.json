@@ -1,0 +1,45 @@
+{
+  "slug": "some-or-any",
+  "title": "Some or Any",
+  "description": "Choose some or any to complete everyday sentences, with a short explanation after each answer.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["quantifiers", "some", "any", "countable", "uncountable"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/some-or-any/thumb.webp",
+    "alt": "A kitchen table with a few apples and an empty fruit bowl",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "There is ___ milk in the fridge.",
+        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
+        "explanation": "Use some in positive sentences."
+      },
+      {
+        "prompt": "We don't have ___ bread left.",
+        "options": [{ "text": "some" }, { "text": "any", "correct": true }],
+        "explanation": "Use any in negative sentences."
+      },
+      {
+        "prompt": "Are there ___ eggs in the basket?",
+        "options": [{ "text": "some" }, { "text": "any", "correct": true }],
+        "explanation": "Use any in most questions."
+      },
+      {
+        "prompt": "Would you like ___ tea?",
+        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
+        "explanation": "Use some in offers and requests, even though they are questions."
+      },
+      {
+        "prompt": "I need ___ help with my homework, please.",
+        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
+        "explanation": "Use some when you ask for something you expect to get."
+      }
+    ]
+  }
+}

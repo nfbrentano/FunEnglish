@@ -1,0 +1,76 @@
+{
+  "slug": "kitchen-items",
+  "title": "Kitchen Items",
+  "description": "Learn the names of common kitchen objects with pictures, definitions and example sentences.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["kitchen", "house", "objects", "nouns"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/kitchen-items/thumb.webp",
+    "alt": "Illustrated kitchen shelf with pots, cups and a kettle",
+    "source": "ai"
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/kitchen-items/kettle.webp",
+            "alt": "A kettle",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "kettle",
+          "definition": "A container used to boil water.",
+          "example": "I put the kettle on to make tea."
+        }
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/kitchen-items/frying-pan.webp",
+            "alt": "A frying pan",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "frying pan",
+          "definition": "A flat pan used to fry food.",
+          "example": "She cooked the eggs in a frying pan."
+        }
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/kitchen-items/cutting-board.webp",
+            "alt": "A wooden cutting board",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "cutting board",
+          "definition": "A board you cut food on.",
+          "example": "Chop the onions on the cutting board."
+        }
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/kitchen-items/whisk.webp",
+            "alt": "A metal whisk",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "whisk",
+          "definition": "A tool used to mix eggs or cream quickly.",
+          "example": "Use a whisk to beat the eggs."
+        }
+      }
+    ]
+  }
+}

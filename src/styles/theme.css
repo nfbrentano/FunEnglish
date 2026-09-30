@@ -18,6 +18,17 @@
   --error: #cc4a4a;
   --success: #3a8c54;
 
+  /* Category tints: muted, earthy tones that sit next to the gold accent in every theme. */
+  --cat-fun: #c9836b;
+  --cat-grammar: #8a9bbd;
+  --cat-listening: #a98bb3;
+  --cat-pictures: #7fa895;
+  --cat-reading: #b8995e;
+  --cat-speaking: #c99466;
+  --cat-videos: #b36f6f;
+  --cat-vocabulary: #8ea878;
+  --cat-writing: #968cbc;
+
   --font-ui:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 

@@ -1,0 +1,56 @@
+{
+  "slug": "quiz-board-basic-1",
+  "title": "Quiz Board Basic 1",
+  "description": "A team game board with animals, food, colors and verbs. Pick a category and a value!",
+  "category": "fun",
+  "type": "quiz-board",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["game", "teams", "review", "animals", "food", "colors", "verbs"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/quiz-board-basic-1/thumb.webp",
+    "alt": "A colorful game board with numbered tiles",
+    "source": "ai"
+  },
+  "content": {
+    "categories": [
+      {
+        "name": "Animals",
+        "clues": [
+          { "value": 100, "question": "This animal says \"moo\".", "answer": "A cow" },
+          {
+            "value": 200,
+            "question": "The biggest animal in the ocean.",
+            "answer": "A blue whale"
+          },
+          { "value": 300, "question": "A baby dog is called a…", "answer": "Puppy" }
+        ]
+      },
+      {
+        "name": "Food",
+        "clues": [
+          { "value": 100, "question": "A yellow fruit that monkeys love.", "answer": "A banana" },
+          { "value": 200, "question": "You make toast with it.", "answer": "Bread" },
+          { "value": 300, "question": "The first meal of the day.", "answer": "Breakfast" }
+        ]
+      },
+      {
+        "name": "Colors",
+        "clues": [
+          { "value": 100, "question": "The color of the sky on a sunny day.", "answer": "Blue" },
+          { "value": 200, "question": "Mix red and white to get…", "answer": "Pink" },
+          { "value": 300, "question": "Mix blue and yellow to get…", "answer": "Green" }
+        ]
+      },
+      {
+        "name": "Verbs",
+        "clues": [
+          { "value": 100, "question": "The past of \"go\".", "answer": "Went" },
+          { "value": 200, "question": "The past of \"eat\".", "answer": "Ate" },
+          { "value": 300, "question": "The past of \"buy\".", "answer": "Bought" }
+        ]
+      }
+    ]
+  }
+}
