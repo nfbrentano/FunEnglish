@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { CatalogView } from "@/components/catalog/catalog-view";
+import { getBuildCatalog, getPublicImagePaths } from "@/lib/catalog/build-data";
 
-export const metadata: Metadata = { title: "Activities" };
+export const metadata: Metadata = {
+  title: "Activities",
+  description:
+    "Interactive ESL games, quizzes and activities for every level, organized in 9 categories.",
+};
 
-// Placeholder until the catalog spec (SDD/2026-09-30_catalogo-de-atividades.md).
-export default function ActivitiesPage() {
-  return (
-    <div id="search">
-      <PagePlaceholder title="Fun English Activities">
-        Interactive activities for ESL teachers, organized in 9 categories.
-      </PagePlaceholder>
-    </div>
-  );
+export default async function ActivitiesPage() {
+  const catalog = await getBuildCatalog();
+  return <CatalogView initial={catalog} imagePaths={getPublicImagePaths()} />;
 }

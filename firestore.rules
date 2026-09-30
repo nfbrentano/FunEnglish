@@ -13,5 +13,11 @@ service cloud.firestore {
       allow read: if resource.data.status == "published" || isAdmin();
       allow write: if isAdmin();
     }
+
+    // Aggregated catalog (catalog/index): public read, written by the seed and the admin panel.
+    match /catalog/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
   }
 }

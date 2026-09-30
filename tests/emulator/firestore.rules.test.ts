@@ -72,3 +72,15 @@ describe("other collections", () => {
     await assertFails(setDoc(doc(db, "secrets/any"), { x: 1 }));
   });
 });
+
+describe("catalog", () => {
+  it("anyone reads the catalog index; only admins write it", async () => {
+    const visitor = testEnv.unauthenticatedContext().firestore();
+    const teacher = testEnv.authenticatedContext("teacher-1").firestore();
+    const admin = testEnv.authenticatedContext("admin-1", { admin: true }).firestore();
+
+    await assertSucceeds(getDoc(doc(visitor, "catalog/index")));
+    await assertFails(setDoc(doc(teacher, "catalog/index"), { items: [] }));
+    await assertSucceeds(setDoc(doc(admin, "catalog/index"), { items: [] }));
+  });
+});
