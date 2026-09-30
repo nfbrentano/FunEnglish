@@ -9,8 +9,8 @@ Every feature starts as a spec in [`SDD/`](SDD/) (see [`CLAUDE.md`](CLAUDE.md)).
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router, TypeScript strict) + Tailwind CSS v4
-- Firebase Authentication + Cloud Firestore (free **Spark** plan; Firebase Storage is not used)
-- Hosting on Vercel (free **Hobby** plan)
+- Firebase Authentication + Cloud Firestore
+- Hosting on **Firebase App Hosting** (Next.js SSR/ISR on Cloud Run), Blaze plan within the free quota
 - Vitest + Testing Library (unit), Playwright (e2e), `@firebase/rules-unit-testing` (security rules)
 
 ## Requirements
@@ -28,10 +28,12 @@ npm run dev                  # http://localhost:3000
 
 ### Firebase project (one-time)
 
-1. Create a project at <https://console.firebase.google.com> (Spark plan is enough).
+1. Create a project at <https://console.firebase.google.com> and upgrade it to the **Blaze** plan
+   (required by App Hosting). Then create a budget alert in Google Cloud Billing
+   (e.g. US$ 5/month with alerts at 50/90/100%).
 2. Add a **Web app** and copy its config into the `NEXT_PUBLIC_FIREBASE_*` variables of `.env.local`.
 3. Enable **Authentication** (Email/Password and Google) and create a **Firestore** database.
-4. For server code and scripts, generate a service account key (Project settings > Service accounts)
+4. For local scripts (seed, set-admin), generate a service account key (Project settings > Service accounts)
    and paste it as single-line JSON into `FIREBASE_SERVICE_ACCOUNT_KEY`. Never commit it.
 5. Link the CLI to the project and publish the rules:
 
@@ -62,10 +64,11 @@ touches the production project.
 | `npm run emulators`                     | Firebase Emulator Suite                                 |
 | `npm run deploy:rules`                  | Publish `firestore.rules` and `firestore.indexes.json`  |
 
-## Deploy (Vercel)
+## Deploy (Firebase App Hosting)
 
-1. Import `nfbrentano/FunEnglish` at <https://vercel.com/new> (framework: Next.js).
-2. Add the variables from `.env.example` in Project settings > Environment Variables.
-   Leave `NEXT_PUBLIC_SITE_URL` empty to use the `*.vercel.app` production domain.
-3. Every push to `main` deploys to production; every pull request gets a preview URL.
-4. Add the Vercel domain to Firebase Authentication > Settings > Authorized domains.
+1. Firebase console > **App Hosting** > Get started: connect the GitHub repo `nfbrentano/FunEnglish`,
+   root directory `/`, live branch `main`, backend id `fun-english`.
+2. Fill in `apphosting.yaml`: `NEXT_PUBLIC_SITE_URL` (the backend URL shown in the console) and the
+   `NEXT_PUBLIC_FIREBASE_*` web config. Commit and push.
+3. Every push to `main` starts a new rollout. `maxInstances: 2` in `apphosting.yaml` caps the cost.
+4. Add the `*.hosted.app` domain to Firebase Authentication > Settings > Authorized domains.

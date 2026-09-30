@@ -62,7 +62,7 @@
 
 - Correção tolerante a erros de ortografia (fuzzy): motivo: o objetivo é treinar ortografia.
 - Reconhecimento de voz para preencher lacunas: motivo: complexo demais agora.
-- Hospedar áudios próprios: motivo: sem Firebase Storage no plano gratuito; usar TTS/YouTube/URL externa.
+- Hospedar áudios próprios: motivo: adiado; TTS e YouTube cobrem a v1 (Firebase Storage fica disponível no Blaze para o futuro).
 
 ### Considerado para o futuro (P2)
 

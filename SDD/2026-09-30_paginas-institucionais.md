@@ -41,7 +41,7 @@
 
 ### Recursos necessários
 
-- Textos de About, FAQ, Privacy e Terms redigidos por IA e revisados pelo PO antes do lançamento. A Privacy Policy deve cobrir, no mínimo: dados coletados (nome, e-mail, foto do Google, favoritos, histórico, mensagens de contato), finalidade, provedores (Firebase/Google, Vercel, embeds do YouTube), direitos do titular (LGPD/GDPR: acesso, correção, exclusão), contato do responsável e ausência de venda de dados.
+- Textos de About, FAQ, Privacy e Terms redigidos por IA e revisados pelo PO antes do lançamento. A Privacy Policy deve cobrir, no mínimo: dados coletados (nome, e-mail, foto do Google, favoritos, histórico, mensagens de contato), finalidade, provedores (Firebase/Google Cloud, embeds do YouTube), direitos do titular (LGPD/GDPR: acesso, correção, exclusão), contato do responsável e ausência de venda de dados.
 - A URL de `/privacy` é exigida pela tela de consentimento OAuth do Google para publicar o login com Google.
 - E-mail de contato oficial.
 
@@ -50,14 +50,14 @@
 - [ ] **CA01:** Dado que acesso `/`, quando a página carrega, então vejo a proposta de valor, o botão "Browse activities" (leva a `/activities`) e 6 atividades em destaque.
 - [ ] **CA02:** Dado a página FAQ, quando clico numa pergunta, então a resposta expande e `aria-expanded` passa a `true`; clicar de novo recolhe.
 - [ ] **CA03:** Dado o formulário de contato preenchido corretamente, quando envio, então vejo "Thanks! We'll get back to you soon." e um documento é criado em `contactMessages`.
-- [ ] **CA04:** Dado `/privacy` e `/terms`, quando os acesso, então vejo o conteúdo revisado pelo PO, a data "Last updated", e a Privacy Policy menciona dados coletados, provedores (Firebase, Vercel, YouTube), direitos do titular e contato.
+- [ ] **CA04:** Dado `/privacy` e `/terms`, quando os acesso, então vejo o conteúdo revisado pelo PO, a data "Last updated", e a Privacy Policy menciona dados coletados, provedores (Firebase/Google Cloud, YouTube), direitos do titular e contato.
 - [ ] **CA05:** Dado cada link do rodapé, quando clico, então a página correspondente abre (nenhum 404).
 - [ ] **CA06 (negativo):** Dado um envio com o campo honeypot preenchido ou mensagem > 2.000 caracteres, quando envio, então nada é gravado; e ninguém consegue ler `contactMessages` pelo SDK do cliente.
 - [ ] **CA07 (erro):** Dado um e-mail inválido no formulário, quando envio, então vejo "Please enter a valid email" e o envio não ocorre.
 
 ## O que a atividade não inclui
 
-- Envio de e-mail automático ao receber contato: motivo: exige Cloud Functions (plano Blaze) ou serviço externo; mensagens serão lidas no console do Firebase/admin.
+- Envio de e-mail automático ao receber contato: motivo: adiado; exigiria Cloud Functions (possível no Blaze) ou serviço externo. Na v1, as mensagens são lidas no console do Firebase/admin.
 - Newsletter e podcast: motivo: outra iniciativa.
 - Página Pricing: motivo: sem pagamento na v1.
 

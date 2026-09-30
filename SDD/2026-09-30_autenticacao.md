@@ -45,7 +45,7 @@
 
 ### Recursos necessários
 
-- Provedor Google habilitado no console do Firebase; domínio da Vercel adicionado aos domínios autorizados.
+- Provedor Google habilitado no console do Firebase; domínio do App Hosting (`*.hosted.app`) adicionado aos domínios autorizados.
 - Template de e-mail (verificação/reset) personalizado com o nome "Fun English".
 
 ## Critérios de Aceitação / Entregas

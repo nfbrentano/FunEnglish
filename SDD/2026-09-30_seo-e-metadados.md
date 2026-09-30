@@ -38,7 +38,7 @@
 ### Dependências técnicas
 
 - [FEAT] Catálogo, [FEAT] Página de categoria e [FEAT] Motor de atividades (páginas a otimizar).
-- URL base via `NEXT_PUBLIC_SITE_URL` (ver spec de Setup); v1 no domínio `*.vercel.app`.
+- URL base via `NEXT_PUBLIC_SITE_URL` (ver spec de Setup); v1 no domínio padrão do App Hosting (`*.hosted.app`).
 
 ### Recursos necessários
 
@@ -72,7 +72,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Domínio definitivo antes do lançamento? (canônicos e sitemap dependem dele) | PO | Não | Ainda não haverá domínio próprio: usar `*.vercel.app` via `NEXT_PUBLIC_SITE_URL`; ao migrar, configurar redirect 301 do domínio da Vercel para o novo e reenviar o sitemap no Search Console |
+| D01 | Domínio definitivo antes do lançamento? (canônicos e sitemap dependem dele) | PO | Não | Ainda não haverá domínio próprio: usar o domínio `*.hosted.app` do App Hosting via `NEXT_PUBLIC_SITE_URL`; ao migrar, conectar o domínio próprio no App Hosting, configurar redirect 301 do `*.hosted.app` para o novo e reenviar o sitemap no Search Console |
 
 ## Sugestões de casos de teste
 

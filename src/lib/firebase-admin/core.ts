@@ -9,6 +9,10 @@ function isUsingEmulators(): boolean {
   return Boolean(process.env.FIRESTORE_EMULATOR_HOST || process.env.FIREBASE_AUTH_EMULATOR_HOST);
 }
 
+function isRunningOnGoogleCloud(): boolean {
+  return Boolean(process.env.K_SERVICE || process.env.FIREBASE_CONFIG);
+}
+
 export function getAdminApp(): App {
   if (getApps().length > 0) return getApp();
 
@@ -18,9 +22,14 @@ export function getAdminApp(): App {
   if (isUsingEmulators()) return initializeApp({ projectId: projectId || "demo-fun-english" });
 
   const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
-  if (!serviceAccount) throw new MissingEnvError(["FIREBASE_SERVICE_ACCOUNT_KEY"]);
+  if (serviceAccount) {
+    return initializeApp({ credential: cert(JSON.parse(serviceAccount)), projectId });
+  }
 
-  return initializeApp({ credential: cert(JSON.parse(serviceAccount)), projectId });
+  // On App Hosting (Cloud Run) the backend's service account is picked up automatically (ADC).
+  if (isRunningOnGoogleCloud()) return initializeApp();
+
+  throw new MissingEnvError(["FIREBASE_SERVICE_ACCOUNT_KEY"]);
 }
 
 export const getAdminDb = () => getFirestore(getAdminApp());

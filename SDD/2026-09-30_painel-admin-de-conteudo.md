@@ -71,7 +71,7 @@
 ## O que a atividade não inclui
 
 - Editor visual rico (WYSIWYG, drag-and-drop de tabuleiro/cartões): motivo: complexo demais agora; formulário de textos (RF13) + JSON cobrem a revisão do conteúdo gerado por IA.
-- Upload de imagens: motivo: Firebase Storage exige plano Blaze; usar URL externa ou `/public`.
+- Upload de imagens: motivo: adiado para simplificar a v1; imagens ficam versionadas em `/public` (o Firebase Storage fica disponível no Blaze para o futuro).
 - Fluxo de revisão/aprovação com vários autores: motivo: prematuro.
 - Histórico de versões: motivo: baixo impacto inicial.
 
@@ -79,7 +79,7 @@
 
 - Editores visuais ricos por tipo (tabuleiro drag-and-drop, reordenar cartões).
 - Botão "Generate with AI" no painel (Claude API) para criar rascunhos a partir de tema, nível e tipo. Exige chave de API paga e rota server-side.
-- Upload de mídia (Cloudinary free tier ou Firebase Storage no Blaze).
+- Upload de mídia pelo painel via Firebase Storage (disponível no plano Blaze).
 - Histórico de versões e papel "editor" vs "admin".
 
 ## Dúvidas em aberto

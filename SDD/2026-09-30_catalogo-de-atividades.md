@@ -32,7 +32,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RNF01 | Página renderizada no servidor com revalidação (ISR ≤ 10 min) para não consumir leituras do Firestore a cada visita (limite Spark: 50 mil leituras/dia) | P0 | CA09 |
+| RNF01 | Página renderizada no servidor com revalidação (ISR ≤ 10 min) para não consumir leituras do Firestore a cada visita (cota gratuita do Firestore: 50 mil leituras/dia) | P0 | CA09 |
 | RNF02 | Imagens via `next/image`, lazy loading fora da primeira dobra | P0 | |
 | RNF03 | LCP < 2.5 s e CLS < 0.1 em mobile (Lighthouse) | P1 | |
 | RNF04 | Cards com `alt` descritivo e carrossel com `aria-roledescription="carousel"` | P0 | CA06 |
