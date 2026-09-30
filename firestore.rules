@@ -1,0 +1,11 @@
+rules_version = '2';
+
+// Deny everything by default. Each feature spec opens only the access it needs
+// (e.g. public reads of published activities, users/{uid} for its owner).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
