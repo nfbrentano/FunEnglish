@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = 3000;
+// Firebase Hosting emulator serving out/, so routing matches production (cleanUrls, 404.html).
+const PORT = 5002;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -16,7 +17,7 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command: "npm run build && npx serve out -l 3000",
+    command: "npm run build && firebase emulators:start --only hosting --project demo-fun-english",
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

@@ -1,0 +1,50 @@
+// UI strings in one place (English only for now; ready for i18n later).
+export const strings = {
+  skipToContent: "Skip to content",
+  nav: {
+    main: "Main",
+    home: "Home",
+    activities: "Activities",
+    categories: "Categories",
+    scrollCategoriesLeft: "Show previous categories",
+    scrollCategoriesRight: "Show more categories",
+    mobile: "Mobile",
+    search: "Search",
+    favorites: "Favorites",
+    account: "Account",
+    settings: "Settings",
+    footer: "Footer",
+  },
+  account: {
+    logIn: "Log in",
+    signUp: "Sign up",
+    menu: "Account menu",
+    dashboard: "Dashboard",
+    logOut: "Log out",
+  },
+  theme: {
+    label: "Theme",
+    system: "System",
+    dark: "Dark",
+    light: "Light",
+    sepia: "Sepia",
+  },
+  settings: {
+    title: "Settings",
+    close: "Close",
+  },
+  footer: {
+    about: "About",
+    faq: "FAQ",
+    contact: "Contact",
+    privacy: "Privacy",
+    terms: "Terms",
+    tagline: "Interactive English activities for ESL teachers.",
+  },
+  notFound: {
+    title: "Page not found",
+    description: "The page you're looking for doesn't exist or was moved.",
+    cta: "Browse activities",
+  },
+  comingSoon: "Coming soon",
+} as const;

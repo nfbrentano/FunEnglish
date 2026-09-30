@@ -6,3 +6,6 @@ export function resolveSiteUrl(explicitUrl?: string): string {
 }
 
 export const siteUrl = resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+
+/** Social profiles shown in the footer (none yet — see layout spec, D02). */
+export const SOCIAL_LINKS: { label: string; href: string }[] = [];

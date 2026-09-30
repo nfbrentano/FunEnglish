@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
+import { BottomNav } from "@/components/layout/bottom-nav";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
 import { SITE_NAME, siteUrl } from "@/lib/site";
+import { strings } from "@/lib/strings";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -20,8 +25,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">{children}</body>
+    // The init script sets data-theme before hydration, so the attribute differs from the server HTML.
+    <html lang="en" suppressHydrationWarning className={`${cormorant.variable} h-full antialiased`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="flex min-h-full flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-primary"
+        >
+          {strings.skipToContent}
+        </a>
+        <SiteHeader />
+        <main id="main" className="flex flex-1 flex-col">
+          {children}
+        </main>
+        <SiteFooter />
+        <BottomNav />
+      </body>
     </html>
   );
 }
