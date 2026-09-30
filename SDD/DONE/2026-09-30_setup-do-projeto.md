@@ -1,6 +1,6 @@
 # [CHORE] Setup do projeto (Next.js + Firebase + deploy)
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -62,7 +62,7 @@
 - [x] **CA07:** Dado que as regras do Firestore foram publicadas, quando um cliente não autenticado tenta escrever em qualquer coleção, então a escrita é negada.
 - [x] **CA08 (negativo):** Dado que uma variável de ambiente obrigatória está ausente, quando a aplicação inicia, então é exibido um erro claro indicando qual variável falta (e não um erro genérico do Firebase).
 - [x] **CA09:** Dado que troco `NEXT_PUBLIC_SITE_URL` para outro domínio, quando faço novo build, então canônicos, sitemap e links de compartilhamento passam a usar o novo domínio sem outras mudanças de código.
-- [ ] **CA10:** Dado um pull request aberto no repositório, quando o workflow "Preview" termina, então o PR recebe um comentário com a URL de preview, e a versão de produção não muda. _(pendente: mesmo setup do CA05)_
+- [x] **CA10:** Dado um pull request aberto no repositório, quando o workflow "Preview" termina, então o PR recebe um comentário com a URL de preview, e a versão de produção não muda.
 
 ## O que a atividade não inclui
 
@@ -107,4 +107,4 @@
 - Discussões relacionadas: Stack: Firebase (Auth + Firestore) + Next.js, por não haver conta Supabase ativa. Hospedagem: depois de avaliar Vercel Hobby, GitHub Pages e Firebase App Hosting (Blaze), o PO decidiu ficar no plano **Spark** com **Firebase Hosting estático**. As limitações de um export estático (sem ISR, rotas de servidor nem proxy) são compensadas com: índice `catalog/index` lido no cliente, shell do player para atividades novas, guardas de rota no cliente e rebuild diário via GitHub Actions.
 - Referências de design: https://www.coolenglish.org/activities
 - Requisitos originais: Pedido de criar um site semelhante ao Cool English.
-- Issue / PR relacionado: Repositório: https://github.com/nfbrentano/FunEnglish
+- Issue / PR relacionado: Repositório: https://github.com/nfbrentano/FunEnglish · Preview validado no PR #1

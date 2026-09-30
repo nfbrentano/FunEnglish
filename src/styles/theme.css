@@ -53,6 +53,20 @@
   color-scheme: light;
 }
 
+/* Category tints are darkened on light backgrounds to keep icons at >= 3:1 contrast. */
+:root[data-theme="light"],
+:root[data-theme="sepia"] {
+  --cat-fun: color-mix(in oklab, #c9836b 70%, black);
+  --cat-grammar: color-mix(in oklab, #8a9bbd 65%, black);
+  --cat-listening: color-mix(in oklab, #a98bb3 65%, black);
+  --cat-pictures: color-mix(in oklab, #7fa895 62%, black);
+  --cat-reading: color-mix(in oklab, #b8995e 65%, black);
+  --cat-speaking: color-mix(in oklab, #c99466 68%, black);
+  --cat-videos: color-mix(in oklab, #b36f6f 75%, black);
+  --cat-vocabulary: color-mix(in oklab, #8ea878 62%, black);
+  --cat-writing: color-mix(in oklab, #968cbc 68%, black);
+}
+
 :root[data-theme="sepia"] {
   --bg-primary: #f4ecd8;
   --bg-secondary: #ede4ce;

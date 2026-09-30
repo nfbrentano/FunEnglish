@@ -1,6 +1,6 @@
 # [UI] Layout base, cabeçalho, barra de categorias e rodapé
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -50,7 +50,7 @@
 
 - [CHORE] Setup do projeto.
 - Lista de categorias do [FEAT] Modelo de dados.
-- Estado de autenticação do [FEAT] Autenticação (pode usar mock até lá).
+- Estado de autenticação do [FEAT] Autenticação: por ora `useAuth()` é um stub (sempre visitante); o estado logado do cabeçalho foi validado com usuário simulado nos testes de componente.
 
 ### Recursos necessários
 
@@ -60,16 +60,16 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou em qualquer página, quando olho o cabeçalho, então vejo o logo, "Home" e "Activities", com o link da página atual destacado.
-- [ ] **CA02:** Dado que não estou logado, quando vejo o cabeçalho, então aparecem "Log in" e "Sign up"; dado que estou logado, então aparece meu avatar com menu contendo "Dashboard" e "Log out".
-- [ ] **CA03:** Dado que estou na página de uma categoria, quando vejo a barra de categorias, então aquela categoria aparece destacada, e clicar em outra leva à página dela.
-- [ ] **CA04:** Dado uma tela de 360 px, quando abro o site, então vejo a barra de navegação inferior com Activities, Search, Favorites, Account e Settings, a barra de categorias rola horizontalmente e a página não tem rolagem horizontal.
-- [ ] **CA05:** Dado qualquer página, quando rolo até o fim, então vejo o rodapé com os links institucionais funcionando (ou apontando para páginas placeholder).
-- [ ] **CA06:** Dado os componentes base, quando renderizados em uma página de exemplo (`/dev/ui`, só em desenvolvimento), então todas as variações aparecem conforme o design.
-- [ ] **CA07:** Dado uma URL inexistente, quando a acesso, então vejo a página 404 com cabeçalho, rodapé e link para Activities.
-- [ ] **CA08 (negativo):** Dado que navego só com teclado, quando percorro o cabeçalho e o menu, então nenhum elemento interativo fica sem foco visível ou inalcançável.
-- [ ] **CA09:** Dado a página `/dev/ui`, quando alterno entre os temas, então todos os componentes mudam de cor só via tokens (nenhum componente com cor fixa) e os títulos usam Cormorant Garamond.
-- [ ] **CA10:** Dado que escolhi o tema "Sepia", quando recarrego a página, então ela já abre em sepia sem piscar outro tema; e dado "System" com o sistema operacional em modo claro, o site abre em Light.
+- [x] **CA01:** Dado que estou em qualquer página, quando olho o cabeçalho, então vejo o logo, "Home" e "Activities", com o link da página atual destacado.
+- [x] **CA02:** Dado que não estou logado, quando vejo o cabeçalho, então aparecem "Log in" e "Sign up"; dado que estou logado, então aparece meu avatar com menu contendo "Dashboard" e "Log out".
+- [x] **CA03:** Dado que estou na página de uma categoria, quando vejo a barra de categorias, então aquela categoria aparece destacada, e clicar em outra leva à página dela.
+- [x] **CA04:** Dado uma tela de 360 px, quando abro o site, então vejo a barra de navegação inferior com Activities, Search, Favorites, Account e Settings, a barra de categorias rola horizontalmente e a página não tem rolagem horizontal.
+- [x] **CA05:** Dado qualquer página, quando rolo até o fim, então vejo o rodapé com os links institucionais funcionando (ou apontando para páginas placeholder).
+- [x] **CA06:** Dado os componentes base, quando renderizados em uma página de exemplo (`/dev/ui`, só em desenvolvimento), então todas as variações aparecem conforme o design.
+- [x] **CA07:** Dado uma URL inexistente, quando a acesso, então vejo a página 404 com cabeçalho, rodapé e link para Activities.
+- [x] **CA08 (negativo):** Dado que navego só com teclado, quando percorro o cabeçalho e o menu, então nenhum elemento interativo fica sem foco visível ou inalcançável.
+- [x] **CA09:** Dado a página `/dev/ui`, quando alterno entre os temas, então todos os componentes mudam de cor só via tokens (nenhum componente com cor fixa) e os títulos usam Cormorant Garamond.
+- [x] **CA10:** Dado que escolhi o tema "Sepia", quando recarrego a página, então ela já abre em sepia sem piscar outro tema; e dado "System" com o sistema operacional em modo claro, o site abre em Light.
 
 ## O que a atividade não inclui
 
@@ -89,7 +89,7 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | Identidade visual própria (cores/logo) ou seguir estilo próximo ao de referência (verde-azulado + gradiente azul)? | Design/PO | Não | Estrutura do Cool English com a estética do nfgbrentano.art.br (ver "Identidade visual" em Detalhes) |
-| D03 | O tema padrão para quem nunca escolheu deve ser "System" ou sempre Dark, como no nfgbrentano.art.br? | PO | Não | Proposta: "System" |
+| D03 | O tema padrão para quem nunca escolheu deve ser "System" ou sempre Dark, como no nfgbrentano.art.br? | PO | Não | Implementado como "System" (segue o sistema operacional); mudar é uma linha em `src/lib/theme.ts` |
 | D02 | Quais redes sociais entram no rodapé? | PO | Não | |
 
 ## Sugestões de casos de teste
