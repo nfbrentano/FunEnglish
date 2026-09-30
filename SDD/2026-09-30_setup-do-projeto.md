@@ -58,8 +58,8 @@
 - [x] **CA03:** Dado que um dev novo abre o projeto, quando consulta `.env.example` e o `README.md`, então encontra todas as variáveis necessárias e instruções de configuração, e nenhuma credencial real está presente no repositório.
 - [x] **CA04:** Dado que existe um teste de exemplo, quando rodo `npm test`, então ele executa e passa.
 - [x] **CA05:** Dado que faço push na branch principal, quando o workflow "Deploy" termina, então o site fica acessível na URL pública `*.web.app`.
-- [ ] **CA06:** Dado que rodo `npm run emulators`, quando a aplicação local aponta para os emuladores, então leituras/escritas no Firestore e logins não afetam o projeto de produção. _(pendente: instalar Java 21+ para os emuladores)_
-- [ ] **CA07:** Dado que as regras do Firestore foram publicadas, quando um cliente não autenticado tenta escrever em qualquer coleção, então a escrita é negada. _(parcial: regras publicadas no projeto real; teste em `tests/emulator/` (`npm run test:emulator`) requer Java)_
+- [x] **CA06:** Dado que rodo `npm run emulators`, quando a aplicação local aponta para os emuladores, então leituras/escritas no Firestore e logins não afetam o projeto de produção.
+- [x] **CA07:** Dado que as regras do Firestore foram publicadas, quando um cliente não autenticado tenta escrever em qualquer coleção, então a escrita é negada.
 - [x] **CA08 (negativo):** Dado que uma variável de ambiente obrigatória está ausente, quando a aplicação inicia, então é exibido um erro claro indicando qual variável falta (e não um erro genérico do Firebase).
 - [x] **CA09:** Dado que troco `NEXT_PUBLIC_SITE_URL` para outro domínio, quando faço novo build, então canônicos, sitemap e links de compartilhamento passam a usar o novo domínio sem outras mudanças de código.
 - [ ] **CA10:** Dado um pull request aberto no repositório, quando o workflow "Preview" termina, então o PR recebe um comentário com a URL de preview, e a versão de produção não muda. _(pendente: mesmo setup do CA05)_

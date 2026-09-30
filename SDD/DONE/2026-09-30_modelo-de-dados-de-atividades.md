@@ -1,6 +1,6 @@
 # [FEAT] Modelo de dados de atividades, categorias e níveis
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -54,9 +54,9 @@
 - [x] **CA03:** Dado `levelMin = beginner` e `levelMax = advanced`, quando o rótulo é gerado, então retorna "All levels"; dado `intermediate`/`advanced`, retorna "Inter–Adv"; dado `beginner`/`beginner`, retorna "Beg".
 - [x] **CA04:** Dado um JSON com `type = "quiz"` mas `content` no formato de flashcards, quando o seed roda, então o script falha indicando o arquivo e o campo inválido, e nenhuma atividade desse arquivo é gravada.
 - [x] **CA05:** Dado uma atividade com título "Café & Idioms", quando é salva, então `searchTokens` contém "cafe" e "idioms".
-- [ ] **CA06:** Dado o emulador vazio, quando rodo `npm run seed`, então todas as atividades válidas são criadas e rodar novamente não duplica registros (upsert por `slug`). _(pendente: teste em `tests/emulator/seed.test.ts`; requer Java)_
-- [ ] **CA07:** Dado os índices publicados, quando o catálogo consulta atividades publicadas de uma categoria ordenadas por data, então a consulta executa sem erro de índice ausente. _(pendente: índices em `firestore.indexes.json`; publicar com `npm run deploy:rules` no projeto real)_
-- [ ] **CA08 (negativo):** Dado um usuário comum autenticado, quando tenta criar ou editar um documento em `activities`, ou ler uma atividade `draft`, então a operação é negada. _(pendente: teste em `tests/emulator/firestore.rules.test.ts`; requer Java)_
+- [x] **CA06:** Dado o emulador vazio, quando rodo `npm run seed`, então todas as atividades válidas são criadas e rodar novamente não duplica registros (upsert por `slug`).
+- [x] **CA07:** Dado os índices publicados, quando o catálogo consulta atividades publicadas de uma categoria ordenadas por data, então a consulta executa sem erro de índice ausente.
+- [x] **CA08 (negativo):** Dado um usuário comum autenticado, quando tenta criar ou editar um documento em `activities`, ou ler uma atividade `draft`, então a operação é negada.
 - [x] **CA09:** Dado um JSON do seed sem `origin` informado, quando o seed roda a partir de `content/activities/ai/`, então a atividade é gravada com `origin: "ai"` e `reviewStatus: "pending"`; e uma imagem sem `alt` é rejeitada.
 
 ## O que a atividade não inclui
