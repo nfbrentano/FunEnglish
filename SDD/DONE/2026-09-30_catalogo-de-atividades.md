@@ -1,6 +1,6 @@
 # [FEAT] Catálogo de atividades (página /activities)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -45,21 +45,21 @@
 
 ### Recursos necessários
 
-- Seed com ≥ 3 atividades por categoria.
+- Seed com ≥ 3 atividades por categoria (vem da spec de conteúdo inicial; hoje há 5 exemplos e fixtures de teste em `e2e/fixtures/`).
 - Mockup do card e do carrossel.
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que existem 42 atividades publicadas, quando acesso `/activities`, então o hero exibe "42 Interactive Activities for ESL Teachers" e um campo de busca.
-- [ ] **CA02:** Dado que existem atividades publicadas, quando vejo "What's New", então aparecem até 20, ordenadas da mais recente para a mais antiga, e as criadas há ≤ 14 dias exibem o badge "NEW".
-- [ ] **CA03:** Dado que as 9 categorias têm atividades, quando rolo a página, então vejo 9 carrosséis na ordem definida, cada um com ícone, nome e subtítulo.
-- [ ] **CA04:** Dado o carrossel "Grammar", quando clico em "See All", então sou levado a `/activities/grammar`.
-- [ ] **CA05:** Dado um card, quando o vejo, então ele mostra thumbnail, título, categoria e nível; e quando clico nele (fora dos botões de favoritar/compartilhar), então abro `/play/[slug]`.
-- [ ] **CA06:** Dado um carrossel com mais itens que cabem na tela, quando clico na seta direita (ou deslizo no touch, ou uso o teclado), então novos cards aparecem, e a seta esquerda passa a ser exibida.
-- [ ] **CA07 (limite):** Dado que a categoria "Writing" não tem atividades publicadas, quando acesso a página, então o carrossel de Writing não é exibido.
-- [ ] **CA08:** Dado uma conexão lenta, quando a página carrega dados no cliente, então skeletons ocupam o espaço dos cards sem deslocar o layout.
-- [ ] **CA09 (negativo):** Dado 100 visitas ao catálogo, quando comparo as leituras no Firestore, então elas somam no máximo 100 (1 leitura do `catalog/index` por visita), e não uma leitura por atividade.
-- [ ] **CA10 (negativo):** Dado uma atividade com status `draft`, quando acesso o catálogo, então ela não aparece em nenhuma seção.
+- [x] **CA01:** Dado que existem 42 atividades publicadas, quando acesso `/activities`, então o hero exibe "42 Interactive Activities for ESL Teachers" e um campo de busca.
+- [x] **CA02:** Dado que existem atividades publicadas, quando vejo "What's New", então aparecem até 20, ordenadas da mais recente para a mais antiga, e as criadas há ≤ 14 dias exibem o badge "NEW".
+- [x] **CA03:** Dado que as 9 categorias têm atividades, quando rolo a página, então vejo 9 carrosséis na ordem definida, cada um com ícone, nome e subtítulo.
+- [x] **CA04:** Dado o carrossel "Grammar", quando clico em "See All", então sou levado a `/activities/grammar`.
+- [x] **CA05:** Dado um card, quando o vejo, então ele mostra thumbnail, título, categoria e nível; e quando clico nele (fora dos botões de favoritar/compartilhar), então abro `/play/[slug]`.
+- [x] **CA06:** Dado um carrossel com mais itens que cabem na tela, quando clico na seta direita (ou deslizo no touch, ou uso o teclado), então novos cards aparecem, e a seta esquerda passa a ser exibida.
+- [x] **CA07 (limite):** Dado que a categoria "Writing" não tem atividades publicadas, quando acesso a página, então o carrossel de Writing não é exibido.
+- [x] **CA08:** Dado uma conexão lenta, quando a página carrega dados no cliente, então skeletons ocupam o espaço dos cards sem deslocar o layout.
+- [x] **CA09 (negativo):** Dado 100 visitas ao catálogo, quando comparo as leituras no Firestore, então elas somam no máximo 100 (1 leitura do `catalog/index` por visita), e não uma leitura por atividade.
+- [x] **CA10 (negativo):** Dado uma atividade com status `draft`, quando acesso o catálogo, então ela não aparece em nenhuma seção.
 
 ## O que a atividade não inclui
 
@@ -78,7 +78,7 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | A Home (`/`) será uma landing page separada ou redireciona para `/activities`? | PO | Não | Sugestão v1: `/` redireciona para `/activities` |
-| D02 | O player abre na mesma aba ou em nova aba (o de referência abre em nova aba)? | PO | Não | Sugestão: mesma aba, com botão "fullscreen" no player |
+| D02 | O player abre na mesma aba ou em nova aba (o de referência abre em nova aba)? | PO | Não | Implementado na mesma aba; o botão "fullscreen" vem com o motor de atividades |
 
 ## Sugestões de casos de teste
 
@@ -98,7 +98,7 @@
 ## URL Complementar
 
 - Documentação técnica: https://nextjs.org/docs/app/guides/static-exports
-- Protótipo / mockup:
+- Protótipo / mockup: N/A — validado visualmente no navegador (desktop e mobile, temas Dark e Light).
 - Discussões relacionadas: N/A.
 - Referências de design: https://www.coolenglish.org/activities
 - Requisitos originais: Pedido de criar um site semelhante ao Cool English.

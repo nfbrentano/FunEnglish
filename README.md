@@ -31,8 +31,9 @@ npm run dev                  # http://localhost:3000
 1. Create a project at <https://console.firebase.google.com> (Spark plan, no card needed).
 2. Add a **Web app** and copy its config into the `NEXT_PUBLIC_FIREBASE_*` variables of `.env.local`.
 3. Enable **Authentication** (Email/Password and Google) and create a **Firestore** database.
-4. For local scripts (seed, set-admin), generate a service account key (Project settings > Service accounts)
-   and paste it as single-line JSON into `FIREBASE_SERVICE_ACCOUNT_KEY`. Never commit it.
+4. For local scripts (seed, set-admin), generate a service account key (Project settings > Service accounts),
+   keep the file outside the repo and point `GOOGLE_APPLICATION_CREDENTIALS` at it (or paste it as
+   single-line JSON into `FIREBASE_SERVICE_ACCOUNT_KEY`). Never commit it.
 5. Link the CLI to the project and publish the rules:
 
    ```bash

@@ -1,0 +1,33 @@
+{
+  "slug": "fixture-grammar-4",
+  "title": "Fixture Grammar 4",
+  "description": "Test fixture: Fixture Grammar 4.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["fixture"],
+  "status": "published",
+  "origin": "human",
+  "thumbnail": {
+    "src": "/images/activities/fixture-grammar-4/thumb.webp",
+    "alt": "Thumbnail of Fixture Grammar 4",
+    "source": "own"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "She ___ here since 2010.",
+        "options": [
+          {
+            "text": "has lived",
+            "correct": true
+          },
+          {
+            "text": "lives"
+          }
+        ]
+      }
+    ]
+  }
+}

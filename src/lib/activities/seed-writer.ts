@@ -1,4 +1,7 @@
 import { FieldValue, type Firestore } from "firebase-admin/firestore";
+import { buildCatalogIndex } from "../catalog/sections";
+import { CATALOG_COLLECTION, CATALOG_INDEX_DOC } from "../catalog/schema";
+import type { ActivityDoc } from "./schema/activity";
 import type { SeedDoc } from "./seed";
 
 export const ACTIVITIES_COLLECTION = "activities";
@@ -30,4 +33,27 @@ export async function upsertActivities(db: Firestore, docs: readonly SeedDoc[]) 
   }
 
   return { created, updated };
+}
+
+/** Regenerates `catalog/index` from the published activities (spec: catálogo de atividades, RNF01). */
+export async function rebuildCatalogIndex(db: Firestore) {
+  const snapshot = await db
+    .collection(ACTIVITIES_COLLECTION)
+    .where("status", "==", "published")
+    .get();
+  const activities = snapshot.docs.map((doc) => {
+    const data = doc.data();
+    return {
+      id: doc.id,
+      data: {
+        ...data,
+        createdAt: data.createdAt.toDate(),
+        updatedAt: data.updatedAt.toDate(),
+      } as ActivityDoc<Date>,
+    };
+  });
+
+  const index = buildCatalogIndex(activities);
+  await db.collection(CATALOG_COLLECTION).doc(CATALOG_INDEX_DOC).set(index);
+  return index;
 }
