@@ -28,7 +28,7 @@
 | RF07 | Ações: salvar rascunho, publicar, despublicar, duplicar, excluir (com confirmação digitando o título) | P0 | CA07 |
 | RF08 | Script `npm run set-admin <email>` (Admin SDK) para conceder a claim `admin` | P0 | CA01 |
 | RF09 | Importar/exportar atividade em JSON (arquivo) | P1 | |
-| RF10 | Ao publicar/editar, disparar revalidação das páginas do catálogo e da categoria (on-demand revalidation) | P1 | CA09 |
+| RF10 | Ao publicar/editar/despublicar, atualizar na mesma transação o documento agregado `catalog/index` (ver spec do Catálogo), para que a mudança apareça no catálogo sem rebuild; as páginas estáticas e o sitemap são atualizados no rebuild diário (ou pelo botão "Rebuild site", que abre o workflow no GitHub) | P0 | CA09 |
 | RF11 | Fila de revisão de conteúdo gerado por IA: filtro "Needs review" (`origin: ai` + `reviewStatus: pending`), contador no topo do painel e badge "AI · Needs review" na lista | P0 | CA10 |
 | RF12 | Ação "Mark as reviewed" (grava `reviewStatus: reviewed`, `reviewedAt`, `reviewedBy`) e "Save & next" para revisar em sequência | P0 | CA10 |
 | RF13 | Editor em formulário para os textos dos 5 tipos da v1 (perguntas, alternativas, respostas, cartões, pistas, prompts), como alternativa ao JSON; os dois modos ficam sincronizados | P1 | CA11 |
@@ -48,7 +48,7 @@
 - [FEAT] Autenticação.
 - [FEAT] Modelo de dados (esquemas Zod por tipo).
 - [FEAT] Motor de atividades (preview).
-- Rota de API server-side (Admin SDK) para revalidação on-demand.
+- Documento `catalog/index` e regras que permitam só admins escrevê-lo.
 
 ### Recursos necessários
 
@@ -71,15 +71,15 @@
 ## O que a atividade não inclui
 
 - Editor visual rico (WYSIWYG, drag-and-drop de tabuleiro/cartões): motivo: complexo demais agora; formulário de textos (RF13) + JSON cobrem a revisão do conteúdo gerado por IA.
-- Upload de imagens: motivo: adiado para simplificar a v1; imagens ficam versionadas em `/public` (o Firebase Storage fica disponível no Blaze para o futuro).
+- Upload de imagens: motivo: adiado para simplificar a v1; imagens ficam versionadas em `/public` (Firebase Storage exigiria o plano Blaze).
 - Fluxo de revisão/aprovação com vários autores: motivo: prematuro.
 - Histórico de versões: motivo: baixo impacto inicial.
 
 ### Considerado para o futuro (P2)
 
 - Editores visuais ricos por tipo (tabuleiro drag-and-drop, reordenar cartões).
-- Botão "Generate with AI" no painel (Claude API) para criar rascunhos a partir de tema, nível e tipo. Exige chave de API paga e rota server-side.
-- Upload de mídia pelo painel via Firebase Storage (disponível no plano Blaze).
+- Botão "Generate with AI" no painel (Claude API) para criar rascunhos a partir de tema, nível e tipo. Exige chave de API paga e um backend (Cloud Functions no Blaze ou outro serviço), pois o site é estático.
+- Upload de mídia pelo painel via Firebase Storage (exige o plano Blaze).
 - Histórico de versões e papel "editor" vs "admin".
 
 ## Dúvidas em aberto
@@ -101,13 +101,13 @@
 | CT06 | Preview | e2e | CA06 | Editar e Preview | Player com edição; publicado intacto |
 | CT07 | Exclusão | e2e | CA07 | Delete com confirmação | Some do catálogo |
 | CT08 | Sem permissão | integração | CA08 | Professor comum no SDK | `PERMISSION_DENIED` |
-| CT09 | Revalidação | manual | CA09 | Publicar e abrir catálogo | Aparece em ≤ 1 min |
+| CT09 | Índice do catálogo | e2e (emulador) | CA09 | Publicar e abrir catálogo | Aparece sem rebuild |
 | CT10 | Fila de revisão | e2e (emulador) | CA10 | Seed IA; revisar 1 | Contador 27 → 26; campos de revisão gravados |
 | CT11 | Editar a partir do player | e2e | CA11 | Clicar Edit, alterar texto, salvar | JSON e player atualizados |
 
 ## URL Complementar
 
-- Documentação técnica: https://firebase.google.com/docs/auth/admin/custom-claims · https://nextjs.org/docs/app/api-reference/functions/revalidatePath
+- Documentação técnica: https://firebase.google.com/docs/auth/admin/custom-claims · https://firebase.google.com/docs/firestore/manage-data/transactions
 - Protótipo / mockup:
 - Discussões relacionadas: N/A.
 - Referências de design: N/A: área interna.

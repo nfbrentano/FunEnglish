@@ -26,7 +26,7 @@
 | RF06 | Após login, redirecionar para a página de origem (`?next=`), validando que é uma rota interna | P0 | CA06, CA09 |
 | RF07 | Mensagens de erro amigáveis em inglês para: e-mail já usado, senha incorreta, usuário inexistente, senha fraca, muitas tentativas | P0 | CA07 |
 | RF08 | Sessão persistente entre recargas; estado de auth disponível via hook/contexto (`useAuth`) | P0 | CA08 |
-| RF09 | Middleware/guarda para rotas protegidas (`/dashboard`) redirecionando para `/login?next=...` | P0 | CA06 |
+| RF09 | Guarda **no cliente** para rotas protegidas (`/dashboard`, `/admin`): enquanto o estado de auth carrega, mostra skeleton; sem usuário, redireciona para `/login?next=...`. Não há middleware (site estático); a proteção real dos dados é feita pelas regras do Firestore | P0 | CA06 |
 | RF10 | Verificação de e-mail enviada no cadastro (não bloqueante) | P1 | CA01 |
 
 ### Requisitos não-funcionais
@@ -45,7 +45,7 @@
 
 ### Recursos necessários
 
-- Provedor Google habilitado no console do Firebase; domínio do App Hosting (`*.hosted.app`) adicionado aos domínios autorizados.
+- Provedor Google habilitado no console do Firebase; domínios do Firebase Hosting (`*.web.app` e `*.firebaseapp.com`) adicionados aos domínios autorizados.
 - Template de e-mail (verificação/reset) personalizado com o nome "Fun English".
 
 ## Critérios de Aceitação / Entregas

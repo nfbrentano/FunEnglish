@@ -1,6 +1,6 @@
 export const SITE_NAME = "Fun English";
 
-/** Base URL used for canonical links, the sitemap and share links (set in apphosting.yaml). */
+/** Base URL used for canonical links, the sitemap and share links (set as a GitHub Actions variable for deploys). */
 export function resolveSiteUrl(explicitUrl?: string): string {
   return (explicitUrl || "http://localhost:3000").replace(/\/+$/, "");
 }

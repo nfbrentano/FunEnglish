@@ -32,7 +32,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RNF01 | Para até 2.000 atividades, a busca roda no cliente sobre um índice leve (id, slug, título, categoria, níveis, tags, data, thumbnail) gerado no build/ISR, sem consultas ao Firestore por tecla digitada | P0 | CA10 |
+| RNF01 | Para até 2.000 atividades, a busca roda no cliente sobre um índice leve (id, slug, título, categoria, níveis, tags, data, thumbnail) vindo do documento `catalog/index` (ver spec do Catálogo), sem consultas ao Firestore por tecla digitada | P0 | CA10 |
 | RNF02 | Índice leve ≤ 300 KB gzip | P1 | CA10 |
 | RNF03 | Controles acessíveis: `label` associado, dropdowns operáveis por teclado, contador anunciado via `aria-live="polite"` | P0 | |
 

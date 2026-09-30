@@ -31,6 +31,7 @@
 | RF11 | Atalhos de teclado comuns: Espaço/Enter = próximo, ←/→ = navegar, F = fullscreen, Esc = sair de fullscreen | P1 | CA08 |
 | RF12 | Utilitário de áudio via Web Speech API (`speak(text, lang='en-US')`) disponível aos plugins para pronúncia | P1 | CA09 |
 | RF13 | Embed do YouTube (componente `YouTubeClip` com `videoId`, `start`, `end`, via IFrame Player API e `youtube-nocookie.com`) disponível aos plugins | P1 | CA10 |
+| RF15 | Páginas `/play/[slug]` geradas no build para as atividades publicadas. Atividades publicadas depois do último build abrem por um **shell do player**: uma regra de rewrite do Firebase Hosting envia `/play/**` sem arquivo correspondente para esse shell, que lê o slug da URL e busca a atividade no Firestore | P0 | CA13 |
 | RF14 | Fallback do `YouTubeClip`: se o vídeo não permitir embed ou estiver indisponível (erros 100/101/150 da API), exibir "This clip can't be played here" com link "Watch on YouTube" (abrindo no minuto certo), sem quebrar a atividade | P1 | CA12 |
 
 ### Requisitos não-funcionais
@@ -67,6 +68,7 @@
 - [ ] **CA09:** Dado um item com botão de áudio, quando clico nele, então o navegador pronuncia o texto em inglês (en-US); em navegador sem suporte, o botão fica oculto.
 - [ ] **CA10:** Dado um item com clipe do YouTube (`start: 30, end: 45`), quando dou play, então o vídeo toca apenas do segundo 30 ao 45.
 - [ ] **CA11 (negativo):** Dado uma atividade `draft` ou slug inexistente, quando acesso `/play/[slug]`, então recebo 404.
+- [ ] **CA13:** Dado uma atividade publicada pelo painel depois do último build, quando acesso `/play/[slug]`, então o shell do player carrega a atividade do Firestore e ela funciona normalmente; um slug inexistente continua mostrando 404.
 - [ ] **CA12 (erro):** Dado um item com um vídeo do YouTube que bloqueia embed, quando o player tenta tocar, então aparece "This clip can't be played here" com o link "Watch on YouTube" apontando para `?t={start}`, e o resto da atividade continua funcionando.
 
 ## O que a atividade não inclui
@@ -104,6 +106,7 @@
 | CT09 | TTS | manual | CA09 | Clicar áudio no Chrome/Safari | Pronúncia en-US |
 | CT10 | Clipe do YouTube | manual | CA10 | Tocar clipe 30–45 s | Para no 45 s |
 | CT11 | 404 | e2e | CA11 | Slug inexistente e draft | 404 |
+| CT13 | Atividade sem página estática | e2e (emulador de Hosting) | CA13 | Publicar no emulador sem rebuild e abrir `/play/novo` | Atividade carrega pelo shell |
 | CT12 | Embed bloqueado | componente | CA12 | Mock da IFrame API disparando `onError(150)` | Fallback com link correto |
 
 ## URL Complementar

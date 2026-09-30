@@ -24,8 +24,8 @@
 | RF04 | `robots.txt` permitindo páginas públicas e bloqueando `/admin`, `/dashboard`, `/login`, `/signup` e URLs com `mode=student` | P0 | CA04 |
 | RF05 | URL canônica em todas as páginas; páginas com filtros (`?q=`, `?level=`) apontam o canônico para a URL sem filtros | P0 | CA05 |
 | RF06 | JSON-LD `LearningResource` nas páginas de atividade (nome, descrição, nível educacional, `inLanguage: en`, `isAccessibleForFree: true`) e `BreadcrumbList` | P1 | CA06 |
-| RF07 | Página de atividade com conteúdo textual indexável fora do jogo (título, descrição, categoria, nível, instruções) renderizado no servidor | P0 | CA07 |
-| RF08 | `noindex` em atividades `draft`, dashboard, admin e student mode | P0 | CA08 |
+| RF07 | Página de atividade com conteúdo textual indexável fora do jogo (título, descrição, categoria, nível, instruções) gerado no HTML estático do build | P0 | CA07 |
+| RF08 | `noindex` em dashboard e admin; student mode bloqueado no `robots.txt` (`Disallow: /*?mode=student`) com canônico apontando para a página da atividade; rascunhos nunca geram página estática | P0 | CA08 |
 
 ### Requisitos não-funcionais
 
@@ -33,12 +33,12 @@
 |----|-----------|------------|-----|
 | RNF01 | Core Web Vitals "Good" em mobile nas páginas públicas (LCP < 2.5 s, INP < 200 ms, CLS < 0.1) | P1 | |
 | RNF02 | `<html lang="en">` | P0 | |
-| RNF03 | Sitemap gerado com ISR (sem consultar o Firestore a cada requisição de crawler) | P0 | |
+| RNF03 | Sitemap gerado como arquivo estático no build; atividades novas entram no próximo rebuild (diário) | P0 | |
 
 ### Dependências técnicas
 
 - [FEAT] Catálogo, [FEAT] Página de categoria e [FEAT] Motor de atividades (páginas a otimizar).
-- URL base via `NEXT_PUBLIC_SITE_URL` (ver spec de Setup); v1 no domínio padrão do App Hosting (`*.hosted.app`).
+- URL base via `NEXT_PUBLIC_SITE_URL` (ver spec de Setup); v1 no domínio padrão do Firebase Hosting (`*.web.app`).
 
 ### Recursos necessários
 
@@ -54,7 +54,7 @@
 - [ ] **CA05:** Dado `/activities?level=advanced`, quando inspeciono, então o `canonical` aponta para `/activities`.
 - [ ] **CA06:** Dado uma página de atividade, quando a valido no Rich Results Test, então o JSON-LD é reconhecido sem erros.
 - [ ] **CA07:** Dado JavaScript desabilitado, quando abro uma página de atividade, então título, descrição, categoria e nível estão presentes no HTML.
-- [ ] **CA08 (negativo):** Dado uma URL `?mode=student` ou `/dashboard`, quando inspeciono, então há `<meta name="robots" content="noindex">`.
+- [ ] **CA08 (negativo):** Dado `/dashboard` ou `/admin`, quando inspeciono, então há `<meta name="robots" content="noindex">`; e `robots.txt` bloqueia `/*?mode=student`.
 
 ## O que a atividade não inclui
 
@@ -72,7 +72,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Domínio definitivo antes do lançamento? (canônicos e sitemap dependem dele) | PO | Não | Ainda não haverá domínio próprio: usar o domínio `*.hosted.app` do App Hosting via `NEXT_PUBLIC_SITE_URL`; ao migrar, conectar o domínio próprio no App Hosting, configurar redirect 301 do `*.hosted.app` para o novo e reenviar o sitemap no Search Console |
+| D01 | Domínio definitivo antes do lançamento? (canônicos e sitemap dependem dele) | PO | Não | Ainda não haverá domínio próprio: usar o domínio `*.web.app` do Firebase Hosting via `NEXT_PUBLIC_SITE_URL`; ao migrar, conectar o domínio próprio no Firebase Hosting (grátis no Spark), configurar redirect 301 do `*.web.app` para o novo e reenviar o sitemap no Search Console |
 
 ## Sugestões de casos de teste
 
@@ -84,7 +84,7 @@
 | CT04 | Robots | e2e | CA04 | GET `/robots.txt` | Disallow e Sitemap |
 | CT05 | Canônico com filtros | e2e | CA05 | Ler `link[rel=canonical]` | `/activities` |
 | CT06 | JSON-LD | manual | CA06 | Rich Results Test | Sem erros |
-| CT07 | SSR | e2e | CA07 | Requisição sem JS (`curl`) | Textos no HTML |
+| CT07 | HTML estático | e2e | CA07 | Requisição sem JS (`curl`) | Textos no HTML |
 | CT08 | Noindex | e2e | CA08 | Ler meta robots | `noindex` |
 
 ## URL Complementar

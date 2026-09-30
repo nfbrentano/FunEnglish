@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
@@ -18,7 +17,9 @@
     "seed": "tsx scripts/seed.ts",
     "seed:check": "tsx scripts/seed.ts --dry-run",
     "seed:emulator": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 tsx scripts/seed.ts",
-    "test:emulator": "firebase emulators:exec --only firestore --project demo-fun-english \"vitest run --config vitest.emulator.config.mts\""
+    "test:emulator": "firebase emulators:exec --only firestore --project demo-fun-english \"vitest run --config vitest.emulator.config.mts\"",
+    "preview": "serve out",
+    "deploy": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
     "@next/env": "^16.3.8",
@@ -27,7 +28,6 @@
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "server-only": "^0.0.1",
     "zod": "^4.6.5"
   },
   "devDependencies": {
@@ -46,6 +46,7 @@
     "firebase-tools": "^15.32.0",
     "jsdom": "^30.1.1",
     "prettier": "^3.9.9",
+    "serve": "^14.2.6",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",

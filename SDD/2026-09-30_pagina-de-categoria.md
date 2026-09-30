@@ -30,7 +30,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RNF01 | Páginas geradas estaticamente para as 9 categorias com ISR (≤ 10 min) | P0 | |
+| RNF01 | Páginas das 9 categorias geradas no build (`generateStaticParams`) e atualizadas no navegador a partir do `catalog/index` (1 leitura por visita) | P0 | |
 | RNF02 | Mesmos requisitos de acessibilidade e performance do catálogo | P0 | |
 
 ### Dependências técnicas

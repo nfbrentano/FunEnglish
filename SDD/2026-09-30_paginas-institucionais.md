@@ -31,7 +31,7 @@
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
 | RNF01 | Regras do Firestore: `contactMessages` aceita apenas `create` (sem leitura pública), com validação de campos e tamanho (mensagem ≤ 2.000 caracteres) | P0 | CA06 |
-| RNF02 | Páginas estáticas (SSG), sem leituras do Firestore, exceto os destaques da Home (ISR) | P0 | |
+| RNF02 | Páginas estáticas geradas no build; os destaques da Home vêm do `catalog/index` | P0 | |
 | RNF03 | Acordeão do FAQ com `button` + `aria-expanded` | P0 | CA02 |
 
 ### Dependências técnicas
@@ -57,7 +57,7 @@
 
 ## O que a atividade não inclui
 
-- Envio de e-mail automático ao receber contato: motivo: adiado; exigiria Cloud Functions (possível no Blaze) ou serviço externo. Na v1, as mensagens são lidas no console do Firebase/admin.
+- Envio de e-mail automático ao receber contato: motivo: adiado; exigiria Cloud Functions (só no Blaze) ou serviço externo. Na v1, as mensagens são lidas no console do Firebase/admin.
 - Newsletter e podcast: motivo: outra iniciativa.
 - Página Pricing: motivo: sem pagamento na v1.
 

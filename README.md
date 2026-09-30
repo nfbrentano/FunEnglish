@@ -10,7 +10,7 @@ Every feature starts as a spec in [`SDD/`](SDD/) (see [`CLAUDE.md`](CLAUDE.md)).
 
 - [Next.js](https://nextjs.org) (App Router, TypeScript strict) + Tailwind CSS v4
 - Firebase Authentication + Cloud Firestore
-- Hosting on **Firebase App Hosting** (Next.js SSR/ISR on Cloud Run), Blaze plan within the free quota
+- **Static export** (`output: "export"`) hosted on **Firebase Hosting**, free **Spark** plan (no server at runtime)
 - Vitest + Testing Library (unit), Playwright (e2e), `@firebase/rules-unit-testing` (security rules)
 
 ## Requirements
@@ -28,9 +28,7 @@ npm run dev                  # http://localhost:3000
 
 ### Firebase project (one-time)
 
-1. Create a project at <https://console.firebase.google.com> and upgrade it to the **Blaze** plan
-   (required by App Hosting). Then create a budget alert in Google Cloud Billing
-   (e.g. US$ 5/month with alerts at 50/90/100%).
+1. Create a project at <https://console.firebase.google.com> (Spark plan, no card needed).
 2. Add a **Web app** and copy its config into the `NEXT_PUBLIC_FIREBASE_*` variables of `.env.local`.
 3. Enable **Authentication** (Email/Password and Google) and create a **Firestore** database.
 4. For local scripts (seed, set-admin), generate a service account key (Project settings > Service accounts)
@@ -54,24 +52,37 @@ touches the production project.
 
 ## Scripts
 
-| Script                                  | What it does                                            |
-| --------------------------------------- | ------------------------------------------------------- |
-| `npm run dev` / `build` / `start`       | Next.js dev server, production build, production server |
-| `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier                            |
-| `npm test`                              | Unit tests (Vitest)                                     |
-| `npm run test:e2e`                      | End-to-end tests (Playwright, desktop + mobile)         |
-| `npm run test:emulator`                 | Rules + seed tests against the emulator (needs Java)    |
-| `npm run emulators`                     | Firebase Emulator Suite                                 |
-| `npm run seed:check`                    | Validate `content/activities/**/*.json`                 |
-| `npm run seed:emulator`                 | Upsert the activities into the running emulator         |
-| `npm run seed -- --production`          | Upsert into the real project (needs service account)    |
-| `npm run deploy:rules`                  | Publish `firestore.rules` and `firestore.indexes.json`  |
+| Script                                  | What it does                                           |
+| --------------------------------------- | ------------------------------------------------------ |
+| `npm run dev` / `build`                 | Next.js dev server; static export to `out/`            |
+| `npm run preview`                       | Serve `out/` locally                                   |
+| `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier                           |
+| `npm test`                              | Unit tests (Vitest)                                    |
+| `npm run test:e2e`                      | End-to-end tests (Playwright, desktop + mobile)        |
+| `npm run test:emulator`                 | Rules + seed tests against the emulator (needs Java)   |
+| `npm run emulators`                     | Firebase Emulator Suite                                |
+| `npm run seed:check`                    | Validate `content/activities/**/*.json`                |
+| `npm run seed:emulator`                 | Upsert the activities into the running emulator        |
+| `npm run seed -- --production`          | Upsert into the real project (needs service account)   |
+| `npm run deploy:rules`                  | Publish `firestore.rules` and `firestore.indexes.json` |
+| `npm run deploy`                        | Build and deploy to Firebase Hosting from your machine |
 
-## Deploy (Firebase App Hosting)
+## Deploy (Firebase Hosting via GitHub Actions)
 
-1. Firebase console > **App Hosting** > Get started: connect the GitHub repo `nfbrentano/FunEnglish`,
-   root directory `/`, live branch `main`, backend id `fun-english`.
-2. Fill in `apphosting.yaml`: `NEXT_PUBLIC_SITE_URL` (the backend URL shown in the console) and the
-   `NEXT_PUBLIC_FIREBASE_*` web config. Commit and push.
-3. Every push to `main` starts a new rollout. `maxInstances: 2` in `apphosting.yaml` caps the cost.
-4. Add the `*.hosted.app` domain to Firebase Authentication > Settings > Authorized domains.
+The site is static: `next build` writes `out/`, which Firebase Hosting serves. Two workflows do it:
+
+- [`deploy.yml`](.github/workflows/deploy.yml): lint, test, build and deploy to production on every
+  push to `main`, once a day (so activities published in the admin get static pages) and on demand.
+- [`preview.yml`](.github/workflows/preview.yml): deploys each pull request to a preview channel
+  (expires in 7 days) and comments the URL on the PR.
+
+One-time setup:
+
+1. Google Cloud console > IAM > Service accounts: create `github-deploy` with the roles
+   **Firebase Hosting Admin**, **Firebase Authentication Admin**, **API Keys Viewer** and
+   **Cloud Run Viewer**. Create a JSON key for it.
+2. GitHub > repo Settings > Secrets and variables > Actions:
+   - Secret `FIREBASE_SERVICE_ACCOUNT`: the whole JSON key.
+   - Variables `NEXT_PUBLIC_SITE_URL` (`https://<project-id>.web.app`) and the
+     `NEXT_PUBLIC_FIREBASE_*` web config.
+3. Push to `main` (or run the Deploy workflow by hand). The site is at `https://<project-id>.web.app`.

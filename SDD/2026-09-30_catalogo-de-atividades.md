@@ -32,7 +32,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RNF01 | Página renderizada no servidor com revalidação (ISR ≤ 10 min) para não consumir leituras do Firestore a cada visita (cota gratuita do Firestore: 50 mil leituras/dia) | P0 | CA09 |
+| RNF01 | Site estático (Firebase Hosting, plano Spark): a página é gerada no build com os dados do Firestore e, no navegador, atualizada a partir de **um único documento agregado** `catalog/index` (dados leves de todas as atividades publicadas, mantido pelo seed e pelo painel admin). Cada visita custa no máximo 1 leitura (cota gratuita: 50 mil leituras/dia) | P0 | CA09 |
 | RNF02 | Imagens via `next/image`, lazy loading fora da primeira dobra | P0 | |
 | RNF03 | LCP < 2.5 s e CLS < 0.1 em mobile (Lighthouse) | P1 | |
 | RNF04 | Cards com `alt` descritivo e carrossel com `aria-roledescription="carousel"` | P0 | CA06 |
@@ -58,7 +58,7 @@
 - [ ] **CA06:** Dado um carrossel com mais itens que cabem na tela, quando clico na seta direita (ou deslizo no touch, ou uso o teclado), então novos cards aparecem, e a seta esquerda passa a ser exibida.
 - [ ] **CA07 (limite):** Dado que a categoria "Writing" não tem atividades publicadas, quando acesso a página, então o carrossel de Writing não é exibido.
 - [ ] **CA08:** Dado uma conexão lenta, quando a página carrega dados no cliente, então skeletons ocupam o espaço dos cards sem deslocar o layout.
-- [ ] **CA09 (negativo):** Dado 100 visitas seguidas dentro da janela de revalidação, quando comparo as leituras no Firestore, então elas não crescem proporcionalmente às visitas (o conteúdo vem do cache).
+- [ ] **CA09 (negativo):** Dado 100 visitas ao catálogo, quando comparo as leituras no Firestore, então elas somam no máximo 100 (1 leitura do `catalog/index` por visita), e não uma leitura por atividade.
 - [ ] **CA10 (negativo):** Dado uma atividade com status `draft`, quando acesso o catálogo, então ela não aparece em nenhuma seção.
 
 ## O que a atividade não inclui
@@ -92,12 +92,12 @@
 | CT06 | Navegação do carrossel | e2e | CA06 | Clicar seta; teclado; swipe emulado | Scroll avança; setas atualizam |
 | CT07 | Categoria vazia | integração | CA07 | Seed sem Writing | Seção ausente |
 | CT08 | Skeleton | manual | CA08 | Throttle "Slow 3G" | Skeletons, CLS < 0.1 |
-| CT09 | Cache | manual | CA09 | Recarregar 100× e ver uso no console Firebase | Leituras estáveis |
+| CT09 | Leituras por visita | integração (emulador) | CA09 | Carregar o catálogo e contar leituras | 1 leitura (`catalog/index`) |
 | CT10 | Draft oculto | integração | CA10 | Seed com 1 draft | Não aparece |
 
 ## URL Complementar
 
-- Documentação técnica: https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration
+- Documentação técnica: https://nextjs.org/docs/app/guides/static-exports
 - Protótipo / mockup:
 - Discussões relacionadas: N/A.
 - Referências de design: https://www.coolenglish.org/activities
