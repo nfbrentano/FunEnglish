@@ -4,8 +4,8 @@ const firestore = vi.hoisted(() => ({
   getDoc: vi.fn(),
   doc: vi.fn((_db, ...path: string[]) => path.join("/")),
 }));
-vi.mock("firebase/firestore", () => firestore);
-vi.mock("@/lib/firebase", () => ({ getDb: () => ({}) }));
+vi.mock("firebase/firestore/lite", () => firestore);
+vi.mock("@/lib/firebase", () => ({ getLiteDb: () => ({}) }));
 
 describe("fetchCatalogIndexOnce", () => {
   beforeEach(() => {

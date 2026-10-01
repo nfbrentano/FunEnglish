@@ -5,13 +5,18 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fetchCatalogIndexOnce } from "@/lib/catalog/fetch";
+import { filterCatalog, hasActiveFilters, serializeFilters } from "@/lib/catalog/filter";
 import type { CatalogIndex } from "@/lib/catalog/schema";
 import { isNew, latest, sectionsByCategory } from "@/lib/catalog/sections";
+import { useCatalogFilters } from "@/lib/catalog/use-catalog-filters";
 import { strings } from "@/lib/strings";
 import { ActivityCard } from "./activity-card";
 import { Carousel } from "./carousel";
 import { CatalogHero } from "./catalog-hero";
 import { CatalogSection } from "./catalog-section";
+import { FilterBar } from "./filter-bar";
+import { ResultsGrid } from "./results-grid";
+import { SearchField } from "./search-field";
 
 let clientNow: Date | undefined;
 const noSubscription = () => () => {};
@@ -51,18 +56,56 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
     };
   }, [initial.updatedAt]);
 
+  const { filters, setFilters, clearFilters: clearUrlFilters } = useCatalogFilters();
+  // Remounting the search field on Clear also cancels a search still waiting on its debounce.
+  const [searchKey, setSearchKey] = useState(0);
+  const clearFilters = () => {
+    clearUrlFilters();
+    setSearchKey((key) => key + 1);
+  };
   const items = index.items;
   const waiting = items.length === 0 && !loaded;
+  const filtering = hasActiveFilters(filters);
+  const results = useMemo(() => filterCatalog(items, filters), [items, filters]);
+  const isRecent = (createdAt: string) => now !== null && isNew(createdAt, now);
 
   return (
     <>
-      <CatalogHero count={waiting ? null : items.length} />
+      <CatalogHero
+        count={waiting ? null : items.length}
+        search={
+          <SearchField
+            key={searchKey}
+            value={filters.q}
+            // Starting a search adds a history entry; refining it while typing doesn't.
+            onSearch={(q) => setFilters({ q }, { replace: filters.q !== "" && q !== "" })}
+          />
+        }
+      />
       <div className="mx-auto w-full max-w-[1200px] space-y-14 px-4 py-12">
+        {!waiting && items.length > 0 && (
+          <FilterBar
+            filters={filters}
+            count={filtering ? results.length : items.length}
+            active={filtering}
+            onChange={(next) => setFilters(next)}
+            onClear={clearFilters}
+          />
+        )}
         {waiting && <CatalogSkeleton />}
         {!waiting && items.length === 0 && (
           <p className="py-16 text-center text-fg-secondary">{strings.catalog.empty}</p>
         )}
-        {items.length > 0 && (
+        {items.length > 0 && filtering && (
+          <ResultsGrid
+            key={serializeFilters(filters)}
+            items={results}
+            hasImage={(src) => images.has(src)}
+            isNew={isRecent}
+            onClear={clearFilters}
+          />
+        )}
+        {items.length > 0 && !filtering && (
           <>
             <CatalogSection
               id="new"
@@ -81,7 +124,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
                     key={item.id}
                     item={item}
                     imageAvailable={images.has(item.thumbnail.src)}
-                    isNew={now !== null && isNew(item.createdAt, now)}
+                    isNew={isRecent(item.createdAt)}
                     priority={i < 4}
                   />
                 ))}
@@ -103,7 +146,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
                       key={item.id}
                       item={item}
                       imageAvailable={images.has(item.thumbnail.src)}
-                      isNew={now !== null && isNew(item.createdAt, now)}
+                      isNew={isRecent(item.createdAt)}
                     />
                   ))}
                 </Carousel>
