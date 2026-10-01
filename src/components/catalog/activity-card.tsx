@@ -3,11 +3,11 @@
 import { Share2 } from "lucide-react";
 import Link from "next/link";
 import { FavoriteButton } from "@/components/favorites/favorites-ui";
+import { ShareButton } from "@/components/share/share-button";
 import { Badge } from "@/components/ui/badge";
 import { LevelPill } from "@/components/ui/level-pill";
 import { getCategory } from "@/lib/activities/categories";
 import type { CatalogItem } from "@/lib/catalog/schema";
-import { useShareLink } from "@/lib/share/use-share-link";
 import { strings } from "@/lib/strings";
 import { ActivityThumbnail } from "./activity-thumbnail";
 
@@ -28,7 +28,6 @@ type ActivityCardProps = {
 /** Whole card opens the activity; favorite and share sit above the link. */
 export function ActivityCard({ item, imageAvailable, isNew = false, priority }: ActivityCardProps) {
   const category = getCategory(item.category)!;
-  const { share, copied } = useShareLink();
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-elevated transition-colors duration-200 hover:border-border-strong">
@@ -41,14 +40,9 @@ export function ActivityCard({ item, imageAvailable, isNew = false, priority }: 
         )}
         <div className="absolute top-2 right-2 flex gap-1.5">
           <FavoriteButton activityId={item.id} title={item.title} className={actionClasses} />
-          <button
-            type="button"
-            aria-label={`${strings.catalog.share}: ${item.title}`}
-            onClick={() => share({ title: item.title, path: activityHref(item) })}
-            className={actionClasses}
-          >
+          <ShareButton activity={item} className={actionClasses}>
             <Share2 aria-hidden="true" className="size-4" />
-          </button>
+          </ShareButton>
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -65,9 +59,6 @@ export function ActivityCard({ item, imageAvailable, isNew = false, priority }: 
           <LevelPill min={item.levelMin} max={item.levelMax} />
         </div>
       </div>
-      <span role="status" className="sr-only">
-        {copied ? strings.catalog.linkCopied : ""}
-      </span>
     </article>
   );
 }

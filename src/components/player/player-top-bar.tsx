@@ -4,6 +4,8 @@ import { LogOut, Maximize, Minimize, RotateCcw, Share2 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { FavoriteButton } from "@/components/favorites/favorites-ui";
+import { ShareButton } from "@/components/share/share-button";
+import type { ActivityType } from "@/lib/activities/schema/activity";
 import type { Progress } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
 
@@ -14,8 +16,7 @@ type PlayerTopBarProps = {
   fullscreen: { active: boolean; supported: boolean; toggle: () => void };
   studentMode: boolean;
   onRestart: () => void;
-  onShare: () => void;
-  activity: { id: string; title: string };
+  activity: { id: string; title: string; slug: string; type: ActivityType };
 };
 
 const iconButton =
@@ -44,7 +45,6 @@ export function PlayerTopBar({
   fullscreen,
   studentMode,
   onRestart,
-  onShare,
   activity,
 }: PlayerTopBarProps) {
   const percent =
@@ -122,9 +122,9 @@ export function PlayerTopBar({
               className={iconButton}
               iconClassName="size-5"
             />
-            <IconAction label={strings.catalog.share} onClick={onShare}>
+            <ShareButton activity={activity} className={iconButton}>
               <Share2 aria-hidden="true" className="size-5" />
-            </IconAction>
+            </ShareButton>
             <Link
               href="/activities"
               aria-label={strings.player.exit}

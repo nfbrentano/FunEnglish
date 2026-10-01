@@ -1,7 +1,7 @@
 # [FEAT] Compartilhar atividade com alunos
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-01
 
 ## Detalhes da Atividade
 
@@ -44,14 +44,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um card, quando clico em "Share", então abre um modal com o link da atividade em student mode.
-- [ ] **CA02:** Dado o modal aberto, quando clico "Copy link", então o link vai para a área de transferência e o botão mostra "Copied!" por 2 s.
-- [ ] **CA03:** Dado o modal aberto, quando clico "Show fullscreen", então o QR code ocupa a tela, e lê-lo com a câmera de um celular abre a atividade.
-- [ ] **CA04:** Dado um celular com Web Share API, quando toco em "Share…", então o menu nativo de compartilhamento abre com título e link da atividade.
-- [ ] **CA05:** Dado um aluno sem conta, quando abre o link `?mode=student`, então vê apenas a atividade (sem header, favoritos ou share) e consegue concluí-la.
-- [ ] **CA06:** Dado o modal aberto, quando pressiono Esc, então ele fecha e o foco volta para o botão "Share".
-- [ ] **CA07 (negativo):** Dado um aluno usando o student mode, quando conclui a atividade, então nenhuma escrita é feita no Firestore.
-- [ ] **CA08 (limite):** Dado um navegador sem permissão de clipboard, quando clico "Copy link", então o texto do link fica selecionado no campo e aparece "Press Ctrl+C to copy".
+- [x] **CA01:** Dado um card, quando clico em "Share", então abre um modal com o link da atividade em student mode.
+- [x] **CA02:** Dado o modal aberto, quando clico "Copy link", então o link vai para a área de transferência e o botão mostra "Copied!" por 2 s.
+- [x] **CA03:** Dado o modal aberto, quando clico "Show fullscreen", então o QR code ocupa a tela, e lê-lo com a câmera de um celular abre a atividade. _(Automatizado: QR gerado no cliente e ≥ 60% da tela. Leitura com a câmera: validação manual do PO no celular.)_
+- [x] **CA04:** Dado um celular com Web Share API, quando toco em "Share…", então o menu nativo de compartilhamento abre com título e link da atividade. _(Automatizado com mock; menu real: validação manual do PO no Android/iOS.)_
+- [x] **CA05:** Dado um aluno sem conta, quando abre o link `?mode=student`, então vê apenas a atividade (sem header, favoritos ou share) e consegue concluí-la.
+- [x] **CA06:** Dado o modal aberto, quando pressiono Esc, então ele fecha e o foco volta para o botão "Share".
+- [x] **CA07 (negativo):** Dado um aluno usando o student mode, quando conclui a atividade, então nenhuma escrita é feita no Firestore.
+- [x] **CA08 (limite):** Dado um navegador sem permissão de clipboard, quando clico "Copy link", então o texto do link fica selecionado no campo e aparece "Press Ctrl+C to copy".
 
 ## O que a atividade não inclui
 
@@ -68,7 +68,8 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Alguns tipos (ex.: Jeopardy, cartões de conversa) são para uso em grupo. Devem ter share desabilitado? | PO | Não | Sugestão: permitir, com aviso "Best used in class" |
+| D01 | Alguns tipos (ex.: Jeopardy, cartões de conversa) são para uso em grupo. Devem ter share desabilitado? | PO | Não | Permitir, com o aviso "Best used in class" no modal para Quiz Board e Discussion Cards |
+| D02 | Usar a URL do site configurada (`NEXT_PUBLIC_SITE_URL`) ou a origem atual no link? | Dev | Não | Origem atual (`window.location.origin`): funciona igual em produção, nos canais de preview e no emulador |
 
 ## Sugestões de casos de teste
 

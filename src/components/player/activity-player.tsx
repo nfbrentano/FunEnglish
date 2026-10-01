@@ -1,8 +1,9 @@
 "use client";
 
-import { Pencil } from "lucide-react";
+import { Pencil, Share2 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ShareButton } from "@/components/share/share-button";
 import { useIsAdmin } from "@/lib/admin/use-is-admin";
 import type { PlayableActivity } from "@/lib/player/load-activity";
 import { useFullscreen } from "@/lib/player/fullscreen";
@@ -14,7 +15,6 @@ import type {
   Progress,
   RegisteredPlugin,
 } from "@/lib/player/types";
-import { useShareLink } from "@/lib/share/use-share-link";
 import { strings } from "@/lib/strings";
 import { useStudentMode } from "@/lib/student-mode";
 import { useAuth } from "@/lib/auth/use-auth";
@@ -26,6 +26,9 @@ import { PlayerResults } from "./player-results";
 import { PlayerTopBar } from "./player-top-bar";
 
 type Phase = "intro" | "playing" | "results";
+
+const introAction =
+  "inline-flex min-h-11 items-center gap-2 rounded-full border border-border-subtle px-4 text-sm text-fg-secondary hover:border-accent hover:text-fg";
 
 const BASE_SETTINGS: PlayerSettings = {
   shuffle: false,
@@ -73,7 +76,6 @@ export function ActivityPlayer({
   const studentMode = useStudentMode();
   const rootRef = useRef<HTMLDivElement>(null);
   const fullscreen = useFullscreen(rootRef);
-  const { share } = useShareLink();
 
   const [phase, setPhase] = useState<Phase>("intro");
   const [settings, setSettings] = useState<PlayerSettings>(() => initialSettings(plugin));
@@ -134,15 +136,21 @@ export function ActivityPlayer({
       ref={rootRef}
       className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col bg-primary px-4 py-6 [&:fullscreen]:max-w-none [&:fullscreen]:overflow-auto [&:fullscreen]:p-10"
     >
-      {phase === "intro" && editable && isAdmin && !studentMode && (
-        <div className="flex justify-end">
-          <Link
-            href={`/admin/edit?id=${encodeURIComponent(activity.id)}`}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border-subtle px-4 text-sm text-fg-secondary hover:border-accent hover:text-fg"
-          >
-            <Pencil aria-hidden="true" className="size-4" />
-            {strings.player.editActivity}
-          </Link>
+      {phase === "intro" && editable && !studentMode && (
+        <div className="flex justify-end gap-2">
+          <ShareButton activity={activity} className={introAction}>
+            <Share2 aria-hidden="true" className="size-4" />
+            {strings.catalog.share}
+          </ShareButton>
+          {isAdmin && (
+            <Link
+              href={`/admin/edit?id=${encodeURIComponent(activity.id)}`}
+              className={introAction}
+            >
+              <Pencil aria-hidden="true" className="size-4" />
+              {strings.player.editActivity}
+            </Link>
+          )}
         </div>
       )}
       {phase === "intro" && (
@@ -173,7 +181,6 @@ export function ActivityPlayer({
             fullscreen={fullscreen}
             studentMode={studentMode}
             onRestart={start}
-            onShare={() => share({ title: activity.title, path: `/play/${activity.slug}` })}
             activity={activity}
           />
           <PlayerErrorBoundary key={run} fallback={loadError}>

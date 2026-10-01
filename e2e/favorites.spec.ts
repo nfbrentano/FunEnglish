@@ -86,7 +86,7 @@ test("a new list from the toast keeps the activity", async ({ page }) => {
 test("the player has the same heart", async ({ page }) => {
   await signUp(page, newEmail());
   await page.goto("/play/some-or-any");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   const heart = page.getByRole("button", { name: "Add to favorites: Some or Any" });
   await heart.click();
