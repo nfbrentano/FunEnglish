@@ -1,0 +1,43 @@
+{
+  "title": "Frequently asked questions",
+  "description": "Answers about using Fun English activities in class, sharing them with students, accounts and privacy.",
+  "updated": "2026-10-01",
+  "questions": [
+    {
+      "question": "Is Fun English free?",
+      "answer": "Yes. Every activity is free to play, project and share. A teacher account is optional."
+    },
+    {
+      "question": "Do I need an account?",
+      "answer": "No. You can play and share any activity without one. An account lets you save **favorites**, organize them in **class lists** and see what you **recently played**."
+    },
+    {
+      "question": "How do I use an activity in class?",
+      "answer": "Open the activity, choose the options (teams, timer, shuffle) and press **Start**. Press **F** or the fullscreen button to project it. Quiz Boards and Discussion Cards are made for the whole group around one screen."
+    },
+    {
+      "question": "How do my students play on their own devices?",
+      "answer": "Press **Share** on an activity and send the student link, or show the **QR code** (use *Show fullscreen* to project it). Students don't need an account, and the student link hides everything except the activity."
+    },
+    {
+      "question": "Do you collect data about my students?",
+      "answer": "No. Student links don't require an account and nothing about the student is saved. See the [Privacy Policy](/privacy)."
+    },
+    {
+      "question": "Which levels are the activities for?",
+      "answer": "Each activity shows its level range, from Beginner to Advanced. Use the level filter on the [Activities](/activities) page to find the right ones for your class."
+    },
+    {
+      "question": "Who makes the activities?",
+      "answer": "Activities and images are drafted with the help of artificial intelligence and reviewed by a teacher. If you find a mistake, please [tell us](/contact)."
+    },
+    {
+      "question": "Can I suggest an activity or report a mistake?",
+      "answer": "Yes, please do! Use the [contact form](/contact) and tell us the activity name."
+    },
+    {
+      "question": "How do I delete my account?",
+      "answer": "Email [nfgbrentano@gmail.com](mailto:nfgbrentano@gmail.com) from the address of your account and we'll delete it with all its data."
+    }
+  ]
+}

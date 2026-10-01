@@ -5,7 +5,18 @@ import {
   initializeTestEnvironment,
   type RulesTestEnvironment,
 } from "@firebase/rules-unit-testing";
-import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  serverTimestamp,
+  setDoc,
+  where,
+} from "firebase/firestore";
 import { afterAll, beforeAll, beforeEach, describe, it } from "vitest";
 
 let testEnv: RulesTestEnvironment;
@@ -159,5 +170,54 @@ describe("history", () => {
     await assertFails(
       getDoc(doc(testEnv.authenticatedContext("bob").firestore(), "users/ana/history/some-or-any")),
     );
+  });
+});
+
+describe("contactMessages", () => {
+  const message = () => ({
+    name: "Ana",
+    email: "ana@example.com",
+    subject: "Idea",
+    message: "A quiz about phrasal verbs, please!",
+    createdAt: serverTimestamp(),
+  });
+
+  it("anyone can send a valid message", async () => {
+    const visitor = testEnv.unauthenticatedContext().firestore();
+    await assertSucceeds(addDoc(collection(visitor, "contactMessages"), message()));
+  });
+
+  it("rejects invalid or oversized messages and extra fields (CA06)", async () => {
+    const db = testEnv.unauthenticatedContext().firestore();
+    const send = (data: Record<string, unknown>) =>
+      assertFails(addDoc(collection(db, "contactMessages"), data));
+    await send({ ...message(), message: "x".repeat(2001) });
+    await send({ ...message(), email: "abc" });
+    await send({ ...message(), name: "" });
+    await send({ ...message(), website: "spam" });
+    await send({ ...message(), createdAt: new Date("2020-01-01") });
+    const { subject: _subject, ...withoutSubject } = message();
+    void _subject;
+    await send(withoutSubject);
+  });
+
+  it("nobody reads, edits or deletes messages from the client (CA06)", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), "contactMessages/m1"), {
+        ...message(),
+        createdAt: new Date(),
+      });
+    });
+    for (const ctx of [
+      testEnv.unauthenticatedContext(),
+      testEnv.authenticatedContext("ana"),
+      testEnv.authenticatedContext("admin-1", { admin: true }),
+    ]) {
+      const db = ctx.firestore();
+      await assertFails(getDoc(doc(db, "contactMessages/m1")));
+      await assertFails(getDocs(collection(db, "contactMessages")));
+      await assertFails(setDoc(doc(db, "contactMessages/m1"), { subject: "x" }, { merge: true }));
+      await assertFails(deleteDoc(doc(db, "contactMessages/m1")));
+    }
   });
 });

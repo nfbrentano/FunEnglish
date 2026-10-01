@@ -36,3 +36,42 @@ dialog[open] {
 :root[data-mode="student"] body {
   padding-bottom: 0;
 }
+
+/* Long-form pages rendered from Markdown (About, Privacy, Terms, FAQ answers). */
+.prose {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.prose > * + * {
+  margin-top: 1em;
+}
+.prose h2 {
+  margin-top: 2.2em;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.prose strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.prose li + li {
+  margin-top: 0.4em;
+}
+.prose code {
+  font-size: 0.9em;
+  border-radius: 0.375rem;
+  background: var(--bg-elevated);
+  padding: 0.1em 0.4em;
+}
