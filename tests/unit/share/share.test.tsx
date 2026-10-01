@@ -1,6 +1,6 @@
-import { act, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { ShareButton } from "@/components/share/share-button";
 import { isGroupActivity, studentShareUrl } from "@/lib/share/share-url";
 
@@ -26,7 +26,7 @@ function setClipboard(writeText: (text: string) => Promise<void>) {
 }
 
 async function openShare(activity: Parameters<typeof ShareButton>[0]["activity"] = quiz) {
-  const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+  const user = userEvent.setup();
   render(
     <ShareButton activity={activity} className="">
       share
@@ -35,13 +35,6 @@ async function openShare(activity: Parameters<typeof ShareButton>[0]["activity"]
   await user.click(screen.getByRole("button", { name: "Share: Some or Any" }));
   return user;
 }
-
-beforeEach(() => {
-  vi.useFakeTimers({ shouldAdvanceTime: true });
-});
-afterEach(() => {
-  vi.useRealTimers();
-});
 
 describe("ShareButton", () => {
   it("opens a dialog with the student link and a QR code (CA01)", async () => {
@@ -63,8 +56,10 @@ describe("ShareButton", () => {
     expect(writeText).toHaveBeenCalledWith(URL_TEXT);
     expect(screen.getByRole("button", { name: "Copied!" })).toBeInTheDocument();
 
-    act(() => vi.advanceTimersByTime(2000));
-    expect(screen.getByRole("button", { name: "Copy link" })).toBeInTheDocument();
+    // Back to "Copy link" after 2 s (real timers: fake ones were flaky on CI).
+    expect(
+      await screen.findByRole("button", { name: "Copy link" }, { timeout: 3000 }),
+    ).toBeInTheDocument();
   });
 
   it("without clipboard permission, selects the link and explains the shortcut (CA08)", async () => {
