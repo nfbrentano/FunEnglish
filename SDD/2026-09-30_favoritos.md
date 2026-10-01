@@ -1,6 +1,6 @@
 # [FEAT] Favoritos e listas de favoritos
 
-> **Status:** Rascunho
+> **Status:** Em andamento
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade

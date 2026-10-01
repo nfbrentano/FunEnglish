@@ -1,6 +1,6 @@
 # [FEAT] Autenticação (Sign up, Log in, Log out, reset de senha)
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -51,7 +51,7 @@
 ## Critérios de Aceitação / Entregas
 
 - [x] **CA01:** Dado que estou em `/signup`, quando preencho nome, e-mail válido e senha de 8+ caracteres e envio, então a conta é criada, o documento `users/{uid}` existe com `role: "teacher"`, recebo e-mail de verificação e fico logado.
-- [ ] **CA02:** Dado que clico "Continue with Google", quando autorizo no popup, então fico logado e, se for o primeiro acesso, o documento `users/{uid}` é criado. _(pendente: o fluxo com popup do Google só é testável em produção, depois de ativar o provedor Google em Authentication > Método de login)_
+- [x] **CA02:** Dado que clico "Continue with Google", quando autorizo no popup, então fico logado e, se for o primeiro acesso, o documento `users/{uid}` é criado. _(validado em produção pelo PO)_
 - [x] **CA03:** Dado uma conta existente, quando faço login com e-mail e senha corretos, então o cabeçalho passa a mostrar meu avatar.
 - [x] **CA04:** Dado que informo meu e-mail em `/reset-password`, quando envio, então vejo "If an account exists, we sent you a reset link" (mesma mensagem para e-mail inexistente).
 - [x] **CA05:** Dado que estou logado, quando clico "Log out", então a sessão termina e sou levado a `/activities`.
