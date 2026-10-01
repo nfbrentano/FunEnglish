@@ -194,6 +194,11 @@ export const strings = {
     noResults: "No activities found",
     noResultsHint: "Try other words or clear the filters.",
     loadMore: "Load more",
+    activityCount: (n: number) =>
+      `${n.toLocaleString("en-US")} ${n === 1 ? "activity" : "activities"}`,
+    emptyCategory: "No activities in this category yet",
+    browseAll: "Browse all activities",
+    allNew: "All activities, newest first",
     loading: "Loading activities",
   },
 } as const;

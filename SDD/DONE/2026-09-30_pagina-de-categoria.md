@@ -1,6 +1,6 @@
 # [FEAT] Página de categoria ("See All")
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -44,13 +44,13 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que acesso `/activities/speaking`, quando a página carrega, então vejo o cabeçalho "Speaking · Conversation practice" com a contagem correta e a categoria destacada na barra.
-- [ ] **CA02:** Dado larguras de 375, 768 e 1440 px, quando vejo a grade, então ela tem 1, 2–3 e 4 colunas, respectivamente.
-- [ ] **CA03:** Dado a página de Grammar, quando filtro por "Beginner" e busco "questions", então só atividades de Grammar que atendem aos dois critérios aparecem.
-- [ ] **CA04:** Dado 60 atividades na categoria, quando clico "Load more" duas vezes, abro uma atividade e volto, então retorno à mesma posição com os 60 itens carregados.
-- [ ] **CA05:** Dado que clico "See All" em What's New, quando a página abre, então vejo todas as atividades ordenadas da mais nova para a mais antiga.
-- [ ] **CA06 (negativo):** Dado a URL `/activities/cooking`, quando a acesso, então recebo 404.
-- [ ] **CA07 (limite):** Dado uma categoria sem atividades publicadas, quando a acesso, então vejo "No activities in this category yet" e link para o catálogo.
+- [x] **CA01:** Dado que acesso `/activities/speaking`, quando a página carrega, então vejo o cabeçalho "Speaking · Conversation practice" com a contagem correta e a categoria destacada na barra.
+- [x] **CA02:** Dado larguras de 375, 768 e 1440 px, quando vejo a grade, então ela tem 1, 2–3 e 4 colunas, respectivamente.
+- [x] **CA03:** Dado a página de Grammar, quando filtro por "Beginner" e busco "questions", então só atividades de Grammar que atendem aos dois critérios aparecem.
+- [x] **CA04:** Dado 60 atividades na categoria, quando clico "Load more" duas vezes, abro uma atividade e volto, então retorno à mesma posição com os 60 itens carregados. _(Validado com a rolagem ao voltar do player; o "Load more" restaurado é coberto no teste de componente, pois o acervo ainda não tem 25+ atividades numa categoria. A posição fica no `history.state` da entrada, então só Voltar/Avançar restaura.)_
+- [x] **CA05:** Dado que clico "See All" em What's New, quando a página abre, então vejo todas as atividades ordenadas da mais nova para a mais antiga.
+- [x] **CA06 (negativo):** Dado a URL `/activities/cooking`, quando a acesso, então recebo 404.
+- [x] **CA07 (limite):** Dado uma categoria sem atividades publicadas, quando a acesso, então vejo "No activities in this category yet" e link para o catálogo.
 
 ## O que a atividade não inclui
 
