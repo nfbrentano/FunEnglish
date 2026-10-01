@@ -1,5 +1,5 @@
-import { doc, getDoc } from "firebase/firestore";
-import { getDb } from "../firebase";
+import { doc, getDoc } from "firebase/firestore/lite";
+import { getLiteDb } from "../firebase";
 import {
   CATALOG_COLLECTION,
   CATALOG_INDEX_DOC,
@@ -13,9 +13,9 @@ export const EMPTY_CATALOG: CatalogIndex = {
   items: [],
 };
 
-/** Reads `catalog/index` (one Firestore read). Invalid or missing data yields an empty catalog. */
+/** Reads `catalog/index` (one Firestore read, over REST). Invalid or missing data yields an empty catalog. */
 export async function fetchCatalogIndex(): Promise<CatalogIndex> {
-  const snapshot = await getDoc(doc(getDb(), CATALOG_COLLECTION, CATALOG_INDEX_DOC));
+  const snapshot = await getDoc(doc(getLiteDb(), CATALOG_COLLECTION, CATALOG_INDEX_DOC));
   if (!snapshot.exists()) return EMPTY_CATALOG;
 
   const parsed = catalogIndexSchema.safeParse(snapshot.data());

@@ -1,6 +1,6 @@
 # [FEAT] Busca, filtros e ordenação de atividades
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -43,20 +43,20 @@
 
 ### Recursos necessários
 
-- Lista de tags padronizadas (tópicos gramaticais, temas).
+- Lista de tags padronizadas (tópicos gramaticais, temas): fica para a spec de conteúdo inicial.
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou em `/activities`, quando digito "irregular verbs", então em até 300 ms após parar de digitar vejo só as atividades correspondentes e o contador "Showing N activities" com o número correto.
-- [ ] **CA02:** Dado o filtro de categoria, quando escolho "Listening", então só atividades de Listening aparecem.
-- [ ] **CA03:** Dado uma atividade com níveis Beginner–Intermediate, quando filtro por "Intermediate", então ela aparece; quando filtro por "Advanced", então ela não aparece.
-- [ ] **CA04:** Dado resultados na tela, quando escolho "Title: A-Z", então ficam em ordem alfabética crescente; com "Title: Z-A", decrescente.
-- [ ] **CA05:** Dado busca "idioms", categoria Vocabulary e nível Advanced, quando copio a URL e abro em outra aba, então os mesmos filtros e resultados são exibidos; e o botão voltar desfaz o último filtro.
-- [ ] **CA06:** Dado uma atividade chamada "Café Vocabulary", quando busco "cafe", então ela aparece.
-- [ ] **CA07:** Dado mais de 24 resultados, quando clico em "Load more", então os próximos 24 são anexados à grade.
-- [ ] **CA08:** Dado filtros ativos, quando clico em "Clear filters", então a URL volta para `/activities` e os carrosséis reaparecem.
-- [ ] **CA09 (limite):** Dado a busca "xyzqwe", quando não há resultados, então vejo "No activities found" e o botão "Clear filters".
-- [ ] **CA10 (negativo):** Dado que digito 20 caracteres na busca, quando observo a aba Network, então nenhuma requisição ao Firestore é feita por tecla.
+- [x] **CA01:** Dado que estou em `/activities`, quando digito "irregular verbs", então em até 300 ms após parar de digitar vejo só as atividades correspondentes e o contador "Showing N activities" com o número correto.
+- [x] **CA02:** Dado o filtro de categoria, quando escolho "Listening", então só atividades de Listening aparecem.
+- [x] **CA03:** Dado uma atividade com níveis Beginner–Intermediate, quando filtro por "Intermediate", então ela aparece; quando filtro por "Advanced", então ela não aparece.
+- [x] **CA04:** Dado resultados na tela, quando escolho "Title: A-Z", então ficam em ordem alfabética crescente; com "Title: Z-A", decrescente.
+- [x] **CA05:** Dado busca "idioms", categoria Vocabulary e nível Advanced, quando copio a URL e abro em outra aba, então os mesmos filtros e resultados são exibidos; e o botão voltar desfaz o último filtro.
+- [x] **CA06:** Dado uma atividade chamada "Café Vocabulary", quando busco "cafe", então ela aparece.
+- [x] **CA07:** Dado mais de 24 resultados, quando clico em "Load more", então os próximos 24 são anexados à grade.
+- [x] **CA08:** Dado filtros ativos, quando clico em "Clear filters", então a URL volta para `/activities` e os carrosséis reaparecem.
+- [x] **CA09 (limite):** Dado a busca "xyzqwe", quando não há resultados, então vejo "No activities found" e o botão "Clear filters".
+- [x] **CA10 (negativo):** Dado que digito 20 caracteres na busca, quando observo a aba Network, então nenhuma requisição ao Firestore é feita por tecla.
 
 ## O que a atividade não inclui
 
@@ -74,7 +74,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Usar lib de busca no cliente (ex.: MiniSearch/Fuse.js) ou filtro simples por tokens? | Dev | Não | Sugestão: MiniSearch (leve, suporta prefixo) |
+| D01 | Usar lib de busca no cliente (ex.: MiniSearch/Fuse.js) ou filtro simples por tokens? | Dev | Não | Filtro próprio, sem dependência: cada palavra da busca precisa iniciar alguma palavra do título, descrição ou tags (sem acentos/maiúsculas). Suficiente até ~2.000 atividades; trocar por MiniSearch se precisar de ranking |
 
 ## Sugestões de casos de teste
 
