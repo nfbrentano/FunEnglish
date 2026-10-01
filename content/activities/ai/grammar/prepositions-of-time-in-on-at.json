@@ -1,0 +1,45 @@
+{
+  "slug": "prepositions-of-time-in-on-at",
+  "title": "Prepositions of Time: in, on, at",
+  "description": "Complete the sentences with in, on or at. Drag or tap the words into the gaps.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["prepositions", "time", "in on at"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/prepositions-of-time-in-on-at/thumb.webp",
+    "alt": "A clock, a calendar page and a sun over the word 'at'",
+    "source": "ai"
+  },
+  "content": {
+    "mode": "word-bank",
+    "items": [
+      {
+        "text": "The class starts [[at]] 9 o'clock."
+      },
+      {
+        "text": "My birthday is [[in]] June."
+      },
+      {
+        "text": "We don't have school [[on]] Saturdays."
+      },
+      {
+        "text": "I like to read [[at]] night."
+      },
+      {
+        "text": "She was born [[in]] 2010."
+      },
+      {
+        "text": "The party is [[on]] Friday evening."
+      },
+      {
+        "text": "It's very cold here [[in]] the winter."
+      },
+      {
+        "text": "I always call my mom [[on]] her birthday."
+      }
+    ]
+  }
+}

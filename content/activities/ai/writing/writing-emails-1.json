@@ -1,0 +1,91 @@
+{
+  "slug": "writing-emails-1",
+  "title": "Writing Emails 1",
+  "description": "Short, real-life emails: invitations, thank-you notes, questions and cancellations. Aim for 60–80 words.",
+  "category": "writing",
+  "type": "prompt-cards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["emails", "functional writing", "formal and informal"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/writing-emails-1/thumb.webp",
+    "alt": "An envelope with an @ symbol and a paper airplane",
+    "source": "ai"
+  },
+  "content": {
+    "writing": true,
+    "cards": [
+      {
+        "prompt": "Your friend invited you to a party on Saturday, but you can't go. Write a short email: thank them, explain why you can't go and suggest another plan.",
+        "followUps": [
+          "Did you start with a greeting and finish with a closing?",
+          "Is your email between 60 and 80 words?"
+        ],
+        "vocabulary": [
+          "Thanks so much for…",
+          "Unfortunately…",
+          "How about…?",
+          "I was wondering if…",
+          "Best wishes,"
+        ]
+      },
+      {
+        "prompt": "You saw an ad for a used bike. Write an email to the seller: ask two questions about the bike and suggest a time to see it.",
+        "followUps": [
+          "Did you start with a greeting and finish with a closing?",
+          "Is your email between 60 and 80 words?"
+        ],
+        "vocabulary": [
+          "Thanks so much for…",
+          "Unfortunately…",
+          "How about…?",
+          "I was wondering if…",
+          "Best wishes,"
+        ]
+      },
+      {
+        "prompt": "A colleague helped you with a difficult project. Write a short thank-you email and offer to help them in the future.",
+        "followUps": [
+          "Did you start with a greeting and finish with a closing?",
+          "Is your email between 60 and 80 words?"
+        ],
+        "vocabulary": [
+          "Thanks so much for…",
+          "Unfortunately…",
+          "How about…?",
+          "I was wondering if…",
+          "Best wishes,"
+        ]
+      },
+      {
+        "prompt": "You need to cancel a dentist appointment. Write a polite email: apologize, explain briefly and ask for a new date.",
+        "followUps": [
+          "Did you start with a greeting and finish with a closing?",
+          "Is your email between 60 and 80 words?"
+        ],
+        "vocabulary": [
+          "Thanks so much for…",
+          "Unfortunately…",
+          "How about…?",
+          "I was wondering if…",
+          "Best wishes,"
+        ]
+      },
+      {
+        "prompt": "Your teacher asked for ideas for the end-of-year trip. Write an email with one idea and two reasons why it's a good choice.",
+        "followUps": [
+          "Did you start with a greeting and finish with a closing?",
+          "Is your email between 60 and 80 words?"
+        ],
+        "vocabulary": [
+          "Thanks so much for…",
+          "Unfortunately…",
+          "How about…?",
+          "I was wondering if…",
+          "Best wishes,"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "slug": "short-ads-and-notices",
+  "title": "Short Ads and Notices",
+  "description": "Real-life classified ads full of useful abbreviations. Read carefully and choose the true answer.",
+  "category": "reading",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["ads", "abbreviations", "everyday English", "reading"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/short-ads-and-notices/thumb.webp",
+    "alt": "A community notice board covered with paper ads",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Ad: \"Room for rent. $650/month, utilities included. No pets. Non-smokers only.\" — Which is true?",
+        "options": [
+          {
+            "text": "The rent includes electricity and water.",
+            "correct": true
+          },
+          {
+            "text": "You can bring a dog."
+          },
+          {
+            "text": "Smoking is allowed in the garden."
+          },
+          {
+            "text": "Utilities cost extra."
+          }
+        ],
+        "explanation": "Utilities = electricity, water, gas. \"Included\" = you don't pay extra."
+      },
+      {
+        "prompt": "Ad: \"Part-time barista wanted. Weekends only. Experience preferred but not required.\" — Who can apply?",
+        "options": [
+          {
+            "text": "Someone without experience who is free on weekends.",
+            "correct": true
+          },
+          {
+            "text": "Only people with experience."
+          },
+          {
+            "text": "Someone looking for a full-time job."
+          },
+          {
+            "text": "Someone free only on weekdays."
+          }
+        ],
+        "explanation": "\"Preferred but not required\" = nice to have, but not necessary."
+      },
+      {
+        "prompt": "Ad: \"Lost: black cat, answers to \"Shadow\". Reward offered. Call 555-0147.\" — What does \"reward offered\" mean?",
+        "options": [
+          {
+            "text": "The owner will give money to the person who finds the cat.",
+            "correct": true
+          },
+          {
+            "text": "The cat is for sale."
+          },
+          {
+            "text": "The owner found the cat."
+          },
+          {
+            "text": "The cat is free to a good home."
+          }
+        ],
+        "explanation": "A reward is money you get for helping."
+      },
+      {
+        "prompt": "Ad: \"Moving sale! Everything must go. Saturday 8–2. No early birds, please.\" — What does \"no early birds\" mean here?",
+        "options": [
+          {
+            "text": "Don't arrive before 8 a.m.",
+            "correct": true
+          },
+          {
+            "text": "Birds are not allowed."
+          },
+          {
+            "text": "Come early to get the best things."
+          },
+          {
+            "text": "The sale ends early."
+          }
+        ],
+        "explanation": "Early birds = people who come before the start time."
+      },
+      {
+        "prompt": "Ad: \"Bike for sale, $120 OBO. Barely used.\" — What does OBO mean?",
+        "options": [
+          {
+            "text": "The seller might accept a lower price.",
+            "correct": true
+          },
+          {
+            "text": "The bike is broken."
+          },
+          {
+            "text": "The price is fixed."
+          },
+          {
+            "text": "The bike is only $1.20."
+          }
+        ],
+        "explanation": "OBO = or best offer."
+      },
+      {
+        "prompt": "Ad: \"Gym membership: first month free, then $29.99/month. 12-month contract required.\" — Which is true?",
+        "options": [
+          {
+            "text": "You must stay a member for a year.",
+            "correct": true
+          },
+          {
+            "text": "You can cancel any time."
+          },
+          {
+            "text": "Every month is free."
+          },
+          {
+            "text": "The contract is for one month."
+          }
+        ],
+        "explanation": "A 12-month contract = you agree to stay for a year."
+      },
+      {
+        "prompt": "Ad: \"Tutor available: math and science, grades 6–9. Online or in person.\" — Who can this tutor help?",
+        "options": [
+          {
+            "text": "An 8th grader with science homework, online.",
+            "correct": true
+          },
+          {
+            "text": "A college student with history."
+          },
+          {
+            "text": "A 3rd grader with reading."
+          },
+          {
+            "text": "Only students who come in person."
+          }
+        ],
+        "explanation": "Grades 6–9, math and science, online or in person."
+      },
+      {
+        "prompt": "Ad: \"Café hours: Mon–Fri 7–7, Sat 8–3, closed Sundays.\" — When can you buy coffee there?",
+        "options": [
+          {
+            "text": "On Saturday at 2 p.m.",
+            "correct": true
+          },
+          {
+            "text": "On Sunday at 10 a.m."
+          },
+          {
+            "text": "On Saturday at 5 p.m."
+          },
+          {
+            "text": "On Monday at 8 p.m."
+          }
+        ],
+        "explanation": "Saturday is open from 8 to 3."
+      }
+    ]
+  }
+}

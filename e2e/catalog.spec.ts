@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
 
-// Seeded by e2e/global-setup.ts: 5 example activities (content/activities) + 6 grammar fixtures
-// + 1 grammar draft. Categories without published activities: pictures, reading, videos, writing.
-const PUBLISHED = 11;
+import { PUBLISHED } from "./seed-data";
+
+// Seeded by e2e/global-setup.ts: the real content (content/activities) + 6 grammar fixtures + drafts.
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/activities");
@@ -22,22 +22,26 @@ test("What's New lists the newest activities first with the New badge", async ({
   const whatsNew = page.getByRole("region", { name: "What's New", exact: true });
   const titles = whatsNew.getByRole("heading", { level: 3 });
 
-  await expect(titles).toHaveCount(PUBLISHED);
+  await expect(titles).toHaveCount(Math.min(PUBLISHED, 20));
   await expect(titles.first()).toHaveText("Fixture Grammar 6");
   await expect(whatsNew.getByText("New", { exact: true }).first()).toBeVisible();
 });
 
-test("one carousel per category with activities, in catalog order", async ({ page }) => {
+test("one carousel per category, in catalog order", async ({ page }) => {
+  // Empty categories are skipped: covered by the sectionsByCategory unit test.
   const headings = page.getByRole("heading", { level: 2 });
   await expect(headings).toHaveText([
     "What's New",
     "Fun",
     "Grammar",
     "Listening",
+    "Pictures",
+    "Reading",
     "Speaking",
+    "Videos",
     "Vocabulary",
+    "Writing",
   ]);
-  await expect(page.getByRole("heading", { level: 2, name: "Writing" })).toHaveCount(0);
 });
 
 test("See All opens the category page", async ({ page }) => {
@@ -78,6 +82,7 @@ test.describe("desktop carousel", () => {
 
 test("drafts never show up", async ({ page }) => {
   await expect(page.getByText("Secret Draft Activity")).toHaveCount(0);
+  await expect(page.getByText("Picture Description 1")).toHaveCount(0);
   // No static page; the player shell can't read it either (Firestore rules).
   await page.goto("/play/fixture-secret-draft");
   await expect(page.getByRole("heading", { name: "Activity not found" })).toBeVisible();

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
+import { PUBLISHED } from "./seed-data";
 
-// Same seed as catalog.spec.ts: 11 published activities (5 examples + 6 grammar fixtures).
+// Same seed as catalog.spec.ts (see e2e/seed-data.ts).
 const search = (page: Page) => page.getByRole("searchbox", { name: "Search activities" });
 const results = (page: Page) => page.getByRole("region", { name: "Search results" });
 const count = (page: Page) => page.getByText(/^Showing \d+ activit/);
@@ -27,12 +28,15 @@ test("multi-word search", async ({ page }) => {
 
 test("category and level filters", async ({ page }) => {
   await page.getByLabel("Category").selectOption("listening");
-  await expect(count(page)).toHaveText("Showing 1 activity");
+  await expect(count(page)).toHaveText("Showing 3 activities");
 
   await page.getByLabel("Category").selectOption("grammar");
   await page.getByLabel("Level").selectOption("beginner");
-  // Some or Any is Beg–Inter; the fixtures are Inter–Adv.
-  await expect(results(page).getByRole("heading", { level: 3 })).toHaveText(["Some or Any"]);
+  // Some or Any and the prepositions activity are Beg–Inter; the fixtures are Inter–Adv.
+  await expect(results(page).getByRole("heading", { level: 3 })).toHaveText([
+    "Some or Any",
+    "Prepositions of Time: in, on, at",
+  ]);
 
   await page.getByLabel("Level").selectOption("advanced");
   await expect(count(page)).toHaveText("Showing 6 activities");
@@ -77,7 +81,7 @@ test("Clear filters brings back the carousels", async ({ page }) => {
   await expect(page).toHaveURL(/\/activities$/);
   await expect(search(page)).toHaveValue("");
   await expect(page.getByRole("heading", { level: 2, name: "What's New" })).toBeVisible();
-  await expect(count(page)).toHaveText("Showing 11 activities");
+  await expect(count(page)).toHaveText(`Showing ${PUBLISHED} activities`);
 });
 
 test("no results", async ({ page }) => {

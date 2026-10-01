@@ -1,0 +1,7 @@
+NOME DO ARQUIVO: kitchen-items--whisk.png
+(salve a imagem gerada com exatamente este nome; pode ser .png, .jpg ou .webp)
+Destino final: public/images/activities/kitchen-items/whisk.webp (o comando npm run images:import coloca lá)
+Tamanho: up to 1600px wide
+
+PROMPT (copie tudo abaixo):
+A metal whisk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.

@@ -1,0 +1,164 @@
+{
+  "slug": "big-buck-bunny-watch-and-answer",
+  "title": "Big Buck Bunny: Watch and Answer",
+  "description": "Watch the short animated film (no dialogue) and answer simple questions about the story. Open movie by the Blender Foundation (CC BY).",
+  "category": "videos",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["animation", "story", "short film", "past simple"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/big-buck-bunny-watch-and-answer/thumb.webp",
+    "alt": "A big friendly rabbit standing in a sunny forest",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Watch the film. What kind of animal is the main character?",
+        "options": [
+          {
+            "text": "A rabbit",
+            "correct": true
+          },
+          {
+            "text": "A bear"
+          },
+          {
+            "text": "A squirrel"
+          },
+          {
+            "text": "A mouse"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "The main character is a big, friendly rabbit (a bunny)."
+      },
+      {
+        "prompt": "At the beginning, how does the bunny feel?",
+        "options": [
+          {
+            "text": "Happy and relaxed",
+            "correct": true
+          },
+          {
+            "text": "Angry"
+          },
+          {
+            "text": "Scared"
+          },
+          {
+            "text": "Bored"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "He enjoys the sunny morning in the forest."
+      },
+      {
+        "prompt": "Who bothers the bunny?",
+        "options": [
+          {
+            "text": "Three small rodents",
+            "correct": true
+          },
+          {
+            "text": "A big bear"
+          },
+          {
+            "text": "A fox and a wolf"
+          },
+          {
+            "text": "Two birds"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "Three small animals (rodents) play mean tricks on him."
+      },
+      {
+        "prompt": "What do they throw at him?",
+        "options": [
+          {
+            "text": "Fruit and nuts",
+            "correct": true
+          },
+          {
+            "text": "Rocks and sticks"
+          },
+          {
+            "text": "Snowballs"
+          },
+          {
+            "text": "Water balloons"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "They throw fruit and nuts from the trees."
+      },
+      {
+        "prompt": "What makes the bunny decide to fight back?",
+        "options": [
+          {
+            "text": "They hurt a butterfly.",
+            "correct": true
+          },
+          {
+            "text": "They steal his food."
+          },
+          {
+            "text": "They break his house."
+          },
+          {
+            "text": "They laugh at his ears."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "He gets angry when they hurt the butterfly."
+      },
+      {
+        "prompt": "How does the bunny get revenge?",
+        "options": [
+          {
+            "text": "He builds traps.",
+            "correct": true
+          },
+          {
+            "text": "He calls the police."
+          },
+          {
+            "text": "He moves to another forest."
+          },
+          {
+            "text": "He cries and goes home."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "YE7VzlLtp-4",
+          "start": 0
+        },
+        "explanation": "He prepares clever traps for the bullies."
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "slug": "minimal-pairs-ship-or-sheep",
+  "title": "Minimal Pairs: Ship or Sheep?",
+  "description": "Listen to one word and choose which one you hear. Great for pronunciation practice.",
+  "category": "listening",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["pronunciation", "minimal pairs", "vowels", "listening"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/minimal-pairs-ship-or-sheep/thumb.webp",
+    "alt": "A small ship and a fluffy sheep side by side",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "ship",
+            "correct": true
+          },
+          {
+            "text": "sheep"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "ship"
+        },
+        "explanation": "Ship has a short /ɪ/ sound; sheep has a long /iː/ sound."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "ship"
+          },
+          {
+            "text": "sheep",
+            "correct": true
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "sheep"
+        },
+        "explanation": "Sheep has a long /iː/ sound; ship has a short /ɪ/ sound."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "live"
+          },
+          {
+            "text": "leave",
+            "correct": true
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "leave"
+        },
+        "explanation": "Leave has a long /iː/ sound."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "bit",
+            "correct": true
+          },
+          {
+            "text": "beat"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "bit"
+        },
+        "explanation": "Bit has a short /ɪ/ sound; beat has a long /iː/."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "full"
+          },
+          {
+            "text": "fool",
+            "correct": true
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "fool"
+        },
+        "explanation": "Fool has a long /uː/ sound; full has a short /ʊ/."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "cat"
+          },
+          {
+            "text": "cut",
+            "correct": true
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "cut"
+        },
+        "explanation": "Cut has the /ʌ/ sound, like in 'up'."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "bad"
+          },
+          {
+            "text": "bed",
+            "correct": true
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "bed"
+        },
+        "explanation": "Bed has the /e/ sound; bad has the wider /æ/ sound."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "hat",
+            "correct": true
+          },
+          {
+            "text": "hut"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "hat"
+        },
+        "explanation": "Hat has the /æ/ sound; hut has /ʌ/."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "pull",
+            "correct": true
+          },
+          {
+            "text": "pool"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "pull"
+        },
+        "explanation": "Pull has a short /ʊ/ sound; pool has a long /uː/."
+      },
+      {
+        "prompt": "Listen and choose the word you hear.",
+        "options": [
+          {
+            "text": "seat",
+            "correct": true
+          },
+          {
+            "text": "sit"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "seat"
+        },
+        "explanation": "Seat has a long /iː/ sound; sit has a short /ɪ/."
+      }
+    ]
+  }
+}

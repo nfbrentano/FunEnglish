@@ -1,0 +1,104 @@
+{
+  "slug": "picture-description-1",
+  "title": "Picture Description 1",
+  "description": "Describe busy, detailed scenes: who you can see, what they're doing and what might happen next.",
+  "category": "pictures",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "advanced",
+  "tags": ["describing", "present continuous", "speaking"],
+  "status": "draft",
+  "thumbnail": {
+    "src": "/images/activities/picture-description-1/thumb.webp",
+    "alt": "A busy city street scene full of people",
+    "source": "ai"
+  },
+  "content": {
+    "cards": [
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/1.webp",
+          "alt": "A busy farmers' market with stalls of fruit and vegetables",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["stall", "customer", "fresh", "bargain"]
+      },
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/2.webp",
+          "alt": "A family having a picnic in a park on a sunny day",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["blanket", "basket", "relax", "shade"]
+      },
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/3.webp",
+          "alt": "A crowded train station at rush hour",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["platform", "commuter", "delay", "in a hurry"]
+      },
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/4.webp",
+          "alt": "A classroom where students are doing a science experiment",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["experiment", "lab coat", "careful", "result"]
+      },
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/5.webp",
+          "alt": "A rainy street with people holding umbrellas",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["puddle", "soaked", "umbrella", "traffic"]
+      },
+      {
+        "prompt": "Describe this picture. What can you see?",
+        "image": {
+          "src": "/images/activities/picture-description-1/6.webp",
+          "alt": "A beach with people swimming, surfing and building sandcastles",
+          "source": "ai"
+        },
+        "followUps": [
+          "What are the people doing?",
+          "Where do you think this is?",
+          "What might happen next?"
+        ],
+        "vocabulary": ["wave", "sunscreen", "sandcastle", "lifeguard"]
+      }
+    ]
+  }
+}

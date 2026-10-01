@@ -1,0 +1,204 @@
+{
+  "slug": "listen-and-choose-numbers-and-prices",
+  "title": "Listen and Choose: Numbers and Prices",
+  "description": "Listen to short sentences and choose the number, price or time you hear.",
+  "category": "listening",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["numbers", "prices", "time", "listening"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/listen-and-choose-numbers-and-prices/thumb.webp",
+    "alt": "A price tag, a clock and a phone keypad",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Listen. How much is the coffee?",
+        "options": [
+          {
+            "text": "$3.50",
+            "correct": true
+          },
+          {
+            "text": "$3.15"
+          },
+          {
+            "text": "$13.50"
+          },
+          {
+            "text": "$30.50"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "The coffee is three dollars and fifty cents."
+        },
+        "explanation": "\"Three dollars and fifty cents\" = $3.50."
+      },
+      {
+        "prompt": "Listen. What time does the train leave?",
+        "options": [
+          {
+            "text": "7:15",
+            "correct": true
+          },
+          {
+            "text": "7:45"
+          },
+          {
+            "text": "6:45"
+          },
+          {
+            "text": "7:50"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "The train leaves at a quarter past seven."
+        },
+        "explanation": "\"A quarter past seven\" = 7:15."
+      },
+      {
+        "prompt": "Listen. How many students are in the class?",
+        "options": [
+          {
+            "text": "14",
+            "correct": true
+          },
+          {
+            "text": "40"
+          },
+          {
+            "text": "4"
+          },
+          {
+            "text": "41"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "There are fourteen students in my class."
+        },
+        "explanation": "Fourteen (14) has stress at the end: four-TEEN. Forty (40) has stress at the start: FOR-ty."
+      },
+      {
+        "prompt": "Listen. What's the phone number?",
+        "options": [
+          {
+            "text": "555-2819",
+            "correct": true
+          },
+          {
+            "text": "555-2891"
+          },
+          {
+            "text": "555-8219"
+          },
+          {
+            "text": "552-2819"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "My number is five five five, two eight one nine."
+        },
+        "explanation": "We usually say phone numbers one digit at a time."
+      },
+      {
+        "prompt": "Listen. How much are the shoes?",
+        "options": [
+          {
+            "text": "$60",
+            "correct": true
+          },
+          {
+            "text": "$16"
+          },
+          {
+            "text": "$66"
+          },
+          {
+            "text": "$70"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "These shoes are on sale for sixty dollars."
+        },
+        "explanation": "Sixty (60) – stress at the start: SIX-ty."
+      },
+      {
+        "prompt": "Listen. What year was she born?",
+        "options": [
+          {
+            "text": "1998",
+            "correct": true
+          },
+          {
+            "text": "1989"
+          },
+          {
+            "text": "1988"
+          },
+          {
+            "text": "1898"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "She was born in nineteen ninety-eight."
+        },
+        "explanation": "We say years in two parts: nineteen / ninety-eight."
+      },
+      {
+        "prompt": "Listen. What's the room number?",
+        "options": [
+          {
+            "text": "212",
+            "correct": true
+          },
+          {
+            "text": "202"
+          },
+          {
+            "text": "220"
+          },
+          {
+            "text": "2012"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "Your room is number two hundred and twelve."
+        },
+        "explanation": "\"Two hundred and twelve\" = 212."
+      },
+      {
+        "prompt": "Listen. When is the meeting?",
+        "options": [
+          {
+            "text": "Thursday at 3:30",
+            "correct": true
+          },
+          {
+            "text": "Tuesday at 3:30"
+          },
+          {
+            "text": "Thursday at 3:13"
+          },
+          {
+            "text": "Thursday at 2:30"
+          }
+        ],
+        "media": {
+          "kind": "tts",
+          "text": "The meeting is on Thursday at half past three."
+        },
+        "explanation": "\"Half past three\" = 3:30."
+      }
+    ]
+  }
+}

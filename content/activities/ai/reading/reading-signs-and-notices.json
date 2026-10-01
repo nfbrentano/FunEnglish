@@ -1,0 +1,172 @@
+{
+  "slug": "reading-signs-and-notices",
+  "title": "Reading Signs and Notices",
+  "description": "What do these everyday signs really mean? Read each one and choose the best meaning.",
+  "category": "reading",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["signs", "everyday English", "reading"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/reading-signs-and-notices/thumb.webp",
+    "alt": "A wall of colorful street and shop signs",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "The sign says: \"KEEP OFF THE GRASS\". What does it mean?",
+        "options": [
+          {
+            "text": "Don't walk on the grass.",
+            "correct": true
+          },
+          {
+            "text": "Cut the grass."
+          },
+          {
+            "text": "Sit on the grass."
+          },
+          {
+            "text": "The grass is wet."
+          }
+        ],
+        "explanation": "\"Keep off\" means don't go on it."
+      },
+      {
+        "prompt": "The sign says: \"NO PARKING 8 AM – 6 PM\". What does it mean?",
+        "options": [
+          {
+            "text": "You can't park here during the day.",
+            "correct": true
+          },
+          {
+            "text": "Parking is free all day."
+          },
+          {
+            "text": "You can park here only in the morning."
+          },
+          {
+            "text": "The parking lot opens at 8 AM."
+          }
+        ],
+        "explanation": "Between 8 AM and 6 PM parking isn't allowed."
+      },
+      {
+        "prompt": "The sign says: \"WET PAINT\". What does it mean?",
+        "options": [
+          {
+            "text": "Don't touch – the paint isn't dry.",
+            "correct": true
+          },
+          {
+            "text": "Paint is for sale."
+          },
+          {
+            "text": "The wall is dirty."
+          },
+          {
+            "text": "Painters wanted."
+          }
+        ],
+        "explanation": "Wet = not dry yet."
+      },
+      {
+        "prompt": "The sign says: \"STAFF ONLY\". What does it mean?",
+        "options": [
+          {
+            "text": "Only employees can go in.",
+            "correct": true
+          },
+          {
+            "text": "Customers must wait here."
+          },
+          {
+            "text": "The staff is on vacation."
+          },
+          {
+            "text": "Ask for help here."
+          }
+        ],
+        "explanation": "Staff = the people who work there."
+      },
+      {
+        "prompt": "The sign says: \"SOLD OUT\". What does it mean?",
+        "options": [
+          {
+            "text": "There are none left to buy.",
+            "correct": true
+          },
+          {
+            "text": "Everything is on sale."
+          },
+          {
+            "text": "The store is closed today."
+          },
+          {
+            "text": "Buy one, get one free."
+          }
+        ],
+        "explanation": "Sold out = they sold everything."
+      },
+      {
+        "prompt": "The sign says: \"OUT OF ORDER (on an elevator)\". What does it mean?",
+        "options": [
+          {
+            "text": "It isn't working.",
+            "correct": true
+          },
+          {
+            "text": "Wait in line."
+          },
+          {
+            "text": "It's going down only."
+          },
+          {
+            "text": "Use it in order."
+          }
+        ],
+        "explanation": "Out of order = broken."
+      },
+      {
+        "prompt": "The sign says: \"PLEASE WAIT TO BE SEATED\". What does it mean?",
+        "options": [
+          {
+            "text": "Someone will show you to a table.",
+            "correct": true
+          },
+          {
+            "text": "Sit wherever you like."
+          },
+          {
+            "text": "The restaurant is full."
+          },
+          {
+            "text": "Pay before you sit down."
+          }
+        ],
+        "explanation": "In many restaurants, a host takes you to your table."
+      },
+      {
+        "prompt": "The sign says: \"BUY ONE, GET ONE FREE\". What does it mean?",
+        "options": [
+          {
+            "text": "You get two for the price of one.",
+            "correct": true
+          },
+          {
+            "text": "Everything is free today."
+          },
+          {
+            "text": "You can only buy one."
+          },
+          {
+            "text": "The second one is half price."
+          }
+        ],
+        "explanation": "Often written as BOGO."
+      }
+    ]
+  }
+}

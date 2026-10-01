@@ -1,0 +1,178 @@
+{
+  "slug": "sintel-watch-and-answer",
+  "title": "Sintel: Watch and Answer",
+  "description": "A fantasy short film about a young woman searching for a dragon. Watch it, answer, and discuss the ending. Contains some fantasy violence. Open movie by the Blender Foundation (CC BY).",
+  "category": "videos",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["fantasy", "story", "short film", "teens"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/sintel-watch-and-answer/thumb.webp",
+    "alt": "A young woman with a staff standing on a snowy mountain",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Watch the film. What is Sintel looking for?",
+        "options": [
+          {
+            "text": "A dragon",
+            "correct": true
+          },
+          {
+            "text": "Her brother"
+          },
+          {
+            "text": "A lost city"
+          },
+          {
+            "text": "A magic sword"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "eRsGyueVLvQ",
+          "start": 0
+        },
+        "explanation": "She tells the old man she is searching for a dragon."
+      },
+      {
+        "prompt": "How did Sintel meet the baby dragon?",
+        "options": [
+          {
+            "text": "She found it hurt and took care of it.",
+            "correct": true
+          },
+          {
+            "text": "She bought it at a market."
+          },
+          {
+            "text": "It was a gift from her father."
+          },
+          {
+            "text": "It hatched in her house."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "eRsGyueVLvQ",
+          "start": 0
+        },
+        "explanation": "She found the little dragon injured and helped it."
+      },
+      {
+        "prompt": "What name did she give the dragon?",
+        "options": [
+          {
+            "text": "Scales",
+            "correct": true
+          },
+          {
+            "text": "Shadow"
+          },
+          {
+            "text": "Flame"
+          },
+          {
+            "text": "Sky"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "eRsGyueVLvQ",
+          "start": 0
+        },
+        "explanation": "She called the baby dragon Scales."
+      },
+      {
+        "prompt": "What happened to the baby dragon?",
+        "options": [
+          {
+            "text": "An adult dragon carried it away.",
+            "correct": true
+          },
+          {
+            "text": "It flew away alone."
+          },
+          {
+            "text": "Hunters caught it."
+          },
+          {
+            "text": "It got sick."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "eRsGyueVLvQ",
+          "start": 0
+        },
+        "explanation": "A big dragon took it away, so she went to find it."
+      },
+      {
+        "prompt": "What is the surprising truth at the end?",
+        "options": [
+          {
+            "text": "The big dragon she fought was Scales, grown up.",
+            "correct": true
+          },
+          {
+            "text": "Scales was never a real dragon."
+          },
+          {
+            "text": "The old man was the dragon."
+          },
+          {
+            "text": "Sintel was dreaming."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "eRsGyueVLvQ",
+          "start": 0
+        },
+        "explanation": "Many years had passed, and Scales had grown up."
+      },
+      {
+        "prompt": "Why didn't she recognize Scales?",
+        "options": [
+          {
+            "text": "Many years had passed and Scales had grown.",
+            "correct": true
+          },
+          {
+            "text": "It was too dark to see."
+          },
+          {
+            "text": "Scales was wearing armor."
+          },
+          {
+            "text": "She had lost her memory."
+          }
+        ],
+        "explanation": "The film shows that time passed while she was searching."
+      },
+      {
+        "prompt": "How would you describe the ending?",
+        "options": [
+          {
+            "text": "Sad",
+            "correct": true
+          },
+          {
+            "text": "Funny"
+          },
+          {
+            "text": "Exciting and happy"
+          },
+          {
+            "text": "Romantic"
+          }
+        ],
+        "explanation": "It's a sad ending. Discuss: what would you have done?"
+      }
+    ]
+  }
+}

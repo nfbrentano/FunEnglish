@@ -1,0 +1,7 @@
+NOME DO ARQUIVO: reading-signs-and-notices--thumb.png
+(salve a imagem gerada com exatamente este nome; pode ser .png, .jpg ou .webp)
+Destino final: public/images/activities/reading-signs-and-notices/thumb.webp (o comando npm run images:import coloca lá)
+Tamanho: 1280x800 (16:10)
+
+PROMPT (copie tudo abaixo):
+A wall of colorful street and shop signs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.

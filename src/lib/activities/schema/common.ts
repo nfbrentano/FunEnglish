@@ -24,6 +24,12 @@ export const youtubeClipSchema = z
 export const mediaSchema = z.discriminatedUnion("kind", [
   imageSchema.extend({ kind: z.literal("image") }),
   z.object({ kind: z.literal("tts"), text: z.string().trim().min(1) }),
+  /** Emoji shown large, as a picture (useful until illustrations exist). */
+  z.object({
+    kind: z.literal("emoji"),
+    text: z.string().trim().min(1),
+    label: z.string().trim().min(1),
+  }),
   youtubeClipSchema,
 ]);
 

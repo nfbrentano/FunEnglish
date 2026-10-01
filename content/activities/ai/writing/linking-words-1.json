@@ -1,0 +1,172 @@
+{
+  "slug": "linking-words-1",
+  "title": "Linking Words: because, so, but, although",
+  "description": "Connect ideas like a good writer. Choose the right linking word for each sentence.",
+  "category": "writing",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["linking words", "connectors", "conjunctions", "writing"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/linking-words-1/thumb.webp",
+    "alt": "Puzzle pieces connected by a chain",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "I was tired, ___ I went to bed early.",
+        "options": [
+          {
+            "text": "so",
+            "correct": true
+          },
+          {
+            "text": "because"
+          },
+          {
+            "text": "but"
+          },
+          {
+            "text": "although"
+          }
+        ],
+        "explanation": "So introduces a result."
+      },
+      {
+        "prompt": "She stayed home ___ she was sick.",
+        "options": [
+          {
+            "text": "because",
+            "correct": true
+          },
+          {
+            "text": "so"
+          },
+          {
+            "text": "but"
+          },
+          {
+            "text": "however"
+          }
+        ],
+        "explanation": "Because introduces a reason."
+      },
+      {
+        "prompt": "It was raining. ___, we went for a walk.",
+        "options": [
+          {
+            "text": "However",
+            "correct": true
+          },
+          {
+            "text": "Because"
+          },
+          {
+            "text": "So"
+          },
+          {
+            "text": "Although"
+          }
+        ],
+        "explanation": "However shows contrast between two sentences."
+      },
+      {
+        "prompt": "___ he studied a lot, he failed the test.",
+        "options": [
+          {
+            "text": "Although",
+            "correct": true
+          },
+          {
+            "text": "Because"
+          },
+          {
+            "text": "So"
+          },
+          {
+            "text": "However"
+          }
+        ],
+        "explanation": "Although + clause shows a surprising contrast."
+      },
+      {
+        "prompt": "I like tea, ___ I don't like coffee.",
+        "options": [
+          {
+            "text": "but",
+            "correct": true
+          },
+          {
+            "text": "so"
+          },
+          {
+            "text": "because"
+          },
+          {
+            "text": "although"
+          }
+        ],
+        "explanation": "But joins two contrasting ideas in one sentence."
+      },
+      {
+        "prompt": "We missed the bus, ___ we took a taxi.",
+        "options": [
+          {
+            "text": "so",
+            "correct": true
+          },
+          {
+            "text": "but"
+          },
+          {
+            "text": "because"
+          },
+          {
+            "text": "although"
+          }
+        ],
+        "explanation": "Taking a taxi is the result of missing the bus."
+      },
+      {
+        "prompt": "He's very rich. ___, he isn't happy.",
+        "options": [
+          {
+            "text": "However",
+            "correct": true
+          },
+          {
+            "text": "Because"
+          },
+          {
+            "text": "So"
+          },
+          {
+            "text": "Although"
+          }
+        ],
+        "explanation": "Use However at the start of a new sentence for contrast."
+      },
+      {
+        "prompt": "___ it was late, the store was still open.",
+        "options": [
+          {
+            "text": "Although",
+            "correct": true
+          },
+          {
+            "text": "Because"
+          },
+          {
+            "text": "So"
+          },
+          {
+            "text": "But"
+          }
+        ],
+        "explanation": "Although = even though."
+      }
+    ]
+  }
+}
