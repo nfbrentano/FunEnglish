@@ -1,8 +1,9 @@
 "use client";
 
-import { Heart, LogOut, Maximize, Minimize, RotateCcw, Share2 } from "lucide-react";
+import { LogOut, Maximize, Minimize, RotateCcw, Share2 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { FavoriteButton } from "@/components/favorites/favorites-ui";
 import type { Progress } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
 
@@ -14,7 +15,7 @@ type PlayerTopBarProps = {
   studentMode: boolean;
   onRestart: () => void;
   onShare: () => void;
-  loginHref: string;
+  activity: { id: string; title: string };
 };
 
 const iconButton =
@@ -44,7 +45,7 @@ export function PlayerTopBar({
   studentMode,
   onRestart,
   onShare,
-  loginHref,
+  activity,
 }: PlayerTopBarProps) {
   const percent =
     progress && progress.total > 0 ? Math.round((progress.current / progress.total) * 100) : 0;
@@ -115,14 +116,12 @@ export function PlayerTopBar({
         )}
         {!studentMode && (
           <>
-            <Link
-              href={loginHref}
-              aria-label={strings.catalog.loginToFavorite}
-              title={strings.catalog.loginToFavorite}
+            <FavoriteButton
+              activityId={activity.id}
+              title={activity.title}
               className={iconButton}
-            >
-              <Heart aria-hidden="true" className="size-5" />
-            </Link>
+              iconClassName="size-5"
+            />
             <IconAction label={strings.catalog.share} onClick={onShare}>
               <Share2 aria-hidden="true" className="size-5" />
             </IconAction>

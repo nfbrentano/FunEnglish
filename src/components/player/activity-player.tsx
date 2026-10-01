@@ -138,7 +138,7 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
             studentMode={studentMode}
             onRestart={start}
             onShare={() => share({ title: activity.title, path: `/play/${activity.slug}` })}
-            loginHref={`/login?next=/play/${activity.slug}`}
+            activity={activity}
           />
           <PlayerErrorBoundary key={run} fallback={loadError}>
             <Plugin

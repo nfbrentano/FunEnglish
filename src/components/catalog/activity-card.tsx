@@ -1,7 +1,8 @@
 "use client";
 
-import { Heart, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
 import Link from "next/link";
+import { FavoriteButton } from "@/components/favorites/favorites-ui";
 import { Badge } from "@/components/ui/badge";
 import { LevelPill } from "@/components/ui/level-pill";
 import { getCategory } from "@/lib/activities/categories";
@@ -39,14 +40,7 @@ export function ActivityCard({ item, imageAvailable, isNew = false, priority }: 
           </span>
         )}
         <div className="absolute top-2 right-2 flex gap-1.5">
-          {/* Placeholder until the favorites spec: visitors are sent to log in. */}
-          <Link
-            href="/login?next=/activities"
-            aria-label={`${strings.catalog.loginToFavorite}: ${item.title}`}
-            className={actionClasses}
-          >
-            <Heart aria-hidden="true" className="size-4" />
-          </Link>
+          <FavoriteButton activityId={item.id} title={item.title} className={actionClasses} />
           <button
             type="button"
             aria-label={`${strings.catalog.share}: ${item.title}`}
