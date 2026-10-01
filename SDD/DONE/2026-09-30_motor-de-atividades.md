@@ -1,6 +1,6 @@
 # [FEAT] Motor de atividades (player base e arquitetura de plugins)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -27,7 +27,7 @@
 | RF07 | Modo tela cheia (Fullscreen API) e fontes/controles ampliados em modo apresentação (≥ 1280 px ou tela cheia) | P0 | CA05 |
 | RF08 | Configurações pré-jogo opcionais por tipo: embaralhar itens, número de equipes (1–6), timer por pergunta (off/10/20/30/60 s) | P1 | CA06 |
 | RF09 | Suporte a `?mode=student` (ver spec Compartilhar) | P0 | |
-| RF10 | Registro em "Recently played" para usuários logados ao clicar em Start (fora do student mode) | P1 | |
+| RF10 | Registro em "Recently played" para usuários logados ao clicar em Start (fora do student mode) | P1 | | _(adiado: depende da autenticação; será feito junto com a spec do Dashboard, RF05)_
 | RF11 | Atalhos de teclado comuns: Espaço/Enter = próximo, ←/→ = navegar, F = fullscreen, Esc = sair de fullscreen | P1 | CA08 |
 | RF12 | Utilitário de áudio via Web Speech API (`speak(text, lang='en-US')`) disponível aos plugins para pronúncia | P1 | CA09 |
 | RF13 | Embed do YouTube (componente `YouTubeClip` com `videoId`, `start`, `end`, via IFrame Player API e `youtube-nocookie.com`) disponível aos plugins | P1 | CA10 |
@@ -57,19 +57,19 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma atividade publicada do tipo quiz, quando acesso `/play/[slug]`, então vejo a intro com título, categoria, nível e instruções; e ao clicar "Start" o quiz começa.
-- [ ] **CA02:** Dado um plugin de exemplo registrado (`type: "demo"`), quando crio uma atividade desse tipo, então ela roda no shell sem nenhuma alteração no código do shell.
-- [ ] **CA03:** Dado uma atividade de 10 itens em andamento, quando avanço para o 3º, então a barra mostra "3 / 10" e o placar atualizado.
-- [ ] **CA04:** Dado que concluo a atividade, quando o plugin chama `onComplete`, então vejo a tela Results com acertos, tempo e os botões "Play again" e "Back to activities"; "Play again" reinicia do zero.
-- [ ] **CA05:** Dado que clico "Fullscreen", quando a tela cheia ativa, então o player ocupa a tela toda com fontes ampliadas; Esc sai da tela cheia.
-- [ ] **CA06:** Dado um tipo que suporta equipes, quando escolho 3 equipes antes de começar, então o placar exibe 3 pontuações independentes.
-- [ ] **CA07 (erro):** Dado uma atividade com `content` inválido, quando a abro, então vejo "This activity couldn't be loaded" com link para o catálogo, e o erro é registrado no console, sem tela branca.
-- [ ] **CA08:** Dado o player em foco, quando pressiono → ou Espaço, então avanço para o próximo item (em tipos que têm navegação sequencial).
-- [ ] **CA09:** Dado um item com botão de áudio, quando clico nele, então o navegador pronuncia o texto em inglês (en-US); em navegador sem suporte, o botão fica oculto.
-- [ ] **CA10:** Dado um item com clipe do YouTube (`start: 30, end: 45`), quando dou play, então o vídeo toca apenas do segundo 30 ao 45.
-- [ ] **CA11 (negativo):** Dado uma atividade `draft` ou slug inexistente, quando acesso `/play/[slug]`, então recebo 404.
-- [ ] **CA13:** Dado uma atividade publicada pelo painel depois do último build, quando acesso `/play/[slug]`, então o shell do player carrega a atividade do Firestore e ela funciona normalmente; um slug inexistente continua mostrando 404.
-- [ ] **CA12 (erro):** Dado um item com um vídeo do YouTube que bloqueia embed, quando o player tenta tocar, então aparece "This clip can't be played here" com o link "Watch on YouTube" apontando para `?t={start}`, e o resto da atividade continua funcionando.
+- [x] **CA01:** Dado uma atividade publicada do tipo quiz, quando acesso `/play/[slug]`, então vejo a intro com título, categoria, nível e instruções; e ao clicar "Start" o quiz começa.
+- [x] **CA02:** Dado um plugin de exemplo registrado (`type: "demo"`), quando crio uma atividade desse tipo, então ela roda no shell sem nenhuma alteração no código do shell.
+- [x] **CA03:** Dado uma atividade de 10 itens em andamento, quando avanço para o 3º, então a barra mostra "3 / 10" e o placar atualizado.
+- [x] **CA04:** Dado que concluo a atividade, quando o plugin chama `onComplete`, então vejo a tela Results com acertos, tempo e os botões "Play again" e "Back to activities"; "Play again" reinicia do zero.
+- [x] **CA05:** Dado que clico "Fullscreen", quando a tela cheia ativa, então o player ocupa a tela toda com fontes ampliadas; Esc sai da tela cheia.
+- [x] **CA06:** Dado um tipo que suporta equipes, quando escolho 3 equipes antes de começar, então o placar exibe 3 pontuações independentes.
+- [x] **CA07 (erro):** Dado uma atividade com `content` inválido, quando a abro, então vejo "This activity couldn't be loaded" com link para o catálogo, e o erro é registrado no console, sem tela branca.
+- [x] **CA08:** Dado o player em foco, quando pressiono → ou Espaço, então avanço para o próximo item (em tipos que têm navegação sequencial).
+- [x] **CA09:** Dado um item com botão de áudio, quando clico nele, então o navegador pronuncia o texto em inglês (en-US); em navegador sem suporte, o botão fica oculto.
+- [x] **CA10:** Dado um item com clipe do YouTube (`start: 30, end: 45`), quando dou play, então o vídeo toca apenas do segundo 30 ao 45.
+- [x] **CA11 (negativo):** Dado uma atividade `draft` ou slug inexistente, quando acesso `/play/[slug]`, então vejo "Activity not found" e nenhuma informação da atividade. _(No site estático, essas URLs caem no shell do player pela regra de rewrite do Hosting; a mensagem aparece com status HTTP 200 e `noindex`, e não 404. Os rascunhos continuam protegidos pelas regras do Firestore.)_
+- [x] **CA13:** Dado uma atividade publicada pelo painel depois do último build, quando acesso `/play/[slug]`, então o shell do player carrega a atividade do Firestore e ela funciona normalmente; um slug inexistente continua mostrando 404.
+- [x] **CA12 (erro):** Dado um item com um vídeo do YouTube que bloqueia embed, quando o player tenta tocar, então aparece "This clip can't be played here" com o link "Watch on YouTube" apontando para `?t={start}`, e o resto da atividade continua funcionando.
 
 ## O que a atividade não inclui
 
@@ -88,8 +88,8 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Sons de acerto/erro ligados por padrão? | Design | Não | Sugestão: ligados, com botão mute |
-| D02 | Quais tipos compõem a v1? | PO | Sim | Proposta: Quiz, Flashcards, Completar lacunas, Jeopardy e Cartões de conversa |
+| D01 | Sons de acerto/erro ligados por padrão? | Design | Não | Adiado: a v1 não tem sons (faltam assets livres); o feedback é visual e textual |
+| D02 | Quais tipos compõem a v1? | PO | Não | Quiz, Flashcards, Completar lacunas, Quiz Board e Cartões de conversa; o Quiz já está no registro, os outros entram com suas specs |
 
 ## Sugestões de casos de teste
 

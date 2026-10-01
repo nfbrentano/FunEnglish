@@ -76,9 +76,11 @@ test.describe("desktop carousel", () => {
   });
 });
 
-test("drafts never show up", async ({ page, request }) => {
+test("drafts never show up", async ({ page }) => {
   await expect(page.getByText("Secret Draft Activity")).toHaveCount(0);
-  expect((await request.get("/play/fixture-secret-draft")).status()).toBe(404);
+  // No static page; the player shell can't read it either (Firestore rules).
+  await page.goto("/play/fixture-secret-draft");
+  await expect(page.getByRole("heading", { name: "Activity not found" })).toBeVisible();
 });
 
 test("the catalog reads only catalog/index, never the activities collection", async ({

@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SITE_NAME, siteUrl } from "@/lib/site";
 import { strings } from "@/lib/strings";
+import { studentModeInitScript } from "@/lib/student-mode-script";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // The init script sets data-theme before hydration, so the attribute differs from the server HTML.
     <html lang="en" suppressHydrationWarning className={`${cormorant.variable} h-full antialiased`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript + studentModeInitScript }} />
       </head>
       <body className="flex min-h-full flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
         <a
