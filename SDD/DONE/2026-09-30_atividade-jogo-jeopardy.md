@@ -1,6 +1,6 @@
 # [FEAT] Tipo de atividade: Jogo de tabuleiro estilo Jeopardy
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -47,15 +47,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um jogo com 5 categorias × 5 valores, quando inicio em 1920×1080, então vejo o tabuleiro completo 5×5 com os nomes das categorias, sem rolagem.
-- [ ] **CA02:** Dado a tela de configuração, quando escolho 3 equipes e renomeio a primeira para "Tigers", então o placar mostra "Tigers", "Team 2" e "Team 3" com 0 pontos.
-- [ ] **CA03:** Dado o tabuleiro, quando clico em "Animals – 300", então a pergunta abre ampliada; ao clicar "Show answer", a resposta aparece.
-- [ ] **CA04:** Dado a resposta revelada, quando clico "Tigers +300", então Tigers passa a ter 300 pontos e volto ao tabuleiro.
-- [ ] **CA05:** Dado que "Animals – 300" foi usada, quando volto ao tabuleiro, então essa célula fica esmaecida e clicar nela não faz nada.
-- [ ] **CA06:** Dado um erro de marcação, quando uso o ajuste manual −100 em Tigers, então o placar é corrigido.
-- [ ] **CA07:** Dado que todas as 25 células foram usadas, quando fecho a última pergunta, então aparece o ranking final com o vencedor em destaque (empates indicados como "Tie").
-- [ ] **CA08 (negativo):** Dado um JSON com uma categoria de 2 pistas (mín. 3), quando o seed valida, então a atividade é rejeitada.
-- [ ] **CA09 (limite):** Dado que clico "No one", quando volto ao tabuleiro, então nenhum placar muda e a célula fica usada.
+- [x] **CA01:** Dado um jogo com 5 categorias × 5 valores, quando inicio em 1920×1080, então vejo o tabuleiro completo 5×5 com os nomes das categorias, sem rolagem.
+- [x] **CA02:** Dado a tela de configuração, quando escolho 3 equipes e renomeio a primeira para "Tigers", então o placar mostra "Tigers", "Team 2" e "Team 3" com 0 pontos.
+- [x] **CA03:** Dado o tabuleiro, quando clico em "Animals – 300", então a pergunta abre ampliada; ao clicar "Show answer", a resposta aparece.
+- [x] **CA04:** Dado a resposta revelada, quando clico "Tigers +300", então Tigers passa a ter 300 pontos e volto ao tabuleiro.
+- [x] **CA05:** Dado que "Animals – 300" foi usada, quando volto ao tabuleiro, então essa célula fica esmaecida e clicar nela não faz nada.
+- [x] **CA06:** Dado um erro de marcação, quando uso o ajuste manual −100 em Tigers, então o placar é corrigido.
+- [x] **CA07:** Dado que todas as 25 células foram usadas, quando fecho a última pergunta, então aparece o ranking final com o vencedor em destaque (empates indicados como "Tie").
+- [x] **CA08 (negativo):** Dado um JSON com uma categoria de 2 pistas (mín. 3), quando o seed valida, então a atividade é rejeitada.
+- [x] **CA09 (limite):** Dado que clico "No one", quando volto ao tabuleiro, então nenhum placar muda e a célula fica usada.
 
 ## O que a atividade não inclui
 
@@ -72,7 +72,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Nome exibido do tipo: "Quiz Board", "Trivia Board" ou outro? | PO | Não | Proposta: "Quiz Board" |
+| D01 | Nome exibido do tipo: "Quiz Board", "Trivia Board" ou outro? | PO | Não | "Quiz Board" |
 
 ## Sugestões de casos de teste
 

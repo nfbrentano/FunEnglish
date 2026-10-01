@@ -5,6 +5,7 @@ import type { z } from "zod";
 import QuizPlayer from "@/components/player/plugins/quiz/quiz-player";
 import type { quizContentSchema } from "@/lib/activities/schema/content";
 import type { PlayerSettings } from "@/lib/player/types";
+import { testSettings } from "./settings";
 
 type Content = z.infer<typeof quizContentSchema>;
 
@@ -17,7 +18,7 @@ const q = (prompt: string, correct = 0, extra: Partial<Content["questions"][numb
 function setup(content: Content, settings: Partial<PlayerSettings> = {}) {
   const props = {
     content,
-    settings: { shuffle: false, teams: 1, timerSeconds: null, ...settings },
+    settings: testSettings(settings),
     onProgress: vi.fn(),
     onScore: vi.fn(),
     onComplete: vi.fn(),

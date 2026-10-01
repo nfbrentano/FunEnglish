@@ -63,6 +63,8 @@ export const fillBlanksContentSchema = z.object({
     .min(1)
     .max(100),
   distractors: z.array(nonEmptyText).default([]),
+  /** Song or video credit shown with the clip ("Song – Artist", linked). */
+  credit: z.object({ title: nonEmptyText, artist: nonEmptyText, url: z.url() }).optional(),
 });
 
 export const quizBoardContentSchema = z.object({

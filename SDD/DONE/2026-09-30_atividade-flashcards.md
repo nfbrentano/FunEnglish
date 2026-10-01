@@ -1,6 +1,6 @@
 # [FEAT] Tipo de atividade: Flashcards de vocabulário
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -45,14 +45,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um deck de 20 cartões, quando inicio, então vejo a frente do cartão 1 e "1 / 20".
-- [ ] **CA02:** Dado um cartão exibindo a frente, quando clico nele ou pressiono Espaço, então ele vira e mostra palavra, definição e exemplo.
-- [ ] **CA03:** Dado o cartão 4, quando pressiono → ou deslizo para a esquerda, então vejo o cartão 5 com a frente para cima.
-- [ ] **CA04:** Dado um cartão com a palavra "giraffe", quando clico no botão de áudio, então o navegador pronuncia "giraffe" em inglês.
-- [ ] **CA05:** Dado "Start with: Word", quando inicio, então os cartões aparecem com o verso (palavra) primeiro.
-- [ ] **CA06:** Dado o modo autoavaliação, quando marco 3 cartões como "Still learning" e chego ao fim, então vejo "Review the 3 cards you're still learning", e ao clicar revejo só esses 3.
-- [ ] **CA07 (negativo):** Dado um cartão sem texto e sem imagem na frente, quando o seed valida, então a atividade é rejeitada.
-- [ ] **CA08 (limite):** Dado o último cartão, quando pressiono →, então a atividade é concluída e aparece a tela Results (quantidade vista e, se houver autoavaliação, quantos "knew it").
+- [x] **CA01:** Dado um deck de 20 cartões, quando inicio, então vejo a frente do cartão 1 e "1 / 20".
+- [x] **CA02:** Dado um cartão exibindo a frente, quando clico nele ou pressiono Espaço, então ele vira e mostra palavra, definição e exemplo.
+- [x] **CA03:** Dado o cartão 4, quando pressiono → ou deslizo para a esquerda, então vejo o cartão 5 com a frente para cima.
+- [x] **CA04:** Dado um cartão com a palavra "giraffe", quando clico no botão de áudio, então o navegador pronuncia "giraffe" em inglês.
+- [x] **CA05:** Dado "Start with: Word", quando inicio, então os cartões aparecem com o verso (palavra) primeiro.
+- [x] **CA06:** Dado o modo autoavaliação, quando marco 3 cartões como "Still learning" e chego ao fim, então vejo "Review the 3 cards you're still learning", e ao clicar revejo só esses 3.
+- [x] **CA07 (negativo):** Dado um cartão sem texto e sem imagem na frente, quando o seed valida, então a atividade é rejeitada.
+- [x] **CA08 (limite):** Dado o último cartão, quando pressiono →, então a atividade é concluída e aparece a tela Results (quantidade vista e, se houver autoavaliação, quantos "knew it").
 
 ## O que a atividade não inclui
 

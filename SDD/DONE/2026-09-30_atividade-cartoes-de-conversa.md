@@ -1,6 +1,6 @@
 # [FEAT] Tipo de atividade: Cartões de conversa e descrição de imagens
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -47,14 +47,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma atividade com 15 cartões com imagem, quando inicio, então vejo o cartão 1 com a imagem em destaque, o prompt e "1 / 15".
-- [ ] **CA02:** Dado um cartão com follow-ups e vocabulário, quando clico "Show follow-up questions", então as perguntas extras aparecem; o vocabulário continua oculto até eu clicar no botão dele.
-- [ ] **CA03:** Dado timer de 1 min, quando clico "Start timer", então a contagem regressiva aparece; ao chegar a 0, a tela pisca/mostra "Time's up!" e toca um som (se o áudio estiver ligado).
-- [ ] **CA04:** Dado 15 cartões, quando clico "Random card" 15 vezes, então cada cartão aparece exatamente uma vez; no 16º clique, vejo "All cards shown – Start over?".
-- [ ] **CA05:** Dado um cartão com `options: ["Cats", "Dogs"]`, quando ele é exibido, então as duas opções aparecem lado a lado com "or" entre elas.
-- [ ] **CA06:** Dado o modo Writing ativo, quando o aluno digita 57 palavras, então o contador mostra "57 words".
-- [ ] **CA07 (negativo):** Dado que o aluno escreveu um texto no modo Writing, quando conclui ou recarrega, então nenhuma requisição com o texto é enviada e o texto é descartado.
-- [ ] **CA08 (negativo):** Dado um cartão sem `prompt` e sem `image`, quando o seed valida, então a atividade é rejeitada.
+- [x] **CA01:** Dado uma atividade com 15 cartões com imagem, quando inicio, então vejo o cartão 1 com a imagem em destaque, o prompt e "1 / 15".
+- [x] **CA02:** Dado um cartão com follow-ups e vocabulário, quando clico "Show follow-up questions", então as perguntas extras aparecem; o vocabulário continua oculto até eu clicar no botão dele.
+- [x] **CA03:** Dado timer de 1 min, quando clico "Start timer", então a contagem regressiva aparece; ao chegar a 0, a tela pisca/mostra "Time's up!" e toca um som (se o áudio estiver ligado).
+- [x] **CA04:** Dado 15 cartões, quando clico "Random card" 15 vezes, então cada cartão aparece exatamente uma vez; no 16º clique, vejo "All cards shown – Start over?".
+- [x] **CA05:** Dado um cartão com `options: ["Cats", "Dogs"]`, quando ele é exibido, então as duas opções aparecem lado a lado com "or" entre elas.
+- [x] **CA06:** Dado o modo Writing ativo, quando o aluno digita 57 palavras, então o contador mostra "57 words".
+- [x] **CA07 (negativo):** Dado que o aluno escreveu um texto no modo Writing, quando conclui ou recarrega, então nenhuma requisição com o texto é enviada e o texto é descartado.
+- [x] **CA08 (negativo):** Dado um cartão sem `prompt` e sem `image`, quando o seed valida, então a atividade é rejeitada.
 
 ## O que a atividade não inclui
 

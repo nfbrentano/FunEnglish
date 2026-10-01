@@ -67,14 +67,6 @@ test("fullscreen", async ({ page, isMobile }) => {
   expect(await page.evaluate(() => document.fullscreenElement !== null)).toBe(true);
 });
 
-test("types that aren't playable yet say so", async ({ page }) => {
-  await page.goto("/play/kitchen-items");
-  await expect(
-    page.getByRole("heading", { name: "This type of activity is coming soon" }),
-  ).toBeVisible();
-  await expect(page.getByRole("button", { name: "Start" })).toHaveCount(0);
-});
-
 test("unknown slugs and drafts show 'Activity not found'", async ({ page }) => {
   for (const slug of ["does-not-exist", "fixture-secret-draft"]) {
     await page.goto(`/play/${slug}`);

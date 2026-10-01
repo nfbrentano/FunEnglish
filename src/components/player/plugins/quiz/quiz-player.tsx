@@ -8,20 +8,12 @@ import type { quizContentSchema } from "@/lib/activities/schema/content";
 import type { PluginProps, ReviewItem } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
 import { ActivityMedia } from "../../media/activity-media";
+import { shuffled } from "../shuffle";
 
 type QuizContent = z.infer<typeof quizContentSchema>;
 type Question = QuizContent["questions"][number];
 
 const LETTERS = "ABCDEF";
-
-function shuffled<T>(items: readonly T[]): T[] {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
 
 function prepare(questions: Question[], shuffle: boolean): Question[] {
   if (!shuffle) return questions;
@@ -170,7 +162,7 @@ export default function QuizPlayer({
       <div className="flex flex-wrap items-center justify-center gap-3">
         {teams > 1 && (
           <p className="rounded-full bg-accent-muted px-3 py-1 text-sm text-accent">
-            {strings.quiz.turn(strings.player.team(team + 1))}
+            {strings.quiz.turn(settings.teamNames[team] ?? strings.player.team(team + 1))}
           </p>
         )}
         {settings.timerSeconds && !answer && (

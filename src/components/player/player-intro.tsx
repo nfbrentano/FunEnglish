@@ -10,8 +10,8 @@ import type { PlayableActivity } from "@/lib/player/load-activity";
 import type { PlayerSettings, RegisteredPlugin } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
 
-const TIMER_OPTIONS = [null, 10, 20, 30, 60] as const;
-const TEAM_OPTIONS = [1, 2, 3, 4, 5, 6] as const;
+const DEFAULT_TIMER_CHOICES = [10, 20, 30, 60];
+const MAX_TEAMS = 6;
 
 type PlayerIntroProps = {
   activity: PlayableActivity;
@@ -26,6 +26,15 @@ type PlayerIntroProps = {
 const fieldClasses =
   "min-h-11 rounded-full border border-border-strong bg-elevated px-4 text-sm text-fg hover:border-accent";
 
+/** Resizes the team list, keeping names already typed. */
+export function withTeamCount(settings: PlayerSettings, teams: number): PlayerSettings {
+  const teamNames = Array.from(
+    { length: teams },
+    (_, i) => settings.teamNames[i] ?? strings.player.team(i + 1),
+  );
+  return { ...settings, teams, teamNames };
+}
+
 /** Title, category, level, instructions and pre-game options. Rendered in the static HTML (SEO). */
 export function PlayerIntro({
   activity,
@@ -37,7 +46,12 @@ export function PlayerIntro({
 }: PlayerIntroProps) {
   const category = getCategory(activity.category)!;
   const supports = plugin?.supports;
+  const minTeams = plugin?.minTeams ?? 1;
   const set = (patch: Partial<PlayerSettings>) => onSettingsChange({ ...settings, ...patch });
+  const setExtra = (id: string, value: string | boolean) =>
+    set({ extra: { ...settings.extra, [id]: value } });
+  const hasOptions =
+    supports?.shuffle || supports?.teams || supports?.timer || (plugin?.options?.length ?? 0) > 0;
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 py-10 text-center">
@@ -56,13 +70,13 @@ export function PlayerIntro({
 
       {message ?? (
         <>
-          {(supports?.shuffle || supports?.teams || supports?.timer) && (
-            <fieldset className="flex w-full flex-col items-center gap-3 rounded-2xl border border-border-subtle bg-secondary p-4">
+          {hasOptions && (
+            <fieldset className="flex w-full flex-col items-center gap-4 rounded-2xl border border-border-subtle bg-secondary p-4">
               <legend className="px-2 text-xs tracking-widest text-muted uppercase">
                 {strings.player.options}
               </legend>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                {supports.shuffle && (
+                {supports?.shuffle && (
                   <label className="flex min-h-11 cursor-pointer items-center gap-2 text-sm">
                     <input
                       type="checkbox"
@@ -73,23 +87,58 @@ export function PlayerIntro({
                     {strings.player.shuffle}
                   </label>
                 )}
-                {supports.teams && (
+                {plugin?.options?.map((option) =>
+                  option.type === "toggle" ? (
+                    <label
+                      key={option.id}
+                      className="flex min-h-11 cursor-pointer items-center gap-2 text-sm"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={settings.extra[option.id] === true}
+                        onChange={(event) => setExtra(option.id, event.target.checked)}
+                        className="size-4 accent-(--accent)"
+                      />
+                      {option.label}
+                    </label>
+                  ) : (
+                    <label key={option.id} className="flex items-center gap-2 text-sm">
+                      <span>{option.label}</span>
+                      <select
+                        value={String(settings.extra[option.id])}
+                        onChange={(event) => setExtra(option.id, event.target.value)}
+                        className={fieldClasses}
+                      >
+                        {option.choices.map((choice) => (
+                          <option key={choice.value} value={choice.value}>
+                            {choice.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  ),
+                )}
+                {supports?.teams && (
                   <label className="flex items-center gap-2 text-sm">
                     <span className="sr-only">{strings.player.teams}</span>
                     <select
                       value={settings.teams}
-                      onChange={(event) => set({ teams: Number(event.target.value) })}
+                      onChange={(event) =>
+                        onSettingsChange(withTeamCount(settings, Number(event.target.value)))
+                      }
                       className={fieldClasses}
                     >
-                      {TEAM_OPTIONS.map((n) => (
-                        <option key={n} value={n}>
-                          {n === 1 ? strings.player.noTeams : strings.player.teamCount(n)}
-                        </option>
-                      ))}
+                      {Array.from({ length: MAX_TEAMS - minTeams + 1 }, (_, i) => i + minTeams).map(
+                        (n) => (
+                          <option key={n} value={n}>
+                            {n === 1 ? strings.player.noTeams : strings.player.teamCount(n)}
+                          </option>
+                        ),
+                      )}
                     </select>
                   </label>
                 )}
-                {supports.timer && (
+                {supports?.timer && (
                   <label className="flex items-center gap-2 text-sm">
                     <span className="sr-only">{strings.player.timer}</span>
                     <select
@@ -101,7 +150,7 @@ export function PlayerIntro({
                       }
                       className={fieldClasses}
                     >
-                      {TIMER_OPTIONS.map((n) => (
+                      {[null, ...(plugin?.timerChoices ?? DEFAULT_TIMER_CHOICES)].map((n) => (
                         <option key={n ?? "none"} value={n ?? ""}>
                           {n === null ? strings.player.noTimer : strings.player.seconds(n)}
                         </option>
@@ -110,6 +159,26 @@ export function PlayerIntro({
                   </label>
                 )}
               </div>
+              {settings.teams > 1 && (
+                <div className="grid w-full max-w-lg gap-2 sm:grid-cols-2">
+                  {settings.teamNames.map((name, i) => (
+                    <input
+                      key={i}
+                      aria-label={strings.player.teamName(i + 1)}
+                      value={name}
+                      maxLength={24}
+                      onChange={(event) =>
+                        set({
+                          teamNames: settings.teamNames.map((n, j) =>
+                            j === i ? event.target.value : n,
+                          ),
+                        })
+                      }
+                      className={`${fieldClasses} w-full`}
+                    />
+                  ))}
+                </div>
+              )}
             </fieldset>
           )}
           {onStart && (
