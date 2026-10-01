@@ -63,6 +63,13 @@ export function FavoritesProvider({
   const [loadedFor, setLoadedFor] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Map<string, Favorite>>(new Map());
   const [lists, setLists] = useState<FavoriteList[]>([]);
+  // A different teacher on this tab starts empty (the load below merges into what's on screen).
+  const [stateFor, setStateFor] = useState(uid);
+  if (stateFor !== uid) {
+    setStateFor(uid);
+    setFavorites(new Map());
+    setLists([]);
+  }
   // Latest values for the callbacks (kept stable, so hearts don't re-render on every change).
   const latest = useRef({ favorites, lists });
   useEffect(() => {
@@ -88,8 +95,13 @@ export function FavoritesProvider({
           repository.addFavorite(uid, pending, []).catch(() => toast(strings.favorites.saveError));
           toast(strings.favorites.saved);
         }
-        setFavorites(map);
-        setLists(data.lists);
+        // Keep what the teacher did while this was loading (a heart clicked right after login);
+        // the server's copy wins when both have the same activity or list.
+        setFavorites((onScreen) => new Map([...onScreen, ...map]));
+        setLists((onScreen) => [
+          ...data.lists,
+          ...onScreen.filter((list) => !data.lists.some((l) => l.id === list.id)),
+        ]);
         setLoadedFor(uid);
       })
       .catch((error: unknown) => console.warn("Could not load favorites", error));

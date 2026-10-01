@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { act, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useEffect, type ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
@@ -87,6 +87,56 @@ describe("favorites", () => {
     );
     await waitFor(() => expect(heart("Kitchen Items")).toHaveAttribute("aria-pressed", "true"));
     expect(repository.load).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps hearts and lists made while favorites were still loading (FIX)", async () => {
+    auth.user = { uid: "ana" };
+    const memory = memoryRepository({
+      favorites: [{ activityId: "kitchen-items", addedAt: new Date(), listIds: [] }],
+      lists: [{ id: "old", name: "Old list", order: 0, createdAt: new Date() }],
+    });
+    let finishLoading: () => void = () => {};
+    const serverData = await memory.repository.load("ana");
+    vi.mocked(memory.repository.load).mockImplementationOnce(
+      () => new Promise((resolve) => (finishLoading = () => resolve(serverData))),
+    );
+    render(
+      <Wrapper repository={memory.repository}>
+        <FavoriteButton activityId="some-or-any" title="Some or Any" className="" />
+        <FavoriteButton activityId="kitchen-items" title="Kitchen Items" className="" />
+        <Probe />
+      </Wrapper>,
+    );
+    await waitFor(() => expect(memory.repository.load).toHaveBeenCalledTimes(2));
+
+    await userEvent.click(heart("Some or Any"));
+    await act(() => api.createList("Teens B1", "some-or-any"));
+    await act(async () => finishLoading());
+
+    await waitFor(() => expect(screen.getByTestId("ready")).toHaveTextContent("true"));
+    expect(heart("Some or Any")).toHaveAttribute("aria-pressed", "true");
+    expect(heart("Kitchen Items")).toHaveAttribute("aria-pressed", "true");
+    expect(api.lists.map((l) => l.name)).toEqual(["Old list", "Teens B1"]);
+    const teens = api.lists.find((l) => l.name === "Teens B1")!;
+    expect(api.favorites.get("some-or-any")?.listIds).toEqual([teens.id]);
+  });
+
+  it("another teacher on the same tab doesn't inherit the previous one's favorites", async () => {
+    const { rerender, repository } = setup({ uid: "ana" });
+    await waitFor(() => expect(screen.getByTestId("ready")).toHaveTextContent("true"));
+    await userEvent.click(heart("Some or Any"));
+
+    vi.mocked(repository.load).mockResolvedValueOnce({ favorites: [], lists: [] });
+    auth.user = { uid: "bia" };
+    rerender(
+      <Wrapper repository={repository}>
+        <FavoriteButton activityId="some-or-any" title="Some or Any" className="" />
+        <Probe />
+      </Wrapper>,
+    );
+    await waitFor(() => expect(repository.load).toHaveBeenLastCalledWith("bia"));
+    await waitFor(() => expect(screen.getByTestId("ready")).toHaveTextContent("true"));
+    expect(heart("Some or Any")).toHaveAttribute("aria-pressed", "false");
   });
 
   it("rolls back and explains when saving fails", async () => {
