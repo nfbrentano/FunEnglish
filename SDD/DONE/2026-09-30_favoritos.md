@@ -1,6 +1,6 @@
 # [FEAT] Favoritos e listas de favoritos
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -32,7 +32,7 @@
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
 | RNF01 | Regras do Firestore: somente o próprio usuário lê/escreve `users/{uid}/favorites` e `users/{uid}/lists` | P0 | CA07 |
-| RNF02 | Limite de 1.000 favoritos e 50 listas por usuário (proteção de cota gratuita) | P1 | CA08 |
+| RNF02 | Limite de 1.000 favoritos e 50 listas por usuário (proteção de cota gratuita) | P1 | CA08 | _(aplicado no cliente; as regras limitam o tamanho de cada documento, pois o Firestore não conta documentos nas regras)_
 | RNF03 | Botão coração com `aria-pressed` e rótulo "Add to favorites"/"Remove from favorites" | P0 | CA01 |
 
 ### Dependências técnicas
@@ -46,14 +46,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou logado, quando clico no coração vazio de um card, então ele fica preenchido imediatamente e o documento `users/{uid}/favorites/{activityId}` é criado; clicar de novo remove.
-- [ ] **CA02:** Dado que sou visitante, quando clico no coração, então vejo o modal "Log in to save favorites"; e, após fazer login, a atividade aparece nos meus favoritos.
-- [ ] **CA03:** Dado que estou offline ou a escrita falha, quando favorito, então o coração volta ao estado anterior e aparece o toast "Couldn't save. Try again.".
-- [ ] **CA04:** Dado que favoritei uma atividade, quando escolho "New list", digito "Teens B1" e confirmo, então a lista é criada e a atividade é adicionada a ela.
-- [ ] **CA05:** Dado uma lista com 3 atividades, quando a excluo, então a lista some e as 3 atividades continuam nos favoritos gerais.
-- [ ] **CA06:** Dado o catálogo com 200 cards, quando a página carrega logada, então os favoritos são buscados com uma única consulta, e não uma por card.
-- [ ] **CA07 (negativo):** Dado o usuário A logado, quando tenta ler `users/{uidB}/favorites`, então a leitura é negada.
-- [ ] **CA08 (limite):** Dado que tenho 50 listas, quando tento criar a 51ª, então vejo "You've reached the limit of 50 lists" e nada é criado.
+- [x] **CA01:** Dado que estou logado, quando clico no coração vazio de um card, então ele fica preenchido imediatamente e o documento `users/{uid}/favorites/{activityId}` é criado; clicar de novo remove.
+- [x] **CA02:** Dado que sou visitante, quando clico no coração, então vejo o modal "Log in to save favorites"; e, após fazer login, a atividade aparece nos meus favoritos.
+- [x] **CA03:** Dado que estou offline ou a escrita falha, quando favorito, então o coração volta ao estado anterior e aparece o toast "Couldn't save. Try again.".
+- [x] **CA04:** Dado que favoritei uma atividade, quando escolho "New list", digito "Teens B1" e confirmo, então a lista é criada e a atividade é adicionada a ela.
+- [x] **CA05:** Dado uma lista com 3 atividades, quando a excluo, então a lista some e as 3 atividades continuam nos favoritos gerais.
+- [x] **CA06:** Dado o catálogo com 200 cards, quando a página carrega logada, então os favoritos são buscados com uma única consulta, e não uma por card.
+- [x] **CA07 (negativo):** Dado o usuário A logado, quando tenta ler `users/{uidB}/favorites`, então a leitura é negada.
+- [x] **CA08 (limite):** Dado que tenho 50 listas, quando tento criar a 51ª, então vejo "You've reached the limit of 50 lists" e nada é criado.
 
 ## O que a atividade não inclui
 
@@ -71,7 +71,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Listas entram na v1 ou só favoritos simples? | PO | Não | Proposta: favoritos simples P0; listas P1 |
+| D01 | Listas entram na v1 ou só favoritos simples? | PO | Não | Ambos: favoritos e listas (criar e adicionar pelo aviso "Add to list"); renomear e excluir listas ficam na tela do Dashboard |
 
 ## Sugestões de casos de teste
 

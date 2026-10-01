@@ -114,3 +114,35 @@ describe("users", () => {
     await assertFails(getDoc(doc(testEnv.unauthenticatedContext().firestore(), "users/ana")));
   });
 });
+
+describe("favorites and lists", () => {
+  it("are private to their owner", async () => {
+    const ana = testEnv.authenticatedContext("ana").firestore();
+    const bob = testEnv.authenticatedContext("bob").firestore();
+    await assertSucceeds(
+      setDoc(doc(ana, "users/ana/favorites/some-or-any"), { addedAt: new Date(), listIds: [] }),
+    );
+    await assertSucceeds(
+      setDoc(doc(ana, "users/ana/lists/l1"), { name: "Teens B1", order: 0, createdAt: new Date() }),
+    );
+    await assertSucceeds(getDoc(doc(ana, "users/ana/favorites/some-or-any")));
+
+    await assertFails(getDoc(doc(bob, "users/ana/favorites/some-or-any")));
+    await assertFails(
+      setDoc(doc(bob, "users/ana/favorites/x"), { addedAt: new Date(), listIds: [] }),
+    );
+    await assertFails(
+      getDoc(doc(testEnv.unauthenticatedContext().firestore(), "users/ana/lists/l1")),
+    );
+  });
+
+  it("reject unexpected fields and empty list names", async () => {
+    const ana = testEnv.authenticatedContext("ana").firestore();
+    await assertFails(
+      setDoc(doc(ana, "users/ana/favorites/x"), { addedAt: new Date(), listIds: [], admin: true }),
+    );
+    await assertFails(
+      setDoc(doc(ana, "users/ana/lists/l2"), { name: "", order: 0, createdAt: new Date() }),
+    );
+  });
+});

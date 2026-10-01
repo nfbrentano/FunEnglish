@@ -23,6 +23,23 @@ service cloud.firestore {
       allow update: if request.auth != null && request.auth.uid == uid
         && request.resource.data.role == resource.data.role;
       allow delete: if false;
+
+      // Favorites and lists: private to their owner (spec: favoritos, RNF01).
+      match /favorites/{activityId} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(["addedAt", "listIds"])
+          && request.resource.data.listIds is list
+          && request.resource.data.listIds.size() <= 50;
+      }
+      match /lists/{listId} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(["name", "order", "createdAt"])
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 60;
+      }
     }
 
     // Aggregated catalog (catalog/index): public read, written by the seed and the admin panel.
