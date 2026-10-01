@@ -1,13 +1,12 @@
 import { expect, test, type Page } from "@playwright/test";
-import { getAdminDb } from "../src/lib/firebase-admin/core";
-import { E2E_ENV } from "./global-setup";
+import { adminDb, userIdFor } from "./admin";
 
 // Accounts live in the Auth emulator; every test uses a fresh email.
 test.skip(({ isMobile }) => isMobile, "account flows are the same on phones; the header differs");
 
 const password = "correct-horse-1";
-let counter = 0;
-const newEmail = () => `teacher-${Date.now()}-${counter++}@example.com`;
+// Unique across parallel workers (a per-worker counter + Date.now() can collide).
+const newEmail = () => `teacher-${crypto.randomUUID()}@example.com`;
 
 async function signUp(page: Page, email: string, name = "Ana Silva") {
   await page.goto("/signup");
@@ -30,13 +29,11 @@ test("sign up creates the account and the teacher profile", async ({ page }) => 
   await expect(page).toHaveURL(/\/activities$/);
   await expect(page.getByRole("button", { name: "Account menu" })).toHaveText("AS");
 
-  Object.assign(process.env, {
-    FIRESTORE_EMULATOR_HOST: E2E_ENV.FIRESTORE_EMULATOR_HOST,
-    FIREBASE_PROJECT_ID: E2E_ENV.FIREBASE_PROJECT_ID,
-  });
-  const profiles = await getAdminDb().collection("users").where("email", "==", email).get();
-  expect(profiles.docs.map((d) => d.get("role"))).toEqual(["teacher"]);
-  expect(profiles.docs[0].get("displayName")).toBe("Ana Silva");
+  const profile = await adminDb()
+    .doc(`users/${await userIdFor(email)}`)
+    .get();
+  expect(profile.get("role")).toBe("teacher");
+  expect(profile.get("displayName")).toBe("Ana Silva");
 });
 
 test("the session survives a reload, and Log out ends it", async ({ page }) => {
@@ -89,7 +86,7 @@ test("protected pages send visitors to log in and back", async ({ page }) => {
   await page.getByRole("button", { name: "Log in" }).last().click();
 
   await expect(page).toHaveURL(/\/dashboard$/);
-  await expect(page.getByRole("heading", { name: "Your dashboard" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Welcome back, Ana" })).toBeVisible();
 });
 
 test("never redirects to another site after logging in", async ({ page }) => {

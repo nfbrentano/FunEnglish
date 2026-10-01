@@ -146,3 +146,18 @@ describe("favorites and lists", () => {
     );
   });
 });
+
+describe("history", () => {
+  it("is private and only stores the time played", async () => {
+    const ana = testEnv.authenticatedContext("ana").firestore();
+    await assertSucceeds(
+      setDoc(doc(ana, "users/ana/history/some-or-any"), { lastPlayedAt: new Date() }),
+    );
+    await assertFails(
+      setDoc(doc(ana, "users/ana/history/x"), { lastPlayedAt: new Date(), score: 10 }),
+    );
+    await assertFails(
+      getDoc(doc(testEnv.authenticatedContext("bob").firestore(), "users/ana/history/some-or-any")),
+    );
+  });
+});

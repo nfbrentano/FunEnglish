@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { RequireAuth } from "@/components/auth/require-auth";
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { DashboardView } from "@/components/dashboard/dashboard-view";
+import { getBuildCatalog, getPublicImagePaths } from "@/lib/catalog/build-data";
 
 export const metadata: Metadata = { title: "Dashboard", robots: { index: false } };
 
-// Placeholder until the dashboard spec (SDD/2026-09-30_dashboard-do-professor.md).
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const catalog = await getBuildCatalog();
   return (
     <RequireAuth>
-      <PagePlaceholder title="Your dashboard" />
+      <DashboardView initial={catalog} imagePaths={getPublicImagePaths()} />
     </RequireAuth>
   );
 }

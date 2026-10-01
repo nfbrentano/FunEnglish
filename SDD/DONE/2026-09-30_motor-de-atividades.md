@@ -27,7 +27,7 @@
 | RF07 | Modo tela cheia (Fullscreen API) e fontes/controles ampliados em modo apresentação (≥ 1280 px ou tela cheia) | P0 | CA05 |
 | RF08 | Configurações pré-jogo opcionais por tipo: embaralhar itens, número de equipes (1–6), timer por pergunta (off/10/20/30/60 s) | P1 | CA06 |
 | RF09 | Suporte a `?mode=student` (ver spec Compartilhar) | P0 | |
-| RF10 | Registro em "Recently played" para usuários logados ao clicar em Start (fora do student mode) | P1 | | _(adiado: depende da autenticação; será feito junto com a spec do Dashboard, RF05)_
+| RF10 | Registro em "Recently played" para usuários logados ao clicar em Start (fora do student mode) | P1 | | _(implementado junto com a spec do Dashboard)_
 | RF11 | Atalhos de teclado comuns: Espaço/Enter = próximo, ←/→ = navegar, F = fullscreen, Esc = sair de fullscreen | P1 | CA08 |
 | RF12 | Utilitário de áudio via Web Speech API (`speak(text, lang='en-US')`) disponível aos plugins para pronúncia | P1 | CA09 |
 | RF13 | Embed do YouTube (componente `YouTubeClip` com `videoId`, `start`, `end`, via IFrame Player API e `youtube-nocookie.com`) disponível aos plugins | P1 | CA10 |

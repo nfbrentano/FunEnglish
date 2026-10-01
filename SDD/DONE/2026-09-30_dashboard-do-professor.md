@@ -1,6 +1,6 @@
 # [FEAT] Dashboard do professor
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -46,13 +46,13 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou logado como "Ana Silva", quando acesso `/dashboard`, então vejo "Welcome back, Ana" e as seções Favorites, My lists e Recently played.
-- [ ] **CA02:** Dado que tenho 5 favoritos, quando abro Favorites, então vejo os 5 do mais recente para o mais antigo, e ao remover um ele some da grade e do coração do card.
-- [ ] **CA03:** Dado a lista "Teens B1" com 3 atividades, quando a abro, então vejo as 3; e quando a renomeio para "Teens B2", o novo nome é persistido.
-- [ ] **CA04:** Dado que abri as atividades X e depois Y, quando vejo Recently played, então Y aparece antes de X; abrir X novamente a move para o topo sem duplicar.
-- [ ] **CA05 (limite):** Dado um usuário novo sem dados, quando abre o dashboard, então cada seção mostra um estado vazio com o botão "Browse activities".
-- [ ] **CA06:** Dado um favorito cuja atividade foi despublicada, quando abro Favorites, então ele aparece como "This activity is no longer available" com o botão "Remove".
-- [ ] **CA07 (negativo):** Dado que não estou logado, quando acesso `/dashboard`, então não vejo dados de nenhum usuário e sou redirecionado ao login.
+- [x] **CA01:** Dado que estou logado como "Ana Silva", quando acesso `/dashboard`, então vejo "Welcome back, Ana" e as seções Favorites, My lists e Recently played.
+- [x] **CA02:** Dado que tenho 5 favoritos, quando abro Favorites, então vejo os 5 do mais recente para o mais antigo, e ao remover um ele some da grade e do coração do card.
+- [x] **CA03:** Dado a lista "Teens B1" com 3 atividades, quando a abro, então vejo as 3; e quando a renomeio para "Teens B2", o novo nome é persistido.
+- [x] **CA04:** Dado que abri as atividades X e depois Y, quando vejo Recently played, então Y aparece antes de X; abrir X novamente a move para o topo sem duplicar.
+- [x] **CA05 (limite):** Dado um usuário novo sem dados, quando abre o dashboard, então cada seção mostra um estado vazio com o botão "Browse activities".
+- [x] **CA06:** Dado um favorito cuja atividade foi despublicada, quando abro Favorites, então ele aparece como "This activity is no longer available" com o botão "Remove".
+- [x] **CA07 (negativo):** Dado que não estou logado, quando acesso `/dashboard`, então não vejo dados de nenhum usuário e sou redirecionado ao login.
 
 ## O que a atividade não inclui
 
@@ -70,7 +70,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Dashboard com abas ou todas as seções em uma página rolável? | Design | Não | |
+| D01 | Dashboard com abas ou todas as seções em uma página rolável? | Design | Não | Uma página rolável com atalhos para as 3 seções (#favorites, #lists, #recent) |
 
 ## Sugestões de casos de teste
 
