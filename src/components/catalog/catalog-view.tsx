@@ -1,10 +1,10 @@
 "use client";
 
 import { Sparkles } from "lucide-react";
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { Skeleton } from "@/components/ui/skeleton";
-import { fetchCatalogIndexOnce } from "@/lib/catalog/fetch";
+import { useCatalogIndex, useClientNow } from "@/lib/catalog/use-catalog-index";
 import { filterCatalog, hasActiveFilters, serializeFilters } from "@/lib/catalog/filter";
 import type { CatalogIndex } from "@/lib/catalog/schema";
 import { isNew, latest, sectionsByCategory } from "@/lib/catalog/sections";
@@ -18,18 +18,6 @@ import { FilterBar } from "./filter-bar";
 import { ResultsGrid } from "./results-grid";
 import { SearchField } from "./search-field";
 
-let clientNow: Date | undefined;
-const noSubscription = () => () => {};
-
-/** "Now" only in the browser: the "New" badge must not depend on when the site was built. */
-function useClientNow(): Date | null {
-  return useSyncExternalStore(
-    noSubscription,
-    () => (clientNow ??= new Date()),
-    () => null,
-  );
-}
-
 type CatalogViewProps = {
   /** Catalog baked in at build time; refreshed from Firestore once the page loads. */
   initial: CatalogIndex;
@@ -38,23 +26,9 @@ type CatalogViewProps = {
 };
 
 export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
-  const [index, setIndex] = useState(initial);
-  const [loaded, setLoaded] = useState(false);
+  const { index, waiting } = useCatalogIndex(initial);
   const now = useClientNow();
   const images = useMemo(() => new Set(imagePaths), [imagePaths]);
-
-  useEffect(() => {
-    let active = true;
-    fetchCatalogIndexOnce()
-      .then((fresh) => {
-        if (active && fresh.updatedAt >= initial.updatedAt) setIndex(fresh);
-      })
-      .catch((error: unknown) => console.warn("Could not refresh the catalog", error))
-      .finally(() => active && setLoaded(true));
-    return () => {
-      active = false;
-    };
-  }, [initial.updatedAt]);
 
   const { filters, setFilters, clearFilters: clearUrlFilters } = useCatalogFilters();
   // Remounting the search field on Clear also cancels a search still waiting on its debounce.
@@ -64,7 +38,6 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
     setSearchKey((key) => key + 1);
   };
   const items = index.items;
-  const waiting = items.length === 0 && !loaded;
   const filtering = hasActiveFilters(filters);
   const results = useMemo(() => filterCatalog(items, filters), [items, filters]);
   const isRecent = (createdAt: string) => now !== null && isNew(createdAt, now);

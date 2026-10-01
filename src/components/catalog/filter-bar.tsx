@@ -12,6 +12,8 @@ type FilterBarProps = {
   active: boolean;
   onChange: (next: Partial<CatalogFilters>) => void;
   onClear: () => void;
+  /** Hidden on a category page, where the category is fixed. */
+  showCategory?: boolean;
 };
 
 function Select({
@@ -48,25 +50,34 @@ function Select({
   );
 }
 
-export function FilterBar({ filters, count, active, onChange, onClear }: FilterBarProps) {
+export function FilterBar({
+  filters,
+  count,
+  active,
+  onChange,
+  onClear,
+  showCategory = true,
+}: FilterBarProps) {
   return (
     <div className="flex flex-col gap-3 rounded-2xl border border-border-subtle bg-secondary p-3 sm:flex-row sm:flex-wrap sm:items-center">
-      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap [&>*:last-child]:col-span-2">
-        <Select
-          id="filter-category"
-          label={strings.catalog.categoryFilter}
-          value={filters.category ?? ""}
-          onChange={(value) =>
-            onChange({ category: (value || null) as CatalogFilters["category"] })
-          }
-        >
-          <option value="">{strings.catalog.allCategories}</option>
-          {CATEGORIES.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-        </Select>
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap [&>*:nth-child(3)]:col-span-2">
+        {showCategory && (
+          <Select
+            id="filter-category"
+            label={strings.catalog.categoryFilter}
+            value={filters.category ?? ""}
+            onChange={(value) =>
+              onChange({ category: (value || null) as CatalogFilters["category"] })
+            }
+          >
+            <option value="">{strings.catalog.allCategories}</option>
+            {CATEGORIES.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </Select>
+        )}
         <Select
           id="filter-level"
           label={strings.catalog.levelFilter}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { CatalogItem } from "@/lib/catalog/schema";
 import { strings } from "@/lib/strings";
@@ -13,11 +13,48 @@ type ResultsGridProps = {
   hasImage: (src: string) => boolean;
   isNew: (createdAt: string) => boolean;
   onClear: () => void;
+  /** Bring back "Load more" and the scroll position when returning from an activity (Back). */
+  restorePosition?: boolean;
 };
 
+type SavedGrid = { visible: number; scrollY: number };
+const STATE_KEY = "funEnglishGrid";
+
 /** Grid of matches, 24 at a time. Remount it (key) when the filters change to start over. */
-export function ResultsGrid({ items, hasImage, isNew, onClear }: ResultsGridProps) {
+export function ResultsGrid({
+  items,
+  hasImage,
+  isNew,
+  onClear,
+  restorePosition = false,
+}: ResultsGridProps) {
   const [visible, setVisible] = useState(PAGE_SIZE);
+  const visibleRef = useRef(visible);
+  useEffect(() => {
+    visibleRef.current = visible;
+  });
+
+  // The position lives in this history entry, so only Back/Forward restores it; a fresh visit
+  // (new entry) starts at the top.
+  useEffect(() => {
+    if (!restorePosition) return;
+    const saved = (window.history.state as Record<string, unknown> | null)?.[STATE_KEY] as
+      SavedGrid | undefined;
+    if (!saved) return;
+    // After the first paint (the static HTML shows the first page), then once more so the
+    // restored cards are laid out before scrolling.
+    const frame = requestAnimationFrame(() => {
+      setVisible(Math.max(PAGE_SIZE, saved.visible));
+      requestAnimationFrame(() => window.scrollTo(0, saved.scrollY));
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [restorePosition]);
+
+  function rememberPosition(event: React.MouseEvent) {
+    if (!restorePosition || !(event.target as HTMLElement).closest('a[href^="/play/"]')) return;
+    const saved: SavedGrid = { visible: visibleRef.current, scrollY: window.scrollY };
+    window.history.replaceState({ ...window.history.state, [STATE_KEY]: saved }, "");
+  }
 
   if (items.length === 0) {
     return (
@@ -33,7 +70,10 @@ export function ResultsGrid({ items, hasImage, isNew, onClear }: ResultsGridProp
 
   return (
     <section aria-label={strings.catalog.results} className="space-y-8">
-      <ul className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+      <ul
+        onClickCapture={rememberPosition}
+        className="grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
+      >
         {items.slice(0, visible).map((item) => (
           <li key={item.id}>
             <ActivityCard

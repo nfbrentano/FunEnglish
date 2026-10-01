@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { CategoryView } from "@/components/catalog/category-view";
+import { getBuildCatalog, getPublicImagePaths } from "@/lib/catalog/build-data";
 
-export const metadata: Metadata = { title: "New activities" };
+export const metadata: Metadata = {
+  title: "New activities",
+  description: "Every Fun English activity, newest first.",
+};
 
-// Placeholder until the category page spec (SDD/2026-09-30_pagina-de-categoria.md, RF06).
-export default function NewActivitiesPage() {
-  return <PagePlaceholder title="What's New" />;
+export default async function NewActivitiesPage() {
+  return (
+    <CategoryView
+      initial={await getBuildCatalog()}
+      imagePaths={getPublicImagePaths()}
+      category={null}
+    />
+  );
 }
