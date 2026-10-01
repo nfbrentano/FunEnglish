@@ -1,6 +1,6 @@
 # [FEAT] Gestão completa de atividades pelo admin
 
-> **Status:** Em revisão
+> **Status:** Aprovada
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-01 · **Atualizada em:** 2026-10-01
 
 ## Detalhes da Atividade
@@ -112,10 +112,10 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | A fonte da verdade passa a ser o Firestore (com `content:pull` como backup no git) ou continua sendo o repositório? | PO | Sim | Sugestão: Firestore, com o painel como lugar de edição e `content:pull` periódico para backup e histórico no git |
+| D01 | A fonte da verdade passa a ser o Firestore (com `content:pull` como backup no git) ou continua sendo o repositório? | PO | Sim | **Firestore** (decisão do PO em 2026-10-01), com o painel como lugar de edição e `content:pull` periódico para backup e histórico no git |
 | D02 | Reordenar com arrastar (nova dependência `@dnd-kit`) ou só com botões ↑ ↓? | Dev/PO | Não | Sugestão: botões ↑ ↓ na v1 (acessíveis e sem dependência); arrastar como melhoria |
 | D03 | Quantas revisões guardar por atividade? | PO | Não | Sugestão: 20 |
-| D04 | Ordem de entrega? | PO | Não | Sugestão em 3 PRs: (1) RF09–RF10 (proteção e backup) + RF12; (2) editores estruturados RF01–RF07; (3) RF08, RF11, RF13–RF16 |
+| D04 | Ordem de entrega? | PO | Não | **3 PRs** (decisão do PO em 2026-10-01): (1) RF09–RF10 (proteção e backup) + RF12; (2) editores estruturados RF01–RF07; (3) RF08, RF11, RF13–RF16 |
 
 ## Sugestões de casos de teste
 
