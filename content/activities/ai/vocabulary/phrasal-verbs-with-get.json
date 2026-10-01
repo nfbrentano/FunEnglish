@@ -1,0 +1,172 @@
+{
+  "slug": "phrasal-verbs-with-get",
+  "title": "Phrasal Verbs with GET",
+  "description": "Get up, get over, get along… Choose the right phrasal verb to complete each sentence.",
+  "category": "vocabulary",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["phrasal verbs", "get", "verbs"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/phrasal-verbs-with-get/thumb.webp",
+    "alt": "The word GET surrounded by arrows pointing in different directions",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "I usually ___ at 7 a.m.",
+        "options": [
+          {
+            "text": "get up",
+            "correct": true
+          },
+          {
+            "text": "get over"
+          },
+          {
+            "text": "get along"
+          },
+          {
+            "text": "get by"
+          }
+        ],
+        "explanation": "Get up = leave your bed after sleeping."
+      },
+      {
+        "prompt": "It took me two weeks to ___ the flu.",
+        "options": [
+          {
+            "text": "get over",
+            "correct": true
+          },
+          {
+            "text": "get up"
+          },
+          {
+            "text": "get off"
+          },
+          {
+            "text": "get in"
+          }
+        ],
+        "explanation": "Get over = recover from an illness or a problem."
+      },
+      {
+        "prompt": "Do you ___ with your neighbors?",
+        "options": [
+          {
+            "text": "get along",
+            "correct": true
+          },
+          {
+            "text": "get by"
+          },
+          {
+            "text": "get out"
+          },
+          {
+            "text": "get over"
+          }
+        ],
+        "explanation": "Get along (with) = have a friendly relationship."
+      },
+      {
+        "prompt": "We ___ the bus at the next stop.",
+        "options": [
+          {
+            "text": "get off",
+            "correct": true
+          },
+          {
+            "text": "get out"
+          },
+          {
+            "text": "get over"
+          },
+          {
+            "text": "get up"
+          }
+        ],
+        "explanation": "Get off a bus, train or plane. (Get out of a car or taxi.)"
+      },
+      {
+        "prompt": "I don't earn much, but I ___.",
+        "options": [
+          {
+            "text": "get by",
+            "correct": true
+          },
+          {
+            "text": "get along"
+          },
+          {
+            "text": "get off"
+          },
+          {
+            "text": "get up"
+          }
+        ],
+        "explanation": "Get by = have just enough money to live."
+      },
+      {
+        "prompt": "Hurry up and ___ the car!",
+        "options": [
+          {
+            "text": "get in",
+            "correct": true
+          },
+          {
+            "text": "get on"
+          },
+          {
+            "text": "get by"
+          },
+          {
+            "text": "get over"
+          }
+        ],
+        "explanation": "Get in(to) a car or taxi. (Get on a bus or train.)"
+      },
+      {
+        "prompt": "He always tries to ___ of washing the dishes.",
+        "options": [
+          {
+            "text": "get out",
+            "correct": true
+          },
+          {
+            "text": "get off"
+          },
+          {
+            "text": "get up"
+          },
+          {
+            "text": "get along"
+          }
+        ],
+        "explanation": "Get out of (doing) something = avoid a task."
+      },
+      {
+        "prompt": "Let's ___ this weekend and play some games.",
+        "options": [
+          {
+            "text": "get together",
+            "correct": true
+          },
+          {
+            "text": "get along"
+          },
+          {
+            "text": "get by"
+          },
+          {
+            "text": "get over"
+          }
+        ],
+        "explanation": "Get together = meet socially."
+      }
+    ]
+  }
+}

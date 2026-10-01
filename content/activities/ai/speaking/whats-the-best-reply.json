@@ -1,0 +1,172 @@
+{
+  "slug": "whats-the-best-reply",
+  "title": "What's the Best Reply?",
+  "description": "Choose the most natural reply in everyday conversations, then practice the dialogues in pairs.",
+  "category": "speaking",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["small talk", "responses", "functional English", "conversation"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/whats-the-best-reply/thumb.webp",
+    "alt": "Two people chatting with speech bubbles",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Someone says: \"How's it going?\" What's the best reply?",
+        "options": [
+          {
+            "text": "Pretty good, thanks. And you?",
+            "correct": true
+          },
+          {
+            "text": "I'm going to the store."
+          },
+          {
+            "text": "It goes at five."
+          },
+          {
+            "text": "Yes, it is."
+          }
+        ],
+        "explanation": "\"How's it going?\" = How are you?"
+      },
+      {
+        "prompt": "Someone says: \"Would you like something to drink?\" What's the best reply?",
+        "options": [
+          {
+            "text": "Yes, a glass of water, please.",
+            "correct": true
+          },
+          {
+            "text": "Yes, I like."
+          },
+          {
+            "text": "I drink every day."
+          },
+          {
+            "text": "No, I don't like it."
+          }
+        ],
+        "explanation": "Answer an offer with what you want + please (or No, thank you)."
+      },
+      {
+        "prompt": "Someone says: \"Sorry I'm late!\" What's the best reply?",
+        "options": [
+          {
+            "text": "No worries, we just started.",
+            "correct": true
+          },
+          {
+            "text": "You're welcome."
+          },
+          {
+            "text": "Me too."
+          },
+          {
+            "text": "Yes, you are sorry."
+          }
+        ],
+        "explanation": "\"No worries\" is a friendly way to say it's OK."
+      },
+      {
+        "prompt": "Someone says: \"Do you mind if I open the window?\" What's the best reply?",
+        "options": [
+          {
+            "text": "Not at all, go ahead.",
+            "correct": true
+          },
+          {
+            "text": "Yes, please open it."
+          },
+          {
+            "text": "I don't have a window."
+          },
+          {
+            "text": "Yes, I mind it."
+          }
+        ],
+        "explanation": "\"Do you mind…?\" asks if it bothers you, so \"Not at all\" means it's fine."
+      },
+      {
+        "prompt": "Someone says: \"Thanks so much for your help!\" What's the best reply?",
+        "options": [
+          {
+            "text": "You're welcome!",
+            "correct": true
+          },
+          {
+            "text": "Please."
+          },
+          {
+            "text": "Me too."
+          },
+          {
+            "text": "Excuse me."
+          }
+        ],
+        "explanation": "\"You're welcome\", \"No problem\" or \"Anytime!\""
+      },
+      {
+        "prompt": "Someone says: \"What do you do?\" What's the best reply?",
+        "options": [
+          {
+            "text": "I'm a nurse.",
+            "correct": true
+          },
+          {
+            "text": "I'm doing my homework."
+          },
+          {
+            "text": "I do fine."
+          },
+          {
+            "text": "I do it tomorrow."
+          }
+        ],
+        "explanation": "\"What do you do?\" asks about your job."
+      },
+      {
+        "prompt": "Someone says: \"Have a nice weekend!\" What's the best reply?",
+        "options": [
+          {
+            "text": "Thanks, you too!",
+            "correct": true
+          },
+          {
+            "text": "Yes, I have."
+          },
+          {
+            "text": "I'm the weekend."
+          },
+          {
+            "text": "Nice to meet you."
+          }
+        ],
+        "explanation": "Return the good wishes with \"You too!\""
+      },
+      {
+        "prompt": "Someone says: \"Can I take your order?\" What's the best reply?",
+        "options": [
+          {
+            "text": "Yes, I'll have the chicken salad, please.",
+            "correct": true
+          },
+          {
+            "text": "Yes, you can take it."
+          },
+          {
+            "text": "I ordered yesterday."
+          },
+          {
+            "text": "No, it's mine."
+          }
+        ],
+        "explanation": "In a restaurant, \"I'll have…\" is a polite way to order."
+      }
+    ]
+  }
+}

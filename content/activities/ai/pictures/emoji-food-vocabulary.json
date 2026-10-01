@@ -1,0 +1,236 @@
+{
+  "slug": "emoji-food-vocabulary",
+  "title": "Emoji Food Vocabulary",
+  "description": "Look at each picture and choose the right word. Perfect for young learners.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["food", "vocabulary", "emoji", "kids"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/emoji-food-vocabulary/thumb.webp",
+    "alt": "A plate of colorful fruit and vegetables",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍎",
+          "label": "Emoji picture: 🍎"
+        },
+        "options": [
+          {
+            "text": "apple",
+            "correct": true
+          },
+          {
+            "text": "orange"
+          },
+          {
+            "text": "cherry"
+          },
+          {
+            "text": "pear"
+          }
+        ],
+        "explanation": "🍎 = apple"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍞",
+          "label": "Emoji picture: 🍞"
+        },
+        "options": [
+          {
+            "text": "bread",
+            "correct": true
+          },
+          {
+            "text": "cake"
+          },
+          {
+            "text": "cheese"
+          },
+          {
+            "text": "rice"
+          }
+        ],
+        "explanation": "🍞 = bread"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🧀",
+          "label": "Emoji picture: 🧀"
+        },
+        "options": [
+          {
+            "text": "cheese",
+            "correct": true
+          },
+          {
+            "text": "butter"
+          },
+          {
+            "text": "bread"
+          },
+          {
+            "text": "egg"
+          }
+        ],
+        "explanation": "🧀 = cheese"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🥕",
+          "label": "Emoji picture: 🥕"
+        },
+        "options": [
+          {
+            "text": "carrot",
+            "correct": true
+          },
+          {
+            "text": "corn"
+          },
+          {
+            "text": "potato"
+          },
+          {
+            "text": "pepper"
+          }
+        ],
+        "explanation": "🥕 = carrot"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍌",
+          "label": "Emoji picture: 🍌"
+        },
+        "options": [
+          {
+            "text": "banana",
+            "correct": true
+          },
+          {
+            "text": "lemon"
+          },
+          {
+            "text": "mango"
+          },
+          {
+            "text": "pear"
+          }
+        ],
+        "explanation": "🍌 = banana"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🥚",
+          "label": "Emoji picture: 🥚"
+        },
+        "options": [
+          {
+            "text": "egg",
+            "correct": true
+          },
+          {
+            "text": "milk"
+          },
+          {
+            "text": "onion"
+          },
+          {
+            "text": "potato"
+          }
+        ],
+        "explanation": "🥚 = egg"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍇",
+          "label": "Emoji picture: 🍇"
+        },
+        "options": [
+          {
+            "text": "grapes",
+            "correct": true
+          },
+          {
+            "text": "cherries"
+          },
+          {
+            "text": "strawberries"
+          },
+          {
+            "text": "plums"
+          }
+        ],
+        "explanation": "🍇 = grapes"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐟",
+          "label": "Emoji picture: 🐟"
+        },
+        "options": [
+          {
+            "text": "fish",
+            "correct": true
+          },
+          {
+            "text": "chicken"
+          },
+          {
+            "text": "meat"
+          },
+          {
+            "text": "shrimp"
+          }
+        ],
+        "explanation": "🐟 = fish"
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍦",
+          "label": "Emoji picture: 🍦"
+        },
+        "options": [
+          {
+            "text": "ice cream",
+            "correct": true
+          },
+          {
+            "text": "cake"
+          },
+          {
+            "text": "cookie"
+          },
+          {
+            "text": "candy"
+          }
+        ],
+        "explanation": "🍦 = ice cream"
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "story-starters-1",
+  "title": "Story Starters 1",
+  "description": "Pick a first line and continue the story. Use the questions and words to help you write.",
+  "category": "writing",
+  "type": "prompt-cards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["creative writing", "narrative", "past tenses"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/story-starters-1/thumb.webp",
+    "alt": "An open notebook with a pencil and stars floating out of the pages",
+    "source": "ai"
+  },
+  "content": {
+    "writing": true,
+    "cards": [
+      {
+        "prompt": "Continue the story: \"When I opened the door, I couldn't believe my eyes…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      },
+      {
+        "prompt": "Continue the story: \"It was the last day of summer vacation, and something strange happened…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      },
+      {
+        "prompt": "Continue the story: \"The phone rang at 3 a.m. A voice whispered…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      },
+      {
+        "prompt": "Continue the story: \"I found an old map in my grandmother's attic…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      },
+      {
+        "prompt": "Continue the story: \"Everyone in town was asleep except me…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      },
+      {
+        "prompt": "Continue the story: \"The new student in class had a secret…\"",
+        "followUps": [
+          "Who or what is in the story?",
+          "How did the character feel?",
+          "What happened in the end?"
+        ],
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "slug": "ted-keep-your-goals-to-yourself",
+  "title": "TED: Keep Your Goals to Yourself",
+  "description": "A 3-minute TED talk by Derek Sivers about why telling people your goals can stop you from reaching them.",
+  "category": "videos",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["TED talk", "goals", "psychology", "listening"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/ted-keep-your-goals-to-yourself/thumb.webp",
+    "alt": "A person writing goals in a notebook with a finger on their lips",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Watch the talk. What is the main idea?",
+        "options": [
+          {
+            "text": "Telling people your goals can make you less likely to reach them.",
+            "correct": true
+          },
+          {
+            "text": "You should always share your goals on social media."
+          },
+          {
+            "text": "Goals are not important."
+          },
+          {
+            "text": "Writing goals down is a waste of time."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "NHopJHSlVo4",
+          "start": 0
+        },
+        "explanation": "That's the surprising idea of the talk."
+      },
+      {
+        "prompt": "Why can telling people a goal make it less likely to happen?",
+        "options": [
+          {
+            "text": "Your mind feels like the goal is already done.",
+            "correct": true
+          },
+          {
+            "text": "People will laugh at you."
+          },
+          {
+            "text": "Other people will steal your idea."
+          },
+          {
+            "text": "You forget the goal."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "NHopJHSlVo4",
+          "start": 0
+        },
+        "explanation": "Getting recognition feels like progress, so you're less motivated to do the hard work."
+      },
+      {
+        "prompt": "In the experiment, how long could people work on their goal?",
+        "options": [
+          {
+            "text": "45 minutes",
+            "correct": true
+          },
+          {
+            "text": "15 minutes"
+          },
+          {
+            "text": "Two hours"
+          },
+          {
+            "text": "A whole day"
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "NHopJHSlVo4",
+          "start": 0
+        },
+        "explanation": "They had 45 minutes to work toward their goal."
+      },
+      {
+        "prompt": "What did the people who announced their goals do?",
+        "options": [
+          {
+            "text": "They stopped working after about 33 minutes.",
+            "correct": true
+          },
+          {
+            "text": "They worked the full 45 minutes."
+          },
+          {
+            "text": "They didn't start at all."
+          },
+          {
+            "text": "They worked for two hours."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "NHopJHSlVo4",
+          "start": 0
+        },
+        "explanation": "On average they stopped after 33 minutes."
+      },
+      {
+        "prompt": "How did the people who kept their goals quiet feel at the end?",
+        "options": [
+          {
+            "text": "That they still had a long way to go.",
+            "correct": true
+          },
+          {
+            "text": "That they had finished."
+          },
+          {
+            "text": "That the test was too easy."
+          },
+          {
+            "text": "That they wanted to quit."
+          }
+        ],
+        "media": {
+          "kind": "youtube",
+          "videoId": "NHopJHSlVo4",
+          "start": 0
+        },
+        "explanation": "They worked longer and felt there was still more to do."
+      },
+      {
+        "prompt": "What does the speaker suggest?",
+        "options": [
+          {
+            "text": "Resist the temptation to announce your goals.",
+            "correct": true
+          },
+          {
+            "text": "Tell everybody your goals every day."
+          },
+          {
+            "text": "Only make small goals."
+          },
+          {
+            "text": "Never set goals."
+          }
+        ],
+        "explanation": "Or say them in a way that gives you no satisfaction yet."
+      },
+      {
+        "prompt": "In the talk, \"resist the temptation\" means…",
+        "options": [
+          {
+            "text": "Don't do something you really want to do.",
+            "correct": true
+          },
+          {
+            "text": "Try something new."
+          },
+          {
+            "text": "Get angry quickly."
+          },
+          {
+            "text": "Ask for help."
+          }
+        ],
+        "explanation": "Temptation = a strong wish to do something."
+      }
+    ]
+  }
+}

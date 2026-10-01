@@ -15,6 +15,8 @@ type YouTubeNamespace = {
     options: {
       host: string;
       videoId: string;
+      width: string;
+      height: string;
       playerVars: Record<string, number | string>;
       events: { onError: (event: { data: number }) => void };
     },
@@ -67,6 +69,8 @@ export function YouTubeClip({ videoId, start = 0, end, title = "Video clip" }: Y
       playerRef.current = new YT.Player(elementId, {
         host: "https://www.youtube-nocookie.com",
         videoId,
+        width: "100%",
+        height: "100%",
         playerVars: { start, ...(end ? { end } : {}), rel: 0, playsinline: 1 },
         events: {
           onError: (event) => {
@@ -103,7 +107,7 @@ export function YouTubeClip({ videoId, start = 0, end, title = "Video clip" }: Y
   }
 
   return (
-    <div className="space-y-2">
+    <div className="w-full max-w-3xl space-y-2">
       <div className="aspect-video overflow-hidden rounded-2xl bg-black">
         <div id={elementId} title={title} className="size-full" />
       </div>

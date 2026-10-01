@@ -1,0 +1,172 @@
+{
+  "slug": "guess-the-idiom-1",
+  "title": "Guess the Idiom 1",
+  "description": "What do these common English idioms really mean? Guess, then read the explanation.",
+  "category": "fun",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["idioms", "expressions", "game"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/guess-the-idiom-1/thumb.webp",
+    "alt": "A speech bubble full of colorful question marks",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "When something is very easy, it's…",
+        "options": [
+          {
+            "text": "a piece of cake",
+            "correct": true
+          },
+          {
+            "text": "a cup of tea"
+          },
+          {
+            "text": "a slice of bread"
+          },
+          {
+            "text": "a bag of chips"
+          }
+        ],
+        "explanation": "\"It's a piece of cake\" means it's very easy."
+      },
+      {
+        "prompt": "If you \"break the ice\", you…",
+        "options": [
+          {
+            "text": "start a conversation in an awkward situation",
+            "correct": true
+          },
+          {
+            "text": "break something by accident"
+          },
+          {
+            "text": "feel very cold"
+          },
+          {
+            "text": "end a friendship"
+          }
+        ],
+        "explanation": "We break the ice to make people feel more relaxed, for example at a party."
+      },
+      {
+        "prompt": "\"It's raining cats and dogs\" means…",
+        "options": [
+          {
+            "text": "it's raining very hard",
+            "correct": true
+          },
+          {
+            "text": "there are animals outside"
+          },
+          {
+            "text": "the weather is changing"
+          },
+          {
+            "text": "it's a little cloudy"
+          }
+        ],
+        "explanation": "It means there is a lot of heavy rain."
+      },
+      {
+        "prompt": "To \"hit the books\" means to…",
+        "options": [
+          {
+            "text": "study hard",
+            "correct": true
+          },
+          {
+            "text": "throw books"
+          },
+          {
+            "text": "close a library"
+          },
+          {
+            "text": "write a novel"
+          }
+        ],
+        "explanation": "\"I have a test tomorrow, so I need to hit the books.\""
+      },
+      {
+        "prompt": "If you \"feel under the weather\", you…",
+        "options": [
+          {
+            "text": "feel a little sick",
+            "correct": true
+          },
+          {
+            "text": "are outside in the rain"
+          },
+          {
+            "text": "feel very happy"
+          },
+          {
+            "text": "work outdoors"
+          }
+        ],
+        "explanation": "\"I'm feeling a bit under the weather today\" = I don't feel well."
+      },
+      {
+        "prompt": "\"Once in a blue moon\" means…",
+        "options": [
+          {
+            "text": "very rarely",
+            "correct": true
+          },
+          {
+            "text": "every night"
+          },
+          {
+            "text": "at midnight"
+          },
+          {
+            "text": "during a holiday"
+          }
+        ],
+        "explanation": "\"I eat fast food once in a blue moon\" = almost never."
+      },
+      {
+        "prompt": "If someone \"spills the beans\", they…",
+        "options": [
+          {
+            "text": "tell a secret",
+            "correct": true
+          },
+          {
+            "text": "cook dinner"
+          },
+          {
+            "text": "make a mess"
+          },
+          {
+            "text": "lose money"
+          }
+        ],
+        "explanation": "To spill the beans is to tell information that was supposed to be secret."
+      },
+      {
+        "prompt": "If something \"costs an arm and a leg\", it is…",
+        "options": [
+          {
+            "text": "very expensive",
+            "correct": true
+          },
+          {
+            "text": "dangerous"
+          },
+          {
+            "text": "free"
+          },
+          {
+            "text": "painful"
+          }
+        ],
+        "explanation": "\"That new phone costs an arm and a leg!\""
+      }
+    ]
+  }
+}

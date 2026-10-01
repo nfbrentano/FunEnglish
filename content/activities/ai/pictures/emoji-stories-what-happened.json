@@ -1,0 +1,212 @@
+{
+  "slug": "emoji-stories-what-happened",
+  "title": "Emoji Stories: What Happened?",
+  "description": "Each line of emoji tells a tiny story. Choose the sentence that tells it best, then retell it in your own words.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["storytelling", "past simple", "emoji", "speaking"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/emoji-stories-what-happened/thumb.webp",
+    "alt": "A comic strip made of emoji in three panels",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "🌧️ ➡️ ☂️ ➡️ 😊",
+          "label": "Emoji picture: 🌧️ ➡️ ☂️ ➡️ 😊"
+        },
+        "options": [
+          {
+            "text": "It started to rain, so she opened her umbrella and felt happy.",
+            "correct": true
+          },
+          {
+            "text": "It was sunny, so she went to the beach."
+          },
+          {
+            "text": "She lost her umbrella in the rain."
+          },
+          {
+            "text": "She was sad because it rained."
+          }
+        ],
+        "explanation": "Rain → umbrella → a smile."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "⏰ 😴 🏃 🚌 💨",
+          "label": "Emoji picture: ⏰ 😴 🏃 🚌 💨"
+        },
+        "options": [
+          {
+            "text": "His alarm rang, but he overslept, ran to the bus stop and missed the bus.",
+            "correct": true
+          },
+          {
+            "text": "He woke up early and walked to school."
+          },
+          {
+            "text": "He took a nap on the bus."
+          },
+          {
+            "text": "He was late because the bus broke down."
+          }
+        ],
+        "explanation": "To oversleep = to sleep longer than you planned."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "🎂 🎁 🎉 👵",
+          "label": "Emoji picture: 🎂 🎁 🎉 👵"
+        },
+        "options": [
+          {
+            "text": "They had a birthday party for Grandma.",
+            "correct": true
+          },
+          {
+            "text": "Grandma baked a cake for a wedding."
+          },
+          {
+            "text": "They bought presents for a baby."
+          },
+          {
+            "text": "Grandma went to a concert."
+          }
+        ],
+        "explanation": "Cake, presents and a party for an older woman: Grandma's birthday."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐶 🦴 🕳️",
+          "label": "Emoji picture: 🐶 🦴 🕳️"
+        },
+        "options": [
+          {
+            "text": "The dog buried a bone in a hole.",
+            "correct": true
+          },
+          {
+            "text": "The dog fell into a hole."
+          },
+          {
+            "text": "The dog ate a big dinner."
+          },
+          {
+            "text": "The dog found a lost toy."
+          }
+        ],
+        "explanation": "To bury something = to put it in the ground."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "📱 💔 😢",
+          "label": "Emoji picture: 📱 💔 😢"
+        },
+        "options": [
+          {
+            "text": "She got a sad message on her phone and started to cry.",
+            "correct": true
+          },
+          {
+            "text": "She broke her phone and bought a new one."
+          },
+          {
+            "text": "She called her friend to say happy birthday."
+          },
+          {
+            "text": "She laughed at a funny video."
+          }
+        ],
+        "explanation": "A broken heart on a phone usually means bad news."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "🛒 💳 ❌ 😳",
+          "label": "Emoji picture: 🛒 💳 ❌ 😳"
+        },
+        "options": [
+          {
+            "text": "At the store, his card didn't work and he felt embarrassed.",
+            "correct": true
+          },
+          {
+            "text": "He bought a new credit card online."
+          },
+          {
+            "text": "He forgot his shopping list."
+          },
+          {
+            "text": "The store was closed."
+          }
+        ],
+        "explanation": "Embarrassed = you feel uncomfortable because other people are watching."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍳 🔥 🚒",
+          "label": "Emoji picture: 🍳 🔥 🚒"
+        },
+        "options": [
+          {
+            "text": "Something caught fire in the kitchen and the firefighters came.",
+            "correct": true
+          },
+          {
+            "text": "They cooked breakfast at the fire station."
+          },
+          {
+            "text": "The chef won a cooking contest."
+          },
+          {
+            "text": "They had a barbecue in the garden."
+          }
+        ],
+        "explanation": "To catch fire = to start burning."
+      },
+      {
+        "prompt": "What happened?",
+        "media": {
+          "kind": "emoji",
+          "text": "✈️ 🧳 ❓",
+          "label": "Emoji picture: ✈️ 🧳 ❓"
+        },
+        "options": [
+          {
+            "text": "Her suitcase got lost after the flight.",
+            "correct": true
+          },
+          {
+            "text": "She packed her suitcase for a trip."
+          },
+          {
+            "text": "She missed her flight."
+          },
+          {
+            "text": "She bought a new suitcase at the airport."
+          }
+        ],
+        "explanation": "The question mark tells us something is missing."
+      }
+    ]
+  }
+}

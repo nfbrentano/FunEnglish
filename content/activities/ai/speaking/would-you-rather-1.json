@@ -1,0 +1,68 @@
+{
+  "slug": "would-you-rather-1",
+  "title": "Would You Rather? 1",
+  "description": "Pick one option and explain why. Follow-up questions keep the conversation going.",
+  "category": "speaking",
+  "type": "prompt-cards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["opinions", "conversation", "fluency", "warm-up"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/would-you-rather-1/thumb.webp",
+    "alt": "A road splitting into two paths with signs pointing left and right",
+    "source": "ai"
+  },
+  "content": {
+    "cards": [
+      {
+        "prompt": "Would you rather…",
+        "options": ["live in the city", "live in the countryside"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["noisy", "peaceful", "convenient"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["be able to fly", "be invisible"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["superpower", "freedom", "secret"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["never use social media again", "never watch TV again"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["scroll", "series", "addicted"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["travel to the past", "travel to the future"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["history", "technology", "change"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["have a big birthday party", "have a quiet dinner with friends"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["celebrate", "guests", "cozy"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["speak every language", "play every instrument"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["fluent", "talent", "practice"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["work from home", "work in an office"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["commute", "colleagues", "flexible"]
+      },
+      {
+        "prompt": "Would you rather…",
+        "options": ["always be 10 minutes early", "always be 10 minutes late"],
+        "followUps": ["Why?", "What would be the hardest part?"],
+        "vocabulary": ["on time", "punctual", "in a rush"]
+      }
+    ]
+  }
+}

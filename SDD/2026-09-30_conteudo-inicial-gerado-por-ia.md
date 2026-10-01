@@ -1,6 +1,6 @@
 # [FEAT] Conteúdo inicial do acervo gerado por IA
 
-> **Status:** Rascunho
+> **Status:** Em andamento
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -53,14 +53,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado os arquivos em `content/activities/ai/`, quando rodo `npm run seed`, então todos passam na validação e são gravados com `origin: "ai"` e `reviewStatus: "pending"`.
-- [ ] **CA02:** Dado o acervo gerado, quando conto por categoria, então cada uma das 9 tem ≥ 3 atividades, com pelo menos 2 níveis diferentes.
-- [ ] **CA03:** Dado uma amostra de 5 atividades por nível, quando o PO as revisa, então o vocabulário é adequado ao nível declarado, as respostas marcadas como corretas estão corretas e não há conteúdo inadequado para sala de aula.
-- [ ] **CA04:** Dado as imagens do acervo, quando as vejo lado a lado, então seguem o mesmo estilo visual, não contêm texto, marcas nem pessoas reais, e cada uma tem um arquivo de prompt correspondente.
-- [ ] **CA05:** Dado a pasta `/public/images/activities/`, quando verifico os arquivos, então todos são WebP, cada um tem ≤ 200 KB, os thumbnails são 16:10 e o total é ≤ 30 MB.
-- [ ] **CA06:** Dado o guia `content/prompts/activities.md`, quando o uso para gerar uma atividade nova de Grammar Intermediate, então o JSON produzido passa na validação sem ajustes estruturais.
-- [ ] **CA07 (limite):** Dado uma atividade cuja imagem ainda não foi gerada, quando a abro no catálogo e no player, então aparece o placeholder da categoria e não uma imagem quebrada.
-- [ ] **CA08 (negativo):** Dado as atividades com YouTube, quando as abro, então nenhum vídeo mostra "Video unavailable / embedding disabled" (vídeos bloqueados são trocados antes da publicação).
+- [x] **CA01:** Dado os arquivos em `content/activities/ai/`, quando rodo `npm run seed`, então todos passam na validação e são gravados com `origin: "ai"` e `reviewStatus: "pending"`.
+- [x] **CA02:** Dado o acervo gerado, quando conto por categoria, então cada uma das 9 tem ≥ 3 atividades, com pelo menos 2 níveis diferentes.
+- [ ] **CA03:** Dado uma amostra de 5 atividades por nível, quando o PO as revisa, então o vocabulário é adequado ao nível declarado, as respostas marcadas como corretas estão corretas e não há conteúdo inadequado para sala de aula. _(pendente: revisão do PO pela amostra; as 27 atividades estão marcadas `reviewStatus: pending`)_
+- [ ] **CA04:** Dado as imagens do acervo, quando as vejo lado a lado, então seguem o mesmo estilo visual, não contêm texto, marcas nem pessoas reais, e cada uma tem um arquivo de prompt correspondente. _(pendente: imagens a gerar pelo PO; os 38 prompts estão em `content/prompts/images/`)_
+- [ ] **CA05:** Dado a pasta `/public/images/activities/`, quando verifico os arquivos, então todos são WebP, cada um tem ≤ 200 KB, os thumbnails são 16:10 e o total é ≤ 30 MB. _(pendente: depende das imagens)_
+- [ ] **CA06:** Dado o guia `content/prompts/activities.md`, quando o uso para gerar uma atividade nova de Grammar Intermediate, então o JSON produzido passa na validação sem ajustes estruturais. _(pendente: guia em `content/prompts/activities.md`; validar ao gerar a próxima leva)_
+- [x] **CA07 (limite):** Dado uma atividade cuja imagem ainda não foi gerada, quando a abro no catálogo e no player, então aparece o placeholder da categoria e não uma imagem quebrada.
+- [x] **CA08 (negativo):** Dado as atividades com YouTube, quando as abro, então nenhum vídeo mostra "Video unavailable / embedding disabled" (vídeos bloqueados são trocados antes da publicação).
 
 ## O que a atividade não inclui
 
@@ -80,8 +80,10 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | Qual ferramenta de imagem por IA usar (ex.: Gemini, ChatGPT/DALL·E, Microsoft Designer, Midjourney)? Os termos dela precisam permitir uso público | PO | Sim (só para imagens) | |
-| D02 | Estilo visual: ilustração flat, aquarela ou foto realista? | PO/Design | Não | Proposta: ilustração flat com paleta terrosa e acento dourado |
-| D03 | Atividades pendentes de revisão devem ter algum aviso para o usuário? | PO | Não | Proposta: não na v1 |
+| D02 | Estilo visual: ilustração flat, aquarela ou foto realista? | PO/Design | Não | Ilustração flat com paleta terrosa e acento dourado (ver `content/prompts/image-style.md`) |
+| D03 | Atividades pendentes de revisão devem ter algum aviso para o usuário? | PO | Não | Não na v1 |
+| D04 | Sem imagens ainda, como fazer a categoria Pictures? | Dev | Não | Quizzes com emoji como figura (nova mídia `emoji`, mostrada em destaque); "Picture Description 1" fica como rascunho até as imagens existirem |
+| D05 | Quais vídeos usar em Videos? | Dev | Não | Filmes abertos da Blender Foundation (Big Buck Bunny, Sintel; CC BY) e a palestra TED de Derek Sivers; todos verificados com `npm run content:check-videos` |
 
 ## Sugestões de casos de teste
 

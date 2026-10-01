@@ -19,7 +19,8 @@
     "seed:emulator": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 FIREBASE_PROJECT_ID=demo-fun-english tsx scripts/seed.ts",
     "test:emulator": "firebase emulators:exec --only firestore --project demo-fun-english \"vitest run --config vitest.emulator.config.mts\"",
     "preview": "firebase emulators:start --only hosting --project demo-fun-english",
-    "deploy": "npm run build && firebase deploy --only hosting"
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "content:check-videos": "tsx scripts/check-videos.ts"
   },
   "dependencies": {
     "@next/env": "^16.3.8",
