@@ -84,3 +84,33 @@ describe("catalog", () => {
     await assertSucceeds(setDoc(doc(admin, "catalog/index"), { items: [] }));
   });
 });
+
+describe("users", () => {
+  const profile = {
+    displayName: "Ana",
+    email: "ana@example.com",
+    photoURL: null,
+    role: "teacher",
+    createdAt: new Date(),
+  };
+
+  it("a teacher creates and reads only their own profile", async () => {
+    const ana = testEnv.authenticatedContext("ana").firestore();
+    await assertSucceeds(setDoc(doc(ana, "users/ana"), profile));
+    await assertSucceeds(getDoc(doc(ana, "users/ana")));
+    await assertFails(getDoc(doc(testEnv.authenticatedContext("bob").firestore(), "users/ana")));
+    await assertFails(setDoc(doc(ana, "users/bob"), profile));
+  });
+
+  it("nobody can become admin from the client", async () => {
+    const ana = testEnv.authenticatedContext("ana").firestore();
+    await assertFails(setDoc(doc(ana, "users/ana"), { ...profile, role: "admin" }));
+    await assertSucceeds(setDoc(doc(ana, "users/ana"), profile));
+    await assertFails(setDoc(doc(ana, "users/ana"), { role: "admin" }, { merge: true }));
+    await assertSucceeds(setDoc(doc(ana, "users/ana"), { displayName: "Ana S." }, { merge: true }));
+  });
+
+  it("visitors can't read profiles", async () => {
+    await assertFails(getDoc(doc(testEnv.unauthenticatedContext().firestore(), "users/ana")));
+  });
+});
