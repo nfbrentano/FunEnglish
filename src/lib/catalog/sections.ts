@@ -54,3 +54,9 @@ export function isNew(createdAt: string, now: Date, days = NEW_BADGE_DAYS): bool
   const age = now.getTime() - new Date(createdAt).getTime();
   return age >= 0 && age <= days * 24 * 60 * 60 * 1000;
 }
+
+/** Home highlights: featured activities first (newest first), then the newest others. */
+export function homeHighlights(items: readonly CatalogItem[], size = 6): CatalogItem[] {
+  const newest = sortNewestFirst(items);
+  return [...newest.filter((i) => i.featured), ...newest.filter((i) => !i.featured)].slice(0, size);
+}

@@ -4,8 +4,16 @@ import { expect, test } from "@playwright/test";
 for (const theme of ["dark", "light", "sepia"]) {
   test(`no serious accessibility violations in the ${theme} theme`, async ({ page }) => {
     await page.addInitScript((t) => localStorage.setItem("fun-english-theme", t), theme);
-    // Catalog (carousels, badges on images) and a category page (grid, filters).
-    for (const path of ["/activities", "/activities/grammar"]) {
+    // Catalog (carousels, badges on images), a category page (grid, filters) and the
+    // institutional pages (landing, accordion, form, long text).
+    for (const path of [
+      "/activities",
+      "/activities/grammar",
+      "/",
+      "/faq",
+      "/contact",
+      "/privacy",
+    ]) {
       await page.goto(path);
       // Let the 0.5s theme transition settle so colors are final.
       await page.waitForTimeout(700);

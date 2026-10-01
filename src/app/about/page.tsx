@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { ProsePage } from "@/components/layout/prose-page";
+import { loadMarkdownPage } from "@/lib/pages/content";
 
-export const metadata: Metadata = { title: "About" };
+const page = loadMarkdownPage("about");
+
+export const metadata: Metadata = { title: page.title, description: page.description };
 
 export default function AboutPage() {
-  return (
-    <PagePlaceholder title="About Fun English">
-      Fun English is a collection of interactive activities for ESL teachers.
-    </PagePlaceholder>
-  );
+  return <ProsePage title={page.title} updated={page.updated} html={page.html} />;
 }

@@ -47,6 +47,24 @@ service cloud.firestore {
       }
     }
 
+    // Contact form (spec: páginas institucionais, RNF01): anyone can send, nobody reads from the
+    // client. Messages are read in the Firebase console.
+    match /contactMessages/{id} {
+      allow create: if request.resource.data.keys().hasOnly(["name", "email", "subject", "message", "createdAt"])
+        && request.resource.data.keys().hasAll(["name", "email", "subject", "message", "createdAt"])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 100
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")
+        && request.resource.data.subject is string
+        && request.resource.data.subject.size() > 0 && request.resource.data.subject.size() <= 150
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0 && request.resource.data.message.size() <= 2000
+        && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if false;
+    }
+
     // Aggregated catalog (catalog/index): public read, written by the seed and the admin panel.
     match /catalog/{docId} {
       allow read: if true;

@@ -1,7 +1,7 @@
 # [FEAT] Páginas institucionais (Home, About, FAQ, Contact, Privacy, Terms)
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** Natanael Brentano · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-01
 
 ## Detalhes da Atividade
 
@@ -47,13 +47,13 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que acesso `/`, quando a página carrega, então vejo a proposta de valor, o botão "Browse activities" (leva a `/activities`) e 6 atividades em destaque.
-- [ ] **CA02:** Dado a página FAQ, quando clico numa pergunta, então a resposta expande e `aria-expanded` passa a `true`; clicar de novo recolhe.
-- [ ] **CA03:** Dado o formulário de contato preenchido corretamente, quando envio, então vejo "Thanks! We'll get back to you soon." e um documento é criado em `contactMessages`.
-- [ ] **CA04:** Dado `/privacy` e `/terms`, quando os acesso, então vejo o conteúdo revisado pelo PO, a data "Last updated", e a Privacy Policy menciona dados coletados, provedores (Firebase/Google Cloud, YouTube), direitos do titular e contato.
-- [ ] **CA05:** Dado cada link do rodapé, quando clico, então a página correspondente abre (nenhum 404).
-- [ ] **CA06 (negativo):** Dado um envio com o campo honeypot preenchido ou mensagem > 2.000 caracteres, quando envio, então nada é gravado; e ninguém consegue ler `contactMessages` pelo SDK do cliente.
-- [ ] **CA07 (erro):** Dado um e-mail inválido no formulário, quando envio, então vejo "Please enter a valid email" e o envio não ocorre.
+- [x] **CA01:** Dado que acesso `/`, quando a página carrega, então vejo a proposta de valor, o botão "Browse activities" (leva a `/activities`) e 6 atividades em destaque.
+- [x] **CA02:** Dado a página FAQ, quando clico numa pergunta, então a resposta expande e `aria-expanded` passa a `true`; clicar de novo recolhe.
+- [x] **CA03:** Dado o formulário de contato preenchido corretamente, quando envio, então vejo "Thanks! We'll get back to you soon." e um documento é criado em `contactMessages`.
+- [x] **CA04:** Dado `/privacy` e `/terms`, quando os acesso, então vejo o conteúdo revisado pelo PO, a data "Last updated", e a Privacy Policy menciona dados coletados, provedores (Firebase/Google Cloud, YouTube), direitos do titular e contato. _(Textos em `content/pages/` revisados e aprovados pelo PO em 2026-10-01.)_
+- [x] **CA05:** Dado cada link do rodapé, quando clico, então a página correspondente abre (nenhum 404).
+- [x] **CA06 (negativo):** Dado um envio com o campo honeypot preenchido ou mensagem > 2.000 caracteres, quando envio, então nada é gravado; e ninguém consegue ler `contactMessages` pelo SDK do cliente.
+- [x] **CA07 (erro):** Dado um e-mail inválido no formulário, quando envio, então vejo "Please enter a valid email" e o envio não ocorre.
 
 ## O que a atividade não inclui
 
@@ -72,7 +72,8 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | Quem redige/revisa Privacy Policy e Terms? | PO | Não | Redigidos por IA; revisados pelo PO (Natanael) antes do lançamento |
-| D02 | A Home é uma landing separada ou `/` redireciona para `/activities` na v1? | PO | Não | Ver D01 da spec do Catálogo |
+| D02 | A Home é uma landing separada ou `/` redireciona para `/activities` na v1? | PO | Não | Landing separada (decisão do PO em 2026-10-01) |
+| D03 | Qual e-mail de contato oficial? | PO | Não | nfgbrentano@gmail.com (Contact e Privacy Policy) |
 
 ## Sugestões de casos de teste
 
