@@ -1,7 +1,7 @@
 # [FEAT] Painel admin de conteúdo
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-01
 
 ## Detalhes da Atividade
 
@@ -56,17 +56,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que rodei `npm run set-admin autor@exemplo.com` e esse usuário fez login novamente, quando acessa `/admin`, então vê a lista de atividades.
-- [ ] **CA02:** Dado 50 atividades, quando filtro por status "draft" e categoria "Grammar", então só os rascunhos de Grammar aparecem.
-- [ ] **CA03:** Dado que digito o título "Present Perfect Quiz", quando o slug é gerado, então vira `present-perfect-quiz`; se já existir, vejo "Slug already in use" e não consigo salvar.
-- [ ] **CA04:** Dado um quiz com uma pergunta sem alternativa correta no editor, quando tento publicar, então vejo o erro no caminho `questions[2].options` e a publicação é bloqueada.
-- [ ] **CA05:** Dado o tipo "flashcards" selecionado e o editor vazio, quando clico "Insert template", então o editor recebe um exemplo válido de flashcards.
-- [ ] **CA06:** Dado edições não salvas, quando clico "Preview", então o player abre com o conteúdo editado e a versão publicada não é alterada.
-- [ ] **CA07:** Dado uma atividade, quando clico "Delete", então preciso digitar o título para confirmar; depois de confirmado, ela some da lista e do catálogo.
-- [ ] **CA08 (negativo):** Dado um professor comum logado, quando acessa `/admin` ou tenta gravar em `activities` pelo SDK, então vê 404/"Not authorized" e a escrita é negada pelas regras.
-- [ ] **CA09:** Dado que publico uma atividade nova, quando acesso `/activities` em até 1 min, então ela já aparece em "What's New".
-- [ ] **CA10:** Dado 27 atividades geradas por IA pendentes, quando abro o filtro "Needs review", reviso uma e clico "Mark as reviewed" (ou "Save & next"), então o contador cai para 26, a atividade sai da fila e passa a ter `reviewedBy` com meu uid.
-- [ ] **CA11:** Dado que sou admin e estou jogando um quiz com um erro de digitação, quando clico "Edit", corrijo o texto da alternativa no formulário e salvo, então o JSON reflete a mudança e o quiz publicado mostra o texto corrigido.
+- [x] **CA01:** Dado que rodei `npm run set-admin autor@exemplo.com` e esse usuário fez login novamente, quando acessa `/admin`, então vê a lista de atividades.
+- [x] **CA02:** Dado 50 atividades, quando filtro por status "draft" e categoria "Grammar", então só os rascunhos de Grammar aparecem.
+- [x] **CA03:** Dado que digito o título "Present Perfect Quiz", quando o slug é gerado, então vira `present-perfect-quiz`; se já existir, vejo "Slug already in use" e não consigo salvar.
+- [x] **CA04:** Dado um quiz com uma pergunta sem alternativa correta no editor, quando tento publicar, então vejo o erro no caminho `questions[2].options` e a publicação é bloqueada.
+- [x] **CA05:** Dado o tipo "flashcards" selecionado e o editor vazio, quando clico "Insert template", então o editor recebe um exemplo válido de flashcards.
+- [x] **CA06:** Dado edições não salvas, quando clico "Preview", então o player abre com o conteúdo editado e a versão publicada não é alterada.
+- [x] **CA07:** Dado uma atividade, quando clico "Delete", então preciso digitar o título para confirmar; depois de confirmado, ela some da lista e do catálogo.
+- [x] **CA08 (negativo):** Dado um professor comum logado, quando acessa `/admin` ou tenta gravar em `activities` pelo SDK, então vê 404/"Not authorized" e a escrita é negada pelas regras.
+- [x] **CA09:** Dado que publico uma atividade nova, quando acesso `/activities` em até 1 min, então ela já aparece em "What's New".
+- [x] **CA10:** Dado 27 atividades geradas por IA pendentes, quando abro o filtro "Needs review", reviso uma e clico "Mark as reviewed" (ou "Save & next"), então o contador cai para 26, a atividade sai da fila e passa a ter `reviewedBy` com meu uid.
+- [x] **CA11:** Dado que sou admin e estou jogando um quiz com um erro de digitação, quando clico "Edit", corrijo o texto da alternativa no formulário e salvo, então o JSON reflete a mudança e o quiz publicado mostra o texto corrigido.
 
 ## O que a atividade não inclui
 
@@ -86,8 +86,11 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Exclusão definitiva ou soft delete (`status: archived`)? | PO | Não | Sugestão: soft delete |
-| D02 | Onde hospedar imagens enviadas pelos autores sem custo? | Dev/PO | Não | Sugestão v1: `/public` via PR ou URL externa |
+| D01 | Exclusão definitiva ou soft delete (`status: archived`)? | PO | Não | Exclusão definitiva, protegida pela confirmação digitando o título; antes de excluir dá para usar "Export JSON" como backup |
+| D02 | Onde hospedar imagens enviadas pelos autores sem custo? | Dev/PO | Não | v1: `/public` via PR ou URL externa (campo "Thumbnail path or URL" com pré-visualização) |
+| D03 | Editor JSON com Monaco/CodeMirror (RF04)? | Dev | Não | `textarea` monoespaçada com validação ao vivo: evita ~1 MB de JS no bundle; a aba "Texts" cobre a revisão do dia a dia |
+| D04 | `catalog/index` "na mesma transação" (RF10)? | Dev | Não | Firestore Lite não tem listeners/transações com consultas; o índice é reconstruído logo após cada gravação a partir das atividades publicadas (idempotente: um "Save" seguinte corrige uma falha intermediária) |
+| D05 | Páginas `/play/[slug]` estáticas mostram a edição sem rebuild (CA11)? | Dev | Não | Sim: o player busca a versão publicada ao abrir e troca o conteúdo se mudou e o jogo ainda não começou |
 
 ## Sugestões de casos de teste
 

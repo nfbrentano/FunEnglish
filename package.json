@@ -21,7 +21,8 @@
     "preview": "firebase emulators:start --only hosting --project demo-fun-english",
     "deploy": "npm run build && firebase deploy --only hosting",
     "content:check-videos": "tsx scripts/check-videos.ts",
-    "images:import": "tsx scripts/import-images.ts"
+    "images:import": "tsx scripts/import-images.ts",
+    "set-admin": "tsx scripts/set-admin.ts"
   },
   "dependencies": {
     "@next/env": "^16.3.8",

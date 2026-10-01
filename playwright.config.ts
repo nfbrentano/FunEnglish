@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 // Firebase emulators: Hosting serves out/ (routing matches production), Firestore holds seeded data.
 const PORT = 5002;
+const ADMIN_SPECS = /admin-panel\.spec\.ts/;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -14,8 +15,17 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [
-    { name: "desktop", use: { ...devices["Desktop Chrome"] } },
-    { name: "mobile", use: { ...devices["Pixel 7"] } },
+    { name: "desktop", use: { ...devices["Desktop Chrome"] }, testIgnore: ADMIN_SPECS },
+    { name: "mobile", use: { ...devices["Pixel 7"] }, testIgnore: ADMIN_SPECS },
+    // Admin tests publish, edit and delete activities, so they run after the catalog tests
+    // (which assume the seeded content) and one at a time.
+    {
+      name: "admin",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: ADMIN_SPECS,
+      dependencies: ["desktop", "mobile"],
+      fullyParallel: false,
+    },
   ],
   webServer: {
     command: "firebase emulators:start --only auth,firestore,hosting --project demo-fun-english",
