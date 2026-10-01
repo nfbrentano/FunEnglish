@@ -1,6 +1,6 @@
 {
   "slug": "linking-words-1",
-  "title": "Linking Words: because, so, but, although",
+  "title": "Linking Words: because, so, but, although, however",
   "description": "Connect ideas like a good writer. Choose the right linking word for each sentence.",
   "category": "writing",
   "type": "quiz",
@@ -105,7 +105,7 @@
             "text": "because"
           },
           {
-            "text": "although"
+            "text": "or"
           }
         ],
         "explanation": "But joins two contrasting ideas in one sentence."

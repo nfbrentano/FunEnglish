@@ -17,28 +17,68 @@
     "questions": [
       {
         "prompt": "There is ___ milk in the fridge.",
-        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
+        "options": [
+          {
+            "text": "some",
+            "correct": true
+          },
+          {
+            "text": "any"
+          }
+        ],
         "explanation": "Use some in positive sentences."
       },
       {
         "prompt": "We don't have ___ bread left.",
-        "options": [{ "text": "some" }, { "text": "any", "correct": true }],
+        "options": [
+          {
+            "text": "some"
+          },
+          {
+            "text": "any",
+            "correct": true
+          }
+        ],
         "explanation": "Use any in negative sentences."
       },
       {
         "prompt": "Are there ___ eggs in the basket?",
-        "options": [{ "text": "some" }, { "text": "any", "correct": true }],
+        "options": [
+          {
+            "text": "some"
+          },
+          {
+            "text": "any",
+            "correct": true
+          }
+        ],
         "explanation": "Use any in most questions."
       },
       {
         "prompt": "Would you like ___ tea?",
-        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
+        "options": [
+          {
+            "text": "some",
+            "correct": true
+          },
+          {
+            "text": "any"
+          }
+        ],
         "explanation": "Use some in offers and requests, even though they are questions."
       },
       {
         "prompt": "I need ___ help with my homework, please.",
-        "options": [{ "text": "some", "correct": true }, { "text": "any" }],
-        "explanation": "Use some when you ask for something you expect to get."
+        "options": [
+          {
+            "text": "some",
+            "correct": true
+          },
+          {
+            "text": "any"
+          }
+        ],
+        "explanation": "Use some in positive sentences, like requests for help."
       }
     ]
   }

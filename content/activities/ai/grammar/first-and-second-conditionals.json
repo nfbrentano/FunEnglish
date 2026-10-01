@@ -1,0 +1,54 @@
+{
+  "slug": "first-and-second-conditionals",
+  "title": "First and Second Conditionals",
+  "description": "Real plans or imaginary situations? Complete each sentence with the right verb form.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["conditionals", "if clauses", "first conditional", "second conditional"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/first-and-second-conditionals/thumb.webp",
+    "alt": "A small cloud with rain on one side and a dreamy thought bubble with a guitar on the other",
+    "source": "ai"
+  },
+  "content": {
+    "mode": "word-bank",
+    "items": [
+      {
+        "text": "If it [[rains]] tomorrow, we'll stay inside and watch a movie.",
+        "hint": "First conditional: a real possibility."
+      },
+      {
+        "text": "If I [[had]] more free time, I would learn to play the guitar.",
+        "hint": "Second conditional: an imaginary situation."
+      },
+      {
+        "text": "She [[will]] call you if she finishes work early.",
+        "hint": "First conditional: will + verb in the result."
+      },
+      {
+        "text": "If we [[lived]] near the beach, we would go swimming every day.",
+        "hint": "Second conditional: past simple after if."
+      },
+      {
+        "text": "If you [[don't|do not]] hurry, you'll miss the bus.",
+        "hint": "First conditional: present simple after if."
+      },
+      {
+        "text": "What [[would]] you do if you found a wallet on the street?",
+        "hint": "Second conditional question."
+      },
+      {
+        "text": "If I were you, I [[would talk]] to the teacher about it.",
+        "hint": "Second conditional for advice."
+      },
+      {
+        "text": "We [[won't|will not]] go to the park if it's too cold.",
+        "hint": "First conditional, negative result."
+      }
+    ],
+    "distractors": ["will rain", "would have", "live", "talked"]
+  }
+}

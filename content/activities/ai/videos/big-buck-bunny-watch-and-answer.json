@@ -67,7 +67,7 @@
         "prompt": "Who bothers the bunny?",
         "options": [
           {
-            "text": "Three small rodents",
+            "text": "Three small animals",
             "correct": true
           },
           {
@@ -85,7 +85,7 @@
           "videoId": "YE7VzlLtp-4",
           "start": 0
         },
-        "explanation": "Three small animals (rodents) play mean tricks on him."
+        "explanation": "Three small animals (rodents: squirrels and a chinchilla) play mean tricks on him."
       },
       {
         "prompt": "What do they throw at him?",

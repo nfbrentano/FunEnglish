@@ -11,6 +11,37 @@ Todas as imagens do acervo, uma por linha. Cada uma tem um **nome de arquivo ún
 
 Estilo e regras: [`../image-style.md`](../image-style.md). Os mesmos prompts estão um por arquivo em `<slug>/<nome>.txt`.
 
+## Regerar (21 imagens) — revisão de 2026-10-01
+
+Na revisão lado a lado, estas imagens saíram com um estilo diferente das primeiras: **moldura redonda trançada**, **mandala no centro** (nas cenas de Picture Description isso atrapalha a descrição), fundo com ruído e, no thumb de preposições, a palavra "at" escrita. Os prompts foram corrigidos (moldura, vinheta e ornamentos agora são proibidos explicitamente). Gere de novo só estas:
+
+- `picture-description-1--thumb.png`
+- `picture-description-1--1.png`
+- `picture-description-1--2.png`
+- `picture-description-1--3.png`
+- `picture-description-1--4.png`
+- `picture-description-1--5.png`
+- `picture-description-1--6.png`
+- `prepositions-of-time-in-on-at--thumb.png`
+- `present-perfect-or-past-simple--thumb.png`
+- `quiz-board-basic-1--thumb.png`
+- `reading-signs-and-notices--thumb.png`
+- `reading-text-messages-1--thumb.png`
+- `short-ads-and-notices--thumb.png`
+- `sintel-watch-and-answer--thumb.png`
+- `some-or-any--thumb.png`
+- `story-starters-1--thumb.png`
+- `ted-keep-your-goals-to-yourself--thumb.png`
+- `this-or-that-1--thumb.png`
+- `whats-the-best-reply--thumb.png`
+- `would-you-rather-1--thumb.png`
+- `writing-emails-1--thumb.png`
+- `first-and-second-conditionals--thumb.png` (atividade nova, ainda sem imagem)
+
+**Dica para não repetir o problema:** gere **cada imagem numa conversa nova** da ferramenta (ou anexe uma imagem boa como referência de estilo, por exemplo `public/images/activities/kitchen-items/kettle.webp`, dizendo "same style as this reference"). Na mesma conversa, a ferramenta tende a copiar elementos das imagens anteriores, como a moldura.
+
+Depois rode `npm run images:import -- <pasta>`: ele substitui as antigas.
+
 ## Lista (38 imagens)
 
 | #   | Arquivo                                           | Atividade                                 | Tamanho               |
@@ -61,7 +92,7 @@ Estilo e regras: [`../image-style.md`](../image-style.md). Os mesmos prompts est
 Big Buck Bunny: Watch and Answer · 1280x800 (16:10)
 
 ```text
-A big friendly rabbit standing in a sunny forest. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A big friendly rabbit standing in a sunny forest. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 2. `emoji-food-vocabulary--thumb.png`
@@ -69,7 +100,7 @@ A big friendly rabbit standing in a sunny forest. Flat vector illustration, soft
 Emoji Food Vocabulary · 1280x800 (16:10)
 
 ```text
-A plate of colorful fruit and vegetables. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A plate of colorful fruit and vegetables. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 3. `emoji-idioms--thumb.png`
@@ -77,7 +108,7 @@ A plate of colorful fruit and vegetables. Flat vector illustration, soft warm ea
 Emoji Idioms · 1280x800 (16:10)
 
 ```text
-A cat peeking out of a shopping bag. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A cat peeking out of a shopping bag. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 4. `emoji-stories-what-happened--thumb.png`
@@ -85,7 +116,7 @@ A cat peeking out of a shopping bag. Flat vector illustration, soft warm earthy 
 Emoji Stories: What Happened? · 1280x800 (16:10)
 
 ```text
-A comic strip made of emoji in three panels. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A comic strip made of emoji in three panels. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 5. `everyday-dialogues-at-the-cafe--thumb.png`
@@ -93,7 +124,7 @@ A comic strip made of emoji in three panels. Flat vector illustration, soft warm
 Everyday Dialogues: At the Café · 1280x800 (16:10)
 
 ```text
-A barista handing a cup of coffee to a customer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A barista handing a cup of coffee to a customer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 6. `guess-the-idiom-1--thumb.png`
@@ -101,7 +132,7 @@ A barista handing a cup of coffee to a customer. Flat vector illustration, soft 
 Guess the Idiom 1 · 1280x800 (16:10)
 
 ```text
-A speech bubble full of colorful question marks. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A speech bubble full of colorful question marks. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 7. `kitchen-items--cutting-board.png`
@@ -109,7 +140,7 @@ A speech bubble full of colorful question marks. Flat vector illustration, soft 
 Kitchen Items · up to 1600px wide
 
 ```text
-A wooden cutting board. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A wooden cutting board. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 8. `kitchen-items--frying-pan.png`
@@ -117,7 +148,7 @@ A wooden cutting board. Flat vector illustration, soft warm earthy palette (terr
 Kitchen Items · up to 1600px wide
 
 ```text
-A frying pan. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A frying pan. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 9. `kitchen-items--kettle.png`
@@ -125,7 +156,7 @@ A frying pan. Flat vector illustration, soft warm earthy palette (terracotta, sa
 Kitchen Items · up to 1600px wide
 
 ```text
-A kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 10. `kitchen-items--thumb.png`
@@ -133,7 +164,7 @@ A kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage g
 Kitchen Items · 1280x800 (16:10)
 
 ```text
-Illustrated kitchen shelf with pots, cups and a kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+Illustrated kitchen shelf with pots, cups and a kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 11. `kitchen-items--whisk.png`
@@ -141,7 +172,7 @@ Illustrated kitchen shelf with pots, cups and a kettle. Flat vector illustration
 Kitchen Items · up to 1600px wide
 
 ```text
-A metal whisk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A metal whisk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 12. `linking-words-1--thumb.png`
@@ -149,7 +180,7 @@ A metal whisk. Flat vector illustration, soft warm earthy palette (terracotta, s
 Linking Words: because, so, but, although · 1280x800 (16:10)
 
 ```text
-Puzzle pieces connected by a chain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+Puzzle pieces connected by a chain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 13. `listen-and-choose-numbers-and-prices--thumb.png`
@@ -157,7 +188,7 @@ Puzzle pieces connected by a chain. Flat vector illustration, soft warm earthy p
 Listen and Choose: Numbers and Prices · 1280x800 (16:10)
 
 ```text
-A price tag, a clock and a phone keypad. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A price tag, a clock and a phone keypad. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 14. `minimal-pairs-ship-or-sheep--thumb.png`
@@ -165,7 +196,7 @@ A price tag, a clock and a phone keypad. Flat vector illustration, soft warm ear
 Minimal Pairs: Ship or Sheep? · 1280x800 (16:10)
 
 ```text
-A small ship and a fluffy sheep side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A small ship and a fluffy sheep side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 15. `odd-one-out-1--thumb.png`
@@ -173,7 +204,7 @@ A small ship and a fluffy sheep side by side. Flat vector illustration, soft war
 Odd One Out 1 · 1280x800 (16:10)
 
 ```text
-Four colorful boxes, one of them a different shape. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+Four colorful boxes, one of them a different shape. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 16. `opposites-1--thumb.png`
@@ -181,7 +212,7 @@ Four colorful boxes, one of them a different shape. Flat vector illustration, so
 Opposites 1 · 1280x800 (16:10)
 
 ```text
-A sun and a snowflake facing each other. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A sun and a snowflake facing each other. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 17. `phrasal-verbs-with-get--thumb.png`
@@ -189,7 +220,7 @@ A sun and a snowflake facing each other. Flat vector illustration, soft warm ear
 Phrasal Verbs with GET · 1280x800 (16:10)
 
 ```text
-The word GET surrounded by arrows pointing in different directions. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+The word GET surrounded by arrows pointing in different directions. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 18. `picture-description-1--1.png`
@@ -197,7 +228,7 @@ The word GET surrounded by arrows pointing in different directions. Flat vector 
 Picture Description 1 · up to 1600px wide
 
 ```text
-A busy farmers' market with stalls of fruit and vegetables. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A busy farmers' market with stalls of fruit and vegetables. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 19. `picture-description-1--2.png`
@@ -205,7 +236,7 @@ A busy farmers' market with stalls of fruit and vegetables. Flat vector illustra
 Picture Description 1 · up to 1600px wide
 
 ```text
-A family having a picnic in a park on a sunny day. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A family having a picnic in a park on a sunny day. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 20. `picture-description-1--3.png`
@@ -213,7 +244,7 @@ A family having a picnic in a park on a sunny day. Flat vector illustration, sof
 Picture Description 1 · up to 1600px wide
 
 ```text
-A crowded train station at rush hour. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A crowded train station at rush hour. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 21. `picture-description-1--4.png`
@@ -221,7 +252,7 @@ A crowded train station at rush hour. Flat vector illustration, soft warm earthy
 Picture Description 1 · up to 1600px wide
 
 ```text
-A classroom where students are doing a science experiment. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A classroom where students are doing a science experiment. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 22. `picture-description-1--5.png`
@@ -229,7 +260,7 @@ A classroom where students are doing a science experiment. Flat vector illustrat
 Picture Description 1 · up to 1600px wide
 
 ```text
-A rainy street with people holding umbrellas. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A rainy street with people holding umbrellas. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 23. `picture-description-1--6.png`
@@ -237,7 +268,7 @@ A rainy street with people holding umbrellas. Flat vector illustration, soft war
 Picture Description 1 · up to 1600px wide
 
 ```text
-A beach with people swimming, surfing and building sandcastles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A beach with people swimming, surfing and building sandcastles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 24. `picture-description-1--thumb.png`
@@ -245,7 +276,7 @@ A beach with people swimming, surfing and building sandcastles. Flat vector illu
 Picture Description 1 · 1280x800 (16:10)
 
 ```text
-A busy city street scene full of people. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A busy city street scene full of people. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 25. `prepositions-of-time-in-on-at--thumb.png`
@@ -253,7 +284,7 @@ A busy city street scene full of people. Flat vector illustration, soft warm ear
 Prepositions of Time: in, on, at · 1280x800 (16:10)
 
 ```text
-A clock, a calendar page and a sun over the word 'at'. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A clock, a calendar page and a rising sun, side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 26. `present-perfect-or-past-simple--thumb.png`
@@ -261,7 +292,7 @@ A clock, a calendar page and a sun over the word 'at'. Flat vector illustration,
 Present Perfect or Past Simple? · 1280x800 (16:10)
 
 ```text
-A calendar with some days crossed out and an arrow pointing to today. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A calendar with some days crossed out and an arrow pointing to today. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 27. `quiz-board-basic-1--thumb.png`
@@ -269,7 +300,7 @@ A calendar with some days crossed out and an arrow pointing to today. Flat vecto
 Quiz Board Basic 1 · 1280x800 (16:10)
 
 ```text
-A colorful game board with numbered tiles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A colorful game board with numbered tiles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 28. `reading-signs-and-notices--thumb.png`
@@ -277,7 +308,7 @@ A colorful game board with numbered tiles. Flat vector illustration, soft warm e
 Reading Signs and Notices · 1280x800 (16:10)
 
 ```text
-A wall of colorful street and shop signs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A wall of colorful street and shop signs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 29. `reading-text-messages-1--thumb.png`
@@ -285,7 +316,7 @@ A wall of colorful street and shop signs. Flat vector illustration, soft warm ea
 Reading Text Messages 1 · 1280x800 (16:10)
 
 ```text
-A smartphone screen with chat bubbles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A smartphone screen with chat bubbles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 30. `short-ads-and-notices--thumb.png`
@@ -293,7 +324,7 @@ A smartphone screen with chat bubbles. Flat vector illustration, soft warm earth
 Short Ads and Notices · 1280x800 (16:10)
 
 ```text
-A community notice board covered with paper ads. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A community notice board covered with paper ads. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 31. `sintel-watch-and-answer--thumb.png`
@@ -301,7 +332,7 @@ A community notice board covered with paper ads. Flat vector illustration, soft 
 Sintel: Watch and Answer · 1280x800 (16:10)
 
 ```text
-A young woman with a staff standing on a snowy mountain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A young woman with a staff standing on a snowy mountain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 32. `some-or-any--thumb.png`
@@ -309,7 +340,7 @@ A young woman with a staff standing on a snowy mountain. Flat vector illustratio
 Some or Any · 1280x800 (16:10)
 
 ```text
-A kitchen table with a few apples and an empty fruit bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A kitchen table with a few apples and an empty fruit bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 33. `story-starters-1--thumb.png`
@@ -317,7 +348,7 @@ A kitchen table with a few apples and an empty fruit bowl. Flat vector illustrat
 Story Starters 1 · 1280x800 (16:10)
 
 ```text
-An open notebook with a pencil and stars floating out of the pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+An open notebook with a pencil and stars floating out of the pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 34. `ted-keep-your-goals-to-yourself--thumb.png`
@@ -325,7 +356,7 @@ An open notebook with a pencil and stars floating out of the pages. Flat vector 
 TED: Keep Your Goals to Yourself · 1280x800 (16:10)
 
 ```text
-A person writing goals in a notebook with a finger on their lips. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A person writing goals in a notebook with a finger on their lips. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 35. `this-or-that-1--thumb.png`
@@ -333,7 +364,7 @@ A person writing goals in a notebook with a finger on their lips. Flat vector il
 This or That 1 · 1280x800 (16:10)
 
 ```text
-Two doors side by side, one blue and one orange. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+Two doors side by side, one blue and one orange. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 36. `whats-the-best-reply--thumb.png`
@@ -341,7 +372,7 @@ Two doors side by side, one blue and one orange. Flat vector illustration, soft 
 What's the Best Reply? · 1280x800 (16:10)
 
 ```text
-Two people chatting with speech bubbles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+Two people chatting with speech bubbles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 37. `would-you-rather-1--thumb.png`
@@ -349,7 +380,7 @@ Two people chatting with speech bubbles. Flat vector illustration, soft warm ear
 Would You Rather? 1 · 1280x800 (16:10)
 
 ```text
-A road splitting into two paths with signs pointing left and right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+A road splitting into two paths with signs pointing left and right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
 
 ### 38. `writing-emails-1--thumb.png`
@@ -357,5 +388,5 @@ A road splitting into two paths with signs pointing left and right. Flat vector 
 Writing Emails 1 · 1280x800 (16:10)
 
 ```text
-An envelope with an @ symbol and a paper airplane. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.
+An envelope with an @ symbol and a paper airplane. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.
 ```
