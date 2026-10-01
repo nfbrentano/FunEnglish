@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ActivityPlayer } from "@/components/player/activity-player";
+import { LiveActivityPlayer } from "@/components/player/live-activity-player";
 import { PlayerMessage } from "@/components/player/player-message";
 import { getBuildActivities } from "@/lib/catalog/build-data";
 import { strings } from "@/lib/strings";
@@ -41,5 +41,5 @@ export default async function PlayPage({ params }: PageProps<"/play/[slug]">) {
       </div>
     );
   }
-  return <ActivityPlayer activity={entry.activity} />;
+  return <LiveActivityPlayer activity={entry.activity} />;
 }
