@@ -1,4 +1,7 @@
-Save as: public/images/activities/picture-description-1/6.webp
-Size: up to 1600px wide
+NOME DO ARQUIVO: picture-description-1--6.png
+(salve a imagem gerada com exatamente este nome; pode ser .png, .jpg ou .webp)
+Destino final: public/images/activities/picture-description-1/6.webp (o comando npm run images:import coloca lá)
+Tamanho: up to 1600px wide
 
+PROMPT (copie tudo abaixo):
 A beach with people swimming, surfing and building sandcastles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark.

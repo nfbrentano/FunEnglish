@@ -24,7 +24,6 @@ palette (nfgbrentano.art.br): calm, warm, minimal, with a touch of gold.
 
 ## Workflow
 
-1. Open the prompt file in `content/prompts/images/<slug>/` (one `.txt` per image).
-2. Generate with your image tool, pick the best result, export as WebP.
-3. Save it at the path written in the prompt file and commit. The site shows the image automatically
-   on the next build (until then, cards show the category placeholder).
+The step-by-step list of all images, with the exact file name for each one, is in
+[`images/README.md`](images/README.md). In short: generate each image, save it in one folder as
+`<slug>--<name>.png` and run `npm run images:import -- <folder>`.
