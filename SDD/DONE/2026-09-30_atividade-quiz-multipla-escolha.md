@@ -1,6 +1,6 @@
 # [FEAT] Tipo de atividade: Quiz de múltipla escolha
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -42,18 +42,18 @@
 
 ### Recursos necessários
 
-- Pelo menos 1 quiz de exemplo por categoria no seed.
+- Pelo menos 1 quiz de exemplo por categoria no seed (vem com a spec de conteúdo inicial; hoje há "Some or Any").
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um quiz com 10 perguntas, quando inicio, então vejo a pergunta 1 com suas alternativas identificadas por letras e "1 / 10".
-- [ ] **CA02:** Dado a pergunta atual, quando escolho uma alternativa errada, então ela fica vermelha com ✗, a correta fica verde com ✓, aparece a explicação e as alternativas ficam bloqueadas.
-- [ ] **CA03:** Dado uma pergunta com 2 corretas, quando marco só uma e clico "Check", então a resposta conta como errada e as duas corretas são destacadas.
-- [ ] **CA04:** Dado que acertei 8 de 10, quando termino, então a tela Results mostra "8 / 10 correct" e lista as 2 perguntas erradas com a resposta certa.
-- [ ] **CA05:** Dado timer de 20 s ativo, quando o tempo acaba sem resposta, então a pergunta conta como errada e a correta é revelada.
-- [ ] **CA06:** Dado 2 equipes, quando a equipe 1 acerta a pergunta 1 e a equipe 2 erra a pergunta 2, então o placar fica Equipe 1: 1, Equipe 2: 0.
-- [ ] **CA07 (negativo):** Dado um JSON de quiz com pergunta sem nenhuma alternativa correta, quando o seed valida, então a atividade é rejeitada com mensagem indicando a pergunta.
-- [ ] **CA08:** Dado uma pergunta com `media.kind = "tts"`, quando clico no ícone de áudio, então o texto é falado em inglês.
+- [x] **CA01:** Dado um quiz com 10 perguntas, quando inicio, então vejo a pergunta 1 com suas alternativas identificadas por letras e "1 / 10".
+- [x] **CA02:** Dado a pergunta atual, quando escolho uma alternativa errada, então ela fica vermelha com ✗, a correta fica verde com ✓, aparece a explicação e as alternativas ficam bloqueadas.
+- [x] **CA03:** Dado uma pergunta com 2 corretas, quando marco só uma e clico "Check", então a resposta conta como errada e as duas corretas são destacadas.
+- [x] **CA04:** Dado que acertei 8 de 10, quando termino, então a tela Results mostra "8 / 10 correct" e lista as 2 perguntas erradas com a resposta certa.
+- [x] **CA05:** Dado timer de 20 s ativo, quando o tempo acaba sem resposta, então a pergunta conta como errada e a correta é revelada.
+- [x] **CA06:** Dado 2 equipes, quando a equipe 1 acerta a pergunta 1 e a equipe 2 erra a pergunta 2, então o placar fica Equipe 1: 1, Equipe 2: 0.
+- [x] **CA07 (negativo):** Dado um JSON de quiz com pergunta sem nenhuma alternativa correta, quando o seed valida, então a atividade é rejeitada com mensagem indicando a pergunta.
+- [x] **CA08:** Dado uma pergunta com `media.kind = "tts"`, quando clico no ícone de áudio, então o texto é falado em inglês.
 
 ## O que a atividade não inclui
 
@@ -69,7 +69,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Permitir voltar para perguntas anteriores? | PO | Não | Sugestão: não (evita trapaça em equipes) |
+| D01 | Permitir voltar para perguntas anteriores? | PO | Não | Não: o quiz só avança (evita trapaça em equipes) |
 
 ## Sugestões de casos de teste
 

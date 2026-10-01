@@ -27,3 +27,12 @@ dialog[open] {
     opacity: 0;
   }
 }
+
+/* Student mode (?mode=student): only the activity, no site navigation. */
+:root[data-mode="student"] [data-site-chrome] {
+  display: none;
+}
+
+:root[data-mode="student"] body {
+  padding-bottom: 0;
+}

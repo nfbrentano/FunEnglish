@@ -1,6 +1,7 @@
 // Build-time only (server components during `next build`): never import from client components.
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { fetchPublishedActivities } from "../player/load-activity";
 import { EMPTY_CATALOG, fetchCatalogIndex } from "./fetch";
 import type { CatalogIndex } from "./schema";
 
@@ -25,4 +26,15 @@ export function getPublicImagePaths(): string[] {
   return readdirSync(dir, { recursive: true, encoding: "utf8" })
     .filter((file) => /\.(webp|png|jpe?g|svg|avif)$/i.test(file))
     .map((file) => `/images/${file.split("\\").join("/")}`);
+}
+
+let buildActivities: ReturnType<typeof fetchPublishedActivities> | undefined;
+
+/** Full published activities for the /play pages, read once per build process. */
+export function getBuildActivities(): ReturnType<typeof fetchPublishedActivities> {
+  buildActivities ??= fetchPublishedActivities().catch((error: unknown) => {
+    console.warn(`Could not read activities at build time: ${(error as Error).message}`);
+    return [];
+  });
+  return buildActivities;
 }

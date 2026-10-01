@@ -1,10 +1,11 @@
 import { FieldValue, type Firestore } from "firebase-admin/firestore";
+import { ACTIVITIES_COLLECTION } from "./collections";
 import { buildCatalogIndex } from "../catalog/sections";
 import { CATALOG_COLLECTION, CATALOG_INDEX_DOC } from "../catalog/schema";
 import type { ActivityDoc } from "./schema/activity";
 import type { SeedDoc } from "./seed";
 
-export const ACTIVITIES_COLLECTION = "activities";
+export { ACTIVITIES_COLLECTION };
 
 /** Creates or replaces each activity, matched by slug. createdAt is kept on updates. */
 export async function upsertActivities(db: Firestore, docs: readonly SeedDoc[]) {

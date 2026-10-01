@@ -47,6 +47,7 @@ export function BottomNav() {
   return (
     <>
       <nav
+        data-site-chrome
         aria-label={strings.nav.mobile}
         className="fixed inset-x-0 bottom-0 z-40 border-t border-border-subtle bg-secondary/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden"
       >
