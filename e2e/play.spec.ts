@@ -8,7 +8,7 @@ const ANSWERS = ["some", "any", "any", "some", "some"];
 
 async function startWithoutShuffle(page: Page) {
   await page.getByLabel("Shuffle questions").uncheck();
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 }
 
 test("the activity page is static HTML with its title and description (SEO)", async ({
@@ -60,7 +60,7 @@ test("keyboard: number keys answer and Enter moves on", async ({ page }) => {
 test("fullscreen", async ({ page, isMobile }) => {
   test.skip(isMobile, "mobile browsers handle fullscreen differently");
   await page.goto("/play/some-or-any");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   await page.getByRole("button", { name: "Fullscreen" }).click();
   await expect(page.getByRole("button", { name: "Exit fullscreen" })).toBeVisible();
@@ -113,7 +113,7 @@ test("an activity published after the build opens through the player shell", asy
 
   await page.goto(`/play/${slug}`);
   await expect(page.getByRole("heading", { level: 1, name: "Published Later Quiz" })).toBeVisible();
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
   await page.getByRole("button", { name: "yes", exact: true }).click();
   await page.getByRole("button", { name: "See results" }).click();
   await expect(page.getByText("1 / 1 correct")).toBeVisible();
@@ -127,7 +127,7 @@ test("student mode shows only the activity", async ({ page }) => {
   await expect(page.getByRole("contentinfo")).toBeHidden();
   await expect(page.getByRole("navigation", { name: "Mobile" })).toBeHidden();
 
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
   await expect(page.getByRole("button", { name: "Share" })).toHaveCount(0);
   await expect(page.getByText("Made with Fun English")).toBeVisible();
 });

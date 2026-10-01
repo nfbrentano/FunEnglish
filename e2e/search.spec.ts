@@ -104,7 +104,12 @@ test("typing never queries Firestore", async ({ page }) => {
   const firestoreRequests: string[] = [];
   page.on(
     "request",
-    (req) => req.url().includes("127.0.0.1:8080") && firestoreRequests.push(req.url()),
+    // The page-load catalog read can surface twice in Chromium (a request without a JS
+    // initiator, landing after "load"); it isn't caused by typing, so only count other requests.
+    (req) =>
+      req.url().includes("127.0.0.1:8080") &&
+      !decodeURIComponent(req.postData() ?? "").includes("catalog/index") &&
+      firestoreRequests.push(req.url()),
   );
 
   await search(page).pressSequentially("present perfect quiz", { delay: 30 });

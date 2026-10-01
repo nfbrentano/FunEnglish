@@ -50,7 +50,7 @@ test("favorites, a list and recently played show up on the dashboard", async ({ 
 
   // Play another one.
   await page.goto("/play/odd-one-out-1");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
   await expect(page.getByText("1 / 8")).toBeVisible();
   await expect
     .poll(async () => (await db.collection(`users/${user.id}/history`).get()).size)

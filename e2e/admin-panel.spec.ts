@@ -133,7 +133,7 @@ test("create from a template, publish, edit a text and delete", async ({ page })
   const editUrl = page.url();
 
   await page.goto(`/play/${slug}`);
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
   await expect(page.getByRole("button", { name: /travels/ })).toBeVisible();
 
   // The admin's Edit link goes back to the editor.

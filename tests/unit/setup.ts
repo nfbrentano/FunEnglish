@@ -21,6 +21,16 @@ globalThis.ResizeObserver = class {
   disconnect() {}
 };
 
+// <dialog> modal API: just the open attribute and the close event.
+HTMLDialogElement.prototype.showModal = function (this: HTMLDialogElement) {
+  this.open = true;
+};
+HTMLDialogElement.prototype.close = function (this: HTMLDialogElement) {
+  if (!this.open) return;
+  this.open = false;
+  this.dispatchEvent(new Event("close"));
+};
+
 Element.prototype.scrollTo = function () {};
 Element.prototype.scrollBy = function () {};
 

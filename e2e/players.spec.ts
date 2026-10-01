@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("flashcards: flip, move and finish", async ({ page }) => {
   await page.goto("/play/kitchen-items");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   const card = page.getByRole("button", { name: /^Card (front|back)/ });
   await expect(card.getByRole("img", { name: "A kettle" })).toBeVisible();
@@ -15,7 +15,7 @@ test("flashcards: flip, move and finish", async ({ page }) => {
 
 test("fill in the blanks (typing) with read-aloud audio", async ({ page }) => {
   await page.goto("/play/everyday-dialogues-at-the-cafe");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   for (const [i, answer] of ["get", "Milk", "blueberry", "will be"].entries()) {
     await expect(page.getByRole("button", { name: "Listen" })).toBeVisible();
@@ -29,7 +29,7 @@ test("fill in the blanks (typing) with read-aloud audio", async ({ page }) => {
 
 test("fill in the blanks (word bank)", async ({ page }) => {
   await page.goto("/play/prepositions-of-time-in-on-at");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   await page.getByRole("group", { name: "Word bank" }).getByRole("button", { name: "at" }).click();
   await page.getByRole("button", { name: "Gap 1" }).click();
@@ -41,7 +41,7 @@ test("fill in the blanks (word bank)", async ({ page }) => {
 test("quiz board: named teams, points and the winner", async ({ page }) => {
   await page.goto("/play/quiz-board-basic-1");
   await page.getByRole("textbox", { name: "Name of team 1" }).fill("Tigers");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   await page.getByRole("button", { name: "Animals – 300" }).click();
   await expect(page.getByRole("heading", { name: "A baby dog is called a…" })).toBeVisible();
@@ -59,7 +59,7 @@ test("quiz board fits a 1920×1080 projector without scrolling", async ({ page, 
   test.skip(isMobile, "projector layout");
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto("/play/quiz-board-basic-1");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   const lastCell = page.getByRole("button", { name: "Verbs – 300" });
   const box = await lastCell.boundingBox();
@@ -68,7 +68,7 @@ test("quiz board fits a 1920×1080 projector without scrolling", async ({ page, 
 
 test("discussion cards: This or That, follow-ups and random", async ({ page }) => {
   await page.goto("/play/this-or-that-1");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   await expect(page.getByText("Beach")).toBeVisible();
   await expect(page.getByText("Mountains")).toBeVisible();
@@ -82,7 +82,7 @@ test("discussion cards: This or That, follow-ups and random", async ({ page }) =
 
 test("writing cards count words", async ({ page }) => {
   await page.goto("/play/story-starters-1");
-  await page.getByRole("button", { name: "Start" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
 
   await page
     .getByRole("textbox", { name: "Write your answer here…" })
