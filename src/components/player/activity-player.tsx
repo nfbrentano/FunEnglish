@@ -14,6 +14,8 @@ import type {
 import { useShareLink } from "@/lib/share/use-share-link";
 import { strings } from "@/lib/strings";
 import { useStudentMode } from "@/lib/student-mode";
+import { useAuth } from "@/lib/auth/use-auth";
+import { firestoreHistory, type HistoryRepository } from "@/lib/history/history";
 import { PlayerErrorBoundary } from "./error-boundary";
 import { PlayerIntro, withTeamCount } from "./player-intro";
 import { PlayerMessage } from "./player-message";
@@ -46,10 +48,16 @@ type ActivityPlayerProps = {
   activity: PlayableActivity;
   /** Injectable for tests; defaults to the app's activity types. */
   plugins?: PluginRegistry;
+  history?: HistoryRepository;
 };
 
 /** The shell every activity type runs in: intro → playing → results. */
-export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerProps) {
+export function ActivityPlayer({
+  activity,
+  plugins = PLUGINS,
+  history = firestoreHistory,
+}: ActivityPlayerProps) {
+  const { user } = useAuth();
   const plugin = plugins[activity.type];
   const parsed = plugin?.schema.safeParse(activity.content);
   const studentMode = useStudentMode();
@@ -73,7 +81,13 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
     startedAt.current = Date.now();
     setRun((value) => value + 1);
     setPhase("playing");
-  }, [settings.teams]);
+    // "Recently played" on the dashboard; students on shared links aren't tracked.
+    if (user && !studentMode) {
+      history
+        .record(user.uid, activity.id)
+        .catch((error: unknown) => console.warn("Could not save history", error));
+    }
+  }, [settings.teams, user, studentMode, history, activity.id]);
 
   const onScore = useCallback((delta: number, team = 0) => {
     setScores((current) => current.map((score, i) => (i === team ? score + delta : score)));

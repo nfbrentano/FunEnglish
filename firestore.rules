@@ -32,6 +32,11 @@ service cloud.firestore {
           && request.resource.data.listIds is list
           && request.resource.data.listIds.size() <= 50;
       }
+      match /history/{activityId} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(["lastPlayedAt"]);
+      }
       match /lists/{listId} {
         allow read, delete: if request.auth != null && request.auth.uid == uid;
         allow create, update: if request.auth != null && request.auth.uid == uid

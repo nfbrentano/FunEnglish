@@ -69,8 +69,14 @@ function activity(overrides: Partial<PlayableActivity> = {}): PlayableActivity {
 
 const start = () => userEvent.click(screen.getByRole("button", { name: "Start" }));
 
+const auth = vi.hoisted(() => ({ user: null as null | { uid: string } }));
+vi.mock("@/lib/auth/use-auth", () => ({
+  useAuth: () => ({ user: auth.user, loading: false, signOut: async () => {} }),
+}));
+
 afterEach(() => {
   delete document.documentElement.dataset.mode;
+  auth.user = null;
 });
 
 describe("ActivityPlayer", () => {
@@ -173,5 +179,22 @@ describe("ActivityPlayer", () => {
     expect(screen.queryByRole("button", { name: "Share" })).toBeNull();
     expect(screen.queryByRole("link", { name: "Exit" })).toBeNull();
     expect(screen.getByText("Made with Fun English")).toBeInTheDocument();
+  });
+
+  it("records a play for signed-in teachers, never in student mode", async () => {
+    const history = { record: vi.fn().mockResolvedValue(undefined), load: vi.fn() };
+    auth.user = { uid: "ana" };
+    const view = render(
+      <ActivityPlayer activity={activity()} plugins={plugins} history={history} />,
+    );
+    await start();
+    expect(history.record).toHaveBeenCalledWith("ana", "1");
+    view.unmount();
+
+    history.record.mockClear();
+    document.documentElement.dataset.mode = "student";
+    render(<ActivityPlayer activity={activity()} plugins={plugins} history={history} />);
+    await start();
+    expect(history.record).not.toHaveBeenCalled();
   });
 });

@@ -1,12 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
-import { getAdminDb } from "../src/lib/firebase-admin/core";
-import { E2E_ENV } from "./global-setup";
+import { adminDb, userIdFor } from "./admin";
 
 test.skip(({ isMobile }) => isMobile, "same flows on phones");
 
 const password = "correct-horse-1";
-let counter = 0;
-const newEmail = () => `fav-${Date.now()}-${counter++}@example.com`;
+// Unique across parallel workers (a per-worker counter + Date.now() can collide).
+const newEmail = () => `fav-${crypto.randomUUID()}@example.com`;
 
 async function signUp(page: Page, email: string) {
   await page.goto("/signup");
@@ -21,14 +20,6 @@ const someOrAnyHeart = (page: Page) =>
   page
     .getByRole("region", { name: "Grammar", exact: true })
     .getByRole("button", { name: /favorites: Some or Any$/ });
-
-function adminDb() {
-  Object.assign(process.env, {
-    FIRESTORE_EMULATOR_HOST: E2E_ENV.FIRESTORE_EMULATOR_HOST,
-    FIREBASE_PROJECT_ID: E2E_ENV.FIREBASE_PROJECT_ID,
-  });
-  return getAdminDb();
-}
 
 test("a teacher saves a favorite, and it's still there after a reload", async ({ page }) => {
   await signUp(page, newEmail());
@@ -77,8 +68,7 @@ test("a new list from the toast keeps the activity", async ({ page }) => {
   await expect(dialog.getByRole("checkbox", { name: "Teens B1" })).toBeChecked();
   await dialog.getByRole("button", { name: "Done" }).click();
 
-  const users = await adminDb().collection("users").where("email", "==", email).get();
-  const uid = users.docs[0].id;
+  const uid = await userIdFor(email);
   await expect
     .poll(
       async () =>
