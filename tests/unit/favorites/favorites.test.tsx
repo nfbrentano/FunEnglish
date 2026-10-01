@@ -1,6 +1,6 @@
 import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { FavoriteButton, FavoritesUiProvider } from "@/components/favorites/favorites-ui";
 import { ToastProvider } from "@/components/ui/toast";
@@ -51,9 +51,14 @@ function setup(user: { uid: string } | null, initial?: Parameters<typeof memoryR
 }
 
 let api: ReturnType<typeof useFavorites>;
+const exposeApi = (value: ReturnType<typeof useFavorites>) => {
+  api = value;
+};
+/** Shows readiness and hands the favorites API to the test. */
 function Probe() {
-  api = useFavorites();
-  return <p data-testid="ready">{String(api.ready)}</p>;
+  const favorites = useFavorites();
+  useEffect(() => exposeApi(favorites), [favorites]);
+  return <p data-testid="ready">{String(favorites.ready)}</p>;
 }
 
 const heart = (title: string) =>
