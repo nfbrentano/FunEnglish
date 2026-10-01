@@ -8,6 +8,7 @@ import { strings } from "@/lib/strings";
 type PlayerResultsProps = {
   result: ActivityResult;
   scores: number[] | null;
+  teamNames: string[];
   seconds: number;
   studentMode: boolean;
   onPlayAgain: () => void;
@@ -16,6 +17,7 @@ type PlayerResultsProps = {
 export function PlayerResults({
   result,
   scores,
+  teamNames,
   seconds,
   studentMode,
   onPlayAgain,
@@ -34,7 +36,7 @@ export function PlayerResults({
         {strings.player.results}
       </h2>
       <p className="text-3xl font-medium">
-        {strings.player.correctOf(result.correct, result.total)}
+        {result.headline ?? strings.player.correctOf(result.correct, result.total)}
       </p>
       <p className="text-fg-secondary">
         {strings.player.timeLabel}:{" "}
@@ -46,7 +48,7 @@ export function PlayerResults({
           <p className="font-display text-2xl text-accent">
             {winners.length > 1
               ? strings.player.tie
-              : strings.player.winner(strings.player.team(winners[0] + 1))}
+              : strings.player.winner(teamNames[winners[0]] ?? strings.player.team(winners[0] + 1))}
           </p>
           <ol className="mx-auto max-w-sm space-y-2">
             {teams
@@ -57,7 +59,7 @@ export function PlayerResults({
                   key={i}
                   className="flex justify-between rounded-xl border border-border-subtle px-4 py-2"
                 >
-                  <span>{strings.player.team(i + 1)}</span>
+                  <span>{teamNames[i] ?? strings.player.team(i + 1)}</span>
                   <span className="tabular-nums">{strings.player.points(score)}</span>
                 </li>
               ))}

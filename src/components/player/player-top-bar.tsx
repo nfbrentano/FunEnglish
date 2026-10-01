@@ -9,6 +9,7 @@ import { strings } from "@/lib/strings";
 type PlayerTopBarProps = {
   progress: Progress | null;
   scores: number[] | null;
+  teamNames: string[];
   fullscreen: { active: boolean; supported: boolean; toggle: () => void };
   studentMode: boolean;
   onRestart: () => void;
@@ -38,6 +39,7 @@ function IconAction({
 export function PlayerTopBar({
   progress,
   scores,
+  teamNames,
   fullscreen,
   studentMode,
   onRestart,
@@ -74,7 +76,10 @@ export function PlayerTopBar({
         <ul aria-label={strings.player.score} className="flex flex-wrap gap-2">
           {scores.map((score, team) => {
             const active = scores.length > 1 && progress?.activeTeam === team;
-            const name = scores.length > 1 ? strings.player.team(team + 1) : strings.player.score;
+            const name =
+              scores.length > 1
+                ? (teamNames[team] ?? strings.player.team(team + 1))
+                : strings.player.score;
             return (
               <li
                 key={team}

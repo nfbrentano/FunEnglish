@@ -17,5 +17,6 @@ export const E2E_ENV = {
 export default function globalSetup() {
   const env = { ...process.env, ...E2E_ENV };
   execSync("npx tsx scripts/seed.ts --dir=e2e/fixtures/activities", { env, stdio: "inherit" });
-  if (!process.env.E2E_SKIP_BUILD) execSync("npx next build", { env, stdio: "inherit" });
+  // npm run build clears the Next.js fetch cache, so pages never reuse data from an older seed.
+  if (!process.env.E2E_SKIP_BUILD) execSync("npm run build", { env, stdio: "inherit" });
 }

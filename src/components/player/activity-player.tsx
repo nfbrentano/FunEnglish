@@ -4,19 +4,43 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { PlayableActivity } from "@/lib/player/load-activity";
 import { useFullscreen } from "@/lib/player/fullscreen";
 import { PLUGINS } from "@/lib/player/registry";
-import type { ActivityResult, PlayerSettings, PluginRegistry, Progress } from "@/lib/player/types";
+import type {
+  ActivityResult,
+  PlayerSettings,
+  PluginRegistry,
+  Progress,
+  RegisteredPlugin,
+} from "@/lib/player/types";
 import { useShareLink } from "@/lib/share/use-share-link";
 import { strings } from "@/lib/strings";
 import { useStudentMode } from "@/lib/student-mode";
 import { PlayerErrorBoundary } from "./error-boundary";
-import { PlayerIntro } from "./player-intro";
+import { PlayerIntro, withTeamCount } from "./player-intro";
 import { PlayerMessage } from "./player-message";
 import { PlayerResults } from "./player-results";
 import { PlayerTopBar } from "./player-top-bar";
 
 type Phase = "intro" | "playing" | "results";
 
-const BASE_SETTINGS: PlayerSettings = { shuffle: false, teams: 1, timerSeconds: null };
+const BASE_SETTINGS: PlayerSettings = {
+  shuffle: false,
+  teams: 1,
+  teamNames: [],
+  timerSeconds: null,
+  extra: {},
+};
+
+function initialSettings(plugin: RegisteredPlugin | undefined): PlayerSettings {
+  const extra = Object.fromEntries(
+    (plugin?.options ?? []).map((option) => [option.id, option.default]),
+  );
+  const settings = { ...BASE_SETTINGS, ...plugin?.defaults, extra };
+  return withTeamCount(settings, Math.max(settings.teams, plugin?.minTeams ?? 1));
+}
+
+/** Blank names fall back to "Team N". */
+const teamLabels = (settings: PlayerSettings) =>
+  settings.teamNames.map((name, i) => name.trim() || strings.player.team(i + 1));
 
 type ActivityPlayerProps = {
   activity: PlayableActivity;
@@ -34,10 +58,7 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
   const { share } = useShareLink();
 
   const [phase, setPhase] = useState<Phase>("intro");
-  const [settings, setSettings] = useState<PlayerSettings>({
-    ...BASE_SETTINGS,
-    ...plugin?.defaults,
-  });
+  const [settings, setSettings] = useState<PlayerSettings>(() => initialSettings(plugin));
   const [run, setRun] = useState(0);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [scores, setScores] = useState<number[]>([0]);
@@ -112,6 +133,7 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
           <PlayerTopBar
             progress={progress}
             scores={showScores}
+            teamNames={teamLabels(settings)}
             fullscreen={fullscreen}
             studentMode={studentMode}
             onRestart={start}
@@ -121,7 +143,7 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
           <PlayerErrorBoundary key={run} fallback={loadError}>
             <Plugin
               content={parsed.data as never}
-              settings={settings}
+              settings={{ ...settings, teamNames: teamLabels(settings) }}
               onProgress={setProgress}
               onScore={onScore}
               onComplete={onComplete}
@@ -134,6 +156,7 @@ export function ActivityPlayer({ activity, plugins = PLUGINS }: ActivityPlayerPr
         <PlayerResults
           result={result}
           scores={showScores}
+          teamNames={teamLabels(settings)}
           seconds={seconds}
           studentMode={studentMode}
           onPlayAgain={start}

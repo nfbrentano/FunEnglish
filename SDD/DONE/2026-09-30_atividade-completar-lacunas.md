@@ -1,6 +1,6 @@
 # [FEAT] Tipo de atividade: Completar lacunas (fill in the blanks)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -26,7 +26,7 @@
 | RF06 | Aceitar múltiplas respostas por lacuna (`[[don't\|do not]]`) | P0 | CA05 |
 | RF07 | Player de mídia acima do texto, com botão "Replay clip" | P1 | CA06 |
 | RF08 | Pontuação: lacunas corretas / total, no resultado final | P0 | CA07 |
-| RF09 | Dica (`hint`) mostrada sob demanda ("Show hint") | P2 | |
+| RF09 | Dica (`hint`) mostrada sob demanda ("Show hint") | P2 | | _(implementado)_
 
 ### Requisitos não-funcionais
 
@@ -48,15 +48,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o item "She [[has]] lived here since 2010." em modo typing, quando inicio, então vejo a frase com um campo no lugar de "has".
-- [ ] **CA02:** Dado o modo word-bank com distratores "have" e "is", quando clico em "has" e depois na lacuna (ou uso só o teclado), então "has" ocupa a lacuna e sai do banco.
-- [ ] **CA03:** Dado que preenchi as lacunas, quando clico "Check", então as corretas ficam verdes e as erradas vermelhas; "Show answer" revela a resposta certa.
-- [ ] **CA04:** Dado a resposta "Has " (maiúscula e espaço), quando verifico, então conta como correta; dado "hass", conta como errada.
-- [ ] **CA05:** Dado a lacuna `[[don't|do not]]`, quando digito "do not", então conta como correta.
-- [ ] **CA06:** Dado um item com clipe do YouTube de 30 a 45 s, quando clico "Replay clip", então o trecho toca novamente do segundo 30.
-- [ ] **CA07:** Dado 12 lacunas com 9 corretas, quando concluo, então Results mostra "9 / 12 correct".
-- [ ] **CA08 (negativo):** Dado um item de texto sem nenhuma lacuna `[[...]]`, quando o seed valida, então a atividade é rejeitada indicando o item.
-- [ ] **CA09:** Dado uma atividade com música, quando a abro, então vejo o crédito "Song – Artist" com link para o YouTube, só as linhas do trecho, e o áudio vem do player embutido do YouTube (nenhum arquivo de mídia servido pelo nosso domínio).
+- [x] **CA01:** Dado o item "She [[has]] lived here since 2010." em modo typing, quando inicio, então vejo a frase com um campo no lugar de "has".
+- [x] **CA02:** Dado o modo word-bank com distratores "have" e "is", quando clico em "has" e depois na lacuna (ou uso só o teclado), então "has" ocupa a lacuna e sai do banco.
+- [x] **CA03:** Dado que preenchi as lacunas, quando clico "Check", então as corretas ficam verdes e as erradas vermelhas; "Show answer" revela a resposta certa.
+- [x] **CA04:** Dado a resposta "Has " (maiúscula e espaço), quando verifico, então conta como correta; dado "hass", conta como errada.
+- [x] **CA05:** Dado a lacuna `[[don't|do not]]`, quando digito "do not", então conta como correta.
+- [x] **CA06:** Dado um item com clipe do YouTube de 30 a 45 s, quando clico "Replay clip", então o trecho toca novamente do segundo 30.
+- [x] **CA07:** Dado 12 lacunas com 9 corretas, quando concluo, então Results mostra "9 / 12 correct".
+- [x] **CA08 (negativo):** Dado um item de texto sem nenhuma lacuna `[[...]]`, quando o seed valida, então a atividade é rejeitada indicando o item.
+- [x] **CA09:** Dado uma atividade com música, quando a abro, então vejo o crédito "Song – Artist" com link para o YouTube, só as linhas do trecho, e o áudio vem do player embutido do YouTube (nenhum arquivo de mídia servido pelo nosso domínio).
 
 ## O que a atividade não inclui
 
