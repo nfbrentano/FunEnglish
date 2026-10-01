@@ -18,7 +18,7 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
   webServer: {
-    command: "firebase emulators:start --only firestore,hosting --project demo-fun-english",
+    command: "firebase emulators:start --only auth,firestore,hosting --project demo-fun-english",
     // The Firestore emulator answers "Ok" on its root once it's ready.
     url: "http://127.0.0.1:8080",
     // A stray emulator on 8080 would be "reused" without Hosting, so always start a fresh pair.

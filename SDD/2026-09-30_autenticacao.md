@@ -1,6 +1,6 @@
 # [FEAT] Autenticação (Sign up, Log in, Log out, reset de senha)
 
-> **Status:** Rascunho
+> **Status:** Em andamento
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
 
 ## Detalhes da Atividade
@@ -50,16 +50,16 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou em `/signup`, quando preencho nome, e-mail válido e senha de 8+ caracteres e envio, então a conta é criada, o documento `users/{uid}` existe com `role: "teacher"`, recebo e-mail de verificação e fico logado.
-- [ ] **CA02:** Dado que clico "Continue with Google", quando autorizo no popup, então fico logado e, se for o primeiro acesso, o documento `users/{uid}` é criado.
-- [ ] **CA03:** Dado uma conta existente, quando faço login com e-mail e senha corretos, então o cabeçalho passa a mostrar meu avatar.
-- [ ] **CA04:** Dado que informo meu e-mail em `/reset-password`, quando envio, então vejo "If an account exists, we sent you a reset link" (mesma mensagem para e-mail inexistente).
-- [ ] **CA05:** Dado que estou logado, quando clico "Log out", então a sessão termina e sou levado a `/activities`.
-- [ ] **CA06:** Dado que não estou logado, quando acesso `/dashboard`, então sou redirecionado a `/login?next=/dashboard`, e após o login volto para `/dashboard`.
-- [ ] **CA07:** Dado que tento cadastrar um e-mail já existente, quando envio, então vejo "This email is already registered. Log in instead?" junto ao campo.
-- [ ] **CA08:** Dado que estou logado, quando recarrego a página ou fecho e reabro o navegador, então continuo logado.
-- [ ] **CA09 (negativo):** Dado a URL `/login?next=https://evil.com`, quando faço login, então sou levado a `/activities`, e não ao domínio externo.
-- [ ] **CA10 (negativo):** Dado um usuário logado, quando tenta alterar o próprio `role` para `admin` via SDK, então a escrita é negada.
+- [x] **CA01:** Dado que estou em `/signup`, quando preencho nome, e-mail válido e senha de 8+ caracteres e envio, então a conta é criada, o documento `users/{uid}` existe com `role: "teacher"`, recebo e-mail de verificação e fico logado.
+- [ ] **CA02:** Dado que clico "Continue with Google", quando autorizo no popup, então fico logado e, se for o primeiro acesso, o documento `users/{uid}` é criado. _(pendente: o fluxo com popup do Google só é testável em produção, depois de ativar o provedor Google em Authentication > Método de login)_
+- [x] **CA03:** Dado uma conta existente, quando faço login com e-mail e senha corretos, então o cabeçalho passa a mostrar meu avatar.
+- [x] **CA04:** Dado que informo meu e-mail em `/reset-password`, quando envio, então vejo "If an account exists, we sent you a reset link" (mesma mensagem para e-mail inexistente).
+- [x] **CA05:** Dado que estou logado, quando clico "Log out", então a sessão termina e sou levado a `/activities`.
+- [x] **CA06:** Dado que não estou logado, quando acesso `/dashboard`, então sou redirecionado a `/login?next=/dashboard`, e após o login volto para `/dashboard`.
+- [x] **CA07:** Dado que tento cadastrar um e-mail já existente, quando envio, então vejo "This email is already registered. Log in instead?" junto ao campo.
+- [x] **CA08:** Dado que estou logado, quando recarrego a página ou fecho e reabro o navegador, então continuo logado.
+- [x] **CA09 (negativo):** Dado a URL `/login?next=https://evil.com`, quando faço login, então sou levado a `/activities`, e não ao domínio externo.
+- [x] **CA10 (negativo):** Dado um usuário logado, quando tenta alterar o próprio `role` para `admin` via SDK, então a escrita é negada.
 
 ## O que a atividade não inclui
 
@@ -78,7 +78,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Exigir verificação de e-mail para usar favoritos? | PO | Não | Sugestão: não exigir na v1 |
+| D01 | Exigir verificação de e-mail para usar favoritos? | PO | Não | Não na v1: o e-mail de verificação é enviado, mas não bloqueia |
 | D02 | Coletar dados extras no cadastro (país, tipo de escola)? | PO | Não | |
 
 ## Sugestões de casos de teste

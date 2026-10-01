@@ -14,6 +14,17 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+    // Teacher profiles: only the owner reads and writes; the role can't be changed by the client.
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.role == "teacher"
+        && request.resource.data.keys().hasOnly(["displayName", "email", "photoURL", "role", "createdAt"]);
+      allow update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.role == resource.data.role;
+      allow delete: if false;
+    }
+
     // Aggregated catalog (catalog/index): public read, written by the seed and the admin panel.
     match /catalog/{docId} {
       allow read: if true;

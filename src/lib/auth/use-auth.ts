@@ -1,5 +1,7 @@
 "use client";
 
+import { useAuthContext } from "./auth-provider";
+
 export type AuthUser = {
   uid: string;
   displayName: string | null;
@@ -13,12 +15,9 @@ export type AuthState = {
   signOut: () => Promise<void>;
 };
 
-const visitor: AuthState = { user: null, loading: false, signOut: async () => {} };
+const outsideProvider: AuthState = { user: null, loading: false, signOut: async () => {} };
 
-/**
- * Placeholder: everyone is a visitor until the auth spec (SDD/2026-09-30_autenticacao.md)
- * wires this to Firebase Auth. Components already consume this shape.
- */
+/** Current teacher (or visitor). Components outside the AuthProvider (e.g. tests) see a visitor. */
 export function useAuth(): AuthState {
-  return visitor;
+  return useAuthContext() ?? outsideProvider;
 }

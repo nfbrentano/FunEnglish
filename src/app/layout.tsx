@@ -3,6 +3,7 @@ import { Cormorant_Garamond } from "next/font/google";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { AuthProvider } from "@/lib/auth/auth-provider";
 import { SITE_NAME, siteUrl } from "@/lib/site";
 import { strings } from "@/lib/strings";
 import { studentModeInitScript } from "@/lib/student-mode-script";
@@ -38,12 +39,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           {strings.skipToContent}
         </a>
-        <SiteHeader />
-        <main id="main" className="flex flex-1 flex-col">
-          {children}
-        </main>
-        <SiteFooter />
-        <BottomNav />
+        <AuthProvider>
+          <SiteHeader />
+          <main id="main" className="flex flex-1 flex-col">
+            {children}
+          </main>
+          <SiteFooter />
+          <BottomNav />
+        </AuthProvider>
       </body>
     </html>
   );

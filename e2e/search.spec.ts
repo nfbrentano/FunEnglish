@@ -93,6 +93,14 @@ test("no results", async ({ page }) => {
 });
 
 test("typing never queries Firestore", async ({ page }) => {
+  // Start counting only after the one catalog read of this visit.
+  // Firestore Lite reads with POST …:batchGet; the document path is in the body.
+  const catalogRead = page.waitForRequest((req) =>
+    decodeURIComponent(req.url() + (req.postData() ?? "")).includes("catalog/index"),
+  );
+  await page.goto("/activities");
+  await catalogRead;
+  await page.waitForLoadState("load");
   const firestoreRequests: string[] = [];
   page.on(
     "request",
