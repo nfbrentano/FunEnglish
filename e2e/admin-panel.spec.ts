@@ -126,6 +126,7 @@ test("create from a template, publish, edit a text and delete", async ({ page })
   // Edit an option text in the Texts tab and see it on the play page (served by /play-shell).
   await page.goto("/admin");
   await page.getByRole("link", { name: title }).click();
+  await page.getByRole("tab", { name: "Texts" }).click();
   await page.getByLabel("Question 1 · Option 1 · text").fill("travels");
   await page.getByRole("button", { name: "Save changes" }).click();
   await expect(page.getByText("Saved", { exact: true })).toBeVisible();
@@ -160,7 +161,9 @@ test("a slug that's already used can't be saved", async ({ page }) => {
   await signUp(page, { admin: true });
   await createQuiz(page, "Another Quiz");
   await editor(page).getByLabel("Slug (URL)").fill("fixture-grammar-1");
-  await expect(page.getByText("Slug already in use")).toBeVisible();
+  // Next to the field and in the error summary.
+  await expect(editor(page).getByText("Slug already in use")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Slug (URL): Slug already in use" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Publish" })).toBeDisabled();
 });
 
@@ -283,4 +286,73 @@ test("Export all downloads every activity in the seed file format (RF10)", async
     type: "quiz",
   });
   expect(Object.keys(all[0])).not.toContain("searchTokens");
+});
+
+// Spec: gestão completa de atividades, PR 2 (structured editors).
+
+test("a quiz built in the form, without JSON, publishes and plays (CA01, CA02, CA06)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  const title = `Form Quiz ${Date.now()}`;
+  await createQuiz(page, title);
+  const form = page.getByRole("tabpanel", { name: "Form" });
+
+  // Three new questions with four options each; then drop the template's question.
+  for (let q = 2; q <= 4; q++) {
+    await form.getByRole("button", { name: "Add question" }).click();
+    const question = form
+      .getByRole("listitem")
+      .filter({ has: page.getByRole("heading", { name: `Question ${q}` }) });
+    await question.getByLabel("Question", { exact: true }).fill(`Question number ${q - 1}?`);
+    await question.getByRole("button", { name: "Add option" }).click();
+    for (let o = 1; o <= 4; o++) {
+      await question
+        .getByRole("textbox", { name: `Option ${o} of question ${q}`, exact: true })
+        .fill(`answer ${q - 1}${o}`);
+    }
+  }
+  await form.getByRole("button", { name: "Remove Question 1" }).click();
+
+  // New questions start with option 1 correct; pick another one for question 2.
+  const second = form
+    .getByRole("listitem")
+    .filter({ has: page.getByRole("heading", { name: "Question 2" }) });
+  await second.getByRole("radio", { name: "Option 3 is correct (question 2)" }).check();
+  await expect(page.getByRole("button", { name: "Publish" })).toBeEnabled();
+  await page.getByRole("tab", { name: "JSON" }).click();
+  await expect(page.getByRole("textbox", { name: "JSON" })).toContainText(
+    '"text": "answer 23",\n          "correct": true',
+  );
+  await page.getByRole("tab", { name: "Form" }).click();
+
+  // Live preview follows the form (CA06).
+  const preview = page.getByRole("region", { name: "Live preview" });
+  await expect(preview.getByRole("heading", { level: 1, name: title })).toBeVisible();
+  await preview.getByRole("button", { name: "Phone" }).click();
+  await expect(page.getByTestId("live-preview-frame")).toHaveJSProperty("offsetWidth", 375);
+
+  await page.getByRole("button", { name: "Publish" }).click();
+  await expect(page.getByText("Published: it's in the catalog now")).toBeVisible();
+  const slug = await editor(page).getByLabel("Slug (URL)").inputValue();
+
+  await page.goto(`/play/${slug}`);
+  await page.getByLabel("Shuffle questions").uncheck();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
+  await expect(page.getByText("1 / 3")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question number 1?" })).toBeVisible();
+  await page.getByRole("button", { name: "answer 11", exact: true }).click();
+  await expect(page.getByText("Correct!")).toBeVisible();
+});
+
+test("the error summary takes you to the field (CA02)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await createQuiz(page, `Errors ${Date.now()}`);
+  const form = page.getByRole("tabpanel", { name: "Form" });
+  await form.getByRole("textbox", { name: "Option 1 of question 1", exact: true }).fill("");
+  await page.getByRole("button", { name: /Question 1 · Option 1 · text: Required/ }).click();
+  await expect(
+    form.getByRole("textbox", { name: "Option 1 of question 1", exact: true }),
+  ).toBeFocused();
+  await expect(page.getByRole("button", { name: "Publish" })).toBeDisabled();
 });

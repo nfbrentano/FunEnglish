@@ -32,7 +32,7 @@ describe("validateActivity", () => {
       }),
     );
 
-    expect(result).toEqual({
+    expect(result).toMatchObject({
       ok: false,
       errors: expect.arrayContaining([expect.stringMatching(/^content\.questions/)]),
     });
@@ -47,7 +47,7 @@ describe("validateActivity", () => {
       }),
     );
 
-    expect(result).toEqual({
+    expect(result).toMatchObject({
       ok: false,
       errors: ["content.questions[0].options: Each question needs at least one correct option"],
     });
@@ -58,7 +58,7 @@ describe("validateActivity", () => {
       withChanges((a) => (a.thumbnail = { src: "/x.webp", alt: " ", source: "ai" })),
     );
 
-    expect(result).toEqual({ ok: false, errors: ["thumbnail.alt: Images need alt text"] });
+    expect(result).toMatchObject({ ok: false, errors: ["thumbnail.alt: Images need alt text"] });
   });
 
   it.each([
@@ -79,7 +79,7 @@ describe("validateActivity", () => {
     const result = validateActivity(
       withChanges((a) => (a.description = "x".repeat(MAX_ACTIVITY_BYTES))),
     );
-    expect(result).toEqual({ ok: false, errors: [expect.stringMatching(/limit is 200 KB/)] });
+    expect(result).toMatchObject({ ok: false, errors: [expect.stringMatching(/limit is 200 KB/)] });
   });
 
   it("rejects fill-blanks items without blanks and quiz boards with too few clues", () => {
@@ -89,7 +89,7 @@ describe("validateActivity", () => {
         a.content = { mode: "typing", items: [{ text: "No blanks here." }] };
       }),
     );
-    expect(fillBlanks).toEqual({
+    expect(fillBlanks).toMatchObject({
       ok: false,
       errors: [expect.stringMatching(/^content\.items\[0\]\.text: .*\[\[answer\]\]/)],
     });
@@ -107,7 +107,7 @@ describe("validateActivity", () => {
         };
       }),
     );
-    expect(board).toEqual({
+    expect(board).toMatchObject({
       ok: false,
       errors: [expect.stringMatching(/^content\.categories\[0\]\.clues:/)],
     });

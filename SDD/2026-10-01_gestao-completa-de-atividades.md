@@ -74,12 +74,12 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um quiz novo em branco, quando adiciono 3 perguntas com 4 alternativas cada pelo formulário, marco a correta de cada uma e publico, então a atividade aparece no catálogo e joga corretamente, sem que eu tenha aberto a aba JSON.
-- [ ] **CA02:** Dado um quiz com uma pergunta sem alternativa correta, quando olho o editor, então vejo "Mark one option as correct" ao lado daquela pergunta, o resumo de erros leva até ela e "Publish" fica desabilitado; ao marcar a correta, a aba JSON mostra `"correct": true` naquela alternativa.
-- [ ] **CA03:** Dado o item "She goes to school every day." no Completar lacunas, quando seleciono "goes" e clico "Make blank" e adiciono a alternativa "walks", então o texto vira `She [[goes|walks]] to school every day.` e a pré-visualização mostra a lacuna.
-- [ ] **CA04:** Dado um Quiz Board com 3 categorias, quando clico "Add category" e "Add row", então surge a 4ª coluna e uma linha com o próximo valor (400) em todas as categorias, com campos vazios marcados como erro até serem preenchidos.
-- [ ] **CA05:** Dado uma pergunta, quando colo `https://www.youtube.com/watch?v=YE7VzlLtp-4&t=30` como mídia e defino fim em 45 s, então o `videoId`, o início 30 e o fim 45 são preenchidos e a pré-visualização toca só esse trecho.
-- [ ] **CA06:** Dado o editor aberto num desktop, quando mudo o texto de uma alternativa, então a pré-visualização ao lado reflete a mudança em até 1 s; com "Phone" ativo, ela aparece com 375 px de largura.
+- [x] **CA01:** Dado um quiz novo em branco, quando adiciono 3 perguntas com 4 alternativas cada pelo formulário, marco a correta de cada uma e publico, então a atividade aparece no catálogo e joga corretamente, sem que eu tenha aberto a aba JSON. _(PR 2)_
+- [x] **CA02:** Dado um quiz com uma pergunta sem alternativa correta, quando olho o editor, então vejo "Mark one option as correct" ao lado daquela pergunta, o resumo de erros leva até ela e "Publish" fica desabilitado; ao marcar a correta, a aba JSON mostra `"correct": true` naquela alternativa. _(PR 2)_
+- [x] **CA03:** Dado o item "She goes to school every day." no Completar lacunas, quando seleciono "goes" e clico "Make blank" e adiciono a alternativa "walks", então o texto vira `She [[goes|walks]] to school every day.` e a pré-visualização mostra a lacuna. _(PR 2)_
+- [x] **CA04:** Dado um Quiz Board com 3 categorias, quando clico "Add category" e "Add row", então surge a 4ª coluna e uma linha com o próximo valor (400) em todas as categorias, com campos vazios marcados como erro até serem preenchidos. _(PR 2)_
+- [x] **CA05:** Dado uma pergunta, quando colo `https://www.youtube.com/watch?v=YE7VzlLtp-4&t=30` como mídia e defino fim em 45 s, então o `videoId`, o início 30 e o fim 45 são preenchidos e a pré-visualização toca só esse trecho. _(PR 2)_
+- [x] **CA06:** Dado o editor aberto num desktop, quando mudo o texto de uma alternativa, então a pré-visualização ao lado reflete a mudança em até 1 s; com "Phone" ativo, ela aparece com 375 px de largura. _(PR 2)_
 - [ ] **CA07:** Dado "Create with AI" com tipo Flashcards, Vocabulary, Beginner, tema "weather", 12 itens, quando copio o prompt, colo numa IA e colo o JSON devolvido, então ele é validado e vira um rascunho `origin: "ai"`, `reviewStatus: "pending"`; se o JSON for inválido, vejo os erros e nada é salvo.
 - [x] **CA08:** Dado uma atividade que editei no painel depois do último seed, quando alguém roda `npm run seed -- --production`, então ela não é alterada e aparece em "skipped (edited in the admin panel)"; com `--force` e confirmação, é sobrescrita. _(PR 1)_
 - [x] **CA09:** Dado 40 atividades no Firestore, quando rodo `npm run content:pull`, então tenho 40 arquivos válidos em `content/activities/` (passam em `npm run seed:check`) e o `git diff` mostra só o que mudou. _(PR 1)_
@@ -113,7 +113,7 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | A fonte da verdade passa a ser o Firestore (com `content:pull` como backup no git) ou continua sendo o repositório? | PO | Sim | **Firestore** (decisão do PO em 2026-10-01), com o painel como lugar de edição e `content:pull` periódico para backup e histórico no git |
-| D02 | Reordenar com arrastar (nova dependência `@dnd-kit`) ou só com botões ↑ ↓? | Dev/PO | Não | Sugestão: botões ↑ ↓ na v1 (acessíveis e sem dependência); arrastar como melhoria |
+| D02 | Reordenar com arrastar (nova dependência `@dnd-kit`) ou só com botões ↑ ↓? | Dev/PO | Não | Botões ↑ ↓ na v1 (acessíveis e sem dependência); arrastar fica como melhoria |
 | D03 | Quantas revisões guardar por atividade? | PO | Não | Sugestão: 20 |
 | D04 | Ordem de entrega? | PO | Não | **3 PRs** (decisão do PO em 2026-10-01): (1) RF09–RF10 (proteção e backup) + RF12; (2) editores estruturados RF01–RF07; (3) RF08, RF11, RF13–RF16 |
 
