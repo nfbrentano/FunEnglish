@@ -1,7 +1,7 @@
 # [FEAT] Prompts e upload de imagens pelo painel admin
 
-> **Status:** Em revisão
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
+> **Status:** Em andamento
+> **Autor:** Natanael Brentano · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
 
@@ -92,8 +92,8 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D01 | Onde fazer o upload sem o plano Blaze? | PO | Sim | Commit no GitHub pela API (decisão do PO em 2026-10-02) |
-| D02 | Commitar direto na `main` ou abrir um PR por imagem? | PO/Dev | Não | Sugestão: direto na `main` (o deploy é automático; imagens não quebram o build, e os testes de imagem rodam no CI de cada PR seguinte) |
-| D03 | Manter `content/prompts/images/*.txt` depois da migração? | PO/Dev | Não | Sugestão: remover; o prompt fica no JSON e o README de imagens aponta para o painel e para `images:import` |
+| D02 | Commitar direto na `main` ou abrir um PR por imagem? | PO/Dev | Não | Direto na `main` (aprovado pelo PO em 2026-10-02): o deploy é automático e os testes de imagem (formato, tamanho, proporção) continuam valendo, pois o painel gera exatamente esse formato |
+| D03 | Manter `content/prompts/images/*.txt` depois da migração? | PO/Dev | Não | Remover após migrar (aprovado pelo PO em 2026-10-02). Os testes deixam de exigir `.txt`, para um upload pelo painel nunca travar o deploy |
 
 ## Sugestões de casos de teste
 

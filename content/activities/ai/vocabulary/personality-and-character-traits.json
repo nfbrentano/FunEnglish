@@ -11,7 +11,8 @@
   "thumbnail": {
     "src": "/images/activities/personality-and-character-traits/thumb.webp",
     "alt": "A group of diverse smiling people expressing different emotions and attitudes",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "A group of diverse smiling people expressing different emotions and friendly attitudes"
   },
   "content": {
     "cards": [

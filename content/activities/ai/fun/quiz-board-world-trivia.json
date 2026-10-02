@@ -6,49 +6,122 @@
   "type": "quiz-board",
   "levelMin": "intermediate",
   "levelMax": "advanced",
-  "tags": ["trivia", "teams", "geography", "inventions", "nature", "sports", "game"],
+  "tags": [
+    "trivia",
+    "teams",
+    "geography",
+    "inventions",
+    "nature",
+    "sports",
+    "game"
+  ],
   "status": "published",
   "thumbnail": {
     "src": "/images/activities/quiz-board-world-trivia/thumb.webp",
     "alt": "A glowing globe surrounded by trivia symbols like a lightbulb, compass, and medal",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "A glowing globe surrounded by trivia symbols like a lightbulb, compass, and medal"
   },
   "content": {
     "categories": [
       {
         "name": "World Geography",
         "clues": [
-          { "value": 100, "question": "What is the capital city of Japan?", "answer": "Tokyo" },
-          { "value": 200, "question": "Which river is considered the longest in South America?", "answer": "The Amazon River" },
-          { "value": 300, "question": "Which European country has the shape of a boot?", "answer": "Italy" },
-          { "value": 400, "question": "In which country can you visit the ancient ruins of Machu Picchu?", "answer": "Peru" }
+          {
+            "value": 100,
+            "question": "What is the capital city of Japan?",
+            "answer": "Tokyo"
+          },
+          {
+            "value": 200,
+            "question": "Which river is considered the longest in South America?",
+            "answer": "The Amazon River"
+          },
+          {
+            "value": 300,
+            "question": "Which European country has the shape of a boot?",
+            "answer": "Italy"
+          },
+          {
+            "value": 400,
+            "question": "In which country can you visit the ancient ruins of Machu Picchu?",
+            "answer": "Peru"
+          }
         ]
       },
       {
         "name": "Inventions & Science",
         "clues": [
-          { "value": 100, "question": "Who is credited with inventing the telephone in 1876?", "answer": "Alexander Graham Bell" },
-          { "value": 200, "question": "What gas do plants absorb from the air to perform photosynthesis?", "answer": "Carbon dioxide" },
-          { "value": 300, "question": "Which scientist discovered penicillin in 1928?", "answer": "Alexander Fleming" },
-          { "value": 400, "question": "What metal is liquid at room temperature?", "answer": "Mercury" }
+          {
+            "value": 100,
+            "question": "Who is credited with inventing the telephone in 1876?",
+            "answer": "Alexander Graham Bell"
+          },
+          {
+            "value": 200,
+            "question": "What gas do plants absorb from the air to perform photosynthesis?",
+            "answer": "Carbon dioxide"
+          },
+          {
+            "value": 300,
+            "question": "Which scientist discovered penicillin in 1928?",
+            "answer": "Alexander Fleming"
+          },
+          {
+            "value": 400,
+            "question": "What metal is liquid at room temperature?",
+            "answer": "Mercury"
+          }
         ]
       },
       {
         "name": "Nature & Animals",
         "clues": [
-          { "value": 100, "question": "What is the fastest land animal in the world?", "answer": "The cheetah" },
-          { "value": 200, "question": "Which bird is famous for being unable to fly and swimming in icy Antarctic waters?", "answer": "The penguin" },
-          { "value": 300, "question": "What is the largest coral reef system on Earth?", "answer": "The Great Barrier Reef" },
-          { "value": 400, "question": "Which giant ocean mammal has a heart roughly the size of a small car?", "answer": "The blue whale" }
+          {
+            "value": 100,
+            "question": "What is the fastest land animal in the world?",
+            "answer": "The cheetah"
+          },
+          {
+            "value": 200,
+            "question": "Which bird is famous for being unable to fly and swimming in icy Antarctic waters?",
+            "answer": "The penguin"
+          },
+          {
+            "value": 300,
+            "question": "What is the largest coral reef system on Earth?",
+            "answer": "The Great Barrier Reef"
+          },
+          {
+            "value": 400,
+            "question": "Which giant ocean mammal has a heart roughly the size of a small car?",
+            "answer": "The blue whale"
+          }
         ]
       },
       {
         "name": "Sports & Culture",
         "clues": [
-          { "value": 100, "question": "How many rings are on the official Olympic flag?", "answer": "Five" },
-          { "value": 200, "question": "In which country did the martial art of judo originate?", "answer": "Japan" },
-          { "value": 300, "question": "How many players are on the field for one soccer team during a match?", "answer": "Eleven" },
-          { "value": 400, "question": "Which prestigious tennis tournament is played on grass courts in London?", "answer": "Wimbledon" }
+          {
+            "value": 100,
+            "question": "How many rings are on the official Olympic flag?",
+            "answer": "Five"
+          },
+          {
+            "value": 200,
+            "question": "In which country did the martial art of judo originate?",
+            "answer": "Japan"
+          },
+          {
+            "value": 300,
+            "question": "How many players are on the field for one soccer team during a match?",
+            "answer": "Eleven"
+          },
+          {
+            "value": 400,
+            "question": "Which prestigious tennis tournament is played on grass courts in London?",
+            "answer": "Wimbledon"
+          }
         ]
       }
     ]

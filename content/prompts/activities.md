@@ -186,5 +186,6 @@ prompt):
 ## After generating
 
 1. `npm run seed:check` — fix anything it reports.
-2. Add a thumbnail prompt in `content/prompts/images/<slug>/thumb.txt` (see `image-style.md`).
+2. Give every image a `prompt` (the `alt` subject + the style in `image-style.md`), or use
+   **Write prompt from alt** in the admin editor.
 3. `npm run seed:emulator` to try it locally; publish with `npm run seed -- --production`.

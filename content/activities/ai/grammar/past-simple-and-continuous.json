@@ -11,7 +11,8 @@
   "thumbnail": {
     "src": "/images/activities/past-simple-and-continuous/thumb.webp",
     "alt": "An alarm clock ringing while someone is sleeping under a blanket",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "An alarm clock ringing while someone is sleeping peacefully under a cozy blanket"
   },
   "content": {
     "mode": "word-bank",
@@ -49,6 +50,13 @@
         "hint": "Continuous action in progress in the past."
       }
     ],
-    "distractors": ["studied", "had", "walked", "did you do", "was losing", "cooked"]
+    "distractors": [
+      "studied",
+      "had",
+      "walked",
+      "did you do",
+      "was losing",
+      "cooked"
+    ]
   }
 }

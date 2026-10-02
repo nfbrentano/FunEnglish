@@ -11,14 +11,18 @@
   "thumbnail": {
     "src": "/images/activities/reading-restaurant-reviews/thumb.webp",
     "alt": "A phone screen showing five gold stars and a food review",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "A phone screen showing five gold stars and a food review"
   },
   "content": {
     "questions": [
       {
         "prompt": "Review: \"The food was delicious, but the service was so slow! We waited 45 minutes for our drinks.\" — Did the person like the restaurant?",
         "options": [
-          { "text": "They liked the food, but not the service.", "correct": true },
+          {
+            "text": "They liked the food, but not the service.",
+            "correct": true
+          },
           { "text": "They hated the food and the service." },
           { "text": "They liked everything." },
           { "text": "They thought the drinks were too expensive." }
@@ -78,7 +82,10 @@
       {
         "prompt": "Review: \"The vegetarian options were limited. All they had was a plain salad.\" — What is the problem?",
         "options": [
-          { "text": "There wasn't much food for vegetarians.", "correct": true },
+          {
+            "text": "There wasn't much food for vegetarians.",
+            "correct": true
+          },
           { "text": "The salad was too big." },
           { "text": "Vegetarians couldn't enter." },
           { "text": "They only served vegetables." }

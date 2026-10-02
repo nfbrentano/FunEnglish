@@ -2,10 +2,9 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-// CT05 / CA05 (spec: conteúdo inicial): format, weight and proportions of the activity images,
-// and one prompt file per image (CA04) so any of them can be regenerated.
+// CT05 / CA05 (spec: conteúdo inicial): format, weight and proportions of the activity images.
+// Prompts are checked in the activity JSON (content.test.ts).
 const IMAGES = join(process.cwd(), "public", "images", "activities");
-const PROMPTS = join(process.cwd(), "content", "prompts", "images");
 const MAX_BYTES = 200 * 1024;
 const MAX_TOTAL = 30 * 1024 * 1024;
 
@@ -50,11 +49,5 @@ describe("activity images", () => {
       return [];
     });
     expect(problems).toEqual([]);
-  });
-
-  it("each image has its prompt file (CA04)", () => {
-    // A prompt without an image yet is fine: the card shows the category placeholder (CA07).
-    const prompts = new Set(files(PROMPTS).filter((f) => f.endsWith(".txt")));
-    expect(images.filter((f) => !prompts.has(f.replace(/\.webp$/, ".txt")))).toEqual([]);
   });
 });
