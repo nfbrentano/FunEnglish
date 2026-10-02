@@ -221,3 +221,37 @@ describe("contactMessages", () => {
     }
   });
 });
+
+describe("activity revisions (spec: gestão completa, CA16)", () => {
+  beforeEach(async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), "activities/published/revisions/r1"), {
+        data: { title: "Old" },
+        summary: "Created",
+      });
+    });
+  });
+
+  it("only admins read and write the history, even of a published activity", async () => {
+    for (const ctx of [
+      testEnv.unauthenticatedContext(),
+      testEnv.authenticatedContext("teacher-1"),
+    ]) {
+      const db = ctx.firestore();
+      await assertFails(getDoc(doc(db, "activities/published/revisions/r1")));
+      await assertFails(getDocs(collection(db, "activities/published/revisions")));
+      await assertFails(setDoc(doc(db, "activities/published/revisions/r2"), { summary: "x" }));
+    }
+    const admin = testEnv.authenticatedContext("admin-1", { admin: true }).firestore();
+    await assertSucceeds(getDocs(collection(admin, "activities/published/revisions")));
+    await assertSucceeds(setDoc(doc(admin, "activities/published/revisions/r2"), { summary: "x" }));
+    await assertSucceeds(deleteDoc(doc(admin, "activities/published/revisions/r1")));
+  });
+
+  it("teachers can't mark an activity as edited in the panel", async () => {
+    const db = testEnv.authenticatedContext("teacher-1").firestore();
+    await assertFails(
+      setDoc(doc(db, "activities/published"), { editedInPanelAt: new Date() }, { merge: true }),
+    );
+  });
+});

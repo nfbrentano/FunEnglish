@@ -85,3 +85,26 @@ describe("isNew", () => {
     expect(isNew("2026-09-15T11:00:00Z", now)).toBe(false);
   });
 });
+
+describe("buildCatalogIndex with incomplete documents", () => {
+  it("defaults featured and tags instead of leaving them undefined (Firestore rejects undefined)", () => {
+    const index = buildCatalogIndex([
+      {
+        id: "x",
+        data: {
+          slug: "x",
+          title: "X",
+          description: "d",
+          category: "grammar",
+          type: "quiz",
+          levelMin: "beginner",
+          levelMax: "beginner",
+          thumbnail: { src: "/x.webp", alt: "x", source: "ai" },
+          status: "published",
+          createdAt: new Date("2026-10-01T00:00:00Z"),
+        } as never,
+      },
+    ]);
+    expect(index.items[0]).toMatchObject({ featured: false, tags: [] });
+  });
+});

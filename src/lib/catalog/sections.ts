@@ -21,9 +21,10 @@ export function buildCatalogIndex(
       type: data.type,
       levelMin: data.levelMin,
       levelMax: data.levelMax,
-      tags: data.tags,
+      tags: data.tags ?? [],
       thumbnail: { src: data.thumbnail.src, alt: data.thumbnail.alt },
-      featured: data.featured,
+      // Documents written outside the schema (by hand, old seeds) may lack these.
+      featured: data.featured ?? false,
       createdAt: data.createdAt.toISOString(),
     }));
 

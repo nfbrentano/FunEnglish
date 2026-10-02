@@ -39,3 +39,19 @@ export const CONTENT_TEMPLATES: Record<ActivityType, unknown> = {
     cards: [{ prompt: "Which do you prefer?", options: ["Tea", "Coffee"], followUps: ["Why?"] }],
   },
 };
+
+/** Empty but structured `content` per type, for "Start blank" (spec: gestão completa, RF08). */
+export const BLANK_CONTENT: Record<ActivityType, unknown> = {
+  quiz: {
+    questions: [{ prompt: "", options: [{ text: "", correct: true }, { text: "" }, { text: "" }] }],
+  },
+  flashcards: { cards: [{ front: { text: "" }, back: { text: "" } }] },
+  "fill-blanks": { mode: "typing", items: [{ text: "" }], distractors: [] },
+  "quiz-board": {
+    categories: [0, 1, 2].map(() => ({
+      name: "",
+      clues: [100, 200, 300].map((value) => ({ value, question: "", answer: "" })),
+    })),
+  },
+  "prompt-cards": { writing: false, cards: [{ prompt: "" }] },
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, CheckCircle2, Copy, Download, Eye, Trash2, X } from "lucide-react";
+import { ArrowLeft, History, CheckCircle2, Copy, Download, Eye, Trash2, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -11,12 +11,14 @@ import { useToast } from "@/components/ui/toast";
 import { CATEGORIES } from "@/lib/activities/categories";
 import { LEVELS } from "@/lib/activities/levels";
 import { ACTIVITY_TYPES, type ActivityType } from "@/lib/activities/schema/activity";
-import { validateActivity } from "@/lib/activities/validate";
+import { MAX_ACTIVITY_BYTES, validateActivity } from "@/lib/activities/validate";
+import { jsonBytes } from "@/lib/admin/revisions";
 import {
   deleteActivity,
   getActivity,
   isSlugTaken,
   listActivities,
+  restoreRevision,
   SaveConflictError,
   saveActivity,
   type AdminActivity,
@@ -30,7 +32,7 @@ import {
   type LocalDraft,
 } from "@/lib/admin/local-draft";
 import { useUnsavedChanges } from "@/lib/admin/use-unsaved-changes";
-import { CONTENT_TEMPLATES } from "@/lib/admin/templates";
+import { BLANK_CONTENT, CONTENT_TEMPLATES } from "@/lib/admin/templates";
 import { useAuth } from "@/lib/auth/use-auth";
 import type { PlayableActivity } from "@/lib/player/load-activity";
 import { PLUGINS } from "@/lib/player/registry";
@@ -41,6 +43,7 @@ import { Field } from "./content/fields";
 import { ErrorsProvider, friendlyMessage, pathKey, type Path } from "./content/form-context";
 import { ImagePathsContext } from "./content/image-paths";
 import { StructuredEditor } from "./content/structured-editor";
+import { HistoryDialog } from "./history-dialog";
 import { LivePreview } from "./live-preview";
 
 type Draft = Omit<
@@ -55,22 +58,39 @@ const t = strings.admin;
 const input =
   "min-h-11 w-full rounded-xl border border-border-strong bg-primary px-4 text-fg focus:border-accent";
 
-function newDraft(): Draft {
+type NewOptions = {
+  start?: string | null;
+  type?: string | null;
+  category?: string | null;
+  level?: string | null;
+};
+
+/** A new activity, optionally prefilled from /admin/new (spec: gestão completa, RF08). */
+function newDraft(options: NewOptions = {}): Draft {
+  const type = (ACTIVITY_TYPES as readonly string[]).includes(options.type ?? "")
+    ? (options.type as ActivityType)
+    : "quiz";
+  const category = CATEGORIES.some((c) => c.id === options.category)
+    ? (options.category as Draft["category"])
+    : "grammar";
+  const level = (LEVELS as readonly string[]).includes(options.level ?? "")
+    ? (options.level as Draft["levelMin"])
+    : null;
   return {
     title: "",
     slug: "",
     description: "",
-    category: "grammar",
-    levelMin: "beginner",
-    levelMax: "intermediate",
-    type: "quiz",
+    category,
+    levelMin: level ?? "beginner",
+    levelMax: level ?? "intermediate",
+    type,
     tags: "",
     status: "draft",
     featured: false,
     thumbnail: { src: "", alt: "", source: "ai" },
     origin: "human",
     reviewStatus: "reviewed",
-    content: CONTENT_TEMPLATES.quiz,
+    content: options.start === "blank" ? BLANK_CONTENT[type] : CONTENT_TEMPLATES[type],
   };
 }
 
@@ -113,6 +133,13 @@ function issueLocation(path: Path): string {
 export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
   const id = useQueryParam("id");
   const reviewMode = useQueryParam("review") === "1";
+  const newOptions = {
+    start: useQueryParam("start"),
+    type: useQueryParam("type"),
+    category: useQueryParam("category"),
+    level: useQueryParam("level"),
+  };
+  const newKey = JSON.stringify(newOptions);
   const router = useRouter();
   const toast = useToast();
   const { user } = useAuth();
@@ -140,6 +167,8 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
     if (key) setTouched((current) => (current.has(key) ? current : new Set(current).add(key)));
   };
   const conflictRef = useRef<HTMLDialogElement>(null);
+  const historyRef = useRef<HTMLDialogElement>(null);
+  const [historyOpen, setHistoryOpen] = useState(false);
   const [conflict, setConflict] = useState<{
     patch: Partial<Draft>;
     message: string;
@@ -153,7 +182,7 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
     load
       .then((activity) => {
         if (!active) return;
-        const next = activity ? toDraft(activity) : newDraft();
+        const next = activity ? toDraft(activity) : newDraft(JSON.parse(newKey) as NewOptions);
         const local = readLocalDraft<Draft>(activity?.id ?? null);
         setLocalDraft(local && JSON.stringify(local.draft) !== JSON.stringify(next) ? local : null);
         setSavedJson(JSON.stringify(next));
@@ -171,7 +200,7 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
     return () => {
       active = false;
     };
-  }, [id, reloadKey]);
+  }, [id, reloadKey, newKey]);
 
   // Review queue for "Save & next".
   useEffect(() => {
@@ -243,6 +272,10 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
     setJsonError(false);
   };
 
+  const author = user
+    ? { uid: user.uid, name: user.displayName ?? user.email ?? user.uid }
+    : undefined;
+
   async function save(
     patch: Partial<Draft>,
     message: string,
@@ -251,6 +284,12 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
   ) {
     const toSave = toCandidate({ ...draft, ...patch });
     if (slugTaken || jsonError) return;
+    // Drafts too: Firestore documents are capped, and the site keeps activities small (CA17).
+    const bytes = jsonBytes(toSave);
+    if (bytes > MAX_ACTIVITY_BYTES) {
+      toast(t.tooLarge(Math.ceil(bytes / 1024)));
+      return;
+    }
     if (toSave.status === "published" && (!valid || !validateActivity(toSave).ok)) return;
     setBusy(true);
     try {
@@ -261,7 +300,7 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
       const saved = await saveActivity(
         loadedId ?? null,
         toSave as Parameters<typeof saveActivity>[1],
-        { expectedUpdatedAt: loadedId ? loadedUpdatedAt : undefined, force },
+        { expectedUpdatedAt: loadedId ? loadedUpdatedAt : undefined, force, author },
       );
       const savedDraft = { ...draft, ...patch };
       setDraft(savedDraft);
@@ -311,6 +350,7 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
           slug,
           status: "draft",
         }) as Parameters<typeof saveActivity>[1],
+        { author, summary: `Duplicated from ${draft.slug}` },
       );
       router.push(editHref(copyId));
     } catch {
@@ -782,6 +822,18 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
                 {t.preview}
               </Button>
               {!isNewActivity && (
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    setHistoryOpen(true);
+                    historyRef.current?.showModal();
+                  }}
+                >
+                  <History aria-hidden="true" className="size-4" />
+                  {t.history.open}
+                </Button>
+              )}
+              {!isNewActivity && (
                 <Button variant="ghost" onClick={duplicate} disabled={busy}>
                   <Copy aria-hidden="true" className="size-4" />
                   {t.duplicate}
@@ -884,6 +936,30 @@ export function ActivityEditor({ imagePaths = [] }: { imagePaths?: string[] }) {
             </div>
           </form>
         </dialog>
+        {loadedId && (
+          <HistoryDialog
+            ref={historyRef}
+            activityId={loadedId}
+            current={candidate}
+            open={historyOpen}
+            onClose={() => setHistoryOpen(false)}
+            onRestore={async (revision) => {
+              setBusy(true);
+              try {
+                await restoreRevision(loadedId, revision, author);
+                historyRef.current?.close();
+                clearLocalDraft(loadedId);
+                toast(t.history.restored);
+                setReloadKey((k) => k + 1);
+              } catch (error) {
+                console.warn("Restore failed", error);
+                toast(t.saveError);
+              } finally {
+                setBusy(false);
+              }
+            }}
+          />
+        )}
         <dialog
           ref={conflictRef}
           aria-labelledby="conflict-title"
