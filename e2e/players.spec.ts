@@ -17,7 +17,7 @@ test("fill in the blanks (typing) with read-aloud audio", async ({ page }) => {
   await page.goto("/play/everyday-dialogues-at-the-cafe");
   await page.getByRole("button", { name: "Start", exact: true }).click();
 
-  for (const [i, answer] of ["get", "Milk", "blueberry", "will be"].entries()) {
+  for (const [i, answer] of ["get", "Milk", "blueberry", "comes"].entries()) {
     await expect(page.getByRole("button", { name: "Listen" })).toBeVisible();
     await page.getByRole("textbox", { name: "Gap 1" }).fill(answer);
     await page.getByRole("button", { name: "Check" }).click();

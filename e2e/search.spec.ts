@@ -48,7 +48,7 @@ test("sorting by title", async ({ page }) => {
   const titles = results(page).getByRole("heading", { level: 3 });
 
   await page.getByLabel("Sort by").selectOption("title-asc");
-  await expect(titles.first()).toHaveText("Fixture Grammar 1");
+  await expect(titles.first()).toHaveText("First and Second Conditionals");
   await expect(titles.last()).toHaveText("Some or Any");
 
   await page.getByLabel("Sort by").selectOption("title-desc");

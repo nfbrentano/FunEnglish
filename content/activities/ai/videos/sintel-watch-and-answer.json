@@ -136,25 +136,6 @@
         "explanation": "Many years had passed, and Scales had grown up."
       },
       {
-        "prompt": "Why didn't she recognize Scales?",
-        "options": [
-          {
-            "text": "Many years had passed and Scales had grown.",
-            "correct": true
-          },
-          {
-            "text": "It was too dark to see."
-          },
-          {
-            "text": "Scales was wearing armor."
-          },
-          {
-            "text": "She had lost her memory."
-          }
-        ],
-        "explanation": "The film shows that time passed while she was searching."
-      },
-      {
         "prompt": "How would you describe the ending?",
         "options": [
           {

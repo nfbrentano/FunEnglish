@@ -59,7 +59,7 @@
           "kind": "tts",
           "text": "The train leaves at a quarter past seven."
         },
-        "explanation": "\"A quarter past seven\" = 7:15."
+        "explanation": "\"A quarter past seven\" (or \"seven fifteen\") = 7:15."
       },
       {
         "prompt": "Listen. How many students are in the class?",
@@ -197,7 +197,7 @@
           "kind": "tts",
           "text": "The meeting is on Thursday at half past three."
         },
-        "explanation": "\"Half past three\" = 3:30."
+        "explanation": "\"Half past three\" = 3:30 (or \"three thirty\")."
       }
     ]
   }

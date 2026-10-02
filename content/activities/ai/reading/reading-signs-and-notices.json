@@ -111,7 +111,7 @@
         "explanation": "Sold out = they sold everything."
       },
       {
-        "prompt": "The sign says: \"OUT OF ORDER (on an elevator)\". What does it mean?",
+        "prompt": "A sign on an elevator says: \"OUT OF ORDER\". What does it mean?",
         "options": [
           {
             "text": "It isn't working.",

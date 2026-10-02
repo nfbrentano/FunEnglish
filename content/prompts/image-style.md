@@ -6,10 +6,12 @@ palette (nfgbrentano.art.br): calm, warm, minimal, with a touch of gold.
 ## Style (paste at the end of every prompt)
 
 > Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue,
-> cream) with a small touch of muted gold, subtle paper grain texture, simple rounded shapes,
+> cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes,
 > gentle soft lighting, centered composition with generous empty space around the subject,
 > mid-tone background that works on both dark and light pages. No text, no letters, no numbers,
-> no logos, no brand names, no real or famous people, no watermark.
+> no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background
+> color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala
+> or ornament in the middle of the image.
 
 ## Rules
 
@@ -21,6 +23,8 @@ palette (nfgbrentano.art.br): calm, warm, minimal, with a touch of gold.
 - **Classroom-safe:** nothing violent, scary or suggestive, even for teen/adult activities.
 - The `alt` text in the activity JSON describes the image; keep the image faithful to it.
 - Check that the tool's terms allow public use of the generated images.
+- Generate **each image in a new chat** (or attach a good image as a style reference): in one long
+  chat the tool copies elements from earlier images, like a round frame or a central ornament.
 
 ## Workflow
 

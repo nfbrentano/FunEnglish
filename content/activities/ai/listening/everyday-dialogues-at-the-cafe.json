@@ -18,19 +18,31 @@
     "items": [
       {
         "text": "Hi! Can I [[get]] a large coffee, please?",
-        "media": { "kind": "tts", "text": "Hi! Can I get a large coffee, please?" }
+        "media": {
+          "kind": "tts",
+          "text": "Hi! Can I get a large coffee, please?"
+        }
       },
       {
         "text": "Sure. Would you like [[milk]] with that?",
-        "media": { "kind": "tts", "text": "Sure. Would you like milk with that?" }
+        "media": {
+          "kind": "tts",
+          "text": "Sure. Would you like milk with that?"
+        }
       },
       {
         "text": "Yes, please. And a [[blueberry]] muffin.",
-        "media": { "kind": "tts", "text": "Yes, please. And a blueberry muffin." }
+        "media": {
+          "kind": "tts",
+          "text": "Yes, please. And a blueberry muffin."
+        }
       },
       {
-        "text": "That [[comes|will be]] to seven dollars.",
-        "media": { "kind": "tts", "text": "That comes to seven dollars." }
+        "text": "That [[comes]] to seven dollars.",
+        "media": {
+          "kind": "tts",
+          "text": "That comes to seven dollars."
+        }
       }
     ]
   }

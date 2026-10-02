@@ -157,7 +157,7 @@
             "text": "The store was closed."
           }
         ],
-        "explanation": "Embarrassed = you feel uncomfortable because other people are watching."
+        "explanation": "Embarrassed = you feel uncomfortable or a little ashamed because of something that happened in front of other people."
       },
       {
         "prompt": "What happened?",
@@ -178,7 +178,7 @@
             "text": "The chef won a cooking contest."
           },
           {
-            "text": "They had a barbecue in the garden."
+            "text": "They had a barbecue in the backyard."
           }
         ],
         "explanation": "To catch fire = to start burning."
