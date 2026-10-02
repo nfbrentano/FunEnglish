@@ -12,6 +12,11 @@ service cloud.firestore {
     match /activities/{activityId} {
       allow read: if resource.data.status == "published" || isAdmin();
       allow write: if isAdmin();
+
+      // Version history (spec: gestão completa, RF11): admins only, even for published ones.
+      match /revisions/{revisionId} {
+        allow read, write: if isAdmin();
+      }
     }
 
     // Teacher profiles: only the owner reads and writes; the role can't be changed by the client.

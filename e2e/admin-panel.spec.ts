@@ -356,3 +356,207 @@ test("the error summary takes you to the field (CA02)", async ({ page }) => {
   ).toBeFocused();
   await expect(page.getByRole("button", { name: "Publish" })).toBeDisabled();
 });
+
+// Spec: gestão completa de atividades, PR 3 (growth and management).
+
+/** A valid quiz an AI could answer with (the guide's template, filled in). */
+const aiQuiz = (slug: string) => ({
+  slug,
+  title: "Weather Words",
+  description: "Choose the right weather word.",
+  category: "vocabulary",
+  type: "quiz",
+  levelMin: "beginner",
+  levelMax: "beginner",
+  tags: ["weather"],
+  status: "published",
+  thumbnail: {
+    src: `/images/activities/${slug}/thumb.webp`,
+    alt: "A sun and a cloud",
+    source: "ai",
+  },
+  content: {
+    questions: [
+      {
+        prompt: "It's ___ today. Take an umbrella!",
+        options: [{ text: "rainy", correct: true }, { text: "sunny" }, { text: "hot" }],
+        explanation: "Rainy = with rain.",
+      },
+    ],
+  },
+});
+
+test("Create with AI: copy the prompt, paste the answer, get a pending draft (CA07)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin/new?category=vocabulary&level=beginner&type=flashcards&mode=ai");
+  await expect(page.getByLabel("Type", { exact: true })).toHaveValue("flashcards");
+  await page.getByLabel("Topic").fill("weather");
+  await page.getByLabel("How many items").fill("12");
+  const prompt = page.getByRole("textbox", { name: "Prompt for the AI" });
+  await expect(prompt).toHaveValue(
+    /\*\*flashcards\*\* activity for the \*\*vocabulary\*\* category about \*\*weather\*\*/,
+  );
+  await expect(prompt).toHaveValue(/Write exactly 12 cards\./);
+
+  // An invalid answer shows errors and saves nothing.
+  const answer = page.getByLabel("Paste the AI's answer (the JSON) here:");
+  await answer.fill('{"slug": "broken"}');
+  await page.getByRole("button", { name: "Create draft" }).first().click();
+  await expect(
+    page.getByRole("alert").filter({ hasText: "doesn't make a valid activity" }),
+  ).toBeVisible();
+
+  const slug = `ai-weather-${Date.now()}`;
+  await answer.fill("Sure! Here it is:\n```json\n" + JSON.stringify(aiQuiz(slug)) + "\n```");
+  await page.getByRole("button", { name: "Create draft" }).first().click();
+  await expect(page).toHaveURL(/\/admin\/edit\?id=/);
+  await expect(page.getByText("AI-generated, not reviewed yet")).toBeVisible();
+  const saved = (await adminDb().collection("activities").where("slug", "==", slug).get()).docs[0];
+  expect(saved.data()).toMatchObject({ status: "draft", origin: "ai", reviewStatus: "pending" });
+});
+
+test("history: restore an older version as a new one (CA10)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Fixture Grammar 3" }).click();
+  const title = editor(page).getByLabel("Title", { exact: true });
+  for (const version of ["v1", "v2", "v3"]) {
+    await title.fill(`Fixture Grammar 3 ${version}`);
+    await page.getByRole("button", { name: "Save changes" }).click();
+    await expect(page.getByText("Unsaved changes")).toBeHidden();
+  }
+
+  await page.getByRole("button", { name: "History" }).click();
+  const dialog = page.getByRole("dialog", { name: "Version history" });
+  const versions = dialog.getByRole("list", { name: "Saved versions" }).getByRole("button");
+  await expect(versions).toHaveCount(3);
+  await versions.last().click();
+  await expect(dialog.getByText("title", { exact: true })).toBeVisible();
+  page.once("dialog", (d) => void d.accept());
+  await dialog.getByRole("button", { name: "Restore this version" }).click();
+
+  await expect(title).toHaveValue("Fixture Grammar 3 v1");
+  const doc = (
+    await adminDb().collection("activities").where("slug", "==", "fixture-grammar-3").get()
+  ).docs[0];
+  expect(doc.get("title")).toBe("Fixture Grammar 3 v1");
+  const history = await doc.ref.collection("revisions").orderBy("savedAt", "desc").get();
+  expect(history.size).toBe(4);
+  expect(history.docs[0].get("summary")).toMatch(/^Restored from /);
+});
+
+test("bulk publish: 5 drafts at once, one catalog rebuild (CA12)", async ({ page }) => {
+  const db = adminDb();
+  const run = Date.now();
+  for (let i = 1; i <= 5; i++) {
+    const slug = `bulk-${run}-${i}`;
+    await db.collection("activities").add({
+      ...aiQuiz(slug),
+      title: `Bulk ${run} ${i}`,
+      status: "draft",
+      origin: "human",
+      reviewStatus: "reviewed",
+      searchTokens: [],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+  }
+  await signUp(page, { admin: true });
+  await page.goto(`/admin?q=${run}`);
+  await expect(page.getByRole("link", { name: new RegExp(`^Bulk ${run}`) })).toHaveCount(5);
+
+  const catalogWrites: string[] = [];
+  page.on("request", (r) => {
+    if (
+      r.url().includes(":commit") &&
+      decodeURIComponent(r.postData() ?? "").includes("catalog/index")
+    )
+      catalogWrites.push(r.url());
+  });
+  await page
+    .getByRole("checkbox", { name: "Select all 5 activities shown by the filters" })
+    .check();
+  const bar = page.getByRole("toolbar", { name: "Bulk actions" });
+  await expect(bar.getByText("5 selected")).toBeVisible();
+  await bar.getByRole("button", { name: "Publish", exact: true }).click();
+  await expect(page.getByText("Done: 5 activities updated")).toBeVisible();
+
+  const published = await db.collection("activities").where("status", "==", "published").get();
+  expect(
+    published.docs.filter((d) => String(d.get("slug")).startsWith(`bulk-${run}`)),
+  ).toHaveLength(5);
+  const index = await db.doc("catalog/index").get();
+  expect(
+    (index.get("items") as { slug: string }[]).filter((i) => i.slug.startsWith(`bulk-${run}`)),
+  ).toHaveLength(5);
+  expect(catalogWrites).toHaveLength(1);
+
+  // Bulk delete asks for the number.
+  await page
+    .getByRole("checkbox", { name: "Select all 5 activities shown by the filters" })
+    .check();
+  await bar.getByRole("button", { name: "Delete", exact: true }).click();
+  const confirm = page.getByRole("dialog", { name: "Delete 5 activities?" });
+  await confirm.getByRole("textbox").fill("4");
+  await expect(confirm.getByRole("button", { name: "Delete forever" })).toBeDisabled();
+  await confirm.getByRole("textbox").fill("5");
+  await confirm.getByRole("button", { name: "Delete forever" }).click();
+  await expect(page.getByText("5 activities deleted")).toBeVisible();
+  await expect
+    .poll(
+      async () =>
+        (
+          await db
+            .collection("activities")
+            .where("slug", ">=", `bulk-${run}`)
+            .where("slug", "<", `bulk-${run}~`)
+            .get()
+        ).size,
+    )
+    .toBe(0);
+});
+
+test("missing images: badge in the list and prompts to copy (CA13, CA15)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin?q=fixture grammar 1");
+  // Fixture thumbnails aren't in public/images.
+  await expect(
+    page.getByRole("row", { name: /Fixture Grammar 1/ }).getByText("Missing image"),
+  ).toBeVisible();
+
+  await page.goto("/admin/images");
+  const item = page.getByRole("listitem").filter({ hasText: "fixture-grammar-1--thumb.png" });
+  await expect(item).toBeVisible();
+  await expect(item).toContainText("Thumbnail of Fixture Grammar 1. Flat vector illustration");
+});
+
+test("coverage: gaps are highlighted and lead to Create with AI (CA14)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin/coverage");
+  const byLevel = page.getByRole("region", { name: "By level" });
+  const cell = byLevel.getByRole("link", { name: /^Create a Advanced activity for Listening/ });
+  await expect(cell).toBeVisible();
+  await cell.click();
+  await expect(page).toHaveURL(/\/admin\/new\?category=listening&level=advanced&mode=ai/);
+  await expect(page.getByLabel("Category", { exact: true })).toHaveValue("listening");
+  await expect(page.getByLabel("Level", { exact: true })).toHaveValue("advanced");
+  await expect(page.getByLabel("Topic")).toBeFocused();
+});
+
+test("an activity over 200 KB isn't saved (CA17)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await createQuiz(page, `Huge ${Date.now()}`);
+  await page.getByRole("tab", { name: "JSON" }).click();
+  const huge = {
+    questions: Array.from({ length: 100 }, (_, i) => ({
+      prompt: `Q${i} ${"x".repeat(2500)}`,
+      options: [{ text: "a", correct: true }, { text: "b" }],
+    })),
+  };
+  await page.getByRole("textbox", { name: "JSON" }).fill(JSON.stringify(huge));
+  await page.getByRole("button", { name: "Save draft" }).click();
+  await expect(page.getByText(/This activity is too large \(\d+ KB; max 200 KB\)\./)).toBeVisible();
+  await expect(page).toHaveURL(/\/admin\/edit$/);
+});
