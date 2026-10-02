@@ -1,7 +1,8 @@
 /**
  * Moves the prompts of content/prompts/images/<slug>/<name>.txt into the activities, next to each
  * image (spec: imagens pelo painel, RF02). Always updates the JSON files in content/activities;
- * also updates Firestore (the source of truth) with --emulator or --production.
+ * also updates Firestore (the source of truth) with --emulator or --production. Once the .txt
+ * files are gone, the prompts already in content/activities are copied to Firestore.
  *
  *   npm run images:migrate-prompts                   files only
  *   npm run images:migrate-prompts -- --production   files + production Firestore
@@ -33,13 +34,33 @@ function readPrompts(): Map<string, string> {
   return prompts;
 }
 
+/** Prompts already in the activity files (after the first migration, the files are the source). */
+function promptsInFiles(): Map<string, string> {
+  const prompts = new Map<string, string>();
+  const walk = (node: unknown) => {
+    if (Array.isArray(node)) node.forEach(walk);
+    else if (node && typeof node === "object") {
+      const { src, prompt } = node as { src?: unknown; prompt?: unknown };
+      if (typeof src === "string" && typeof prompt === "string" && prompt.trim())
+        prompts.set(src, prompt.trim());
+      Object.values(node).forEach(walk);
+    }
+  };
+  for (const file of readdirSync(CONTENT_DIR, { recursive: true, encoding: "utf8" })) {
+    if (file.endsWith(".json")) walk(JSON.parse(readFileSync(join(CONTENT_DIR, file), "utf8")));
+  }
+  return prompts;
+}
+
 async function main() {
   loadEnvConfig(process.cwd());
   const args = new Set(process.argv.slice(2));
   const overwrite = args.has("--overwrite");
-  const prompts = readPrompts();
+  const fromTxt = readPrompts();
+  // .txt files (the old place) win over the files' prompts when both exist.
+  const prompts = new Map([...promptsInFiles(), ...fromTxt]);
   const used = new Set<string>();
-  console.log(`${prompts.size} prompt files`);
+  console.log(`${fromTxt.size} prompt files, ${prompts.size} prompts in total`);
 
   let files = 0;
   for (const file of readdirSync(CONTENT_DIR, { recursive: true, encoding: "utf8" })) {
@@ -77,7 +98,7 @@ async function main() {
     console.log(`Firestore (${target}): prompts added to ${docs} activities`);
   }
 
-  const unused = [...prompts.keys()].filter((src) => !used.has(src));
+  const unused = [...fromTxt.keys()].filter((src) => !used.has(src));
   if (unused.length > 0) {
     console.log("Prompt files with no matching image (already set, or the image was renamed):");
     for (const src of unused) console.log(`    ${src}`);

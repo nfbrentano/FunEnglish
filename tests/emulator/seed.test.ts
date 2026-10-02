@@ -182,3 +182,46 @@ describe("images:migrate-prompts (spec: imagens pelo painel, CA02)", () => {
     expect(output).toContain("/images/activities/migrate-me/gone.webp");
   });
 });
+
+describe("images:migrate-prompts without .txt files", () => {
+  it("copies the prompts already in the activity files to Firestore", async () => {
+    const root = mkdtempSync(join(tmpdir(), "migrate-files-"));
+    const content = join(root, "content");
+    mkdirSync(join(content, "ai", "grammar"), { recursive: true });
+    const quiz = {
+      ...validQuiz(),
+      slug: "prompt-in-file",
+      thumbnail: {
+        src: "/images/activities/prompt-in-file/thumb.webp",
+        alt: "A desk",
+        source: "ai",
+      },
+    };
+    await upsertActivities(
+      db,
+      prepareSeed([{ path: "ai/grammar/p.json", contents: JSON.stringify(quiz) }]).activities.map(
+        (a) => a.doc,
+      ),
+    );
+    writeFileSync(
+      join(content, "ai", "grammar", "prompt-in-file.json"),
+      JSON.stringify({ ...quiz, thumbnail: { ...quiz.thumbnail, prompt: "From the file." } }),
+    );
+
+    execFileSync(
+      "npx",
+      [
+        "tsx",
+        "scripts/migrate-image-prompts.ts",
+        "--emulator",
+        "--prompts=does-not-exist",
+        `--content=${relative(process.cwd(), content)}`,
+      ],
+      { env: process.env, encoding: "utf8" },
+    );
+    const stored = (
+      await db.collection(ACTIVITIES_COLLECTION).where("slug", "==", "prompt-in-file").get()
+    ).docs[0];
+    expect(stored.get("thumbnail.prompt")).toBe("From the file.");
+  });
+});
