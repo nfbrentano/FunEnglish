@@ -1,6 +1,6 @@
 # [FEAT] Prompts e upload de imagens pelo painel admin
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
@@ -66,7 +66,7 @@
 - [x] **CA01:** Dado uma imagem com `prompt` no JSON, quando a atividade é validada, publicada e jogada, então ela é aceita e o player e o catálogo funcionam como antes; um `prompt` com mais de 2.000 caracteres é recusado.
 - [x] **CA02:** Dado os 59 prompts em `content/prompts/images/`, quando rodo `npm run images:migrate-prompts`, então cada imagem correspondente no Firestore e nos JSONs passa a ter o `prompt` daquele arquivo, e o script lista os arquivos que não casaram com nenhuma imagem.
 - [x] **CA03:** Dado o thumbnail com `alt` "A sun and a cloud with rain on a map" e prompt vazio, quando clico "Write prompt from alt", então o campo recebe "A sun and a cloud with rain on a map. Flat vector illustration…" (o estilo do guia), e "Copy prompt" o copia.
-- [ ] **CA04:** Dado que estou conectado ao GitHub, quando escolho um PNG de 3000×2000 em "Upload image" do thumbnail de `travel-vocabulary`, então é criado um commit com `public/images/activities/travel-vocabulary/thumb.webp` em 1280×800, ≤ 200 KB; o editor mostra a imagem e o aviso do deploy; e, após o deploy, a imagem aparece no site. _(Automatizado com a API do GitHub simulada; pendente: CT11, o primeiro upload real com o token do PO)_
+- [x] **CA04:** Dado que estou conectado ao GitHub, quando escolho um PNG de 3000×2000 em "Upload image" do thumbnail de `travel-vocabulary`, então é criado um commit com `public/images/activities/travel-vocabulary/thumb.webp` em 1280×800, ≤ 200 KB; o editor mostra a imagem e o aviso do deploy; e, após o deploy, a imagem aparece no site. _(Automatizado com a API do GitHub simulada; CT11 validado em 2026-10-02: o PO enviou a thumbnail e os cards 1 e 2 de `sentences-about-my-day` pelo painel, commits "via admin panel" na main, imagens no site após o deploy)_
 - [x] **CA05:** Dado 11 arquivos `travel-vocabulary--<name>.png`, quando uso "Upload several", então um único commit traz os 11 WebP e "Missing images" deixa de listá-los após o deploy.
 - [x] **CA06:** Dado `/admin/settings`, quando colo um token válido, então vejo "Connected as nfbrentano"; com um token sem acesso ao repositório, vejo "This token can't write to nfbrentano/FunEnglish" e nada é salvo.
 - [x] **CA07 (negativo):** Dado um token salvo, quando inspeciono o Firestore, o repositório e as requisições para outros domínios, então o token não aparece em nenhum deles; e outro admin, em outro navegador, não está conectado.
