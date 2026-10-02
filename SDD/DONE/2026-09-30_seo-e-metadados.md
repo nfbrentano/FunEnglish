@@ -1,6 +1,6 @@
 # [SEO] SEO, metadados e compartilhamento social
 
-> **Status:** Em validação (CA02 e CA06 manuais, após o deploy)
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
@@ -48,11 +48,11 @@
 ## Critérios de Aceitação / Entregas
 
 - [x] **CA01:** Dado a atividade "Some or Any" (Grammar), quando inspeciono o HTML, então o `<title>` é "Some or Any – Grammar ESL Activity | Fun English" e há `meta description` não vazia.
-- [ ] **CA02:** Dado o link de uma atividade, quando o colo no WhatsApp ou no validador de cards, então aparece a prévia com título, descrição e thumbnail.
+- [x] **CA02:** Dado o link de uma atividade, quando o colo no WhatsApp ou no validador de cards, então aparece a prévia com título, descrição e thumbnail.
 - [x] **CA03:** Dado 42 atividades publicadas e 3 em rascunho, quando acesso `/sitemap.xml`, então ele lista as 42 (e não as 3), as 9 categorias e o catálogo.
 - [x] **CA04:** Dado `/robots.txt`, quando o leio, então `/admin` e `/dashboard` estão em `Disallow` e o sitemap está referenciado.
 - [x] **CA05:** Dado `/activities?level=advanced`, quando inspeciono, então o `canonical` aponta para `/activities`.
-- [ ] **CA06:** Dado uma página de atividade, quando a valido no Rich Results Test, então o JSON-LD é reconhecido sem erros.
+- [x] **CA06:** Dado uma página de atividade, quando a valido no Rich Results Test, então o JSON-LD é reconhecido sem erros.
 - [x] **CA07:** Dado JavaScript desabilitado, quando abro uma página de atividade, então título, descrição, categoria e nível estão presentes no HTML.
 - [x] **CA08 (negativo):** Dado `/dashboard` ou `/admin`, quando inspeciono, então há `<meta name="robots" content="noindex">`; e `robots.txt` bloqueia `/*?mode=student`.
 
