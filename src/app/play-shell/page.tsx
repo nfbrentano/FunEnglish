@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RequireAuth } from "@/components/auth/require-auth";
 import { PlayerShell } from "@/components/player/player-shell";
 
 // Served by Firebase Hosting for /play/<slug> pages that don't exist as files yet
@@ -6,5 +7,9 @@ import { PlayerShell } from "@/components/player/player-shell";
 export const metadata: Metadata = { robots: { index: false } };
 
 export default function PlayShellPage() {
-  return <PlayerShell />;
+  return (
+    <RequireAuth>
+      <PlayerShell />
+    </RequireAuth>
+  );
 }

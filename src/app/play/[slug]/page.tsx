@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { RequireAuth } from "@/components/auth/require-auth";
 import { LiveActivityPlayer } from "@/components/player/live-activity-player";
 import { PlayerMessage } from "@/components/player/player-message";
 import { getBuildActivities } from "@/lib/catalog/build-data";
@@ -52,12 +53,12 @@ export default async function PlayPage({ params }: PageProps<"/play/[slug]">) {
     );
   }
   return (
-    <>
+    <RequireAuth>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(activityJsonLd(entry.activity)) }}
       />
       <LiveActivityPlayer activity={entry.activity} />
-    </>
+    </RequireAuth>
   );
 }
