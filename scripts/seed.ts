@@ -5,9 +5,15 @@
  *   npm run seed:emulator     write to the local emulator
  *   npm run seed -- --production   write to the real project (needs FIREBASE_SERVICE_ACCOUNT_KEY)
  *   --dir=<path>              extra content folder (repeatable), e.g. e2e fixtures
+ *   --force                   also overwrite activities edited in the admin panel (asks first;
+ *                             add --yes to skip the question, e.g. in scripts)
+ *
+ * Firestore is the source of truth: activities edited in the admin panel after their file was
+ * pulled (`npm run content:pull`) are skipped and listed.
  */
 import { readdirSync, readFileSync } from "node:fs";
 import { join, relative } from "node:path";
+import { createInterface } from "node:readline/promises";
 import { loadEnvConfig } from "@next/env";
 import { prepareSeed, type SeedFile } from "../src/lib/activities/seed";
 import { rebuildCatalogIndex, upsertActivities } from "../src/lib/activities/seed-writer";
@@ -24,6 +30,16 @@ function readSeedFiles(dir: string): SeedFile[] {
       path: relative(dir, join(dir, file)),
       contents: readFileSync(join(dir, file), "utf8"),
     }));
+}
+
+async function confirmForce(): Promise<boolean> {
+  if (!process.stdin.isTTY) return false;
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  const answer = await rl.question(
+    "--force overwrites activities edited in the admin panel. Type 'overwrite' to continue: ",
+  );
+  rl.close();
+  return answer.trim() === "overwrite";
 }
 
 async function main() {
@@ -53,11 +69,22 @@ async function main() {
     const target = process.env.FIRESTORE_EMULATOR_HOST
       ? `emulator ${process.env.FIRESTORE_EMULATOR_HOST}`
       : "production";
-    const { created, updated } = await upsertActivities(
+    const force = args.has("--force");
+    if (force && !args.has("--yes") && !(await confirmForce())) {
+      throw new Error("Cancelled: nothing was written.");
+    }
+    const { created, updated, skipped } = await upsertActivities(
       getAdminDb(),
       activities.map((a) => a.doc),
+      { force },
     );
-    console.log(`Firestore (${target}): ${created} created, ${updated} updated`);
+    console.log(
+      `Firestore (${target}): ${created} created, ${updated} updated, ${skipped.length} skipped`,
+    );
+    if (skipped.length > 0) {
+      console.log("Skipped (edited in the admin panel; run `npm run content:pull` first):");
+      for (const slug of skipped) console.log(`    ${slug}`);
+    }
     const index = await rebuildCatalogIndex(getAdminDb());
     console.log(`catalog/index: ${index.items.length} published activities`);
   }

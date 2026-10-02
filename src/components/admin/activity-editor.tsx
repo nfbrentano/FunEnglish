@@ -17,11 +17,19 @@ import {
   getActivity,
   isSlugTaken,
   listActivities,
+  SaveConflictError,
   saveActivity,
   type AdminActivity,
 } from "@/lib/admin/activities-admin";
 import { collectTextFields, describePath, setAtPath, slugify } from "@/lib/admin/content-fields";
 import { needsReview } from "@/lib/admin/filter";
+import {
+  clearLocalDraft,
+  readLocalDraft,
+  writeLocalDraft,
+  type LocalDraft,
+} from "@/lib/admin/local-draft";
+import { useUnsavedChanges } from "@/lib/admin/use-unsaved-changes";
 import { CONTENT_TEMPLATES } from "@/lib/admin/templates";
 import { useAuth } from "@/lib/auth/use-auth";
 import type { PlayableActivity } from "@/lib/player/load-activity";
@@ -118,6 +126,17 @@ export function ActivityEditor() {
   const [previewKey, setPreviewKey] = useState(0);
   const [deleteText, setDeleteText] = useState("");
   const [queue, setQueue] = useState<string[] | null>(null);
+  // What's on the server, to tell unsaved changes and conflicts (spec: gestão completa, RF12).
+  const [savedJson, setSavedJson] = useState<string | null>(null);
+  const [loadedUpdatedAt, setLoadedUpdatedAt] = useState<Date | null>(null);
+  const [localDraft, setLocalDraft] = useState<LocalDraft<Draft> | null>(null);
+  const [reloadKey, setReloadKey] = useState(0);
+  const conflictRef = useRef<HTMLDialogElement>(null);
+  const [conflict, setConflict] = useState<{
+    patch: Partial<Draft>;
+    message: string;
+    next?: () => void;
+  } | null>(null);
 
   // Load the activity (or start a new one) whenever ?id changes.
   useEffect(() => {
@@ -127,6 +146,10 @@ export function ActivityEditor() {
       .then((activity) => {
         if (!active) return;
         const next = activity ? toDraft(activity) : newDraft();
+        const local = readLocalDraft<Draft>(activity?.id ?? null);
+        setLocalDraft(local && JSON.stringify(local.draft) !== JSON.stringify(next) ? local : null);
+        setSavedJson(JSON.stringify(next));
+        setLoadedUpdatedAt(activity?.updatedAt ?? null);
         setDraft(next);
         setJsonText(JSON.stringify(next.content, null, 2));
         setJsonError(false);
@@ -140,7 +163,7 @@ export function ActivityEditor() {
     return () => {
       active = false;
     };
-  }, [id]);
+  }, [id, reloadKey]);
 
   // Review queue for "Save & next".
   useEffect(() => {
@@ -173,6 +196,16 @@ export function ActivityEditor() {
   ];
   const valid = errors.length === 0 && !jsonError;
 
+  const dirty = savedJson !== null && JSON.stringify(draft) !== savedJson;
+  useUnsavedChanges(dirty, t.unsavedLeave);
+
+  // Keep unsaved changes on this device until they're saved.
+  useEffect(() => {
+    if (!dirty || loadedId === undefined) return;
+    const timer = setTimeout(() => writeLocalDraft(loadedId, draft), 1000);
+    return () => clearTimeout(timer);
+  }, [dirty, draft, loadedId]);
+
   const set = (patch: Partial<Draft>) => setDraft((d) => ({ ...d, ...patch }));
   const setContent = (content: unknown) => {
     set({ content });
@@ -180,7 +213,12 @@ export function ActivityEditor() {
     setJsonError(false);
   };
 
-  async function save(patch: Partial<Draft>, message: string, next?: () => void) {
+  async function save(
+    patch: Partial<Draft>,
+    message: string,
+    next?: () => void,
+    { force = false }: { force?: boolean } = {},
+  ) {
     const toSave = toCandidate({ ...draft, ...patch });
     if (slugTaken || jsonError) return;
     if (toSave.status === "published" && (!valid || !validateActivity(toSave).ok)) return;
@@ -190,15 +228,25 @@ export function ActivityEditor() {
         setSlugTaken(true);
         return;
       }
-      const savedId = await saveActivity(
+      const saved = await saveActivity(
         loadedId ?? null,
         toSave as Parameters<typeof saveActivity>[1],
+        { expectedUpdatedAt: loadedId ? loadedUpdatedAt : undefined, force },
       );
-      setDraft((d) => ({ ...d, ...patch }));
+      const savedDraft = { ...draft, ...patch };
+      setDraft(savedDraft);
+      setSavedJson(JSON.stringify(savedDraft));
+      setLoadedUpdatedAt(saved.updatedAt);
+      clearLocalDraft(loadedId ?? null);
       toast(message);
       if (next) next();
-      else if (savedId !== loadedId) router.replace(editHref(savedId));
+      else if (saved.id !== loadedId) router.replace(editHref(saved.id));
     } catch (error) {
+      if (error instanceof SaveConflictError) {
+        setConflict({ patch, message, next });
+        conflictRef.current?.showModal();
+        return;
+      }
       console.warn("Save failed", error);
       toast(t.saveError);
     } finally {
@@ -225,7 +273,7 @@ export function ActivityEditor() {
     for (let n = 2; await isSlugTaken(slug, null); n++) slug = `${base}-${n}`;
     setBusy(true);
     try {
-      const copyId = await saveActivity(
+      const { id: copyId } = await saveActivity(
         null,
         toCandidate({
           ...draft,
@@ -280,6 +328,36 @@ export function ActivityEditor() {
         </Link>
         {needsReview(draft) && <p className="text-sm text-accent">{t.pendingReview}</p>}
       </div>
+      {localDraft && (
+        <div
+          role="status"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-accent/40 bg-accent-muted px-4 py-3 text-sm"
+        >
+          <p>{t.localDraft(new Date(localDraft.savedAt).toLocaleString("en-US"))}</p>
+          <div className="flex gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setDraft(localDraft.draft);
+                setJsonText(JSON.stringify(localDraft.draft.content, null, 2));
+                setJsonError(false);
+                setLocalDraft(null);
+              }}
+            >
+              {t.restoreDraft}
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => {
+                clearLocalDraft(loadedId);
+                setLocalDraft(null);
+              }}
+            >
+              {t.discardDraft}
+            </Button>
+          </div>
+        </div>
+      )}
       <h1 className="font-display text-5xl font-medium">
         {isNewActivity ? t.newTitle : draft.title || t.editTitle}
       </h1>
@@ -568,6 +646,11 @@ export function ActivityEditor() {
             <p className="text-xs tracking-widest text-muted uppercase">
               {strings.admin.columns.status}: {strings.admin.statuses[draft.status]}
             </p>
+            {dirty && (
+              <p role="status" className="text-sm text-accent">
+                {t.unsaved}
+              </p>
+            )}
             {draft.status === "draft" ? (
               <>
                 <Button
@@ -724,6 +807,41 @@ export function ActivityEditor() {
             </Button>
           </div>
         </form>
+      </dialog>
+      <dialog
+        ref={conflictRef}
+        aria-labelledby="conflict-title"
+        className="m-auto w-[min(30rem,calc(100%-2rem))] rounded-2xl border border-border-subtle bg-elevated p-6 text-fg backdrop:bg-black/50"
+        onClose={() => setConflict(null)}
+      >
+        <div className="space-y-4">
+          <h2 id="conflict-title" className="font-display text-2xl">
+            {t.conflictTitle}
+          </h2>
+          <p className="text-sm text-fg-secondary">{t.conflictText}</p>
+          <div className="flex flex-wrap justify-end gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => {
+                clearLocalDraft(loadedId ?? null);
+                conflictRef.current?.close();
+                setReloadKey((k) => k + 1);
+              }}
+            >
+              {t.conflictReload}
+            </Button>
+            <Button
+              onClick={() => {
+                const pending = conflict;
+                conflictRef.current?.close();
+                if (pending)
+                  void save(pending.patch, pending.message, pending.next, { force: true });
+              }}
+            >
+              {t.conflictOverwrite}
+            </Button>
+          </div>
+        </div>
       </dialog>
     </div>
   );

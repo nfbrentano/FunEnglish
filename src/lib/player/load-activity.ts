@@ -7,7 +7,10 @@ import { getLiteDb } from "../firebase";
 export type PlayableActivity = ActivityInput & { id: string };
 
 function toPlayable(id: string, data: unknown): PlayableActivity | null {
-  const parsed = activityInputSchema.safeParse(data);
+  // editedInPanelAt is a Firestore Timestamp here and only matters to the seed (RF09).
+  const { editedInPanelAt: _edited, ...authored } = (data ?? {}) as Record<string, unknown>;
+  void _edited;
+  const parsed = activityInputSchema.safeParse(authored);
   // Invalid content still reaches the player, which shows a friendly error (motor spec, CA07).
   if (!parsed.success) {
     console.error(`Activity ${id} is invalid`, parsed.error.issues);
