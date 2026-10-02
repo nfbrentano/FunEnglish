@@ -9,6 +9,9 @@ import { LEVELS } from "@/lib/activities/levels";
 import { ACTIVITY_TYPES } from "@/lib/activities/schema/activity";
 import { listActivities, type AdminActivity } from "@/lib/admin/activities-admin";
 import { computeCoverage, isLow, type Cell } from "@/lib/admin/coverage";
+import { imageCoverage } from "@/lib/admin/plan-images";
+import { levelLabel } from "@/lib/activities/levels";
+import { editHref } from "./admin-list";
 import { serializeAdminFilters, NO_ADMIN_FILTERS } from "@/lib/admin/filter";
 import { PLUGINS } from "@/lib/player/registry";
 import { strings } from "@/lib/strings";
@@ -16,7 +19,7 @@ import { strings } from "@/lib/strings";
 const t = strings.admin.coverage;
 
 /** Category × level and category × type counts, gaps highlighted (spec: gestão completa, RF15). */
-export function CoverageView() {
+export function CoverageView({ imagePaths = [] }: { imagePaths?: string[] }) {
   const [items, setItems] = useState<AdminActivity[] | null>(null);
   useEffect(() => {
     listActivities()
@@ -75,6 +78,7 @@ export function CoverageView() {
           `/admin?${serializeAdminFilters({ ...NO_ADMIN_FILTERS, category, type: type as (typeof ACTIVITY_TYPES)[number] })}`
         }
       />
+      <PicturesTable items={items} existing={new Set(imagePaths)} />
     </div>
   );
 }
@@ -149,6 +153,79 @@ function Matrix({
                 })}
               </tr>
             ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+/** Pictures per activity, lowest first (spec: mais imagens nas atividades, RF08, CA08). */
+function PicturesTable({
+  items,
+  existing,
+}: {
+  items: AdminActivity[];
+  existing: ReadonlySet<string>;
+}) {
+  const rows = items
+    .map((a) => ({ a, c: imageCoverage(a, existing) }))
+    .filter(({ c }) => c.items > 0)
+    .sort((x, y) => x.c.uploaded / x.c.items - y.c.uploaded / y.c.items);
+  return (
+    <section aria-labelledby="coverage-pictures" className="space-y-3">
+      <h2 id="coverage-pictures" className="font-display text-3xl">
+        {t.pictures}
+      </h2>
+      <p className="text-sm text-fg-secondary">{t.picturesText}</p>
+      <div className="overflow-x-auto rounded-2xl border border-border-subtle">
+        <table className="w-full min-w-[640px] text-sm">
+          <thead className="bg-secondary text-xs tracking-wider text-muted uppercase">
+            <tr>
+              <th scope="col" className="px-4 py-3 text-left">
+                {t.activity}
+              </th>
+              <th scope="col" className="px-4 py-3 text-left">
+                {t.level}
+              </th>
+              <th scope="col" className="px-4 py-3 text-right">
+                {t.itemsCol}
+              </th>
+              <th scope="col" className="px-4 py-3 text-right">
+                {t.plannedCol}
+              </th>
+              <th scope="col" className="px-4 py-3 text-right">
+                {t.uploadedCol}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({ a, c }) => {
+              const percent = Math.round((c.uploaded / c.items) * 100);
+              const low = c.uploaded / c.items < c.target;
+              return (
+                <tr key={a.id} className="border-t border-border-subtle">
+                  <th scope="row" className="px-4 py-2 text-left font-medium">
+                    <Link href={editHref(a.id)} className="hover:text-accent">
+                      {a.title}
+                    </Link>
+                  </th>
+                  <td className="px-4 py-2 text-fg-secondary">
+                    {levelLabel(a.levelMin, a.levelMax)}
+                  </td>
+                  <td className="px-4 py-2 text-right tabular-nums">{c.items}</td>
+                  <td className="px-4 py-2 text-right tabular-nums">{c.planned}</td>
+                  <td className="px-4 py-2 text-right tabular-nums">
+                    <span
+                      className={low ? "rounded-lg bg-accent-muted px-2 py-0.5 text-accent" : ""}
+                    >
+                      {percent}%
+                    </span>
+                    {low && <span className="sr-only"> ({t.belowTarget(c.target * 100)})</span>}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

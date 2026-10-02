@@ -303,6 +303,17 @@ export const strings = {
     livePreview: "Live preview",
     previewWidth: "Preview width",
     thumbnailTitle: "Thumbnail (card image, 16:10)",
+    plan: {
+      open: "Plan images",
+      title: "Plan a picture for every item",
+      text: "Adds a picture (file name, description and prompt) to each question, card, sentence or clue without one. Edit the descriptions, save, then generate and upload them from Missing images. Students see a stand-in until each picture is uploaded.",
+      answers: "Also picture answers (an image for every option)",
+      count: (n: number) => `${n} ${n === 1 ? "picture" : "pictures"} to plan`,
+      none: "Every item already has a picture.",
+      action: (n: number) => `Plan ${n} ${n === 1 ? "picture" : "pictures"}`,
+      done: (n: number) =>
+        `${n} ${n === 1 ? "picture" : "pictures"} planned. Review the descriptions and save.`,
+    },
     typeChangeConfirm:
       "Start this type from an example? The current content doesn't fit the new type.",
     previewDesktop: "Desktop",
@@ -523,6 +534,15 @@ export const strings = {
         drafts > 0 ? `${published} published, ${drafts} drafts` : `${published} published`,
       create: (category: string, column: string) => `Create a ${column} activity for ${category}`,
       open: (category: string, column: string) => `Open ${category} · ${column}`,
+      pictures: "Pictures per activity",
+      picturesText:
+        "Items with an uploaded picture (planned ones count once uploaded). Targets: 80% for Beginner and Intermediate, 50% for Advanced.",
+      activity: "Activity",
+      level: "Level",
+      itemsCol: "Items",
+      plannedCol: "Planned",
+      uploadedCol: "Uploaded",
+      belowTarget: (target: number) => `below the ${target}% target`,
     },
     images: {
       title: "Missing images",
@@ -546,6 +566,7 @@ export const strings = {
       level: "Level",
       featured: "Featured",
       missingImage: "Missing image",
+      fewImages: "Few images",
       selectAll: (n: number) => `Select all ${n} activities shown by the filters`,
       selectOne: (title: string) => `Select ${title}`,
       selected: (n: number) => `${n} selected`,

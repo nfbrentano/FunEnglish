@@ -2,6 +2,13 @@ import { CATEGORY_IDS, type CategoryId } from "../activities/categories";
 import { ACTIVITY_TYPES, type ActivityType } from "../activities/schema/activity";
 import { normalizeText } from "../activities/search";
 import type { AdminActivity } from "./activities-admin";
+import { imageCoverage } from "./plan-images";
+
+/** Uploaded pictures below the level's target: 80% Beginner/Intermediate, 50% Advanced. */
+export function hasFewImages(a: AdminActivity, existing: ReadonlySet<string>): boolean {
+  const c = imageCoverage(a, existing);
+  return c.items > 0 && c.uploaded / c.items < c.target;
+}
 
 export type AdminFilters = {
   q: string;
@@ -9,6 +16,8 @@ export type AdminFilters = {
   status: "draft" | "published" | "";
   type: ActivityType | "";
   needsReview: boolean;
+  /** Fewer uploaded pictures than the level's target (spec: mais imagens, RF08). */
+  fewImages: boolean;
   sort: AdminSort;
 };
 
@@ -21,6 +30,7 @@ export const NO_ADMIN_FILTERS: AdminFilters = {
   status: "",
   type: "",
   needsReview: false,
+  fewImages: false,
   sort: "updated",
 };
 
@@ -43,6 +53,7 @@ export function serializeAdminFilters(filters: AdminFilters): string {
   if (filters.status) params.set("status", filters.status);
   if (filters.type) params.set("type", filters.type);
   if (filters.needsReview) params.set("review", "1");
+  if (filters.fewImages) params.set("images", "few");
   if (filters.sort !== "updated") params.set("sort", filters.sort);
   return params.toString();
 }
@@ -57,6 +68,7 @@ export function parseAdminFilters(search: string): AdminFilters {
     status: pick(params.get("status"), ["draft", "published"] as const, ""),
     type: pick(params.get("type"), ACTIVITY_TYPES, ""),
     needsReview: params.get("review") === "1",
+    fewImages: params.get("images") === "few",
     sort: pick(params.get("sort"), ADMIN_SORTS, "updated"),
   };
 }
@@ -65,6 +77,8 @@ export function parseAdminFilters(search: string): AdminFilters {
 export function filterAdminActivities(
   items: readonly AdminActivity[],
   filters: AdminFilters,
+  /** Images in the build, for "Few images". */
+  existing: ReadonlySet<string> = new Set(),
 ): AdminActivity[] {
   const q = normalizeText(filters.q.trim());
   return items
@@ -74,7 +88,8 @@ export function filterAdminActivities(
         (!filters.category || a.category === filters.category) &&
         (!filters.status || a.status === filters.status) &&
         (!filters.type || a.type === filters.type) &&
-        (!filters.needsReview || needsReview(a)),
+        (!filters.needsReview || needsReview(a)) &&
+        (!filters.fewImages || hasFewImages(a, existing)),
     )
     .sort(BY[filters.sort]);
 }
