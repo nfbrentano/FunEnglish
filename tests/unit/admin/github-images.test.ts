@@ -146,14 +146,14 @@ describe("commitFiles (RF05, RF06, CA04, CA05)", () => {
   });
 
   it("maps a src to its path in the repository", () => {
-    expect(repoPathFor("/images/activities/a/thumb.webp")).toBe(
+    expect(repoPathFor("/images/activities/a/thumb.webp?v=1a2b3c4d")).toBe(
       "public/images/activities/a/thumb.webp",
     );
   });
 });
 
 describe("image processing (RF04, CA04, CA09)", () => {
-  it("crops thumbnails to 16:10 from the center and limits other images to 1600 px", () => {
+  it("crops thumbnails to 16:10 and limits item pictures to 960 px and answers to 480 px", () => {
     // 3:2 is taller than 16:10: crop top and bottom.
     expect(planResize(3000, 2000, "thumb")).toEqual({
       sx: 0,
@@ -166,7 +166,8 @@ describe("image processing (RF04, CA04, CA09)", () => {
     // 2:1 is wider: crop the sides.
     expect(planResize(4000, 2000, "thumb")).toMatchObject({ sx: 400, sy: 0, sw: 3200, sh: 2000 });
     expect(planResize(1000, 2000, "thumb")).toMatchObject({ sx: 0, sy: 688, sw: 1000, sh: 625 });
-    expect(planResize(3200, 1600, "content")).toMatchObject({ width: 1600, height: 800 });
+    expect(planResize(3200, 1600, "content")).toMatchObject({ width: 960, height: 480 });
+    expect(planResize(1200, 900, "option")).toMatchObject({ width: 480, height: 360 });
     expect(planResize(800, 600, "content")).toMatchObject({ width: 800, height: 600 });
   });
 
@@ -180,6 +181,15 @@ describe("image processing (RF04, CA04, CA09)", () => {
     });
     expect(blob.size).toBe(1000);
     expect(sizes).toEqual([0.82, 0.74, 0.66, 0.58]);
+  });
+
+  it("uses the kind's own limit", async () => {
+    await expect(
+      encodeUnderLimit(
+        async () => new Blob([new Uint8Array(50 * 1024)], { type: "image/webp" }),
+        40 * 1024,
+      ),
+    ).rejects.toThrow("40 KB");
   });
 
   it("refuses images that never fit, and browsers without WebP", async () => {
@@ -196,6 +206,8 @@ describe("image processing (RF04, CA04, CA09)", () => {
   it("knows thumbnails and the bulk-upload file names", () => {
     expect(kindForSrc("/images/activities/a/thumb.webp")).toBe("thumb");
     expect(kindForSrc("/images/activities/a/kettle.webp")).toBe("content");
+    expect(kindForSrc("/images/activities/a/question-2-option-3.webp?v=ab12cd34")).toBe("option");
+    expect(kindForSrc("/images/categories/grammar.webp")).toBe("thumb");
     expect(srcForFileName("travel-vocabulary--luggage.PNG")).toBe(
       "/images/activities/travel-vocabulary/luggage.webp",
     );

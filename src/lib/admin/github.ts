@@ -187,4 +187,4 @@ export async function commitFiles(
 }
 
 /** /images/activities/<slug>/<name>.webp → public/images/activities/<slug>/<name>.webp */
-export const repoPathFor = (src: string) => `public${src}`;
+export const repoPathFor = (src: string) => `public${src.split("?")[0]}`;

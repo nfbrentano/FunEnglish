@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import type { flashcardsContentSchema } from "@/lib/activities/schema/content";
 import type { PluginProps } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { usePreloadNext } from "../../media/use-preload";
+import { ActivityImage } from "../../media/activity-image";
 import { SpeakButton } from "../../media/speak-button";
 import { shuffled } from "../shuffle";
 
@@ -20,10 +22,13 @@ function Front({ card }: { card: Card }) {
   return (
     <div className="flex flex-col items-center gap-4">
       {card.front.image && (
-        // eslint-disable-next-line @next/next/no-img-element -- static export; images are pre-sized assets
-        <img
+        <ActivityImage
           src={card.front.image.src}
           alt={card.front.image.alt}
+          width={960}
+          height={600}
+          // A front that is only a picture shows its description instead of nothing (CA05).
+          fallback={card.front.text ? { kind: "hide" } : { kind: "alt" }}
           className="max-h-56 w-auto rounded-xl object-contain md:max-h-72"
         />
       )}
@@ -68,6 +73,7 @@ export default function FlashcardsPlayer({
 
   const cardIndex = deck[position];
   const card = content.cards[cardIndex];
+  usePreloadNext(content.cards[deck[position + 1]]);
   const showingBack = startWithWord ? !flipped : flipped;
   const learning = content.cards.map((_, i) => i).filter((i) => ratings[i] === "learning");
   const knew = Object.values(ratings).filter((r) => r === "knew").length;

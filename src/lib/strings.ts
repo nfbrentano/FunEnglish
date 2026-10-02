@@ -533,6 +533,7 @@ export const strings = {
       copyPrompt: "Copy prompt",
       copied: "Copied!",
       count: (n: number) => `${n} ${n === 1 ? "image" : "images"} to generate`,
+      siteImage: "site image (shown when an activity has none)",
     },
     list: {
       sortBy: "Sort by",

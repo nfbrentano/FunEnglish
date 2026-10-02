@@ -10,7 +10,14 @@ export const quizContentSchema = z.object({
           prompt: nonEmptyText,
           media: mediaSchema.optional(),
           options: z
-            .array(z.object({ text: nonEmptyText, correct: z.boolean().default(false) }))
+            .array(
+              z.object({
+                text: nonEmptyText,
+                correct: z.boolean().default(false),
+                /** Picture answer (spec: mais imagens nas atividades, RF03); the text stays the name. */
+                image: imageSchema.optional(),
+              }),
+            )
             .min(2)
             .max(6),
           explanation: nonEmptyText.optional(),

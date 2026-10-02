@@ -2,16 +2,25 @@
 // (spec: imagens pelo painel, RF04): thumbnails cropped to 1280×800, other images up to 1600 px
 // wide, WebP ≤ 200 KB.
 
-export const MAX_IMAGE_BYTES = 200 * 1024;
 export const THUMB = { width: 1280, height: 800 };
-export const MAX_CONTENT_WIDTH = 1600;
+
+/**
+ * Limits per kind (spec: mais imagens nas atividades, RNF01): thumbnails and category art are
+ * 16:10 at 1280×800; an item's picture up to 960 px wide; a picture answer up to 480 px.
+ */
+export const LIMITS = {
+  thumb: { width: THUMB.width, bytes: 200 * 1024 },
+  content: { width: 960, bytes: 100 * 1024 },
+  option: { width: 480, bytes: 40 * 1024 },
+} as const;
+export const MAX_IMAGE_BYTES = LIMITS.thumb.bytes;
 const QUALITIES = [0.82, 0.74, 0.66, 0.58, 0.5, 0.42];
 
-export type ImageKind = "thumb" | "content";
+export type ImageKind = keyof typeof LIMITS;
 
 export class ImageTooLargeError extends Error {
-  constructor() {
-    super("This image is too detailed to fit in 200 KB. Try a simpler image.");
+  constructor(bytes = MAX_IMAGE_BYTES) {
+    super(`This image is too detailed to fit in ${bytes / 1024} KB. Try a simpler image.`);
   }
 }
 
@@ -37,7 +46,7 @@ export function planResize(width: number, height: number, kind: ImageKind) {
       height: THUMB.height,
     };
   }
-  const scale = Math.min(1, MAX_CONTENT_WIDTH / width);
+  const scale = Math.min(1, LIMITS[kind].width / width);
   return {
     sx: 0,
     sy: 0,
@@ -49,13 +58,16 @@ export function planResize(width: number, height: number, kind: ImageKind) {
 }
 
 /** Lowers the quality until the file fits; refuses when even the lowest doesn't (CA09). */
-export async function encodeUnderLimit(encode: (quality: number) => Promise<Blob>): Promise<Blob> {
+export async function encodeUnderLimit(
+  encode: (quality: number) => Promise<Blob>,
+  maxBytes: number = MAX_IMAGE_BYTES,
+): Promise<Blob> {
   for (const quality of QUALITIES) {
     const blob = await encode(quality);
     if (blob.type !== "image/webp") throw new WebpUnsupportedError();
-    if (blob.size <= MAX_IMAGE_BYTES) return blob;
+    if (blob.size <= maxBytes) return blob;
   }
-  throw new ImageTooLargeError();
+  throw new ImageTooLargeError(maxBytes);
 }
 
 /** A picked file → WebP Blob ready to commit. */
@@ -90,9 +102,21 @@ export async function blobToBase64(blob: Blob): Promise<string> {
   return btoa(binary);
 }
 
-/** "/images/activities/<slug>/thumb.webp" is a thumbnail; anything else is content. */
-export const kindForSrc = (src: string): ImageKind =>
-  /\/thumb\.webp$/.test(src) ? "thumb" : "content";
+/** Kind from the path: thumbnails and category art are 16:10; "-option-N" files are answers. */
+export function kindForSrc(src: string): ImageKind {
+  const path = src.split("?")[0];
+  if (/\/thumb\.webp$/.test(path) || path.startsWith("/images/categories/")) return "thumb";
+  if (/-option-\d+\.webp$/.test(path)) return "option";
+  return "content";
+}
+
+/** A short content hash, so a replaced image gets a new URL (RNF03). */
+export async function versionOf(blob: Blob): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", await blob.arrayBuffer());
+  return [...new Uint8Array(digest).slice(0, 4)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
 
 /** File names like "travel-vocabulary--luggage.png" (RF06) → their src. */
 export function srcForFileName(fileName: string): string | null {

@@ -7,8 +7,9 @@
  * Then run:
  *   npm run images:import -- ~/Downloads/fun-english-images
  *
- * Each image is resized (thumbnails cropped to 1280×800, others up to 1600 px wide), converted to
- * WebP ≤ 200 KB and saved at public/images/activities/<slug>/<name>.webp.
+ * Each image is resized and converted to WebP like the admin upload (thumbnails 1280×800 ≤ 200 KB,
+ * item pictures ≤ 960 px ≤ 100 KB, picture answers named <name>-option-N ≤ 480 px ≤ 40 KB) and
+ * saved at public/images/activities/<slug>/<name>.webp.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
@@ -17,7 +18,6 @@ import sharp from "sharp";
 
 const CONTENT_DIR = join(process.cwd(), "content", "activities");
 const OUTPUT_DIR = join(process.cwd(), "public", "images", "activities");
-const MAX_BYTES = 200 * 1024;
 const FILE_NAME =
   /^([a-z0-9]+(?:-[a-z0-9]+)*)--([a-z0-9]+(?:-[a-z0-9]+)*)\.(png|jpe?g|webp|avif)$/i;
 
@@ -28,7 +28,8 @@ function expectedImages(): Set<string> {
     if (Array.isArray(node)) node.forEach(walk);
     else if (node && typeof node === "object") {
       const src = (node as { src?: unknown }).src;
-      const match = typeof src === "string" ? /^\/images\/activities\/(.+)\.webp$/.exec(src) : null;
+      const match =
+        typeof src === "string" ? /^\/images\/activities\/(.+)\.webp(?:\?.*)?$/.exec(src) : null;
       if (match) expected.add(match[1]);
       Object.values(node).forEach(walk);
     }
@@ -39,15 +40,25 @@ function expectedImages(): Set<string> {
   return expected;
 }
 
-async function toWebp(input: string, isThumbnail: boolean): Promise<Buffer> {
-  const image = isThumbnail
-    ? sharp(input).resize(1280, 800, { fit: "cover", position: "attention" })
-    : sharp(input).resize({ width: 1600, withoutEnlargement: true });
-  for (let quality = 82; quality >= 40; quality -= 8) {
+/** Same limits as the admin upload (spec: mais imagens nas atividades, RNF01). */
+const LIMITS = {
+  thumb: { width: 1280, bytes: 200 * 1024 },
+  content: { width: 960, bytes: 100 * 1024 },
+  option: { width: 480, bytes: 40 * 1024 },
+};
+const kindOf = (name: string): keyof typeof LIMITS =>
+  name === "thumb" ? "thumb" : /-option-\d+$/.test(name) ? "option" : "content";
+
+async function toWebp(input: string, kind: keyof typeof LIMITS): Promise<Buffer> {
+  const image =
+    kind === "thumb"
+      ? sharp(input).resize(1280, 800, { fit: "cover", position: "attention" })
+      : sharp(input).resize({ width: LIMITS[kind].width, withoutEnlargement: true });
+  for (let quality = 82; quality >= 34; quality -= 8) {
     const buffer = await image.clone().webp({ quality }).toBuffer();
-    if (buffer.length <= MAX_BYTES || quality <= 42) return buffer;
+    if (buffer.length <= LIMITS[kind].bytes) return buffer;
   }
-  throw new Error("unreachable");
+  throw new Error(`too detailed to fit in ${LIMITS[kind].bytes / 1024} KB; try a simpler image`);
 }
 
 async function main() {
@@ -69,10 +80,16 @@ async function main() {
     const [, slug, name] = match;
     const key = `${slug}/${name}`;
     if (!expected.has(key)) {
-      skipped.push(`${file} (no prompt for "${key}": check the name)`);
+      skipped.push(`${file} (no activity uses "${key}": check the name)`);
       continue;
     }
-    const buffer = await toWebp(join(folder, file), name === "thumb");
+    let buffer: Buffer;
+    try {
+      buffer = await toWebp(join(folder, file), kindOf(name));
+    } catch (error) {
+      skipped.push(`${file} (${(error as Error).message})`);
+      continue;
+    }
     mkdirSync(join(OUTPUT_DIR, slug), { recursive: true });
     writeFileSync(join(OUTPUT_DIR, slug, `${name}.webp`), buffer);
     imported.add(key);

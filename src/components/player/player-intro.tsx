@@ -9,6 +9,7 @@ import { getCategory } from "@/lib/activities/categories";
 import type { PlayableActivity } from "@/lib/player/load-activity";
 import type { PlayerSettings, RegisteredPlugin } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { ActivityImage } from "./media/activity-image";
 
 const DEFAULT_TIMER_CHOICES = [10, 20, 30, 60];
 const MAX_TEAMS = 6;
@@ -55,6 +56,16 @@ export function PlayerIntro({
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 py-10 text-center">
+      {/* The activity's illustration up front (RF01); the category's if it's missing. */}
+      <ActivityImage
+        src={activity.thumbnail.src}
+        alt={activity.thumbnail.alt}
+        width={1280}
+        height={800}
+        priority
+        fallback={{ kind: "category", category: activity.category }}
+        className="aspect-[16/10] w-full max-w-md rounded-2xl object-cover shadow-sm"
+      />
       <div className="flex items-center gap-2 text-sm text-fg-secondary">
         <CategoryIcon category={category} />
         <span>{category.name}</span>

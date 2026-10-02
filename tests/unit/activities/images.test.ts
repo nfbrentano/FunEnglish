@@ -1,11 +1,11 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { kindForSrc, LIMITS } from "@/lib/admin/image-processing";
 
 // CT05 / CA05 (spec: conteúdo inicial): format, weight and proportions of the activity images.
 // Prompts are checked in the activity JSON (content.test.ts).
-const IMAGES = join(process.cwd(), "public", "images", "activities");
-const MAX_BYTES = 200 * 1024;
+const IMAGES = join(process.cwd(), "public", "images");
 const MAX_TOTAL = 30 * 1024 * 1024;
 
 const files = (dir: string) =>
@@ -32,20 +32,25 @@ export function webpSize(buffer: Buffer): { width: number; height: number } | nu
 const images = files(IMAGES);
 
 describe("activity images", () => {
-  it("are all WebP, at most 200 KB each and 30 MB in total", () => {
+  it("are all WebP and stay within 30 MB in total", () => {
     expect(images.filter((f) => !f.endsWith(".webp"))).toEqual([]);
-    expect(images.filter((f) => statSync(join(IMAGES, f)).size > MAX_BYTES)).toEqual([]);
     const total = images.reduce((sum, f) => sum + statSync(join(IMAGES, f)).size, 0);
     expect(total).toBeLessThanOrEqual(MAX_TOTAL);
   });
 
-  it("thumbnails are 16:10 and content images at most 1600 px wide", () => {
+  // Same limits as the admin upload and images:import (spec: mais imagens, RNF01).
+  it("thumbnails and category art are 16:10 ≤ 200 KB; pictures ≤ 960 px ≤ 100 KB; answers ≤ 480 px ≤ 40 KB", () => {
     const problems = images.flatMap((f) => {
       const size = webpSize(readFileSync(join(IMAGES, f)));
       if (!size) return [`${f}: not a readable WebP`];
-      if (f.endsWith("thumb.webp") && Math.abs(size.width / size.height - 1.6) > 0.01)
+      const bytes = statSync(join(IMAGES, f)).size;
+      const kind = kindForSrc(`/images/${f.split("\\").join("/")}`);
+      const limit = LIMITS[kind];
+      if (kind === "thumb" && Math.abs(size.width / size.height - 1.6) > 0.01)
         return [`${f}: ${size.width}×${size.height} is not 16:10`];
-      if (size.width > 1600) return [`${f}: ${size.width} px wide`];
+      if (size.width > limit.width) return [`${f}: ${size.width} px wide (max ${limit.width})`];
+      if (bytes > limit.bytes)
+        return [`${f}: ${Math.ceil(bytes / 1024)} KB (max ${limit.bytes / 1024})`];
       return [];
     });
     expect(problems).toEqual([]);

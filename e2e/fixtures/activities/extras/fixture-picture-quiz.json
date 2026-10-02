@@ -1,0 +1,83 @@
+{
+  "slug": "fixture-picture-quiz",
+  "title": "Fixture Picture Quiz",
+  "description": "Test fixture: picture answers, an item picture and a planned picture not uploaded yet.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["fixture"],
+  "status": "published",
+  "origin": "human",
+  "thumbnail": {
+    "src": "/images/activities/kitchen-items/thumb.webp",
+    "alt": "A kitchen shelf",
+    "source": "own"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Which one boils water?",
+        "options": [
+          {
+            "text": "kettle",
+            "correct": true,
+            "image": {
+              "src": "/images/activities/kitchen-items/kettle.webp",
+              "alt": "kettle",
+              "source": "own"
+            }
+          },
+          {
+            "text": "whisk",
+            "image": {
+              "src": "/images/activities/kitchen-items/whisk.webp",
+              "alt": "whisk",
+              "source": "own"
+            }
+          },
+          {
+            "text": "frying pan",
+            "image": {
+              "src": "/images/activities/kitchen-items/frying-pan.webp",
+              "alt": "frying pan",
+              "source": "own"
+            }
+          },
+          {
+            "text": "cutting board",
+            "image": {
+              "src": "/images/activities/kitchen-items/cutting-board.webp",
+              "alt": "cutting board",
+              "source": "own"
+            }
+          }
+        ],
+        "explanation": "A kettle boils water."
+      },
+      {
+        "prompt": "What is this?",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/fixture-picture-quiz/question-2.webp",
+          "alt": "A planned picture",
+          "source": "ai",
+          "prompt": "Not uploaded yet."
+        },
+        "options": [{ "text": "a picture", "correct": true }, { "text": "a song" }],
+        "explanation": "The picture isn't uploaded yet."
+      },
+      {
+        "prompt": "What do you use to mix eggs?",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/kitchen-items/whisk.webp",
+          "alt": "A whisk",
+          "source": "own"
+        },
+        "options": [{ "text": "a whisk", "correct": true }, { "text": "a kettle" }],
+        "explanation": "A whisk mixes eggs."
+      }
+    ]
+  }
+}

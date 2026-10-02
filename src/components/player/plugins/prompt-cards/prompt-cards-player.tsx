@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import type { promptCardsContentSchema } from "@/lib/activities/schema/content";
 import type { PluginProps } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { usePreloadNext } from "../../media/use-preload";
+import { ActivityImage } from "../../media/activity-image";
 import { shuffled } from "../shuffle";
 
 type PromptCardsContent = z.infer<typeof promptCardsContentSchema>;
@@ -125,6 +127,7 @@ export default function PromptCardsPlayer({
   const sound = settings.extra.sound !== false;
   const cardIndex = order[position];
   const card = content.cards[cardIndex];
+  usePreloadNext(content.cards[order[position + 1]]);
   const last = position === order.length - 1;
 
   useEffect(() => {
@@ -162,11 +165,13 @@ export default function PromptCardsPlayer({
   return (
     <div className="flex flex-1 flex-col items-center gap-6 text-center">
       {card.image && (
-        // eslint-disable-next-line @next/next/no-img-element -- static export; images are pre-sized assets
-        <img
+        <ActivityImage
           src={card.image.src}
           alt={card.image.alt}
-          className="max-h-[60vh] w-auto rounded-2xl object-contain"
+          width={960}
+          height={600}
+          fallback={card.prompt ? { kind: "hide" } : { kind: "alt" }}
+          className="max-h-[45vh] w-auto max-w-full rounded-2xl object-contain"
         />
       )}
       {card.prompt && (

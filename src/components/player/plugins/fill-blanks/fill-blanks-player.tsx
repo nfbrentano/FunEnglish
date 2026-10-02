@@ -8,6 +8,7 @@ import { isBlankCorrect, parseBlanks, withGaps, type BlankSegment } from "@/lib/
 import type { fillBlanksContentSchema } from "@/lib/activities/schema/content";
 import type { PluginProps, ReviewItem } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { usePreloadNext } from "../../media/use-preload";
 import { ActivityMedia } from "../../media/activity-media";
 import { shuffled } from "../shuffle";
 
@@ -32,6 +33,7 @@ export default function FillBlanksPlayer({
 }: PluginProps<FillBlanksContent>) {
   const [index, setIndex] = useState(0);
   const item = content.items[index];
+  usePreloadNext(content.items[index + 1]);
   const segments = parseBlanks(item.text);
   const blanks = blanksOf(segments);
   const wordBank = content.mode === "word-bank";

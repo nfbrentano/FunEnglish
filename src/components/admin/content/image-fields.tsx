@@ -17,8 +17,9 @@ const u = strings.admin.upload;
 
 /** Where an upload goes: the current src if it's this activity's, else a name from the alt. */
 export function uploadSrcFor(slug: string, src: string, alt: string, isThumbnail: boolean) {
+  const file = src.split("?")[0];
   const own = new RegExp(`^/images/activities/${slug}/[a-z0-9-]+\\.webp$`);
-  if (own.test(src)) return src;
+  if (own.test(file)) return file;
   const name = isThumbnail ? "thumb" : slugify(alt).slice(0, 40).replace(/-+$/, "") || "image";
   return `/images/activities/${slug}/${name}.webp`;
 }
@@ -56,8 +57,9 @@ export function ImageFields({
     const target = uploadSrcFor(tools.slug, src, alt, isThumbnail);
     const done = await upload([{ file, src: target }], target.replace("/images/activities/", ""));
     if (!done) return;
-    tools.setPreview(target, URL.createObjectURL(done[0].blob));
-    if (target !== src) onChange({ ...value, src: target });
+    const versioned = done[0].versionedSrc;
+    tools.setPreview(versioned, URL.createObjectURL(done[0].blob));
+    onChange({ ...value, src: versioned });
   }
 
   return (
@@ -140,7 +142,7 @@ export function ImageFields({
           onClick={() => fileRef.current?.click()}
         >
           <Upload aria-hidden="true" className="size-4" />
-          {src && images.includes(src) ? u.replace : u.upload}
+          {src && images.includes(src.split("?")[0]) ? u.replace : u.upload}
         </Button>
         <input
           ref={fileRef}
