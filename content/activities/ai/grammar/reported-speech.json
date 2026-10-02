@@ -1,0 +1,113 @@
+{
+  "slug": "reported-speech",
+  "title": "Reported Speech",
+  "description": "Type the missing words to change direct quotes into reported speech, with the right tense and pronoun shifts.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["reported speech", "indirect speech", "backshift", "verbs"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/reported-speech/thumb.webp",
+    "alt": "Two friends whispering on a park bench while a third person listens and holds a notebook",
+    "source": "ai",
+    "prompt": "Two friends whispering on a park bench while a third person listens and holds a notebook. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "typing",
+    "items": [
+      {
+        "text": "\"I am tired.\" → Maria said that she [[was]] tired.",
+        "hint": "Present simple (am) moves back to the past simple.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-1.webp",
+          "alt": "A tired young woman resting on a sofa after work.",
+          "source": "ai",
+          "prompt": "A tired young woman resting on a sofa after work. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"We are watching a movie.\" → They said they [[were watching]] a movie.",
+        "hint": "Present continuous moves back to past continuous.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-2.webp",
+          "alt": "A group of friends watching a movie on a sofa with popcorn.",
+          "source": "ai",
+          "prompt": "A group of friends watching a movie on a sofa with popcorn. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"I have finished my essay.\" → Leo told me he [[had finished|'d finished]] his essay.",
+        "hint": "Present perfect moves back to past perfect.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-3.webp",
+          "alt": "A young man closing his laptop at a desk with a stack of papers.",
+          "source": "ai",
+          "prompt": "A young man closing his laptop at a desk with a stack of papers. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"I will call you tomorrow.\" → She promised she [[would|'d]] call me the next day.",
+        "hint": "Will becomes would.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-4.webp",
+          "alt": "Two friends waving goodbye to each other at a train station.",
+          "source": "ai",
+          "prompt": "Two friends waving goodbye to each other at a train station. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"Can you help me?\" → He asked me if I [[could]] help him.",
+        "hint": "Can becomes could in reported questions.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-5.webp",
+          "alt": "A man carrying heavy boxes asking a neighbor for help.",
+          "source": "ai",
+          "prompt": "A man carrying heavy boxes asking a neighbor for help. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"Where do you live?\" → The officer asked me where I [[lived]].",
+        "hint": "Reported questions use statement word order and backshift: no \"do\".",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-6.webp",
+          "alt": "A friendly police officer talking with a young woman on a street.",
+          "source": "ai",
+          "prompt": "A friendly police officer talking with a young woman on a street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"Don't touch the paint.\" → The painter told us [[not to touch]] the paint.",
+        "hint": "Negative commands: tell someone + not to + base verb.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-7.webp",
+          "alt": "A painter on a ladder beside a freshly painted wall and two children.",
+          "source": "ai",
+          "prompt": "A painter on a ladder beside a freshly painted wall and two children. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "\"I saw the show last week.\" → Ana said she [[had seen|'d seen]] the show the week before.",
+        "hint": "Past simple moves back to past perfect.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reported-speech/sentence-8.webp",
+          "alt": "Two friends chatting at a café table in the evening.",
+          "source": "ai",
+          "prompt": "Two friends chatting at a café table in the evening. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

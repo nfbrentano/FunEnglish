@@ -1,0 +1,254 @@
+{
+  "slug": "emoji-animals",
+  "title": "Emoji Animals",
+  "description": "Look at each emoji and choose the right animal. A fun first vocabulary quiz for young learners.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["animals", "vocabulary", "emoji", "kids"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/emoji-animals/thumb.webp",
+    "alt": "A friendly group of cartoon animals, a dog, a cat, an elephant and a frog, sitting together in a meadow",
+    "source": "ai",
+    "prompt": "A friendly group of cartoon animals, a dog, a cat, an elephant and a frog, sitting together in a meadow. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐶",
+          "label": "Emoji picture: 🐶"
+        },
+        "options": [
+          {
+            "text": "dog",
+            "correct": true
+          },
+          {
+            "text": "cow",
+            "correct": false
+          },
+          {
+            "text": "fish",
+            "correct": false
+          }
+        ],
+        "explanation": "🐶 = dog. A dog says \"woof!\""
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐱",
+          "label": "Emoji picture: 🐱"
+        },
+        "options": [
+          {
+            "text": "bird",
+            "correct": false
+          },
+          {
+            "text": "cat",
+            "correct": true
+          },
+          {
+            "text": "horse",
+            "correct": false
+          }
+        ],
+        "explanation": "🐱 = cat. A cat says \"meow!\""
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐘",
+          "label": "Emoji picture: 🐘"
+        },
+        "options": [
+          {
+            "text": "mouse",
+            "correct": false
+          },
+          {
+            "text": "duck",
+            "correct": false
+          },
+          {
+            "text": "elephant",
+            "correct": true
+          }
+        ],
+        "explanation": "🐘 = elephant, a very big gray animal with a long trunk."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🦒",
+          "label": "Emoji picture: 🦒"
+        },
+        "options": [
+          {
+            "text": "giraffe",
+            "correct": true
+          },
+          {
+            "text": "pig",
+            "correct": false
+          },
+          {
+            "text": "snake",
+            "correct": false
+          }
+        ],
+        "explanation": "🦒 = giraffe, the animal with a very long neck."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐸",
+          "label": "Emoji picture: 🐸"
+        },
+        "options": [
+          {
+            "text": "sheep",
+            "correct": false
+          },
+          {
+            "text": "frog",
+            "correct": true
+          },
+          {
+            "text": "lion",
+            "correct": false
+          }
+        ],
+        "explanation": "🐸 = frog. Frogs are green and they jump."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐧",
+          "label": "Emoji picture: 🐧"
+        },
+        "options": [
+          {
+            "text": "monkey",
+            "correct": false
+          },
+          {
+            "text": "dog",
+            "correct": false
+          },
+          {
+            "text": "penguin",
+            "correct": true
+          }
+        ],
+        "explanation": "🐧 = penguin, a black and white bird that swims but can't fly."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🦁",
+          "label": "Emoji picture: 🦁"
+        },
+        "options": [
+          {
+            "text": "lion",
+            "correct": true
+          },
+          {
+            "text": "rabbit",
+            "correct": false
+          },
+          {
+            "text": "fish",
+            "correct": false
+          }
+        ],
+        "explanation": "🦁 = lion. A lion says \"roar!\""
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐢",
+          "label": "Emoji picture: 🐢"
+        },
+        "options": [
+          {
+            "text": "cat",
+            "correct": false
+          },
+          {
+            "text": "turtle",
+            "correct": true
+          },
+          {
+            "text": "bird",
+            "correct": false
+          }
+        ],
+        "explanation": "🐢 = turtle, a slow animal with a hard shell."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐰",
+          "label": "Emoji picture: 🐰"
+        },
+        "options": [
+          {
+            "text": "elephant",
+            "correct": false
+          },
+          {
+            "text": "cow",
+            "correct": false
+          },
+          {
+            "text": "rabbit",
+            "correct": true
+          }
+        ],
+        "explanation": "🐰 = rabbit, an animal with long ears that hops."
+      },
+      {
+        "prompt": "What animal is this?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐝",
+          "label": "Emoji picture: 🐝"
+        },
+        "options": [
+          {
+            "text": "bee",
+            "correct": true
+          },
+          {
+            "text": "horse",
+            "correct": false
+          },
+          {
+            "text": "frog",
+            "correct": false
+          }
+        ],
+        "explanation": "🐝 = bee. Bees fly and make honey."
+      }
+    ]
+  }
+}

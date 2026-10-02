@@ -1,0 +1,110 @@
+{
+  "slug": "connecting-ideas-and-but-because",
+  "title": "Connecting Ideas: And, But, Because, So",
+  "description": "Join two ideas with and, but, because or so. Tap or drag the right word into each gap.",
+  "category": "writing",
+  "type": "fill-blanks",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["conjunctions", "linking words", "sentences", "and but because so"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/connecting-ideas-and-but-because/thumb.webp",
+    "alt": "Two puzzle pieces joining together on a wooden table",
+    "source": "ai",
+    "prompt": "Two puzzle pieces joining together on a wooden table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "items": [
+      {
+        "text": "My brother plays soccer [[and]] basketball.",
+        "hint": "and = adds another idea",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-1.webp",
+          "alt": "A boy playing soccer in a park with a basketball nearby.",
+          "source": "ai",
+          "prompt": "A boy playing soccer in a park with a basketball nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "I was very tired, [[so]] I went to bed at eight.",
+        "hint": "so = the result",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-2.webp",
+          "alt": "A tired girl yawning and getting into bed early.",
+          "source": "ai",
+          "prompt": "A tired girl yawning and getting into bed early. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "She is happy [[because]] today is her birthday.",
+        "hint": "because = the reason",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-3.webp",
+          "alt": "A happy girl with a birthday cake and balloons.",
+          "source": "ai",
+          "prompt": "A happy girl with a birthday cake and balloons. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The bag is small, [[but]] it is very heavy.",
+        "hint": "but = a different or surprising idea",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-4.webp",
+          "alt": "A child struggling to lift a small but heavy bag.",
+          "source": "ai",
+          "prompt": "A child struggling to lift a small but heavy bag. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "I can't play outside today [[because]] I am sick.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-5.webp",
+          "alt": "A sick boy in bed with a blanket, looking out the window.",
+          "source": "ai",
+          "prompt": "A sick boy in bed with a blanket, looking out the window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "It started to rain, [[so]] we opened our umbrellas.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-6.webp",
+          "alt": "A family opening umbrellas as rain begins to fall.",
+          "source": "ai",
+          "prompt": "A family opening umbrellas as rain begins to fall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "I want to buy these shoes, [[but]] they are too expensive.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-7.webp",
+          "alt": "A girl looking at a pair of shoes in a shop window.",
+          "source": "ai",
+          "prompt": "A girl looking at a pair of shoes in a shop window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "We had pizza for dinner [[and]] ice cream for dessert.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/connecting-ideas-and-but-because/sentence-8.webp",
+          "alt": "A family eating pizza at a dinner table with ice cream on the side.",
+          "source": "ai",
+          "prompt": "A family eating pizza at a dinner table with ice cream on the side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ],
+    "distractors": ["or"]
+  }
+}

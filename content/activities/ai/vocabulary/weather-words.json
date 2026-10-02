@@ -1,0 +1,156 @@
+{
+  "slug": "weather-words",
+  "title": "Weather Words",
+  "description": "Sunny, rainy, windy… Learn common weather words with emojis, simple definitions and example sentences.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["weather", "adjectives", "nature", "seasons"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/weather-words/thumb.webp",
+    "alt": "A bright sun, a fluffy cloud, falling raindrops and a snowflake above a green hill",
+    "source": "ai",
+    "prompt": "A bright sun, a fluffy cloud, falling raindrops and a snowflake above a green hill. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "text": "☀️"
+        },
+        "back": {
+          "text": "sunny",
+          "definition": "When the sun is shining.",
+          "example": "It is sunny today, so let's go to the park."
+        },
+        "speak": "sunny"
+      },
+      {
+        "front": {
+          "text": "☁️"
+        },
+        "back": {
+          "text": "cloudy",
+          "definition": "When there are a lot of clouds in the sky.",
+          "example": "It is cloudy, but it is not raining."
+        },
+        "speak": "cloudy"
+      },
+      {
+        "front": {
+          "text": "🌧️"
+        },
+        "back": {
+          "text": "rainy",
+          "definition": "When water falls from the sky.",
+          "example": "I wear my boots on rainy days."
+        },
+        "speak": "rainy"
+      },
+      {
+        "front": {
+          "text": "❄️"
+        },
+        "back": {
+          "text": "snowy",
+          "definition": "When soft, white ice falls from the sky.",
+          "example": "The garden is white on snowy mornings."
+        },
+        "speak": "snowy"
+      },
+      {
+        "front": {
+          "text": "🌬️"
+        },
+        "back": {
+          "text": "windy",
+          "definition": "When the air moves fast.",
+          "example": "It is windy, so hold your hat!"
+        },
+        "speak": "windy"
+      },
+      {
+        "front": {
+          "text": "⛈️"
+        },
+        "back": {
+          "text": "stormy",
+          "definition": "When there is strong rain, wind and thunder.",
+          "example": "We stay inside when it is stormy."
+        },
+        "speak": "stormy"
+      },
+      {
+        "front": {
+          "text": "🌫️"
+        },
+        "back": {
+          "text": "foggy",
+          "definition": "When there is a thick cloud near the ground.",
+          "example": "It is foggy, and I can't see the trees."
+        },
+        "speak": "foggy"
+      },
+      {
+        "front": {
+          "text": "🌈"
+        },
+        "back": {
+          "text": "rainbow",
+          "definition": "An arc of colors in the sky after rain.",
+          "example": "Look! There is a rainbow over the hill."
+        },
+        "speak": "rainbow"
+      },
+      {
+        "front": {
+          "text": "⚡"
+        },
+        "back": {
+          "text": "lightning",
+          "definition": "A bright flash of light in a storm.",
+          "example": "The lightning lit up the night sky."
+        },
+        "speak": "lightning"
+      },
+      {
+        "front": {
+          "text": "🥵"
+        },
+        "back": {
+          "text": "hot",
+          "definition": "Very warm.",
+          "example": "It is hot today, so I want ice cream."
+        },
+        "speak": "hot"
+      },
+      {
+        "front": {
+          "text": "🥶"
+        },
+        "back": {
+          "text": "cold",
+          "definition": "Not warm at all.",
+          "example": "It is cold outside. Wear your coat."
+        },
+        "speak": "cold"
+      },
+      {
+        "front": {
+          "text": "☂️"
+        },
+        "back": {
+          "text": "umbrella",
+          "definition": "A thing you hold over your head in the rain.",
+          "example": "Take an umbrella. It is going to rain."
+        },
+        "speak": "umbrella"
+      }
+    ]
+  }
+}

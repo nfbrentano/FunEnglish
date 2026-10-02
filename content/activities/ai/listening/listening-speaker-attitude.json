@@ -1,0 +1,200 @@
+{
+  "slug": "listening-speaker-attitude",
+  "title": "Listening: Speaker Attitude",
+  "description": "Listen to short comments and infer the speaker's real attitude: sarcasm, reluctance, polite refusal and more.",
+  "category": "listening",
+  "type": "quiz",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["inference", "attitude", "sarcasm", "listening"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/listening-speaker-attitude/thumb.webp",
+    "alt": "A woman with headphones raising one eyebrow while a speech bubble floats beside her",
+    "source": "ai",
+    "prompt": "A woman with headphones raising one eyebrow while a speech bubble floats beside her. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Listen. How does the speaker feel about the meeting?",
+        "media": {
+          "kind": "tts",
+          "text": "Oh, wonderful. Another three-hour meeting where we decided absolutely nothing. That was the best use of my afternoon."
+        },
+        "options": [
+          {
+            "text": "Annoyed that it was long and pointless",
+            "correct": true
+          },
+          {
+            "text": "Grateful for the useful information",
+            "correct": false
+          },
+          {
+            "text": "Excited about the next meeting",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Oh, wonderful\" is sarcastic here: three hours and \"nothing\" decided show frustration."
+      },
+      {
+        "prompt": "Listen. What is the speaker doing?",
+        "media": {
+          "kind": "tts",
+          "text": "Thanks so much for thinking of me. I'd love to, but I've got a lot on my plate this weekend. You guys have fun, though."
+        },
+        "options": [
+          {
+            "text": "Accepting the invitation happily",
+            "correct": false
+          },
+          {
+            "text": "Asking for a different date",
+            "correct": false
+          },
+          {
+            "text": "Politely turning down the invitation",
+            "correct": true
+          }
+        ],
+        "explanation": "\"I'd love to, but\" plus a reason and \"have fun\" is a polite way to refuse."
+      },
+      {
+        "prompt": "Listen. How does the speaker feel about helping?",
+        "media": {
+          "kind": "tts",
+          "text": "Well, I suppose I could stay late and finish the report. If there's really no one else who can do it."
+        },
+        "options": [
+          {
+            "text": "Eager to help",
+            "correct": false
+          },
+          {
+            "text": "Willing but reluctant",
+            "correct": true
+          },
+          {
+            "text": "Angry and refusing",
+            "correct": false
+          }
+        ],
+        "explanation": "\"I suppose\" and \"if there's really no one else\" show reluctant agreement."
+      },
+      {
+        "prompt": "Listen. What does the speaker really think of the soup?",
+        "media": {
+          "kind": "tts",
+          "text": "It's very, um, interesting. I've never tasted anything quite like it. I think I'm actually pretty full already, though."
+        },
+        "options": [
+          {
+            "text": "They love it and want the recipe",
+            "correct": false
+          },
+          {
+            "text": "They don't like it but are being polite",
+            "correct": true
+          },
+          {
+            "text": "They think it's too hot to eat",
+            "correct": false
+          }
+        ],
+        "explanation": "Calling food \"interesting\" and stopping after a few spoonfuls hints at polite dislike."
+      },
+      {
+        "prompt": "Listen. What is the speaker's attitude toward the plan?",
+        "media": {
+          "kind": "tts",
+          "text": "It sounds great in theory. I'm just not sure we can pull it off in two weeks. A lot of things would have to go right."
+        },
+        "options": [
+          {
+            "text": "Fully confident in it",
+            "correct": false
+          },
+          {
+            "text": "Doubtful that it will work",
+            "correct": true
+          },
+          {
+            "text": "Uninterested in the outcome",
+            "correct": false
+          }
+        ],
+        "explanation": "\"In theory,\" \"I'm just not sure\" and \"a lot of things have to go right\" express doubt."
+      },
+      {
+        "prompt": "Listen. How does the speaker feel?",
+        "media": {
+          "kind": "tts",
+          "text": "Thank goodness the test results came back fine. I've been worried all week. That's a huge weight off my shoulders."
+        },
+        "options": [
+          {
+            "text": "Relieved",
+            "correct": true
+          },
+          {
+            "text": "Disappointed",
+            "correct": false
+          },
+          {
+            "text": "Nervous",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Thank goodness\" and \"weight off my shoulders\" express relief after worry."
+      },
+      {
+        "prompt": "Listen. What does the speaker imply about Sam?",
+        "media": {
+          "kind": "tts",
+          "text": "Sam said he'd be here at seven sharp. Sam, on time? That'll be the day. Let's order without him."
+        },
+        "options": [
+          {
+            "text": "Sam is usually on time",
+            "correct": false
+          },
+          {
+            "text": "Sam is often late",
+            "correct": true
+          },
+          {
+            "text": "Sam never comes to parties",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Sam, on time? That'll be the day\" means the speaker doesn't expect it, so Sam is often late."
+      },
+      {
+        "prompt": "Listen. How does the speaker feel about the new office?",
+        "media": {
+          "kind": "tts",
+          "text": "The new office is fine, I guess. It's a bit far from the train and the coffee isn't great. But I'll get used to it."
+        },
+        "options": [
+          {
+            "text": "Mildly complaining but accepting it",
+            "correct": true
+          },
+          {
+            "text": "Thrilled about everything",
+            "correct": false
+          },
+          {
+            "text": "Planning to quit because of it",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Fine, I guess\" plus small complaints and \"I'll get used to it\" show mild criticism with acceptance."
+      }
+    ]
+  }
+}

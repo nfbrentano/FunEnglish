@@ -536,12 +536,12 @@ test("coverage: gaps are highlighted and lead to Create with AI (CA14)", async (
   await signUp(page, { admin: true });
   await page.goto("/admin/coverage");
   const byLevel = page.getByRole("region", { name: "By level" });
-  const cell = byLevel.getByRole("link", { name: /^Create a Advanced activity for Listening/ });
+  const cell = byLevel.getByRole("link", { name: /^Create a Beginner activity for Videos/ });
   await expect(cell).toBeVisible();
   await cell.click();
-  await expect(page).toHaveURL(/\/admin\/new\?category=listening&level=advanced&mode=ai/);
-  await expect(page.getByLabel("Category", { exact: true })).toHaveValue("listening");
-  await expect(page.getByLabel("Level", { exact: true })).toHaveValue("advanced");
+  await expect(page).toHaveURL(/\/admin\/new\?category=videos&level=beginner&mode=ai/);
+  await expect(page.getByLabel("Category", { exact: true })).toHaveValue("videos");
+  await expect(page.getByLabel("Level", { exact: true })).toHaveValue("beginner");
   await expect(page.getByLabel("Topic")).toBeFocused();
 });
 

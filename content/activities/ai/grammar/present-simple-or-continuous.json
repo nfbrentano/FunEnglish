@@ -1,0 +1,278 @@
+{
+  "slug": "present-simple-or-continuous",
+  "title": "Present Simple or Present Continuous?",
+  "description": "Choose between the present simple and the present continuous for habits, routines and actions happening now.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["present simple", "present continuous", "verbs", "tenses"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/present-simple-or-continuous/thumb.webp",
+    "alt": "A boy brushing his teeth in front of a bathroom mirror while a wall calendar hangs beside him",
+    "source": "ai",
+    "prompt": "A boy brushing his teeth in front of a bathroom mirror while a wall calendar hangs beside him. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Look! It ___ outside.",
+        "options": [
+          {
+            "text": "snows",
+            "correct": false
+          },
+          {
+            "text": "is snowing",
+            "correct": true
+          },
+          {
+            "text": "snow",
+            "correct": false
+          }
+        ],
+        "explanation": "Use the present continuous for something happening right now, often after \"Look!\".",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-1.webp",
+          "alt": "A woman looking out of an apartment window at a snowy city.",
+          "source": "ai",
+          "prompt": "A woman looking out of an apartment window at a snowy city. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "My dad ___ to work every day.",
+        "options": [
+          {
+            "text": "drives",
+            "correct": true
+          },
+          {
+            "text": "is driving",
+            "correct": false
+          },
+          {
+            "text": "drive",
+            "correct": false
+          }
+        ],
+        "explanation": "Use the present simple for habits and routines (every day).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-2.webp",
+          "alt": "A man driving a small car along a city road in the morning.",
+          "source": "ai",
+          "prompt": "A man driving a small car along a city road in the morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Be quiet, please. The baby ___.",
+        "options": [
+          {
+            "text": "sleeps",
+            "correct": false
+          },
+          {
+            "text": "sleep",
+            "correct": false
+          },
+          {
+            "text": "is sleeping",
+            "correct": true
+          }
+        ],
+        "explanation": "Use the present continuous for an action in progress at the moment of speaking.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-3.webp",
+          "alt": "A baby lying in a crib in a quiet, softly lit bedroom.",
+          "source": "ai",
+          "prompt": "A baby lying in a crib in a quiet, softly lit bedroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Water ___ at 100 degrees Celsius.",
+        "options": [
+          {
+            "text": "boils",
+            "correct": true
+          },
+          {
+            "text": "is boiling",
+            "correct": false
+          },
+          {
+            "text": "boil",
+            "correct": false
+          }
+        ],
+        "explanation": "Use the present simple for facts that are always true.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-4.webp",
+          "alt": "A pot of water on a stove in a bright kitchen.",
+          "source": "ai",
+          "prompt": "A pot of water on a stove in a bright kitchen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "I can't talk now. I ___ dinner.",
+        "options": [
+          {
+            "text": "cook",
+            "correct": false
+          },
+          {
+            "text": "am cooking",
+            "correct": true
+          },
+          {
+            "text": "cooks",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Now\" tells us the action is in progress, so use the present continuous.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-5.webp",
+          "alt": "A young man in a kitchen stirring a pot while holding a phone.",
+          "source": "ai",
+          "prompt": "A young man in a kitchen stirring a pot while holding a phone. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "___ you usually walk to school?",
+        "options": [
+          {
+            "text": "Are",
+            "correct": false
+          },
+          {
+            "text": "Is",
+            "correct": false
+          },
+          {
+            "text": "Do",
+            "correct": true
+          },
+          {
+            "text": "Does",
+            "correct": false
+          }
+        ],
+        "explanation": "Questions about routines (usually) use the present simple: Do + you + base verb.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-6.webp",
+          "alt": "A girl with a backpack walking along a tree-lined sidewalk.",
+          "source": "ai",
+          "prompt": "A girl with a backpack walking along a tree-lined sidewalk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "She ___ coffee. She only drinks tea.",
+        "options": [
+          {
+            "text": "isn't liking",
+            "correct": false
+          },
+          {
+            "text": "doesn't like",
+            "correct": true
+          },
+          {
+            "text": "don't like",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Like\" is a state verb, so we don't normally use it in the continuous; use \"doesn't\" with she.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-7.webp",
+          "alt": "A woman holding a cup of tea at a café table.",
+          "source": "ai",
+          "prompt": "A woman holding a cup of tea at a café table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "This week, Tom ___ at his grandma's house.",
+        "options": [
+          {
+            "text": "is staying",
+            "correct": true
+          },
+          {
+            "text": "stays",
+            "correct": false
+          },
+          {
+            "text": "stay",
+            "correct": false
+          }
+        ],
+        "explanation": "Use the present continuous for temporary situations (this week).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-8.webp",
+          "alt": "A boy and his grandmother reading together in her cozy living room.",
+          "source": "ai",
+          "prompt": "A boy and his grandmother reading together in her cozy living room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What ___ right now?",
+        "options": [
+          {
+            "text": "do you do",
+            "correct": false
+          },
+          {
+            "text": "are you doing",
+            "correct": true
+          },
+          {
+            "text": "you are doing",
+            "correct": false
+          }
+        ],
+        "explanation": "Questions about actions now use am/is/are + subject + -ing.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-9.webp",
+          "alt": "A teenager answering a phone call while sitting on a bedroom floor.",
+          "source": "ai",
+          "prompt": "A teenager answering a phone call while sitting on a bedroom floor. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The bus ___ at 8:15 every morning.",
+        "options": [
+          {
+            "text": "is leaving",
+            "correct": false
+          },
+          {
+            "text": "leave",
+            "correct": false
+          },
+          {
+            "text": "leaves",
+            "correct": true
+          }
+        ],
+        "explanation": "Use the present simple for timetables and regular schedules.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/present-simple-or-continuous/question-10.webp",
+          "alt": "A city bus waiting at a bus stop on a sunny morning.",
+          "source": "ai",
+          "prompt": "A city bus waiting at a bus stop on a sunny morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

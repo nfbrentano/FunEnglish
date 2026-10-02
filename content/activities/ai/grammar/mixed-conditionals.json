@@ -1,0 +1,240 @@
+{
+  "slug": "mixed-conditionals",
+  "title": "Mixed Conditionals",
+  "description": "Choose the right verb forms to link past conditions with present results, and present facts with past results.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["mixed conditionals", "conditionals", "hypothetical", "verbs"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/mixed-conditionals/thumb.webp",
+    "alt": "A person standing at a fork in a forest path, looking back over their shoulder at the other trail",
+    "source": "ai",
+    "prompt": "A person standing at a fork in a forest path, looking back over their shoulder at the other trail. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "If I had taken that job in Denver, I ___ there now.",
+        "options": [
+          {
+            "text": "would live",
+            "correct": true
+          },
+          {
+            "text": "would have lived",
+            "correct": false
+          },
+          {
+            "text": "will live",
+            "correct": false
+          },
+          {
+            "text": "lived",
+            "correct": false
+          }
+        ],
+        "explanation": "Past condition (had taken) + present result (now) uses would + base verb.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-1.webp",
+          "alt": "A woman packing a suitcase beside a window with a mountain view.",
+          "source": "ai",
+          "prompt": "A woman packing a suitcase beside a window with a mountain view. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "If she ___ so shy, she would have spoken up at the meeting yesterday.",
+        "options": [
+          {
+            "text": "won't be",
+            "correct": false
+          },
+          {
+            "text": "isn't",
+            "correct": false
+          },
+          {
+            "text": "wasn't",
+            "correct": true
+          },
+          {
+            "text": "wouldn't be",
+            "correct": false
+          }
+        ],
+        "explanation": "A general present trait (not shy) + a past result uses the past simple in the if-clause and would have + past participle.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-2.webp",
+          "alt": "A shy young woman sitting quietly at a meeting table with two coworkers.",
+          "source": "ai",
+          "prompt": "A shy young woman sitting quietly at a meeting table with two coworkers. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "If we had left earlier, we ___ stuck in traffic right now.",
+        "options": [
+          {
+            "text": "wouldn't have been",
+            "correct": false
+          },
+          {
+            "text": "won't be",
+            "correct": false
+          },
+          {
+            "text": "wouldn't be",
+            "correct": true
+          },
+          {
+            "text": "aren't",
+            "correct": false
+          }
+        ],
+        "explanation": "Past condition + present result (right now) uses would + base verb: wouldn't be.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-3.webp",
+          "alt": "A family car in a long line of traffic on a highway.",
+          "source": "ai",
+          "prompt": "A family car in a long line of traffic on a highway. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "If he spoke French, he ___ the instructions in Paris last summer.",
+        "options": [
+          {
+            "text": "would have understood",
+            "correct": true
+          },
+          {
+            "text": "would understand",
+            "correct": false
+          },
+          {
+            "text": "understood",
+            "correct": false
+          }
+        ],
+        "explanation": "A present ability (spoke French) + a past result (last summer) uses would have + past participle.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-4.webp",
+          "alt": "A tourist looking confused while holding a map on a busy city street.",
+          "source": "ai",
+          "prompt": "A tourist looking confused while holding a map on a busy city street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Which sentence is a correct mixed conditional?",
+        "options": [
+          {
+            "text": "If I had studied medicine, I would be a doctor today.",
+            "correct": true
+          },
+          {
+            "text": "If I studied medicine, I would have been a doctor today.",
+            "correct": false
+          },
+          {
+            "text": "If I had studied medicine, I will be a doctor today.",
+            "correct": false
+          }
+        ],
+        "explanation": "Had + past participle (past) pairs with would + base verb for a present result (today).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-5.webp",
+          "alt": "A young man thinking about the future while sitting on a park bench.",
+          "source": "ai",
+          "prompt": "A young man thinking about the future while sitting on a park bench. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "I ___ so tired now if I had gone to bed on time last night.",
+        "options": [
+          {
+            "text": "wouldn't have felt",
+            "correct": false
+          },
+          {
+            "text": "won't feel",
+            "correct": false
+          },
+          {
+            "text": "wouldn't feel",
+            "correct": true
+          },
+          {
+            "text": "didn't feel",
+            "correct": false
+          }
+        ],
+        "explanation": "The result is in the present (now), so use wouldn't + base verb after a past condition.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-6.webp",
+          "alt": "A tired man yawning at his desk with a cup of coffee in the morning.",
+          "source": "ai",
+          "prompt": "A tired man yawning at his desk with a cup of coffee in the morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "If I ___ afraid of flying, I would have visited you in Tokyo last year.",
+        "options": [
+          {
+            "text": "hadn't",
+            "correct": false
+          },
+          {
+            "text": "weren't",
+            "correct": true
+          },
+          {
+            "text": "wouldn't be",
+            "correct": false
+          }
+        ],
+        "explanation": "A permanent present state (afraid of flying) uses the past simple, often \"were\" for all persons in formal style.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-7.webp",
+          "alt": "A woman watching airplanes take off through a large airport window.",
+          "source": "ai",
+          "prompt": "A woman watching airplanes take off through a large airport window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "\"If they hadn't missed the flight, they would be on the beach now.\" What is true?",
+        "options": [
+          {
+            "text": "They missed the flight and they aren't on the beach.",
+            "correct": true
+          },
+          {
+            "text": "They caught the flight and they're on the beach.",
+            "correct": false
+          },
+          {
+            "text": "They will miss the flight tomorrow.",
+            "correct": false
+          }
+        ],
+        "explanation": "Conditionals describe the opposite of reality: they did miss the flight, so they aren't on the beach now.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/mixed-conditionals/question-8.webp",
+          "alt": "A couple sitting with their suitcases in a busy airport hall.",
+          "source": "ai",
+          "prompt": "A couple sitting with their suitcases in a busy airport hall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

@@ -32,9 +32,10 @@ test("category and level filters", async ({ page }) => {
 
   await page.getByLabel("Category").selectOption("grammar");
   await page.getByLabel("Level").selectOption("beginner");
-  // Some or Any and the prepositions activity are Beg–Inter; the fixtures are Inter–Adv.
+  // Only the Beg–Inter grammar activities; the fixtures are Inter–Adv.
   await expect(results(page).getByRole("heading", { level: 3 })).toHaveText([
     "Some or Any",
+    "Present Simple or Present Continuous?",
     "Prepositions of Time: in, on, at",
   ]);
 

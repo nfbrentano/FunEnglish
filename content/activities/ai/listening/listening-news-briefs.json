@@ -1,0 +1,208 @@
+{
+  "slug": "listening-news-briefs",
+  "title": "Listening: News Briefs",
+  "description": "Listen to short invented news reports about weather, local events, science and sports, and answer a question.",
+  "category": "listening",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["news", "listening for detail", "current events", "listening"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/listening-news-briefs/thumb.webp",
+    "alt": "A small radio on a kitchen table next to a cup of tea and a folded newspaper with blank pages",
+    "source": "ai",
+    "prompt": "A small radio on a kitchen table next to a cup of tea and a folded newspaper with blank pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Listen. What weather is expected tomorrow afternoon?",
+        "media": {
+          "kind": "tts",
+          "text": "Enjoy the sunshine while it lasts. Forecasters say heavy rain and strong winds will arrive tomorrow afternoon and continue into the weekend."
+        },
+        "options": [
+          {
+            "text": "Sunny and warm",
+            "correct": false
+          },
+          {
+            "text": "Heavy rain and strong winds",
+            "correct": true
+          },
+          {
+            "text": "Light snow",
+            "correct": false
+          },
+          {
+            "text": "Thick fog",
+            "correct": false
+          }
+        ],
+        "explanation": "The forecast says the sunshine ends tomorrow afternoon with heavy rain and strong winds."
+      },
+      {
+        "prompt": "Listen. Why is Maple Street closed this Saturday?",
+        "media": {
+          "kind": "tts",
+          "text": "Maple Street will be closed to traffic from nine to noon this Saturday for the town's annual spring parade. Drivers are asked to use Oak Avenue instead."
+        },
+        "options": [
+          {
+            "text": "For road repairs",
+            "correct": false
+          },
+          {
+            "text": "For a farmers market",
+            "correct": false
+          },
+          {
+            "text": "For a parade",
+            "correct": true
+          }
+        ],
+        "explanation": "The brief says the street closes for the annual spring parade."
+      },
+      {
+        "prompt": "Listen. What did the scientists discover?",
+        "media": {
+          "kind": "tts",
+          "text": "Researchers exploring a remote rainforest have identified a tiny new species of frog. It's smaller than a fingernail and has bright orange spots."
+        },
+        "options": [
+          {
+            "text": "A new species of frog",
+            "correct": true
+          },
+          {
+            "text": "A new kind of tree",
+            "correct": false
+          },
+          {
+            "text": "An old shipwreck",
+            "correct": false
+          }
+        ],
+        "explanation": "The report says researchers found a frog species that had never been described before."
+      },
+      {
+        "prompt": "Listen. What was the final score?",
+        "media": {
+          "kind": "tts",
+          "text": "In last night's soccer final, the Hillport Hawks came from behind to beat the Riverside Rovers three to two, with the winning goal in the final minute."
+        },
+        "options": [
+          {
+            "text": "Riverside 3, Hillport 1",
+            "correct": false
+          },
+          {
+            "text": "Hillport 3, Riverside 2",
+            "correct": true
+          },
+          {
+            "text": "Riverside 2, Hillport 2",
+            "correct": false
+          },
+          {
+            "text": "Hillport 2, Riverside 1",
+            "correct": false
+          }
+        ],
+        "explanation": "The Hillport Hawks came from behind to win three to two."
+      },
+      {
+        "prompt": "Listen. What is the library offering?",
+        "media": {
+          "kind": "tts",
+          "text": "The Central Library will offer free coding workshops for teenagers aged thirteen to seventeen this summer. Spaces are limited, so sign up early."
+        },
+        "options": [
+          {
+            "text": "Free coding classes for teenagers",
+            "correct": true
+          },
+          {
+            "text": "Discounted books for adults",
+            "correct": false
+          },
+          {
+            "text": "Free movie nights for families",
+            "correct": false
+          }
+        ],
+        "explanation": "The library is offering free coding workshops for teens aged thirteen to seventeen."
+      },
+      {
+        "prompt": "Listen. Why was the flight delayed?",
+        "media": {
+          "kind": "tts",
+          "text": "Several morning flights out of Lakeview Airport were delayed by up to two hours today because thick fog reduced visibility on the runways."
+        },
+        "options": [
+          {
+            "text": "A technical problem",
+            "correct": false
+          },
+          {
+            "text": "Thick fog at the airport",
+            "correct": true
+          },
+          {
+            "text": "A staff shortage",
+            "correct": false
+          }
+        ],
+        "explanation": "The brief says flights were delayed because thick fog reduced visibility."
+      },
+      {
+        "prompt": "Listen. How long did the swimmer swim?",
+        "media": {
+          "kind": "tts",
+          "text": "A local swimmer has crossed Silver Lake in record time. She reached the far shore after twelve hours in the water, beating the old record by forty minutes."
+        },
+        "options": [
+          {
+            "text": "Twelve hours",
+            "correct": true
+          },
+          {
+            "text": "Two hours",
+            "correct": false
+          },
+          {
+            "text": "Twenty hours",
+            "correct": false
+          }
+        ],
+        "explanation": "The report says she reached the shore after twelve hours in the water."
+      },
+      {
+        "prompt": "Listen. What will the new park include?",
+        "media": {
+          "kind": "tts",
+          "text": "The city council has approved plans for a new park on the east side of town. It will include a large playground and a community garden, and should open next spring."
+        },
+        "options": [
+          {
+            "text": "A swimming pool and a café",
+            "correct": false
+          },
+          {
+            "text": "A playground and a community garden",
+            "correct": true
+          },
+          {
+            "text": "A skate park and a parking lot",
+            "correct": false
+          }
+        ],
+        "explanation": "The city plans a park with a playground and a community garden."
+      }
+    ]
+  }
+}

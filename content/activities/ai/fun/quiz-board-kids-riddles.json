@@ -1,0 +1,289 @@
+{
+  "slug": "quiz-board-kids-riddles",
+  "title": "Kids Riddles Quiz Board",
+  "description": "Guess the answer to simple \"What am I?\" riddles about animals, food, home, school and nature.",
+  "category": "fun",
+  "type": "quiz-board",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["riddles", "game", "teams", "vocabulary"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/quiz-board-kids-riddles/thumb.webp",
+    "alt": "A friendly cartoon owl wearing a small detective hat, looking at a magnifying glass beside a pile of colorful cards",
+    "source": "ai",
+    "prompt": "A friendly cartoon owl wearing a small detective hat, looking at a magnifying glass beside a pile of colorful cards. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "categories": [
+      {
+        "name": "Animals",
+        "clues": [
+          {
+            "value": 100,
+            "question": "I am big and gray. I have a long nose. What am I?",
+            "answer": "An elephant",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-1.webp",
+              "alt": "A sunny savanna with tall grass and a few acacia trees.",
+              "source": "ai",
+              "prompt": "A sunny savanna with tall grass and a few acacia trees. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "I am small. I say 'meow'. I like milk. What am I?",
+            "answer": "A cat",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-2.webp",
+              "alt": "A cozy living room with a soft rug, a sofa and a sunny window.",
+              "source": "ai",
+              "prompt": "A cozy living room with a soft rug, a sofa and a sunny window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "I live in the water. I have no legs. I can swim. What am I?",
+            "answer": "A fish",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-3.webp",
+              "alt": "A calm blue lake with green reeds along a sandy shore.",
+              "source": "ai",
+              "prompt": "A calm blue lake with green reeds along a sandy shore. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "I am black and white. I eat bamboo. What am I?",
+            "answer": "A panda",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-4.webp",
+              "alt": "A misty green mountain forest with a small stream.",
+              "source": "ai",
+              "prompt": "A misty green mountain forest with a small stream. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Food",
+        "clues": [
+          {
+            "value": 100,
+            "question": "I am red or green. I grow on a tree. What am I?",
+            "answer": "An apple",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-5.webp",
+              "alt": "A sunny garden with a wooden fence and a small wheelbarrow.",
+              "source": "ai",
+              "prompt": "A sunny garden with a wooden fence and a small wheelbarrow. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "I am white. I come from a cow. You drink me. What am I?",
+            "answer": "Milk",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-6.webp",
+              "alt": "A bright kitchen table set for breakfast with plates and spoons.",
+              "source": "ai",
+              "prompt": "A bright kitchen table set for breakfast with plates and spoons. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "I am long and orange. Rabbits love me. What am I?",
+            "answer": "A carrot",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-7.webp",
+              "alt": "A green meadow with a wooden fence and a small farmhouse.",
+              "source": "ai",
+              "prompt": "A green meadow with a wooden fence and a small farmhouse. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "I am cold and sweet. I melt in the sun. What am I?",
+            "answer": "Ice cream",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-8.webp",
+              "alt": "A sunny beach with a striped umbrella and a sandcastle.",
+              "source": "ai",
+              "prompt": "A sunny beach with a striped umbrella and a sandcastle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "At Home",
+        "clues": [
+          {
+            "value": 100,
+            "question": "You sleep in me at night. What am I?",
+            "answer": "A bed",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-9.webp",
+              "alt": "A quiet night sky with a crescent moon over a small house.",
+              "source": "ai",
+              "prompt": "A quiet night sky with a crescent moon over a small house. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "You sit on me at the table. What am I?",
+            "answer": "A chair",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-10.webp",
+              "alt": "A bright family room with a window, a plant and a lamp.",
+              "source": "ai",
+              "prompt": "A bright family room with a window, a plant and a lamp. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "I keep food cold in the kitchen. What am I?",
+            "answer": "A fridge (refrigerator)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-11.webp",
+              "alt": "A tidy kitchen counter with fresh vegetables and a cutting board.",
+              "source": "ai",
+              "prompt": "A tidy kitchen counter with fresh vegetables and a cutting board. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "You open me to go in and out of a room. What am I?",
+            "answer": "A door",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-12.webp",
+              "alt": "A colorful flower garden with a winding stone path.",
+              "source": "ai",
+              "prompt": "A colorful flower garden with a winding stone path. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "At School",
+        "clues": [
+          {
+            "value": 100,
+            "question": "You write with me. I am not a pen. What am I?",
+            "answer": "A pencil",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-13.webp",
+              "alt": "A bright classroom with rows of desks and a big window.",
+              "source": "ai",
+              "prompt": "A bright classroom with rows of desks and a big window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "I have many pages. You read me. What am I?",
+            "answer": "A book",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-14.webp",
+              "alt": "A cozy bedroom corner with a beanbag chair and a lamp.",
+              "source": "ai",
+              "prompt": "A cozy bedroom corner with a beanbag chair and a lamp. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "I am pink or white. I clean pencil mistakes. What am I?",
+            "answer": "An eraser",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-15.webp",
+              "alt": "A school desk with a ruler and a box of crayons.",
+              "source": "ai",
+              "prompt": "A school desk with a ruler and a box of crayons. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "I am a big board. The teacher writes on me. What am I?",
+            "answer": "A whiteboard (or blackboard)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-16.webp",
+              "alt": "A school hallway with lockers and a big window.",
+              "source": "ai",
+              "prompt": "A school hallway with lockers and a big window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Nature",
+        "clues": [
+          {
+            "value": 100,
+            "question": "I am yellow and hot. I am in the sky in the day. What am I?",
+            "answer": "The sun",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-17.webp",
+              "alt": "A green park with a bench and a small pond.",
+              "source": "ai",
+              "prompt": "A green park with a bench and a small pond. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "I fall from the clouds. I am water. What am I?",
+            "answer": "Rain",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-18.webp",
+              "alt": "A small village street with colorful houses.",
+              "source": "ai",
+              "prompt": "A small village street with colorful houses. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "I am tall and green. Birds live in me. What am I?",
+            "answer": "A tree",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-19.webp",
+              "alt": "A small bird flying over a quiet hill at sunrise.",
+              "source": "ai",
+              "prompt": "A small bird flying over a quiet hill at sunrise. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "I come after the rain. I have many colors. What am I?",
+            "answer": "A rainbow",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-kids-riddles/clue-20.webp",
+              "alt": "Two children in raincoats standing on a grassy hill.",
+              "source": "ai",
+              "prompt": "Two children in raincoats standing on a grassy hill. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

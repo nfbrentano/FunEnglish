@@ -1,0 +1,141 @@
+{
+  "slug": "sentences-about-my-day",
+  "title": "Sentences About My Day",
+  "description": "Write short, simple sentences about your morning, afternoon and evening, with helpful words and questions.",
+  "category": "writing",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["daily routine", "present simple", "short sentences", "writing practice"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/sentences-about-my-day/thumb.webp",
+    "alt": "A notebook and a pencil on a desk next to a window with the morning sun rising outside",
+    "source": "ai",
+    "prompt": "A notebook and a pencil on a desk next to a window with the morning sun rising outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": true,
+    "cards": [
+      {
+        "prompt": "Write 3 sentences about your morning.",
+        "followUps": [
+          "What time do you get up?",
+          "What do you eat for breakfast?",
+          "How do you go to school or work?"
+        ],
+        "vocabulary": ["get up", "brush my teeth", "take a shower", "have breakfast"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-1.webp",
+          "alt": "A child waking up and stretching in a sunny bedroom.",
+          "source": "ai",
+          "prompt": "A child waking up and stretching in a sunny bedroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 3 sentences about your breakfast.",
+        "followUps": ["What do you eat?", "What do you drink?", "Who do you eat with?"],
+        "vocabulary": ["cereal", "toast", "eggs", "juice", "milk"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-2.webp",
+          "alt": "A girl eating cereal and fruit at the breakfast table.",
+          "source": "ai",
+          "prompt": "A girl eating cereal and fruit at the breakfast table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 3 sentences about your lunch.",
+        "followUps": [
+          "Where do you have lunch?",
+          "What is your favorite lunch?",
+          "Do you eat with friends?"
+        ],
+        "vocabulary": ["sandwich", "rice", "salad", "soup", "at noon"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-3.webp",
+          "alt": "Two kids eating lunch together at a school cafeteria table.",
+          "source": "ai",
+          "prompt": "Two kids eating lunch together at a school cafeteria table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 3 sentences about your afternoon.",
+        "followUps": [
+          "What do you do after school or work?",
+          "Do you play a sport?",
+          "Do you do homework?"
+        ],
+        "vocabulary": ["play", "study", "walk", "relax", "after school"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-4.webp",
+          "alt": "A boy riding his bike in the park in the afternoon.",
+          "source": "ai",
+          "prompt": "A boy riding his bike in the park in the afternoon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 3 sentences about your evening.",
+        "followUps": [
+          "What time do you have dinner?",
+          "What do you do after dinner?",
+          "Do you watch TV or read?"
+        ],
+        "vocabulary": ["have dinner", "watch TV", "read a book", "talk to my family"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-5.webp",
+          "alt": "A family eating dinner together at home in the evening.",
+          "source": "ai",
+          "prompt": "A family eating dinner together at home in the evening. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 4 sentences about your bedtime.",
+        "followUps": [
+          "What time do you go to bed?",
+          "What do you do before you sleep?",
+          "How do you feel at night?"
+        ],
+        "vocabulary": ["go to bed", "put on my pajamas", "tired", "sleep"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-6.webp",
+          "alt": "A child in pajamas reading in bed with a small lamp on.",
+          "source": "ai",
+          "prompt": "A child in pajamas reading in bed with a small lamp on. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 3 sentences about your favorite part of the day.",
+        "followUps": [
+          "Is it the morning, afternoon or evening?",
+          "What do you do then?",
+          "Why do you like it?"
+        ],
+        "vocabulary": ["favorite", "because", "happy", "fun"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-7.webp",
+          "alt": "A child watching a colorful sunset from a window.",
+          "source": "ai",
+          "prompt": "A child watching a colorful sunset from a window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Write 4 sentences about your Saturday.",
+        "followUps": [
+          "What time do you get up on Saturday?",
+          "Where do you go?",
+          "Who do you see?"
+        ],
+        "vocabulary": ["weekend", "sleep late", "visit", "go to the park"],
+        "image": {
+          "src": "/images/activities/sentences-about-my-day/card-8.webp",
+          "alt": "A family riding bikes together on a sunny weekend morning.",
+          "source": "ai",
+          "prompt": "A family riding bikes together on a sunny weekend morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}
