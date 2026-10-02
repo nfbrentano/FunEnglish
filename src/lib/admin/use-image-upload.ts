@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { strings } from "@/lib/strings";
 import { commitFiles, readToken, repoPathFor } from "./github";
-import { blobToBase64, kindForSrc, toWebp } from "./image-processing";
+import { blobToBase64, kindForSrc, toWebp, versionOf } from "./image-processing";
 
 const t = strings.admin.upload;
 
@@ -32,7 +32,10 @@ export function useImageUpload() {
       setState({ phase: "working", message: t.processing(items.length) });
       const processed = [];
       for (const item of items) {
-        processed.push({ src: item.src, blob: await toWebp(item.file, kindForSrc(item.src)) });
+        const blob = await toWebp(item.file, kindForSrc(item.src));
+        const file = item.src.split("?")[0];
+        // A new URL for new content, so nobody sees the old picture from cache (RNF03).
+        processed.push({ src: file, versionedSrc: `${file}?v=${await versionOf(blob)}`, blob });
       }
       setState({ phase: "working", message: t.committing });
       const commitUrl = await commitFiles(

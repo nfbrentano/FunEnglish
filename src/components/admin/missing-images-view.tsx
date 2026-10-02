@@ -7,7 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { listActivities } from "@/lib/admin/activities-admin";
 import { srcForFileName } from "@/lib/admin/image-processing";
-import { findMissingImages, type MissingImage } from "@/lib/admin/missing-images";
+import {
+  findMissingImages,
+  findMissingSiteImages,
+  type MissingImage,
+} from "@/lib/admin/missing-images";
+import { SITE_IMAGES } from "@/lib/site-images";
 import { useImageUpload } from "@/lib/admin/use-image-upload";
 import { strings } from "@/lib/strings";
 import { editHref } from "./admin-list";
@@ -26,7 +31,12 @@ export function MissingImagesView({ imagePaths, style }: { imagePaths: string[];
 
   useEffect(() => {
     listActivities()
-      .then((items) => setMissing(findMissingImages(items, new Set(imagePaths), style)))
+      .then((items) =>
+        setMissing([
+          ...findMissingImages(items, new Set(imagePaths), style),
+          ...findMissingSiteImages(SITE_IMAGES, new Set(imagePaths), style),
+        ]),
+      )
       .catch((error: unknown) => {
         console.warn("Could not list activities", error);
         setMissing([]);
@@ -133,9 +143,18 @@ function MissingItem({
   return (
     <li className="space-y-3 rounded-2xl border border-border-subtle bg-elevated p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <Link href={editHref(image.activityId)} className="font-display text-xl hover:text-accent">
-          {image.title}
-        </Link>
+        {image.activityId ? (
+          <Link
+            href={editHref(image.activityId)}
+            className="font-display text-xl hover:text-accent"
+          >
+            {image.title}
+          </Link>
+        ) : (
+          <p className="font-display text-xl">
+            {image.title} <span className="text-sm text-fg-secondary">· {t.siteImage}</span>
+          </p>
+        )}
         <p className="text-sm">
           <span className="text-fg-secondary">{t.fileName}: </span>
           <code className="rounded bg-primary px-1.5 py-0.5">{image.fileName}</code>

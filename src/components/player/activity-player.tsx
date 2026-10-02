@@ -20,6 +20,7 @@ import { useStudentMode } from "@/lib/student-mode";
 import { useAuth } from "@/lib/auth/use-auth";
 import { firestoreHistory, type HistoryRepository } from "@/lib/history/history";
 import { PlayerErrorBoundary } from "./error-boundary";
+import { PlayerCategoryContext } from "./media/activity-image";
 import { PlayerIntro, withTeamCount } from "./player-intro";
 import { PlayerMessage } from "./player-message";
 import { PlayerResults } from "./player-results";
@@ -132,83 +133,87 @@ export function ActivityPlayer({
   const showScores = plugin?.supports.scoring ? scores : null;
 
   return (
-    <div
-      ref={rootRef}
-      className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col bg-primary px-4 py-6 [&:fullscreen]:max-w-none [&:fullscreen]:overflow-auto [&:fullscreen]:p-10"
-    >
-      {phase === "intro" && editable && !studentMode && (
-        <div className="flex justify-end gap-2">
-          <ShareButton activity={activity} className={introAction}>
-            <Share2 aria-hidden="true" className="size-4" />
-            {strings.catalog.share}
-          </ShareButton>
-          {isAdmin && (
-            <Link
-              href={`/admin/edit?id=${encodeURIComponent(activity.id)}`}
-              className={introAction}
-            >
-              <Pencil aria-hidden="true" className="size-4" />
-              {strings.player.editActivity}
-            </Link>
-          )}
-        </div>
-      )}
-      {phase === "intro" && (
-        <PlayerIntro
-          activity={activity}
-          plugin={plugin}
-          settings={settings}
-          onSettingsChange={setSettings}
-          onStart={plugin && parsed?.success ? start : null}
-          message={
-            !plugin ? (
-              <PlayerMessage title={strings.player.unsupported}>
-                {strings.player.unsupportedHint}
-              </PlayerMessage>
-            ) : !parsed?.success ? (
-              loadError
-            ) : undefined
-          }
-        />
-      )}
+    <PlayerCategoryContext.Provider value={activity.category}>
+      <div
+        ref={rootRef}
+        className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col bg-primary px-4 py-6 [&:fullscreen]:max-w-none [&:fullscreen]:overflow-auto [&:fullscreen]:p-10"
+      >
+        {phase === "intro" && editable && !studentMode && (
+          <div className="flex justify-end gap-2">
+            <ShareButton activity={activity} className={introAction}>
+              <Share2 aria-hidden="true" className="size-4" />
+              {strings.catalog.share}
+            </ShareButton>
+            {isAdmin && (
+              <Link
+                href={`/admin/edit?id=${encodeURIComponent(activity.id)}`}
+                className={introAction}
+              >
+                <Pencil aria-hidden="true" className="size-4" />
+                {strings.player.editActivity}
+              </Link>
+            )}
+          </div>
+        )}
+        {phase === "intro" && (
+          <PlayerIntro
+            activity={activity}
+            plugin={plugin}
+            settings={settings}
+            onSettingsChange={setSettings}
+            onStart={plugin && parsed?.success ? start : null}
+            message={
+              !plugin ? (
+                <PlayerMessage title={strings.player.unsupported}>
+                  {strings.player.unsupportedHint}
+                </PlayerMessage>
+              ) : !parsed?.success ? (
+                loadError
+              ) : undefined
+            }
+          />
+        )}
 
-      {phase === "playing" && Plugin && parsed?.success && (
-        <div className="flex flex-1 flex-col gap-6">
-          <PlayerTopBar
-            progress={progress}
+        {phase === "playing" && Plugin && parsed?.success && (
+          <div className="flex flex-1 flex-col gap-6">
+            <PlayerTopBar
+              progress={progress}
+              scores={showScores}
+              teamNames={teamLabels(settings)}
+              fullscreen={fullscreen}
+              studentMode={studentMode}
+              onRestart={start}
+              activity={activity}
+            />
+            <PlayerErrorBoundary key={run} fallback={loadError}>
+              <Plugin
+                content={parsed.data as never}
+                settings={{ ...settings, teamNames: teamLabels(settings) }}
+                onProgress={setProgress}
+                onScore={onScore}
+                onComplete={onComplete}
+              />
+            </PlayerErrorBoundary>
+          </div>
+        )}
+
+        {phase === "results" && result && (
+          <PlayerResults
+            result={result}
+            // Discussion cards have no right answers: a "good job" picture, not a score band.
+            scored={activity.type !== "prompt-cards"}
             scores={showScores}
             teamNames={teamLabels(settings)}
-            fullscreen={fullscreen}
+            seconds={seconds}
             studentMode={studentMode}
-            onRestart={start}
-            activity={activity}
+            onPlayAgain={start}
           />
-          <PlayerErrorBoundary key={run} fallback={loadError}>
-            <Plugin
-              content={parsed.data as never}
-              settings={{ ...settings, teamNames: teamLabels(settings) }}
-              onProgress={setProgress}
-              onScore={onScore}
-              onComplete={onComplete}
-            />
-          </PlayerErrorBoundary>
-        </div>
-      )}
+        )}
 
-      {phase === "results" && result && (
-        <PlayerResults
-          result={result}
-          scores={showScores}
-          teamNames={teamLabels(settings)}
-          seconds={seconds}
-          studentMode={studentMode}
-          onPlayAgain={start}
-        />
-      )}
-
-      {studentMode && (
-        <p className="mt-auto pt-10 text-center text-xs text-muted">{strings.player.madeWith}</p>
-      )}
-    </div>
+        {studentMode && (
+          <p className="mt-auto pt-10 text-center text-xs text-muted">{strings.player.madeWith}</p>
+        )}
+      </div>
+    </PlayerCategoryContext.Provider>
   );
 }

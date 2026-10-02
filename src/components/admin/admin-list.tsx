@@ -56,7 +56,7 @@ export const editHref = (id: string, review = false) =>
 
 /** A /public image that isn't in the build (https:// URLs can't be checked here). */
 export const isMissingImage = (src: string, images: ReadonlySet<string>) =>
-  src.startsWith("/") && !images.has(src);
+  src.startsWith("/") && !images.has(src.split("?")[0]);
 
 /** What publishing would store, for the bulk check (server fields stripped). */
 function authored(a: AdminActivity) {

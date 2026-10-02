@@ -696,7 +696,7 @@ test("upload an image from the editor: one commit, src filled, live after the de
     message: "content(images): fixture-grammar-2/thumb.webp (via admin panel)",
   });
   await expect(thumb.getByLabel("Thumbnail path or URL")).toHaveValue(
-    "/images/activities/fixture-grammar-2/thumb.webp",
+    /^\/images\/activities\/fixture-grammar-2\/thumb\.webp\?v=[0-9a-f]{8}$/,
   );
 
   // The prompt is saved with the activity.

@@ -89,7 +89,10 @@ describe("ImageFields (spec: imagens pelo painel)", () => {
       ],
       "content(images): weather-forecasts/thumb.webp (via admin panel)",
     );
-    expect(json().src).toBe("/images/activities/weather-forecasts/thumb.webp");
+    // Versioned, so a replaced picture gets a new URL (RNF03).
+    expect(json().src).toMatch(
+      /^\/images\/activities\/weather-forecasts\/thumb\.webp\?v=[0-9a-f]{8}$/,
+    );
     expect(screen.getByRole("link", { name: "See the deploy" })).toHaveAttribute(
       "href",
       expect.stringContaining("/actions/workflows/deploy.yml"),

@@ -50,9 +50,10 @@ export function findMissingImages(
     const seen = new Set<string>();
     return collectImages(activity).flatMap((image) => {
       // External URLs can't be checked; files already there are fine.
-      if (!image.src.startsWith("/") || existing.has(image.src) || seen.has(image.src)) return [];
-      seen.add(image.src);
-      const name = image.src
+      const file = image.src.split("?")[0];
+      if (!file.startsWith("/") || existing.has(file) || seen.has(file)) return [];
+      seen.add(file);
+      const name = file
         .split("/")
         .pop()!
         .replace(/\.[a-z0-9]+$/i, "");
@@ -61,7 +62,7 @@ export function findMissingImages(
         {
           activityId: activity.id,
           title: activity.title,
-          src: image.src,
+          src: file,
           alt: image.alt,
           fileName: `${activity.slug}--${name}.png`,
           // The prompt saved with the image wins; otherwise build one from the alt (CA08).
@@ -70,4 +71,26 @@ export function findMissingImages(
       ];
     });
   });
+}
+
+/** Site images (category art, results) not in public/ yet, with prompts (mais imagens, RF04, RF09). */
+export function findMissingSiteImages(
+  siteImages: readonly { src: string; alt: string; subject: string }[],
+  existing: ReadonlySet<string>,
+  style: string,
+): MissingImage[] {
+  return siteImages
+    .filter((image) => !existing.has(image.src))
+    .map((image) => {
+      const [, , folder, file] = image.src.split("/");
+      return {
+        activityId: "",
+        title: image.alt,
+        src: image.src,
+        alt: image.alt,
+        // Not an activity: upload it here (the bulk upload's <slug>--<name> names are for activities).
+        fileName: `${folder}/${file.replace(/\.webp$/, ".png")}`,
+        prompt: `${image.subject}. ${style}`,
+      };
+    });
 }

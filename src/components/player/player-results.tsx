@@ -3,10 +3,14 @@
 import { RotateCcw, Trophy } from "lucide-react";
 import { Button, ButtonLink } from "@/components/ui/button";
 import type { ActivityResult } from "@/lib/player/types";
+import { RESULT_IMAGES, resultBand, siteImageExists } from "@/lib/site-images";
+import { ActivityImage } from "./media/activity-image";
 import { strings } from "@/lib/strings";
 
 type PlayerResultsProps = {
   result: ActivityResult;
+  /** False for activities without right answers (results show "good job"). */
+  scored: boolean;
   scores: number[] | null;
   teamNames: string[];
   seconds: number;
@@ -16,12 +20,14 @@ type PlayerResultsProps = {
 
 export function PlayerResults({
   result,
+  scored,
   scores,
   teamNames,
   seconds,
   studentMode,
   onPlayAgain,
 }: PlayerResultsProps) {
+  const band = resultBand(result.correct, result.total, scored);
   const teams = scores && scores.length > 1 ? scores : null;
   const best = teams ? Math.max(...teams) : 0;
   const winners = teams ? teams.flatMap((score, i) => (score === best ? [i] : [])) : [];
@@ -31,7 +37,25 @@ export function PlayerResults({
       aria-labelledby="results-title"
       className="mx-auto flex max-w-2xl flex-col items-center gap-6 py-10 text-center"
     >
-      <Trophy aria-hidden="true" className="size-12 text-accent" strokeWidth={1.5} />
+      {/* An illustration by score band; the trophy icon until the picture exists (RF04). */}
+      {siteImageExists(RESULT_IMAGES[band]) ? (
+        <ActivityImage
+          key={band}
+          src={RESULT_IMAGES[band]}
+          alt=""
+          width={960}
+          height={600}
+          fallback={{
+            kind: "element",
+            element: (
+              <Trophy aria-hidden="true" className="size-12 text-accent" strokeWidth={1.5} />
+            ),
+          }}
+          className="max-h-56 w-auto rounded-2xl object-contain"
+        />
+      ) : (
+        <Trophy aria-hidden="true" className="size-12 text-accent" strokeWidth={1.5} />
+      )}
       <h2 id="results-title" className="font-display text-5xl font-medium">
         {strings.player.results}
       </h2>

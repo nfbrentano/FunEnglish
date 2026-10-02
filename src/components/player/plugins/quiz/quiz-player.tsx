@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import type { quizContentSchema } from "@/lib/activities/schema/content";
 import type { PluginProps, ReviewItem } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { usePreloadNext } from "../../media/use-preload";
+import { ActivityImage } from "../../media/activity-image";
 import { ActivityMedia } from "../../media/activity-media";
 import { shuffled } from "../shuffle";
 
@@ -74,7 +76,10 @@ export default function QuizPlayer({
   const history = useRef<{ question: Question; answer: Answer }[]>([]);
 
   const question = questions[index];
+  usePreloadNext(questions[index + 1]);
   const correct = correctIndexes(question);
+  // Picture answers: every option has an image → a 2×2 grid of pictures (RF03).
+  const pictures = question.options.every((o) => o.image);
   const multiple = correct.length > 1;
   const teams = settings.teams;
   const team = teams > 1 ? index % teams : 0;
@@ -180,7 +185,7 @@ export default function QuizPlayer({
       {question.media && <ActivityMedia media={question.media} />}
       {multiple && !answer && <p className="text-sm text-fg-secondary">{strings.quiz.chooseAll}</p>}
 
-      <ul className="grid w-full max-w-3xl gap-3 sm:grid-cols-2">
+      <ul className={`grid w-full max-w-3xl gap-3 ${pictures ? "grid-cols-2" : "sm:grid-cols-2"}`}>
         {question.options.map((option, i) => {
           const isCorrect = option.correct;
           const isChosen = answer ? answer.chosen.includes(i) : selected.includes(i);
@@ -200,27 +205,44 @@ export default function QuizPlayer({
                 onClick={() => choose(i)}
                 disabled={answer !== null}
                 aria-pressed={multiple ? isChosen : undefined}
-                className={`flex min-h-16 w-full items-center gap-4 rounded-2xl border-2 bg-elevated px-5 py-3 text-left text-lg transition-colors duration-200 disabled:cursor-default ${state}`}
+                className={`flex w-full rounded-2xl border-2 bg-elevated text-left text-lg transition-colors duration-200 disabled:cursor-default ${
+                  pictures
+                    ? "flex-col items-stretch gap-3 overflow-hidden p-2 pb-3"
+                    : "min-h-16 items-center gap-4 px-5 py-3"
+                } ${state}`}
               >
-                <span
-                  aria-hidden="true"
-                  className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border-strong text-sm font-semibold"
-                >
-                  {LETTERS[i]}
+                {pictures && option.image && (
+                  // The text below names the option; the picture repeats it (RNF04).
+                  <ActivityImage
+                    src={option.image.src}
+                    alt=""
+                    width={480}
+                    height={360}
+                    fallback={{ kind: "hide" }}
+                    className="aspect-[4/3] max-h-[22vh] w-full rounded-xl object-contain"
+                  />
+                )}
+                <span className={pictures ? "flex items-center gap-3 px-2" : "contents"}>
+                  <span
+                    aria-hidden="true"
+                    className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border-strong text-sm font-semibold"
+                  >
+                    {LETTERS[i]}
+                  </span>
+                  <span className="flex-1">{option.text}</span>
+                  {answer && isCorrect && (
+                    <>
+                      <Check aria-hidden="true" className="size-6 text-success" />
+                      <span className="sr-only">({strings.player.correctAnswer})</span>
+                    </>
+                  )}
+                  {answer && isChosen && !isCorrect && (
+                    <>
+                      <X aria-hidden="true" className="size-6 text-error" />
+                      <span className="sr-only">({strings.player.yourAnswer})</span>
+                    </>
+                  )}
                 </span>
-                <span className="flex-1">{option.text}</span>
-                {answer && isCorrect && (
-                  <>
-                    <Check aria-hidden="true" className="size-6 text-success" />
-                    <span className="sr-only">({strings.player.correctAnswer})</span>
-                  </>
-                )}
-                {answer && isChosen && !isCorrect && (
-                  <>
-                    <X aria-hidden="true" className="size-6 text-error" />
-                    <span className="sr-only">({strings.player.yourAnswer})</span>
-                  </>
-                )}
               </button>
             </li>
           );
