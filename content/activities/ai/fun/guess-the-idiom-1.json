@@ -27,7 +27,14 @@
           { "text": "a slice of bread", "correct": false },
           { "text": "a bag of chips", "correct": false }
         ],
-        "explanation": "\"It's a piece of cake\" means it's very easy."
+        "explanation": "\"It's a piece of cake\" means it's very easy.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-1.webp",
+          "alt": "A smiling student easily finishing a simple puzzle at a desk while friends watch, impressed.",
+          "source": "ai",
+          "prompt": "A smiling student easily finishing a simple puzzle at a desk while friends watch, impressed. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "If you \"break the ice\", you…",
@@ -40,7 +47,14 @@
           { "text": "feel very cold", "correct": false },
           { "text": "end a friendship", "correct": false }
         ],
-        "explanation": "We break the ice to make people feel more relaxed, for example at a party."
+        "explanation": "We break the ice to make people feel more relaxed, for example at a party.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-2.webp",
+          "alt": "Two shy guests at a party, one tapping a big ice block with a tiny hammer.",
+          "source": "ai",
+          "prompt": "Two shy guests at a party, one tapping a big ice block with a tiny hammer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "\"It's raining cats and dogs\" means…",
@@ -50,7 +64,14 @@
           { "text": "the weather is changing", "correct": false },
           { "text": "it's a little cloudy", "correct": false }
         ],
-        "explanation": "It means there is a lot of heavy rain."
+        "explanation": "It means there is a lot of heavy rain.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-3.webp",
+          "alt": "Cartoon cats and dogs gently falling from gray clouds onto people holding umbrellas on a street.",
+          "source": "ai",
+          "prompt": "Cartoon cats and dogs gently falling from gray clouds onto people holding umbrellas on a street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "To \"hit the books\" means to…",
@@ -60,7 +81,14 @@
           { "text": "close a library", "correct": false },
           { "text": "write a novel", "correct": false }
         ],
-        "explanation": "\"I have a test tomorrow, so I need to hit the books.\""
+        "explanation": "\"I have a test tomorrow, so I need to hit the books.\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-4.webp",
+          "alt": "A cheerful student playfully tapping a tall stack of books with a soft toy hammer.",
+          "source": "ai",
+          "prompt": "A cheerful student playfully tapping a tall stack of books with a soft toy hammer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "If you \"feel under the weather\", you…",
@@ -70,7 +98,14 @@
           { "text": "feel very happy", "correct": false },
           { "text": "work outdoors", "correct": false }
         ],
-        "explanation": "\"I'm feeling a bit under the weather today\" = I don't feel well."
+        "explanation": "\"I'm feeling a bit under the weather today\" = I don't feel well.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-5.webp",
+          "alt": "A person standing outdoors under a small gray rain cloud that follows only them.",
+          "source": "ai",
+          "prompt": "A person standing outdoors under a small gray rain cloud that follows only them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "\"Once in a blue moon\" means…",
@@ -80,7 +115,14 @@
           { "text": "at midnight", "correct": false },
           { "text": "during a holiday", "correct": false }
         ],
-        "explanation": "\"I eat fast food once in a blue moon\" = almost never."
+        "explanation": "\"I eat fast food once in a blue moon\" = almost never.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-6.webp",
+          "alt": "A big glowing blue moon over a quiet town with dark rooftops at night.",
+          "source": "ai",
+          "prompt": "A big glowing blue moon over a quiet town with dark rooftops at night. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "If someone \"spills the beans\", they…",
@@ -90,7 +132,14 @@
           { "text": "make a mess", "correct": false },
           { "text": "lose money", "correct": false }
         ],
-        "explanation": "To spill the beans is to tell information that was supposed to be secret."
+        "explanation": "To spill the beans is to tell information that was supposed to be secret.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-7.webp",
+          "alt": "A person accidentally knocking over a jar of beans on a kitchen table, a friend gasping.",
+          "source": "ai",
+          "prompt": "A person accidentally knocking over a jar of beans on a kitchen table, a friend gasping. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "If something \"costs an arm and a leg\", it is…",
@@ -100,7 +149,14 @@
           { "text": "free", "correct": false },
           { "text": "painful", "correct": false }
         ],
-        "explanation": "\"That new phone costs an arm and a leg!\""
+        "explanation": "\"That new phone costs an arm and a leg!\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/guess-the-idiom-1/question-8.webp",
+          "alt": "A wooden toy mannequin missing an arm and a leg beside a shiny shop gadget.",
+          "source": "ai",
+          "prompt": "A wooden toy mannequin missing an arm and a leg beside a shiny shop gadget. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

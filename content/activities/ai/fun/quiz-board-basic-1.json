@@ -25,17 +25,38 @@
           {
             "value": 100,
             "question": "This animal says \"moo\".",
-            "answer": "A cow"
+            "answer": "A cow",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-1.webp",
+              "alt": "A sunny farm with a red barn, a wooden fence, and an empty green field.",
+              "source": "ai",
+              "prompt": "A sunny farm with a red barn, a wooden fence, and an empty green field. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "The biggest animal in the ocean.",
-            "answer": "A blue whale"
+            "answer": "A blue whale",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-2.webp",
+              "alt": "A tiny boat on a vast ocean with a huge dark shadow under the waves.",
+              "source": "ai",
+              "prompt": "A tiny boat on a vast ocean with a huge dark shadow under the waves. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "A baby dog is called a…",
-            "answer": "Puppy"
+            "answer": "Puppy",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-3.webp",
+              "alt": "A cozy little dog bed with a small ball and a chew toy beside it.",
+              "source": "ai",
+              "prompt": "A cozy little dog bed with a small ball and a chew toy beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
@@ -45,17 +66,38 @@
           {
             "value": 100,
             "question": "A yellow fruit that monkeys love.",
-            "answer": "A banana"
+            "answer": "A banana",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-4.webp",
+              "alt": "A happy monkey sitting high in a jungle tree, looking hungry and curious.",
+              "source": "ai",
+              "prompt": "A happy monkey sitting high in a jungle tree, looking hungry and curious. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "You make toast with it.",
-            "answer": "Bread"
+            "answer": "Bread",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-5.webp",
+              "alt": "A shiny toaster sitting on a clean kitchen counter next to a butter dish.",
+              "source": "ai",
+              "prompt": "A shiny toaster sitting on a clean kitchen counter next to a butter dish. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "The first meal of the day.",
-            "answer": "Breakfast"
+            "answer": "Breakfast",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-6.webp",
+              "alt": "Morning sunlight through a kitchen window over a table set with empty plates and cups.",
+              "source": "ai",
+              "prompt": "Morning sunlight through a kitchen window over a table set with empty plates and cups. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
@@ -65,29 +107,79 @@
           {
             "value": 100,
             "question": "The color of the sky on a sunny day.",
-            "answer": "Blue"
+            "answer": "Blue",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-7.webp",
+              "alt": "A smiling child wearing sunglasses lying on the grass and looking up on a sunny day.",
+              "source": "ai",
+              "prompt": "A smiling child wearing sunglasses lying on the grass and looking up on a sunny day. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "Mix red and white to get…",
-            "answer": "Pink"
+            "answer": "Pink",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-8.webp",
+              "alt": "A pot of red paint and a pot of white paint beside an empty mixing bowl.",
+              "source": "ai",
+              "prompt": "A pot of red paint and a pot of white paint beside an empty mixing bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "Mix blue and yellow to get…",
-            "answer": "Green"
+            "answer": "Green",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-9.webp",
+              "alt": "A pot of blue paint and a pot of yellow paint beside an empty mixing bowl.",
+              "source": "ai",
+              "prompt": "A pot of blue paint and a pot of yellow paint beside an empty mixing bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
       {
         "name": "Verbs",
         "clues": [
-          { "value": 100, "question": "The past of \"go\".", "answer": "Went" },
-          { "value": 200, "question": "The past of \"eat\".", "answer": "Ate" },
+          {
+            "value": 100,
+            "question": "The past of \"go\".",
+            "answer": "Went",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-10.webp",
+              "alt": "A traveler with a backpack walking away down a long country road toward the hills.",
+              "source": "ai",
+              "prompt": "A traveler with a backpack walking away down a long country road toward the hills. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "The past of \"eat\".",
+            "answer": "Ate",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-11.webp",
+              "alt": "An empty plate with a few crumbs and a happy person patting their full belly.",
+              "source": "ai",
+              "prompt": "An empty plate with a few crumbs and a happy person patting their full belly. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
           {
             "value": 300,
             "question": "The past of \"buy\".",
-            "answer": "Bought"
+            "answer": "Bought",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-basic-1/clue-12.webp",
+              "alt": "A smiling person walking out of a store carrying several full shopping bags.",
+              "source": "ai",
+              "prompt": "A smiling person walking out of a store carrying several full shopping bags. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       }

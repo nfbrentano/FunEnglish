@@ -57,6 +57,15 @@ export const SITE_IMAGES: SiteImage[] = [
 /** "/images/x.webp?v=ab12" → "/images/x.webp": the file, whatever its version (RNF03). */
 export const stripVersion = (src: string) => src.split("?")[0];
 
-/** Site images present in this build (set by next.config.ts). */
-const AVAILABLE = new Set((process.env.NEXT_PUBLIC_SITE_IMAGES ?? "").split(",").filter(Boolean));
-export const siteImageExists = (src: string) => AVAILABLE.has(src);
+/** Images in public/images when this build ran (set by next.config.ts). */
+const BUILT = new Set((process.env.NEXT_PUBLIC_IMAGES ?? "").split(",").filter(Boolean));
+
+/**
+ * Whether a picture can be shown: an https:// URL (can't be checked), or a /images file that was
+ * in this build. A planned picture not uploaded yet answers false: show its fallback, no request.
+ */
+export function imageExists(src: string): boolean {
+  if (!src.startsWith("/images/")) return true;
+  return BUILT.has(stripVersion(src));
+}
+export const siteImageExists = imageExists;

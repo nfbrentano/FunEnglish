@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { imageExists } from "@/lib/site-images";
 
 /** Every image src inside an item (its media, front, options…). */
 export function imagesIn(value: unknown, found: string[] = []): string[] {
@@ -18,7 +19,7 @@ export function imagesIn(value: unknown, found: string[] = []): string[] {
  * downloading the whole activity up front (spec: mais imagens nas atividades, RNF02).
  */
 export function usePreloadNext(nextItem: unknown) {
-  const key = imagesIn(nextItem).join("\n");
+  const key = imagesIn(nextItem).filter(imageExists).join("\n");
   useEffect(() => {
     if (!key) return;
     for (const src of key.split("\n")) {

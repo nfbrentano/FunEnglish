@@ -125,6 +125,19 @@ describe("imageCoverage (RF08, CA08)", () => {
       target: 0.8,
     });
     expect(imageCoverage({ ...activity, levelMin: "advanced" }, new Set()).target).toBe(0.5);
+    // Emoji pictures and video clips count as the item's visual; read-aloud audio doesn't.
+    const visual = {
+      type: "quiz" as const,
+      levelMin: "beginner",
+      content: {
+        questions: [
+          { media: { kind: "emoji", text: "🍎", label: "apple" } },
+          { media: { kind: "youtube", videoId: "YE7VzlLtp-4" } },
+          { media: { kind: "tts", text: "Hello" } },
+        ],
+      },
+    };
+    expect(imageCoverage(visual, new Set())).toMatchObject({ items: 3, planned: 2, uploaded: 2 });
   });
 });
 

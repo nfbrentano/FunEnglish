@@ -47,6 +47,13 @@ export function imageCoverage(
   let planned = 0;
   let uploaded = 0;
   for (const { item } of items) {
+    // An emoji picture or a video clip already is the item's visual (spec: mais imagens, RF08).
+    const kind = (item.media as Json | undefined)?.kind;
+    if (kind === "emoji" || kind === "youtube") {
+      planned++;
+      uploaded++;
+      continue;
+    }
     const image = itemImage(activity.type, item);
     if (!image) continue;
     planned++;

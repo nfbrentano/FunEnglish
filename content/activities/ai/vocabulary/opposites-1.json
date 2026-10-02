@@ -22,82 +22,234 @@
       {
         "prompt": "What's the opposite of \"hot\"?",
         "options": [
-          { "text": "cold", "correct": true },
-          { "text": "warm", "correct": false },
-          { "text": "sunny", "correct": false },
-          { "text": "wet", "correct": false }
+          {
+            "text": "cold",
+            "correct": true
+          },
+          {
+            "text": "warm",
+            "correct": false
+          },
+          {
+            "text": "sunny",
+            "correct": false
+          },
+          {
+            "text": "wet",
+            "correct": false
+          }
         ],
-        "explanation": "hot ↔ cold"
+        "explanation": "hot ↔ cold",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-1.webp",
+          "alt": "A person fanning themselves and sweating under a blazing summer sun in the desert.",
+          "source": "ai",
+          "prompt": "A person fanning themselves and sweating under a blazing summer sun in the desert. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"big\"?",
         "options": [
-          { "text": "small", "correct": true },
-          { "text": "tall", "correct": false },
-          { "text": "long", "correct": false },
-          { "text": "heavy", "correct": false }
+          {
+            "text": "small",
+            "correct": true
+          },
+          {
+            "text": "tall",
+            "correct": false
+          },
+          {
+            "text": "long",
+            "correct": false
+          },
+          {
+            "text": "heavy",
+            "correct": false
+          }
         ],
-        "explanation": "big ↔ small"
+        "explanation": "big ↔ small",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-2.webp",
+          "alt": "A huge elephant standing in a grassy field, towering over the trees around it.",
+          "source": "ai",
+          "prompt": "A huge elephant standing in a grassy field, towering over the trees around it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"happy\"?",
         "options": [
-          { "text": "sad", "correct": true },
-          { "text": "angry", "correct": false },
-          { "text": "tired", "correct": false },
-          { "text": "hungry", "correct": false }
+          {
+            "text": "sad",
+            "correct": true
+          },
+          {
+            "text": "angry",
+            "correct": false
+          },
+          {
+            "text": "tired",
+            "correct": false
+          },
+          {
+            "text": "hungry",
+            "correct": false
+          }
         ],
-        "explanation": "happy ↔ sad"
+        "explanation": "happy ↔ sad",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-3.webp",
+          "alt": "A smiling child laughing and jumping with joy in a sunny park.",
+          "source": "ai",
+          "prompt": "A smiling child laughing and jumping with joy in a sunny park. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"open\"?",
         "options": [
-          { "text": "closed", "correct": true },
-          { "text": "empty", "correct": false },
-          { "text": "broken", "correct": false },
-          { "text": "new", "correct": false }
+          {
+            "text": "closed",
+            "correct": true
+          },
+          {
+            "text": "empty",
+            "correct": false
+          },
+          {
+            "text": "broken",
+            "correct": false
+          },
+          {
+            "text": "new",
+            "correct": false
+          }
         ],
-        "explanation": "open ↔ closed"
+        "explanation": "open ↔ closed",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-4.webp",
+          "alt": "A wooden front door standing wide open, with a welcome mat and a sunny garden beyond.",
+          "source": "ai",
+          "prompt": "A wooden front door standing wide open, with a welcome mat and a sunny garden beyond. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"fast\"?",
         "options": [
-          { "text": "slow", "correct": true },
-          { "text": "late", "correct": false },
-          { "text": "quiet", "correct": false },
-          { "text": "short", "correct": false }
+          {
+            "text": "slow",
+            "correct": true
+          },
+          {
+            "text": "late",
+            "correct": false
+          },
+          {
+            "text": "quiet",
+            "correct": false
+          },
+          {
+            "text": "short",
+            "correct": false
+          }
         ],
-        "explanation": "fast ↔ slow"
+        "explanation": "fast ↔ slow",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-5.webp",
+          "alt": "A runner sprinting at full speed on a track, with motion lines behind her.",
+          "source": "ai",
+          "prompt": "A runner sprinting at full speed on a track, with motion lines behind her. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"early\"?",
         "options": [
-          { "text": "late", "correct": true },
-          { "text": "soon", "correct": false },
-          { "text": "slow", "correct": false },
-          { "text": "first", "correct": false }
+          {
+            "text": "late",
+            "correct": true
+          },
+          {
+            "text": "soon",
+            "correct": false
+          },
+          {
+            "text": "slow",
+            "correct": false
+          },
+          {
+            "text": "first",
+            "correct": false
+          }
         ],
-        "explanation": "early ↔ late"
+        "explanation": "early ↔ late",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-6.webp",
+          "alt": "A person stretching by a window at sunrise while the rest of the house still sleeps.",
+          "source": "ai",
+          "prompt": "A person stretching by a window at sunrise while the rest of the house still sleeps. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"full\"?",
         "options": [
-          { "text": "empty", "correct": true },
-          { "text": "half", "correct": false },
-          { "text": "open", "correct": false },
-          { "text": "heavy", "correct": false }
+          {
+            "text": "empty",
+            "correct": true
+          },
+          {
+            "text": "half",
+            "correct": false
+          },
+          {
+            "text": "open",
+            "correct": false
+          },
+          {
+            "text": "heavy",
+            "correct": false
+          }
         ],
-        "explanation": "full ↔ empty"
+        "explanation": "full ↔ empty",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-7.webp",
+          "alt": "A glass filled to the very top with water on a kitchen table.",
+          "source": "ai",
+          "prompt": "A glass filled to the very top with water on a kitchen table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "What's the opposite of \"cheap\"?",
         "options": [
-          { "text": "expensive", "correct": true },
-          { "text": "free", "correct": false },
-          { "text": "rich", "correct": false },
-          { "text": "new", "correct": false }
+          {
+            "text": "expensive",
+            "correct": true
+          },
+          {
+            "text": "free",
+            "correct": false
+          },
+          {
+            "text": "rich",
+            "correct": false
+          },
+          {
+            "text": "new",
+            "correct": false
+          }
         ],
-        "explanation": "cheap ↔ expensive"
+        "explanation": "cheap ↔ expensive",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/opposites-1/question-8.webp",
+          "alt": "A shopper happily holding a cheap secondhand shirt at a small outdoor flea market.",
+          "source": "ai",
+          "prompt": "A shopper happily holding a cheap secondhand shirt at a small outdoor flea market. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

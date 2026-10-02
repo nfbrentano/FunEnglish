@@ -24,7 +24,13 @@
           "What solution or new timeline would you propose?",
           "How would you assure your manager this won't happen again?"
         ],
-        "vocabulary": ["deadline", "extension", "bottleneck", "contingency plan", "deliverable"]
+        "vocabulary": ["deadline", "extension", "bottleneck", "contingency plan", "deliverable"],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-1.webp",
+          "alt": "A worried employee talks with a manager in an office next to a stack of delayed boxes.",
+          "source": "ai",
+          "prompt": "A worried employee talks with a manager in an office next to a stack of delayed boxes. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "A coworker in your team frequently arrives late to meetings and misses team updates. Discuss this with them.",
@@ -33,7 +39,13 @@
           "What impact does their lateness have on the rest of the team?",
           "What compromise can you reach?"
         ],
-        "vocabulary": ["punctual", "agenda", "respectful", "distraction", "team dynamic"]
+        "vocabulary": ["punctual", "agenda", "respectful", "distraction", "team dynamic"],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-2.webp",
+          "alt": "A team sits around a meeting table while one coworker rushes in late, holding a coffee.",
+          "source": "ai",
+          "prompt": "A team sits around a meeting table while one coworker rushes in late, holding a coffee. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Negotiate a budget increase for your department's upcoming client presentation event.",
@@ -42,7 +54,13 @@
           "What will you do if the finance director says no initially?",
           "Where could you cut costs if needed?"
         ],
-        "vocabulary": ["budget", "allocation", "ROI", "justification", "expenses"]
+        "vocabulary": ["budget", "allocation", "ROI", "justification", "expenses"],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-3.webp",
+          "alt": "An employee presents simple charts to a finance director across a desk in a bright office.",
+          "source": "ai",
+          "prompt": "An employee presents simple charts to a finance director across a desk in a bright office. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "A customer calls complaining that their order arrived damaged and two weeks late. Resolve the problem as customer support.",
@@ -57,7 +75,13 @@
           "replacement",
           "de-escalate",
           "customer satisfaction"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-4.webp",
+          "alt": "A customer support agent wearing a headset listens carefully, with a damaged package on the desk.",
+          "source": "ai",
+          "prompt": "A customer support agent wearing a headset listens carefully, with a damaged package on the desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "You disagree with the proposed design for a new company website presented by a colleague during a team brainstorm.",
@@ -72,7 +96,13 @@
           "perspective",
           "alternative",
           "streamline"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-5.webp",
+          "alt": "A colleague presents a website layout on a big screen while teammates react during a brainstorm.",
+          "source": "ai",
+          "prompt": "A colleague presents a website layout on a big screen while teammates react during a brainstorm. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "You receive two enticing job offers: one with higher pay but long office hours, and one with lower pay but full remote flexibility.",
@@ -88,7 +118,13 @@
           "compensation package",
           "remote work",
           "priorities"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-6.webp",
+          "alt": "A busy office desk late in the evening on the left, a cozy home workspace on the right.",
+          "source": "ai",
+          "prompt": "A busy office desk late in the evening on the left, a cozy home workspace on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Conduct an exit interview with an employee who is leaving the company after five years.",
@@ -97,7 +133,13 @@
           "How can the company improve onboarding and retention?",
           "What positive feedback can you share?"
         ],
-        "vocabulary": ["retention", "transition", "culture", "turnover", "insights"]
+        "vocabulary": ["retention", "transition", "culture", "turnover", "insights"],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-7.webp",
+          "alt": "A manager and a departing employee talk across a desk, a cardboard box of belongings nearby.",
+          "source": "ai",
+          "prompt": "A manager and a departing employee talk across a desk, a cardboard box of belongings nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Present a pitch to your team suggesting a four-day workweek trial for the next two months.",
@@ -106,7 +148,13 @@
           "What metrics will you measure during the trial?",
           "What concerns might leadership raise?"
         ],
-        "vocabulary": ["productivity", "trial period", "wellbeing", "efficiency", "coverage"]
+        "vocabulary": ["productivity", "trial period", "wellbeing", "efficiency", "coverage"],
+        "image": {
+          "src": "/images/activities/workplace-roleplays-and-debates/card-8.webp",
+          "alt": "An employee presents a weekly calendar on a whiteboard to an interested team in a meeting room.",
+          "source": "ai",
+          "prompt": "An employee presents a weekly calendar on a whiteboard to an interested team in a meeting room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

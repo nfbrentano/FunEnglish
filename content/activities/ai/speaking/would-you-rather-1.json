@@ -24,49 +24,97 @@
         "prompt": "Would you rather…",
         "options": ["live in the city", "live in the countryside"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["noisy", "peaceful", "convenient"]
+        "vocabulary": ["noisy", "peaceful", "convenient"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-1.webp",
+          "alt": "Split scene: a busy city street with tall buildings beside a quiet farmhouse among green fields.",
+          "source": "ai",
+          "prompt": "Split scene: a busy city street with tall buildings beside a quiet farmhouse among green fields. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["be able to fly", "be invisible"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["superpower", "freedom", "secret"]
+        "vocabulary": ["superpower", "freedom", "secret"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-2.webp",
+          "alt": "Split scene: a smiling person flying over rooftops beside a faint, see-through invisible person in a park.",
+          "source": "ai",
+          "prompt": "Split scene: a smiling person flying over rooftops beside a faint, see-through invisible person in a park. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["never use social media again", "never watch TV again"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["scroll", "series", "addicted"]
+        "vocabulary": ["scroll", "series", "addicted"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-3.webp",
+          "alt": "Split scene: a teen scrolling a blank phone beside a family watching a blank TV.",
+          "source": "ai",
+          "prompt": "Split scene: a teen scrolling a blank phone beside a family watching a blank TV. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["travel to the past", "travel to the future"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["history", "technology", "change"]
+        "vocabulary": ["history", "technology", "change"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-4.webp",
+          "alt": "Split scene: a traveler at an ancient castle beside a futuristic city with flying cars.",
+          "source": "ai",
+          "prompt": "Split scene: a traveler at an ancient castle beside a futuristic city with flying cars. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["have a big birthday party", "have a quiet dinner with friends"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["celebrate", "guests", "cozy"]
+        "vocabulary": ["celebrate", "guests", "cozy"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-5.webp",
+          "alt": "Split scene: a lively birthday party with balloons and guests beside three friends sharing a quiet candlelit dinner.",
+          "source": "ai",
+          "prompt": "Split scene: a lively birthday party with balloons and guests beside three friends sharing a quiet candlelit dinner. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["speak every language", "play every instrument"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["fluent", "talent", "practice"]
+        "vocabulary": ["fluent", "talent", "practice"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-6.webp",
+          "alt": "Split scene: a person chatting with people from around the world beside a musician surrounded by many instruments.",
+          "source": "ai",
+          "prompt": "Split scene: a person chatting with people from around the world beside a musician surrounded by many instruments. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["work from home", "work in an office"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["commute", "colleagues", "flexible"]
+        "vocabulary": ["commute", "colleagues", "flexible"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-7.webp",
+          "alt": "Split scene: a person working on a laptop at a cozy home table beside coworkers at office desks.",
+          "source": "ai",
+          "prompt": "Split scene: a person working on a laptop at a cozy home table beside coworkers at office desks. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Would you rather…",
         "options": ["always be 10 minutes early", "always be 10 minutes late"],
         "followUps": ["Why?", "What would be the hardest part?"],
-        "vocabulary": ["on time", "punctual", "in a rush"]
+        "vocabulary": ["on time", "punctual", "in a rush"],
+        "image": {
+          "src": "/images/activities/would-you-rather-1/card-8.webp",
+          "alt": "Split scene: a calm person waiting early at a cafe beside a person rushing in late.",
+          "source": "ai",
+          "prompt": "Split scene: a calm person waiting early at a cafe beside a person rushing in late. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

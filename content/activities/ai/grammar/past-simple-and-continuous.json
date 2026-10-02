@@ -19,35 +19,91 @@
     "items": [
       {
         "text": "While I [[was studying]] in the library, my phone suddenly rang.",
-        "hint": "Action in progress when interrupted."
+        "hint": "Action in progress when interrupted.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-1.webp",
+          "alt": "A student studying at a library table looks up, surprised, as a phone lights up.",
+          "source": "ai",
+          "prompt": "A student studying at a library table looks up, surprised, as a phone lights up. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "We [[were having]] dinner when the lights went out.",
-        "hint": "Continuous background action in the past."
+        "hint": "Continuous background action in the past.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-2.webp",
+          "alt": "A family sitting at a dinner table in a room that suddenly goes completely dark.",
+          "source": "ai",
+          "prompt": "A family sitting at a dinner table in a room that suddenly goes completely dark. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "She [[was walking]] in the park when it started to snow.",
-        "hint": "Ongoing action interrupted by a sudden event."
+        "hint": "Ongoing action interrupted by a sudden event.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-3.webp",
+          "alt": "A woman walking along a park path as the first snowflakes begin to fall.",
+          "source": "ai",
+          "prompt": "A woman walking along a park path as the first snowflakes begin to fall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "What [[were you doing]] when the loud noise occurred?",
-        "hint": "Question about an activity in progress at a specific past moment."
+        "hint": "Question about an activity in progress at a specific past moment.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-4.webp",
+          "alt": "Neighbors in pajamas looking out of their windows at night, startled and curious.",
+          "source": "ai",
+          "prompt": "Neighbors in pajamas looking out of their windows at night, startled and curious. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "He [[lost]] his keys while he was jogging around the lake.",
-        "hint": "Short completed action that happened during an activity."
+        "hint": "Short completed action that happened during an activity.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-5.webp",
+          "alt": "A jogger running on a path around a calm lake, checking an empty pocket.",
+          "source": "ai",
+          "prompt": "A jogger running on a path around a calm lake, checking an empty pocket. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "They were watching television while their father [[was cooking]] dinner.",
-        "hint": "Two simultaneous actions in progress in the past."
+        "hint": "Two simultaneous actions in progress in the past.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-6.webp",
+          "alt": "Children watching television on a sofa while their father cooks in the kitchen behind them.",
+          "source": "ai",
+          "prompt": "Children watching television on a sofa while their father cooks in the kitchen behind them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "I [[met]] an old friend while I was waiting for the subway.",
-        "hint": "Sudden completed action interrupting a continuous one."
+        "hint": "Sudden completed action interrupting a continuous one.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-7.webp",
+          "alt": "Two old friends happily hugging on a busy subway platform as people wait for a train.",
+          "source": "ai",
+          "prompt": "Two old friends happily hugging on a busy subway platform as people wait for a train. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "The students [[were listening]] attentively when the teacher announced the test.",
-        "hint": "Continuous action in progress in the past."
+        "hint": "Continuous action in progress in the past.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/past-simple-and-continuous/sentence-8.webp",
+          "alt": "Students listening carefully at their desks while a teacher speaks at the front of the class.",
+          "source": "ai",
+          "prompt": "Students listening carefully at their desks while a teacher speaks at the front of the class. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ],
     "distractors": ["studied", "had", "walked", "did you do", "was losing", "cooked"]

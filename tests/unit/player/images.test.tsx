@@ -12,13 +12,14 @@ import { PlayerResults } from "@/components/player/player-results";
 import { resultBand } from "@/lib/site-images";
 import { testSettings } from "./settings";
 
-// Which site images "exist in this build" (next.config.ts sets this from public/images).
+// Which images "exist in this build" (next.config.ts sets this from public/images).
 vi.hoisted(() => {
-  process.env.NEXT_PUBLIC_SITE_IMAGES = [
+  process.env.NEXT_PUBLIC_IMAGES = [
     "/images/categories/grammar.webp",
     "/images/categories/listening.webp",
     "/images/categories/fun.webp",
     "/images/results/practice.webp",
+    ...[1, 2, 3, 4].map((n) => `/images/activities/pets/question-1-option-${n}.webp`),
   ].join(",");
 });
 
@@ -88,6 +89,18 @@ describe("ActivityImage: never shown broken (RF05, CA05)", () => {
       "src",
       "/images/categories/listening.webp",
     );
+  });
+
+  it("doesn't request a planned picture that isn't uploaded yet (no 404s)", () => {
+    const { container } = render(
+      <ActivityImage
+        src="/images/activities/pets/question-9.webp?v=12345678"
+        alt="Planned"
+        fallback={{ kind: "alt" }}
+      />,
+    );
+    expect(container.querySelector("img")).toBeNull();
+    expect(screen.getByText("Planned").tagName).toBe("P");
   });
 
   it("doesn't even request category art that isn't generated yet (no 404s)", () => {

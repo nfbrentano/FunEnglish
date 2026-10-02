@@ -22,22 +22,50 @@
           {
             "value": 100,
             "question": "What is the capital city of Japan?",
-            "answer": "Tokyo"
+            "answer": "Tokyo",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-1.webp",
+              "alt": "A desk globe turned to show Asia, with a curious student looking closely at it.",
+              "source": "ai",
+              "prompt": "A desk globe turned to show Asia, with a curious student looking closely at it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "Which river is considered the longest in South America?",
-            "answer": "The Amazon River"
+            "answer": "The Amazon River",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-2.webp",
+              "alt": "A desk globe turned to show South America, with a small paper boat beside it.",
+              "source": "ai",
+              "prompt": "A desk globe turned to show South America, with a small paper boat beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "Which European country has the shape of a boot?",
-            "answer": "Italy"
+            "answer": "Italy",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-3.webp",
+              "alt": "A tall leather boot standing next to a desk globe turned to show Europe.",
+              "source": "ai",
+              "prompt": "A tall leather boot standing next to a desk globe turned to show Europe. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 400,
             "question": "In which country can you visit the ancient ruins of Machu Picchu?",
-            "answer": "Peru"
+            "answer": "Peru",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-4.webp",
+              "alt": "A hiker with a backpack gazing at misty green mountain peaks high above the clouds.",
+              "source": "ai",
+              "prompt": "A hiker with a backpack gazing at misty green mountain peaks high above the clouds. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
@@ -47,22 +75,50 @@
           {
             "value": 100,
             "question": "Who is credited with inventing the telephone in 1876?",
-            "answer": "Alexander Graham Bell"
+            "answer": "Alexander Graham Bell",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-5.webp",
+              "alt": "An old-fashioned telephone with a separate earpiece sitting on a wooden desk from long ago.",
+              "source": "ai",
+              "prompt": "An old-fashioned telephone with a separate earpiece sitting on a wooden desk from long ago. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "What gas do plants absorb from the air to perform photosynthesis?",
-            "answer": "Carbon dioxide"
+            "answer": "Carbon dioxide",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-6.webp",
+              "alt": "A green potted plant in bright sunlight with soft, swirling air lines around its leaves.",
+              "source": "ai",
+              "prompt": "A green potted plant in bright sunlight with soft, swirling air lines around its leaves. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "Which scientist discovered penicillin in 1928?",
-            "answer": "Alexander Fleming"
+            "answer": "Alexander Fleming",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-7.webp",
+              "alt": "An old-fashioned science lab with a microscope, glass bottles, and small round dishes on a table.",
+              "source": "ai",
+              "prompt": "An old-fashioned science lab with a microscope, glass bottles, and small round dishes on a table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 400,
             "question": "What metal is liquid at room temperature?",
-            "answer": "Mercury"
+            "answer": "Mercury",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-8.webp",
+              "alt": "A chemistry lab table with glass beakers, a magnifying glass, metal bolts, and a spoon.",
+              "source": "ai",
+              "prompt": "A chemistry lab table with glass beakers, a magnifying glass, metal bolts, and a spoon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
@@ -72,22 +128,50 @@
           {
             "value": 100,
             "question": "What is the fastest land animal in the world?",
-            "answer": "The cheetah"
+            "answer": "The cheetah",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-9.webp",
+              "alt": "A wide golden savanna with tall grass and blurry speed lines racing across it.",
+              "source": "ai",
+              "prompt": "A wide golden savanna with tall grass and blurry speed lines racing across it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "Which bird is famous for being unable to fly and swimming in icy Antarctic waters?",
-            "answer": "The penguin"
+            "answer": "The penguin",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-10.webp",
+              "alt": "Icy blue water with floating icebergs and snowy shores under a pale sky.",
+              "source": "ai",
+              "prompt": "Icy blue water with floating icebergs and snowy shores under a pale sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "What is the largest coral reef system on Earth?",
-            "answer": "The Great Barrier Reef"
+            "answer": "The Great Barrier Reef",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-11.webp",
+              "alt": "A colorful underwater scene with bright fish swimming through clear tropical ocean water.",
+              "source": "ai",
+              "prompt": "A colorful underwater scene with bright fish swimming through clear tropical ocean water. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 400,
             "question": "Which giant ocean mammal has a heart roughly the size of a small car?",
-            "answer": "The blue whale"
+            "answer": "The blue whale",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-12.webp",
+              "alt": "A small red car floating underwater next to a giant cartoon heart in the deep ocean.",
+              "source": "ai",
+              "prompt": "A small red car floating underwater next to a giant cartoon heart in the deep ocean. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       },
@@ -97,22 +181,50 @@
           {
             "value": 100,
             "question": "How many rings are on the official Olympic flag?",
-            "answer": "Five"
+            "answer": "Five",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-13.webp",
+              "alt": "A plain white flag waving on a tall pole above an empty sports stadium.",
+              "source": "ai",
+              "prompt": "A plain white flag waving on a tall pole above an empty sports stadium. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 200,
             "question": "In which country did the martial art of judo originate?",
-            "answer": "Japan"
+            "answer": "Japan",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-14.webp",
+              "alt": "Two students in white uniforms bowing to each other on a training mat.",
+              "source": "ai",
+              "prompt": "Two students in white uniforms bowing to each other on a training mat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 300,
             "question": "How many players are on the field for one soccer team during a match?",
-            "answer": "Eleven"
+            "answer": "Eleven",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-15.webp",
+              "alt": "An empty green soccer field seen from above with a ball resting in the center.",
+              "source": "ai",
+              "prompt": "An empty green soccer field seen from above with a ball resting in the center. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           },
           {
             "value": 400,
             "question": "Which prestigious tennis tournament is played on grass courts in London?",
-            "answer": "Wimbledon"
+            "answer": "Wimbledon",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-world-trivia/clue-16.webp",
+              "alt": "A neat green grass tennis court with a racket and a ball under a cloudy sky.",
+              "source": "ai",
+              "prompt": "A neat green grass tennis court with a racket and a ball under a cloudy sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
           }
         ]
       }

@@ -44,8 +44,8 @@ test("picture answers, a missing picture and an item picture (CA02, CA03, CA05, 
     ),
   );
   expect(new Set(boxes.map((b) => Math.round(b!.y))).size).toBe(2);
-  // Only Q1's pictures and the next question's are fetched, not Q3's whisk-only picture yet.
-  expect(images.filter((p) => p.includes("fixture-picture-quiz/question-2"))).toHaveLength(1);
+  // A planned picture that isn't uploaded yet is never requested (no 404 for students).
+  expect(images.filter((p) => p.includes("fixture-picture-quiz/question-2"))).toEqual([]);
   await kettle.click();
   await expect(page.getByText("Correct!")).toBeVisible();
   await page.getByRole("button", { name: "Next" }).click();
@@ -56,6 +56,7 @@ test("picture answers, a missing picture and an item picture (CA02, CA03, CA05, 
   await expect(page.getByRole("img", { name: "A planned picture" })).toHaveCount(0);
   await page.getByRole("button", { name: "a picture", exact: true }).click();
   await page.getByRole("button", { name: "Next" }).click();
+  expect(images.filter((p) => p.includes("fixture-picture-quiz/question-2"))).toEqual([]);
 
   // Q3: the item picture above the question, still fitting when projected.
   await expect(page.getByRole("img", { name: "A whisk" })).toBeVisible();

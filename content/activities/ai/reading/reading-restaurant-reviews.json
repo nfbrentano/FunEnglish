@@ -23,61 +23,154 @@
             "text": "They liked the food, but not the service.",
             "correct": true
           },
-          { "text": "They hated the food and the service." },
-          { "text": "They liked everything." },
-          { "text": "They thought the drinks were too expensive." }
+          {
+            "text": "They hated the food and the service."
+          },
+          {
+            "text": "They liked everything."
+          },
+          {
+            "text": "They thought the drinks were too expensive."
+          }
         ],
-        "explanation": "They say the food was delicious (good), but the service was slow (bad)."
+        "explanation": "They say the food was delicious (good), but the service was slow (bad).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-1.webp",
+          "alt": "A couple sits at a restaurant table with full plates, looking at their watches, no drinks yet.",
+          "source": "ai",
+          "prompt": "A couple sits at a restaurant table with full plates, looking at their watches, no drinks yet. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"A bit pricey, but totally worth it for a special occasion. The steak was cooked to perfection.\" — What does \"pricey\" mean?",
         "options": [
-          { "text": "Expensive.", "correct": true },
-          { "text": "Cheap." },
-          { "text": "Spicy." },
-          { "text": "Crowded." }
+          {
+            "text": "Expensive.",
+            "correct": true
+          },
+          {
+            "text": "Cheap."
+          },
+          {
+            "text": "Spicy."
+          },
+          {
+            "text": "Crowded."
+          }
         ],
-        "explanation": "\"Pricey\" is an informal word for expensive."
+        "explanation": "\"Pricey\" is an informal word for expensive.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-2.webp",
+          "alt": "A well-dressed couple enjoys a candlelit dinner with a perfectly cooked steak on an elegant table.",
+          "source": "ai",
+          "prompt": "A well-dressed couple enjoys a candlelit dinner with a perfectly cooked steak on an elegant table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"I wouldn't recommend this place. The soup was cold and the waiter was rude.\" — Will this person go back?",
         "options": [
-          { "text": "Probably not.", "correct": true },
-          { "text": "Yes, definitely." },
-          { "text": "Only for the soup." },
-          { "text": "Yes, to see the waiter." }
+          {
+            "text": "Probably not.",
+            "correct": true
+          },
+          {
+            "text": "Yes, definitely."
+          },
+          {
+            "text": "Only for the soup."
+          },
+          {
+            "text": "Yes, to see the waiter."
+          }
         ],
-        "explanation": "\"I wouldn't recommend this place\" means they had a bad experience."
+        "explanation": "\"I wouldn't recommend this place\" means they had a bad experience.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-3.webp",
+          "alt": "A disappointed diner looks at a bowl of soup while a waiter walks away with crossed arms.",
+          "source": "ai",
+          "prompt": "A disappointed diner looks at a bowl of soup while a waiter walks away with crossed arms. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"Great atmosphere and friendly staff. Make sure to book in advance because it gets very busy!\" — What is the advice?",
         "options": [
-          { "text": "Reserve a table before you go.", "correct": true },
-          { "text": "Read a book while you wait." },
-          { "text": "Go when it is empty." },
-          { "text": "Talk to the friendly staff." }
+          {
+            "text": "Reserve a table before you go.",
+            "correct": true
+          },
+          {
+            "text": "Read a book while you wait."
+          },
+          {
+            "text": "Go when it is empty."
+          },
+          {
+            "text": "Talk to the friendly staff."
+          }
         ],
-        "explanation": "\"Book in advance\" means to make a reservation."
+        "explanation": "\"Book in advance\" means to make a reservation.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-4.webp",
+          "alt": "A cozy, lively restaurant is full of smiling diners and friendly waiters carrying plates.",
+          "source": "ai",
+          "prompt": "A cozy, lively restaurant is full of smiling diners and friendly waiters carrying plates. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"The portions are huge! I had to ask for a doggy bag to take the rest home.\" — What is a \"doggy bag\"?",
         "options": [
-          { "text": "A container for leftover food.", "correct": true },
-          { "text": "A bag of dog food." },
-          { "text": "A special dish for dogs." },
-          { "text": "A large backpack." }
+          {
+            "text": "A container for leftover food.",
+            "correct": true
+          },
+          {
+            "text": "A bag of dog food."
+          },
+          {
+            "text": "A special dish for dogs."
+          },
+          {
+            "text": "A large backpack."
+          }
         ],
-        "explanation": "A \"doggy bag\" (or a box) is used to take home food you didn't finish."
+        "explanation": "A \"doggy bag\" (or a box) is used to take home food you didn't finish.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-5.webp",
+          "alt": "A diner looks happily at an enormous plate of food, a small take-out box beside it.",
+          "source": "ai",
+          "prompt": "A diner looks happily at an enormous plate of food, a small take-out box beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"It's a nice little spot, but it's cash only. There's an ATM next door, though.\" — How can you pay?",
         "options": [
-          { "text": "With paper money and coins.", "correct": true },
-          { "text": "With a credit card." },
-          { "text": "With your phone." },
-          { "text": "You don't have to pay." }
+          {
+            "text": "With paper money and coins.",
+            "correct": true
+          },
+          {
+            "text": "With a credit card."
+          },
+          {
+            "text": "With your phone."
+          },
+          {
+            "text": "You don't have to pay."
+          }
         ],
-        "explanation": "\"Cash only\" means they do not accept credit cards."
+        "explanation": "\"Cash only\" means they do not accept credit cards.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-6.webp",
+          "alt": "A small cozy café counter with a cash register, next to a street wall with a cash machine.",
+          "source": "ai",
+          "prompt": "A small cozy café counter with a cash register, next to a street wall with a cash machine. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"The vegetarian options were limited. All they had was a plain salad.\" — What is the problem?",
@@ -86,21 +179,50 @@
             "text": "There wasn't much food for vegetarians.",
             "correct": true
           },
-          { "text": "The salad was too big." },
-          { "text": "Vegetarians couldn't enter." },
-          { "text": "They only served vegetables." }
+          {
+            "text": "The salad was too big."
+          },
+          {
+            "text": "Vegetarians couldn't enter."
+          },
+          {
+            "text": "They only served vegetables."
+          }
         ],
-        "explanation": "\"Limited\" means there are very few choices."
+        "explanation": "\"Limited\" means there are very few choices.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-7.webp",
+          "alt": "A diner looks at a nearly empty menu while a waiter brings a small plain bowl of lettuce.",
+          "source": "ai",
+          "prompt": "A diner looks at a nearly empty menu while a waiter brings a small plain bowl of lettuce. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Review: \"I've been coming here for years, and it never disappoints. The pasta is always fresh.\" — How does the reviewer feel?",
         "options": [
-          { "text": "They are a happy, loyal customer.", "correct": true },
-          { "text": "They are tired of the restaurant." },
-          { "text": "They are disappointed." },
-          { "text": "They only like the pasta." }
+          {
+            "text": "They are a happy, loyal customer.",
+            "correct": true
+          },
+          {
+            "text": "They are tired of the restaurant."
+          },
+          {
+            "text": "They are disappointed."
+          },
+          {
+            "text": "They only like the pasta."
+          }
         ],
-        "explanation": "\"Never disappoints\" means it is consistently good."
+        "explanation": "\"Never disappoints\" means it is consistently good.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-restaurant-reviews/question-8.webp",
+          "alt": "An older man smiles warmly at a familiar waiter who serves him a fresh plate of pasta.",
+          "source": "ai",
+          "prompt": "An older man smiles warmly at a familiar waiter who serves him a fresh plate of pasta. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

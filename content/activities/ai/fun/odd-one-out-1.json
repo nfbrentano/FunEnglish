@@ -27,7 +27,14 @@
           { "text": "apple", "correct": true },
           { "text": "horse", "correct": false }
         ],
-        "explanation": "Apple is a fruit. The others are animals."
+        "explanation": "Apple is a fruit. The others are animals.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-1.webp",
+          "alt": "A cat, a dog, a red apple, and a horse standing side by side.",
+          "source": "ai",
+          "prompt": "A cat, a dog, a red apple, and a horse standing side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? red · blue · banana · green",
@@ -37,7 +44,14 @@
           { "text": "banana", "correct": true },
           { "text": "green", "correct": false }
         ],
-        "explanation": "Banana is a fruit. The others are colors."
+        "explanation": "Banana is a fruit. The others are colors.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-2.webp",
+          "alt": "Red, blue, and green paint splashes in a row with a yellow banana.",
+          "source": "ai",
+          "prompt": "Red, blue, and green paint splashes in a row with a yellow banana. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? Monday · Friday · July · Sunday",
@@ -47,7 +61,14 @@
           { "text": "July", "correct": true },
           { "text": "Sunday", "correct": false }
         ],
-        "explanation": "July is a month. The others are days of the week."
+        "explanation": "July is a month. The others are days of the week.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-3.webp",
+          "alt": "A blank wall calendar and a blank weekly planner lying open on a wooden desk.",
+          "source": "ai",
+          "prompt": "A blank wall calendar and a blank weekly planner lying open on a wooden desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? teacher · doctor · kitchen · pilot",
@@ -57,7 +78,14 @@
           { "text": "kitchen", "correct": true },
           { "text": "pilot", "correct": false }
         ],
-        "explanation": "Kitchen is a room. The others are jobs."
+        "explanation": "Kitchen is a room. The others are jobs.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-4.webp",
+          "alt": "A teacher, a doctor, a modern kitchen, and an airline pilot shown side by side.",
+          "source": "ai",
+          "prompt": "A teacher, a doctor, a modern kitchen, and an airline pilot shown side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? run · jump · happy · swim",
@@ -67,7 +95,14 @@
           { "text": "happy", "correct": true },
           { "text": "swim", "correct": false }
         ],
-        "explanation": "Happy is an adjective (a feeling). The others are action verbs."
+        "explanation": "Happy is an adjective (a feeling). The others are action verbs.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-5.webp",
+          "alt": "Children running, jumping, and swimming, next to a big smiling face with bright eyes.",
+          "source": "ai",
+          "prompt": "Children running, jumping, and swimming, next to a big smiling face with bright eyes. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? spoon · fork · pillow · knife",
@@ -77,7 +112,14 @@
           { "text": "pillow", "correct": true },
           { "text": "knife", "correct": false }
         ],
-        "explanation": "A pillow is for your bed. The others are for eating."
+        "explanation": "A pillow is for your bed. The others are for eating.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-6.webp",
+          "alt": "A spoon, a fork, a soft pillow, and a knife lined up on a table.",
+          "source": "ai",
+          "prompt": "A spoon, a fork, a soft pillow, and a knife lined up on a table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? rain · snow · bread · wind",
@@ -87,7 +129,14 @@
           { "text": "bread", "correct": true },
           { "text": "wind", "correct": false }
         ],
-        "explanation": "Bread is food. The others are weather words."
+        "explanation": "Bread is food. The others are weather words.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-7.webp",
+          "alt": "Rain falling, snowflakes, a loaf of bread, and swirling wind lines shown side by side.",
+          "source": "ai",
+          "prompt": "Rain falling, snowflakes, a loaf of bread, and swirling wind lines shown side by side. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which word doesn't belong? eleven · purple · twelve · twenty",
@@ -97,7 +146,14 @@
           { "text": "twelve", "correct": false },
           { "text": "twenty", "correct": false }
         ],
-        "explanation": "Purple is a color. The others are numbers."
+        "explanation": "Purple is a color. The others are numbers.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/odd-one-out-1/question-8.webp",
+          "alt": "Colorful wooden counting blocks and a purple paint splash on a classroom table.",
+          "source": "ai",
+          "prompt": "Colorful wooden counting blocks and a purple paint splash on a classroom table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

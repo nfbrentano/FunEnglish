@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { getCategory } from "@/lib/activities/categories";
-import { categoryImage, siteImageExists } from "@/lib/site-images";
+import { categoryImage, imageExists, siteImageExists } from "@/lib/site-images";
 
 /** What to show if the image doesn't load (spec: mais imagens nas atividades, RF05). */
 export type ImageFallback =
@@ -57,7 +57,8 @@ export function ActivityImage({
     if (failedAlready(ref.current)) setFailed(src);
   }, [src]);
 
-  if (failed === src) {
+  // Planned but not uploaded yet: the fallback right away, without a 404 (RF05).
+  if (failed === src || !imageExists(src)) {
     if (fallback.kind === "category")
       return <CategoryArt category={fallback.category} className={className} />;
     if (fallback.kind === "alt")

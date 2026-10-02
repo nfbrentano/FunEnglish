@@ -24,19 +24,37 @@
         "prompt": "Which do you prefer?",
         "options": ["Beach", "Mountains"],
         "followUps": ["When was your last trip there?", "What do you like to do there?"],
-        "vocabulary": ["relaxing", "scenery", "hiking"]
+        "vocabulary": ["relaxing", "scenery", "hiking"],
+        "image": {
+          "src": "/images/activities/this-or-that-1/card-1.webp",
+          "alt": "A sunny beach with waves on the left and snowy green mountains on the right.",
+          "source": "ai",
+          "prompt": "A sunny beach with waves on the left and snowy green mountains on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which do you prefer?",
         "options": ["Books", "Movies"],
         "followUps": ["What is the best story you know?"],
-        "vocabulary": ["plot", "character", "ending"]
+        "vocabulary": ["plot", "character", "ending"],
+        "image": {
+          "src": "/images/activities/this-or-that-1/card-2.webp",
+          "alt": "A stack of colorful books on the left and a movie screen with popcorn on the right.",
+          "source": "ai",
+          "prompt": "A stack of colorful books on the left and a movie screen with popcorn on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which do you prefer?",
         "options": ["Cooking at home", "Eating out"],
         "followUps": ["What is your favorite dish?"],
-        "vocabulary": ["recipe", "restaurant", "delicious"]
+        "vocabulary": ["recipe", "restaurant", "delicious"],
+        "image": {
+          "src": "/images/activities/this-or-that-1/card-3.webp",
+          "alt": "A home kitchen with someone cooking on the left, friends dining at a restaurant on the right.",
+          "source": "ai",
+          "prompt": "A home kitchen with someone cooking on the left, friends dining at a restaurant on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

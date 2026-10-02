@@ -27,7 +27,14 @@
           { "text": "is", "correct": false },
           { "text": "am", "correct": false }
         ],
-        "explanation": "Use 'are' with the subject pronoun 'you'."
+        "explanation": "Use 'are' with the subject pronoun 'you'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-1.webp",
+          "alt": "Two friendly neighbors waving hello to each other on a sunny street.",
+          "source": "ai",
+          "prompt": "Two friendly neighbors waving hello to each other on a sunny street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Hi, my name ___ Lucas.",
@@ -36,7 +43,14 @@
           { "text": "are", "correct": false },
           { "text": "am", "correct": false }
         ],
-        "explanation": "Use 'is' because 'my name' is a singular subject."
+        "explanation": "Use 'is' because 'my name' is a singular subject.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-2.webp",
+          "alt": "A smiling boy shaking hands with a new classmate in a school hallway.",
+          "source": "ai",
+          "prompt": "A smiling boy shaking hands with a new classmate in a school hallway. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Nice to ___ you, Maria.",
@@ -45,7 +59,14 @@
           { "text": "meets", "correct": false },
           { "text": "meeting", "correct": false }
         ],
-        "explanation": "Use the base verb 'meet' after 'Nice to'."
+        "explanation": "Use the base verb 'meet' after 'Nice to'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-3.webp",
+          "alt": "Two adults smiling and shaking hands for the first time in an office lobby.",
+          "source": "ai",
+          "prompt": "Two adults smiling and shaking hands for the first time in an office lobby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "___ you a new student here?",
@@ -54,7 +75,14 @@
           { "text": "Is", "correct": false },
           { "text": "Do", "correct": false }
         ],
-        "explanation": "Start a yes/no question with 'Are' when asking about identity with 'you'."
+        "explanation": "Start a yes/no question with 'Are' when asking about identity with 'you'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-4.webp",
+          "alt": "A student with a backpack standing at a classroom door as a classmate walks over.",
+          "source": "ai",
+          "prompt": "A student with a backpack standing at a classroom door as a classmate walks over. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Good morning! How is it ___?",
@@ -63,7 +91,14 @@
           { "text": "go", "correct": false },
           { "text": "goes", "correct": false }
         ],
-        "explanation": "'How is it going?' is a common informal greeting using the '-ing' form."
+        "explanation": "'How is it going?' is a common informal greeting using the '-ing' form.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-5.webp",
+          "alt": "Two coworkers holding coffee cups and greeting each other in a bright office in the morning.",
+          "source": "ai",
+          "prompt": "Two coworkers holding coffee cups and greeting each other in a bright office in the morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "I ___ doing well, thank you.",
@@ -72,7 +107,14 @@
           { "text": "is", "correct": false },
           { "text": "are", "correct": false }
         ],
-        "explanation": "Use 'am' with the subject pronoun 'I'."
+        "explanation": "Use 'am' with the subject pronoun 'I'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-6.webp",
+          "alt": "A smiling woman answering a friend's question while they sit together in a cafe.",
+          "source": "ai",
+          "prompt": "A smiling woman answering a friend's question while they sit together in a cafe. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "This ___ my friend, Sarah.",
@@ -81,7 +123,14 @@
           { "text": "are", "correct": false },
           { "text": "be", "correct": false }
         ],
-        "explanation": "Use 'This is' to introduce a single person."
+        "explanation": "Use 'This is' to introduce a single person.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-7.webp",
+          "alt": "A girl introducing her friend to her grandmother in a cozy living room.",
+          "source": "ai",
+          "prompt": "A girl introducing her friend to her grandmother in a cozy living room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Where ___ you from?",
@@ -90,7 +139,14 @@
           { "text": "is", "correct": false },
           { "text": "do", "correct": false }
         ],
-        "explanation": "Use 'Where are you from?' to ask about someone's origin."
+        "explanation": "Use 'Where are you from?' to ask about someone's origin.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-8.webp",
+          "alt": "Two travelers with suitcases chatting and smiling in a busy airport waiting area.",
+          "source": "ai",
+          "prompt": "Two travelers with suitcases chatting and smiling in a busy airport waiting area. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "___ to our English class!",
@@ -99,7 +155,14 @@
           { "text": "Welcomes", "correct": false },
           { "text": "Welcoming", "correct": false }
         ],
-        "explanation": "Use 'Welcome' as an imperative greeting to greet someone arriving."
+        "explanation": "Use 'Welcome' as an imperative greeting to greet someone arriving.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-9.webp",
+          "alt": "A smiling teacher waving as students walk into a bright, colorful classroom.",
+          "source": "ai",
+          "prompt": "A smiling teacher waving as students walk into a bright, colorful classroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Have a great day! — You ___!",
@@ -108,7 +171,14 @@
           { "text": "two", "correct": false },
           { "text": "to", "correct": false }
         ],
-        "explanation": "'You too' is the correct polite response meaning 'the same to you'."
+        "explanation": "'You too' is the correct polite response meaning 'the same to you'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/greetings-and-introductions-quiz/question-10.webp",
+          "alt": "A cashier and a customer waving goodbye to each other at a shop counter.",
+          "source": "ai",
+          "prompt": "A cashier and a customer waving goodbye to each other at a shop counter. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

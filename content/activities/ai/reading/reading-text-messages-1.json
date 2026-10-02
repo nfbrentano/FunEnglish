@@ -22,32 +22,89 @@
       {
         "prompt": "Message: \"Running 10 min late, start without me!\" — What should the friends do?",
         "options": [
-          { "text": "Begin without waiting.", "correct": true },
-          { "text": "Wait for 10 minutes.", "correct": false },
-          { "text": "Cancel the plan.", "correct": false },
-          { "text": "Go home.", "correct": false }
+          {
+            "text": "Begin without waiting.",
+            "correct": true
+          },
+          {
+            "text": "Wait for 10 minutes.",
+            "correct": false
+          },
+          {
+            "text": "Cancel the plan.",
+            "correct": false
+          },
+          {
+            "text": "Go home.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Start without me\" = don't wait for me."
+        "explanation": "\"Start without me\" = don't wait for me.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-1.webp",
+          "alt": "A young woman hurries down a city sidewalk, looking at her phone with a blank screen.",
+          "source": "ai",
+          "prompt": "A young woman hurries down a city sidewalk, looking at her phone with a blank screen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Can u grab some milk on ur way home? We're out.\" — What does the writer want?",
         "options": [
-          { "text": "Buy some milk.", "correct": true },
-          { "text": "Throw the milk away.", "correct": false },
-          { "text": "Drink the milk.", "correct": false },
-          { "text": "Bring the milk to work.", "correct": false }
+          {
+            "text": "Buy some milk.",
+            "correct": true
+          },
+          {
+            "text": "Throw the milk away.",
+            "correct": false
+          },
+          {
+            "text": "Drink the milk.",
+            "correct": false
+          },
+          {
+            "text": "Bring the milk to work.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Grab\" = get/buy quickly. \"We're out\" = we don't have any."
+        "explanation": "\"Grab\" = get/buy quickly. \"We're out\" = we don't have any.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-2.webp",
+          "alt": "A man leaving his office in the evening looks at his phone, its screen blank.",
+          "source": "ai",
+          "prompt": "A man leaving his office in the evening looks at his phone, its screen blank. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Movie's at 7:30. Meet at the entrance 15 mins before?\" — When and where should they meet?",
         "options": [
-          { "text": "At 7:15 at the entrance.", "correct": true },
-          { "text": "At 7:45 inside.", "correct": false },
-          { "text": "At 7:30 at home.", "correct": false },
-          { "text": "At 7:15 at the café.", "correct": false }
+          {
+            "text": "At 7:15 at the entrance.",
+            "correct": true
+          },
+          {
+            "text": "At 7:45 inside.",
+            "correct": false
+          },
+          {
+            "text": "At 7:30 at home.",
+            "correct": false
+          },
+          {
+            "text": "At 7:15 at the café.",
+            "correct": false
+          }
         ],
-        "explanation": "15 minutes before 7:30 is 7:15."
+        "explanation": "15 minutes before 7:30 is 7:15.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-3.webp",
+          "alt": "A teenager stands outside a movie theater entrance, checking a phone with a blank screen.",
+          "source": "ai",
+          "prompt": "A teenager stands outside a movie theater entrance, checking a phone with a blank screen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Sorry, can't make it tonight 😞 Rain check?\" — What does the writer mean?",
@@ -56,51 +113,143 @@
             "text": "She can't come and wants to do it another time.",
             "correct": true
           },
-          { "text": "She is coming, but late.", "correct": false },
-          { "text": "She wants to check the weather.", "correct": false },
-          { "text": "She wants to cancel forever.", "correct": false }
+          {
+            "text": "She is coming, but late.",
+            "correct": false
+          },
+          {
+            "text": "She wants to check the weather.",
+            "correct": false
+          },
+          {
+            "text": "She wants to cancel forever.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Rain check\" = let's do it another day."
+        "explanation": "\"Rain check\" = let's do it another day.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-4.webp",
+          "alt": "A friend sits at home on the sofa in the evening, reading her phone with a blank screen.",
+          "source": "ai",
+          "prompt": "A friend sits at home on the sofa in the evening, reading her phone with a blank screen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"BRB, my mom's calling\" — What does BRB mean?",
         "options": [
-          { "text": "Be right back.", "correct": true },
-          { "text": "Bring my bag.", "correct": false },
-          { "text": "Bye, really busy.", "correct": false },
-          { "text": "Buy red bread.", "correct": false }
+          {
+            "text": "Be right back.",
+            "correct": true
+          },
+          {
+            "text": "Bring my bag.",
+            "correct": false
+          },
+          {
+            "text": "Bye, really busy.",
+            "correct": false
+          },
+          {
+            "text": "Buy red bread.",
+            "correct": false
+          }
         ],
-        "explanation": "BRB = be right back."
+        "explanation": "BRB = be right back.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-5.webp",
+          "alt": "A teen at a desk looks at a phone with a blank screen while another phone rings nearby.",
+          "source": "ai",
+          "prompt": "A teen at a desk looks at a phone with a blank screen while another phone rings nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Your package will be delivered tomorrow between 9am–1pm. Reply STOP to unsubscribe.\" — When will the package arrive?",
         "options": [
-          { "text": "Tomorrow morning or early afternoon.", "correct": true },
-          { "text": "Tonight.", "correct": false },
-          { "text": "Tomorrow evening.", "correct": false },
-          { "text": "The day after tomorrow.", "correct": false }
+          {
+            "text": "Tomorrow morning or early afternoon.",
+            "correct": true
+          },
+          {
+            "text": "Tonight.",
+            "correct": false
+          },
+          {
+            "text": "Tomorrow evening.",
+            "correct": false
+          },
+          {
+            "text": "The day after tomorrow.",
+            "correct": false
+          }
         ],
-        "explanation": "Between 9 a.m. and 1 p.m. tomorrow."
+        "explanation": "Between 9 a.m. and 1 p.m. tomorrow.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-6.webp",
+          "alt": "A woman in her kitchen reads her phone with a blank screen, a cardboard box icon floating nearby.",
+          "source": "ai",
+          "prompt": "A woman in her kitchen reads her phone with a blank screen, a cardboard box icon floating nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Happy bday!! 🎉 Lunch is on me this weekend\" — What does \"lunch is on me\" mean?",
         "options": [
-          { "text": "The writer will pay for lunch.", "correct": true },
-          { "text": "Lunch is at the writer's house.", "correct": false },
-          { "text": "The writer will cook lunch.", "correct": false },
-          { "text": "Lunch is on the table.", "correct": false }
+          {
+            "text": "The writer will pay for lunch.",
+            "correct": true
+          },
+          {
+            "text": "Lunch is at the writer's house.",
+            "correct": false
+          },
+          {
+            "text": "The writer will cook lunch.",
+            "correct": false
+          },
+          {
+            "text": "Lunch is on the table.",
+            "correct": false
+          }
         ],
-        "explanation": "\"It's on me\" = I'll pay."
+        "explanation": "\"It's on me\" = I'll pay.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-7.webp",
+          "alt": "A smiling person with a small birthday cake looks at a phone with a blank screen.",
+          "source": "ai",
+          "prompt": "A smiling person with a small birthday cake looks at a phone with a blank screen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Message: \"Don't forget: the test is moved to Monday, not Friday!\" — What changed?",
         "options": [
-          { "text": "The test is now on Monday.", "correct": true },
-          { "text": "The test is canceled.", "correct": false },
-          { "text": "The test is now on Friday.", "correct": false },
-          { "text": "The test is shorter.", "correct": false }
+          {
+            "text": "The test is now on Monday.",
+            "correct": true
+          },
+          {
+            "text": "The test is canceled.",
+            "correct": false
+          },
+          {
+            "text": "The test is now on Friday.",
+            "correct": false
+          },
+          {
+            "text": "The test is shorter.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Moved to Monday\" = the new day is Monday."
+        "explanation": "\"Moved to Monday\" = the new day is Monday.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-text-messages-1/question-8.webp",
+          "alt": "A student with a backpack in a school hallway looks surprised at a phone with a blank screen.",
+          "source": "ai",
+          "prompt": "A student with a backpack in a school hallway looks surprised at a phone with a blank screen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

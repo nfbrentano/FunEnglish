@@ -25,6 +25,7 @@
     "content:check-videos": "tsx scripts/check-videos.ts",
     "images:import": "tsx scripts/import-images.ts",
     "images:migrate-prompts": "tsx scripts/migrate-image-prompts.ts",
+    "images:plan": "tsx scripts/plan-images.ts",
     "set-admin": "tsx scripts/set-admin.ts"
   },
   "dependencies": {
