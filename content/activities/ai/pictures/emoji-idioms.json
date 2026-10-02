@@ -8,6 +8,9 @@
   "levelMax": "advanced",
   "tags": ["idioms", "emoji", "expressions", "game"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/emoji-idioms/thumb.webp",
     "alt": "A cat peeking out of a shopping bag",
@@ -23,19 +26,10 @@
           "label": "Emoji picture: 🐱 👜"
         },
         "options": [
-          {
-            "text": "let the cat out of the bag",
-            "correct": true
-          },
-          {
-            "text": "curiosity killed the cat"
-          },
-          {
-            "text": "fight like cats and dogs"
-          },
-          {
-            "text": "a cat nap"
-          }
+          { "text": "let the cat out of the bag", "correct": true },
+          { "text": "curiosity killed the cat", "correct": false },
+          { "text": "fight like cats and dogs", "correct": false },
+          { "text": "a cat nap", "correct": false }
         ],
         "explanation": "To let the cat out of the bag = to tell a secret by accident."
       },
@@ -47,19 +41,10 @@
           "label": "Emoji picture: 🐘 🛋️"
         },
         "options": [
-          {
-            "text": "the elephant in the room",
-            "correct": true
-          },
-          {
-            "text": "a white elephant"
-          },
-          {
-            "text": "an elephant never forgets"
-          },
-          {
-            "text": "room to breathe"
-          }
+          { "text": "the elephant in the room", "correct": true },
+          { "text": "a white elephant", "correct": false },
+          { "text": "an elephant never forgets", "correct": false },
+          { "text": "room to breathe", "correct": false }
         ],
         "explanation": "The elephant in the room = an obvious problem that nobody wants to talk about."
       },
@@ -71,19 +56,10 @@
           "label": "Emoji picture: 🐦 🐦 🪨"
         },
         "options": [
-          {
-            "text": "kill two birds with one stone",
-            "correct": true
-          },
-          {
-            "text": "a bird in the hand"
-          },
-          {
-            "text": "birds of a feather"
-          },
-          {
-            "text": "the early bird"
-          }
+          { "text": "kill two birds with one stone", "correct": true },
+          { "text": "a bird in the hand", "correct": false },
+          { "text": "birds of a feather", "correct": false },
+          { "text": "the early bird", "correct": false }
         ],
         "explanation": "To kill two birds with one stone = to do two things with one action."
       },
@@ -95,19 +71,10 @@
           "label": "Emoji picture: ⏰ 🐦 🪱"
         },
         "options": [
-          {
-            "text": "the early bird catches the worm",
-            "correct": true
-          },
-          {
-            "text": "as free as a bird"
-          },
-          {
-            "text": "a little bird told me"
-          },
-          {
-            "text": "eat like a bird"
-          }
+          { "text": "the early bird catches the worm", "correct": true },
+          { "text": "as free as a bird", "correct": false },
+          { "text": "a little bird told me", "correct": false },
+          { "text": "eat like a bird", "correct": false }
         ],
         "explanation": "The early bird catches the worm = people who start early have an advantage."
       },
@@ -119,19 +86,10 @@
           "label": "Emoji picture: 🍎 👁️"
         },
         "options": [
-          {
-            "text": "the apple of my eye",
-            "correct": true
-          },
-          {
-            "text": "an apple a day keeps the doctor away"
-          },
-          {
-            "text": "a bad apple"
-          },
-          {
-            "text": "compare apples and oranges"
-          }
+          { "text": "the apple of my eye", "correct": true },
+          { "text": "an apple a day keeps the doctor away", "correct": false },
+          { "text": "a bad apple", "correct": false },
+          { "text": "compare apples and oranges", "correct": false }
         ],
         "explanation": "The apple of my eye = a person you love very much."
       },
@@ -143,19 +101,10 @@
           "label": "Emoji picture: 🥶 🦶"
         },
         "options": [
-          {
-            "text": "get cold feet",
-            "correct": true
-          },
-          {
-            "text": "put your foot down"
-          },
-          {
-            "text": "on the right foot"
-          },
-          {
-            "text": "cold-hearted"
-          }
+          { "text": "get cold feet", "correct": true },
+          { "text": "put your foot down", "correct": false },
+          { "text": "on the right foot", "correct": false },
+          { "text": "cold-hearted", "correct": false }
         ],
         "explanation": "To get cold feet = to suddenly feel too nervous to do something you planned."
       },
@@ -167,19 +116,10 @@
           "label": "Emoji picture: 🐴 👄"
         },
         "options": [
-          {
-            "text": "straight from the horse's mouth",
-            "correct": true
-          },
-          {
-            "text": "hold your horses"
-          },
-          {
-            "text": "a dark horse"
-          },
-          {
-            "text": "eat like a horse"
-          }
+          { "text": "straight from the horse's mouth", "correct": true },
+          { "text": "hold your horses", "correct": false },
+          { "text": "a dark horse", "correct": false },
+          { "text": "eat like a horse", "correct": false }
         ],
         "explanation": "Straight from the horse's mouth = directly from the person who knows."
       },
@@ -195,15 +135,9 @@
             "text": "when life gives you lemons, make lemonade",
             "correct": true
           },
-          {
-            "text": "a lemon of a car"
-          },
-          {
-            "text": "sour grapes"
-          },
-          {
-            "text": "easy peasy lemon squeezy"
-          }
+          { "text": "a lemon of a car", "correct": false },
+          { "text": "sour grapes", "correct": false },
+          { "text": "easy peasy lemon squeezy", "correct": false }
         ],
         "explanation": "Turn a bad situation into something positive."
       }

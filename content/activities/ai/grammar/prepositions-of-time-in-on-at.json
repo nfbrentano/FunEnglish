@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["prepositions", "time", "in on at"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/prepositions-of-time-in-on-at/thumb.webp",
     "alt": "A clock, a calendar page and a rising sun, side by side",
@@ -16,30 +19,15 @@
   "content": {
     "mode": "word-bank",
     "items": [
-      {
-        "text": "The class starts [[at]] 9 o'clock."
-      },
-      {
-        "text": "My birthday is [[in]] June."
-      },
-      {
-        "text": "We don't have school [[on]] Saturdays."
-      },
-      {
-        "text": "I like to read [[at]] night."
-      },
-      {
-        "text": "She was born [[in]] 2010."
-      },
-      {
-        "text": "The party is [[on]] Friday evening."
-      },
-      {
-        "text": "It's very cold here [[in]] the winter."
-      },
-      {
-        "text": "I always call my mom [[on]] her birthday."
-      }
-    ]
+      { "text": "The class starts [[at]] 9 o'clock." },
+      { "text": "My birthday is [[in]] June." },
+      { "text": "We don't have school [[on]] Saturdays." },
+      { "text": "I like to read [[at]] night." },
+      { "text": "She was born [[in]] 2010." },
+      { "text": "The party is [[on]] Friday evening." },
+      { "text": "It's very cold here [[in]] the winter." },
+      { "text": "I always call my mom [[on]] her birthday." }
+    ],
+    "distractors": []
   }
 }

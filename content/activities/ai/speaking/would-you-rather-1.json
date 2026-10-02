@@ -8,12 +8,16 @@
   "levelMax": "advanced",
   "tags": ["opinions", "conversation", "fluency", "warm-up"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/would-you-rather-1/thumb.webp",
     "alt": "A road splitting into two paths with signs pointing left and right",
     "source": "ai"
   },
   "content": {
+    "writing": false,
     "cards": [
       {
         "prompt": "Would you rather…",

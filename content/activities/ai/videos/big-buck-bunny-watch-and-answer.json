@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["animation", "story", "short film", "past simple"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/big-buck-bunny-watch-and-answer/thumb.webp",
     "alt": "A big friendly rabbit standing in a sunny forest",
@@ -17,146 +20,68 @@
     "questions": [
       {
         "prompt": "Watch the film. What kind of animal is the main character?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "A rabbit",
-            "correct": true
-          },
-          {
-            "text": "A bear"
-          },
-          {
-            "text": "A squirrel"
-          },
-          {
-            "text": "A mouse"
-          }
+          { "text": "A rabbit", "correct": true },
+          { "text": "A bear", "correct": false },
+          { "text": "A squirrel", "correct": false },
+          { "text": "A mouse", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "The main character is a big, friendly rabbit (a bunny)."
       },
       {
         "prompt": "At the beginning, how does the bunny feel?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "Happy and relaxed",
-            "correct": true
-          },
-          {
-            "text": "Angry"
-          },
-          {
-            "text": "Scared"
-          },
-          {
-            "text": "Bored"
-          }
+          { "text": "Happy and relaxed", "correct": true },
+          { "text": "Angry", "correct": false },
+          { "text": "Scared", "correct": false },
+          { "text": "Bored", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "He enjoys the sunny morning in the forest."
       },
       {
         "prompt": "Who bothers the bunny?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "Three small animals",
-            "correct": true
-          },
-          {
-            "text": "A big bear"
-          },
-          {
-            "text": "A fox and a wolf"
-          },
-          {
-            "text": "Two birds"
-          }
+          { "text": "Three small animals", "correct": true },
+          { "text": "A big bear", "correct": false },
+          { "text": "A fox and a wolf", "correct": false },
+          { "text": "Two birds", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "Three small animals (rodents: squirrels and a chinchilla) play mean tricks on him."
       },
       {
         "prompt": "What do they throw at him?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "Fruit and nuts",
-            "correct": true
-          },
-          {
-            "text": "Rocks and sticks"
-          },
-          {
-            "text": "Snowballs"
-          },
-          {
-            "text": "Water balloons"
-          }
+          { "text": "Fruit and nuts", "correct": true },
+          { "text": "Rocks and sticks", "correct": false },
+          { "text": "Snowballs", "correct": false },
+          { "text": "Water balloons", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "They throw fruit and nuts from the trees."
       },
       {
         "prompt": "What makes the bunny decide to fight back?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "They hurt a butterfly.",
-            "correct": true
-          },
-          {
-            "text": "They steal his food."
-          },
-          {
-            "text": "They break his house."
-          },
-          {
-            "text": "They laugh at his ears."
-          }
+          { "text": "They hurt a butterfly.", "correct": true },
+          { "text": "They steal his food.", "correct": false },
+          { "text": "They break his house.", "correct": false },
+          { "text": "They laugh at his ears.", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "He gets angry when they hurt the butterfly."
       },
       {
         "prompt": "How does the bunny get revenge?",
+        "media": { "kind": "youtube", "videoId": "YE7VzlLtp-4", "start": 0 },
         "options": [
-          {
-            "text": "He builds traps.",
-            "correct": true
-          },
-          {
-            "text": "He calls the police."
-          },
-          {
-            "text": "He moves to another forest."
-          },
-          {
-            "text": "He cries and goes home."
-          }
+          { "text": "He builds traps.", "correct": true },
+          { "text": "He calls the police.", "correct": false },
+          { "text": "He moves to another forest.", "correct": false },
+          { "text": "He cries and goes home.", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "YE7VzlLtp-4",
-          "start": 0
-        },
         "explanation": "He prepares clever traps for the bullies."
       }
     ]

@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["conditionals", "if clauses", "first conditional", "second conditional"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/first-and-second-conditionals/thumb.webp",
     "alt": "A small cloud with rain on one side and a dreamy thought bubble with a guitar on the other",

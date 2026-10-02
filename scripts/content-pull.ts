@@ -5,8 +5,8 @@
  *   npm run content:pull             from production (GOOGLE_APPLICATION_CREDENTIALS)
  *   npm run content:pull:emulator    from the local emulator
  *
- * Files are formatted like the rest of the repo. Activities that exist only in the repo are
- * listed, never deleted.
+ * Files are formatted like the rest of the repo. Activities that exist only in the repo (new
+ * files not seeded yet, or deleted in the panel) are listed, never deleted.
  */
 import {
   existsSync,
@@ -83,7 +83,9 @@ async function main() {
     `Pulled ${snapshot.size} activities from ${target}: ${written} written, ${unchanged} unchanged`,
   );
   if (existing.size > 0) {
-    console.log("Only in the repo (deleted in the panel?) — remove them by hand if so:");
+    console.log(
+      "Only in the repo: never seeded (run `npm run seed -- --production` to publish them) or deleted in the panel (remove them by hand):",
+    );
     for (const path of existing.values()) console.log(`    content/activities/${path}`);
   }
 }

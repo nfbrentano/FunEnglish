@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["texting", "informal English", "abbreviations", "reading"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/reading-text-messages-1/thumb.webp",
     "alt": "A smartphone screen with chat bubbles",
@@ -18,57 +21,30 @@
       {
         "prompt": "Message: \"Running 10 min late, start without me!\" — What should the friends do?",
         "options": [
-          {
-            "text": "Begin without waiting.",
-            "correct": true
-          },
-          {
-            "text": "Wait for 10 minutes."
-          },
-          {
-            "text": "Cancel the plan."
-          },
-          {
-            "text": "Go home."
-          }
+          { "text": "Begin without waiting.", "correct": true },
+          { "text": "Wait for 10 minutes.", "correct": false },
+          { "text": "Cancel the plan.", "correct": false },
+          { "text": "Go home.", "correct": false }
         ],
         "explanation": "\"Start without me\" = don't wait for me."
       },
       {
         "prompt": "Message: \"Can u grab some milk on ur way home? We're out.\" — What does the writer want?",
         "options": [
-          {
-            "text": "Buy some milk.",
-            "correct": true
-          },
-          {
-            "text": "Throw the milk away."
-          },
-          {
-            "text": "Drink the milk."
-          },
-          {
-            "text": "Bring the milk to work."
-          }
+          { "text": "Buy some milk.", "correct": true },
+          { "text": "Throw the milk away.", "correct": false },
+          { "text": "Drink the milk.", "correct": false },
+          { "text": "Bring the milk to work.", "correct": false }
         ],
         "explanation": "\"Grab\" = get/buy quickly. \"We're out\" = we don't have any."
       },
       {
         "prompt": "Message: \"Movie's at 7:30. Meet at the entrance 15 mins before?\" — When and where should they meet?",
         "options": [
-          {
-            "text": "At 7:15 at the entrance.",
-            "correct": true
-          },
-          {
-            "text": "At 7:45 inside."
-          },
-          {
-            "text": "At 7:30 at home."
-          },
-          {
-            "text": "At 7:15 at the café."
-          }
+          { "text": "At 7:15 at the entrance.", "correct": true },
+          { "text": "At 7:45 inside.", "correct": false },
+          { "text": "At 7:30 at home.", "correct": false },
+          { "text": "At 7:15 at the café.", "correct": false }
         ],
         "explanation": "15 minutes before 7:30 is 7:15."
       },
@@ -79,91 +55,49 @@
             "text": "She can't come and wants to do it another time.",
             "correct": true
           },
-          {
-            "text": "She is coming, but late."
-          },
-          {
-            "text": "She wants to check the weather."
-          },
-          {
-            "text": "She wants to cancel forever."
-          }
+          { "text": "She is coming, but late.", "correct": false },
+          { "text": "She wants to check the weather.", "correct": false },
+          { "text": "She wants to cancel forever.", "correct": false }
         ],
         "explanation": "\"Rain check\" = let's do it another day."
       },
       {
         "prompt": "Message: \"BRB, my mom's calling\" — What does BRB mean?",
         "options": [
-          {
-            "text": "Be right back.",
-            "correct": true
-          },
-          {
-            "text": "Bring my bag."
-          },
-          {
-            "text": "Bye, really busy."
-          },
-          {
-            "text": "Buy red bread."
-          }
+          { "text": "Be right back.", "correct": true },
+          { "text": "Bring my bag.", "correct": false },
+          { "text": "Bye, really busy.", "correct": false },
+          { "text": "Buy red bread.", "correct": false }
         ],
         "explanation": "BRB = be right back."
       },
       {
         "prompt": "Message: \"Your package will be delivered tomorrow between 9am–1pm. Reply STOP to unsubscribe.\" — When will the package arrive?",
         "options": [
-          {
-            "text": "Tomorrow morning or early afternoon.",
-            "correct": true
-          },
-          {
-            "text": "Tonight."
-          },
-          {
-            "text": "Tomorrow evening."
-          },
-          {
-            "text": "The day after tomorrow."
-          }
+          { "text": "Tomorrow morning or early afternoon.", "correct": true },
+          { "text": "Tonight.", "correct": false },
+          { "text": "Tomorrow evening.", "correct": false },
+          { "text": "The day after tomorrow.", "correct": false }
         ],
         "explanation": "Between 9 a.m. and 1 p.m. tomorrow."
       },
       {
         "prompt": "Message: \"Happy bday!! 🎉 Lunch is on me this weekend\" — What does \"lunch is on me\" mean?",
         "options": [
-          {
-            "text": "The writer will pay for lunch.",
-            "correct": true
-          },
-          {
-            "text": "Lunch is at the writer's house."
-          },
-          {
-            "text": "The writer will cook lunch."
-          },
-          {
-            "text": "Lunch is on the table."
-          }
+          { "text": "The writer will pay for lunch.", "correct": true },
+          { "text": "Lunch is at the writer's house.", "correct": false },
+          { "text": "The writer will cook lunch.", "correct": false },
+          { "text": "Lunch is on the table.", "correct": false }
         ],
         "explanation": "\"It's on me\" = I'll pay."
       },
       {
         "prompt": "Message: \"Don't forget: the test is moved to Monday, not Friday!\" — What changed?",
         "options": [
-          {
-            "text": "The test is now on Monday.",
-            "correct": true
-          },
-          {
-            "text": "The test is canceled."
-          },
-          {
-            "text": "The test is now on Friday."
-          },
-          {
-            "text": "The test is shorter."
-          }
+          { "text": "The test is now on Monday.", "correct": true },
+          { "text": "The test is canceled.", "correct": false },
+          { "text": "The test is now on Friday.", "correct": false },
+          { "text": "The test is shorter.", "correct": false }
         ],
         "explanation": "\"Moved to Monday\" = the new day is Monday."
       }

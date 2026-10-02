@@ -8,6 +8,9 @@
   "levelMax": "advanced",
   "tags": ["fantasy", "story", "short film", "teens"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/sintel-watch-and-answer/thumb.webp",
     "alt": "A young woman with a staff standing on a snowy mountain",
@@ -17,140 +20,69 @@
     "questions": [
       {
         "prompt": "Watch the film. What is Sintel looking for?",
+        "media": { "kind": "youtube", "videoId": "eRsGyueVLvQ", "start": 0 },
         "options": [
-          {
-            "text": "A dragon",
-            "correct": true
-          },
-          {
-            "text": "Her brother"
-          },
-          {
-            "text": "A lost city"
-          },
-          {
-            "text": "A magic sword"
-          }
+          { "text": "A dragon", "correct": true },
+          { "text": "Her brother", "correct": false },
+          { "text": "A lost city", "correct": false },
+          { "text": "A magic sword", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "eRsGyueVLvQ",
-          "start": 0
-        },
         "explanation": "She tells the old man she is searching for a dragon."
       },
       {
         "prompt": "How did Sintel meet the baby dragon?",
+        "media": { "kind": "youtube", "videoId": "eRsGyueVLvQ", "start": 0 },
         "options": [
-          {
-            "text": "She found it hurt and took care of it.",
-            "correct": true
-          },
-          {
-            "text": "She bought it at a market."
-          },
-          {
-            "text": "It was a gift from her father."
-          },
-          {
-            "text": "It hatched in her house."
-          }
+          { "text": "She found it hurt and took care of it.", "correct": true },
+          { "text": "She bought it at a market.", "correct": false },
+          { "text": "It was a gift from her father.", "correct": false },
+          { "text": "It hatched in her house.", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "eRsGyueVLvQ",
-          "start": 0
-        },
         "explanation": "She found the little dragon injured and helped it."
       },
       {
         "prompt": "What name did she give the dragon?",
+        "media": { "kind": "youtube", "videoId": "eRsGyueVLvQ", "start": 0 },
         "options": [
-          {
-            "text": "Scales",
-            "correct": true
-          },
-          {
-            "text": "Shadow"
-          },
-          {
-            "text": "Flame"
-          },
-          {
-            "text": "Sky"
-          }
+          { "text": "Scales", "correct": true },
+          { "text": "Shadow", "correct": false },
+          { "text": "Flame", "correct": false },
+          { "text": "Sky", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "eRsGyueVLvQ",
-          "start": 0
-        },
         "explanation": "She called the baby dragon Scales."
       },
       {
         "prompt": "What happened to the baby dragon?",
+        "media": { "kind": "youtube", "videoId": "eRsGyueVLvQ", "start": 0 },
         "options": [
-          {
-            "text": "An adult dragon carried it away.",
-            "correct": true
-          },
-          {
-            "text": "It flew away alone."
-          },
-          {
-            "text": "Hunters caught it."
-          },
-          {
-            "text": "It got sick."
-          }
+          { "text": "An adult dragon carried it away.", "correct": true },
+          { "text": "It flew away alone.", "correct": false },
+          { "text": "Hunters caught it.", "correct": false },
+          { "text": "It got sick.", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "eRsGyueVLvQ",
-          "start": 0
-        },
         "explanation": "A big dragon took it away, so she went to find it."
       },
       {
         "prompt": "What is the surprising truth at the end?",
+        "media": { "kind": "youtube", "videoId": "eRsGyueVLvQ", "start": 0 },
         "options": [
           {
             "text": "The big dragon she fought was Scales, grown up.",
             "correct": true
           },
-          {
-            "text": "Scales was never a real dragon."
-          },
-          {
-            "text": "The old man was the dragon."
-          },
-          {
-            "text": "Sintel was dreaming."
-          }
+          { "text": "Scales was never a real dragon.", "correct": false },
+          { "text": "The old man was the dragon.", "correct": false },
+          { "text": "Sintel was dreaming.", "correct": false }
         ],
-        "media": {
-          "kind": "youtube",
-          "videoId": "eRsGyueVLvQ",
-          "start": 0
-        },
         "explanation": "Many years had passed, and Scales had grown up."
       },
       {
         "prompt": "How would you describe the ending?",
         "options": [
-          {
-            "text": "Sad",
-            "correct": true
-          },
-          {
-            "text": "Funny"
-          },
-          {
-            "text": "Exciting and happy"
-          },
-          {
-            "text": "Romantic"
-          }
+          { "text": "Sad", "correct": true },
+          { "text": "Funny", "correct": false },
+          { "text": "Exciting and happy", "correct": false },
+          { "text": "Romantic", "correct": false }
         ],
         "explanation": "It's a sad ending. Discuss: what would you have done?"
       }

@@ -8,6 +8,9 @@
   "levelMax": "advanced",
   "tags": ["creative writing", "narrative", "past tenses"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/story-starters-1/thumb.webp",
     "alt": "An open notebook with a pencil and stars floating out of the pages",

@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["quantifiers", "some", "any", "countable", "uncountable"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/some-or-any/thumb.webp",
     "alt": "A kitchen table with a few apples and an empty fruit bowl",
@@ -18,65 +21,40 @@
       {
         "prompt": "There is ___ milk in the fridge.",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any"
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in positive sentences."
       },
       {
         "prompt": "We don't have ___ bread left.",
         "options": [
-          {
-            "text": "some"
-          },
-          {
-            "text": "any",
-            "correct": true
-          }
+          { "text": "some", "correct": false },
+          { "text": "any", "correct": true }
         ],
         "explanation": "Use any in negative sentences."
       },
       {
         "prompt": "Are there ___ eggs in the basket?",
         "options": [
-          {
-            "text": "some"
-          },
-          {
-            "text": "any",
-            "correct": true
-          }
+          { "text": "some", "correct": false },
+          { "text": "any", "correct": true }
         ],
         "explanation": "Use any in most questions."
       },
       {
         "prompt": "Would you like ___ tea?",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any"
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in offers and requests, even though they are questions."
       },
       {
         "prompt": "I need ___ help with my homework, please.",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any"
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in positive sentences, like requests for help."
       }

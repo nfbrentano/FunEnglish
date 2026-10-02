@@ -8,12 +8,16 @@
   "levelMax": "advanced",
   "tags": ["describing", "present continuous", "speaking"],
   "status": "draft",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/picture-description-1/thumb.webp",
     "alt": "A busy city street scene full of people",
     "source": "ai"
   },
   "content": {
+    "writing": false,
     "cards": [
       {
         "prompt": "Describe this picture. What can you see?",

@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["café", "ordering", "food", "dialogue"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/everyday-dialogues-at-the-cafe/thumb.webp",
     "alt": "A barista handing a cup of coffee to a customer",
@@ -39,11 +42,9 @@
       },
       {
         "text": "That [[comes]] to seven dollars.",
-        "media": {
-          "kind": "tts",
-          "text": "That comes to seven dollars."
-        }
+        "media": { "kind": "tts", "text": "That comes to seven dollars." }
       }
-    ]
+    ],
+    "distractors": []
   }
 }

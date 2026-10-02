@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["storytelling", "past simple", "emoji", "speaking"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/emoji-stories-what-happened/thumb.webp",
     "alt": "A comic strip made of emoji in three panels",
@@ -28,14 +31,11 @@
             "correct": true
           },
           {
-            "text": "It was sunny, so she went to the beach."
+            "text": "It was sunny, so she went to the beach.",
+            "correct": false
           },
-          {
-            "text": "She lost her umbrella in the rain."
-          },
-          {
-            "text": "She was sad because it rained."
-          }
+          { "text": "She lost her umbrella in the rain.", "correct": false },
+          { "text": "She was sad because it rained.", "correct": false }
         ],
         "explanation": "Rain → umbrella → a smile."
       },
@@ -52,13 +52,13 @@
             "correct": true
           },
           {
-            "text": "He woke up early and walked to school."
+            "text": "He woke up early and walked to school.",
+            "correct": false
           },
+          { "text": "He took a nap on the bus.", "correct": false },
           {
-            "text": "He took a nap on the bus."
-          },
-          {
-            "text": "He was late because the bus broke down."
+            "text": "He was late because the bus broke down.",
+            "correct": false
           }
         ],
         "explanation": "To oversleep = to sleep longer than you planned."
@@ -71,19 +71,10 @@
           "label": "Emoji picture: 🎂 🎁 🎉 👵"
         },
         "options": [
-          {
-            "text": "They had a birthday party for Grandma.",
-            "correct": true
-          },
-          {
-            "text": "Grandma baked a cake for a wedding."
-          },
-          {
-            "text": "They bought presents for a baby."
-          },
-          {
-            "text": "Grandma went to a concert."
-          }
+          { "text": "They had a birthday party for Grandma.", "correct": true },
+          { "text": "Grandma baked a cake for a wedding.", "correct": false },
+          { "text": "They bought presents for a baby.", "correct": false },
+          { "text": "Grandma went to a concert.", "correct": false }
         ],
         "explanation": "Cake, presents and a party for an older woman: Grandma's birthday."
       },
@@ -95,19 +86,10 @@
           "label": "Emoji picture: 🐶 🦴 🕳️"
         },
         "options": [
-          {
-            "text": "The dog buried a bone in a hole.",
-            "correct": true
-          },
-          {
-            "text": "The dog fell into a hole."
-          },
-          {
-            "text": "The dog ate a big dinner."
-          },
-          {
-            "text": "The dog found a lost toy."
-          }
+          { "text": "The dog buried a bone in a hole.", "correct": true },
+          { "text": "The dog fell into a hole.", "correct": false },
+          { "text": "The dog ate a big dinner.", "correct": false },
+          { "text": "The dog found a lost toy.", "correct": false }
         ],
         "explanation": "To bury something = to put it in the ground."
       },
@@ -124,14 +106,14 @@
             "correct": true
           },
           {
-            "text": "She broke her phone and bought a new one."
+            "text": "She broke her phone and bought a new one.",
+            "correct": false
           },
           {
-            "text": "She called her friend to say happy birthday."
+            "text": "She called her friend to say happy birthday.",
+            "correct": false
           },
-          {
-            "text": "She laughed at a funny video."
-          }
+          { "text": "She laughed at a funny video.", "correct": false }
         ],
         "explanation": "A broken heart on a phone usually means bad news."
       },
@@ -147,15 +129,9 @@
             "text": "At the store, his card didn't work and he felt embarrassed.",
             "correct": true
           },
-          {
-            "text": "He bought a new credit card online."
-          },
-          {
-            "text": "He forgot his shopping list."
-          },
-          {
-            "text": "The store was closed."
-          }
+          { "text": "He bought a new credit card online.", "correct": false },
+          { "text": "He forgot his shopping list.", "correct": false },
+          { "text": "The store was closed.", "correct": false }
         ],
         "explanation": "Embarrassed = you feel uncomfortable or a little ashamed because of something that happened in front of other people."
       },
@@ -172,14 +148,11 @@
             "correct": true
           },
           {
-            "text": "They cooked breakfast at the fire station."
+            "text": "They cooked breakfast at the fire station.",
+            "correct": false
           },
-          {
-            "text": "The chef won a cooking contest."
-          },
-          {
-            "text": "They had a barbecue in the backyard."
-          }
+          { "text": "The chef won a cooking contest.", "correct": false },
+          { "text": "They had a barbecue in the backyard.", "correct": false }
         ],
         "explanation": "To catch fire = to start burning."
       },
@@ -195,14 +168,11 @@
             "text": "Her suitcase got lost after the flight.",
             "correct": true
           },
+          { "text": "She packed her suitcase for a trip.", "correct": false },
+          { "text": "She missed her flight.", "correct": false },
           {
-            "text": "She packed her suitcase for a trip."
-          },
-          {
-            "text": "She missed her flight."
-          },
-          {
-            "text": "She bought a new suitcase at the airport."
+            "text": "She bought a new suitcase at the airport.",
+            "correct": false
           }
         ],
         "explanation": "The question mark tells us something is missing."
