@@ -1,7 +1,7 @@
 # [FEAT] Mais imagens nas atividades
 
-> **Status:** Em revisão
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
+> **Status:** Em andamento
+> **Autor:** Natanael Brentano · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
 
@@ -106,10 +106,10 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | As metas de cobertura (80% Beginner/Intermediate, 50% Advanced) estão boas? | PO | Não | Sugestão: sim; atividades de reading/writing avançadas usam menos imagem |
-| D02 | Respostas em figura (RF03) entram nesta leva ou depois? | PO | Não | Sugestão: entram (é o que mais lembra o Cool English nos quizzes de vocabulário); a leva de conteúdo as usa só onde fizer sentido |
-| D03 | Fundo decorativo por categoria (RF09) ou fundo neutro? | PO/Design | Não | Sugestão: ilustração suave da categoria no canto, com 10–15% de opacidade, sem atrapalhar a leitura |
-| D04 | Ordem de entrega? | PO | Não | Sugestão em 2 PRs: (1) player (RF01–RF05, RF09, RNF01–RNF04); (2) painel e conteúdo (RF06–RF08, RF10) |
+| D01 | As metas de cobertura (80% Beginner/Intermediate, 50% Advanced) estão boas? | PO | Não | Sim (PO, 2026-10-02) |
+| D02 | Respostas em figura (RF03) entram nesta leva ou depois? | PO | Não | Entram nesta leva (PO, 2026-10-02); a leva de conteúdo as usa onde fizer sentido |
+| D03 | Fundo decorativo por categoria (RF09) ou fundo neutro? | PO/Design | Não | Sim (PO, 2026-10-02): ilustração suave da categoria, 10–15% de opacidade |
+| D04 | Ordem de entrega? | PO | Não | 2 PRs (PO, 2026-10-02): (1) player (RF01–RF05, RF09, RNF01–RNF04, RNF06); (2) painel e conteúdo (RF06–RF08, RF10) |
 
 ## Sugestões de casos de teste
 
