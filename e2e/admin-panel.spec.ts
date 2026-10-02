@@ -177,3 +177,110 @@ test("edits show on static play pages without a new build (CA11)", async ({ page
     page.getByRole("heading", { level: 1, name: "Fixture Grammar 6 (edited)" }),
   ).toBeVisible();
 });
+
+// Spec: gestão completa de atividades (RF09, RF10, RF12).
+
+test("saving in two tabs warns about the conflict instead of overwriting (CA11)", async ({
+  page,
+  context,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Fixture Grammar 5" }).click();
+  await expect(editor(page).getByLabel("Title", { exact: true })).toHaveValue("Fixture Grammar 5");
+  const other = await context.newPage();
+  await other.goto(page.url());
+  await expect(editor(other).getByLabel("Title", { exact: true })).toHaveValue("Fixture Grammar 5");
+
+  // Tab A saves first.
+  await editor(page).getByLabel("Title", { exact: true }).fill("Fixture Grammar 5 (tab A)");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Saved", { exact: true })).toBeVisible();
+
+  // Tab B, opened before that save, is stopped.
+  await editor(other).getByLabel("Title", { exact: true }).fill("Fixture Grammar 5 (tab B)");
+  await other.getByRole("button", { name: "Save changes" }).click();
+  const dialog = other.getByRole("dialog", {
+    name: "Someone saved this activity after you opened it",
+  });
+  await expect(dialog).toBeVisible();
+  const title = async () =>
+    (
+      await adminDb().collection("activities").where("slug", "==", "fixture-grammar-5").get()
+    ).docs[0].get("title");
+  expect(await title()).toBe("Fixture Grammar 5 (tab A)");
+
+  await dialog.getByRole("button", { name: "Reload their version" }).click();
+  await expect(editor(other).getByLabel("Title", { exact: true })).toHaveValue(
+    "Fixture Grammar 5 (tab A)",
+  );
+
+  // Overwrite is a deliberate choice.
+  await editor(page).getByLabel("Title", { exact: true }).fill("Fixture Grammar 5 (A again)");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Saved", { exact: true })).toBeVisible();
+  await editor(other).getByLabel("Title", { exact: true }).fill("Fixture Grammar 5 (B wins)");
+  await other.getByRole("button", { name: "Save changes" }).click();
+  await dialog.getByRole("button", { name: "Overwrite" }).click();
+  await expect.poll(title).toBe("Fixture Grammar 5 (B wins)");
+  expect(
+    (
+      await adminDb().collection("activities").where("slug", "==", "fixture-grammar-5").get()
+    ).docs[0].get("editedInPanelAt"),
+  ).toBeTruthy();
+});
+
+test("unsaved changes: a warning before leaving and a draft kept on this device", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Fixture Grammar 4" }).click();
+  await editor(page).getByLabel("Description", { exact: true }).fill("Not saved yet.");
+  await expect(page.getByText("Unsaved changes")).toBeVisible();
+
+  // An in-app link asks first; cancelling stays on the editor.
+  page.once("dialog", (d) => {
+    expect(d.message()).toBe("You have unsaved changes. Leave without saving?");
+    void d.dismiss();
+  });
+  await page.getByRole("link", { name: "All activities" }).click();
+  await expect(page).toHaveURL(/\/admin\/edit\?id=/);
+
+  // The draft survives a reload (once it has been kept, after ~1 s).
+  await page.waitForTimeout(1300);
+  page.once("dialog", (d) => void d.accept());
+  await page.reload();
+  await expect(page.getByText(/You have unsaved changes from .* on this device\./)).toBeVisible();
+  await page.getByRole("button", { name: "Restore" }).click();
+  await expect(editor(page).getByLabel("Description", { exact: true })).toHaveValue(
+    "Not saved yet.",
+  );
+});
+
+test("Export all downloads every activity in the seed file format (RF10)", async ({ page }) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin");
+  await expect(page.getByRole("link", { name: "Fixture Grammar 1" })).toBeVisible();
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export all" }).click();
+  const file = await download;
+  expect(file.suggestedFilename()).toMatch(/^fun-english-activities-\d{4}-\d{2}-\d{2}\.json$/);
+  const all = JSON.parse(
+    await new Promise<string>((resolve, reject) => {
+      void file.createReadStream().then((stream) => {
+        let text = "";
+        stream.on("data", (chunk) => (text += chunk));
+        stream.on("end", () => resolve(text));
+        stream.on("error", reject);
+      });
+    }),
+  ) as Record<string, unknown>[];
+  const total = (await adminDb().collection("activities").get()).size;
+  expect(all).toHaveLength(total);
+  expect(all.find((a) => a.slug === "fixture-grammar-1")).toMatchObject({
+    title: "Fixture Grammar 1",
+    type: "quiz",
+  });
+  expect(Object.keys(all[0])).not.toContain("searchTokens");
+});
