@@ -1,0 +1,208 @@
+{
+  "slug": "emoji-proverbs",
+  "title": "Emoji Proverbs",
+  "description": "Decode each emoji sequence and choose the English proverb it hints at, then learn what it means.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["proverbs", "sayings", "emoji", "culture"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/emoji-proverbs/thumb.webp",
+    "alt": "A small bird on a branch at sunrise next to an apple and a basket of eggs",
+    "source": "ai",
+    "prompt": "A small bird on a branch at sunrise next to an apple and a basket of eggs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🌅 🐦 🪱",
+          "label": "Emoji picture: 🌅 🐦 🪱"
+        },
+        "options": [
+          {
+            "text": "Birds of a feather flock together.",
+            "correct": false
+          },
+          {
+            "text": "The early bird catches the worm.",
+            "correct": true
+          },
+          {
+            "text": "Actions speak louder than words.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"The early bird catches the worm\" means people who start early get the best opportunities."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🍎 📅 🩺 🚫",
+          "label": "Emoji picture: 🍎 📅 🩺 🚫"
+        },
+        "options": [
+          {
+            "text": "An apple a day keeps the doctor away.",
+            "correct": true
+          },
+          {
+            "text": "Time is money.",
+            "correct": false
+          },
+          {
+            "text": "Home is where the heart is.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"An apple a day keeps the doctor away\" means healthy habits help you avoid illness."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🥚 🥚 🥚 ➡️ 🧺 ❌",
+          "label": "Emoji picture: 🥚 🥚 🥚 ➡️ 🧺 ❌"
+        },
+        "options": [
+          {
+            "text": "Every cloud has a silver lining.",
+            "correct": false
+          },
+          {
+            "text": "The pen is mightier than the sword.",
+            "correct": false
+          },
+          {
+            "text": "Don't put all your eggs in one basket.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"Don't put all your eggs in one basket\" means don't risk everything on a single plan."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "📕 👀 🙅",
+          "label": "Emoji picture: 📕 👀 🙅"
+        },
+        "options": [
+          {
+            "text": "Don't judge a book by its cover.",
+            "correct": true
+          },
+          {
+            "text": "The early bird catches the worm.",
+            "correct": false
+          },
+          {
+            "text": "Time is money.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Don't judge a book by its cover\" means you shouldn't judge someone or something by appearance alone."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🖊️ 💪 ⚔️",
+          "label": "Emoji picture: 🖊️ 💪 ⚔️"
+        },
+        "options": [
+          {
+            "text": "Actions speak louder than words.",
+            "correct": false
+          },
+          {
+            "text": "The pen is mightier than the sword.",
+            "correct": true
+          },
+          {
+            "text": "An apple a day keeps the doctor away.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"The pen is mightier than the sword\" means ideas and writing are more powerful than violence."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🏃 🔊 💬",
+          "label": "Emoji picture: 🏃 🔊 💬"
+        },
+        "options": [
+          {
+            "text": "Don't put all your eggs in one basket.",
+            "correct": false
+          },
+          {
+            "text": "Home is where the heart is.",
+            "correct": false
+          },
+          {
+            "text": "Actions speak louder than words.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"Actions speak louder than words\" means what you do matters more than what you say."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "☁️ 🥈 ✨",
+          "label": "Emoji picture: ☁️ 🥈 ✨"
+        },
+        "options": [
+          {
+            "text": "Time is money.",
+            "correct": false
+          },
+          {
+            "text": "Every cloud has a silver lining.",
+            "correct": true
+          },
+          {
+            "text": "Birds of a feather flock together.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Every cloud has a silver lining\" means there is something good in every bad situation."
+      },
+      {
+        "prompt": "Which proverb does this show?",
+        "media": {
+          "kind": "emoji",
+          "text": "🐴 ➡️ 💧 🙅",
+          "label": "Emoji picture: 🐴 ➡️ 💧 🙅"
+        },
+        "options": [
+          {
+            "text": "Don't judge a book by its cover.",
+            "correct": false
+          },
+          {
+            "text": "Every cloud has a silver lining.",
+            "correct": false
+          },
+          {
+            "text": "You can lead a horse to water, but you can't make it drink.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"You can lead a horse to water, but you can't make it drink\" means you can offer help, but you can't force someone to accept it."
+      }
+    ]
+  }
+}

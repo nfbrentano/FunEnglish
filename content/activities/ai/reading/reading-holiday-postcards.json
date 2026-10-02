@@ -1,0 +1,224 @@
+{
+  "slug": "reading-holiday-postcards",
+  "title": "Reading: Holiday Postcards",
+  "description": "Read short postcards from people on vacation and answer questions about what they did and how they feel.",
+  "category": "reading",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["travel", "vacation", "postcards", "reading"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/reading-holiday-postcards/thumb.webp",
+    "alt": "A small stack of blank illustrated postcards next to an open suitcase and a straw sun hat",
+    "source": "ai",
+    "prompt": "A small stack of blank illustrated postcards next to an open suitcase and a straw sun hat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Text: \"Hi Dad! We're at the beach. The weather is hot and sunny. I swim in the ocean every day. Love, Nina\" — What does Nina do every day?",
+        "options": [
+          {
+            "text": "She skis.",
+            "correct": false
+          },
+          {
+            "text": "She swims.",
+            "correct": true
+          },
+          {
+            "text": "She reads at home.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"I swim in the ocean every day\" tells us her daily activity.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-1.webp",
+          "alt": "A girl in a sun hat standing on a hot, sunny beach.",
+          "source": "ai",
+          "prompt": "A girl in a sun hat standing on a hot, sunny beach. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Dear Sam, The mountains are beautiful, but it's very cold. Yesterday we went skiing for the first time. I fell a lot! See you soon, Jake\" — What happened when Jake went skiing?",
+        "options": [
+          {
+            "text": "He fell many times.",
+            "correct": true
+          },
+          {
+            "text": "He won a race.",
+            "correct": false
+          },
+          {
+            "text": "He stayed inside.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"I fell a lot\" means he fell many times.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-2.webp",
+          "alt": "A boy in a warm jacket looking at snowy mountains.",
+          "source": "ai",
+          "prompt": "A boy in a warm jacket looking at snowy mountains. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Hi Emma! Our hotel is small but very clean. The food is great, but the beds are really hard. Love, Paula\" — What is the problem with the hotel?",
+        "options": [
+          {
+            "text": "The food is bad.",
+            "correct": false
+          },
+          {
+            "text": "The hotel is dirty.",
+            "correct": false
+          },
+          {
+            "text": "The beds are hard.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"But\" introduces the problem: the beds are really hard.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-3.webp",
+          "alt": "A woman enjoying a plate of food in a small, clean hotel dining room.",
+          "source": "ai",
+          "prompt": "A woman enjoying a plate of food in a small, clean hotel dining room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Dear Aunt Lucy, We arrived on the island on Monday. It rained for two days, so we visited a museum. Now the sun is out! Hugs, Omar\" — Why did Omar visit a museum?",
+        "options": [
+          {
+            "text": "Because the sun was hot.",
+            "correct": false
+          },
+          {
+            "text": "Because it was raining.",
+            "correct": true
+          },
+          {
+            "text": "Because the island was closed.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"So\" shows a result: it rained, so they went to a museum.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-4.webp",
+          "alt": "A family arriving on a small green island by boat.",
+          "source": "ai",
+          "prompt": "A family arriving on a small green island by boat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Hello class! I'm on a farm with my cousins. I feed the chickens every morning and ride a horse in the afternoon. It's so quiet here! Ms. Rivera\" — What does Ms. Rivera do in the afternoon?",
+        "options": [
+          {
+            "text": "She rides a horse.",
+            "correct": true
+          },
+          {
+            "text": "She feeds the chickens.",
+            "correct": false
+          },
+          {
+            "text": "She teaches a class.",
+            "correct": false
+          }
+        ],
+        "explanation": "She feeds the chickens in the morning, but she rides a horse \"in the afternoon.\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-5.webp",
+          "alt": "A woman feeding chickens on a quiet farm in the morning.",
+          "source": "ai",
+          "prompt": "A woman feeding chickens on a quiet farm in the morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Hi Leo, We're camping by a lake. At night we cook dinner over a fire and look at the stars. I haven't watched TV for a week, and I don't miss it at all! Ben\" — How does Ben feel about not watching TV?",
+        "options": [
+          {
+            "text": "He is bored without it.",
+            "correct": false
+          },
+          {
+            "text": "He is sad about it.",
+            "correct": false
+          },
+          {
+            "text": "He doesn't mind at all.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"I don't miss it\" means he doesn't feel sad without it.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-6.webp",
+          "alt": "A boy and his family cooking dinner over a campfire by a lake at night.",
+          "source": "ai",
+          "prompt": "A boy and his family cooking dinner over a campfire by a lake at night. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Dear Mom and Dad, The city is busy and exciting. Today I took a boat tour and saw the old bridge. Tomorrow I'm going to visit the market before I fly home. Love, Hana\" — What will Hana do tomorrow?",
+        "options": [
+          {
+            "text": "Take a boat tour.",
+            "correct": false
+          },
+          {
+            "text": "Visit the market.",
+            "correct": true
+          },
+          {
+            "text": "See the old bridge.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Tomorrow I'm going to visit the market\" uses \"going to\" for a future plan.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-7.webp",
+          "alt": "A girl on a boat tour passing under an old stone bridge in a city.",
+          "source": "ai",
+          "prompt": "A girl on a boat tour passing under an old stone bridge in a city. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Hi Carla! It's our last day by the sea. We've collected lots of shells, and I've learned to surf a little. I really don't want to leave! Mia\" — How does Mia feel about leaving?",
+        "options": [
+          {
+            "text": "Excited.",
+            "correct": false
+          },
+          {
+            "text": "Angry.",
+            "correct": false
+          },
+          {
+            "text": "Sad.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"I really don't want to leave\" shows she is sad that the trip is ending.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-holiday-postcards/question-8.webp",
+          "alt": "A girl collecting seashells on the sand by the sea.",
+          "source": "ai",
+          "prompt": "A girl collecting seashells on the sand by the sea. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

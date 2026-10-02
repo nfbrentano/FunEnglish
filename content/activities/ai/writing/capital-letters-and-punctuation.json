@@ -1,0 +1,256 @@
+{
+  "slug": "capital-letters-and-punctuation",
+  "title": "Capital Letters and Punctuation",
+  "description": "Choose the sentence with the correct capital letters, periods, commas, question marks and apostrophes.",
+  "category": "writing",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["capital letters", "punctuation", "sentences", "spelling"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/capital-letters-and-punctuation/thumb.webp",
+    "alt": "A pencil and an eraser resting on a blank notebook page beside a magnifying glass",
+    "source": "ai",
+    "prompt": "A pencil and an eraser resting on a blank notebook page beside a magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "my name is Anna.",
+            "correct": false
+          },
+          {
+            "text": "My name is Anna.",
+            "correct": true
+          },
+          {
+            "text": "My name is anna.",
+            "correct": false
+          },
+          {
+            "text": "my Name is anna.",
+            "correct": false
+          }
+        ],
+        "explanation": "Start every sentence with a capital letter, and use capitals for names like Anna.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-1.webp",
+          "alt": "A girl waving hello and smiling.",
+          "source": "ai",
+          "prompt": "A girl waving hello and smiling. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "Where do you live.",
+            "correct": false
+          },
+          {
+            "text": "where do you live?",
+            "correct": false
+          },
+          {
+            "text": "Where do you live?",
+            "correct": true
+          },
+          {
+            "text": "Where Do you live?",
+            "correct": false
+          }
+        ],
+        "explanation": "A question starts with a capital letter and ends with a question mark.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-2.webp",
+          "alt": "A boy asking a new friend a question in front of a row of houses.",
+          "source": "ai",
+          "prompt": "A boy asking a new friend a question in front of a row of houses. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "We have art class on monday.",
+            "correct": false
+          },
+          {
+            "text": "we have art class on Monday.",
+            "correct": false
+          },
+          {
+            "text": "We have Art class on monday.",
+            "correct": false
+          },
+          {
+            "text": "We have art class on Monday.",
+            "correct": true
+          }
+        ],
+        "explanation": "Days of the week, like Monday, always start with a capital letter.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-3.webp",
+          "alt": "Children painting pictures together in an art class.",
+          "source": "ai",
+          "prompt": "Children painting pictures together in an art class. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "Tom and I are friends.",
+            "correct": true
+          },
+          {
+            "text": "Tom and i are friends.",
+            "correct": false
+          },
+          {
+            "text": "tom and I are friends.",
+            "correct": false
+          },
+          {
+            "text": "Tom And I are friends.",
+            "correct": false
+          }
+        ],
+        "explanation": "The word I is always a capital letter, and names like Tom are capitalized too.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-4.webp",
+          "alt": "Two boys smiling with their arms around each other's shoulders.",
+          "source": "ai",
+          "prompt": "Two boys smiling with their arms around each other's shoulders. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "I like apples bananas and grapes.",
+            "correct": false
+          },
+          {
+            "text": "I like apples, bananas, and grapes.",
+            "correct": true
+          },
+          {
+            "text": "I like, apples, bananas, and grapes.",
+            "correct": false
+          },
+          {
+            "text": "I like apples, bananas, and grapes",
+            "correct": false
+          }
+        ],
+        "explanation": "Use commas to separate items in a list, and end the sentence with a period.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-5.webp",
+          "alt": "A bowl of apples, bananas and grapes on a kitchen table.",
+          "source": "ai",
+          "prompt": "A bowl of apples, bananas and grapes on a kitchen table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "What a beautiful day?",
+            "correct": false
+          },
+          {
+            "text": "what a beautiful day!",
+            "correct": false
+          },
+          {
+            "text": "What a beautiful day!",
+            "correct": true
+          },
+          {
+            "text": "What a Beautiful day!",
+            "correct": false
+          }
+        ],
+        "explanation": "Use an exclamation point to show strong feelings like surprise or joy.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-6.webp",
+          "alt": "A happy child raising both arms under a bright, sunny sky.",
+          "source": "ai",
+          "prompt": "A happy child raising both arms under a bright, sunny sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence.",
+        "options": [
+          {
+            "text": "My friend is from brazil.",
+            "correct": false
+          },
+          {
+            "text": "My Friend is from Brazil.",
+            "correct": false
+          },
+          {
+            "text": "my friend is from Brazil.",
+            "correct": false
+          },
+          {
+            "text": "My friend is from Brazil.",
+            "correct": true
+          }
+        ],
+        "explanation": "Names of countries, like Brazil, start with a capital letter.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-7.webp",
+          "alt": "A smiling girl holding a small toy globe next to her friend.",
+          "source": "ai",
+          "prompt": "A smiling girl holding a small toy globe next to her friend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Choose the correct sentence. (One sister owns the bike.)",
+        "options": [
+          {
+            "text": "This is my sister's bike.",
+            "correct": true
+          },
+          {
+            "text": "This is my sisters bike.",
+            "correct": false
+          },
+          {
+            "text": "This is my sister's Bike.",
+            "correct": false
+          },
+          {
+            "text": "this is my sister's bike.",
+            "correct": false
+          }
+        ],
+        "explanation": "Use an apostrophe and s ('s) to show that something belongs to one person.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/capital-letters-and-punctuation/question-8.webp",
+          "alt": "A girl standing proudly next to her bicycle.",
+          "source": "ai",
+          "prompt": "A girl standing proudly next to her bicycle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

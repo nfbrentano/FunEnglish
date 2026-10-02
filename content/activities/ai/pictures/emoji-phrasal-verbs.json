@@ -1,0 +1,208 @@
+{
+  "slug": "emoji-phrasal-verbs",
+  "title": "Emoji Phrasal Verbs",
+  "description": "Look at the emoji scene and choose the phrasal verb that completes each sentence.",
+  "category": "pictures",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["phrasal verbs", "verbs", "emoji", "vocabulary"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/emoji-phrasal-verbs/thumb.webp",
+    "alt": "An airplane rising into the sky above a small house where a person is putting on a warm coat",
+    "source": "ai",
+    "prompt": "An airplane rising into the sky above a small house where a person is putting on a warm coat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "The plane will ___ in ten minutes.",
+        "media": {
+          "kind": "emoji",
+          "text": "🛫 ✈️",
+          "label": "Emoji picture: 🛫 ✈️"
+        },
+        "options": [
+          {
+            "text": "take after",
+            "correct": false
+          },
+          {
+            "text": "take off",
+            "correct": true
+          },
+          {
+            "text": "take up",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Take off\" means to leave the ground and start flying."
+      },
+      {
+        "prompt": "I can't find my keys. Can you help me ___ them?",
+        "media": {
+          "kind": "emoji",
+          "text": "🔍 🔑",
+          "label": "Emoji picture: 🔍 🔑"
+        },
+        "options": [
+          {
+            "text": "look for",
+            "correct": true
+          },
+          {
+            "text": "look up to",
+            "correct": false
+          },
+          {
+            "text": "look forward to",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Look for\" means to try to find something."
+      },
+      {
+        "prompt": "My aunt ___ my baby brother when my parents work late.",
+        "media": {
+          "kind": "emoji",
+          "text": "👩 🍼 👶",
+          "label": "Emoji picture: 👩 🍼 👶"
+        },
+        "options": [
+          {
+            "text": "gets over",
+            "correct": false
+          },
+          {
+            "text": "runs out of",
+            "correct": false
+          },
+          {
+            "text": "looks after",
+            "correct": true
+          }
+        ],
+        "explanation": "\"Look after\" means to take care of someone."
+      },
+      {
+        "prompt": "We ___ gas on the highway, so we had to walk to the next town.",
+        "media": {
+          "kind": "emoji",
+          "text": "🚗 ⛽ ❌ 🚶",
+          "label": "Emoji picture: 🚗 ⛽ ❌ 🚶"
+        },
+        "options": [
+          {
+            "text": "ran out of",
+            "correct": true
+          },
+          {
+            "text": "put off",
+            "correct": false
+          },
+          {
+            "text": "turned up",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Run out of\" means to have none of something left."
+      },
+      {
+        "prompt": "It took me a whole week to ___ the flu.",
+        "media": {
+          "kind": "emoji",
+          "text": "🤒 ➡️ 💪",
+          "label": "Emoji picture: 🤒 ➡️ 💪"
+        },
+        "options": [
+          {
+            "text": "put on",
+            "correct": false
+          },
+          {
+            "text": "get over",
+            "correct": true
+          },
+          {
+            "text": "get along",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Get over\" means to recover from an illness or a bad experience."
+      },
+      {
+        "prompt": "Please ___ the lights when you leave the room.",
+        "media": {
+          "kind": "emoji",
+          "text": "💡 👆 🌑",
+          "label": "Emoji picture: 💡 👆 🌑"
+        },
+        "options": [
+          {
+            "text": "give up",
+            "correct": false
+          },
+          {
+            "text": "show off",
+            "correct": false
+          },
+          {
+            "text": "turn off",
+            "correct": true
+          }
+        ],
+        "explanation": "\"Turn off\" means to stop a machine or light with a switch."
+      },
+      {
+        "prompt": "It's freezing outside, so ___ your coat before you go!",
+        "media": {
+          "kind": "emoji",
+          "text": "🥶 🧥",
+          "label": "Emoji picture: 🥶 🧥"
+        },
+        "options": [
+          {
+            "text": "put on",
+            "correct": true
+          },
+          {
+            "text": "put off",
+            "correct": false
+          },
+          {
+            "text": "take after",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Put on\" means to start wearing a piece of clothing."
+      },
+      {
+        "prompt": "I've decided to ___ chocolate for a month.",
+        "media": {
+          "kind": "emoji",
+          "text": "🍫 🚫 📅",
+          "label": "Emoji picture: 🍫 🚫 📅"
+        },
+        "options": [
+          {
+            "text": "pick up",
+            "correct": false
+          },
+          {
+            "text": "give up",
+            "correct": true
+          },
+          {
+            "text": "look into",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Give up\" means to stop doing or having something, often a habit."
+      }
+    ]
+  }
+}

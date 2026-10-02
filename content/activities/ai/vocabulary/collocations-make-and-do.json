@@ -1,0 +1,274 @@
+{
+  "slug": "collocations-make-and-do",
+  "title": "Collocations: Make and Do",
+  "description": "Make a mistake or do a mistake? Choose the right verb to complete each common collocation.",
+  "category": "vocabulary",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["collocations", "make", "do", "verbs"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/collocations-make-and-do/thumb.webp",
+    "alt": "Two pairs of hands at a table, one shaping clay into a bowl and the other washing a plate",
+    "source": "ai",
+    "prompt": "Two pairs of hands at a table, one shaping clay into a bowl and the other washing a plate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Can you help me ___ my homework tonight?",
+        "options": [
+          {
+            "text": "make",
+            "correct": false
+          },
+          {
+            "text": "do",
+            "correct": true
+          },
+          {
+            "text": "take",
+            "correct": false
+          }
+        ],
+        "explanation": "We say do homework: do is used for work, tasks and duties.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-1.webp",
+          "alt": "A girl and her mother sitting at a table with notebooks in the evening.",
+          "source": "ai",
+          "prompt": "A girl and her mother sitting at a table with notebooks in the evening. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Please don't ___ so much noise. The baby is sleeping.",
+        "options": [
+          {
+            "text": "make",
+            "correct": true
+          },
+          {
+            "text": "do",
+            "correct": false
+          },
+          {
+            "text": "have",
+            "correct": false
+          }
+        ],
+        "explanation": "We say make noise: make is often used for things that are produced or created.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-2.webp",
+          "alt": "A baby sleeping in a crib while a child plays a toy drum nearby.",
+          "source": "ai",
+          "prompt": "A baby sleeping in a crib while a child plays a toy drum nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Don't worry. Everyone ___ mistakes when they learn a new language.",
+        "options": [
+          {
+            "text": "does",
+            "correct": false
+          },
+          {
+            "text": "takes",
+            "correct": false
+          },
+          {
+            "text": "makes",
+            "correct": true
+          }
+        ],
+        "explanation": "We say make a mistake, never do a mistake.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-3.webp",
+          "alt": "A nervous student raising a hand in a language class.",
+          "source": "ai",
+          "prompt": "A nervous student raising a hand in a language class. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "My dad ___ the dishes after dinner every night.",
+        "options": [
+          {
+            "text": "makes",
+            "correct": false
+          },
+          {
+            "text": "does",
+            "correct": true
+          },
+          {
+            "text": "takes",
+            "correct": false
+          }
+        ],
+        "explanation": "We say do the dishes: do goes with housework like the laundry and the dishes.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-4.webp",
+          "alt": "A dad standing at the kitchen sink after a family dinner.",
+          "source": "ai",
+          "prompt": "A dad standing at the kitchen sink after a family dinner. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "We need to ___ a decision about the trip by Friday.",
+        "options": [
+          {
+            "text": "do",
+            "correct": false
+          },
+          {
+            "text": "have",
+            "correct": false
+          },
+          {
+            "text": "make",
+            "correct": true
+          }
+        ],
+        "explanation": "In American English we say make a decision.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-5.webp",
+          "alt": "A family talking at the kitchen table about a trip, with a suitcase nearby.",
+          "source": "ai",
+          "prompt": "A family talking at the kitchen table about a trip, with a suitcase nearby. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "I try to ___ some exercise three times a week.",
+        "options": [
+          {
+            "text": "do",
+            "correct": true
+          },
+          {
+            "text": "make",
+            "correct": false
+          },
+          {
+            "text": "have",
+            "correct": false
+          }
+        ],
+        "explanation": "We say do exercise: do is used for activities and physical work.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-6.webp",
+          "alt": "A woman jogging in a park on a sunny morning.",
+          "source": "ai",
+          "prompt": "A woman jogging in a park on a sunny morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Could you ___ me a favor and close the window?",
+        "options": [
+          {
+            "text": "make",
+            "correct": false
+          },
+          {
+            "text": "do",
+            "correct": true
+          },
+          {
+            "text": "take",
+            "correct": false
+          }
+        ],
+        "explanation": "We say do someone a favor: it is a fixed expression with do.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-7.webp",
+          "alt": "A woman on a sofa pointing toward an open window while talking to a friend.",
+          "source": "ai",
+          "prompt": "A woman on a sofa pointing toward an open window while talking to a friend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "She ___ a lot of money selling homemade bread at the market.",
+        "options": [
+          {
+            "text": "made",
+            "correct": true
+          },
+          {
+            "text": "did",
+            "correct": false
+          },
+          {
+            "text": "took",
+            "correct": false
+          }
+        ],
+        "explanation": "We say make money: you produce or earn it.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-8.webp",
+          "alt": "A woman selling homemade bread at a market stall.",
+          "source": "ai",
+          "prompt": "A woman selling homemade bread at a market stall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Before the trip, let's ___ some research about the city.",
+        "options": [
+          {
+            "text": "make",
+            "correct": false
+          },
+          {
+            "text": "have",
+            "correct": false
+          },
+          {
+            "text": "do",
+            "correct": true
+          }
+        ],
+        "explanation": "We say do research: do is used for work and study activities.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-9.webp",
+          "alt": "Two friends with a laptop and a map planning a city trip.",
+          "source": "ai",
+          "prompt": "Two friends with a laptop and a map planning a city trip. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Your English is much better now. You're ___ real progress.",
+        "options": [
+          {
+            "text": "doing",
+            "correct": false
+          },
+          {
+            "text": "making",
+            "correct": true
+          },
+          {
+            "text": "having",
+            "correct": false
+          }
+        ],
+        "explanation": "We say make progress: you create change or improvement.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/collocations-make-and-do/question-10.webp",
+          "alt": "A smiling teacher giving a thumbs-up to a happy student.",
+          "source": "ai",
+          "prompt": "A smiling teacher giving a thumbs-up to a happy student. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

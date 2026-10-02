@@ -1,0 +1,113 @@
+{
+  "slug": "all-about-me",
+  "title": "All About Me",
+  "description": "Simple speaking cards about you: your family, favorite food, hobbies and more. Perfect for first conversations.",
+  "category": "speaking",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["introductions", "personal information", "conversation", "kids"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/all-about-me/thumb.webp",
+    "alt": "A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit",
+    "source": "ai",
+    "prompt": "A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "Tell me about your family.",
+        "followUps": ["How many people are in your family?", "Do you have brothers or sisters?"],
+        "vocabulary": ["mother", "father", "brother", "sister"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-1.webp",
+          "alt": "A smiling family of four sitting together on a sofa.",
+          "source": "ai",
+          "prompt": "A smiling family of four sitting together on a sofa. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What is your favorite food?",
+        "followUps": ["When do you eat it?", "Who makes it for you?"],
+        "vocabulary": ["delicious", "breakfast", "lunch", "dinner"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-2.webp",
+          "alt": "A child happily eating a bowl of noodles at a kitchen table.",
+          "source": "ai",
+          "prompt": "A child happily eating a bowl of noodles at a kitchen table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What do you do in your free time?",
+        "followUps": ["Do you play a sport?", "What do you do on weekends?"],
+        "vocabulary": ["play", "draw", "read", "watch TV"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-3.webp",
+          "alt": "Two kids flying a kite in a park on a sunny afternoon.",
+          "source": "ai",
+          "prompt": "Two kids flying a kite in a park on a sunny afternoon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Where do you live?",
+        "followUps": ["Do you live in a house or an apartment?", "What is in your bedroom?"],
+        "vocabulary": ["house", "apartment", "city", "bedroom"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-4.webp",
+          "alt": "A cozy house on a quiet street with trees and a small garden.",
+          "source": "ai",
+          "prompt": "A cozy house on a quiet street with trees and a small garden. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What is your favorite color?",
+        "followUps": ["What things do you have in that color?", "What color don't you like?"],
+        "vocabulary": ["red", "blue", "green", "yellow"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-5.webp",
+          "alt": "A child painting with bright paints at an easel.",
+          "source": "ai",
+          "prompt": "A child painting with bright paints at an easel. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Do you have a pet?",
+        "followUps": ["What is its name?", "What pet do you want?"],
+        "vocabulary": ["dog", "cat", "fish", "bird"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-6.webp",
+          "alt": "A girl hugging a fluffy dog in a garden.",
+          "source": "ai",
+          "prompt": "A girl hugging a fluffy dog in a garden. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What do you do in the morning?",
+        "followUps": ["What time do you get up?", "What do you eat for breakfast?"],
+        "vocabulary": ["get up", "brush my teeth", "get dressed", "go to school"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-7.webp",
+          "alt": "A boy brushing his teeth in a bathroom on a bright morning.",
+          "source": "ai",
+          "prompt": "A boy brushing his teeth in a bathroom on a bright morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What is your favorite day of the week?",
+        "followUps": ["Why do you like it?", "What do you do on that day?"],
+        "vocabulary": ["Monday", "Saturday", "Sunday", "weekend"],
+        "image": {
+          "src": "/images/activities/all-about-me/card-8.webp",
+          "alt": "A family having a picnic in the park on a sunny day.",
+          "source": "ai",
+          "prompt": "A family having a picnic in the park on a sunny day. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

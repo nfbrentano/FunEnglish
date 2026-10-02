@@ -1,0 +1,289 @@
+{
+  "slug": "quiz-board-words-and-idioms",
+  "title": "Words and Idioms Quiz Board",
+  "description": "Play a team quiz board on idioms, phrasal verbs, synonyms, collocations and odd-word-out puzzles.",
+  "category": "fun",
+  "type": "quiz-board",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["idioms", "phrasal verbs", "collocations", "game", "teams"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/quiz-board-words-and-idioms/thumb.webp",
+    "alt": "A stack of open dictionaries with small speech bubbles and a teapot floating above them",
+    "source": "ai",
+    "prompt": "A stack of open dictionaries with small speech bubbles and a teapot floating above them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "categories": [
+      {
+        "name": "Idioms",
+        "clues": [
+          {
+            "value": 100,
+            "question": "If something is very easy, we say it's a piece of ___.",
+            "answer": "Cake",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-1.webp",
+              "alt": "A smiling student finishing a simple jigsaw puzzle at a table.",
+              "source": "ai",
+              "prompt": "A smiling student finishing a simple jigsaw puzzle at a table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "What does it mean to 'break the ice' at a party?",
+            "answer": "To start a conversation and make people feel relaxed",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-2.webp",
+              "alt": "A bright living room decorated with balloons and a table of snacks.",
+              "source": "ai",
+              "prompt": "A bright living room decorated with balloons and a table of snacks. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Complete the idiom: 'Don't count your chickens before they ___.'",
+            "answer": "Hatch",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-3.webp",
+              "alt": "A small red farmhouse with a wooden fence and green fields.",
+              "source": "ai",
+              "prompt": "A small red farmhouse with a wooden fence and green fields. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "What does 'to bite off more than you can chew' mean?",
+            "answer": "To take on more work or responsibility than you can handle",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-4.webp",
+              "alt": "A young man sitting at a kitchen table with a laptop and a mug.",
+              "source": "ai",
+              "prompt": "A young man sitting at a kitchen table with a laptop and a mug. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Phrasal Verbs",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Which phrasal verb means 'to stop doing something', as in quitting a habit: give ___?",
+            "answer": "Give up",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-5.webp",
+              "alt": "A person sitting on a park bench on a calm morning.",
+              "source": "ai",
+              "prompt": "A person sitting on a park bench on a calm morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Complete: 'Please ___ the form before you leave.' (complete it with information)",
+            "answer": "Fill out (fill in)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-6.webp",
+              "alt": "A friendly receptionist at a front desk in a bright clinic.",
+              "source": "ai",
+              "prompt": "A friendly receptionist at a front desk in a bright clinic. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Which phrasal verb means 'to tolerate', as in 'I can't ___ ___ ___ the noise'?",
+            "answer": "Put up with",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-7.webp",
+              "alt": "A woman by an apartment window with a busy city street below.",
+              "source": "ai",
+              "prompt": "A woman by an apartment window with a busy city street below. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "What does 'to come across' a letter in a drawer mean?",
+            "answer": "To find it by chance",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-8.webp",
+              "alt": "An old wooden desk with closed drawers in a cozy study.",
+              "source": "ai",
+              "prompt": "An old wooden desk with closed drawers in a cozy study. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Synonyms",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Give a synonym for 'happy' that starts with G.",
+            "answer": "Glad",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-9.webp",
+              "alt": "A girl smiling while flying a kite in a park.",
+              "source": "ai",
+              "prompt": "A girl smiling while flying a kite in a park. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Give a one-word synonym for 'very tired' that starts with E.",
+            "answer": "Exhausted",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-10.webp",
+              "alt": "A runner sitting on a bench after a long race.",
+              "source": "ai",
+              "prompt": "A runner sitting on a bench after a long race. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Which word means the same as 'brief': lengthy, concise or careless?",
+            "answer": "Concise",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-11.webp",
+              "alt": "A teacher reading a note at her desk in a quiet classroom.",
+              "source": "ai",
+              "prompt": "A teacher reading a note at her desk in a quiet classroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Give a formal synonym for 'start' that begins with C.",
+            "answer": "Commence",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-12.webp",
+              "alt": "A conference room with rows of chairs facing an empty stage.",
+              "source": "ai",
+              "prompt": "A conference room with rows of chairs facing an empty stage. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Odd Word Out",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Which word doesn't belong: apple, banana, carrot, grape?",
+            "answer": "Carrot (it's a vegetable)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-13.webp",
+              "alt": "A wooden market stall with baskets of fresh produce.",
+              "source": "ai",
+              "prompt": "A wooden market stall with baskets of fresh produce. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Which word doesn't belong: quickly, slowly, friendly, quietly?",
+            "answer": "Friendly (it's an adjective, not an adverb)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-14.webp",
+              "alt": "A student studying at a desk by a sunny window.",
+              "source": "ai",
+              "prompt": "A student studying at a desk by a sunny window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Which word doesn't belong: furious, delighted, livid, irate?",
+            "answer": "Delighted (the others mean very angry)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-15.webp",
+              "alt": "Two neighbors talking over a garden fence.",
+              "source": "ai",
+              "prompt": "Two neighbors talking over a garden fence. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Which word doesn't belong: ubiquitous, scarce, rare, sparse?",
+            "answer": "Ubiquitous (it means found everywhere)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-16.webp",
+              "alt": "A wide desert landscape under a clear blue sky.",
+              "source": "ai",
+              "prompt": "A wide desert landscape under a clear blue sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Collocations",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Do we 'make' or 'do' our homework?",
+            "answer": "Do",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-17.webp",
+              "alt": "A boy sitting at a desk with an open notebook in his bedroom.",
+              "source": "ai",
+              "prompt": "A boy sitting at a desk with an open notebook in his bedroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Complete the collocation: 'heavy ___' (a lot of rain).",
+            "answer": "Rain",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-18.webp",
+              "alt": "A family sitting together on a sofa in a cozy living room.",
+              "source": "ai",
+              "prompt": "A family sitting together on a sofa in a cozy living room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Do we 'make' or 'take' a decision?",
+            "answer": "Make (in American English)",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-19.webp",
+              "alt": "A young woman standing at a fork in a forest path.",
+              "source": "ai",
+              "prompt": "A young woman standing at a fork in a forest path. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Complete the collocation meaning 'very rich': 'filthy ___'.",
+            "answer": "Rich",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-words-and-idioms/clue-20.webp",
+              "alt": "A busy city street with tall buildings at sunset.",
+              "source": "ai",
+              "prompt": "A busy city street with tall buildings at sunset. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "slug": "reading-science-news",
+  "title": "Reading: Science News",
+  "description": "Read short reports on new scientific findings and practice inference and vocabulary in context at C1 level.",
+  "category": "reading",
+  "type": "quiz",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["science", "news", "inference", "reading"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/reading-science-news/thumb.webp",
+    "alt": "A microscope on a lab table beside a small branch of coral and a model of a distant planet",
+    "source": "ai",
+    "prompt": "A microscope on a lab table beside a small branch of coral and a model of a distant planet. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Text: \"A team of marine biologists has reported that a species of coral appears to recover more quickly from heat stress when exposed to recordings of healthy reef sounds. The researchers caution, however, that the sample size was small and that the experiment has yet to be replicated in open water.\" — What is the researchers' attitude toward their findings?",
+        "options": [
+          {
+            "text": "They see the results as promising but not yet conclusive.",
+            "correct": true
+          },
+          {
+            "text": "They believe the results prove that sound can save every reef.",
+            "correct": false
+          },
+          {
+            "text": "They think the experiment was a complete failure.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Caution\" and \"has yet to be replicated\" signal that the results are encouraging but still need confirmation.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-1.webp",
+          "alt": "A colorful coral reef with small fish swimming in clear blue water.",
+          "source": "ai",
+          "prompt": "A colorful coral reef with small fish swimming in clear blue water. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"In a study of 2,000 adults, those who regularly took short afternoon naps scored slightly higher on memory tests. Yet the authors stress that the link is merely correlational: people with flexible schedules may simply be healthier to begin with.\" — Why do the authors stress that the link is \"correlational\"?",
+        "options": [
+          {
+            "text": "Because naps were shown to damage memory.",
+            "correct": false
+          },
+          {
+            "text": "Because naps may not be the actual cause of the better scores.",
+            "correct": true
+          },
+          {
+            "text": "Because the memory tests were too easy.",
+            "correct": false
+          }
+        ],
+        "explanation": "A correlation shows two things occur together, not that one causes the other, so another factor may explain the result.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-2.webp",
+          "alt": "An adult taking a short afternoon nap on a sofa.",
+          "source": "ai",
+          "prompt": "An adult taking a short afternoon nap on a sofa. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"For decades, a reliable way to recycle certain mixed plastics has proved elusive. Now chemists claim to have developed an enzyme that breaks these materials down at room temperature, although scaling the process up remains a formidable challenge.\" — In this text, \"elusive\" means…",
+        "options": [
+          {
+            "text": "dangerous to handle",
+            "correct": false
+          },
+          {
+            "text": "cheap and widely available",
+            "correct": false
+          },
+          {
+            "text": "difficult to find or achieve",
+            "correct": true
+          }
+        ],
+        "explanation": "Something \"elusive\" keeps escaping your grasp, so it is hard to find, achieve or pin down.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-3.webp",
+          "alt": "A pile of mixed plastic bottles and containers waiting to be recycled.",
+          "source": "ai",
+          "prompt": "A pile of mixed plastic bottles and containers waiting to be recycled. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Ecologists have found that bumblebees in cities visit a wider variety of flowers than their rural counterparts. One explanation is that urban gardens, planted largely for their looks, offer a patchwork of species, whereas farmland is often dominated by a single crop.\" — What can be inferred about farmland?",
+        "options": [
+          {
+            "text": "It usually offers bees less variety of flowers.",
+            "correct": true
+          },
+          {
+            "text": "It has more types of flowers than cities.",
+            "correct": false
+          },
+          {
+            "text": "It has no bees at all.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Dominated by a single crop\" implies little floral diversity, the opposite of the urban \"patchwork.\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-4.webp",
+          "alt": "A fuzzy bumblebee resting on a flower.",
+          "source": "ai",
+          "prompt": "A fuzzy bumblebee resting on a flower. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"In a counterintuitive result, researchers found that students who read a text printed in a slightly harder-to-read font remembered more of it a week later. The extra effort needed to decode the words, they argue, may force deeper processing.\" — Why is the result described as \"counterintuitive\"?",
+        "options": [
+          {
+            "text": "Because the researchers expected it from the start.",
+            "correct": false
+          },
+          {
+            "text": "Because most people would expect a harder font to reduce memory, not improve it.",
+            "correct": true
+          },
+          {
+            "text": "Because nobody could read the font at all.",
+            "correct": false
+          }
+        ],
+        "explanation": "\"Counterintuitive\" describes something that goes against what common sense would predict.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-5.webp",
+          "alt": "A student reading a sheet of paper at a quiet desk.",
+          "source": "ai",
+          "prompt": "A student reading a sheet of paper at a quiet desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Astronomers have detected faint traces of water vapor in the atmosphere of a distant planet. While the discovery has generated considerable excitement, the planet's surface is thought to be far too hot to sustain liquid oceans.\" — Which statement best reflects the text?",
+        "options": [
+          {
+            "text": "The planet is covered in liquid oceans.",
+            "correct": false
+          },
+          {
+            "text": "No water of any kind was detected.",
+            "correct": false
+          },
+          {
+            "text": "Water vapor was found, but liquid oceans are unlikely.",
+            "correct": true
+          }
+        ],
+        "explanation": "\"While\" contrasts the exciting detection of vapor with the heat that makes liquid oceans improbable.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-6.webp",
+          "alt": "A distant planet with a hazy atmosphere floating in dark, starry space.",
+          "source": "ai",
+          "prompt": "A distant planet with a hazy atmosphere floating in dark, starry space. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"A new type of roof paint can reflect up to 95 percent of incoming sunlight. Engineers hope that, applied widely, it could help mitigate the \"heat island\" effect that makes cities noticeably warmer than the surrounding countryside.\" — In this text, \"mitigate\" means…",
+        "options": [
+          {
+            "text": "make less severe",
+            "correct": true
+          },
+          {
+            "text": "make more intense",
+            "correct": false
+          },
+          {
+            "text": "measure accurately",
+            "correct": false
+          }
+        ],
+        "explanation": "To \"mitigate\" a problem is to reduce its seriousness or harmful effects.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-7.webp",
+          "alt": "Workers painting a city rooftop white under a bright sun.",
+          "source": "ai",
+          "prompt": "Workers painting a city rooftop white under a bright sun. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Text: \"Footage from a deep-sea camera shows an octopus repeatedly returning to the same rock crevice after hunting. Biologists suggest this may indicate a more sophisticated spatial memory than previously assumed for the species, though alternative explanations, such as scent tracking, have not been ruled out.\" — What does \"have not been ruled out\" imply about the alternative explanations?",
+        "options": [
+          {
+            "text": "They have been proven false.",
+            "correct": false
+          },
+          {
+            "text": "They are still possible.",
+            "correct": true
+          },
+          {
+            "text": "They have been confirmed by the footage.",
+            "correct": false
+          }
+        ],
+        "explanation": "If something has not been \"ruled out,\" it remains a possibility that hasn't been excluded.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-science-news/question-8.webp",
+          "alt": "An octopus resting beside a rock crevice on the deep sea floor.",
+          "source": "ai",
+          "prompt": "An octopus resting beside a rock crevice on the deep sea floor. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}
