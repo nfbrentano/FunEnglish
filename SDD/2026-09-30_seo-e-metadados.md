@@ -1,7 +1,7 @@
 # [SEO] SEO, metadados e compartilhamento social
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-09-30
+> **Status:** Em validação (CA02 e CA06 manuais, após o deploy)
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
 
@@ -47,14 +47,21 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a atividade "Some or Any" (Grammar), quando inspeciono o HTML, então o `<title>` é "Some or Any – Grammar ESL Activity | Fun English" e há `meta description` não vazia.
+- [x] **CA01:** Dado a atividade "Some or Any" (Grammar), quando inspeciono o HTML, então o `<title>` é "Some or Any – Grammar ESL Activity | Fun English" e há `meta description` não vazia.
 - [ ] **CA02:** Dado o link de uma atividade, quando o colo no WhatsApp ou no validador de cards, então aparece a prévia com título, descrição e thumbnail.
-- [ ] **CA03:** Dado 42 atividades publicadas e 3 em rascunho, quando acesso `/sitemap.xml`, então ele lista as 42 (e não as 3), as 9 categorias e o catálogo.
-- [ ] **CA04:** Dado `/robots.txt`, quando o leio, então `/admin` e `/dashboard` estão em `Disallow` e o sitemap está referenciado.
-- [ ] **CA05:** Dado `/activities?level=advanced`, quando inspeciono, então o `canonical` aponta para `/activities`.
+- [x] **CA03:** Dado 42 atividades publicadas e 3 em rascunho, quando acesso `/sitemap.xml`, então ele lista as 42 (e não as 3), as 9 categorias e o catálogo.
+- [x] **CA04:** Dado `/robots.txt`, quando o leio, então `/admin` e `/dashboard` estão em `Disallow` e o sitemap está referenciado.
+- [x] **CA05:** Dado `/activities?level=advanced`, quando inspeciono, então o `canonical` aponta para `/activities`.
 - [ ] **CA06:** Dado uma página de atividade, quando a valido no Rich Results Test, então o JSON-LD é reconhecido sem erros.
-- [ ] **CA07:** Dado JavaScript desabilitado, quando abro uma página de atividade, então título, descrição, categoria e nível estão presentes no HTML.
-- [ ] **CA08 (negativo):** Dado `/dashboard` ou `/admin`, quando inspeciono, então há `<meta name="robots" content="noindex">`; e `robots.txt` bloqueia `/*?mode=student`.
+- [x] **CA07:** Dado JavaScript desabilitado, quando abro uma página de atividade, então título, descrição, categoria e nível estão presentes no HTML.
+- [x] **CA08 (negativo):** Dado `/dashboard` ou `/admin`, quando inspeciono, então há `<meta name="robots" content="noindex">`; e `robots.txt` bloqueia `/*?mode=student`.
+
+### Notas de implementação
+
+- `src/lib/seo.ts`: título, descrição (≤ 160), `pageMetadata` (canônico, Open Graph, Twitter `summary_large_image`), imagem social (thumbnail enviada → ilustração da categoria → `public/og-default.png`, gerada por `scripts/og-default.ts`), JSON-LD e entradas do sitemap.
+- `src/app/sitemap.ts` e `src/app/robots.ts` viram `out/sitemap.xml` e `out/robots.txt` no build (`force-static`). O sitemap só lê atividades publicadas, então rascunhos nunca entram; `lastModified` vem de `updatedAt`.
+- CA03 é verificado no e2e com o número real de publicadas e rascunhos do seed (não fixo em 42/3).
+- CA07 já era atendido: a intro do player (título, descrição, categoria, nível, instruções) está no HTML estático.
 
 ## O que a atividade não inclui
 

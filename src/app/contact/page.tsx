@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/pages/contact-form";
 import { CONTACT_EMAIL } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import { strings } from "@/lib/strings";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description: "Questions, ideas for new activities or a mistake you spotted? Send us a message.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
