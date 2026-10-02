@@ -1,0 +1,94 @@
+{
+  "slug": "workplace-roleplays-and-debates",
+  "title": "Workplace Roleplays and Dilemmas",
+  "description": "Practice professional communication, negotiating solutions, and handling realistic workplace scenarios.",
+  "category": "speaking",
+  "type": "prompt-cards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["business English", "roleplay", "speaking", "workplace", "communication"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/workplace-roleplays-and-debates/thumb.webp",
+    "alt": "Two professionals having a discussion at a conference table with laptops and coffee cups",
+    "source": "ai"
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "You need to ask your manager for an extension on an important project deadline because a supplier was delayed.",
+        "followUps": [
+          "How would you explain the issue without sounding defensive?",
+          "What solution or new timeline would you propose?",
+          "How would you assure your manager this won't happen again?"
+        ],
+        "vocabulary": ["deadline", "extension", "bottleneck", "contingency plan", "deliverable"]
+      },
+      {
+        "prompt": "A coworker in your team frequently arrives late to meetings and misses team updates. Discuss this with them.",
+        "followUps": [
+          "How can you address the problem politely and constructively?",
+          "What impact does their lateness have on the rest of the team?",
+          "What compromise can you reach?"
+        ],
+        "vocabulary": ["punctual", "agenda", "respectful", "distraction", "team dynamic"]
+      },
+      {
+        "prompt": "Negotiate a budget increase for your department's upcoming client presentation event.",
+        "followUps": [
+          "What data or return on investment (ROI) would you present?",
+          "What will you do if the finance director says no initially?",
+          "Where could you cut costs if needed?"
+        ],
+        "vocabulary": ["budget", "allocation", "ROI", "justification", "expenses"]
+      },
+      {
+        "prompt": "A customer calls complaining that their order arrived damaged and two weeks late. Resolve the problem as customer support.",
+        "followUps": [
+          "How do you de-escalate their frustration right away?",
+          "What compensation (refund, replacement, discount) is reasonable?",
+          "What follow-up action will you promise?"
+        ],
+        "vocabulary": ["apologize", "expedite", "replacement", "de-escalate", "customer satisfaction"]
+      },
+      {
+        "prompt": "You disagree with the proposed design for a new company website presented by a colleague during a team brainstorm.",
+        "followUps": [
+          "How can you offer constructive criticism without offending your colleague?",
+          "What alternative ideas would you present?",
+          "How can the team decide between options?"
+        ],
+        "vocabulary": ["constructive feedback", "user experience", "perspective", "alternative", "streamline"]
+      },
+      {
+        "prompt": "You receive two enticing job offers: one with higher pay but long office hours, and one with lower pay but full remote flexibility.",
+        "options": ["Higher pay with long office hours", "Lower pay with full remote flexibility"],
+        "followUps": [
+          "Which offer would you accept and why?",
+          "How do you weigh work-life balance against financial growth?",
+          "Could you negotiate parts of either offer?"
+        ],
+        "vocabulary": ["commute", "work-life balance", "compensation package", "remote work", "priorities"]
+      },
+      {
+        "prompt": "Conduct an exit interview with an employee who is leaving the company after five years.",
+        "followUps": [
+          "What questions would you ask to learn about company culture?",
+          "How can the company improve onboarding and retention?",
+          "What positive feedback can you share?"
+        ],
+        "vocabulary": ["retention", "transition", "culture", "turnover", "insights"]
+      },
+      {
+        "prompt": "Present a pitch to your team suggesting a four-day workweek trial for the next two months.",
+        "followUps": [
+          "How will the team maintain productivity and client coverage?",
+          "What metrics will you measure during the trial?",
+          "What concerns might leadership raise?"
+        ],
+        "vocabulary": ["productivity", "trial period", "wellbeing", "efficiency", "coverage"]
+      }
+    ]
+  }
+}

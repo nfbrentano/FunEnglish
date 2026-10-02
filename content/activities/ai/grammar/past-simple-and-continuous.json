@@ -1,0 +1,54 @@
+{
+  "slug": "past-simple-and-continuous",
+  "title": "Past Simple and Past Continuous",
+  "description": "Complete sentences describing interrupted actions and past events using the past simple or past continuous.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["past simple", "past continuous", "verbs", "interrupted actions"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/past-simple-and-continuous/thumb.webp",
+    "alt": "An alarm clock ringing while someone is sleeping under a blanket",
+    "source": "ai"
+  },
+  "content": {
+    "mode": "word-bank",
+    "items": [
+      {
+        "text": "While I [[was studying]] in the library, my phone suddenly rang.",
+        "hint": "Action in progress when interrupted."
+      },
+      {
+        "text": "We [[were having]] dinner when the lights went out.",
+        "hint": "Continuous background action in the past."
+      },
+      {
+        "text": "She [[was walking]] in the park when it started to snow.",
+        "hint": "Ongoing action interrupted by a sudden event."
+      },
+      {
+        "text": "What [[were you doing]] when the loud noise occurred?",
+        "hint": "Question about an activity in progress at a specific past moment."
+      },
+      {
+        "text": "He [[lost]] his keys while he was jogging around the lake.",
+        "hint": "Short completed action that happened during an activity."
+      },
+      {
+        "text": "They were watching television while their father [[was cooking]] dinner.",
+        "hint": "Two simultaneous actions in progress in the past."
+      },
+      {
+        "text": "I [[met]] an old friend while I was waiting for the subway.",
+        "hint": "Sudden completed action interrupting a continuous one."
+      },
+      {
+        "text": "The students [[were listening]] attentively when the teacher announced the test.",
+        "hint": "Continuous action in progress in the past."
+      }
+    ],
+    "distractors": ["studied", "had", "walked", "did you do", "was losing", "cooked"]
+  }
+}
