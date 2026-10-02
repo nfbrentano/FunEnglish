@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { LiveActivityPlayer } from "@/components/player/live-activity-player";
 import { PlayerMessage } from "@/components/player/player-message";
 import { getBuildActivities } from "@/lib/catalog/build-data";
+import { activityJsonLd, activityTitle, jsonLdScript, pageMetadata, socialImage } from "@/lib/seo";
 import { strings } from "@/lib/strings";
 
 // Static export: one page per activity published at build time. Activities published later are
@@ -25,7 +26,16 @@ async function find(slug: string) {
 
 export async function generateMetadata({ params }: PageProps<"/play/[slug]">): Promise<Metadata> {
   const activity = (await find((await params).slug))?.activity;
-  return activity ? { title: activity.title, description: activity.description } : {};
+  if (!activity) return {};
+  return pageMetadata({
+    title: activityTitle(activity.title, activity.category),
+    description: activity.description,
+    // Student mode (?mode=student) is the same page: one canonical (RF05, RF08).
+    path: `/play/${activity.slug}`,
+    image: socialImage(activity.thumbnail.src, activity.category),
+    imageAlt: activity.thumbnail.alt,
+    type: "article",
+  });
 }
 
 export default async function PlayPage({ params }: PageProps<"/play/[slug]">) {
@@ -41,5 +51,13 @@ export default async function PlayPage({ params }: PageProps<"/play/[slug]">) {
       </div>
     );
   }
-  return <LiveActivityPlayer activity={entry.activity} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(activityJsonLd(entry.activity)) }}
+      />
+      <LiveActivityPlayer activity={entry.activity} />
+    </>
+  );
 }

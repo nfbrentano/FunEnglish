@@ -10,6 +10,7 @@ export const seeded = dirs.flatMap((dir) =>
     .map(
       (file) =>
         JSON.parse(readFileSync(join(dir, file), "utf8")) as {
+          slug: string;
           status: string;
           category: string;
           title: string;

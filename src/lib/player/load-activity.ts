@@ -33,13 +33,25 @@ async function queryPublished(slug?: string) {
   return snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }));
 }
 
+/** A Firestore Timestamp (or a Date) as an ISO date, for the sitemap's lastModified. */
+function isoDate(value: unknown): string | null {
+  const date =
+    value instanceof Date
+      ? value
+      : typeof (value as { toDate?: unknown })?.toDate === "function"
+        ? (value as { toDate: () => Date }).toDate()
+        : null;
+  return date && !Number.isNaN(date.getTime()) ? date.toISOString() : null;
+}
+
 export async function fetchPublishedActivities(): Promise<
-  { id: string; slug: string; activity: PlayableActivity | null }[]
+  { id: string; slug: string; updatedAt: string | null; activity: PlayableActivity | null }[]
 > {
   const docs = await queryPublished();
   return docs.map(({ id, data }) => ({
     id,
     slug: String((data as { slug?: unknown }).slug ?? id),
+    updatedAt: isoDate((data as { updatedAt?: unknown }).updatedAt),
     activity: toPlayable(id, data),
   }));
 }

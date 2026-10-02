@@ -3,10 +3,15 @@ import Link from "next/link";
 import { ProsePage } from "@/components/layout/prose-page";
 import { FaqAccordion } from "@/components/pages/faq-accordion";
 import { loadFaq } from "@/lib/pages/content";
+import { pageMetadata } from "@/lib/seo";
 
 const faq = loadFaq();
 
-export const metadata: Metadata = { title: "FAQ", description: faq.description };
+export const metadata: Metadata = pageMetadata({
+  title: "FAQ",
+  description: faq.description,
+  path: "/faq",
+});
 
 export default function FaqPage() {
   return (
