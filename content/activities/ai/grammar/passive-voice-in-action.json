@@ -1,0 +1,118 @@
+{
+  "slug": "passive-voice-in-action",
+  "title": "Passive Voice in Action",
+  "description": "Identify and practice active versus passive voice structures used in news reports, science, and history.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["passive voice", "grammar", "verb forms", "past participle"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/passive-voice-in-action/thumb.webp",
+    "alt": "A vintage printing press stamping ink onto a newspaper page",
+    "source": "ai",
+    "prompt": "A vintage printing press stamping ink onto a newspaper page"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Choose the correct passive form of: \"Alexander Fleming discovered penicillin in 1928.\"",
+        "options": [
+          {
+            "text": "Penicillin was discovered by Alexander Fleming in 1928.",
+            "correct": true
+          },
+          { "text": "Penicillin had discovered by Alexander Fleming in 1928." },
+          { "text": "Penicillin is discovered by Alexander Fleming in 1928." },
+          { "text": "Penicillin was discovering by Alexander Fleming in 1928." }
+        ],
+        "explanation": "Past simple passive uses was/were + past participle (was discovered)."
+      },
+      {
+        "prompt": "The ancient castle ___ by thousands of international tourists every summer.",
+        "options": [
+          { "text": "is visited", "correct": true },
+          { "text": "is visiting" },
+          { "text": "visits" },
+          { "text": "was visit" }
+        ],
+        "explanation": "For present simple passive routines, use is/are + past participle (is visited)."
+      },
+      {
+        "prompt": "Which sentence is written in the passive voice?",
+        "options": [
+          {
+            "text": "The suspension bridge was designed by a world-renowned engineer.",
+            "correct": true
+          },
+          {
+            "text": "A world-renowned engineer designed the suspension bridge."
+          },
+          { "text": "The engineer is currently designing the new bridge." },
+          {
+            "text": "Workers finished constructing the bridge ahead of schedule."
+          }
+        ],
+        "explanation": "\"Was designed by\" puts the focus on the bridge rather than the engineer who performed the action."
+      },
+      {
+        "prompt": "Look outside! A modern shopping center ___ in our neighborhood right now.",
+        "options": [
+          { "text": "is being built", "correct": true },
+          { "text": "is building" },
+          { "text": "has built" },
+          { "text": "was built" }
+        ],
+        "explanation": "Present continuous passive uses is/are + being + past participle (is being built)."
+      },
+      {
+        "prompt": "All boarding passes must ___ to security staff before passengers enter the terminal.",
+        "options": [
+          { "text": "be presented", "correct": true },
+          { "text": "present" },
+          { "text": "been presented" },
+          { "text": "being presented" }
+        ],
+        "explanation": "After modal verbs (must, can, should), the passive form is modal + be + past participle."
+      },
+      {
+        "prompt": "Complete the historical fact: \"The Mona Lisa ___ from the Louvre museum in 1911 and recovered two years later.\"",
+        "options": [
+          { "text": "was stolen", "correct": true },
+          { "text": "is stolen" },
+          { "text": "stole" },
+          { "text": "has stolen" }
+        ],
+        "explanation": "Because the theft happened at a specific past time (1911), we use the past simple passive: was stolen."
+      },
+      {
+        "prompt": "Why do journalists and news broadcasts frequently use the passive voice?",
+        "options": [
+          {
+            "text": "To focus on the event itself when the agent is unknown, obvious, or less important.",
+            "correct": true
+          },
+          {
+            "text": "Because active voice is grammatically forbidden in headline news."
+          },
+          { "text": "To make written articles informal and humorous." },
+          {
+            "text": "Because passive sentences are always shorter than active sentences."
+          }
+        ],
+        "explanation": "Passive voice is useful when the action or receiver of the action is the main focus of interest."
+      },
+      {
+        "prompt": "By the time detectives arrived at the gallery, the priceless artifact ___.",
+        "options": [
+          { "text": "had already been taken", "correct": true },
+          { "text": "has already taken" },
+          { "text": "was already taking" },
+          { "text": "is already been taken" }
+        ],
+        "explanation": "For an action completed before another past event, use past perfect passive: had been + past participle."
+      }
+    ]
+  }
+}

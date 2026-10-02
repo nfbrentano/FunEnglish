@@ -6,6 +6,8 @@ export const imageSchema = z.object({
   }),
   alt: z.string().trim().min(1, "Images need alt text"),
   source: z.enum(["ai", "stock", "own"]),
+  /** How to generate it again with an AI image tool (spec: imagens pelo painel, RF01). */
+  prompt: z.string().trim().min(1).max(2000).optional(),
 });
 
 export const youtubeClipSchema = z

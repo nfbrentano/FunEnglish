@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { CATEGORIES } from "@/lib/activities/categories";
@@ -14,12 +14,15 @@ const activities = files.map((file) => ({
 }));
 const published = activities.filter(({ data }) => data.status === "published");
 
-function imagePaths(value: unknown, found: string[] = []): string[] {
-  if (Array.isArray(value)) value.forEach((v) => imagePaths(v, found));
+type ImageRef = { src: string; alt: string; prompt?: string };
+
+function images(value: unknown, found: ImageRef[] = []): ImageRef[] {
+  if (Array.isArray(value)) value.forEach((v) => images(v, found));
   else if (value && typeof value === "object") {
     const record = value as Record<string, unknown>;
-    if (typeof record.src === "string" && typeof record.alt === "string") found.push(record.src);
-    Object.values(record).forEach((v) => imagePaths(v, found));
+    if (typeof record.src === "string" && typeof record.alt === "string")
+      found.push(record as ImageRef);
+    Object.values(record).forEach((v) => images(v, found));
   }
   return found;
 }
@@ -43,19 +46,12 @@ describe("initial catalog", () => {
     },
   );
 
+  // The prompt lives next to the image, so any image can be generated again (spec: imagens pelo
+  // painel, RF01). Uploads from the admin add only .webp files, so this never blocks a deploy.
   it.each(activities.map(({ file, data }) => [file, data] as const))(
     "%s has a prompt for every image",
     (_, data) => {
-      for (const src of imagePaths(data)) {
-        const name = src
-          .split("/")
-          .pop()!
-          .replace(/\.\w+$/, "");
-        expect(
-          existsSync(join("content", "prompts", "images", data.slug, `${name}.txt`)),
-          src,
-        ).toBe(true);
-      }
+      for (const image of images(data)) expect(image.prompt, image.src).toBeTruthy();
     },
   );
 

@@ -12,7 +12,7 @@ export type MissingImage = {
   prompt: string;
 };
 
-type ImageRef = { src: string; alt: string };
+type ImageRef = { src: string; alt: string; prompt?: string };
 
 /** Every { src, alt } object in an activity (thumbnail and content). */
 function collectImages(value: unknown, out: ImageRef[] = []): ImageRef[] {
@@ -20,7 +20,11 @@ function collectImages(value: unknown, out: ImageRef[] = []): ImageRef[] {
   else if (value && typeof value === "object") {
     const object = value as Record<string, unknown>;
     if (typeof object.src === "string" && typeof object.alt === "string")
-      out.push({ src: object.src, alt: object.alt });
+      out.push({
+        src: object.src,
+        alt: object.alt,
+        prompt: typeof object.prompt === "string" ? object.prompt : undefined,
+      });
     for (const child of Object.values(object)) collectImages(child, out);
   }
   return out;
@@ -60,7 +64,8 @@ export function findMissingImages(
           src: image.src,
           alt: image.alt,
           fileName: `${activity.slug}--${name}.png`,
-          prompt: `${subject}. ${style}`,
+          // The prompt saved with the image wins; otherwise build one from the alt (CA08).
+          prompt: image.prompt?.trim() || `${subject}. ${style}`,
         },
       ];
     });

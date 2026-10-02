@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { PUBLISHED } from "./seed-data";
+import { PUBLISHED, publishedCount } from "./seed-data";
 
 // Same seed as catalog.spec.ts (see e2e/seed-data.ts).
 const search = (page: Page) => page.getByRole("searchbox", { name: "Search activities" });
@@ -28,7 +28,7 @@ test("multi-word search", async ({ page }) => {
 
 test("category and level filters", async ({ page }) => {
   await page.getByLabel("Category").selectOption("listening");
-  await expect(count(page)).toHaveText("Showing 3 activities");
+  await expect(count(page)).toHaveText(`Showing ${publishedCount("listening")} activities`);
 
   await page.getByLabel("Category").selectOption("grammar");
   await page.getByLabel("Level").selectOption("beginner");
@@ -39,7 +39,9 @@ test("category and level filters", async ({ page }) => {
   ]);
 
   await page.getByLabel("Level").selectOption("advanced");
-  await expect(count(page)).toHaveText("Showing 6 activities");
+  await expect(count(page)).toHaveText(
+    `Showing ${publishedCount("grammar", "advanced")} activities`,
+  );
   await expect(results(page).getByText("Some or Any")).toHaveCount(0);
 });
 

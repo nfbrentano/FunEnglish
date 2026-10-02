@@ -560,3 +560,218 @@ test("an activity over 200 KB isn't saved (CA17)", async ({ page }) => {
   await expect(page.getByText(/This activity is too large \(\d+ KB; max 200 KB\)\./)).toBeVisible();
   await expect(page).toHaveURL(/\/admin\/edit$/);
 });
+
+// Spec: imagens pelo painel. GitHub is faked: nothing leaves the test machine.
+
+/** A fake api.github.com; `canWrite: false` makes the token read-only. */
+async function fakeGitHub(page: Page, { canWrite = true } = {}) {
+  const calls: { method: string; path: string; body: unknown; auth: string | null }[] = [];
+  await page.route("https://api.github.com/**", async (route) => {
+    const request = route.request();
+    const path = new URL(request.url()).pathname;
+    const body = request.postData() ? JSON.parse(request.postData()!) : undefined;
+    calls.push({
+      method: request.method(),
+      path,
+      body,
+      auth: request.headers()["authorization"] ?? null,
+    });
+    // The page (localhost) calls api.github.com: answer like GitHub does, with CORS headers.
+    const headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type, X-GitHub-Api-Version, Accept",
+      "Access-Control-Allow-Methods": "GET, POST, PATCH, OPTIONS",
+    };
+    const json = (data: unknown, status = 200) =>
+      route.fulfill({
+        status,
+        headers,
+        contentType: "application/json",
+        body: JSON.stringify(data),
+      });
+    if (request.method() === "OPTIONS") return route.fulfill({ status: 204, headers });
+    if (path === "/user") return json({ login: "nfbrentano" });
+    if (path.endsWith("/git/blobs"))
+      return canWrite
+        ? json({ sha: `blob${calls.length}` }, 201)
+        : json({ message: "Resource not accessible" }, 403);
+    if (path.endsWith("/git/ref/heads/main")) return json({ object: { sha: "p" } });
+    if (path.endsWith("/git/commits/p")) return json({ tree: { sha: "t" } });
+    if (path.endsWith("/git/trees")) return json({ sha: "t2" }, 201);
+    if (path.endsWith("/git/commits"))
+      return json({ sha: "c", html_url: "https://github.com/c" }, 201);
+    if (path.endsWith("/git/refs/heads/main")) return json({});
+    return json({ message: "Not Found" }, 404);
+  });
+  return calls;
+}
+
+/** A tiny real PNG (the upload is processed in the browser). */
+const PNG = Buffer.from(
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+  "base64",
+);
+
+test("connect GitHub: a token without write access is refused, a good one is kept only here (CA06, CA07)", async ({
+  page,
+  context,
+}) => {
+  await signUp(page, { admin: true });
+  let calls = await fakeGitHub(page, { canWrite: false });
+  await page.goto("/admin/settings");
+  await page.getByLabel("GitHub token").fill("github_pat_readonly");
+  await page.getByRole("button", { name: "Connect" }).click();
+  await expect(page.locator("#github-error")).toHaveText(
+    /This token can't write to nfbrentano\/FunEnglish/,
+  );
+  expect(await page.evaluate(() => localStorage.getItem("fun-english:github-token"))).toBeNull();
+
+  await page.unroute("https://api.github.com/**");
+  calls = await fakeGitHub(page);
+  const elsewhere: string[] = [];
+  page.on("request", (r) => {
+    if (
+      !r.url().startsWith("https://api.github.com/") &&
+      `${r.url()} ${r.postData() ?? ""}`.includes("github_pat_secret")
+    )
+      elsewhere.push(r.url());
+  });
+  await page.getByLabel("GitHub token").fill("github_pat_secret");
+  await page.getByRole("button", { name: "Connect" }).click();
+  await expect(page.getByText("Connected as nfbrentano")).toBeVisible();
+  await expect(page.getByLabel("GitHub token")).toHaveCount(0);
+  expect(calls.every((c) => c.auth === "Bearer github_pat_secret")).toBe(true);
+
+  // Only in this browser: not in Firestore, not in other requests, not in another browser.
+  const everything = JSON.stringify(
+    await Promise.all(
+      ["users", "activities", "catalog"].map(async (c) =>
+        (await adminDb().collection(c).get()).docs.map((d) => d.data()),
+      ),
+    ),
+  );
+  expect(everything).not.toContain("github_pat_secret");
+  expect(elsewhere).toEqual([]);
+  const other = await context.browser()!.newPage();
+  expect(
+    await other.evaluate(() => localStorage.getItem("fun-english:github-token")).catch(() => null),
+  ).toBeNull();
+  await other.close();
+});
+
+test("upload an image from the editor: one commit, src filled, live after the deploy (CA04)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  const calls = await fakeGitHub(page);
+  await page.addInitScript(() =>
+    localStorage.setItem("fun-english:github-token", "github_pat_e2e"),
+  );
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Fixture Grammar 2" }).click();
+  const thumb = page.getByRole("group", { name: "Thumbnail (card image, 16:10)" });
+
+  await thumb.getByRole("button", { name: "Write prompt from alt" }).click();
+  await expect(thumb.getByLabel("Image prompt")).toHaveValue(
+    /^Thumbnail of Fixture Grammar 2\. Flat vector illustration/,
+  );
+
+  await thumb.getByLabel("Choose an image file").setInputFiles({
+    name: "thumb.png",
+    mimeType: "image/png",
+    buffer: PNG,
+  });
+  await expect(
+    thumb.getByText("Uploaded. It goes live after the next deploy (~3 min)."),
+  ).toBeVisible();
+  const tree = calls.find((c) => c.path.endsWith("/git/trees"))!.body as {
+    tree: { path: string }[];
+  };
+  expect(tree.tree.map((t) => t.path)).toEqual([
+    "public/images/activities/fixture-grammar-2/thumb.webp",
+  ]);
+  expect(
+    calls.find((c) => c.path.endsWith("/git/commits") && c.method === "POST")!.body,
+  ).toMatchObject({
+    message: "content(images): fixture-grammar-2/thumb.webp (via admin panel)",
+  });
+  await expect(thumb.getByLabel("Thumbnail path or URL")).toHaveValue(
+    "/images/activities/fixture-grammar-2/thumb.webp",
+  );
+
+  // The prompt is saved with the activity.
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Saved", { exact: true })).toBeVisible();
+  const doc = (
+    await adminDb().collection("activities").where("slug", "==", "fixture-grammar-2").get()
+  ).docs[0];
+  expect(doc.get("thumbnail.prompt")).toMatch(/^Thumbnail of Fixture Grammar 2\./);
+});
+
+test("missing images: the saved prompt, and several uploads in one commit (CA05, CA08)", async ({
+  page,
+}) => {
+  const db = adminDb();
+  const slug = `upload-many-${Date.now()}`;
+  await db.collection("activities").add({
+    ...aiQuiz(slug),
+    status: "draft",
+    featured: false,
+    origin: "human",
+    reviewStatus: "reviewed",
+    thumbnail: {
+      src: `/images/activities/${slug}/thumb.webp`,
+      alt: "A desk",
+      source: "ai",
+      prompt: "My own saved prompt for the desk.",
+    },
+    content: {
+      questions: [
+        {
+          prompt: "Look.",
+          media: {
+            kind: "image",
+            src: `/images/activities/${slug}/lamp.webp`,
+            alt: "A lamp",
+            source: "ai",
+          },
+          options: [{ text: "a", correct: true }, { text: "b" }],
+        },
+      ],
+    },
+    searchTokens: [],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
+  await signUp(page, { admin: true });
+  const calls = await fakeGitHub(page);
+  await page.addInitScript(() =>
+    localStorage.setItem("fun-english:github-token", "github_pat_e2e"),
+  );
+  await page.goto("/admin/images");
+  const thumbItem = page.getByRole("listitem").filter({ hasText: `${slug}--thumb.png` });
+  await expect(thumbItem).toContainText("My own saved prompt for the desk.");
+  await expect(page.getByRole("listitem").filter({ hasText: `${slug}--lamp.png` })).toContainText(
+    "A lamp. Flat vector illustration",
+  );
+
+  await page.getByLabel("Upload several", { exact: true }).setInputFiles([
+    { name: `${slug}--thumb.png`, mimeType: "image/png", buffer: PNG },
+    { name: `${slug}--lamp.png`, mimeType: "image/png", buffer: PNG },
+    { name: "not-in-the-list.png", mimeType: "image/png", buffer: PNG },
+  ]);
+  await expect(page.getByText("Skipped (name not in the list): not-in-the-list.png")).toBeVisible();
+  await expect(
+    page.getByText("Uploaded. It goes live after the next deploy (~3 min).").first(),
+  ).toBeVisible();
+  expect(calls.filter((c) => c.path.endsWith("/git/commits") && c.method === "POST")).toHaveLength(
+    1,
+  );
+  const tree = calls.find((c) => c.path.endsWith("/git/trees"))!.body as {
+    tree: { path: string }[];
+  };
+  expect(tree.tree.map((t) => t.path).sort()).toEqual([
+    `public/images/activities/${slug}/lamp.webp`,
+    `public/images/activities/${slug}/thumb.webp`,
+  ]);
+});

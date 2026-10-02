@@ -11,7 +11,8 @@
   "thumbnail": {
     "src": "/images/activities/listening-weather-forecasts/thumb.webp",
     "alt": "A sun and a cloud with rain on a map",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "A sun and a cloud with rain on a map"
   },
   "content": {
     "questions": [
@@ -22,19 +23,10 @@
           "text": "Good morning! It's going to be a wet and windy day today. Don't forget your umbrella when you leave the house."
         },
         "options": [
-          {
-            "text": "An umbrella",
-            "correct": true
-          },
-          {
-            "text": "Sunglasses"
-          },
-          {
-            "text": "A sun hat"
-          },
-          {
-            "text": "A swimsuit"
-          }
+          { "text": "An umbrella", "correct": true },
+          { "text": "Sunglasses" },
+          { "text": "A sun hat" },
+          { "text": "A swimsuit" }
         ],
         "explanation": "The weather is wet and windy, so you need an umbrella."
       },
@@ -45,19 +37,10 @@
           "text": "Welcome to the weekend! We have clear blue skies and the temperature will reach 86 degrees."
         },
         "options": [
-          {
-            "text": "Sunny and hot",
-            "correct": true
-          },
-          {
-            "text": "Cold and snowy"
-          },
-          {
-            "text": "Cloudy and cool"
-          },
-          {
-            "text": "Rainy and warm"
-          }
+          { "text": "Sunny and hot", "correct": true },
+          { "text": "Cold and snowy" },
+          { "text": "Cloudy and cool" },
+          { "text": "Rainy and warm" }
         ],
         "explanation": "Clear blue skies and 86 degrees (30 °C) means it is sunny and hot."
       },
@@ -68,19 +51,10 @@
           "text": "It will be mostly cloudy today with a chance of thunderstorms in the afternoon. Stay indoors if you hear thunder."
         },
         "options": [
-          {
-            "text": "No, it might storm.",
-            "correct": true
-          },
-          {
-            "text": "Yes, it is very sunny."
-          },
-          {
-            "text": "Yes, but only in the morning."
-          },
-          {
-            "text": "No, it is snowing."
-          }
+          { "text": "No, it might storm.", "correct": true },
+          { "text": "Yes, it is very sunny." },
+          { "text": "Yes, but only in the morning." },
+          { "text": "No, it is snowing." }
         ],
         "explanation": "There is a chance of thunderstorms, so it is not a good day for the beach."
       },
@@ -91,19 +65,10 @@
           "text": "Today will be nice and warm, but temperatures will drop below freezing tonight, so cover your plants."
         },
         "options": [
-          {
-            "text": "It gets very cold.",
-            "correct": true
-          },
-          {
-            "text": "It starts to rain."
-          },
-          {
-            "text": "The wind stops."
-          },
-          {
-            "text": "It gets very hot."
-          }
+          { "text": "It gets very cold.", "correct": true },
+          { "text": "It starts to rain." },
+          { "text": "The wind stops." },
+          { "text": "It gets very hot." }
         ],
         "explanation": "Temperatures will drop below freezing, which means it gets very cold."
       },
@@ -114,19 +79,10 @@
           "text": "Drivers, please be careful this morning. There is thick fog on the roads and visibility is very low."
         },
         "options": [
-          {
-            "text": "They cannot see well.",
-            "correct": true
-          },
-          {
-            "text": "The roads are closed."
-          },
-          {
-            "text": "There is too much traffic."
-          },
-          {
-            "text": "The roads are covered in ice."
-          }
+          { "text": "They cannot see well.", "correct": true },
+          { "text": "The roads are closed." },
+          { "text": "There is too much traffic." },
+          { "text": "The roads are covered in ice." }
         ],
         "explanation": "Thick fog makes visibility low, so drivers cannot see well."
       },
@@ -137,19 +93,10 @@
           "text": "The rain will continue today and tonight, but it will clear up by tomorrow morning for a beautiful Sunday."
         },
         "options": [
-          {
-            "text": "Nice and clear",
-            "correct": true
-          },
-          {
-            "text": "Rainy all day"
-          },
-          {
-            "text": "Cold and windy"
-          },
-          {
-            "text": "Snowy"
-          }
+          { "text": "Nice and clear", "correct": true },
+          { "text": "Rainy all day" },
+          { "text": "Cold and windy" },
+          { "text": "Snowy" }
         ],
         "explanation": "It will clear up by tomorrow morning, meaning the rain stops and it is nice."
       },
@@ -160,19 +107,10 @@
           "text": "It's quite chilly out there today with a strong breeze from the north. You'll definitely want a warm coat."
         },
         "options": [
-          {
-            "text": "Yes, because it is cold and windy.",
-            "correct": true
-          },
-          {
-            "text": "No, it is very warm."
-          },
-          {
-            "text": "Yes, because it is raining."
-          },
-          {
-            "text": "No, the wind is warm."
-          }
+          { "text": "Yes, because it is cold and windy.", "correct": true },
+          { "text": "No, it is very warm." },
+          { "text": "Yes, because it is raining." },
+          { "text": "No, the wind is warm." }
         ],
         "explanation": "\"Chilly\" means cold, and you will want a warm coat."
       },
@@ -183,19 +121,10 @@
           "text": "A severe blizzard warning is in effect. Expect heavy snow and very strong winds all night."
         },
         "options": [
-          {
-            "text": "A big snowstorm with wind",
-            "correct": true
-          },
-          {
-            "text": "A heavy rainstorm"
-          },
-          {
-            "text": "A very hot day"
-          },
-          {
-            "text": "A tornado"
-          }
+          { "text": "A big snowstorm with wind", "correct": true },
+          { "text": "A heavy rainstorm" },
+          { "text": "A very hot day" },
+          { "text": "A tornado" }
         ],
         "explanation": "A blizzard involves heavy snow and strong winds."
       }

@@ -14,7 +14,8 @@
   "thumbnail": {
     "src": "/images/activities/this-or-that-1/thumb.webp",
     "alt": "Two doors side by side, one blue and one orange",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "Two doors side by side, one blue and one orange. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
   },
   "content": {
     "writing": false,

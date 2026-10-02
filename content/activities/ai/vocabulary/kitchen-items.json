@@ -14,7 +14,8 @@
   "thumbnail": {
     "src": "/images/activities/kitchen-items/thumb.webp",
     "alt": "Illustrated kitchen shelf with pots, cups and a kettle",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "Illustrated kitchen shelf with pots, cups and a kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
   },
   "content": {
     "cards": [
@@ -23,7 +24,8 @@
           "image": {
             "src": "/images/activities/kitchen-items/kettle.webp",
             "alt": "A kettle",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A kettle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
           }
         },
         "back": {
@@ -37,7 +39,8 @@
           "image": {
             "src": "/images/activities/kitchen-items/frying-pan.webp",
             "alt": "A frying pan",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A frying pan. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
           }
         },
         "back": {
@@ -51,7 +54,8 @@
           "image": {
             "src": "/images/activities/kitchen-items/cutting-board.webp",
             "alt": "A wooden cutting board",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A wooden cutting board. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
           }
         },
         "back": {
@@ -65,7 +69,8 @@
           "image": {
             "src": "/images/activities/kitchen-items/whisk.webp",
             "alt": "A metal whisk",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A metal whisk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
           }
         },
         "back": {

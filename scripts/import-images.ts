@@ -1,7 +1,8 @@
 /**
  * Imports AI-generated images into public/images/activities/.
  *
- * Save every generated image in ONE folder, named exactly as its prompt says:
+ * Save every generated image in ONE folder, named <slug>--<name> after its src
+ * (/images/activities/<slug>/<name>.webp; the admin "Missing images" page shows each name):
  *   <slug>--<name>.png   (or .jpg / .webp), e.g. emoji-idioms--thumb.png
  * Then run:
  *   npm run images:import -- ~/Downloads/fun-english-images
@@ -9,25 +10,31 @@
  * Each image is resized (thumbnails cropped to 1280×800, others up to 1600 px wide), converted to
  * WebP ≤ 200 KB and saved at public/images/activities/<slug>/<name>.webp.
  */
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
 import sharp from "sharp";
 
-const PROMPTS_DIR = join(process.cwd(), "content", "prompts", "images");
+const CONTENT_DIR = join(process.cwd(), "content", "activities");
 const OUTPUT_DIR = join(process.cwd(), "public", "images", "activities");
 const MAX_BYTES = 200 * 1024;
 const FILE_NAME =
   /^([a-z0-9]+(?:-[a-z0-9]+)*)--([a-z0-9]+(?:-[a-z0-9]+)*)\.(png|jpe?g|webp|avif)$/i;
 
-/** Every image the content expects, from content/prompts/images/<slug>/<name>.txt. */
+/** Every image the activities in content/activities use: "<slug>/<name>" of /images/activities/<slug>/<name>.webp. */
 function expectedImages(): Set<string> {
   const expected = new Set<string>();
-  for (const slug of readdirSync(PROMPTS_DIR)) {
-    if (!statSync(join(PROMPTS_DIR, slug)).isDirectory()) continue;
-    for (const file of readdirSync(join(PROMPTS_DIR, slug))) {
-      if (file.endsWith(".txt")) expected.add(`${slug}/${file.slice(0, -4)}`);
+  const walk = (node: unknown) => {
+    if (Array.isArray(node)) node.forEach(walk);
+    else if (node && typeof node === "object") {
+      const src = (node as { src?: unknown }).src;
+      const match = typeof src === "string" ? /^\/images\/activities\/(.+)\.webp$/.exec(src) : null;
+      if (match) expected.add(match[1]);
+      Object.values(node).forEach(walk);
     }
+  };
+  for (const file of readdirSync(CONTENT_DIR, { recursive: true, encoding: "utf8" })) {
+    if (file.endsWith(".json")) walk(JSON.parse(readFileSync(join(CONTENT_DIR, file), "utf8")));
   }
   return expected;
 }

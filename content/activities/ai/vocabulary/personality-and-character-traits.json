@@ -1,0 +1,111 @@
+{
+  "slug": "personality-and-character-traits",
+  "title": "Personality and Character Traits",
+  "description": "Explore key adjectives to describe personalities, behavior, and character with definitions and examples.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": ["adjectives", "personality", "character", "describing people"],
+  "status": "published",
+  "thumbnail": {
+    "src": "/images/activities/personality-and-character-traits/thumb.webp",
+    "alt": "A group of diverse smiling people expressing different emotions and attitudes",
+    "source": "ai",
+    "prompt": "A group of diverse smiling people expressing different emotions and friendly attitudes"
+  },
+  "content": {
+    "cards": [
+      {
+        "front": { "text": "outgoing" },
+        "back": {
+          "text": "outgoing",
+          "definition": "Friendly and socially confident, enjoying the company of others.",
+          "example": "Sara is very outgoing and makes friends wherever she goes."
+        },
+        "speak": "outgoing"
+      },
+      {
+        "front": { "text": "reliable" },
+        "back": {
+          "text": "reliable",
+          "definition": "Consistently good in quality or performance; able to be trusted.",
+          "example": "You can always count on Mark; he is the most reliable person on our team."
+        },
+        "speak": "reliable"
+      },
+      {
+        "front": { "text": "ambitious" },
+        "back": {
+          "text": "ambitious",
+          "definition": "Having a strong desire and determination to succeed in life.",
+          "example": "The ambitious student launched two tech projects before graduating."
+        },
+        "speak": "ambitious"
+      },
+      {
+        "front": { "text": "generous" },
+        "back": {
+          "text": "generous",
+          "definition": "Willing to give more money, time, or help than is expected.",
+          "example": "Our neighbors were generous enough to share their fresh produce with us."
+        },
+        "speak": "generous"
+      },
+      {
+        "front": { "text": "stubborn" },
+        "back": {
+          "text": "stubborn",
+          "definition": "Determined not to change one's attitude or opinion on something.",
+          "example": "He refused to ask for directions because he was too stubborn to admit he was lost."
+        },
+        "speak": "stubborn"
+      },
+      {
+        "front": { "text": "clumsy" },
+        "back": {
+          "text": "clumsy",
+          "definition": "Awkward in movement or in handling things; prone to accidents.",
+          "example": "I felt clumsy this morning when I dropped my cup and spilled my tea."
+        },
+        "speak": "clumsy"
+      },
+      {
+        "front": { "text": "patient" },
+        "back": {
+          "text": "patient",
+          "definition": "Able to accept or tolerate delays or problems without becoming annoyed.",
+          "example": "Teaching requires a calm and patient mindset."
+        },
+        "speak": "patient"
+      },
+      {
+        "front": { "text": "curious" },
+        "back": {
+          "text": "curious",
+          "definition": "Eager to know or learn something new.",
+          "example": "The curious child asked questions about how the solar system works."
+        },
+        "speak": "curious"
+      },
+      {
+        "front": { "text": "witty" },
+        "back": {
+          "text": "witty",
+          "definition": "Showing quick and inventive verbal humor.",
+          "example": "Everyone laughed at her witty remarks during the presentation."
+        },
+        "speak": "witty"
+      },
+      {
+        "front": { "text": "empathetic" },
+        "back": {
+          "text": "empathetic",
+          "definition": "Showing an ability to understand and share the feelings of another.",
+          "example": "A good counselor is empathetic and listens without judging."
+        },
+        "speak": "empathetic"
+      }
+    ]
+  }
+}

@@ -11,7 +11,8 @@
   "thumbnail": {
     "src": "/images/activities/travel-vocabulary/thumb.webp",
     "alt": "A suitcase and a passport on a table",
-    "source": "ai"
+    "source": "ai",
+    "prompt": "A suitcase and a passport on a table"
   },
   "content": {
     "cards": [
@@ -20,7 +21,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/luggage.webp",
             "alt": "Several suitcases and bags",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "Several suitcases and bags"
           }
         },
         "back": {
@@ -35,7 +37,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/passport.webp",
             "alt": "A blue passport book",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A blue passport book"
           }
         },
         "back": {
@@ -50,7 +53,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/ticket.webp",
             "alt": "A plane ticket",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A plane ticket"
           }
         },
         "back": {
@@ -65,7 +69,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/flight-attendant.webp",
             "alt": "A person working on an airplane, serving drinks",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A person working on an airplane, serving drinks"
           }
         },
         "back": {
@@ -80,7 +85,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/hotel.webp",
             "alt": "A large building with many windows and a reception desk",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A large building with many windows and a reception desk"
           }
         },
         "back": {
@@ -95,7 +101,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/tour-guide.webp",
             "alt": "A person pointing at a famous building, talking to a group",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A person pointing at a famous building, talking to a group"
           }
         },
         "back": {
@@ -110,7 +117,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/souvenir.webp",
             "alt": "A small object bought as a memory, like a magnet or a mug",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A small object bought as a memory, like a magnet or a mug"
           }
         },
         "back": {
@@ -125,7 +133,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/customs.webp",
             "alt": "A desk at an airport where officials check bags",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A desk at an airport where officials check bags"
           }
         },
         "back": {
@@ -140,7 +149,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/reservation.webp",
             "alt": "A calendar and a phone booking a date",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "A calendar and a phone booking a date"
           }
         },
         "back": {
@@ -155,7 +165,8 @@
           "image": {
             "src": "/images/activities/travel-vocabulary/departure.webp",
             "alt": "An airport sign showing planes taking off",
-            "source": "ai"
+            "source": "ai",
+            "prompt": "An airport sign showing planes taking off"
           }
         },
         "back": {

@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, relative } from "node:path";
 import { FieldValue } from "firebase-admin/firestore";
@@ -131,5 +131,97 @@ describe("Firestore is the source of truth (spec: gestão completa)", () => {
       ["a-draft", "edited-in-panel", "published-one", "present-perfect-quiz"].sort(),
     );
     expect(files).toContain("ai/grammar/edited-in-panel.json");
+  });
+});
+
+describe("images:migrate-prompts (spec: imagens pelo painel, CA02)", () => {
+  it("writes each .txt prompt into the matching image, in Firestore and in the files", async () => {
+    const root = mkdtempSync(join(tmpdir(), "migrate-"));
+    const prompts = join(root, "prompts");
+    const content = join(root, "content");
+    mkdirSync(join(prompts, "migrate-me"), { recursive: true });
+    mkdirSync(join(content, "ai", "grammar"), { recursive: true });
+    writeFileSync(
+      join(prompts, "migrate-me", "thumb.txt"),
+      "NOME DO ARQUIVO: x\n\nPROMPT (copie tudo abaixo):\nA tidy desk. Flat style.\n",
+    );
+    writeFileSync(join(prompts, "migrate-me", "gone.txt"), "PROMPT:\nNo image uses this.\n");
+    const quiz = {
+      ...validQuiz(),
+      slug: "migrate-me",
+      thumbnail: { src: "/images/activities/migrate-me/thumb.webp", alt: "A desk", source: "ai" },
+    };
+    writeFileSync(join(content, "ai", "grammar", "migrate-me.json"), JSON.stringify(quiz));
+    await upsertActivities(
+      db,
+      prepareSeed([{ path: "ai/grammar/m.json", contents: JSON.stringify(quiz) }]).activities.map(
+        (a) => a.doc,
+      ),
+    );
+
+    const output = execFileSync(
+      "npx",
+      [
+        "tsx",
+        "scripts/migrate-image-prompts.ts",
+        "--emulator",
+        `--prompts=${relative(process.cwd(), prompts)}`,
+        `--content=${relative(process.cwd(), content)}`,
+      ],
+      { env: process.env, encoding: "utf8" },
+    );
+
+    const stored = (
+      await db.collection(ACTIVITIES_COLLECTION).where("slug", "==", "migrate-me").get()
+    ).docs[0];
+    expect(stored.get("thumbnail.prompt")).toBe("A tidy desk. Flat style.");
+    const file = JSON.parse(
+      readFileSync(join(content, "ai", "grammar", "migrate-me.json"), "utf8"),
+    );
+    expect(file.thumbnail.prompt).toBe("A tidy desk. Flat style.");
+    expect(output).toContain("/images/activities/migrate-me/gone.webp");
+  });
+});
+
+describe("images:migrate-prompts without .txt files", () => {
+  it("copies the prompts already in the activity files to Firestore", async () => {
+    const root = mkdtempSync(join(tmpdir(), "migrate-files-"));
+    const content = join(root, "content");
+    mkdirSync(join(content, "ai", "grammar"), { recursive: true });
+    const quiz = {
+      ...validQuiz(),
+      slug: "prompt-in-file",
+      thumbnail: {
+        src: "/images/activities/prompt-in-file/thumb.webp",
+        alt: "A desk",
+        source: "ai",
+      },
+    };
+    await upsertActivities(
+      db,
+      prepareSeed([{ path: "ai/grammar/p.json", contents: JSON.stringify(quiz) }]).activities.map(
+        (a) => a.doc,
+      ),
+    );
+    writeFileSync(
+      join(content, "ai", "grammar", "prompt-in-file.json"),
+      JSON.stringify({ ...quiz, thumbnail: { ...quiz.thumbnail, prompt: "From the file." } }),
+    );
+
+    execFileSync(
+      "npx",
+      [
+        "tsx",
+        "scripts/migrate-image-prompts.ts",
+        "--emulator",
+        "--prompts=does-not-exist",
+        `--content=${relative(process.cwd(), content)}`,
+      ],
+      { env: process.env, encoding: "utf8" },
+    );
+    const stored = (
+      await db.collection(ACTIVITIES_COLLECTION).where("slug", "==", "prompt-in-file").get()
+    ).docs[0];
+    expect(stored.get("thumbnail.prompt")).toBe("From the file.");
   });
 });

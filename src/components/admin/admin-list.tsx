@@ -1,6 +1,15 @@
 "use client";
 
-import { BarChart3, Download, ExternalLink, ImageOff, Plus, Star, Upload } from "lucide-react";
+import {
+  BarChart3,
+  Download,
+  ExternalLink,
+  ImageOff,
+  Plus,
+  Settings,
+  Star,
+  Upload,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -232,6 +241,10 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
           <Link href="/admin/coverage" className={buttonClasses("ghost")}>
             <BarChart3 aria-hidden="true" className="size-4" />
             {l.coverage}
+          </Link>
+          <Link href="/admin/settings" className={buttonClasses("ghost")}>
+            <Settings aria-hidden="true" className="size-4" />
+            {strings.admin.settings.title}
           </Link>
           <Link href="/admin/images" className={buttonClasses("ghost")}>
             <ImageOff aria-hidden="true" className="size-4" />

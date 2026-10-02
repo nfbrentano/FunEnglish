@@ -28,6 +28,7 @@ palette (nfgbrentano.art.br): calm, warm, minimal, with a touch of gold.
 
 ## Workflow
 
-The step-by-step list of all images, with the exact file name for each one, is in
-[`images/README.md`](images/README.md). In short: generate each image, save it in one folder as
-`<slug>--<name>.png` and run `npm run images:import -- <folder>`.
+Each image's prompt is stored in the activity JSON (`prompt`, next to `src` and `alt`): the
+subject from the `alt` text followed by the style above. In the admin editor, **Write prompt from
+alt** builds it, **Copy prompt** copies it and **Upload image** sends the generated file. Details
+and the terminal alternative: [`images/README.md`](images/README.md).
