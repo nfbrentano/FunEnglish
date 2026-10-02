@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Plus, Upload } from "lucide-react";
+import { Download, ExternalLink, Plus, Upload } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -11,7 +11,12 @@ import { useToast } from "@/components/ui/toast";
 import { CATEGORIES, getCategory } from "@/lib/activities/categories";
 import { ACTIVITY_TYPES } from "@/lib/activities/schema/activity";
 import { validateActivity } from "@/lib/activities/validate";
-import { listActivities, saveActivity, type AdminActivity } from "@/lib/admin/activities-admin";
+import {
+  exportAllActivities,
+  listActivities,
+  saveActivity,
+  type AdminActivity,
+} from "@/lib/admin/activities-admin";
 import {
   filterAdminActivities,
   NO_ADMIN_FILTERS,
@@ -61,7 +66,7 @@ export function AdminList() {
       );
       const result = validateActivity({ ...rest, status: "draft" });
       if (!result.ok) throw new Error(result.errors.join("\n"));
-      const id = await saveActivity(null, {
+      const { id } = await saveActivity(null, {
         ...result.activity,
         origin: (rest.origin as AdminActivity["origin"]) ?? "human",
         reviewStatus: (rest.reviewStatus as AdminActivity["reviewStatus"]) ?? "pending",
@@ -70,6 +75,23 @@ export function AdminList() {
     } catch (error) {
       console.warn("Import failed", error);
       toast(strings.admin.importError);
+    }
+  }
+
+  async function exportAll() {
+    try {
+      const all = await exportAllActivities();
+      const blob = new Blob([JSON.stringify(all, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const date = new Date().toISOString().slice(0, 10);
+      Object.assign(document.createElement("a"), {
+        href: url,
+        download: `fun-english-activities-${date}.json`,
+      }).click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.warn("Export failed", error);
+      toast(strings.admin.saveError);
     }
   }
 
@@ -105,6 +127,10 @@ export function AdminList() {
               event.target.value = "";
             }}
           />
+          <button type="button" className={buttonClasses("secondary")} onClick={exportAll}>
+            <Download aria-hidden="true" className="size-4" />
+            {strings.admin.exportAll}
+          </button>
           <a
             href={REBUILD_URL}
             target="_blank"

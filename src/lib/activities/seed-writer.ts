@@ -3,37 +3,54 @@ import { ACTIVITIES_COLLECTION } from "./collections";
 import { buildCatalogIndex } from "../catalog/sections";
 import { CATALOG_COLLECTION, CATALOG_INDEX_DOC } from "../catalog/schema";
 import type { ActivityDoc } from "./schema/activity";
-import type { SeedDoc } from "./seed";
+import { seedDecision, type SeedDoc } from "./seed";
 
 export { ACTIVITIES_COLLECTION };
 
-/** Creates or replaces each activity, matched by slug. createdAt is kept on updates. */
-export async function upsertActivities(db: Firestore, docs: readonly SeedDoc[]) {
+/**
+ * Creates or replaces each activity, matched by slug; createdAt is kept on updates. Activities
+ * edited in the admin panel after their file are skipped unless `force` (see seedDecision).
+ */
+export async function upsertActivities(
+  db: Firestore,
+  docs: readonly SeedDoc[],
+  { force = false }: { force?: boolean } = {},
+) {
   const collection = db.collection(ACTIVITIES_COLLECTION);
   let created = 0;
   let updated = 0;
+  /** Slugs kept because they were edited in the admin panel after the file. */
+  const skipped: string[] = [];
 
   for (const doc of docs) {
     // Firestore rejects `undefined`; a JSON round-trip drops those keys from the plain data.
-    const data = JSON.parse(JSON.stringify(doc)) as SeedDoc;
+    const { editedInPanelAt, ...data } = JSON.parse(JSON.stringify(doc)) as SeedDoc;
+    // Stored as a Timestamp, like the panel writes it.
+    const panelFields = editedInPanelAt ? { editedInPanelAt: new Date(editedInPanelAt) } : {};
     const existing = await collection.where("slug", "==", doc.slug).limit(1).get();
     const now = FieldValue.serverTimestamp();
 
     if (existing.empty) {
-      await collection.add({ ...data, createdAt: now, updatedAt: now });
+      await collection.add({ ...data, ...panelFields, createdAt: now, updatedAt: now });
       created++;
-    } else {
-      const current = existing.docs[0];
-      await current.ref.set({
-        ...data,
-        createdAt: current.get("createdAt") ?? now,
-        updatedAt: now,
-      });
-      updated++;
+      continue;
     }
+    const current = existing.docs[0];
+    const edited = current.get("editedInPanelAt") as { toDate(): Date } | undefined;
+    if (seedDecision(edited?.toDate() ?? null, editedInPanelAt, force) === "skip") {
+      skipped.push(doc.slug);
+      continue;
+    }
+    await current.ref.set({
+      ...data,
+      ...panelFields,
+      createdAt: current.get("createdAt") ?? now,
+      updatedAt: now,
+    });
+    updated++;
   }
 
-  return { created, updated };
+  return { created, updated, skipped };
 }
 
 /** Regenerates `catalog/index` from the published activities (spec: catálogo de atividades, RNF01). */

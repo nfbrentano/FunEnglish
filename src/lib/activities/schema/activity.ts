@@ -44,6 +44,11 @@ const baseFields = {
   reviewStatus: z.enum(["pending", "reviewed"]).optional(),
   reviewedAt: z.iso.datetime().optional(),
   reviewedBy: nonEmptyText.optional(),
+  /**
+   * Last save in the admin panel. Firestore is the source of truth: the seed won't overwrite an
+   * activity edited in the panel after this date (spec: gestão completa, RF09).
+   */
+  editedInPanelAt: z.iso.datetime().optional(),
 };
 
 /** An activity as authored (JSON file or admin editor), before server-managed fields are added. */

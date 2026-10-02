@@ -7,11 +7,13 @@ import {
   getDoc,
   getDocs,
   query,
+  runTransaction,
   serverTimestamp,
   setDoc,
   where,
 } from "firebase/firestore/lite";
 import { ACTIVITIES_COLLECTION } from "../activities/collections";
+import { toSeedJson } from "../activities/export";
 import type { ActivityDoc, ActivityInput } from "../activities/schema/activity";
 import { buildSearchTokens } from "../activities/search";
 import { buildCatalogIndex } from "../catalog/sections";
@@ -35,8 +37,15 @@ const toDate = (value: unknown) =>
 const activities = () => collection(getLiteDb(), ACTIVITIES_COLLECTION);
 
 function fromFirestore(id: string, data: Record<string, unknown>): AdminActivity {
+  // Server-managed fields stay out of what the editor edits and saves back.
+  const {
+    searchTokens: _tokens,
+    editedInPanelAt: _edited,
+    ...authored
+  } = data as Record<string, unknown> & { searchTokens?: unknown; editedInPanelAt?: unknown };
+  void [_tokens, _edited];
   return {
-    ...(data as unknown as ActivityInput),
+    ...(authored as unknown as ActivityInput),
     id,
     origin: (data.origin as AdminActivity["origin"]) ?? "human",
     reviewStatus: (data.reviewStatus as AdminActivity["reviewStatus"]) ?? "reviewed",
@@ -63,20 +72,58 @@ export async function isSlugTaken(slug: string, exceptId: string | null): Promis
 
 type SaveInput = Omit<AdminActivity, "id" | "createdAt" | "updatedAt">;
 
-/** Creates or updates an activity, then refreshes catalog/index. Returns the id. */
-export async function saveActivity(id: string | null, input: SaveInput): Promise<string> {
+/** Someone saved the activity after the editor loaded it (spec: gestão completa, RF12). */
+export class SaveConflictError extends Error {
+  constructor() {
+    super("The activity was saved by someone else after it was opened");
+  }
+}
+
+export type SaveOptions = {
+  /** `updatedAt` the editor loaded; a different one on the server means a conflict. */
+  expectedUpdatedAt?: Date | null;
+  /** Save anyway ("Overwrite"). */
+  force?: boolean;
+};
+
+/**
+ * Creates or updates an activity, then refreshes catalog/index. Returns the id and the new
+ * `updatedAt`. The conflict check and the write happen in one transaction.
+ */
+export async function saveActivity(
+  id: string | null,
+  input: SaveInput,
+  { expectedUpdatedAt, force = false }: SaveOptions = {},
+): Promise<{ id: string; updatedAt: Date | null }> {
+  const db = getLiteDb();
   const ref = id ? doc(activities(), id) : doc(activities());
-  const existing = id ? await getDoc(ref) : null;
   // Firestore rejects undefined; a JSON round-trip drops those keys.
   const data = JSON.parse(JSON.stringify(input)) as SaveInput;
-  await setDoc(ref, {
-    ...data,
-    searchTokens: buildSearchTokens(input.title, input.tags),
-    createdAt: existing?.exists() ? existing.get("createdAt") : serverTimestamp(),
-    updatedAt: serverTimestamp(),
+  await runTransaction(db, async (transaction) => {
+    const existing = id ? await transaction.get(ref) : null;
+    if (existing?.exists() && !force && expectedUpdatedAt !== undefined) {
+      const current = toDate(existing.get("updatedAt"))?.getTime() ?? null;
+      if (current !== (expectedUpdatedAt?.getTime() ?? null)) throw new SaveConflictError();
+    }
+    transaction.set(ref, {
+      ...data,
+      searchTokens: buildSearchTokens(input.title, input.tags),
+      createdAt: existing?.exists() ? existing.get("createdAt") : serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      // Firestore is the source of truth: the seed won't overwrite this edit (RF09).
+      editedInPanelAt: serverTimestamp(),
+    });
   });
-  await rebuildCatalogIndex();
-  return ref.id;
+  const [saved] = await Promise.all([getDoc(ref), rebuildCatalogIndex()]);
+  return { id: ref.id, updatedAt: toDate(saved.get("updatedAt")) };
+}
+
+/** Every activity in the content/activities file format, for "Export all" (RF10). */
+export async function exportAllActivities(): Promise<Record<string, unknown>[]> {
+  const snapshot = await getDocs(activities());
+  return snapshot.docs
+    .map((d) => toSeedJson(d.data()))
+    .sort((a, b) => String(a.slug).localeCompare(String(b.slug)));
 }
 
 export async function deleteActivity(id: string): Promise<void> {

@@ -17,6 +17,8 @@
     "seed": "tsx scripts/seed.ts",
     "seed:check": "tsx scripts/seed.ts --dry-run",
     "seed:emulator": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 FIREBASE_PROJECT_ID=demo-fun-english tsx scripts/seed.ts",
+    "content:pull": "tsx scripts/content-pull.ts",
+    "content:pull:emulator": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 FIREBASE_PROJECT_ID=demo-fun-english tsx scripts/content-pull.ts",
     "test:emulator": "firebase emulators:exec --only firestore --project demo-fun-english \"vitest run --config vitest.emulator.config.mts\"",
     "preview": "firebase emulators:start --only hosting --project demo-fun-english",
     "deploy": "npm run build && firebase deploy --only hosting",

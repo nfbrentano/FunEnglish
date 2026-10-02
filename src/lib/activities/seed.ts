@@ -68,3 +68,19 @@ export function prepareSeed(files: readonly SeedFile[]): SeedPlan {
 
   return plan;
 }
+
+export type SeedDecision = "write" | "skip";
+
+/**
+ * Firestore is the source of truth (spec: gestão completa, RF09). An activity edited in the admin
+ * panel after the file's `editedInPanelAt` (set by `npm run content:pull`) is kept, unless forced.
+ */
+export function seedDecision(
+  editedInPanelAt: Date | null,
+  fileEditedInPanelAt: string | undefined,
+  force = false,
+): SeedDecision {
+  if (force || !editedInPanelAt) return "write";
+  const fileTime = fileEditedInPanelAt ? Date.parse(fileEditedInPanelAt) : Number.NaN;
+  return Number.isNaN(fileTime) || editedInPanelAt.getTime() > fileTime ? "skip" : "write";
+}

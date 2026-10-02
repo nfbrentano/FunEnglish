@@ -1,7 +1,7 @@
 # [FEAT] Gestão completa de atividades pelo admin
 
-> **Status:** Aprovada
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-01 · **Atualizada em:** 2026-10-01
+> **Status:** Em andamento
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-01 · **Atualizada em:** 2026-10-02
 
 ## Detalhes da Atividade
 
@@ -81,10 +81,10 @@
 - [ ] **CA05:** Dado uma pergunta, quando colo `https://www.youtube.com/watch?v=YE7VzlLtp-4&t=30` como mídia e defino fim em 45 s, então o `videoId`, o início 30 e o fim 45 são preenchidos e a pré-visualização toca só esse trecho.
 - [ ] **CA06:** Dado o editor aberto num desktop, quando mudo o texto de uma alternativa, então a pré-visualização ao lado reflete a mudança em até 1 s; com "Phone" ativo, ela aparece com 375 px de largura.
 - [ ] **CA07:** Dado "Create with AI" com tipo Flashcards, Vocabulary, Beginner, tema "weather", 12 itens, quando copio o prompt, colo numa IA e colo o JSON devolvido, então ele é validado e vira um rascunho `origin: "ai"`, `reviewStatus: "pending"`; se o JSON for inválido, vejo os erros e nada é salvo.
-- [ ] **CA08:** Dado uma atividade que editei no painel depois do último seed, quando alguém roda `npm run seed -- --production`, então ela não é alterada e aparece em "skipped (edited in the admin panel)"; com `--force` e confirmação, é sobrescrita.
-- [ ] **CA09:** Dado 40 atividades no Firestore, quando rodo `npm run content:pull`, então tenho 40 arquivos válidos em `content/activities/` (passam em `npm run seed:check`) e o `git diff` mostra só o que mudou.
+- [x] **CA08:** Dado uma atividade que editei no painel depois do último seed, quando alguém roda `npm run seed -- --production`, então ela não é alterada e aparece em "skipped (edited in the admin panel)"; com `--force` e confirmação, é sobrescrita. _(PR 1)_
+- [x] **CA09:** Dado 40 atividades no Firestore, quando rodo `npm run content:pull`, então tenho 40 arquivos válidos em `content/activities/` (passam em `npm run seed:check`) e o `git diff` mostra só o que mudou. _(PR 1)_
 - [ ] **CA10:** Dado uma atividade salva 3 vezes, quando abro "History" e escolho a 1ª versão e clico "Restore", então o conteúdo volta ao da 1ª versão, uma 4ª revisão "Restored from …" é criada e o catálogo reflete a mudança.
-- [ ] **CA11:** Dado a mesma atividade aberta em duas abas, quando salvo na aba A e depois tento salvar na aba B, então a aba B avisa "Someone saved this activity after you opened it" com "Reload their version" e "Overwrite", e nada é sobrescrito sem escolha.
+- [x] **CA11:** Dado a mesma atividade aberta em duas abas, quando salvo na aba A e depois tento salvar na aba B, então a aba B avisa "Someone saved this activity after you opened it" com "Reload their version" e "Overwrite", e nada é sobrescrito sem escolha. _(PR 1)_
 - [ ] **CA12:** Dado 5 atividades selecionadas na lista, quando clico "Publish", então as 5 ficam publicadas com uma única reconstrução do `catalog/index`.
 - [ ] **CA13:** Dado uma atividade cujo thumbnail não existe em `/public`, quando vejo a lista, então ela mostra o badge "Missing image".
 - [ ] **CA14:** Dado a categoria Listening sem atividades Advanced, quando abro `/admin/coverage`, então a célula Listening × Advanced aparece destacada com 0 e clicar nela abre "Create with AI" já com Listening e Advanced.
