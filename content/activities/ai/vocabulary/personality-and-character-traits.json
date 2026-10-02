@@ -17,7 +17,15 @@
   "content": {
     "cards": [
       {
-        "front": { "text": "outgoing" },
+        "front": {
+          "text": "outgoing",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-1.webp",
+            "alt": "A cheerful young woman greeting and chatting with a group of new people at a party.",
+            "source": "ai",
+            "prompt": "A cheerful young woman greeting and chatting with a group of new people at a party. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "outgoing",
           "definition": "Friendly and socially confident, enjoying the company of others.",
@@ -26,7 +34,15 @@
         "speak": "outgoing"
       },
       {
-        "front": { "text": "reliable" },
+        "front": {
+          "text": "reliable",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-2.webp",
+            "alt": "A coworker arriving right on time and handing a finished folder to a grateful teammate.",
+            "source": "ai",
+            "prompt": "A coworker arriving right on time and handing a finished folder to a grateful teammate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "reliable",
           "definition": "Consistently good in quality or performance; able to be trusted.",
@@ -35,7 +51,15 @@
         "speak": "reliable"
       },
       {
-        "front": { "text": "ambitious" },
+        "front": {
+          "text": "ambitious",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-3.webp",
+            "alt": "A determined young graduate climbing a staircase toward a bright mountain peak in the distance.",
+            "source": "ai",
+            "prompt": "A determined young graduate climbing a staircase toward a bright mountain peak in the distance. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "ambitious",
           "definition": "Having a strong desire and determination to succeed in life.",
@@ -44,7 +68,15 @@
         "speak": "ambitious"
       },
       {
-        "front": { "text": "generous" },
+        "front": {
+          "text": "generous",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-4.webp",
+            "alt": "A smiling neighbor handing a basket of fresh vegetables over the fence to the family next door.",
+            "source": "ai",
+            "prompt": "A smiling neighbor handing a basket of fresh vegetables over the fence to the family next door. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "generous",
           "definition": "Willing to give more money, time, or help than is expected.",
@@ -53,7 +85,15 @@
         "speak": "generous"
       },
       {
-        "front": { "text": "stubborn" },
+        "front": {
+          "text": "stubborn",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-5.webp",
+            "alt": "A man with crossed arms refusing to look at a map his friend is offering on a road.",
+            "source": "ai",
+            "prompt": "A man with crossed arms refusing to look at a map his friend is offering on a road. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "stubborn",
           "definition": "Determined not to change one's attitude or opinion on something.",
@@ -62,7 +102,15 @@
         "speak": "stubborn"
       },
       {
-        "front": { "text": "clumsy" },
+        "front": {
+          "text": "clumsy",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-6.webp",
+            "alt": "A person tripping over a rug and spilling a cup of tea in the morning kitchen.",
+            "source": "ai",
+            "prompt": "A person tripping over a rug and spilling a cup of tea in the morning kitchen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "clumsy",
           "definition": "Awkward in movement or in handling things; prone to accidents.",
@@ -71,7 +119,15 @@
         "speak": "clumsy"
       },
       {
-        "front": { "text": "patient" },
+        "front": {
+          "text": "patient",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-7.webp",
+            "alt": "A calm teacher sitting beside a child, waiting kindly while the child slowly works on a puzzle.",
+            "source": "ai",
+            "prompt": "A calm teacher sitting beside a child, waiting kindly while the child slowly works on a puzzle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "patient",
           "definition": "Able to accept or tolerate delays or problems without becoming annoyed.",
@@ -80,7 +136,15 @@
         "speak": "patient"
       },
       {
-        "front": { "text": "curious" },
+        "front": {
+          "text": "curious",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-8.webp",
+            "alt": "A child peering through a magnifying glass at a model of the solar system.",
+            "source": "ai",
+            "prompt": "A child peering through a magnifying glass at a model of the solar system. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "curious",
           "definition": "Eager to know or learn something new.",
@@ -89,7 +153,15 @@
         "speak": "curious"
       },
       {
-        "front": { "text": "witty" },
+        "front": {
+          "text": "witty",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-9.webp",
+            "alt": "A woman making a quick joke during a meeting while her colleagues burst out laughing.",
+            "source": "ai",
+            "prompt": "A woman making a quick joke during a meeting while her colleagues burst out laughing. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "witty",
           "definition": "Showing quick and inventive verbal humor.",
@@ -98,7 +170,15 @@
         "speak": "witty"
       },
       {
-        "front": { "text": "empathetic" },
+        "front": {
+          "text": "empathetic",
+          "image": {
+            "src": "/images/activities/personality-and-character-traits/card-10.webp",
+            "alt": "A counselor gently listening to a sad friend, holding her hand with a caring expression.",
+            "source": "ai",
+            "prompt": "A counselor gently listening to a sad friend, holding her hand with a caring expression. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
         "back": {
           "text": "empathetic",
           "definition": "Showing an ability to understand and share the feelings of another.",

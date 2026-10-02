@@ -27,7 +27,14 @@
           { "text": "Penicillin is discovered by Alexander Fleming in 1928." },
           { "text": "Penicillin was discovering by Alexander Fleming in 1928." }
         ],
-        "explanation": "Past simple passive uses was/were + past participle (was discovered)."
+        "explanation": "Past simple passive uses was/were + past participle (was discovered).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-1.webp",
+          "alt": "An old-fashioned science lab with a microscope and a small round dish with green mold.",
+          "source": "ai",
+          "prompt": "An old-fashioned science lab with a microscope and a small round dish with green mold. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "The ancient castle ___ by thousands of international tourists every summer.",
@@ -37,7 +44,14 @@
           { "text": "visits" },
           { "text": "was visit" }
         ],
-        "explanation": "For present simple passive routines, use is/are + past participle (is visited)."
+        "explanation": "For present simple passive routines, use is/are + past participle (is visited).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-2.webp",
+          "alt": "Tourists with cameras and backpacks walking up a path toward an old stone castle on a hill.",
+          "source": "ai",
+          "prompt": "Tourists with cameras and backpacks walking up a path toward an old stone castle on a hill. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Which sentence is written in the passive voice?",
@@ -54,7 +68,14 @@
             "text": "Workers finished constructing the bridge ahead of schedule."
           }
         ],
-        "explanation": "\"Was designed by\" puts the focus on the bridge rather than the engineer who performed the action."
+        "explanation": "\"Was designed by\" puts the focus on the bridge rather than the engineer who performed the action.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-3.webp",
+          "alt": "A long suspension bridge stretching over a wide river at sunset.",
+          "source": "ai",
+          "prompt": "A long suspension bridge stretching over a wide river at sunset. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Look outside! A modern shopping center ___ in our neighborhood right now.",
@@ -64,7 +85,14 @@
           { "text": "has built" },
           { "text": "was built" }
         ],
-        "explanation": "Present continuous passive uses is/are + being + past participle (is being built)."
+        "explanation": "Present continuous passive uses is/are + being + past participle (is being built).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-4.webp",
+          "alt": "Tall cranes and workers in hard hats building a large new building on a city street.",
+          "source": "ai",
+          "prompt": "Tall cranes and workers in hard hats building a large new building on a city street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "All boarding passes must ___ to security staff before passengers enter the terminal.",
@@ -74,7 +102,14 @@
           { "text": "been presented" },
           { "text": "being presented" }
         ],
-        "explanation": "After modal verbs (must, can, should), the passive form is modal + be + past participle."
+        "explanation": "After modal verbs (must, can, should), the passive form is modal + be + past participle.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-5.webp",
+          "alt": "Passengers in an airport security line holding blank boarding passes for a security officer.",
+          "source": "ai",
+          "prompt": "Passengers in an airport security line holding blank boarding passes for a security officer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Complete the historical fact: \"The Mona Lisa ___ from the Louvre museum in 1911 and recovered two years later.\"",
@@ -84,7 +119,14 @@
           { "text": "stole" },
           { "text": "has stolen" }
         ],
-        "explanation": "Because the theft happened at a specific past time (1911), we use the past simple passive: was stolen."
+        "explanation": "Because the theft happened at a specific past time (1911), we use the past simple passive: was stolen.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-6.webp",
+          "alt": "Two surprised museum guards staring at an empty space on a gallery wall.",
+          "source": "ai",
+          "prompt": "Two surprised museum guards staring at an empty space on a gallery wall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Why do journalists and news broadcasts frequently use the passive voice?",
@@ -101,7 +143,14 @@
             "text": "Because passive sentences are always shorter than active sentences."
           }
         ],
-        "explanation": "Passive voice is useful when the action or receiver of the action is the main focus of interest."
+        "explanation": "Passive voice is useful when the action or receiver of the action is the main focus of interest.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-7.webp",
+          "alt": "A news anchor sitting at a studio desk with a large blank screen behind them.",
+          "source": "ai",
+          "prompt": "A news anchor sitting at a studio desk with a large blank screen behind them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "By the time detectives arrived at the gallery, the priceless artifact ___.",
@@ -111,7 +160,14 @@
           { "text": "was already taking" },
           { "text": "is already been taken" }
         ],
-        "explanation": "For an action completed before another past event, use past perfect passive: had been + past participle."
+        "explanation": "For an action completed before another past event, use past perfect passive: had been + past participle.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/passive-voice-in-action/question-8.webp",
+          "alt": "Two detectives walking into an art gallery and finding an empty glass display case.",
+          "source": "ai",
+          "prompt": "Two detectives walking into an art gallery and finding an empty glass display case. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

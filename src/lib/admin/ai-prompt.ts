@@ -3,6 +3,7 @@
 // into an activity. No API: the admin pastes the prompt into any AI chat.
 import { ACTIVITY_TYPES, type ActivityType } from "../activities/schema/activity";
 import { validateActivity, type ValidationResult } from "../activities/validate";
+import { fillMissingPrompts, fillPlannedSrcs } from "./plan-images";
 
 export type Guide = {
   /** The "Prompt to use" text, with {PLACEHOLDERS}. */
@@ -50,6 +51,18 @@ export type PromptRequest = {
   count?: number;
 };
 
+/** Where each type keeps an item's picture, for the AI (spec: mais imagens, RF07). */
+const PICTURE_RULE: Record<ActivityType, string> = {
+  quiz: 'Give every question a picture: "media": {"kind": "image", "alt": "what the picture shows"}. When the answers are things you can draw, also give every option an "image": {"alt": "…"}.',
+  "fill-blanks":
+    'Give every item a picture: "media": {"kind": "image", "alt": "what the picture shows"}.',
+  flashcards:
+    'Give every card front a picture: "front": {"text": "…", "image": {"alt": "what the picture shows"}}.',
+  "quiz-board":
+    'Give clues a picture when it helps: "media": {"kind": "image", "alt": "what the picture shows"}.',
+  "prompt-cards": 'Give every card a picture: "image": {"alt": "what the picture shows"}.',
+};
+
 const COUNT_NOUN: Record<ActivityType, string> = {
   quiz: "questions",
   flashcards: "cards",
@@ -80,6 +93,7 @@ export function buildAiPrompt(guide: Guide, request: PromptRequest): string {
   const rules = [
     guide.types[request.type]?.rules ?? "",
     request.count ? `Write exactly ${request.count} ${COUNT_NOUN[request.type]}.` : "",
+    `${PICTURE_RULE[request.type]} Leave out "src" (the site fills it in). Alt texts: one short, concrete sentence, no text in the picture.`,
     level ? `Level notes: ${level.notes}.` : "",
   ]
     .filter(Boolean)
@@ -102,6 +116,7 @@ export function buildAiPrompt(guide: Guide, request: PromptRequest): string {
  */
 export function parseAiAnswer(
   answer: string,
+  style = "",
 ): ValidationResult | { ok: false; errors: string[]; issues: [] } {
   const fenced = /```(?:json)?\s*([\s\S]*?)```/.exec(answer)?.[1];
   const text = (fenced ?? answer).trim();
@@ -113,8 +128,10 @@ export function parseAiAnswer(
   } catch (error) {
     return { ok: false, errors: [`Not valid JSON: ${(error as Error).message}`], issues: [] };
   }
+  // Pictures come without src (and maybe without prompt): plan them like "Plan images" does.
+  const planned = fillMissingPrompts(fillPlannedSrcs(raw as Record<string, unknown>), style);
   const result = validateActivity({
-    ...(raw as Record<string, unknown>),
+    ...planned,
     status: "draft",
     origin: "ai",
     reviewStatus: "pending",

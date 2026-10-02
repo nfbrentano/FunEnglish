@@ -32,7 +32,13 @@
           "How about…?",
           "I was wondering if…",
           "Best wishes,"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/writing-emails-1/card-1.webp",
+          "alt": "A person looking sorry while writing on a laptop beside a blank party invitation card.",
+          "source": "ai",
+          "prompt": "A person looking sorry while writing on a laptop beside a blank party invitation card. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "You saw an ad for a used bike. Write an email to the seller: ask two questions about the bike and suggest a time to see it.",
@@ -46,7 +52,13 @@
           "How about…?",
           "I was wondering if…",
           "Best wishes,"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/writing-emails-1/card-2.webp",
+          "alt": "A person typing on a laptop next to a picture of a used bicycle parked outside.",
+          "source": "ai",
+          "prompt": "A person typing on a laptop next to a picture of a used bicycle parked outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "A colleague helped you with a difficult project. Write a short thank-you email and offer to help them in the future.",
@@ -60,7 +72,13 @@
           "How about…?",
           "I was wondering if…",
           "Best wishes,"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/writing-emails-1/card-3.webp",
+          "alt": "Two coworkers smiling at a desk after finishing a big project together, with blank papers around them.",
+          "source": "ai",
+          "prompt": "Two coworkers smiling at a desk after finishing a big project together, with blank papers around them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "You need to cancel a dentist appointment. Write a polite email: apologize, explain briefly and ask for a new date.",
@@ -74,7 +92,13 @@
           "How about…?",
           "I was wondering if…",
           "Best wishes,"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/writing-emails-1/card-4.webp",
+          "alt": "A person on a laptop at home with a blank calendar and a toothbrush on the table.",
+          "source": "ai",
+          "prompt": "A person on a laptop at home with a blank calendar and a toothbrush on the table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Your teacher asked for ideas for the end-of-year trip. Write an email with one idea and two reasons why it's a good choice.",
@@ -88,7 +112,13 @@
           "How about…?",
           "I was wondering if…",
           "Best wishes,"
-        ]
+        ],
+        "image": {
+          "src": "/images/activities/writing-emails-1/card-5.webp",
+          "alt": "A student writing on a laptop while dreaming of a class trip to the mountains.",
+          "source": "ai",
+          "prompt": "A student writing on a laptop while dreaming of a class trip to the mountains. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

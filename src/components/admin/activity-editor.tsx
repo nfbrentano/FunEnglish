@@ -1,9 +1,19 @@
 "use client";
 
-import { ArrowLeft, History, CheckCircle2, Copy, Download, Eye, Trash2, X } from "lucide-react";
+import {
+  ArrowLeft,
+  History,
+  ImagePlus,
+  CheckCircle2,
+  Copy,
+  Download,
+  Eye,
+  Trash2,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { ActivityPlayer } from "@/components/player/activity-player";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -25,6 +35,7 @@ import {
 } from "@/lib/admin/activities-admin";
 import { collectTextFields, describePath, setAtPath, slugify } from "@/lib/admin/content-fields";
 import { needsReview } from "@/lib/admin/filter";
+import { planImages } from "@/lib/admin/plan-images";
 import {
   clearLocalDraft,
   readLocalDraft,
@@ -179,6 +190,8 @@ export function ActivityEditor({
   };
   const conflictRef = useRef<HTMLDialogElement>(null);
   const historyRef = useRef<HTMLDialogElement>(null);
+  const planRef = useRef<HTMLDialogElement>(null);
+  const [planAnswers, setPlanAnswers] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [conflict, setConflict] = useState<{
     patch: Partial<Draft>;
@@ -643,6 +656,18 @@ export function ActivityEditor({
                       >
                         {t.insertTemplate}
                       </Button>
+                      <Button
+                        variant="ghost"
+                        disabled={!draft.slug}
+                        title={draft.slug ? undefined : strings.admin.upload.needsSlug}
+                        onClick={() => {
+                          setPlanAnswers(false);
+                          planRef.current?.showModal();
+                        }}
+                      >
+                        <ImagePlus aria-hidden="true" className="size-4" />
+                        {t.plan.open}
+                      </Button>
                     </div>
                   </div>
                   {tab === "form" ? (
@@ -958,6 +983,28 @@ export function ActivityEditor({
               }}
             />
           )}
+          <PlanImagesDialog
+            ref={planRef}
+            count={
+              planImages(
+                { slug: draft.slug, type: draft.type, content: draft.content },
+                { style: imageStyle, answers: planAnswers },
+              ).planned
+            }
+            isQuiz={draft.type === "quiz"}
+            answers={planAnswers}
+            onAnswersChange={setPlanAnswers}
+            onPlan={() => {
+              const { content, planned } = planImages(
+                { slug: draft.slug, type: draft.type, content: draft.content },
+                { style: imageStyle, answers: planAnswers },
+              );
+              setContent(content);
+              planRef.current?.close();
+              toast(t.plan.done(planned));
+            }}
+          />
+
           <dialog
             ref={conflictRef}
             aria-labelledby="conflict-title"
@@ -998,3 +1045,55 @@ export function ActivityEditor({
     </ImagePathsContext.Provider>
   );
 }
+
+/** "Plan images": pictures for every item without one (spec: mais imagens, RF06, CA06). */
+const PlanImagesDialog = forwardRef<
+  HTMLDialogElement,
+  {
+    count: number;
+    isQuiz: boolean;
+    answers: boolean;
+    onAnswersChange: (answers: boolean) => void;
+    onPlan: () => void;
+  }
+>(function PlanImagesDialog({ count, isQuiz, answers, onAnswersChange, onPlan }, ref) {
+  return (
+    <dialog
+      ref={ref}
+      aria-labelledby="plan-title"
+      className="m-auto w-[min(30rem,calc(100%-2rem))] rounded-2xl border border-border-subtle bg-elevated p-6 text-fg backdrop:bg-black/50"
+    >
+      <div className="space-y-4">
+        <h2 id="plan-title" className="font-display text-2xl">
+          {t.plan.title}
+        </h2>
+        <p className="text-sm text-fg-secondary">{t.plan.text}</p>
+        {isQuiz && (
+          <label className="flex items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={answers}
+              onChange={(e) => onAnswersChange(e.target.checked)}
+              className="size-4 accent-(--accent)"
+            />
+            {t.plan.answers}
+          </label>
+        )}
+        <p role="status" className="text-sm font-medium">
+          {count === 0 ? t.plan.none : t.plan.count(count)}
+        </p>
+        <div className="flex justify-end gap-2">
+          <Button
+            variant="ghost"
+            onClick={() => (ref as React.RefObject<HTMLDialogElement | null>).current?.close()}
+          >
+            {strings.dashboard.cancel}
+          </Button>
+          <Button disabled={count === 0} onClick={onPlan}>
+            {t.plan.action(count)}
+          </Button>
+        </div>
+      </div>
+    </dialog>
+  );
+});

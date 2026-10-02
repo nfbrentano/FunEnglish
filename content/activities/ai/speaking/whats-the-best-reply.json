@@ -22,72 +22,205 @@
       {
         "prompt": "Someone says: \"How's it going?\" What's the best reply?",
         "options": [
-          { "text": "Pretty good, thanks. And you?", "correct": true },
-          { "text": "I'm going to the store.", "correct": false },
-          { "text": "It goes at five.", "correct": false },
-          { "text": "Yes, it is.", "correct": false }
+          {
+            "text": "Pretty good, thanks. And you?",
+            "correct": true
+          },
+          {
+            "text": "I'm going to the store.",
+            "correct": false
+          },
+          {
+            "text": "It goes at five.",
+            "correct": false
+          },
+          {
+            "text": "Yes, it is.",
+            "correct": false
+          }
         ],
-        "explanation": "\"How's it going?\" = How are you?"
+        "explanation": "\"How's it going?\" = How are you?",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-1.webp",
+          "alt": "Two friends wave and smile at each other as they meet on a sunny street.",
+          "source": "ai",
+          "prompt": "Two friends wave and smile at each other as they meet on a sunny street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Would you like something to drink?\" What's the best reply?",
         "options": [
-          { "text": "Yes, a glass of water, please.", "correct": true },
-          { "text": "Yes, I like.", "correct": false },
-          { "text": "I drink every day.", "correct": false },
-          { "text": "No, I don't like it.", "correct": false }
+          {
+            "text": "Yes, a glass of water, please.",
+            "correct": true
+          },
+          {
+            "text": "Yes, I like.",
+            "correct": false
+          },
+          {
+            "text": "I drink every day.",
+            "correct": false
+          },
+          {
+            "text": "No, I don't like it.",
+            "correct": false
+          }
         ],
-        "explanation": "Answer an offer with what you want + please (or No, thank you)."
+        "explanation": "Answer an offer with what you want + please (or No, thank you).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-2.webp",
+          "alt": "A smiling host holds a tray of drinks and offers one to a guest in a living room.",
+          "source": "ai",
+          "prompt": "A smiling host holds a tray of drinks and offers one to a guest in a living room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Sorry I'm late!\" What's the best reply?",
         "options": [
-          { "text": "No worries, we just started.", "correct": true },
-          { "text": "You're welcome.", "correct": false },
-          { "text": "Me too.", "correct": false },
-          { "text": "Yes, you are sorry.", "correct": false }
+          {
+            "text": "No worries, we just started.",
+            "correct": true
+          },
+          {
+            "text": "You're welcome.",
+            "correct": false
+          },
+          {
+            "text": "Me too.",
+            "correct": false
+          },
+          {
+            "text": "Yes, you are sorry.",
+            "correct": false
+          }
         ],
-        "explanation": "\"No worries\" is a friendly way to say it's OK."
+        "explanation": "\"No worries\" is a friendly way to say it's OK.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-3.webp",
+          "alt": "A man rushes into a meeting room holding his coat while colleagues sit at the table.",
+          "source": "ai",
+          "prompt": "A man rushes into a meeting room holding his coat while colleagues sit at the table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Do you mind if I open the window?\" What's the best reply?",
         "options": [
-          { "text": "Not at all, go ahead.", "correct": true },
-          { "text": "Yes, please open it.", "correct": false },
-          { "text": "I don't have a window.", "correct": false },
-          { "text": "Yes, I mind it.", "correct": false }
+          {
+            "text": "Not at all, go ahead.",
+            "correct": true
+          },
+          {
+            "text": "Yes, please open it.",
+            "correct": false
+          },
+          {
+            "text": "I don't have a window.",
+            "correct": false
+          },
+          {
+            "text": "Yes, I mind it.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Do you mind…?\" asks if it bothers you, so \"Not at all\" means it's fine."
+        "explanation": "\"Do you mind…?\" asks if it bothers you, so \"Not at all\" means it's fine.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-4.webp",
+          "alt": "In a warm office, one coworker points toward a closed window while another sits at her desk.",
+          "source": "ai",
+          "prompt": "In a warm office, one coworker points toward a closed window while another sits at her desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Thanks so much for your help!\" What's the best reply?",
         "options": [
-          { "text": "You're welcome!", "correct": true },
-          { "text": "Please.", "correct": false },
-          { "text": "Me too.", "correct": false },
-          { "text": "Excuse me.", "correct": false }
+          {
+            "text": "You're welcome!",
+            "correct": true
+          },
+          {
+            "text": "Please.",
+            "correct": false
+          },
+          {
+            "text": "Me too.",
+            "correct": false
+          },
+          {
+            "text": "Excuse me.",
+            "correct": false
+          }
         ],
-        "explanation": "\"You're welcome\", \"No problem\" or \"Anytime!\""
+        "explanation": "\"You're welcome\", \"No problem\" or \"Anytime!\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-5.webp",
+          "alt": "A young woman gratefully hands a box back to a neighbor who helped her move.",
+          "source": "ai",
+          "prompt": "A young woman gratefully hands a box back to a neighbor who helped her move. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"What do you do?\" What's the best reply?",
         "options": [
-          { "text": "I'm a nurse.", "correct": true },
-          { "text": "I'm doing my homework.", "correct": false },
-          { "text": "I do fine.", "correct": false },
-          { "text": "I do it tomorrow.", "correct": false }
+          {
+            "text": "I'm a nurse.",
+            "correct": true
+          },
+          {
+            "text": "I'm doing my homework.",
+            "correct": false
+          },
+          {
+            "text": "I do fine.",
+            "correct": false
+          },
+          {
+            "text": "I do it tomorrow.",
+            "correct": false
+          }
         ],
-        "explanation": "\"What do you do?\" asks about your job."
+        "explanation": "\"What do you do?\" asks about your job.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-6.webp",
+          "alt": "Two people chat with drinks in their hands at a friendly social gathering.",
+          "source": "ai",
+          "prompt": "Two people chat with drinks in their hands at a friendly social gathering. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Have a nice weekend!\" What's the best reply?",
         "options": [
-          { "text": "Thanks, you too!", "correct": true },
-          { "text": "Yes, I have.", "correct": false },
-          { "text": "I'm the weekend.", "correct": false },
-          { "text": "Nice to meet you.", "correct": false }
+          {
+            "text": "Thanks, you too!",
+            "correct": true
+          },
+          {
+            "text": "Yes, I have.",
+            "correct": false
+          },
+          {
+            "text": "I'm the weekend.",
+            "correct": false
+          },
+          {
+            "text": "Nice to meet you.",
+            "correct": false
+          }
         ],
-        "explanation": "Return the good wishes with \"You too!\""
+        "explanation": "Return the good wishes with \"You too!\"",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-7.webp",
+          "alt": "Two coworkers wave goodbye to each other at the office door on a Friday afternoon.",
+          "source": "ai",
+          "prompt": "Two coworkers wave goodbye to each other at the office door on a Friday afternoon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Someone says: \"Can I take your order?\" What's the best reply?",
@@ -96,11 +229,27 @@
             "text": "Yes, I'll have the chicken salad, please.",
             "correct": true
           },
-          { "text": "Yes, you can take it.", "correct": false },
-          { "text": "I ordered yesterday.", "correct": false },
-          { "text": "No, it's mine.", "correct": false }
+          {
+            "text": "Yes, you can take it.",
+            "correct": false
+          },
+          {
+            "text": "I ordered yesterday.",
+            "correct": false
+          },
+          {
+            "text": "No, it's mine.",
+            "correct": false
+          }
         ],
-        "explanation": "In a restaurant, \"I'll have…\" is a polite way to order."
+        "explanation": "In a restaurant, \"I'll have…\" is a polite way to order.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/whats-the-best-reply/question-8.webp",
+          "alt": "A friendly waiter with a notepad stands beside a table where a customer holds a menu.",
+          "source": "ai",
+          "prompt": "A friendly waiter with a notepad stands beside a table where a customer holds a menu. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

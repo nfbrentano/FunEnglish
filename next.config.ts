@@ -5,19 +5,17 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 
 /**
- * Site images (category art, results) that exist at build time, so the player only requests
- * those: a missing one would be a 404 in every visitor's console (spec: mais imagens, RF04, RF09).
+ * Every image in public/images at build time. The player requests only those: a picture that is
+ * planned but not uploaded yet (or category art not generated) shows its fallback without a 404
+ * in every visitor's console. An upload from the admin commits and triggers a new build, so the
+ * list follows (spec: mais imagens nas atividades, RF05, RF09).
  */
-function siteImages(): string {
-  return ["categories", "results"]
-    .flatMap((folder) => {
-      const dir = join(process.cwd(), "public", "images", folder);
-      return existsSync(dir)
-        ? readdirSync(dir)
-            .filter((f) => f.endsWith(".webp"))
-            .map((f) => `/images/${folder}/${f}`)
-        : [];
-    })
+function builtImages(): string {
+  const root = join(process.cwd(), "public", "images");
+  if (!existsSync(root)) return "";
+  return readdirSync(root, { recursive: true, encoding: "utf8" })
+    .filter((f) => f.endsWith(".webp"))
+    .map((f) => `/images/${f.split("\\").join("/")}`)
     .join(",");
 }
 
@@ -28,7 +26,7 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   // `*.dev.tsx` routes (e.g. the /dev/ui component gallery) exist only in `next dev`.
   pageExtensions: isDev ? ["dev.tsx", "tsx", "ts"] : ["tsx", "ts"],
-  env: { NEXT_PUBLIC_SITE_IMAGES: siteImages() },
+  env: { NEXT_PUBLIC_IMAGES: builtImages() },
 };
 
 export default nextConfig;

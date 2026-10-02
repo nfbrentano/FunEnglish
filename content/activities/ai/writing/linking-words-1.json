@@ -22,82 +22,234 @@
       {
         "prompt": "I was tired, ___ I went to bed early.",
         "options": [
-          { "text": "so", "correct": true },
-          { "text": "because", "correct": false },
-          { "text": "but", "correct": false },
-          { "text": "although", "correct": false }
+          {
+            "text": "so",
+            "correct": true
+          },
+          {
+            "text": "because",
+            "correct": false
+          },
+          {
+            "text": "but",
+            "correct": false
+          },
+          {
+            "text": "although",
+            "correct": false
+          }
         ],
-        "explanation": "So introduces a result."
+        "explanation": "So introduces a result.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-1.webp",
+          "alt": "A yawning young woman in pajamas turning off the lamp in her bedroom early in the evening.",
+          "source": "ai",
+          "prompt": "A yawning young woman in pajamas turning off the lamp in her bedroom early in the evening. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "She stayed home ___ she was sick.",
         "options": [
-          { "text": "because", "correct": true },
-          { "text": "so", "correct": false },
-          { "text": "but", "correct": false },
-          { "text": "however", "correct": false }
+          {
+            "text": "because",
+            "correct": true
+          },
+          {
+            "text": "so",
+            "correct": false
+          },
+          {
+            "text": "but",
+            "correct": false
+          },
+          {
+            "text": "however",
+            "correct": false
+          }
         ],
-        "explanation": "Because introduces a reason."
+        "explanation": "Because introduces a reason.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-2.webp",
+          "alt": "A sick girl resting on the couch at home with a blanket and a thermometer.",
+          "source": "ai",
+          "prompt": "A sick girl resting on the couch at home with a blanket and a thermometer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "It was raining. ___, we went for a walk.",
         "options": [
-          { "text": "However", "correct": true },
-          { "text": "Because", "correct": false },
-          { "text": "So", "correct": false },
-          { "text": "Although", "correct": false }
+          {
+            "text": "However",
+            "correct": true
+          },
+          {
+            "text": "Because",
+            "correct": false
+          },
+          {
+            "text": "So",
+            "correct": false
+          },
+          {
+            "text": "Although",
+            "correct": false
+          }
         ],
-        "explanation": "However shows contrast between two sentences."
+        "explanation": "However shows contrast between two sentences.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-3.webp",
+          "alt": "A couple with umbrellas walking happily through a park in the rain.",
+          "source": "ai",
+          "prompt": "A couple with umbrellas walking happily through a park in the rain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "___ he studied a lot, he failed the test.",
         "options": [
-          { "text": "Although", "correct": true },
-          { "text": "Because", "correct": false },
-          { "text": "So", "correct": false },
-          { "text": "However", "correct": false }
+          {
+            "text": "Although",
+            "correct": true
+          },
+          {
+            "text": "Because",
+            "correct": false
+          },
+          {
+            "text": "So",
+            "correct": false
+          },
+          {
+            "text": "However",
+            "correct": false
+          }
         ],
-        "explanation": "Although + clause shows a surprising contrast."
+        "explanation": "Although + clause shows a surprising contrast.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-4.webp",
+          "alt": "A student at a desk piled with books, looking disappointed at a blank graded test paper.",
+          "source": "ai",
+          "prompt": "A student at a desk piled with books, looking disappointed at a blank graded test paper. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "I like tea, ___ I don't like coffee.",
         "options": [
-          { "text": "but", "correct": true },
-          { "text": "so", "correct": false },
-          { "text": "because", "correct": false },
-          { "text": "or", "correct": false }
+          {
+            "text": "but",
+            "correct": true
+          },
+          {
+            "text": "so",
+            "correct": false
+          },
+          {
+            "text": "because",
+            "correct": false
+          },
+          {
+            "text": "or",
+            "correct": false
+          }
         ],
-        "explanation": "But joins two contrasting ideas in one sentence."
+        "explanation": "But joins two contrasting ideas in one sentence.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-5.webp",
+          "alt": "A person smiling while holding a cup of tea and pushing away a cup of coffee.",
+          "source": "ai",
+          "prompt": "A person smiling while holding a cup of tea and pushing away a cup of coffee. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "We missed the bus, ___ we took a taxi.",
         "options": [
-          { "text": "so", "correct": true },
-          { "text": "but", "correct": false },
-          { "text": "because", "correct": false },
-          { "text": "although", "correct": false }
+          {
+            "text": "so",
+            "correct": true
+          },
+          {
+            "text": "but",
+            "correct": false
+          },
+          {
+            "text": "because",
+            "correct": false
+          },
+          {
+            "text": "although",
+            "correct": false
+          }
         ],
-        "explanation": "Taking a taxi is the result of missing the bus."
+        "explanation": "Taking a taxi is the result of missing the bus.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-6.webp",
+          "alt": "Two friends watching a bus drive away, then waving at a taxi on a city street.",
+          "source": "ai",
+          "prompt": "Two friends watching a bus drive away, then waving at a taxi on a city street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "He's very rich. ___, he isn't happy.",
         "options": [
-          { "text": "However", "correct": true },
-          { "text": "Because", "correct": false },
-          { "text": "So", "correct": false },
-          { "text": "Although", "correct": false }
+          {
+            "text": "However",
+            "correct": true
+          },
+          {
+            "text": "Because",
+            "correct": false
+          },
+          {
+            "text": "So",
+            "correct": false
+          },
+          {
+            "text": "Although",
+            "correct": false
+          }
         ],
-        "explanation": "Use However at the start of a new sentence for contrast."
+        "explanation": "Use However at the start of a new sentence for contrast.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-7.webp",
+          "alt": "A wealthy man sitting alone and looking sad in a huge, luxurious living room.",
+          "source": "ai",
+          "prompt": "A wealthy man sitting alone and looking sad in a huge, luxurious living room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "___ it was late, the store was still open.",
         "options": [
-          { "text": "Although", "correct": true },
-          { "text": "Because", "correct": false },
-          { "text": "So", "correct": false },
-          { "text": "But", "correct": false }
+          {
+            "text": "Although",
+            "correct": true
+          },
+          {
+            "text": "Because",
+            "correct": false
+          },
+          {
+            "text": "So",
+            "correct": false
+          },
+          {
+            "text": "But",
+            "correct": false
+          }
         ],
-        "explanation": "Although = even though."
+        "explanation": "Although = even though.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/linking-words-1/question-8.webp",
+          "alt": "A small corner store with its lights still on and door open on a dark street at night.",
+          "source": "ai",
+          "prompt": "A small corner store with its lights still on and door open on a dark street at night. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

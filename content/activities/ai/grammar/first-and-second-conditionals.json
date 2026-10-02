@@ -22,35 +22,91 @@
     "items": [
       {
         "text": "If it [[rains]] tomorrow, we'll stay inside and watch a movie.",
-        "hint": "First conditional: a real possibility."
+        "hint": "First conditional: a real possibility.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-1.webp",
+          "alt": "A family sitting on a sofa with popcorn, looking out the window at the sky.",
+          "source": "ai",
+          "prompt": "A family sitting on a sofa with popcorn, looking out the window at the sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "If I [[had]] more free time, I would learn to play the guitar.",
-        "hint": "Second conditional: an imaginary situation."
+        "hint": "Second conditional: an imaginary situation.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-2.webp",
+          "alt": "A tired office worker at a busy desk daydreaming, with a guitar leaning in the corner.",
+          "source": "ai",
+          "prompt": "A tired office worker at a busy desk daydreaming, with a guitar leaning in the corner. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "She [[will]] call you if she finishes work early.",
-        "hint": "First conditional: will + verb in the result."
+        "hint": "First conditional: will + verb in the result.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-3.webp",
+          "alt": "A woman at her office desk checking her phone, with a numberless clock on the wall.",
+          "source": "ai",
+          "prompt": "A woman at her office desk checking her phone, with a numberless clock on the wall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "If we [[lived]] near the beach, we would go swimming every day.",
-        "hint": "Second conditional: past simple after if."
+        "hint": "Second conditional: past simple after if.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-4.webp",
+          "alt": "Friends in a small city apartment imagining a sunny beach shown in a thought bubble.",
+          "source": "ai",
+          "prompt": "Friends in a small city apartment imagining a sunny beach shown in a thought bubble. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "If you [[don't|do not]] hurry, you'll miss the bus.",
-        "hint": "First conditional: present simple after if."
+        "hint": "First conditional: present simple after if.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-5.webp",
+          "alt": "A student running toward a bus stop as a city bus waits at the curb.",
+          "source": "ai",
+          "prompt": "A student running toward a bus stop as a city bus waits at the curb. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "What [[would]] you do if you found a wallet on the street?",
-        "hint": "Second conditional question."
+        "hint": "Second conditional question.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-6.webp",
+          "alt": "A person finding a wallet on a sidewalk and looking around, unsure what to do.",
+          "source": "ai",
+          "prompt": "A person finding a wallet on a sidewalk and looking around, unsure what to do. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "If I were you, I [[would talk]] to the teacher about it.",
-        "hint": "Second conditional for advice."
+        "hint": "Second conditional for advice.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-7.webp",
+          "alt": "Two friends talking in a school hallway, one looking worried and the other giving advice.",
+          "source": "ai",
+          "prompt": "Two friends talking in a school hallway, one looking worried and the other giving advice. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "text": "We [[won't|will not]] go to the park if it's too cold.",
-        "hint": "First conditional, negative result."
+        "hint": "First conditional, negative result.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/first-and-second-conditionals/sentence-8.webp",
+          "alt": "Children in winter coats and scarves looking out at a frosty, empty park.",
+          "source": "ai",
+          "prompt": "Children in winter coats and scarves looking out at a frosty, empty park. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ],
     "distractors": ["will rain", "would have", "live", "talked"]

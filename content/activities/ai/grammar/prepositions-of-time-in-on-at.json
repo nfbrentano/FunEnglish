@@ -20,14 +20,86 @@
   "content": {
     "mode": "word-bank",
     "items": [
-      { "text": "The class starts [[at]] 9 o'clock." },
-      { "text": "My birthday is [[in]] June." },
-      { "text": "We don't have school [[on]] Saturdays." },
-      { "text": "I like to read [[at]] night." },
-      { "text": "She was born [[in]] 2010." },
-      { "text": "The party is [[on]] Friday evening." },
-      { "text": "It's very cold here [[in]] the winter." },
-      { "text": "I always call my mom [[on]] her birthday." }
+      {
+        "text": "The class starts [[at]] 9 o'clock.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-1.webp",
+          "alt": "Students sitting at their desks as a teacher begins class, a numberless clock on the wall.",
+          "source": "ai",
+          "prompt": "Students sitting at their desks as a teacher begins class, a numberless clock on the wall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "My birthday is [[in]] June.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-2.webp",
+          "alt": "A birthday cake with candles on a table in a sunny summer garden.",
+          "source": "ai",
+          "prompt": "A birthday cake with candles on a table in a sunny summer garden. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "We don't have school [[on]] Saturdays.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-3.webp",
+          "alt": "Children playing happily in a park on a relaxed weekend morning.",
+          "source": "ai",
+          "prompt": "Children playing happily in a park on a relaxed weekend morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "I like to read [[at]] night.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-4.webp",
+          "alt": "A child reading a book in bed with a lamp on and the moon outside.",
+          "source": "ai",
+          "prompt": "A child reading a book in bed with a lamp on and the moon outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "She was born [[in]] 2010.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-5.webp",
+          "alt": "Happy parents smiling at a newborn baby sleeping in a crib.",
+          "source": "ai",
+          "prompt": "Happy parents smiling at a newborn baby sleeping in a crib. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The party is [[on]] Friday evening.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-6.webp",
+          "alt": "Friends arriving at a party with balloons and string lights in the evening.",
+          "source": "ai",
+          "prompt": "Friends arriving at a party with balloons and string lights in the evening. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "It's very cold here [[in]] the winter.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-7.webp",
+          "alt": "A snowy town with people walking in heavy coats, hats, and scarves.",
+          "source": "ai",
+          "prompt": "A snowy town with people walking in heavy coats, hats, and scarves. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "I always call my mom [[on]] her birthday.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/prepositions-of-time-in-on-at/sentence-8.webp",
+          "alt": "A young man calling his mom on the phone while holding a wrapped gift.",
+          "source": "ai",
+          "prompt": "A young man calling his mom on the phone while holding a wrapped gift. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
     ],
     "distractors": []
   }

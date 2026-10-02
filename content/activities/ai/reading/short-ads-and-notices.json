@@ -26,11 +26,27 @@
             "text": "The rent includes electricity and water.",
             "correct": true
           },
-          { "text": "You can bring a dog.", "correct": false },
-          { "text": "Smoking is allowed in the garden.", "correct": false },
-          { "text": "Utilities cost extra.", "correct": false }
+          {
+            "text": "You can bring a dog.",
+            "correct": false
+          },
+          {
+            "text": "Smoking is allowed in the garden.",
+            "correct": false
+          },
+          {
+            "text": "Utilities cost extra.",
+            "correct": false
+          }
         ],
-        "explanation": "Utilities = electricity, water, gas. \"Included\" = you don't pay extra."
+        "explanation": "Utilities = electricity, water, gas. \"Included\" = you don't pay extra.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-1.webp",
+          "alt": "A bright, tidy bedroom for rent with a bed, a desk and a sunny window.",
+          "source": "ai",
+          "prompt": "A bright, tidy bedroom for rent with a bed, a desk and a sunny window. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Part-time barista wanted. Weekends only. Experience preferred but not required.\" — Who can apply?",
@@ -39,11 +55,27 @@
             "text": "Someone without experience who is free on weekends.",
             "correct": true
           },
-          { "text": "Only people with experience.", "correct": false },
-          { "text": "Someone looking for a full-time job.", "correct": false },
-          { "text": "Someone free only on weekdays.", "correct": false }
+          {
+            "text": "Only people with experience.",
+            "correct": false
+          },
+          {
+            "text": "Someone looking for a full-time job.",
+            "correct": false
+          },
+          {
+            "text": "Someone free only on weekdays.",
+            "correct": false
+          }
         ],
-        "explanation": "\"Preferred but not required\" = nice to have, but not necessary."
+        "explanation": "\"Preferred but not required\" = nice to have, but not necessary.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-2.webp",
+          "alt": "A friendly young barista behind a café counter makes coffee with an espresso machine.",
+          "source": "ai",
+          "prompt": "A friendly young barista behind a café counter makes coffee with an espresso machine. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Lost: black cat, answers to \"Shadow\". Reward offered. Call 555-0147.\" — What does \"reward offered\" mean?",
@@ -52,41 +84,114 @@
             "text": "The owner will give money to the person who finds the cat.",
             "correct": true
           },
-          { "text": "The cat is for sale.", "correct": false },
-          { "text": "The owner found the cat.", "correct": false },
-          { "text": "The cat is free to a good home.", "correct": false }
+          {
+            "text": "The cat is for sale.",
+            "correct": false
+          },
+          {
+            "text": "The owner found the cat.",
+            "correct": false
+          },
+          {
+            "text": "The cat is free to a good home.",
+            "correct": false
+          }
         ],
-        "explanation": "A reward is money you get for helping."
+        "explanation": "A reward is money you get for helping.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-3.webp",
+          "alt": "A worried person holds a blank paper flyer beside a lamppost on a neighborhood street.",
+          "source": "ai",
+          "prompt": "A worried person holds a blank paper flyer beside a lamppost on a neighborhood street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Moving sale! Everything must go. Saturday 8–2. No early birds, please.\" — What does \"no early birds\" mean here?",
         "options": [
-          { "text": "Don't arrive before 8 a.m.", "correct": true },
-          { "text": "Birds are not allowed.", "correct": false },
-          { "text": "Come early to get the best things.", "correct": false },
-          { "text": "The sale ends early.", "correct": false }
+          {
+            "text": "Don't arrive before 8 a.m.",
+            "correct": true
+          },
+          {
+            "text": "Birds are not allowed.",
+            "correct": false
+          },
+          {
+            "text": "Come early to get the best things.",
+            "correct": false
+          },
+          {
+            "text": "The sale ends early.",
+            "correct": false
+          }
         ],
-        "explanation": "Early birds = people who come before the start time."
+        "explanation": "Early birds = people who come before the start time.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-4.webp",
+          "alt": "A front yard on a sunny morning with tables of furniture, boxes and household items.",
+          "source": "ai",
+          "prompt": "A front yard on a sunny morning with tables of furniture, boxes and household items. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Bike for sale, $120 OBO. Barely used.\" — What does OBO mean?",
         "options": [
-          { "text": "The seller might accept a lower price.", "correct": true },
-          { "text": "The bike is broken.", "correct": false },
-          { "text": "The price is fixed.", "correct": false },
-          { "text": "The bike is only $1.20.", "correct": false }
+          {
+            "text": "The seller might accept a lower price.",
+            "correct": true
+          },
+          {
+            "text": "The bike is broken.",
+            "correct": false
+          },
+          {
+            "text": "The price is fixed.",
+            "correct": false
+          },
+          {
+            "text": "The bike is only $1.20.",
+            "correct": false
+          }
         ],
-        "explanation": "OBO = or best offer."
+        "explanation": "OBO = or best offer.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-5.webp",
+          "alt": "A shiny, almost new bicycle stands on a driveway next to a blank cardboard sign.",
+          "source": "ai",
+          "prompt": "A shiny, almost new bicycle stands on a driveway next to a blank cardboard sign. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Gym membership: first month free, then $29.99/month. 12-month contract required.\" — Which is true?",
         "options": [
-          { "text": "You must stay a member for a year.", "correct": true },
-          { "text": "You can cancel any time.", "correct": false },
-          { "text": "Every month is free.", "correct": false },
-          { "text": "The contract is for one month.", "correct": false }
+          {
+            "text": "You must stay a member for a year.",
+            "correct": true
+          },
+          {
+            "text": "You can cancel any time.",
+            "correct": false
+          },
+          {
+            "text": "Every month is free.",
+            "correct": false
+          },
+          {
+            "text": "The contract is for one month.",
+            "correct": false
+          }
         ],
-        "explanation": "A 12-month contract = you agree to stay for a year."
+        "explanation": "A 12-month contract = you agree to stay for a year.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-6.webp",
+          "alt": "People exercise on treadmills and with weights in a bright, modern gym.",
+          "source": "ai",
+          "prompt": "People exercise on treadmills and with weights in a bright, modern gym. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Tutor available: math and science, grades 6–9. Online or in person.\" — Who can this tutor help?",
@@ -95,21 +200,56 @@
             "text": "An 8th grader with science homework, online.",
             "correct": true
           },
-          { "text": "A college student with history.", "correct": false },
-          { "text": "A 3rd grader with reading.", "correct": false },
-          { "text": "Only students who come in person.", "correct": false }
+          {
+            "text": "A college student with history.",
+            "correct": false
+          },
+          {
+            "text": "A 3rd grader with reading.",
+            "correct": false
+          },
+          {
+            "text": "Only students who come in person.",
+            "correct": false
+          }
         ],
-        "explanation": "Grades 6–9, math and science, online or in person."
+        "explanation": "Grades 6–9, math and science, online or in person.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-7.webp",
+          "alt": "A tutor helps a middle school student with a science experiment at a kitchen table.",
+          "source": "ai",
+          "prompt": "A tutor helps a middle school student with a science experiment at a kitchen table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Ad: \"Café hours: Mon–Fri 7–7, Sat 8–3, closed Sundays.\" — When can you buy coffee there?",
         "options": [
-          { "text": "On Saturday at 2 p.m.", "correct": true },
-          { "text": "On Sunday at 10 a.m.", "correct": false },
-          { "text": "On Saturday at 5 p.m.", "correct": false },
-          { "text": "On Monday at 8 p.m.", "correct": false }
+          {
+            "text": "On Saturday at 2 p.m.",
+            "correct": true
+          },
+          {
+            "text": "On Sunday at 10 a.m.",
+            "correct": false
+          },
+          {
+            "text": "On Saturday at 5 p.m.",
+            "correct": false
+          },
+          {
+            "text": "On Monday at 8 p.m.",
+            "correct": false
+          }
         ],
-        "explanation": "Saturday is open from 8 to 3."
+        "explanation": "Saturday is open from 8 to 3.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/short-ads-and-notices/question-8.webp",
+          "alt": "A cozy neighborhood café with a coffee counter and a blank board by the door.",
+          "source": "ai",
+          "prompt": "A cozy neighborhood café with a coffee counter and a blank board by the door. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

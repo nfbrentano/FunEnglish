@@ -24,7 +24,13 @@
           "How does weekend rest affect student focus during the week?",
           "What alternative study habit could replace homework?"
         ],
-        "vocabulary": ["furthermore", "on the one hand", "detrimental", "balance", "leisure"]
+        "vocabulary": ["furthermore", "on the one hand", "detrimental", "balance", "leisure"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-1.webp",
+          "alt": "A student doing homework at a desk while friends play outside the window on a sunny weekend.",
+          "source": "ai",
+          "prompt": "A student doing homework at a desk while friends play outside the window on a sunny weekend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Write your opinion: Is social media making people more connected or more isolated?",
@@ -33,7 +39,13 @@
           "What psychological effects can excessive screen time cause?",
           "What conclusion do you draw overall?"
         ],
-        "vocabulary": ["paradoxically", "isolation", "superficial", "meaningful", "in contrast"]
+        "vocabulary": ["paradoxically", "isolation", "superficial", "meaningful", "in contrast"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-2.webp",
+          "alt": "A group of people sitting together, each looking at a blank phone screen and ignoring one another.",
+          "source": "ai",
+          "prompt": "A group of people sitting together, each looking at a blank phone screen and ignoring one another. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Write your opinion: Should all cities provide free public transportation for their residents?",
@@ -42,7 +54,13 @@
           "Who should pay for the maintenance of the transport system?",
           "What challenges might public transit systems face?"
         ],
-        "vocabulary": ["subsidize", "infrastructure", "emissions", "congestion", "undoubtedly"]
+        "vocabulary": ["subsidize", "infrastructure", "emissions", "congestion", "undoubtedly"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-3.webp",
+          "alt": "Happy residents boarding a clean city bus at a stop, with a tram passing in the background.",
+          "source": "ai",
+          "prompt": "Happy residents boarding a clean city bus at a stop, with a tram passing in the background. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Write your opinion: Can artificial intelligence replace teachers in future classrooms?",
@@ -51,7 +69,13 @@
           "How can AI tools support teachers rather than replace them?",
           "What ethical considerations should schools keep in mind?"
         ],
-        "vocabulary": ["empathy", "mentorship", "indispensable", "automated", "nuance"]
+        "vocabulary": ["empathy", "mentorship", "indispensable", "automated", "nuance"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-4.webp",
+          "alt": "A friendly robot standing beside a human teacher in front of a classroom of students.",
+          "source": "ai",
+          "prompt": "A friendly robot standing beside a human teacher in front of a classroom of students. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Write your opinion: Should zoos exist in the modern world?",
@@ -60,7 +84,13 @@
           "What ethical concerns arise when keeping wild animals in captivity?",
           "Are virtual wildlife reserves a realistic alternative?"
         ],
-        "vocabulary": ["captivity", "conservation", "endangered", "sanctuary", "nevertheless"]
+        "vocabulary": ["captivity", "conservation", "endangered", "sanctuary", "nevertheless"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-5.webp",
+          "alt": "A family watching a giraffe in a spacious zoo enclosure with trees and a fence.",
+          "source": "ai",
+          "prompt": "A family watching a giraffe in a spacious zoo enclosure with trees and a fence. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       },
       {
         "prompt": "Write your opinion: Does money buy happiness?",
@@ -69,7 +99,13 @@
           "What non-material factors are essential for genuine well-being?",
           "How does spending money on experiences compare to buying material goods?"
         ],
-        "vocabulary": ["financial security", "contentment", "intangible", "fulfill", "ultimately"]
+        "vocabulary": ["financial security", "contentment", "intangible", "fulfill", "ultimately"],
+        "image": {
+          "src": "/images/activities/opinion-essays-and-arguments/card-6.webp",
+          "alt": "A person holding a full wallet looking thoughtfully at a happy family having a simple picnic.",
+          "source": "ai",
+          "prompt": "A person holding a full wallet looking thoughtfully at a happy family having a simple picnic. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

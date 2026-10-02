@@ -74,7 +74,7 @@ function Choice({
 }
 
 /** Ways to start a new activity (spec: gestão completa, RF08). */
-export function NewActivity({ guide }: { guide: Guide }) {
+export function NewActivity({ guide, imageStyle = "" }: { guide: Guide; imageStyle?: string }) {
   const router = useRouter();
   const { user } = useAuth();
   const ids = useId();
@@ -327,7 +327,7 @@ export function NewActivity({ guide }: { guide: Guide }) {
             <ErrorList errors={errors.ai} />
             <Button
               disabled={busy || !answer.trim()}
-              onClick={() => createDraft(parseAiAnswer(answer), "ai")}
+              onClick={() => createDraft(parseAiAnswer(answer, imageStyle), "ai")}
             >
               {t.createDraft}
             </Button>

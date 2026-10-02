@@ -114,8 +114,8 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
   }, []);
 
   const shown = useMemo(
-    () => (items ? filterAdminActivities(items, filters) : []),
-    [items, filters],
+    () => (items ? filterAdminActivities(items, filters, images) : []),
+    [items, filters, images],
   );
   const pages = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
   const current = Math.min(page, pages - 1);
@@ -323,6 +323,19 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
             </option>
           ))}
         </select>
+        <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full px-3 text-sm">
+          <input
+            type="checkbox"
+
+            checked={filters.fewImages}
+
+            onChange={(e) => set({ fewImages: e.target.checked })}
+
+            className="size-4 accent-(--accent)"
+          />
+
+          {l.fewImages}
+        </label>
         <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full px-3 text-sm">
           <input
             type="checkbox"

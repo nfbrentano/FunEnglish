@@ -775,3 +775,98 @@ test("missing images: the saved prompt, and several uploads in one commit (CA05,
     `public/images/activities/${slug}/thumb.webp`,
   ]);
 });
+
+// Spec: mais imagens nas atividades, PR 2 (planning pictures).
+
+test("Plan images: a picture for every question, then listed in Missing images (CA06)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin");
+  await page.getByRole("link", { name: "Fixture Grammar 4" }).click();
+  await expect(editor(page).getByLabel("Title", { exact: true })).toHaveValue("Fixture Grammar 4");
+  await page.getByRole("button", { name: "Plan images" }).click();
+  const dialog = page.getByRole("dialog", { name: "Plan a picture for every item" });
+  await expect(dialog.getByText("1 picture to plan")).toBeVisible();
+  await dialog.getByLabel("Also picture answers (an image for every option)").check();
+  await expect(dialog.getByText("3 pictures to plan")).toBeVisible();
+  await dialog.getByRole("button", { name: "Plan 3 pictures" }).click();
+  await expect(
+    page.getByText("3 pictures planned. Review the descriptions and save."),
+  ).toBeVisible();
+
+  const form = page.getByRole("tabpanel", { name: "Form" });
+  await expect(form.getByLabel("Image description (alt)").first()).not.toHaveValue("");
+  await page.getByRole("button", { name: "Save changes" }).click();
+  await expect(page.getByText("Saved", { exact: true })).toBeVisible();
+
+  const doc = (
+    await adminDb().collection("activities").where("slug", "==", "fixture-grammar-4").get()
+  ).docs[0];
+  const question = doc.get("content.questions")[0];
+  expect(question.media).toMatchObject({
+    kind: "image",
+    src: "/images/activities/fixture-grammar-4/question-1.webp",
+  });
+  expect(question.media.prompt).toMatch(/Flat vector illustration/);
+  expect(question.options[0].image.src).toBe(
+    "/images/activities/fixture-grammar-4/question-1-option-1.webp",
+  );
+
+  await page.goto("/admin/images");
+  await expect(page.getByText("fixture-grammar-4--question-1.png")).toBeVisible();
+  await expect(page.getByText("fixture-grammar-4--question-1-option-2.png")).toBeVisible();
+});
+
+test("Create with AI asks for pictures and plans the ones the AI describes (CA07)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin/new?type=quiz&category=vocabulary&level=beginner");
+  await expect(page.getByRole("textbox", { name: "Prompt for the AI" })).toHaveValue(
+    /Give every question a picture: "media": \{"kind": "image", "alt": "what the picture shows"\}/,
+  );
+  const slug = `ai-pictures-${Date.now()}`;
+  const answer = {
+    ...aiQuiz(slug),
+    thumbnail: { alt: "A sun and a cloud" },
+    content: {
+      questions: [
+        {
+          prompt: "It's ___ today. Take an umbrella!",
+          media: { kind: "image", alt: "Rain falling on a city street" },
+          options: [{ text: "rainy", correct: true }, { text: "sunny" }],
+        },
+      ],
+    },
+  };
+  await page.getByLabel("Paste the AI's answer (the JSON) here:").fill(JSON.stringify(answer));
+  await page.getByRole("button", { name: "Create draft" }).first().click();
+  await expect(page).toHaveURL(/\/admin\/edit\?id=/);
+  const doc = (await adminDb().collection("activities").where("slug", "==", slug).get()).docs[0];
+  expect(doc.get("thumbnail")).toMatchObject({
+    src: `/images/activities/${slug}/thumb.webp`,
+    source: "ai",
+  });
+  expect(doc.get("content.questions")[0].media).toMatchObject({
+    src: `/images/activities/${slug}/question-1.webp`,
+    alt: "Rain falling on a city street",
+    prompt: expect.stringMatching(/^Rain falling on a city street\. Flat vector illustration/),
+  });
+});
+
+test("coverage shows pictures per activity and the list filters the ones with few (CA08)", async ({
+  page,
+}) => {
+  await signUp(page, { admin: true });
+  await page.goto("/admin/coverage");
+  const pictures = page.getByRole("region", { name: "Pictures per activity" });
+  const row = pictures.getByRole("row", { name: /Fixture Grammar 1/ });
+  await expect(row).toContainText("0%");
+  // Intermediate–Advanced: the target goes by the lowest level, 80%.
+  await expect(row).toContainText("(below the 80% target)");
+
+  await page.goto("/admin?images=few&q=fixture grammar 1");
+  await expect(page.getByLabel("Few images")).toBeChecked();
+  await expect(page.getByRole("link", { name: "Fixture Grammar 1" })).toBeVisible();
+});
