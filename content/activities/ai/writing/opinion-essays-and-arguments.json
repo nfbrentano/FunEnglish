@@ -6,13 +6,7 @@
   "type": "prompt-cards",
   "levelMin": "intermediate",
   "levelMax": "advanced",
-  "tags": [
-    "opinion essay",
-    "persuasive writing",
-    "arguments",
-    "academic",
-    "writing prompts"
-  ],
+  "tags": ["opinion essay", "persuasive writing", "arguments", "academic", "writing prompts"],
   "status": "published",
   "thumbnail": {
     "src": "/images/activities/opinion-essays-and-arguments/thumb.webp",
@@ -30,13 +24,7 @@
           "How does weekend rest affect student focus during the week?",
           "What alternative study habit could replace homework?"
         ],
-        "vocabulary": [
-          "furthermore",
-          "on the one hand",
-          "detrimental",
-          "balance",
-          "leisure"
-        ]
+        "vocabulary": ["furthermore", "on the one hand", "detrimental", "balance", "leisure"]
       },
       {
         "prompt": "Write your opinion: Is social media making people more connected or more isolated?",
@@ -45,13 +33,7 @@
           "What psychological effects can excessive screen time cause?",
           "What conclusion do you draw overall?"
         ],
-        "vocabulary": [
-          "paradoxically",
-          "isolation",
-          "superficial",
-          "meaningful",
-          "in contrast"
-        ]
+        "vocabulary": ["paradoxically", "isolation", "superficial", "meaningful", "in contrast"]
       },
       {
         "prompt": "Write your opinion: Should all cities provide free public transportation for their residents?",
@@ -60,13 +42,7 @@
           "Who should pay for the maintenance of the transport system?",
           "What challenges might public transit systems face?"
         ],
-        "vocabulary": [
-          "subsidize",
-          "infrastructure",
-          "emissions",
-          "congestion",
-          "undoubtedly"
-        ]
+        "vocabulary": ["subsidize", "infrastructure", "emissions", "congestion", "undoubtedly"]
       },
       {
         "prompt": "Write your opinion: Can artificial intelligence replace teachers in future classrooms?",
@@ -75,13 +51,7 @@
           "How can AI tools support teachers rather than replace them?",
           "What ethical considerations should schools keep in mind?"
         ],
-        "vocabulary": [
-          "empathy",
-          "mentorship",
-          "indispensable",
-          "automated",
-          "nuance"
-        ]
+        "vocabulary": ["empathy", "mentorship", "indispensable", "automated", "nuance"]
       },
       {
         "prompt": "Write your opinion: Should zoos exist in the modern world?",
@@ -90,13 +60,7 @@
           "What ethical concerns arise when keeping wild animals in captivity?",
           "Are virtual wildlife reserves a realistic alternative?"
         ],
-        "vocabulary": [
-          "captivity",
-          "conservation",
-          "endangered",
-          "sanctuary",
-          "nevertheless"
-        ]
+        "vocabulary": ["captivity", "conservation", "endangered", "sanctuary", "nevertheless"]
       },
       {
         "prompt": "Write your opinion: Does money buy happiness?",
@@ -105,13 +69,7 @@
           "What non-material factors are essential for genuine well-being?",
           "How does spending money on experiences compare to buying material goods?"
         ],
-        "vocabulary": [
-          "financial security",
-          "contentment",
-          "intangible",
-          "fulfill",
-          "ultimately"
-        ]
+        "vocabulary": ["financial security", "contentment", "intangible", "fulfill", "ultimately"]
       }
     ]
   }

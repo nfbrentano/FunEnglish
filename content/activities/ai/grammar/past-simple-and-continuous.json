@@ -50,13 +50,6 @@
         "hint": "Continuous action in progress in the past."
       }
     ],
-    "distractors": [
-      "studied",
-      "had",
-      "walked",
-      "did you do",
-      "was losing",
-      "cooked"
-    ]
+    "distractors": ["studied", "had", "walked", "did you do", "was losing", "cooked"]
   }
 }

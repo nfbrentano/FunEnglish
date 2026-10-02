@@ -5,7 +5,7 @@ O **prompt de cada imagem fica no JSON da atividade**, no campo `prompt` ao lado
 
 ## Pelo painel (recomendado)
 
-1. Conecte o GitHub uma vez em **/admin/settings** (token só deste repositório, permissão *Contents*).
+1. Conecte o GitHub uma vez em **/admin/settings** (token só deste repositório, permissão _Contents_).
 2. No editor da atividade, em cada imagem: **Write prompt from alt** (se o prompt estiver vazio) →
    **Copy prompt** → gere a imagem na sua ferramenta de IA → **Upload image**.
 3. O painel converte para WebP (≤ 200 KB; thumbnails 1280×800), faz o commit em

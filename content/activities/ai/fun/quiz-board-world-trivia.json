@@ -6,15 +6,7 @@
   "type": "quiz-board",
   "levelMin": "intermediate",
   "levelMax": "advanced",
-  "tags": [
-    "trivia",
-    "teams",
-    "geography",
-    "inventions",
-    "nature",
-    "sports",
-    "game"
-  ],
+  "tags": ["trivia", "teams", "geography", "inventions", "nature", "sports", "game"],
   "status": "published",
   "thumbnail": {
     "src": "/images/activities/quiz-board-world-trivia/thumb.webp",

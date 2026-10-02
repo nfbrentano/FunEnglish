@@ -15,8 +15,11 @@ import { ACTIVITIES_COLLECTION } from "../src/lib/activities/collections";
 import { applyImagePrompts, promptFromTxt } from "../src/lib/activities/image-prompts";
 import { getAdminDb } from "../src/lib/firebase-admin/core";
 
-const PROMPTS_DIR = join(process.cwd(), "content", "prompts", "images");
-const CONTENT_DIR = join(process.cwd(), "content", "activities");
+// --prompts=<dir> and --content=<dir> point elsewhere (tests).
+const arg = (name: string) =>
+  process.argv.find((a) => a.startsWith(`--${name}=`))?.slice(name.length + 3);
+const PROMPTS_DIR = join(process.cwd(), arg("prompts") ?? "content/prompts/images");
+const CONTENT_DIR = join(process.cwd(), arg("content") ?? "content/activities");
 
 function readPrompts(): Map<string, string> {
   const prompts = new Map<string, string>();

@@ -6,12 +6,7 @@
   "type": "fill-blanks",
   "levelMin": "intermediate",
   "levelMax": "intermediate",
-  "tags": [
-    "conditionals",
-    "if clauses",
-    "first conditional",
-    "second conditional"
-  ],
+  "tags": ["conditionals", "if clauses", "first conditional", "second conditional"],
   "status": "published",
   "featured": false,
   "origin": "ai",

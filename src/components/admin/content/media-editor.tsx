@@ -1,13 +1,13 @@
 "use client";
 
 import { Volume2 } from "lucide-react";
-import { useContext, useId, useState } from "react";
+import { useId, useState } from "react";
 import { ActivityMedia } from "@/components/player/media/activity-media";
 import { Button } from "@/components/ui/button";
 import { parseYouTubeInput } from "@/lib/admin/youtube-url";
 import { strings } from "@/lib/strings";
 import { asText, Field, inputClasses, TextField, type Json } from "./fields";
-import { ImagePathsContext } from "./image-paths";
+import { ImageFields } from "./image-fields";
 import { pathKey, type Path } from "./form-context";
 
 const t = strings.admin.form;
@@ -20,71 +20,6 @@ const EMPTY: Record<Exclude<Kind, "none">, Json> = {
   tts: { kind: "tts", text: "" },
   youtube: { kind: "youtube", videoId: "", start: 0 },
 };
-
-/** src + alt + source, with a picker of the images already in the site (RF04). */
-export function ImageFields({
-  value,
-  onChange,
-  path,
-}: {
-  value: Json;
-  onChange: (value: Json) => void;
-  path: Path;
-}) {
-  const images = useContext(ImagePathsContext);
-  const listId = useId();
-  const src = asText(value.src);
-  return (
-    <div className="space-y-3">
-      <div className="flex flex-wrap items-end gap-3">
-        <Field label={t.imageSrc} path={[...path, "src"]} hint={t.imageSrcHint}>
-          {(props) => (
-            <input
-              {...props}
-              list={listId}
-              value={src}
-              placeholder="/images/activities/<slug>/1.webp"
-              onChange={(e) => onChange({ ...value, src: e.target.value })}
-            />
-          )}
-        </Field>
-        <datalist id={listId}>
-          {images.map((image) => (
-            <option key={image} value={image} />
-          ))}
-        </datalist>
-        <Field label={t.imageSource} path={[...path, "source"]}>
-          {(props) => (
-            <select
-              {...props}
-              value={asText(value.source) || "ai"}
-              onChange={(e) => onChange({ ...value, source: e.target.value })}
-              className={`${props.className} sm:w-40`}
-            >
-              <option value="ai">{t.sourceAi}</option>
-              <option value="stock">{t.sourceStock}</option>
-              <option value="own">{t.sourceOwn}</option>
-            </select>
-          )}
-        </Field>
-      </div>
-      <TextField
-        label={t.imageAlt}
-        path={[...path, "alt"]}
-        value={asText(value.alt)}
-        onChange={(alt) => onChange({ ...value, alt })}
-      />
-      {src && (
-        // eslint-disable-next-line @next/next/no-img-element -- preview of any path or URL
-        <img
-          src={src}
-          alt=""
-          className="max-h-40 rounded-xl border border-border-subtle object-contain"
-        />
-      )}
-    </div>
-  );
-}
 
 /** Optional media of a question, blank, clue… (spec: gestão completa, RF04, CA05). */
 export function MediaEditor({
@@ -275,3 +210,5 @@ function MediaPreview({ media }: { media: Json }) {
     </div>
   );
 }
+
+export { ImageFields };

@@ -32,8 +32,8 @@
 | RF02 | Migração: script `npm run images:migrate-prompts` lê cada `content/prompts/images/<slug>/<name>.txt`, grava o prompt na imagem correspondente (casando pelo `src`) **no Firestore** (fonte da verdade) e nos JSONs locais, e lista o que não casou. Depois disso a pasta `content/prompts/images/` deixa de ser necessária | P0 | CA02 |
 | RF03 | No editor, cada imagem (thumbnail e imagens do conteúdo) ganha: campo **Image prompt**, botão **Write prompt from alt** (`alt` + o estilo de `content/prompts/image-style.md`), botão **Copy prompt** e botão **Upload image** | P0 | CA03 |
 | RF04 | **Upload:** o arquivo escolhido (PNG, JPG, WebP ou AVIF) é processado **no navegador**. O thumbnail é recortado para 1280×800 (16:10); as outras imagens são reduzidas a até 1600 px de largura. Depois é convertido para WebP, baixando a qualidade até ficar ≤ 200 KB, com as mesmas regras de `npm run images:import`. Se não conseguir ≤ 200 KB, o upload é recusado com uma mensagem | P0 | CA04, CA09 |
-| RF05 | O WebP é **commitado** em `public/images/activities/<slug>/<name>.webp` pela API do GitHub (Contents API), na branch `main`, com a mensagem `content(images): <slug>/<name> (via admin panel)`. O `src` da imagem é preenchido com esse caminho se estiver vazio. A atividade não é salva automaticamente: o admin salva como de costume | P0 | CA04 |
-| RF06 | **Enviar várias de uma vez:** em "Missing images" e no editor, a opção "Upload several" aceita vários arquivos nomeados `<slug>--<name>.png` (o mesmo padrão de `images:import`) e faz **um único commit** com todos (Git Data API: blobs + tree + commit) | P1 | CA05 |
+| RF05 | O WebP é **commitado** em `public/images/activities/<slug>/<name>.webp` pela API do GitHub (Git Data API: blobs, tree, commit e ref, a mesma de RF06), na branch `main`, com a mensagem `content(images): <slug>/<name> (via admin panel)`. O `src` da imagem é preenchido com esse caminho se estiver vazio. A atividade não é salva automaticamente: o admin salva como de costume | P0 | CA04 |
+| RF06 | **Enviar várias de uma vez:** em "Missing images", a opção "Upload several" aceita vários arquivos nomeados `<slug>--<name>.png` (o mesmo padrão de `images:import`) e faz **um único commit** com todos (Git Data API: blobs + tree + commit) | P1 | CA05 |
 | RF07 | Depois do commit, a imagem aparece no editor na hora (pré-visualização local), com o aviso "Uploaded. It goes live after the next deploy (~3 min)" e um link para acompanhar o deploy no GitHub Actions | P0 | CA04 |
 | RF08 | **Conexão com o GitHub:** em `/admin/settings`, o admin cola um *fine-grained personal access token* com acesso **só** ao repositório `nfbrentano/FunEnglish` e só à permissão **Contents: Read and write**. Há instruções passo a passo com link para criar o token. O painel testa o token (lê o repositório) e mostra "Connected as <login>". O token fica **só no navegador** desse admin (`localStorage`), com o botão "Disconnect" | P0 | CA06, CA07 |
 | RF09 | "Missing images" usa o `prompt` do JSON quando existir (senão gera a partir do `alt`) e ganha **Upload** por imagem | P0 | CA08 |
@@ -63,16 +63,16 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma imagem com `prompt` no JSON, quando a atividade é validada, publicada e jogada, então ela é aceita e o player e o catálogo funcionam como antes; um `prompt` com mais de 2.000 caracteres é recusado.
-- [ ] **CA02:** Dado os 59 prompts em `content/prompts/images/`, quando rodo `npm run images:migrate-prompts`, então cada imagem correspondente no Firestore e nos JSONs passa a ter o `prompt` daquele arquivo, e o script lista os arquivos que não casaram com nenhuma imagem.
-- [ ] **CA03:** Dado o thumbnail com `alt` "A sun and a cloud with rain on a map" e prompt vazio, quando clico "Write prompt from alt", então o campo recebe "A sun and a cloud with rain on a map. Flat vector illustration…" (o estilo do guia), e "Copy prompt" o copia.
-- [ ] **CA04:** Dado que estou conectado ao GitHub, quando escolho um PNG de 3000×2000 em "Upload image" do thumbnail de `travel-vocabulary`, então é criado um commit com `public/images/activities/travel-vocabulary/thumb.webp` em 1280×800, ≤ 200 KB; o editor mostra a imagem e o aviso do deploy; e, após o deploy, a imagem aparece no site.
-- [ ] **CA05:** Dado 11 arquivos `travel-vocabulary--<name>.png`, quando uso "Upload several", então um único commit traz os 11 WebP e "Missing images" deixa de listá-los após o deploy.
-- [ ] **CA06:** Dado `/admin/settings`, quando colo um token válido, então vejo "Connected as nfbrentano"; com um token sem acesso ao repositório, vejo "This token can't write to nfbrentano/FunEnglish" e nada é salvo.
-- [ ] **CA07 (negativo):** Dado um token salvo, quando inspeciono o Firestore, o repositório e as requisições para outros domínios, então o token não aparece em nenhum deles; e outro admin, em outro navegador, não está conectado.
-- [ ] **CA08:** Dado uma imagem faltando com `prompt` no JSON, quando abro "Missing images", então vejo esse prompt (e não o gerado pelo `alt`) e um botão "Upload" que envia o arquivo para o caminho certo.
-- [ ] **CA09 (limite):** Dado uma imagem que não fica ≤ 200 KB nem com a qualidade mínima, quando faço o upload, então vejo "This image is too detailed to fit in 200 KB. Try a simpler image." e nenhum commit é feito.
-- [ ] **CA10 (erro):** Dado que não estou conectado ao GitHub, quando clico "Upload image", então vejo "Connect GitHub to upload images" com link para `/admin/settings`.
+- [x] **CA01:** Dado uma imagem com `prompt` no JSON, quando a atividade é validada, publicada e jogada, então ela é aceita e o player e o catálogo funcionam como antes; um `prompt` com mais de 2.000 caracteres é recusado.
+- [x] **CA02:** Dado os 59 prompts em `content/prompts/images/`, quando rodo `npm run images:migrate-prompts`, então cada imagem correspondente no Firestore e nos JSONs passa a ter o `prompt` daquele arquivo, e o script lista os arquivos que não casaram com nenhuma imagem.
+- [x] **CA03:** Dado o thumbnail com `alt` "A sun and a cloud with rain on a map" e prompt vazio, quando clico "Write prompt from alt", então o campo recebe "A sun and a cloud with rain on a map. Flat vector illustration…" (o estilo do guia), e "Copy prompt" o copia.
+- [ ] **CA04:** Dado que estou conectado ao GitHub, quando escolho um PNG de 3000×2000 em "Upload image" do thumbnail de `travel-vocabulary`, então é criado um commit com `public/images/activities/travel-vocabulary/thumb.webp` em 1280×800, ≤ 200 KB; o editor mostra a imagem e o aviso do deploy; e, após o deploy, a imagem aparece no site. _(Automatizado com a API do GitHub simulada; pendente: CT11, o primeiro upload real com o token do PO)_
+- [x] **CA05:** Dado 11 arquivos `travel-vocabulary--<name>.png`, quando uso "Upload several", então um único commit traz os 11 WebP e "Missing images" deixa de listá-los após o deploy.
+- [x] **CA06:** Dado `/admin/settings`, quando colo um token válido, então vejo "Connected as nfbrentano"; com um token sem acesso ao repositório, vejo "This token can't write to nfbrentano/FunEnglish" e nada é salvo.
+- [x] **CA07 (negativo):** Dado um token salvo, quando inspeciono o Firestore, o repositório e as requisições para outros domínios, então o token não aparece em nenhum deles; e outro admin, em outro navegador, não está conectado.
+- [x] **CA08:** Dado uma imagem faltando com `prompt` no JSON, quando abro "Missing images", então vejo esse prompt (e não o gerado pelo `alt`) e um botão "Upload" que envia o arquivo para o caminho certo.
+- [x] **CA09 (limite):** Dado uma imagem que não fica ≤ 200 KB nem com a qualidade mínima, quando faço o upload, então vejo "This image is too detailed to fit in 200 KB. Try a simpler image." e nenhum commit é feito.
+- [x] **CA10 (erro):** Dado que não estou conectado ao GitHub, quando clico "Upload image", então vejo "Connect GitHub to upload images" com link para `/admin/settings`.
 
 ## O que a atividade não inclui
 
@@ -103,7 +103,7 @@
 | CT02 | Migração | integração (emulador) | CA02 | Rodar o script com 3 `.txt`, um sem imagem | 2 prompts gravados; 1 listado |
 | CT03 | Prompt a partir do alt | componente | CA03 | Clicar "Write prompt from alt" | Texto = alt + estilo |
 | CT04 | Processamento | unit (canvas simulado) | CA04, CA09 | Imagem 3000×2000 → thumb; imagem impossível | 1280×800 ≤ 200 KB / erro |
-| CT05 | Commit de 1 arquivo | e2e (API do GitHub simulada) | CA04 | Upload no editor | PUT em `contents/public/images/...` com base64; `src` preenchido |
+| CT05 | Commit de 1 arquivo | e2e (API do GitHub simulada) | CA04 | Upload no editor | Um commit com `public/images/...` (blob em base64); `src` preenchido |
 | CT06 | Commit de vários | e2e (API simulada) | CA05 | Upload several com 3 arquivos | 3 blobs, 1 tree, 1 commit, ref atualizada |
 | CT07 | Conexão | e2e (API simulada) | CA06 | Token válido / sem permissão | "Connected as" / erro; nada salvo |
 | CT08 | Token não vaza | e2e | CA07 | Monitorar requisições e Firestore após conectar | Token só em `api.github.com` |

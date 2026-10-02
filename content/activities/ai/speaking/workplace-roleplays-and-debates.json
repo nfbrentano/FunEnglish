@@ -6,13 +6,7 @@
   "type": "prompt-cards",
   "levelMin": "intermediate",
   "levelMax": "advanced",
-  "tags": [
-    "business English",
-    "roleplay",
-    "speaking",
-    "workplace",
-    "communication"
-  ],
+  "tags": ["business English", "roleplay", "speaking", "workplace", "communication"],
   "status": "published",
   "thumbnail": {
     "src": "/images/activities/workplace-roleplays-and-debates/thumb.webp",
@@ -30,13 +24,7 @@
           "What solution or new timeline would you propose?",
           "How would you assure your manager this won't happen again?"
         ],
-        "vocabulary": [
-          "deadline",
-          "extension",
-          "bottleneck",
-          "contingency plan",
-          "deliverable"
-        ]
+        "vocabulary": ["deadline", "extension", "bottleneck", "contingency plan", "deliverable"]
       },
       {
         "prompt": "A coworker in your team frequently arrives late to meetings and misses team updates. Discuss this with them.",
@@ -45,13 +33,7 @@
           "What impact does their lateness have on the rest of the team?",
           "What compromise can you reach?"
         ],
-        "vocabulary": [
-          "punctual",
-          "agenda",
-          "respectful",
-          "distraction",
-          "team dynamic"
-        ]
+        "vocabulary": ["punctual", "agenda", "respectful", "distraction", "team dynamic"]
       },
       {
         "prompt": "Negotiate a budget increase for your department's upcoming client presentation event.",
@@ -60,13 +42,7 @@
           "What will you do if the finance director says no initially?",
           "Where could you cut costs if needed?"
         ],
-        "vocabulary": [
-          "budget",
-          "allocation",
-          "ROI",
-          "justification",
-          "expenses"
-        ]
+        "vocabulary": ["budget", "allocation", "ROI", "justification", "expenses"]
       },
       {
         "prompt": "A customer calls complaining that their order arrived damaged and two weeks late. Resolve the problem as customer support.",
@@ -100,10 +76,7 @@
       },
       {
         "prompt": "You receive two enticing job offers: one with higher pay but long office hours, and one with lower pay but full remote flexibility.",
-        "options": [
-          "Higher pay with long office hours",
-          "Lower pay with full remote flexibility"
-        ],
+        "options": ["Higher pay with long office hours", "Lower pay with full remote flexibility"],
         "followUps": [
           "Which offer would you accept and why?",
           "How do you weigh work-life balance against financial growth?",
@@ -124,13 +97,7 @@
           "How can the company improve onboarding and retention?",
           "What positive feedback can you share?"
         ],
-        "vocabulary": [
-          "retention",
-          "transition",
-          "culture",
-          "turnover",
-          "insights"
-        ]
+        "vocabulary": ["retention", "transition", "culture", "turnover", "insights"]
       },
       {
         "prompt": "Present a pitch to your team suggesting a four-day workweek trial for the next two months.",
@@ -139,13 +106,7 @@
           "What metrics will you measure during the trial?",
           "What concerns might leadership raise?"
         ],
-        "vocabulary": [
-          "productivity",
-          "trial period",
-          "wellbeing",
-          "efficiency",
-          "coverage"
-        ]
+        "vocabulary": ["productivity", "trial period", "wellbeing", "efficiency", "coverage"]
       }
     ]
   }

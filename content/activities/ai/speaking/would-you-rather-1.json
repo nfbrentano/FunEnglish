@@ -46,10 +46,7 @@
       },
       {
         "prompt": "Would you rather…",
-        "options": [
-          "have a big birthday party",
-          "have a quiet dinner with friends"
-        ],
+        "options": ["have a big birthday party", "have a quiet dinner with friends"],
         "followUps": ["Why?", "What would be the hardest part?"],
         "vocabulary": ["celebrate", "guests", "cozy"]
       },

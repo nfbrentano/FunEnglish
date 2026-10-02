@@ -27,13 +27,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       },
       {
         "prompt": "Continue the story: \"It was the last day of summer vacation, and something strange happened…\"",
@@ -42,13 +36,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       },
       {
         "prompt": "Continue the story: \"The phone rang at 3 a.m. A voice whispered…\"",
@@ -57,13 +45,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       },
       {
         "prompt": "Continue the story: \"I found an old map in my grandmother's attic…\"",
@@ -72,13 +54,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       },
       {
         "prompt": "Continue the story: \"Everyone in town was asleep except me…\"",
@@ -87,13 +63,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       },
       {
         "prompt": "Continue the story: \"The new student in class had a secret…\"",
@@ -102,13 +72,7 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": [
-          "suddenly",
-          "nervous",
-          "at last",
-          "whisper",
-          "couldn't believe"
-        ]
+        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"]
       }
     ]
   }

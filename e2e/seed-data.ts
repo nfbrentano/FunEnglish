@@ -13,8 +13,23 @@ export const seeded = dirs.flatMap((dir) =>
           status: string;
           category: string;
           title: string;
+          levelMin: string;
+          levelMax: string;
         },
     ),
 );
 
 export const PUBLISHED = seeded.filter((a) => a.status === "published").length;
+
+const LEVELS = ["beginner", "intermediate", "advanced"];
+
+/** Published activities of a category, optionally covering a level (as the catalog filters). */
+export const publishedCount = (category: string, level?: string) =>
+  seeded.filter(
+    (a) =>
+      a.status === "published" &&
+      a.category === category &&
+      (!level ||
+        (LEVELS.indexOf(a.levelMin) <= LEVELS.indexOf(level) &&
+          LEVELS.indexOf(level) <= LEVELS.indexOf(a.levelMax))),
+  ).length;
