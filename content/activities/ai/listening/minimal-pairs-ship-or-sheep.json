@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["pronunciation", "minimal pairs", "vowels", "listening"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/minimal-pairs-ship-or-sheep/thumb.webp",
     "alt": "A small ship and a fluffy sheep side by side",
@@ -17,172 +20,92 @@
     "questions": [
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "ship" },
         "options": [
-          {
-            "text": "ship",
-            "correct": true
-          },
-          {
-            "text": "sheep"
-          }
+          { "text": "ship", "correct": true },
+          { "text": "sheep", "correct": false }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "ship"
-        },
         "explanation": "Ship has a short /ɪ/ sound; sheep has a long /iː/ sound."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "sheep" },
         "options": [
-          {
-            "text": "ship"
-          },
-          {
-            "text": "sheep",
-            "correct": true
-          }
+          { "text": "ship", "correct": false },
+          { "text": "sheep", "correct": true }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "sheep"
-        },
         "explanation": "Sheep has a long /iː/ sound; ship has a short /ɪ/ sound."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "leave" },
         "options": [
-          {
-            "text": "live"
-          },
-          {
-            "text": "leave",
-            "correct": true
-          }
+          { "text": "live", "correct": false },
+          { "text": "leave", "correct": true }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "leave"
-        },
         "explanation": "Leave has a long /iː/ sound."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "bit" },
         "options": [
-          {
-            "text": "bit",
-            "correct": true
-          },
-          {
-            "text": "beat"
-          }
+          { "text": "bit", "correct": true },
+          { "text": "beat", "correct": false }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "bit"
-        },
         "explanation": "Bit has a short /ɪ/ sound; beat has a long /iː/."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "fool" },
         "options": [
-          {
-            "text": "full"
-          },
-          {
-            "text": "fool",
-            "correct": true
-          }
+          { "text": "full", "correct": false },
+          { "text": "fool", "correct": true }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "fool"
-        },
         "explanation": "Fool has a long /uː/ sound; full has a short /ʊ/."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "cut" },
         "options": [
-          {
-            "text": "cat"
-          },
-          {
-            "text": "cut",
-            "correct": true
-          }
+          { "text": "cat", "correct": false },
+          { "text": "cut", "correct": true }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "cut"
-        },
         "explanation": "Cut has the /ʌ/ sound, like in 'up'."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "bed" },
         "options": [
-          {
-            "text": "bad"
-          },
-          {
-            "text": "bed",
-            "correct": true
-          }
+          { "text": "bad", "correct": false },
+          { "text": "bed", "correct": true }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "bed"
-        },
         "explanation": "Bed has the /e/ sound; bad has the wider /æ/ sound."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "hat" },
         "options": [
-          {
-            "text": "hat",
-            "correct": true
-          },
-          {
-            "text": "hut"
-          }
+          { "text": "hat", "correct": true },
+          { "text": "hut", "correct": false }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "hat"
-        },
         "explanation": "Hat has the /æ/ sound; hut has /ʌ/."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "pull" },
         "options": [
-          {
-            "text": "pull",
-            "correct": true
-          },
-          {
-            "text": "pool"
-          }
+          { "text": "pull", "correct": true },
+          { "text": "pool", "correct": false }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "pull"
-        },
         "explanation": "Pull has a short /ʊ/ sound; pool has a long /uː/."
       },
       {
         "prompt": "Listen and choose the word you hear.",
+        "media": { "kind": "tts", "text": "seat" },
         "options": [
-          {
-            "text": "seat",
-            "correct": true
-          },
-          {
-            "text": "sit"
-          }
+          { "text": "seat", "correct": true },
+          { "text": "sit", "correct": false }
         ],
-        "media": {
-          "kind": "tts",
-          "text": "seat"
-        },
         "explanation": "Seat has a long /iː/ sound; sit has a short /ɪ/."
       }
     ]

@@ -1,0 +1,170 @@
+{
+  "slug": "travel-vocabulary",
+  "title": "Travel Vocabulary",
+  "description": "Learn important words for airports, hotels, and traveling.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["travel", "airport", "hotel", "vacation"],
+  "status": "draft",
+  "thumbnail": {
+    "src": "/images/activities/travel-vocabulary/thumb.webp",
+    "alt": "A suitcase and a passport on a table",
+    "source": "ai"
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/luggage.webp",
+            "alt": "Several suitcases and bags",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "luggage",
+          "definition": "The bags and suitcases you take on a trip.",
+          "example": "Where can I pick up my luggage?"
+        },
+        "speak": "luggage"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/passport.webp",
+            "alt": "A blue passport book",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "passport",
+          "definition": "An official document you need to travel to another country.",
+          "example": "Please show your passport at the desk."
+        },
+        "speak": "passport"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/ticket.webp",
+            "alt": "A plane ticket",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "ticket",
+          "definition": "A piece of paper or electronic document that shows you paid for a journey.",
+          "example": "I bought a train ticket to London."
+        },
+        "speak": "ticket"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/flight-attendant.webp",
+            "alt": "A person working on an airplane, serving drinks",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "flight attendant",
+          "definition": "A person who serves and takes care of passengers on an aircraft.",
+          "example": "The flight attendant brought me some water."
+        },
+        "speak": "flight attendant"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/hotel.webp",
+            "alt": "A large building with many windows and a reception desk",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "hotel",
+          "definition": "A place where you pay to sleep when you are traveling.",
+          "example": "We booked a room in a nice hotel near the beach."
+        },
+        "speak": "hotel"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/tour-guide.webp",
+            "alt": "A person pointing at a famous building, talking to a group",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "tour guide",
+          "definition": "A person whose job is to show tourists around a place of interest.",
+          "example": "Our tour guide knew everything about the history of the city."
+        },
+        "speak": "tour guide"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/souvenir.webp",
+            "alt": "A small object bought as a memory, like a magnet or a mug",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "souvenir",
+          "definition": "Something you buy or keep to remember a place you visited.",
+          "example": "I bought a magnet as a souvenir from Paris."
+        },
+        "speak": "souvenir"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/customs.webp",
+            "alt": "A desk at an airport where officials check bags",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "customs",
+          "definition": "The place at a port or airport where officials check what you are bringing into a country.",
+          "example": "It took an hour to go through customs."
+        },
+        "speak": "customs"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/reservation.webp",
+            "alt": "A calendar and a phone booking a date",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "reservation",
+          "definition": "An arrangement to have a room or seat saved for you.",
+          "example": "I have a reservation for two nights."
+        },
+        "speak": "reservation"
+      },
+      {
+        "front": {
+          "image": {
+            "src": "/images/activities/travel-vocabulary/departure.webp",
+            "alt": "An airport sign showing planes taking off",
+            "source": "ai"
+          }
+        },
+        "back": {
+          "text": "departure",
+          "definition": "The act of leaving a place, especially when starting a journey.",
+          "example": "Check the screen for our flight's departure time."
+        },
+        "speak": "departure"
+      }
+    ]
+  }
+}

@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["game", "warm-up", "vocabulary", "categories"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/odd-one-out-1/thumb.webp",
     "alt": "Four colorful boxes, one of them a different shape",
@@ -18,152 +21,80 @@
       {
         "prompt": "Which word doesn't belong? cat · dog · apple · horse",
         "options": [
-          {
-            "text": "cat"
-          },
-          {
-            "text": "dog"
-          },
-          {
-            "text": "apple",
-            "correct": true
-          },
-          {
-            "text": "horse"
-          }
+          { "text": "cat", "correct": false },
+          { "text": "dog", "correct": false },
+          { "text": "apple", "correct": true },
+          { "text": "horse", "correct": false }
         ],
         "explanation": "Apple is a fruit. The others are animals."
       },
       {
         "prompt": "Which word doesn't belong? red · blue · banana · green",
         "options": [
-          {
-            "text": "red"
-          },
-          {
-            "text": "blue"
-          },
-          {
-            "text": "banana",
-            "correct": true
-          },
-          {
-            "text": "green"
-          }
+          { "text": "red", "correct": false },
+          { "text": "blue", "correct": false },
+          { "text": "banana", "correct": true },
+          { "text": "green", "correct": false }
         ],
         "explanation": "Banana is a fruit. The others are colors."
       },
       {
         "prompt": "Which word doesn't belong? Monday · Friday · July · Sunday",
         "options": [
-          {
-            "text": "Monday"
-          },
-          {
-            "text": "Friday"
-          },
-          {
-            "text": "July",
-            "correct": true
-          },
-          {
-            "text": "Sunday"
-          }
+          { "text": "Monday", "correct": false },
+          { "text": "Friday", "correct": false },
+          { "text": "July", "correct": true },
+          { "text": "Sunday", "correct": false }
         ],
         "explanation": "July is a month. The others are days of the week."
       },
       {
         "prompt": "Which word doesn't belong? teacher · doctor · kitchen · pilot",
         "options": [
-          {
-            "text": "teacher"
-          },
-          {
-            "text": "doctor"
-          },
-          {
-            "text": "kitchen",
-            "correct": true
-          },
-          {
-            "text": "pilot"
-          }
+          { "text": "teacher", "correct": false },
+          { "text": "doctor", "correct": false },
+          { "text": "kitchen", "correct": true },
+          { "text": "pilot", "correct": false }
         ],
         "explanation": "Kitchen is a room. The others are jobs."
       },
       {
         "prompt": "Which word doesn't belong? run · jump · happy · swim",
         "options": [
-          {
-            "text": "run"
-          },
-          {
-            "text": "jump"
-          },
-          {
-            "text": "happy",
-            "correct": true
-          },
-          {
-            "text": "swim"
-          }
+          { "text": "run", "correct": false },
+          { "text": "jump", "correct": false },
+          { "text": "happy", "correct": true },
+          { "text": "swim", "correct": false }
         ],
         "explanation": "Happy is an adjective (a feeling). The others are action verbs."
       },
       {
         "prompt": "Which word doesn't belong? spoon · fork · pillow · knife",
         "options": [
-          {
-            "text": "spoon"
-          },
-          {
-            "text": "fork"
-          },
-          {
-            "text": "pillow",
-            "correct": true
-          },
-          {
-            "text": "knife"
-          }
+          { "text": "spoon", "correct": false },
+          { "text": "fork", "correct": false },
+          { "text": "pillow", "correct": true },
+          { "text": "knife", "correct": false }
         ],
         "explanation": "A pillow is for your bed. The others are for eating."
       },
       {
         "prompt": "Which word doesn't belong? rain · snow · bread · wind",
         "options": [
-          {
-            "text": "rain"
-          },
-          {
-            "text": "snow"
-          },
-          {
-            "text": "bread",
-            "correct": true
-          },
-          {
-            "text": "wind"
-          }
+          { "text": "rain", "correct": false },
+          { "text": "snow", "correct": false },
+          { "text": "bread", "correct": true },
+          { "text": "wind", "correct": false }
         ],
         "explanation": "Bread is food. The others are weather words."
       },
       {
         "prompt": "Which word doesn't belong? eleven · purple · twelve · twenty",
         "options": [
-          {
-            "text": "eleven"
-          },
-          {
-            "text": "purple",
-            "correct": true
-          },
-          {
-            "text": "twelve"
-          },
-          {
-            "text": "twenty"
-          }
+          { "text": "eleven", "correct": false },
+          { "text": "purple", "correct": true },
+          { "text": "twelve", "correct": false },
+          { "text": "twenty", "correct": false }
         ],
         "explanation": "Purple is a color. The others are numbers."
       }

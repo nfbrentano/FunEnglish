@@ -8,12 +8,16 @@
   "levelMax": "advanced",
   "tags": ["warm-up", "opinions", "fluency", "conversation"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/this-or-that-1/thumb.webp",
     "alt": "Two doors side by side, one blue and one orange",
     "source": "ai"
   },
   "content": {
+    "writing": false,
     "cards": [
       {
         "prompt": "Which do you prefer?",

@@ -8,6 +8,9 @@
   "levelMax": "advanced",
   "tags": ["emails", "functional writing", "formal and informal"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/writing-emails-1/thumb.webp",
     "alt": "An envelope with an @ symbol and a paper airplane",

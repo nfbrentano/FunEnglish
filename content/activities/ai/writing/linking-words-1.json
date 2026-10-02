@@ -8,6 +8,9 @@
   "levelMax": "intermediate",
   "tags": ["linking words", "connectors", "conjunctions", "writing"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/linking-words-1/thumb.webp",
     "alt": "Puzzle pieces connected by a chain",
@@ -18,152 +21,80 @@
       {
         "prompt": "I was tired, ___ I went to bed early.",
         "options": [
-          {
-            "text": "so",
-            "correct": true
-          },
-          {
-            "text": "because"
-          },
-          {
-            "text": "but"
-          },
-          {
-            "text": "although"
-          }
+          { "text": "so", "correct": true },
+          { "text": "because", "correct": false },
+          { "text": "but", "correct": false },
+          { "text": "although", "correct": false }
         ],
         "explanation": "So introduces a result."
       },
       {
         "prompt": "She stayed home ___ she was sick.",
         "options": [
-          {
-            "text": "because",
-            "correct": true
-          },
-          {
-            "text": "so"
-          },
-          {
-            "text": "but"
-          },
-          {
-            "text": "however"
-          }
+          { "text": "because", "correct": true },
+          { "text": "so", "correct": false },
+          { "text": "but", "correct": false },
+          { "text": "however", "correct": false }
         ],
         "explanation": "Because introduces a reason."
       },
       {
         "prompt": "It was raining. ___, we went for a walk.",
         "options": [
-          {
-            "text": "However",
-            "correct": true
-          },
-          {
-            "text": "Because"
-          },
-          {
-            "text": "So"
-          },
-          {
-            "text": "Although"
-          }
+          { "text": "However", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "Although", "correct": false }
         ],
         "explanation": "However shows contrast between two sentences."
       },
       {
         "prompt": "___ he studied a lot, he failed the test.",
         "options": [
-          {
-            "text": "Although",
-            "correct": true
-          },
-          {
-            "text": "Because"
-          },
-          {
-            "text": "So"
-          },
-          {
-            "text": "However"
-          }
+          { "text": "Although", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "However", "correct": false }
         ],
         "explanation": "Although + clause shows a surprising contrast."
       },
       {
         "prompt": "I like tea, ___ I don't like coffee.",
         "options": [
-          {
-            "text": "but",
-            "correct": true
-          },
-          {
-            "text": "so"
-          },
-          {
-            "text": "because"
-          },
-          {
-            "text": "or"
-          }
+          { "text": "but", "correct": true },
+          { "text": "so", "correct": false },
+          { "text": "because", "correct": false },
+          { "text": "or", "correct": false }
         ],
         "explanation": "But joins two contrasting ideas in one sentence."
       },
       {
         "prompt": "We missed the bus, ___ we took a taxi.",
         "options": [
-          {
-            "text": "so",
-            "correct": true
-          },
-          {
-            "text": "but"
-          },
-          {
-            "text": "because"
-          },
-          {
-            "text": "although"
-          }
+          { "text": "so", "correct": true },
+          { "text": "but", "correct": false },
+          { "text": "because", "correct": false },
+          { "text": "although", "correct": false }
         ],
         "explanation": "Taking a taxi is the result of missing the bus."
       },
       {
         "prompt": "He's very rich. ___, he isn't happy.",
         "options": [
-          {
-            "text": "However",
-            "correct": true
-          },
-          {
-            "text": "Because"
-          },
-          {
-            "text": "So"
-          },
-          {
-            "text": "Although"
-          }
+          { "text": "However", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "Although", "correct": false }
         ],
         "explanation": "Use However at the start of a new sentence for contrast."
       },
       {
         "prompt": "___ it was late, the store was still open.",
         "options": [
-          {
-            "text": "Although",
-            "correct": true
-          },
-          {
-            "text": "Because"
-          },
-          {
-            "text": "So"
-          },
-          {
-            "text": "But"
-          }
+          { "text": "Although", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "But", "correct": false }
         ],
         "explanation": "Although = even though."
       }

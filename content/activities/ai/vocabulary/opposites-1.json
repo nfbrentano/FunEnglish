@@ -8,6 +8,9 @@
   "levelMax": "beginner",
   "tags": ["adjectives", "opposites", "kids"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/opposites-1/thumb.webp",
     "alt": "A sun and a snowflake facing each other",
@@ -18,152 +21,80 @@
       {
         "prompt": "What's the opposite of \"hot\"?",
         "options": [
-          {
-            "text": "cold",
-            "correct": true
-          },
-          {
-            "text": "warm"
-          },
-          {
-            "text": "sunny"
-          },
-          {
-            "text": "wet"
-          }
+          { "text": "cold", "correct": true },
+          { "text": "warm", "correct": false },
+          { "text": "sunny", "correct": false },
+          { "text": "wet", "correct": false }
         ],
         "explanation": "hot ↔ cold"
       },
       {
         "prompt": "What's the opposite of \"big\"?",
         "options": [
-          {
-            "text": "small",
-            "correct": true
-          },
-          {
-            "text": "tall"
-          },
-          {
-            "text": "long"
-          },
-          {
-            "text": "heavy"
-          }
+          { "text": "small", "correct": true },
+          { "text": "tall", "correct": false },
+          { "text": "long", "correct": false },
+          { "text": "heavy", "correct": false }
         ],
         "explanation": "big ↔ small"
       },
       {
         "prompt": "What's the opposite of \"happy\"?",
         "options": [
-          {
-            "text": "sad",
-            "correct": true
-          },
-          {
-            "text": "angry"
-          },
-          {
-            "text": "tired"
-          },
-          {
-            "text": "hungry"
-          }
+          { "text": "sad", "correct": true },
+          { "text": "angry", "correct": false },
+          { "text": "tired", "correct": false },
+          { "text": "hungry", "correct": false }
         ],
         "explanation": "happy ↔ sad"
       },
       {
         "prompt": "What's the opposite of \"open\"?",
         "options": [
-          {
-            "text": "closed",
-            "correct": true
-          },
-          {
-            "text": "empty"
-          },
-          {
-            "text": "broken"
-          },
-          {
-            "text": "new"
-          }
+          { "text": "closed", "correct": true },
+          { "text": "empty", "correct": false },
+          { "text": "broken", "correct": false },
+          { "text": "new", "correct": false }
         ],
         "explanation": "open ↔ closed"
       },
       {
         "prompt": "What's the opposite of \"fast\"?",
         "options": [
-          {
-            "text": "slow",
-            "correct": true
-          },
-          {
-            "text": "late"
-          },
-          {
-            "text": "quiet"
-          },
-          {
-            "text": "short"
-          }
+          { "text": "slow", "correct": true },
+          { "text": "late", "correct": false },
+          { "text": "quiet", "correct": false },
+          { "text": "short", "correct": false }
         ],
         "explanation": "fast ↔ slow"
       },
       {
         "prompt": "What's the opposite of \"early\"?",
         "options": [
-          {
-            "text": "late",
-            "correct": true
-          },
-          {
-            "text": "soon"
-          },
-          {
-            "text": "slow"
-          },
-          {
-            "text": "first"
-          }
+          { "text": "late", "correct": true },
+          { "text": "soon", "correct": false },
+          { "text": "slow", "correct": false },
+          { "text": "first", "correct": false }
         ],
         "explanation": "early ↔ late"
       },
       {
         "prompt": "What's the opposite of \"full\"?",
         "options": [
-          {
-            "text": "empty",
-            "correct": true
-          },
-          {
-            "text": "half"
-          },
-          {
-            "text": "open"
-          },
-          {
-            "text": "heavy"
-          }
+          { "text": "empty", "correct": true },
+          { "text": "half", "correct": false },
+          { "text": "open", "correct": false },
+          { "text": "heavy", "correct": false }
         ],
         "explanation": "full ↔ empty"
       },
       {
         "prompt": "What's the opposite of \"cheap\"?",
         "options": [
-          {
-            "text": "expensive",
-            "correct": true
-          },
-          {
-            "text": "free"
-          },
-          {
-            "text": "rich"
-          },
-          {
-            "text": "new"
-          }
+          { "text": "expensive", "correct": true },
+          { "text": "free", "correct": false },
+          { "text": "rich", "correct": false },
+          { "text": "new", "correct": false }
         ],
         "explanation": "cheap ↔ expensive"
       }

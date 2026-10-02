@@ -1,0 +1,114 @@
+{
+  "slug": "greetings-and-introductions-quiz",
+  "title": "Greetings and Introductions",
+  "description": "Practice common greetings, responses, and questions used to meet people.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["greetings", "be verb", "present simple", "introductions"],
+  "status": "draft",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "editedInPanelAt": "2026-10-02T14:31:51.768Z",
+  "thumbnail": {
+    "src": "/images/activities/greetings-and-introductions-quiz/thumb.webp",
+    "alt": "Two friendly people smiling and waving hello",
+    "source": "ai"
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Hello! How ___ you today?",
+        "options": [
+          { "text": "are", "correct": true },
+          { "text": "is", "correct": false },
+          { "text": "am", "correct": false }
+        ],
+        "explanation": "Use 'are' with the subject pronoun 'you'."
+      },
+      {
+        "prompt": "Hi, my name ___ Lucas.",
+        "options": [
+          { "text": "is", "correct": true },
+          { "text": "are", "correct": false },
+          { "text": "am", "correct": false }
+        ],
+        "explanation": "Use 'is' because 'my name' is a singular subject."
+      },
+      {
+        "prompt": "Nice to ___ you, Maria.",
+        "options": [
+          { "text": "meet", "correct": true },
+          { "text": "meets", "correct": false },
+          { "text": "meeting", "correct": false }
+        ],
+        "explanation": "Use the base verb 'meet' after 'Nice to'."
+      },
+      {
+        "prompt": "___ you a new student here?",
+        "options": [
+          { "text": "Are", "correct": true },
+          { "text": "Is", "correct": false },
+          { "text": "Do", "correct": false }
+        ],
+        "explanation": "Start a yes/no question with 'Are' when asking about identity with 'you'."
+      },
+      {
+        "prompt": "Good morning! How is it ___?",
+        "options": [
+          { "text": "going", "correct": true },
+          { "text": "go", "correct": false },
+          { "text": "goes", "correct": false }
+        ],
+        "explanation": "'How is it going?' is a common informal greeting using the '-ing' form."
+      },
+      {
+        "prompt": "I ___ doing well, thank you.",
+        "options": [
+          { "text": "am", "correct": true },
+          { "text": "is", "correct": false },
+          { "text": "are", "correct": false }
+        ],
+        "explanation": "Use 'am' with the subject pronoun 'I'."
+      },
+      {
+        "prompt": "This ___ my friend, Sarah.",
+        "options": [
+          { "text": "is", "correct": true },
+          { "text": "are", "correct": false },
+          { "text": "be", "correct": false }
+        ],
+        "explanation": "Use 'This is' to introduce a single person."
+      },
+      {
+        "prompt": "Where ___ you from?",
+        "options": [
+          { "text": "are", "correct": true },
+          { "text": "is", "correct": false },
+          { "text": "do", "correct": false }
+        ],
+        "explanation": "Use 'Where are you from?' to ask about someone's origin."
+      },
+      {
+        "prompt": "___ to our English class!",
+        "options": [
+          { "text": "Welcome", "correct": true },
+          { "text": "Welcomes", "correct": false },
+          { "text": "Welcoming", "correct": false }
+        ],
+        "explanation": "Use 'Welcome' as an imperative greeting to greet someone arriving."
+      },
+      {
+        "prompt": "Have a great day! — You ___!",
+        "options": [
+          { "text": "too", "correct": true },
+          { "text": "two", "correct": false },
+          { "text": "to", "correct": false }
+        ],
+        "explanation": "'You too' is the correct polite response meaning 'the same to you'."
+      }
+    ]
+  }
+}

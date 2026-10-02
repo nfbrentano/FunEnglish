@@ -8,6 +8,9 @@
   "levelMax": "beginner",
   "tags": ["kitchen", "house", "objects", "nouns"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/kitchen-items/thumb.webp",
     "alt": "Illustrated kitchen shelf with pots, cups and a kettle",

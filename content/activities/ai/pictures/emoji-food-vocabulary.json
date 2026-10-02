@@ -8,6 +8,9 @@
   "levelMax": "beginner",
   "tags": ["food", "vocabulary", "emoji", "kids"],
   "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
   "thumbnail": {
     "src": "/images/activities/emoji-food-vocabulary/thumb.webp",
     "alt": "A plate of colorful fruit and vegetables",
@@ -23,19 +26,10 @@
           "label": "Emoji picture: 🍎"
         },
         "options": [
-          {
-            "text": "apple",
-            "correct": true
-          },
-          {
-            "text": "orange"
-          },
-          {
-            "text": "cherry"
-          },
-          {
-            "text": "pear"
-          }
+          { "text": "apple", "correct": true },
+          { "text": "orange", "correct": false },
+          { "text": "cherry", "correct": false },
+          { "text": "pear", "correct": false }
         ],
         "explanation": "🍎 = apple"
       },
@@ -47,19 +41,10 @@
           "label": "Emoji picture: 🍞"
         },
         "options": [
-          {
-            "text": "bread",
-            "correct": true
-          },
-          {
-            "text": "cake"
-          },
-          {
-            "text": "cheese"
-          },
-          {
-            "text": "rice"
-          }
+          { "text": "bread", "correct": true },
+          { "text": "cake", "correct": false },
+          { "text": "cheese", "correct": false },
+          { "text": "rice", "correct": false }
         ],
         "explanation": "🍞 = bread"
       },
@@ -71,19 +56,10 @@
           "label": "Emoji picture: 🧀"
         },
         "options": [
-          {
-            "text": "cheese",
-            "correct": true
-          },
-          {
-            "text": "butter"
-          },
-          {
-            "text": "bread"
-          },
-          {
-            "text": "egg"
-          }
+          { "text": "cheese", "correct": true },
+          { "text": "butter", "correct": false },
+          { "text": "bread", "correct": false },
+          { "text": "egg", "correct": false }
         ],
         "explanation": "🧀 = cheese"
       },
@@ -95,19 +71,10 @@
           "label": "Emoji picture: 🥕"
         },
         "options": [
-          {
-            "text": "carrot",
-            "correct": true
-          },
-          {
-            "text": "corn"
-          },
-          {
-            "text": "potato"
-          },
-          {
-            "text": "pepper"
-          }
+          { "text": "carrot", "correct": true },
+          { "text": "corn", "correct": false },
+          { "text": "potato", "correct": false },
+          { "text": "pepper", "correct": false }
         ],
         "explanation": "🥕 = carrot"
       },
@@ -119,19 +86,10 @@
           "label": "Emoji picture: 🍌"
         },
         "options": [
-          {
-            "text": "banana",
-            "correct": true
-          },
-          {
-            "text": "lemon"
-          },
-          {
-            "text": "mango"
-          },
-          {
-            "text": "pear"
-          }
+          { "text": "banana", "correct": true },
+          { "text": "lemon", "correct": false },
+          { "text": "mango", "correct": false },
+          { "text": "pear", "correct": false }
         ],
         "explanation": "🍌 = banana"
       },
@@ -143,19 +101,10 @@
           "label": "Emoji picture: 🥚"
         },
         "options": [
-          {
-            "text": "egg",
-            "correct": true
-          },
-          {
-            "text": "milk"
-          },
-          {
-            "text": "onion"
-          },
-          {
-            "text": "potato"
-          }
+          { "text": "egg", "correct": true },
+          { "text": "milk", "correct": false },
+          { "text": "onion", "correct": false },
+          { "text": "potato", "correct": false }
         ],
         "explanation": "🥚 = egg"
       },
@@ -167,19 +116,10 @@
           "label": "Emoji picture: 🍇"
         },
         "options": [
-          {
-            "text": "grapes",
-            "correct": true
-          },
-          {
-            "text": "cherries"
-          },
-          {
-            "text": "strawberries"
-          },
-          {
-            "text": "plums"
-          }
+          { "text": "grapes", "correct": true },
+          { "text": "cherries", "correct": false },
+          { "text": "strawberries", "correct": false },
+          { "text": "plums", "correct": false }
         ],
         "explanation": "🍇 = grapes"
       },
@@ -191,19 +131,10 @@
           "label": "Emoji picture: 🐟"
         },
         "options": [
-          {
-            "text": "fish",
-            "correct": true
-          },
-          {
-            "text": "chicken"
-          },
-          {
-            "text": "meat"
-          },
-          {
-            "text": "shrimp"
-          }
+          { "text": "fish", "correct": true },
+          { "text": "chicken", "correct": false },
+          { "text": "meat", "correct": false },
+          { "text": "shrimp", "correct": false }
         ],
         "explanation": "🐟 = fish"
       },
@@ -215,19 +146,10 @@
           "label": "Emoji picture: 🍦"
         },
         "options": [
-          {
-            "text": "ice cream",
-            "correct": true
-          },
-          {
-            "text": "cake"
-          },
-          {
-            "text": "cookie"
-          },
-          {
-            "text": "candy"
-          }
+          { "text": "ice cream", "correct": true },
+          { "text": "cake", "correct": false },
+          { "text": "cookie", "correct": false },
+          { "text": "candy", "correct": false }
         ],
         "explanation": "🍦 = ice cream"
       }
