@@ -30,7 +30,6 @@
 | RF09 | Sessão sobrevive a recarregar a página e a fechar a aba: ao voltar ao site, aparece "Resume class 'Teens B1'?" | P0 | CA08 |
 | RF10 | Só uma sessão ativa por professor; iniciar outra pede para encerrar ou descartar a atual | P1 | CA09 |
 | RF11 | Sessão ativa há mais de 6 h sem interação é encerrada automaticamente como rascunho, sem publicar nada, por uma Function agendada (a cada 1 h) | P1 | |
-| RF13 | **Resumo por e-mail**: ao confirmar o encerramento, uma Cloud Function (`onSessionEnded`) envia a cada aluno presente com e-mail cadastrado o resumo da aula e o link do portal, pela extensão de e-mail (spec 00). O professor pode desligar o envio por turma. "Copy summary" continua disponível para WhatsApp | P1 | CA12 |
 | RF12 | Atalhos de teclado: `T` timer, `B` board, `P` picker, `N` notes e `[` para recolher a barra (desativados quando o foco está em um campo de texto) | P2 | |
 
 ### Requisitos não-funcionais
@@ -40,14 +39,14 @@
 | RNF01 | Estado da sessão em um provider React no layout raiz. Escritas no Firestore com debounce (≤ 1 escrita a cada 5 s por campo), com cópia local para recuperação | P0 | CA08 |
 | RNF02 | A barra não cobre a área útil do player: em telas ≥ 1280 px o conteúdo encolhe; abaixo disso a barra fica sobreposta e recolhida por padrão | P0 | CA02 |
 | RNF03 | Acessível: abas com `role="tablist"`, foco visível e navegável só por teclado (WCAG AA) | P0 | |
-| RNF04 | O site continua `output: "export"`; a lógica de servidor (e-mail, encerramento automático, publicação no portal) fica em Cloud Functions (spec 00) | P0 | |
+| RNF04 | O site continua `output: "export"`; a lógica de servidor (encerramento automático e publicação no portal) fica em Cloud Functions (spec 00) | P0 | |
 | RNF05 | A barra não aparece no modo aluno (`?mode=student`) nem para usuários não logados | P0 | CA10 |
 
 ### Dependências técnicas
 
 - [FEAT] Turmas e alunos.
 - O conteúdo das abas vem de [FEAT] Cronômetro visual, [FEAT] Lousa virtual, [FEAT] Sorteador de alunos e grupos e [FEAT] Notas e erros do aluno. A sessão pode ser entregue antes, com abas desabilitadas e marcadas "Coming soon".
-- [CHORE] Infraestrutura do plano Blaze (spec 00): Functions e e-mail (RF11, RF13).
+- [CHORE] Infraestrutura do plano Blaze (spec 00): Function agendada (RF11).
 - O resumo publicado no aluno depende de [FEAT] Portal do aluno e [FEAT] Banco de vocabulário do aluno. Sem eles, o resumo fica só no painel do professor.
 - `src/lib/history` (gancho do "Recently played").
 
@@ -67,17 +66,18 @@
 - [ ] **CA08 (erro):** Dado uma sessão ativa, quando recarrego a página ou fico offline e volto, então aparece "Resume class 'Teens B1'?" e, ao retomar, o timer da sessão, a lousa e as notas estão como antes.
 - [ ] **CA09 (limite):** Dado uma sessão ativa, quando tento iniciar outra turma, então um modal pede para encerrar ou descartar a sessão atual antes.
 - [ ] **CA11 (negativo):** Dado uma aula com nota compartilhada para "Ana" e outra para "Bruno", quando "Ana" abre o resumo dessa aula no portal, então vê o resumo inteiro (atividades, palavras, lousa e notas da turma) e a nota dela, mas não a nota de "Bruno".
-- [ ] **CA12:** Dado que "Ana" tem e-mail cadastrado e "Bruno" não, quando encerro a aula com o envio ligado, então "Ana" recebe o e-mail com o resumo e o link do portal, e nenhum e-mail é gerado para "Bruno" nem para os ausentes.
 - [ ] **CA10 (negativo):** Dado uma sessão ativa, quando um aluno abre o link de compartilhamento (`?mode=student`) no mesmo navegador, então a barra lateral não é exibida.
 
 ## O que a atividade não inclui
 
+- Envio do resumo por e-mail: motivo: decisão do PO (2026-10-03), ainda não faz sentido; o resumo vai para o portal e há o botão "Copy summary" para colar no WhatsApp.
 - Sincronização em tempo real com os aparelhos dos alunos: motivo: coberta pela spec 09 (Sala ao vivo). Esta spec atende a aula presencial (projetor) e a aula online por compartilhamento de tela no Meet/Zoom, por isso o modo projeção (RF06) também precisa ser ligado ao compartilhar a tela.
 - Sessão para aluno avulso sem turma: motivo: uma turma com 1 aluno resolve o caso de aula particular.
 - Relatórios agregados de várias sessões: motivo: prematuro.
 
 ### Considerado para o futuro (P2)
 
+- Envio do resumo por e-mail aos alunos (adiado em 2026-10-03; ver spec 00).
 - Sala ao vivo: ver spec 09; o modelo `sessions/{id}` deve guardar o código da sala (`liveRoomCode`).
 - Planejamento de aula: a sessão já começa com uma fila de atividades escolhidas.
 
@@ -103,7 +103,6 @@
 | CT08 | Recuperação | e2e | CA08 | Recarregar no meio da sessão | Prompt "Resume class" e estado restaurado |
 | CT09 | Sessão única | e2e | CA09 | Iniciar segunda turma | Modal de conflito |
 | CT10 | Modo aluno | e2e | CA10 | Abrir link de aluno com sessão ativa | Sem barra |
-| CT12 | E-mail do resumo | integração (emulador de Functions) | CA12 | Encerrar com 2 alunos | 1 doc em `mail`, só para Ana |
 | CT11 | Resumo sem notas de colegas | integração | CA11 | Encerrar com notas para 2 alunos | Doc de cada aluno sem a nota do outro |
 
 ## URL Complementar

@@ -27,7 +27,7 @@
 | RF06 | Consolidação: cada erro recorrente aparece uma única vez com a contagem ("seen in 3 classes"); os resolvidos vão para "Mastered ✓" | P1 | CA05 |
 | RF07 | Usuário `role: "student"` não acessa o dashboard do professor nem o painel admin. Ao logar, vai direto para `/student`; o catálogo e o player (para revisão) continuam acessíveis | P0 | CA06 |
 | RF08 | O professor pode desvincular o aluno ("Remove portal access"): o aluno perde o acesso imediatamente | P0 | CA07 |
-| RF09 | O resumo de cada aula chega por e-mail ao aluno com e-mail cadastrado (spec 08, RF13), com o link do portal. "Copy summary" continua disponível para WhatsApp | P1 | |
+| RF09 | Botão "Copy summary" no resumo de aula do professor, gerando texto pronto para WhatsApp, com o link do portal (o e-mail automático foi adiado em 2026-10-03) | P1 | |
 
 ### Requisitos não-funcionais
 
@@ -42,7 +42,7 @@
 
 ### Dependências técnicas
 
-- [CHORE] Infraestrutura do plano Blaze (spec 00): callable `redeemInvite`, e-mail do convite (opcional: "Send invite by email").
+- [CHORE] Infraestrutura do plano Blaze (spec 00): callable `redeemInvite`.
 - [FEAT] Turmas e alunos; [FEAT] Notas e erros do aluno.
 - [FEAT] Trilha de progresso e [FEAT] Envio de tarefas de casa (blocos "My progress" e "Homework"; sem eles os blocos ficam ocultos).
 - [FEAT] Banco de vocabulário do aluno (página própria dentro do portal).
@@ -75,6 +75,7 @@
 
 ### Considerado para o futuro (P2)
 
+- Resumo da aula e convite enviados por e-mail (adiado em 2026-10-03; ver spec 00).
 - Acesso de responsáveis (somente leitura).
 - Notificações push de novo feedback ou nova tarefa.
 

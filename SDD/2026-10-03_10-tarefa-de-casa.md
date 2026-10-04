@@ -25,7 +25,6 @@
 | RF04 | O link de homework funciona **sem login**: é uma exceção aprovada à spec de login obrigatório, e a rota `/homework` fica fora do `RequireAuth`. Se o aluno estiver logado no portal, a identificação é automática | P0 | CA02, CA03 |
 | RF05 | Ao terminar, envia uma submissão `{ studentId?, studentName, via: "token" \| "pin" \| "portal" \| "anonymous", portalUid?, correct, total, seconds, completedAt }` e mostra a tela de resultados com "Sent to your teacher ✓". O painel mostra a forma de identificação de cada envio | P0 | CA04 |
 | RF11 | **PIN do aluno**: todo aluno cadastrado recebe um PIN de 4 dígitos gerado automaticamente, visível na página do aluno e na visão da turma ("Print PINs"), e o professor pode gerá-lo de novo. O PIN vale para todos os homeworks | P0 | CA11 |
-| RF13 | **Resumo diário por e-mail** ao professor (Function agendada às 20h no horário de Brasília): novos envios do dia por homework. O professor pode desligar nas preferências | P1 | |
 | RF12 | O professor pode **regenerar o link individual** de um aluno (por exemplo, se ele vazou); o hash antigo deixa de funcionar | P1 | CA12 |
 | RF06 | Painel "Homework" no dashboard: lista de tarefas com status (aberta, vencida, fechada), contagem "5/8 done" e, ao abrir, a tabela por aluno com nota, tempo, data e quem ainda não fez | P0 | CA05 |
 | RF07 | Fechar a tarefa manualmente ou por prazo: após o prazo, a página mostra "This homework is closed" (o professor pode permitir envio atrasado, marcado como "Late") | P1 | CA06 |
@@ -49,7 +48,7 @@
 
 ### Dependências técnicas
 
-- [CHORE] Infraestrutura do plano Blaze (spec 00): Functions `createHomework`, `getHomeworkForStudent`, `submitHomework` e o resumo diário; App Check.
+- [CHORE] Infraestrutura do plano Blaze (spec 00): Functions `createHomework`, `getHomeworkForStudent` e `submitHomework`; App Check.
 - [FEAT] Turmas e alunos (destino turma ou alunos).
 - Motor de atividades e modo aluno (`src/lib/student-mode.ts`, `src/components/player`), que precisa expor o resultado final (`ActivityResult`) para quem o hospeda.
 - Ajuste em `RequireAuth` / `/play` ou player hospedado em `/homework` fora do guard (ver D01).
@@ -79,12 +78,12 @@
 ## O que a atividade não inclui
 
 - Correção manual de respostas abertas (writing): motivo: os tipos atuais têm resposta fechada ou nenhuma.
-- Notificação imediata a cada envio: motivo: geraria muitos e-mails; na v1 o painel mostra os novos envios com um selo, e há o resumo diário (RF13).
+- Notificações por e-mail (a cada envio ou resumo diário ao professor): motivo: e-mail automático adiado (2026-10-03); o painel mostra os novos envios com um selo.
 
 ### Considerado para o futuro (P2)
 
 - Usar o detalhe por questão (`answers[]`, já gravado pela RNF04) para alimentar automaticamente as notas de erro do aluno.
-- Lembretes de prazo por e-mail para alunos com e-mail cadastrado (Function agendada).
+- Lembretes de prazo e resumo diário ao professor por e-mail (Function agendada), quando o e-mail automático for retomado.
 - Homework com várias atividades (uma trilha curta).
 
 ## Dúvidas em aberto
