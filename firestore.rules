@@ -92,9 +92,45 @@ service cloud.firestore {
         && (!('email' in request.resource.data) || (request.resource.data.email is string && request.resource.data.email.size() <= 254 && request.resource.data.email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")))
         && (!('portalUid' in request.resource.data) || request.resource.data.portalUid is string);
 
-      // Student subcollections (grades, vocabulary, progress, etc.) are private to teacher
-      match /{allSubcollections=**} {
-        allow read, write: if request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      // Notes subcollection (spec: notas e erros do aluno, RNF01, RNF02, CA07):
+      // Teacher reads and writes all notes.
+      // Student portalUid reads only shared notes.
+      match /notes/{noteId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          (
+            resource.data.visibility == "shared" &&
+            get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+          )
+        );
+        allow create: if request.auth != null
+          && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid
+          && request.resource.data.keys().hasAll(["category", "text", "visibility", "resolved", "createdAt", "updatedAt"])
+          && request.resource.data.category in ["pronunciation", "grammar", "vocabulary", "fluency", "strength", "general"]
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 500
+          && request.resource.data.visibility in ["private", "shared"]
+          && request.resource.data.resolved is bool
+          && (!('correction' in request.resource.data) || (request.resource.data.correction is string && request.resource.data.correction.size() <= 500))
+          && (!('sessionId' in request.resource.data) || (request.resource.data.sessionId is string && request.resource.data.sessionId.size() <= 100));
+        allow update: if request.auth != null
+          && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid
+          && request.resource.data.category in ["pronunciation", "grammar", "vocabulary", "fluency", "strength", "general"]
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 500
+          && request.resource.data.visibility in ["private", "shared"]
+          && request.resource.data.resolved is bool
+          && (!('correction' in request.resource.data) || (request.resource.data.correction is string && request.resource.data.correction.size() <= 500))
+          && (!('sessionId' in request.resource.data) || (request.resource.data.sessionId is string && request.resource.data.sessionId.size() <= 100));
+        allow delete: if request.auth != null
+          && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
+      // Other student subcollections (grades, vocabulary, progress, etc.) are private to teacher
+      match /{subcollection}/{document=**} {
+        allow read, write: if subcollection != "notes" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
     }
 

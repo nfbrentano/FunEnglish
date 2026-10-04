@@ -22,6 +22,14 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+vi.mock("@/lib/notes/repository", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/lib/notes/repository")>();
+  return {
+    ...actual,
+    getStudentNotes: vi.fn().mockResolvedValue([]),
+  };
+});
+
 const mockStudent: Student = {
   id: "s1",
   teacherUid: "teacher-1",

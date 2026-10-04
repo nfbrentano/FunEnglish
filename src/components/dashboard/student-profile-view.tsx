@@ -4,7 +4,6 @@ import {
   ArrowLeft,
   BookMarked,
   BookOpen,
-  GraduationCap,
   KeyRound,
   Mail,
   Milestone,
@@ -21,9 +20,11 @@ import { useAuth } from "@/lib/auth/use-auth";
 import {
   getStudent,
   getTeacherClasses,
+  getTeacherStudents,
   regenerateStudentPin,
 } from "@/lib/classes/repository";
 import type { Student, TeacherClass } from "@/lib/classes/types";
+import { StudentNotesSection } from "@/components/notes/student-notes-section";
 import { strings } from "@/lib/strings";
 
 interface PlaceholderSectionProps {
@@ -57,6 +58,7 @@ export function StudentProfileView() {
 
   const [student, setStudent] = useState<Student | null>(null);
   const [classes, setClasses] = useState<TeacherClass[]>([]);
+  const [classmates, setClassmates] = useState<Student[]>([]);
   const [internalLoading, setInternalLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -71,14 +73,19 @@ export function StudentProfileView() {
     }
 
     let active = true;
-    Promise.all([getStudent(studentId), getTeacherClasses(user.uid)])
-      .then(([foundStudent, teacherClasses]) => {
+    Promise.all([
+      getStudent(studentId),
+      getTeacherClasses(user.uid),
+      getTeacherStudents(user.uid).catch(() => []),
+    ])
+      .then(([foundStudent, teacherClasses, teacherStudents]) => {
         if (!active) return;
         if (!foundStudent || foundStudent.teacherUid !== user.uid) {
           setError(strings.student.notFound);
         } else {
           setStudent(foundStudent);
           setClasses(teacherClasses);
+          setClassmates(teacherStudents);
         }
       })
       .catch((err) => {
@@ -125,9 +132,7 @@ export function StudentProfileView() {
     return (
       <div className="mx-auto w-full max-w-[1000px] space-y-6 px-4 py-12 text-center">
         <div className="rounded-3xl border border-dashed border-border-strong p-12 space-y-4">
-          <h2 className="font-display text-3xl font-medium text-fg">
-            {strings.student.notFound}
-          </h2>
+          <h2 className="font-display text-3xl font-medium text-fg">{strings.student.notFound}</h2>
           <p className="text-fg-secondary">{strings.student.notFoundDesc}</p>
           <div className="pt-2">
             <Link
@@ -193,9 +198,7 @@ export function StudentProfileView() {
               <span className="font-mono text-2xl font-bold tracking-widest text-accent">
                 {activePin ?? "••••"}
               </span>
-              {activePin && (
-                <span className="text-xs text-green-500 font-medium">(New PIN)</span>
-              )}
+              {activePin && <span className="text-xs text-green-500 font-medium">(New PIN)</span>}
             </div>
             <p className="text-[11px] leading-tight text-muted">
               {strings.student.homeworkPinDesc}
@@ -226,14 +229,13 @@ export function StudentProfileView() {
         </div>
       </header>
 
-      {/* Sections for upcoming specs (CA04: seções vazias de notas, trilhas, homework e vocabulário) */}
-      <div className="space-y-6">
-        {/* Grades & Errors (spec 02) */}
-        <PlaceholderSection
-          id="grades"
-          title={strings.student.gradesSectionTitle}
-          icon={<GraduationCap className="size-4" />}
-          emptyText={strings.student.gradesSectionEmpty}
+      {/* Sections for student tracking */}
+      <div className="space-y-10">
+        {/* Grades, Notes & Errors (spec 02) */}
+        <StudentNotesSection
+          studentId={student.id}
+          studentName={student.name}
+          allStudents={classmates.map((c) => ({ id: c.id, name: c.name }))}
         />
 
         {/* Progress Paths (spec 11) */}

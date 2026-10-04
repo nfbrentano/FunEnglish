@@ -397,4 +397,136 @@ describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", 
     await assertFails(getDoc(gradeRefB));
     await assertFails(setDoc(gradeRefB, { score: 0 }));
   });
+
+  describe("student notes subcollection (spec 02: RNF01, RNF02, CA01, CA06, CA07)", () => {
+    const studentWithPortal = "s-portal";
+    const studentPortalUid = "student-portal-user-1";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        await setDoc(doc(db, `students/${studentWithPortal}`), {
+          teacherUid: teacherA,
+          name: "Ana Silva",
+          classIds: ["c1"],
+          portalUid: studentPortalUid,
+          homeworkPin: "hash1234",
+          createdAt: new Date(),
+        });
+
+        await setDoc(doc(db, `students/${studentWithPortal}/notes/note-private`), {
+          category: "pronunciation",
+          text: "thought -> /θɔːt/",
+          visibility: "private",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+
+        await setDoc(doc(db, `students/${studentWithPortal}/notes/note-shared`), {
+          category: "strength",
+          text: "Great teamwork",
+          visibility: "shared",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+      });
+    });
+
+    it("teacher can create, read, update and delete notes for their student (CA01, CA06)", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const newNoteRef = doc(dbA, `students/${studentWithPortal}/notes/n-new`);
+
+      await assertSucceeds(
+        setDoc(newNoteRef, {
+          category: "grammar",
+          text: "he go -> he goes",
+          correction: "he go -> he goes",
+          visibility: "private",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }),
+      );
+
+      const snap = await assertSucceeds(getDoc(newNoteRef));
+      expect(snap.data()?.text).toBe("he go -> he goes");
+
+      // Update visibility to shared (CA06)
+      await assertSucceeds(setDoc(newNoteRef, { visibility: "shared" }, { merge: true }));
+
+      // Delete note
+      await assertSucceeds(deleteDoc(newNoteRef));
+    });
+
+    it("teacher B CANNOT read or write notes for teacher A's student", async () => {
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+      const noteRef = doc(dbB, `students/${studentWithPortal}/notes/note-shared`);
+
+      await assertFails(getDoc(noteRef));
+      await assertFails(setDoc(noteRef, { text: "Hacked" }, { merge: true }));
+      await assertFails(deleteDoc(noteRef));
+    });
+
+    it("student portalUid can read SHARED notes (CA06)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentPortalUid).firestore();
+      const sharedNoteRef = doc(dbStudent, `students/${studentWithPortal}/notes/note-shared`);
+
+      const snap = await assertSucceeds(getDoc(sharedNoteRef));
+      expect(snap.data()?.text).toBe("Great teamwork");
+    });
+
+    it("student portalUid CANNOT read PRIVATE notes (CA07, CT07)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentPortalUid).firestore();
+      const privateNoteRef = doc(dbStudent, `students/${studentWithPortal}/notes/note-private`);
+
+      await assertFails(getDoc(privateNoteRef));
+    });
+
+    it("student portalUid CANNOT write or delete notes", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentPortalUid).firestore();
+      const newNoteRef = doc(dbStudent, `students/${studentWithPortal}/notes/student-hack`);
+      const sharedNoteRef = doc(dbStudent, `students/${studentWithPortal}/notes/note-shared`);
+
+      await assertFails(
+        setDoc(newNoteRef, {
+          category: "strength",
+          text: "I am great",
+          visibility: "shared",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }),
+      );
+      await assertFails(deleteDoc(sharedNoteRef));
+    });
+
+    it("rejects notes with invalid category or text exceeding 500 characters", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const noteRef = doc(dbA, `students/${studentWithPortal}/notes/n-invalid`);
+
+      await assertFails(
+        setDoc(noteRef, {
+          category: "unknown-cat",
+          text: "valid text",
+          visibility: "private",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }),
+      );
+
+      await assertFails(
+        setDoc(noteRef, {
+          category: "grammar",
+          text: "a".repeat(501),
+          visibility: "private",
+          resolved: false,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }),
+      );
+    });
+  });
 });

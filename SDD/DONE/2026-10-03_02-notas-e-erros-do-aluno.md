@@ -1,7 +1,7 @@
 # [FEAT] Histórico de erros comuns e notas da aula por aluno
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluído
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 02 (sequência 00 a 11) · **Depende de:** 01 · **Por quê nesta posição:** Fonte de dados dos feedbacks do portal; usada pela sessão (aba Notes)
 
 ## Detalhes da Atividade
@@ -50,15 +50,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma sessão com "Ana" presente, quando seleciono "Ana", a categoria "Pronunciation", digito "thought → /θɔːt/" e aperto Enter, então a nota é salva como privada, o campo fica vazio e "Ana" continua selecionada.
-- [ ] **CA02:** Dado 3 alunos selecionados, quando salvo a nota "Great teamwork" como Strength, então cada um dos 3 recebe a nota, compartilhada.
-- [ ] **CA03:** Dado notas de 3 aulas diferentes, quando abro a página de "Ana" e filtro por "Grammar", então vejo só as notas de gramática, agrupadas por data da aula, da mais recente para a mais antiga.
-- [ ] **CA04:** Dado uma nota de erro, quando marco "Resolved", então ela fica esmaecida e some do filtro padrão "Open".
-- [ ] **CA05:** Dado a correção "he go → he goes" registrada em 2 aulas diferentes, quando abro "Recurring issues", então ela aparece uma vez com "2 classes".
-- [ ] **CA06:** Dado uma nota privada, quando a altero para compartilhada, então ela passa a aparecer no portal do aluno.
-- [ ] **CA07 (negativo):** Dado que o aluno "Ana" está logado no portal, quando tenta ler uma nota privada dela pelo SDK, então a leitura é negada.
-- [ ] **CA08 (negativo):** Dado o modo projeção ativo, quando abro a aba Notes, então vejo só o formulário de captura, sem a lista de notas existentes.
-- [ ] **CA09 (limite):** Dado que tento salvar uma nota vazia ou com mais de 500 caracteres, quando aperto Enter, então nada é salvo e aparece a mensagem de validação.
+- [x] **CA01:** Dado uma sessão com "Ana" presente, quando seleciono "Ana", a categoria "Pronunciation", digito "thought → /θɔːt/" e aperto Enter, então a nota é salva como privada, o campo fica vazio e "Ana" continua selecionada.
+- [x] **CA02:** Dado 3 alunos selecionados, quando salvo a nota "Great teamwork" como Strength, então cada um dos 3 recebe a nota, compartilhada.
+- [x] **CA03:** Dado notas de 3 aulas diferentes, quando abro a página de "Ana" e filtro por "Grammar", então vejo só as notas de gramática, agrupadas por data da aula, da mais recente para a mais antiga.
+- [x] **CA04:** Dado uma nota de erro, quando marco "Resolved", então ela fica esmaecida e some do filtro padrão "Open".
+- [x] **CA05:** Dado a correção "he go → he goes" registrada em 2 aulas diferentes, quando abro "Recurring issues", então ela aparece uma vez com "2 classes".
+- [x] **CA06:** Dado uma nota privada, quando a altero para compartilhada, então ela passa a aparecer no portal do aluno.
+- [x] **CA07 (negativo):** Dado que o aluno "Ana" está logado no portal, quando tenta ler uma nota privada dela pelo SDK, então a leitura é negada.
+- [x] **CA08 (negativo):** Dado o modo projeção ativo, quando abro a aba Notes, então vejo só o formulário de captura, sem a lista de notas existentes.
+- [x] **CA09 (limite):** Dado que tento salvar uma nota vazia ou com mais de 500 caracteres, quando aperto Enter, então nada é salvo e aparece a mensagem de validação.
 
 ## O que a atividade não inclui
 
