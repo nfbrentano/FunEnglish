@@ -45,7 +45,7 @@ export default async function PlayPage({ params }: PageProps<"/play/[slug]">) {
 
   if (!entry.activity) {
     return (
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-6">
+      <div className="mx-auto w-full max-w-300 px-4 py-6">
         <PlayerMessage title={strings.player.loadError}>
           {strings.player.loadErrorHint}
         </PlayerMessage>
