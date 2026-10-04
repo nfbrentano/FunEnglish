@@ -25,8 +25,15 @@ export const ImageToolsContext = createContext<ImageTools>({
 
 export const useImageTools = () => useContext(ImageToolsContext);
 
-/** Subject (the alt text) + the house style (CA03). */
-export function promptFromAlt(alt: string, style: string): string {
+/** Subject (the alt text) + the house style with dynamic aspect ratio (CA03). */
+export function promptFromAlt(alt: string, style: string, src?: string): string {
   const subject = alt.trim().replace(/\.$/, "");
-  return [subject && `${subject}.`, style].filter(Boolean).join(" ");
+  const isThumb = src ? src.endsWith("thumb.webp") || src.includes("/categories/") : false;
+  const isOption = src ? /-option-\d+\.webp$/i.test(src) : false;
+  const ratioSuffix = isThumb
+    ? " aspect ratio 16:10"
+    : isOption
+      ? " square aspect ratio 1:1"
+      : "";
+  return [subject && `${subject}.`, `${style}${ratioSuffix}`].filter(Boolean).join(" ");
 }

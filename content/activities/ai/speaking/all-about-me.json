@@ -15,14 +15,17 @@
     "src": "/images/activities/all-about-me/thumb.webp",
     "alt": "A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit",
     "source": "ai",
-    "prompt": "A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "writing": false,
     "cards": [
       {
         "prompt": "Tell me about your family.",
-        "followUps": ["How many people are in your family?", "Do you have brothers or sisters?"],
+        "followUps": [
+          "How many people are in your family?",
+          "Do you have brothers or sisters?"
+        ],
         "vocabulary": ["mother", "father", "brother", "sister"],
         "image": {
           "src": "/images/activities/all-about-me/card-1.webp",
@@ -55,7 +58,10 @@
       },
       {
         "prompt": "Where do you live?",
-        "followUps": ["Do you live in a house or an apartment?", "What is in your bedroom?"],
+        "followUps": [
+          "Do you live in a house or an apartment?",
+          "What is in your bedroom?"
+        ],
         "vocabulary": ["house", "apartment", "city", "bedroom"],
         "image": {
           "src": "/images/activities/all-about-me/card-4.webp",
@@ -66,7 +72,10 @@
       },
       {
         "prompt": "What is your favorite color?",
-        "followUps": ["What things do you have in that color?", "What color don't you like?"],
+        "followUps": [
+          "What things do you have in that color?",
+          "What color don't you like?"
+        ],
         "vocabulary": ["red", "blue", "green", "yellow"],
         "image": {
           "src": "/images/activities/all-about-me/card-5.webp",
@@ -88,8 +97,16 @@
       },
       {
         "prompt": "What do you do in the morning?",
-        "followUps": ["What time do you get up?", "What do you eat for breakfast?"],
-        "vocabulary": ["get up", "brush my teeth", "get dressed", "go to school"],
+        "followUps": [
+          "What time do you get up?",
+          "What do you eat for breakfast?"
+        ],
+        "vocabulary": [
+          "get up",
+          "brush my teeth",
+          "get dressed",
+          "go to school"
+        ],
         "image": {
           "src": "/images/activities/all-about-me/card-7.webp",
           "alt": "A boy brushing his teeth in a bathroom on a bright morning.",

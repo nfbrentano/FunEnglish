@@ -26,6 +26,7 @@
     "images:import": "tsx scripts/import-images.ts",
     "images:migrate-prompts": "tsx scripts/migrate-image-prompts.ts",
     "images:plan": "tsx scripts/plan-images.ts",
+    "images:update-prompts": "tsx scripts/update-image-prompts-ratio.ts",
     "set-admin": "tsx scripts/set-admin.ts"
   },
   "dependencies": {

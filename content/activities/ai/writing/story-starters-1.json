@@ -15,7 +15,7 @@
     "src": "/images/activities/story-starters-1/thumb.webp",
     "alt": "An open notebook with a pencil and stars floating out of the pages",
     "source": "ai",
-    "prompt": "An open notebook with a pencil and stars floating out of the pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "An open notebook with a pencil and stars floating out of the pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "writing": true,
@@ -27,7 +27,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-1.webp",
           "alt": "A shocked person opening a front door to a mysterious glowing light pouring in from outside.",
@@ -42,7 +48,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-2.webp",
           "alt": "A beach at sunset on the last day of summer, with a strange glowing object in the sand.",
@@ -57,7 +69,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-3.webp",
           "alt": "A person sitting up in bed in a dark room at night, holding a softly glowing phone.",
@@ -72,7 +90,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-4.webp",
           "alt": "A child in a dusty attic unrolling an old treasure map beside an open wooden chest.",
@@ -87,7 +111,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-5.webp",
           "alt": "A person looking out of a window over a sleeping town under a starry night sky.",
@@ -102,7 +132,13 @@
           "How did the character feel?",
           "What happened in the end?"
         ],
-        "vocabulary": ["suddenly", "nervous", "at last", "whisper", "couldn't believe"],
+        "vocabulary": [
+          "suddenly",
+          "nervous",
+          "at last",
+          "whisper",
+          "couldn't believe"
+        ],
         "image": {
           "src": "/images/activities/story-starters-1/card-6.webp",
           "alt": "A new student with a mysterious smile hiding a small glowing box under a classroom desk.",

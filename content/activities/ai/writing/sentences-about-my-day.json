@@ -6,7 +6,12 @@
   "type": "prompt-cards",
   "levelMin": "beginner",
   "levelMax": "beginner",
-  "tags": ["daily routine", "present simple", "short sentences", "writing practice"],
+  "tags": [
+    "daily routine",
+    "present simple",
+    "short sentences",
+    "writing practice"
+  ],
   "status": "published",
   "featured": false,
   "origin": "ai",
@@ -15,7 +20,7 @@
     "src": "/images/activities/sentences-about-my-day/thumb.webp",
     "alt": "A notebook and a pencil on a desk next to a window with the morning sun rising outside",
     "source": "ai",
-    "prompt": "A notebook and a pencil on a desk next to a window with the morning sun rising outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A notebook and a pencil on a desk next to a window with the morning sun rising outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "writing": true,
@@ -27,7 +32,12 @@
           "What do you eat for breakfast?",
           "How do you go to school or work?"
         ],
-        "vocabulary": ["get up", "brush my teeth", "take a shower", "have breakfast"],
+        "vocabulary": [
+          "get up",
+          "brush my teeth",
+          "take a shower",
+          "have breakfast"
+        ],
         "image": {
           "src": "/images/activities/sentences-about-my-day/card-1.webp",
           "alt": "A child waking up and stretching in a sunny bedroom.",
@@ -37,7 +47,11 @@
       },
       {
         "prompt": "Write 3 sentences about your breakfast.",
-        "followUps": ["What do you eat?", "What do you drink?", "Who do you eat with?"],
+        "followUps": [
+          "What do you eat?",
+          "What do you drink?",
+          "Who do you eat with?"
+        ],
         "vocabulary": ["cereal", "toast", "eggs", "juice", "milk"],
         "image": {
           "src": "/images/activities/sentences-about-my-day/card-2.webp",
@@ -83,7 +97,12 @@
           "What do you do after dinner?",
           "Do you watch TV or read?"
         ],
-        "vocabulary": ["have dinner", "watch TV", "read a book", "talk to my family"],
+        "vocabulary": [
+          "have dinner",
+          "watch TV",
+          "read a book",
+          "talk to my family"
+        ],
         "image": {
           "src": "/images/activities/sentences-about-my-day/card-5.webp",
           "alt": "A family eating dinner together at home in the evening.",

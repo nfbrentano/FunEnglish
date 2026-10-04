@@ -114,7 +114,7 @@ export function ImageFields({
         <Button
           variant="ghost"
           disabled={!alt.trim() || !tools.style}
-          onClick={() => onChange({ ...value, prompt: promptFromAlt(alt, tools.style) })}
+          onClick={() => onChange({ ...value, prompt: promptFromAlt(alt, tools.style, src) })}
         >
           <Wand2 aria-hidden="true" className="size-4" />
           {u.writeFromAlt}

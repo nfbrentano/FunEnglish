@@ -15,25 +15,16 @@
     "src": "/images/activities/present-perfect-or-past-simple/thumb.webp",
     "alt": "A calendar with some days crossed out and an arrow pointing to today",
     "source": "ai",
-    "prompt": "A calendar with some days crossed out and an arrow pointing to today. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A calendar with some days crossed out and an arrow pointing to today. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "I ___ to London last summer.",
         "options": [
-          {
-            "text": "went",
-            "correct": true
-          },
-          {
-            "text": "have gone",
-            "correct": false
-          },
-          {
-            "text": "have been going",
-            "correct": false
-          }
+          { "text": "went", "correct": true },
+          { "text": "have gone", "correct": false },
+          { "text": "have been going", "correct": false }
         ],
         "explanation": "\"Last summer\" is a finished time, so we use the past simple.",
         "media": {
@@ -47,18 +38,9 @@
       {
         "prompt": "She ___ three emails so far today.",
         "options": [
-          {
-            "text": "has written",
-            "correct": true
-          },
-          {
-            "text": "wrote",
-            "correct": false
-          },
-          {
-            "text": "writes",
-            "correct": false
-          }
+          { "text": "has written", "correct": true },
+          { "text": "wrote", "correct": false },
+          { "text": "writes", "correct": false }
         ],
         "explanation": "\"So far today\" means the time isn't finished yet: use the present perfect.",
         "media": {
@@ -72,18 +54,9 @@
       {
         "prompt": "___ you ever ___ sushi?",
         "options": [
-          {
-            "text": "Have … eaten",
-            "correct": true
-          },
-          {
-            "text": "Did … eat",
-            "correct": false
-          },
-          {
-            "text": "Have … ate",
-            "correct": false
-          }
+          { "text": "Have … eaten", "correct": true },
+          { "text": "Did … eat", "correct": false },
+          { "text": "Have … ate", "correct": false }
         ],
         "explanation": "Use \"ever\" with the present perfect to ask about life experiences.",
         "media": {
@@ -97,18 +70,9 @@
       {
         "prompt": "We ___ each other since 2015.",
         "options": [
-          {
-            "text": "have known",
-            "correct": true
-          },
-          {
-            "text": "knew",
-            "correct": false
-          },
-          {
-            "text": "know",
-            "correct": false
-          }
+          { "text": "have known", "correct": true },
+          { "text": "knew", "correct": false },
+          { "text": "know", "correct": false }
         ],
         "explanation": "\"Since\" + a starting point goes with the present perfect.",
         "media": {
@@ -122,18 +86,9 @@
       {
         "prompt": "When ___ you ___ your new job?",
         "options": [
-          {
-            "text": "did … start",
-            "correct": true
-          },
-          {
-            "text": "have … started",
-            "correct": false
-          },
-          {
-            "text": "do … started",
-            "correct": false
-          }
+          { "text": "did … start", "correct": true },
+          { "text": "have … started", "correct": false },
+          { "text": "do … started", "correct": false }
         ],
         "explanation": "Questions with \"when\" ask about a specific past time: use the past simple.",
         "media": {
@@ -147,18 +102,9 @@
       {
         "prompt": "My grandfather ___ in 1998.",
         "options": [
-          {
-            "text": "died",
-            "correct": true
-          },
-          {
-            "text": "has died",
-            "correct": false
-          },
-          {
-            "text": "have died",
-            "correct": false
-          }
+          { "text": "died", "correct": true },
+          { "text": "has died", "correct": false },
+          { "text": "have died", "correct": false }
         ],
         "explanation": "A specific year in the past needs the past simple.",
         "media": {
@@ -172,18 +118,9 @@
       {
         "prompt": "I ___ here for two years, and I still love it.",
         "options": [
-          {
-            "text": "have lived",
-            "correct": true
-          },
-          {
-            "text": "lived",
-            "correct": false
-          },
-          {
-            "text": "am live",
-            "correct": false
-          }
+          { "text": "have lived", "correct": true },
+          { "text": "lived", "correct": false },
+          { "text": "am live", "correct": false }
         ],
         "explanation": "\"For two years\" up to now, and still true: present perfect.",
         "media": {
@@ -197,18 +134,9 @@
       {
         "prompt": "Yesterday I ___ my homework and then I ___ to bed.",
         "options": [
-          {
-            "text": "did / went",
-            "correct": true
-          },
-          {
-            "text": "have done / have gone",
-            "correct": false
-          },
-          {
-            "text": "did / have gone",
-            "correct": false
-          }
+          { "text": "did / went", "correct": true },
+          { "text": "have done / have gone", "correct": false },
+          { "text": "did / have gone", "correct": false }
         ],
         "explanation": "\"Yesterday\" is finished time, so both verbs are in the past simple.",
         "media": {

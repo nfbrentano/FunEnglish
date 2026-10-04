@@ -6,13 +6,19 @@
   "type": "prompt-cards",
   "levelMin": "intermediate",
   "levelMax": "advanced",
-  "tags": ["opinion essay", "persuasive writing", "arguments", "academic", "writing prompts"],
+  "tags": [
+    "opinion essay",
+    "persuasive writing",
+    "arguments",
+    "academic",
+    "writing prompts"
+  ],
   "status": "published",
   "thumbnail": {
     "src": "/images/activities/opinion-essays-and-arguments/thumb.webp",
     "alt": "A balance scale weighing a quill pen against a lightbulb symbolizing debate",
     "source": "ai",
-    "prompt": "A balance scale weighing a quill pen against a lightbulb symbolizing debate"
+    "prompt": "A balance scale weighing a quill pen against a lightbulb symbolizing debate aspect ratio 16:10"
   },
   "content": {
     "writing": true,
@@ -24,7 +30,13 @@
           "How does weekend rest affect student focus during the week?",
           "What alternative study habit could replace homework?"
         ],
-        "vocabulary": ["furthermore", "on the one hand", "detrimental", "balance", "leisure"],
+        "vocabulary": [
+          "furthermore",
+          "on the one hand",
+          "detrimental",
+          "balance",
+          "leisure"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-1.webp",
           "alt": "A student doing homework at a desk while friends play outside the window on a sunny weekend.",
@@ -39,7 +51,13 @@
           "What psychological effects can excessive screen time cause?",
           "What conclusion do you draw overall?"
         ],
-        "vocabulary": ["paradoxically", "isolation", "superficial", "meaningful", "in contrast"],
+        "vocabulary": [
+          "paradoxically",
+          "isolation",
+          "superficial",
+          "meaningful",
+          "in contrast"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-2.webp",
           "alt": "A group of people sitting together, each looking at a blank phone screen and ignoring one another.",
@@ -54,7 +72,13 @@
           "Who should pay for the maintenance of the transport system?",
           "What challenges might public transit systems face?"
         ],
-        "vocabulary": ["subsidize", "infrastructure", "emissions", "congestion", "undoubtedly"],
+        "vocabulary": [
+          "subsidize",
+          "infrastructure",
+          "emissions",
+          "congestion",
+          "undoubtedly"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-3.webp",
           "alt": "Happy residents boarding a clean city bus at a stop, with a tram passing in the background.",
@@ -69,7 +93,13 @@
           "How can AI tools support teachers rather than replace them?",
           "What ethical considerations should schools keep in mind?"
         ],
-        "vocabulary": ["empathy", "mentorship", "indispensable", "automated", "nuance"],
+        "vocabulary": [
+          "empathy",
+          "mentorship",
+          "indispensable",
+          "automated",
+          "nuance"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-4.webp",
           "alt": "A friendly robot standing beside a human teacher in front of a classroom of students.",
@@ -84,7 +114,13 @@
           "What ethical concerns arise when keeping wild animals in captivity?",
           "Are virtual wildlife reserves a realistic alternative?"
         ],
-        "vocabulary": ["captivity", "conservation", "endangered", "sanctuary", "nevertheless"],
+        "vocabulary": [
+          "captivity",
+          "conservation",
+          "endangered",
+          "sanctuary",
+          "nevertheless"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-5.webp",
           "alt": "A family watching a giraffe in a spacious zoo enclosure with trees and a fence.",
@@ -99,7 +135,13 @@
           "What non-material factors are essential for genuine well-being?",
           "How does spending money on experiences compare to buying material goods?"
         ],
-        "vocabulary": ["financial security", "contentment", "intangible", "fulfill", "ultimately"],
+        "vocabulary": [
+          "financial security",
+          "contentment",
+          "intangible",
+          "fulfill",
+          "ultimately"
+        ],
         "image": {
           "src": "/images/activities/opinion-essays-and-arguments/card-6.webp",
           "alt": "A person holding a full wallet looking thoughtfully at a happy family having a simple picnic.",

@@ -92,11 +92,17 @@ export const promptFor = (subject: string, style: string) =>
 
 const image = (src: string, alt: string, style: string): Json => {
   const isThumb = src.endsWith("thumb.webp") || src.includes("/categories/");
+  const isOption = /-option-\d+\.webp$/i.test(src);
+  const ratioSuffix = isThumb
+    ? " aspect ratio 16:10"
+    : isOption
+      ? " square aspect ratio 1:1"
+      : "";
   return {
     src,
     alt,
     source: "ai",
-    prompt: promptFor(alt, style + (isThumb ? " aspect ratio 16:10" : "")),
+    prompt: promptFor(alt, style + ratioSuffix),
   };
 };
 
@@ -248,7 +254,13 @@ export function fillMissingPrompts<T>(value: T, style: string): T {
       !asText(object.prompt).trim()
     ) {
       const isThumb = object.src.endsWith("thumb.webp") || object.src.includes("/categories/");
-      object.prompt = promptFor(object.alt, style + (isThumb ? " aspect ratio 16:10" : ""));
+      const isOption = /-option-\d+\.webp$/i.test(object.src);
+      const ratioSuffix = isThumb
+        ? " aspect ratio 16:10"
+        : isOption
+          ? " square aspect ratio 1:1"
+          : "";
+      object.prompt = promptFor(object.alt, style + ratioSuffix);
     }
     return object;
   };

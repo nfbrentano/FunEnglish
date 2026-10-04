@@ -15,7 +15,7 @@
     "src": "/images/activities/reading-science-news/thumb.webp",
     "alt": "A microscope on a lab table beside a small branch of coral and a model of a distant planet",
     "source": "ai",
-    "prompt": "A microscope on a lab table beside a small branch of coral and a model of a distant planet. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A microscope on a lab table beside a small branch of coral and a model of a distant planet. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
@@ -72,18 +72,9 @@
       {
         "prompt": "Text: \"For decades, a reliable way to recycle certain mixed plastics has proved elusive. Now chemists claim to have developed an enzyme that breaks these materials down at room temperature, although scaling the process up remains a formidable challenge.\" — In this text, \"elusive\" means…",
         "options": [
-          {
-            "text": "dangerous to handle",
-            "correct": false
-          },
-          {
-            "text": "cheap and widely available",
-            "correct": false
-          },
-          {
-            "text": "difficult to find or achieve",
-            "correct": true
-          }
+          { "text": "dangerous to handle", "correct": false },
+          { "text": "cheap and widely available", "correct": false },
+          { "text": "difficult to find or achieve", "correct": true }
         ],
         "explanation": "Something \"elusive\" keeps escaping your grasp, so it is hard to find, achieve or pin down.",
         "media": {
@@ -105,10 +96,7 @@
             "text": "It has more types of flowers than cities.",
             "correct": false
           },
-          {
-            "text": "It has no bees at all.",
-            "correct": false
-          }
+          { "text": "It has no bees at all.", "correct": false }
         ],
         "explanation": "\"Dominated by a single crop\" implies little floral diversity, the opposite of the urban \"patchwork.\"",
         "media": {
@@ -151,10 +139,7 @@
             "text": "The planet is covered in liquid oceans.",
             "correct": false
           },
-          {
-            "text": "No water of any kind was detected.",
-            "correct": false
-          },
+          { "text": "No water of any kind was detected.", "correct": false },
           {
             "text": "Water vapor was found, but liquid oceans are unlikely.",
             "correct": true
@@ -172,18 +157,9 @@
       {
         "prompt": "Text: \"A new type of roof paint can reflect up to 95 percent of incoming sunlight. Engineers hope that, applied widely, it could help mitigate the \"heat island\" effect that makes cities noticeably warmer than the surrounding countryside.\" — In this text, \"mitigate\" means…",
         "options": [
-          {
-            "text": "make less severe",
-            "correct": true
-          },
-          {
-            "text": "make more intense",
-            "correct": false
-          },
-          {
-            "text": "measure accurately",
-            "correct": false
-          }
+          { "text": "make less severe", "correct": true },
+          { "text": "make more intense", "correct": false },
+          { "text": "measure accurately", "correct": false }
         ],
         "explanation": "To \"mitigate\" a problem is to reduce its seriousness or harmful effects.",
         "media": {
@@ -197,14 +173,8 @@
       {
         "prompt": "Text: \"Footage from a deep-sea camera shows an octopus repeatedly returning to the same rock crevice after hunting. Biologists suggest this may indicate a more sophisticated spatial memory than previously assumed for the species, though alternative explanations, such as scent tracking, have not been ruled out.\" — What does \"have not been ruled out\" imply about the alternative explanations?",
         "options": [
-          {
-            "text": "They have been proven false.",
-            "correct": false
-          },
-          {
-            "text": "They are still possible.",
-            "correct": true
-          },
+          { "text": "They have been proven false.", "correct": false },
+          { "text": "They are still possible.", "correct": true },
           {
             "text": "They have been confirmed by the footage.",
             "correct": false

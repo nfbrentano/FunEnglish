@@ -12,7 +12,7 @@
     "src": "/images/activities/reading-restaurant-reviews/thumb.webp",
     "alt": "A phone screen showing five gold stars and a food review",
     "source": "ai",
-    "prompt": "A phone screen showing five gold stars and a food review"
+    "prompt": "A phone screen showing five gold stars and a food review aspect ratio 16:10"
   },
   "content": {
     "questions": [
@@ -23,15 +23,9 @@
             "text": "They liked the food, but not the service.",
             "correct": true
           },
-          {
-            "text": "They hated the food and the service."
-          },
-          {
-            "text": "They liked everything."
-          },
-          {
-            "text": "They thought the drinks were too expensive."
-          }
+          { "text": "They hated the food and the service." },
+          { "text": "They liked everything." },
+          { "text": "They thought the drinks were too expensive." }
         ],
         "explanation": "They say the food was delicious (good), but the service was slow (bad).",
         "media": {
@@ -45,19 +39,10 @@
       {
         "prompt": "Review: \"A bit pricey, but totally worth it for a special occasion. The steak was cooked to perfection.\" — What does \"pricey\" mean?",
         "options": [
-          {
-            "text": "Expensive.",
-            "correct": true
-          },
-          {
-            "text": "Cheap."
-          },
-          {
-            "text": "Spicy."
-          },
-          {
-            "text": "Crowded."
-          }
+          { "text": "Expensive.", "correct": true },
+          { "text": "Cheap." },
+          { "text": "Spicy." },
+          { "text": "Crowded." }
         ],
         "explanation": "\"Pricey\" is an informal word for expensive.",
         "media": {
@@ -71,19 +56,10 @@
       {
         "prompt": "Review: \"I wouldn't recommend this place. The soup was cold and the waiter was rude.\" — Will this person go back?",
         "options": [
-          {
-            "text": "Probably not.",
-            "correct": true
-          },
-          {
-            "text": "Yes, definitely."
-          },
-          {
-            "text": "Only for the soup."
-          },
-          {
-            "text": "Yes, to see the waiter."
-          }
+          { "text": "Probably not.", "correct": true },
+          { "text": "Yes, definitely." },
+          { "text": "Only for the soup." },
+          { "text": "Yes, to see the waiter." }
         ],
         "explanation": "\"I wouldn't recommend this place\" means they had a bad experience.",
         "media": {
@@ -97,19 +73,10 @@
       {
         "prompt": "Review: \"Great atmosphere and friendly staff. Make sure to book in advance because it gets very busy!\" — What is the advice?",
         "options": [
-          {
-            "text": "Reserve a table before you go.",
-            "correct": true
-          },
-          {
-            "text": "Read a book while you wait."
-          },
-          {
-            "text": "Go when it is empty."
-          },
-          {
-            "text": "Talk to the friendly staff."
-          }
+          { "text": "Reserve a table before you go.", "correct": true },
+          { "text": "Read a book while you wait." },
+          { "text": "Go when it is empty." },
+          { "text": "Talk to the friendly staff." }
         ],
         "explanation": "\"Book in advance\" means to make a reservation.",
         "media": {
@@ -123,19 +90,10 @@
       {
         "prompt": "Review: \"The portions are huge! I had to ask for a doggy bag to take the rest home.\" — What is a \"doggy bag\"?",
         "options": [
-          {
-            "text": "A container for leftover food.",
-            "correct": true
-          },
-          {
-            "text": "A bag of dog food."
-          },
-          {
-            "text": "A special dish for dogs."
-          },
-          {
-            "text": "A large backpack."
-          }
+          { "text": "A container for leftover food.", "correct": true },
+          { "text": "A bag of dog food." },
+          { "text": "A special dish for dogs." },
+          { "text": "A large backpack." }
         ],
         "explanation": "A \"doggy bag\" (or a box) is used to take home food you didn't finish.",
         "media": {
@@ -149,19 +107,10 @@
       {
         "prompt": "Review: \"It's a nice little spot, but it's cash only. There's an ATM next door, though.\" — How can you pay?",
         "options": [
-          {
-            "text": "With paper money and coins.",
-            "correct": true
-          },
-          {
-            "text": "With a credit card."
-          },
-          {
-            "text": "With your phone."
-          },
-          {
-            "text": "You don't have to pay."
-          }
+          { "text": "With paper money and coins.", "correct": true },
+          { "text": "With a credit card." },
+          { "text": "With your phone." },
+          { "text": "You don't have to pay." }
         ],
         "explanation": "\"Cash only\" means they do not accept credit cards.",
         "media": {
@@ -179,15 +128,9 @@
             "text": "There wasn't much food for vegetarians.",
             "correct": true
           },
-          {
-            "text": "The salad was too big."
-          },
-          {
-            "text": "Vegetarians couldn't enter."
-          },
-          {
-            "text": "They only served vegetables."
-          }
+          { "text": "The salad was too big." },
+          { "text": "Vegetarians couldn't enter." },
+          { "text": "They only served vegetables." }
         ],
         "explanation": "\"Limited\" means there are very few choices.",
         "media": {
@@ -201,19 +144,10 @@
       {
         "prompt": "Review: \"I've been coming here for years, and it never disappoints. The pasta is always fresh.\" — How does the reviewer feel?",
         "options": [
-          {
-            "text": "They are a happy, loyal customer.",
-            "correct": true
-          },
-          {
-            "text": "They are tired of the restaurant."
-          },
-          {
-            "text": "They are disappointed."
-          },
-          {
-            "text": "They only like the pasta."
-          }
+          { "text": "They are a happy, loyal customer.", "correct": true },
+          { "text": "They are tired of the restaurant." },
+          { "text": "They are disappointed." },
+          { "text": "They only like the pasta." }
         ],
         "explanation": "\"Never disappoints\" means it is consistently good.",
         "media": {

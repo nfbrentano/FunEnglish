@@ -15,29 +15,17 @@
     "src": "/images/activities/linking-words-1/thumb.webp",
     "alt": "Puzzle pieces connected by a chain",
     "source": "ai",
-    "prompt": "Puzzle pieces connected by a chain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "Puzzle pieces connected by a chain. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "I was tired, ___ I went to bed early.",
         "options": [
-          {
-            "text": "so",
-            "correct": true
-          },
-          {
-            "text": "because",
-            "correct": false
-          },
-          {
-            "text": "but",
-            "correct": false
-          },
-          {
-            "text": "although",
-            "correct": false
-          }
+          { "text": "so", "correct": true },
+          { "text": "because", "correct": false },
+          { "text": "but", "correct": false },
+          { "text": "although", "correct": false }
         ],
         "explanation": "So introduces a result.",
         "media": {
@@ -51,22 +39,10 @@
       {
         "prompt": "She stayed home ___ she was sick.",
         "options": [
-          {
-            "text": "because",
-            "correct": true
-          },
-          {
-            "text": "so",
-            "correct": false
-          },
-          {
-            "text": "but",
-            "correct": false
-          },
-          {
-            "text": "however",
-            "correct": false
-          }
+          { "text": "because", "correct": true },
+          { "text": "so", "correct": false },
+          { "text": "but", "correct": false },
+          { "text": "however", "correct": false }
         ],
         "explanation": "Because introduces a reason.",
         "media": {
@@ -80,22 +56,10 @@
       {
         "prompt": "It was raining. ___, we went for a walk.",
         "options": [
-          {
-            "text": "However",
-            "correct": true
-          },
-          {
-            "text": "Because",
-            "correct": false
-          },
-          {
-            "text": "So",
-            "correct": false
-          },
-          {
-            "text": "Although",
-            "correct": false
-          }
+          { "text": "However", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "Although", "correct": false }
         ],
         "explanation": "However shows contrast between two sentences.",
         "media": {
@@ -109,22 +73,10 @@
       {
         "prompt": "___ he studied a lot, he failed the test.",
         "options": [
-          {
-            "text": "Although",
-            "correct": true
-          },
-          {
-            "text": "Because",
-            "correct": false
-          },
-          {
-            "text": "So",
-            "correct": false
-          },
-          {
-            "text": "However",
-            "correct": false
-          }
+          { "text": "Although", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "However", "correct": false }
         ],
         "explanation": "Although + clause shows a surprising contrast.",
         "media": {
@@ -138,22 +90,10 @@
       {
         "prompt": "I like tea, ___ I don't like coffee.",
         "options": [
-          {
-            "text": "but",
-            "correct": true
-          },
-          {
-            "text": "so",
-            "correct": false
-          },
-          {
-            "text": "because",
-            "correct": false
-          },
-          {
-            "text": "or",
-            "correct": false
-          }
+          { "text": "but", "correct": true },
+          { "text": "so", "correct": false },
+          { "text": "because", "correct": false },
+          { "text": "or", "correct": false }
         ],
         "explanation": "But joins two contrasting ideas in one sentence.",
         "media": {
@@ -167,22 +107,10 @@
       {
         "prompt": "We missed the bus, ___ we took a taxi.",
         "options": [
-          {
-            "text": "so",
-            "correct": true
-          },
-          {
-            "text": "but",
-            "correct": false
-          },
-          {
-            "text": "because",
-            "correct": false
-          },
-          {
-            "text": "although",
-            "correct": false
-          }
+          { "text": "so", "correct": true },
+          { "text": "but", "correct": false },
+          { "text": "because", "correct": false },
+          { "text": "although", "correct": false }
         ],
         "explanation": "Taking a taxi is the result of missing the bus.",
         "media": {
@@ -196,22 +124,10 @@
       {
         "prompt": "He's very rich. ___, he isn't happy.",
         "options": [
-          {
-            "text": "However",
-            "correct": true
-          },
-          {
-            "text": "Because",
-            "correct": false
-          },
-          {
-            "text": "So",
-            "correct": false
-          },
-          {
-            "text": "Although",
-            "correct": false
-          }
+          { "text": "However", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "Although", "correct": false }
         ],
         "explanation": "Use However at the start of a new sentence for contrast.",
         "media": {
@@ -225,22 +141,10 @@
       {
         "prompt": "___ it was late, the store was still open.",
         "options": [
-          {
-            "text": "Although",
-            "correct": true
-          },
-          {
-            "text": "Because",
-            "correct": false
-          },
-          {
-            "text": "So",
-            "correct": false
-          },
-          {
-            "text": "But",
-            "correct": false
-          }
+          { "text": "Although", "correct": true },
+          { "text": "Because", "correct": false },
+          { "text": "So", "correct": false },
+          { "text": "But", "correct": false }
         ],
         "explanation": "Although = even though.",
         "media": {

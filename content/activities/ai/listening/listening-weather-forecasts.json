@@ -12,7 +12,7 @@
     "src": "/images/activities/listening-weather-forecasts/thumb.webp",
     "alt": "A sun and a cloud with rain on a map",
     "source": "ai",
-    "prompt": "A sun and a cloud with rain on a map"
+    "prompt": "A sun and a cloud with rain on a map aspect ratio 16:10"
   },
   "content": {
     "questions": [

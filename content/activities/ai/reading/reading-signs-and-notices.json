@@ -15,29 +15,17 @@
     "src": "/images/activities/reading-signs-and-notices/thumb.webp",
     "alt": "A wall of colorful street and shop signs",
     "source": "ai",
-    "prompt": "A wall of colorful street and shop signs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A wall of colorful street and shop signs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "The sign says: \"KEEP OFF THE GRASS\". What does it mean?",
         "options": [
-          {
-            "text": "Don't walk on the grass.",
-            "correct": true
-          },
-          {
-            "text": "Cut the grass.",
-            "correct": false
-          },
-          {
-            "text": "Sit on the grass.",
-            "correct": false
-          },
-          {
-            "text": "The grass is wet.",
-            "correct": false
-          }
+          { "text": "Don't walk on the grass.", "correct": true },
+          { "text": "Cut the grass.", "correct": false },
+          { "text": "Sit on the grass.", "correct": false },
+          { "text": "The grass is wet.", "correct": false }
         ],
         "explanation": "\"Keep off\" means don't go on it.",
         "media": {
@@ -51,22 +39,13 @@
       {
         "prompt": "The sign says: \"NO PARKING 8 AM – 6 PM\". What does it mean?",
         "options": [
-          {
-            "text": "You can't park here during the day.",
-            "correct": true
-          },
-          {
-            "text": "Parking is free all day.",
-            "correct": false
-          },
+          { "text": "You can't park here during the day.", "correct": true },
+          { "text": "Parking is free all day.", "correct": false },
           {
             "text": "You can park here only in the morning.",
             "correct": false
           },
-          {
-            "text": "The parking lot opens at 8 AM.",
-            "correct": false
-          }
+          { "text": "The parking lot opens at 8 AM.", "correct": false }
         ],
         "explanation": "Between 8 AM and 6 PM parking isn't allowed.",
         "media": {
@@ -80,22 +59,10 @@
       {
         "prompt": "The sign says: \"WET PAINT\". What does it mean?",
         "options": [
-          {
-            "text": "Don't touch – the paint isn't dry.",
-            "correct": true
-          },
-          {
-            "text": "Paint is for sale.",
-            "correct": false
-          },
-          {
-            "text": "The wall is dirty.",
-            "correct": false
-          },
-          {
-            "text": "Painters wanted.",
-            "correct": false
-          }
+          { "text": "Don't touch – the paint isn't dry.", "correct": true },
+          { "text": "Paint is for sale.", "correct": false },
+          { "text": "The wall is dirty.", "correct": false },
+          { "text": "Painters wanted.", "correct": false }
         ],
         "explanation": "Wet = not dry yet.",
         "media": {
@@ -109,22 +76,10 @@
       {
         "prompt": "The sign says: \"STAFF ONLY\". What does it mean?",
         "options": [
-          {
-            "text": "Only employees can go in.",
-            "correct": true
-          },
-          {
-            "text": "Customers must wait here.",
-            "correct": false
-          },
-          {
-            "text": "The staff is on vacation.",
-            "correct": false
-          },
-          {
-            "text": "Ask for help here.",
-            "correct": false
-          }
+          { "text": "Only employees can go in.", "correct": true },
+          { "text": "Customers must wait here.", "correct": false },
+          { "text": "The staff is on vacation.", "correct": false },
+          { "text": "Ask for help here.", "correct": false }
         ],
         "explanation": "Staff = the people who work there.",
         "media": {
@@ -138,22 +93,10 @@
       {
         "prompt": "The sign says: \"SOLD OUT\". What does it mean?",
         "options": [
-          {
-            "text": "There are none left to buy.",
-            "correct": true
-          },
-          {
-            "text": "Everything is on sale.",
-            "correct": false
-          },
-          {
-            "text": "The store is closed today.",
-            "correct": false
-          },
-          {
-            "text": "Buy one, get one free.",
-            "correct": false
-          }
+          { "text": "There are none left to buy.", "correct": true },
+          { "text": "Everything is on sale.", "correct": false },
+          { "text": "The store is closed today.", "correct": false },
+          { "text": "Buy one, get one free.", "correct": false }
         ],
         "explanation": "Sold out = they sold everything.",
         "media": {
@@ -167,22 +110,10 @@
       {
         "prompt": "A sign on an elevator says: \"OUT OF ORDER\". What does it mean?",
         "options": [
-          {
-            "text": "It isn't working.",
-            "correct": true
-          },
-          {
-            "text": "Wait in line.",
-            "correct": false
-          },
-          {
-            "text": "It's going down only.",
-            "correct": false
-          },
-          {
-            "text": "Use it in order.",
-            "correct": false
-          }
+          { "text": "It isn't working.", "correct": true },
+          { "text": "Wait in line.", "correct": false },
+          { "text": "It's going down only.", "correct": false },
+          { "text": "Use it in order.", "correct": false }
         ],
         "explanation": "Out of order = broken.",
         "media": {
@@ -196,22 +127,10 @@
       {
         "prompt": "The sign says: \"PLEASE WAIT TO BE SEATED\". What does it mean?",
         "options": [
-          {
-            "text": "Someone will show you to a table.",
-            "correct": true
-          },
-          {
-            "text": "Sit wherever you like.",
-            "correct": false
-          },
-          {
-            "text": "The restaurant is full.",
-            "correct": false
-          },
-          {
-            "text": "Pay before you sit down.",
-            "correct": false
-          }
+          { "text": "Someone will show you to a table.", "correct": true },
+          { "text": "Sit wherever you like.", "correct": false },
+          { "text": "The restaurant is full.", "correct": false },
+          { "text": "Pay before you sit down.", "correct": false }
         ],
         "explanation": "In many restaurants, a host takes you to your table.",
         "media": {
@@ -225,22 +144,10 @@
       {
         "prompt": "The sign says: \"BUY ONE, GET ONE FREE\". What does it mean?",
         "options": [
-          {
-            "text": "You get two for the price of one.",
-            "correct": true
-          },
-          {
-            "text": "Everything is free today.",
-            "correct": false
-          },
-          {
-            "text": "You can only buy one.",
-            "correct": false
-          },
-          {
-            "text": "The second one is half price.",
-            "correct": false
-          }
+          { "text": "You get two for the price of one.", "correct": true },
+          { "text": "Everything is free today.", "correct": false },
+          { "text": "You can only buy one.", "correct": false },
+          { "text": "The second one is half price.", "correct": false }
         ],
         "explanation": "Often written as BOGO.",
         "media": {

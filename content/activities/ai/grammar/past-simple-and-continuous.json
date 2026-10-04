@@ -12,7 +12,7 @@
     "src": "/images/activities/past-simple-and-continuous/thumb.webp",
     "alt": "An alarm clock ringing while someone is sleeping under a blanket",
     "source": "ai",
-    "prompt": "An alarm clock ringing while someone is sleeping peacefully under a cozy blanket"
+    "prompt": "An alarm clock ringing while someone is sleeping peacefully under a cozy blanket aspect ratio 16:10"
   },
   "content": {
     "mode": "word-bank",
@@ -106,6 +106,13 @@
         }
       }
     ],
-    "distractors": ["studied", "had", "walked", "did you do", "was losing", "cooked"]
+    "distractors": [
+      "studied",
+      "had",
+      "walked",
+      "did you do",
+      "was losing",
+      "cooked"
+    ]
   }
 }

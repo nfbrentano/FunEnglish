@@ -15,21 +15,15 @@
     "src": "/images/activities/some-or-any/thumb.webp",
     "alt": "A kitchen table with a few apples and an empty fruit bowl",
     "source": "ai",
-    "prompt": "A kitchen table with a few apples and an empty fruit bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A kitchen table with a few apples and an empty fruit bowl. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "There is ___ milk in the fridge.",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any",
-            "correct": false
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in positive sentences.",
         "media": {
@@ -43,14 +37,8 @@
       {
         "prompt": "We don't have ___ bread left.",
         "options": [
-          {
-            "text": "some",
-            "correct": false
-          },
-          {
-            "text": "any",
-            "correct": true
-          }
+          { "text": "some", "correct": false },
+          { "text": "any", "correct": true }
         ],
         "explanation": "Use any in negative sentences.",
         "media": {
@@ -64,14 +52,8 @@
       {
         "prompt": "Are there ___ eggs in the basket?",
         "options": [
-          {
-            "text": "some",
-            "correct": false
-          },
-          {
-            "text": "any",
-            "correct": true
-          }
+          { "text": "some", "correct": false },
+          { "text": "any", "correct": true }
         ],
         "explanation": "Use any in most questions.",
         "media": {
@@ -85,14 +67,8 @@
       {
         "prompt": "Would you like ___ tea?",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any",
-            "correct": false
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in offers and requests, even though they are questions.",
         "media": {
@@ -106,14 +82,8 @@
       {
         "prompt": "I need ___ help with my homework, please.",
         "options": [
-          {
-            "text": "some",
-            "correct": true
-          },
-          {
-            "text": "any",
-            "correct": false
-          }
+          { "text": "some", "correct": true },
+          { "text": "any", "correct": false }
         ],
         "explanation": "Use some in positive sentences, like requests for help.",
         "media": {

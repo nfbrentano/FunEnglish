@@ -15,29 +15,17 @@
     "src": "/images/activities/phrasal-verbs-with-get/thumb.webp",
     "alt": "The word GET surrounded by arrows pointing in different directions",
     "source": "ai",
-    "prompt": "The word GET surrounded by arrows pointing in different directions. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "The word GET surrounded by arrows pointing in different directions. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "I usually ___ at 7 a.m.",
         "options": [
-          {
-            "text": "get up",
-            "correct": true
-          },
-          {
-            "text": "get over",
-            "correct": false
-          },
-          {
-            "text": "get along",
-            "correct": false
-          },
-          {
-            "text": "get by",
-            "correct": false
-          }
+          { "text": "get up", "correct": true },
+          { "text": "get over", "correct": false },
+          { "text": "get along", "correct": false },
+          { "text": "get by", "correct": false }
         ],
         "explanation": "Get up = leave your bed after sleeping.",
         "media": {
@@ -51,22 +39,10 @@
       {
         "prompt": "It took me two weeks to ___ the flu.",
         "options": [
-          {
-            "text": "get over",
-            "correct": true
-          },
-          {
-            "text": "get up",
-            "correct": false
-          },
-          {
-            "text": "get off",
-            "correct": false
-          },
-          {
-            "text": "get in",
-            "correct": false
-          }
+          { "text": "get over", "correct": true },
+          { "text": "get up", "correct": false },
+          { "text": "get off", "correct": false },
+          { "text": "get in", "correct": false }
         ],
         "explanation": "Get over = recover from an illness or a problem.",
         "media": {
@@ -80,22 +56,10 @@
       {
         "prompt": "Do you ___ with your neighbors?",
         "options": [
-          {
-            "text": "get along",
-            "correct": true
-          },
-          {
-            "text": "get by",
-            "correct": false
-          },
-          {
-            "text": "get out",
-            "correct": false
-          },
-          {
-            "text": "get over",
-            "correct": false
-          }
+          { "text": "get along", "correct": true },
+          { "text": "get by", "correct": false },
+          { "text": "get out", "correct": false },
+          { "text": "get over", "correct": false }
         ],
         "explanation": "Get along (with) = have a friendly relationship.",
         "media": {
@@ -109,22 +73,10 @@
       {
         "prompt": "We ___ the bus at the next stop.",
         "options": [
-          {
-            "text": "get off",
-            "correct": true
-          },
-          {
-            "text": "get out",
-            "correct": false
-          },
-          {
-            "text": "get over",
-            "correct": false
-          },
-          {
-            "text": "get up",
-            "correct": false
-          }
+          { "text": "get off", "correct": true },
+          { "text": "get out", "correct": false },
+          { "text": "get over", "correct": false },
+          { "text": "get up", "correct": false }
         ],
         "explanation": "Get off a bus, train or plane. (Get out of a car or taxi.)",
         "media": {
@@ -138,22 +90,10 @@
       {
         "prompt": "I don't earn much, but I ___.",
         "options": [
-          {
-            "text": "get by",
-            "correct": true
-          },
-          {
-            "text": "get along",
-            "correct": false
-          },
-          {
-            "text": "get off",
-            "correct": false
-          },
-          {
-            "text": "get up",
-            "correct": false
-          }
+          { "text": "get by", "correct": true },
+          { "text": "get along", "correct": false },
+          { "text": "get off", "correct": false },
+          { "text": "get up", "correct": false }
         ],
         "explanation": "Get by = have just enough money to live.",
         "media": {
@@ -167,22 +107,10 @@
       {
         "prompt": "Hurry up and ___ the car!",
         "options": [
-          {
-            "text": "get in",
-            "correct": true
-          },
-          {
-            "text": "get on",
-            "correct": false
-          },
-          {
-            "text": "get by",
-            "correct": false
-          },
-          {
-            "text": "get over",
-            "correct": false
-          }
+          { "text": "get in", "correct": true },
+          { "text": "get on", "correct": false },
+          { "text": "get by", "correct": false },
+          { "text": "get over", "correct": false }
         ],
         "explanation": "Get in(to) a car or taxi. (Get on a bus or train.)",
         "media": {
@@ -196,22 +124,10 @@
       {
         "prompt": "He always tries to ___ of washing the dishes.",
         "options": [
-          {
-            "text": "get out",
-            "correct": true
-          },
-          {
-            "text": "get off",
-            "correct": false
-          },
-          {
-            "text": "get up",
-            "correct": false
-          },
-          {
-            "text": "get along",
-            "correct": false
-          }
+          { "text": "get out", "correct": true },
+          { "text": "get off", "correct": false },
+          { "text": "get up", "correct": false },
+          { "text": "get along", "correct": false }
         ],
         "explanation": "Get out of (doing) something = avoid a task.",
         "media": {
@@ -225,22 +141,10 @@
       {
         "prompt": "Let's ___ this weekend and play some games.",
         "options": [
-          {
-            "text": "get together",
-            "correct": true
-          },
-          {
-            "text": "get along",
-            "correct": false
-          },
-          {
-            "text": "get by",
-            "correct": false
-          },
-          {
-            "text": "get over",
-            "correct": false
-          }
+          { "text": "get together", "correct": true },
+          { "text": "get along", "correct": false },
+          { "text": "get by", "correct": false },
+          { "text": "get over", "correct": false }
         ],
         "explanation": "Get together = meet socially.",
         "media": {

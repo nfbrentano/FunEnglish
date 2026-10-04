@@ -15,7 +15,7 @@
     "src": "/images/activities/listening-hotel-and-travel-checkin/thumb.webp",
     "alt": "A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport",
     "source": "ai",
-    "prompt": "A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
@@ -40,8 +40,14 @@
         },
         "options": [
           { "text": "The departure gate was moved to C12.", "correct": true },
-          { "text": "The flight was canceled due to bad weather.", "correct": false },
-          { "text": "The plane has already landed in Chicago.", "correct": false }
+          {
+            "text": "The flight was canceled due to bad weather.",
+            "correct": false
+          },
+          {
+            "text": "The plane has already landed in Chicago.",
+            "correct": false
+          }
         ],
         "explanation": "The announcement explicitly states: 'Your departure gate has changed from Gate B4 to Gate C12'."
       },

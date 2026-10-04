@@ -15,7 +15,7 @@
     "src": "/images/activities/emoji-weather-and-clothes/thumb.webp",
     "alt": "A child in a yellow raincoat and rubber boots holding an umbrella under a cloud with the sun peeking out",
     "source": "ai",
-    "prompt": "A child in a yellow raincoat and rubber boots holding an umbrella under a cloud with the sun peeking out. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "A child in a yellow raincoat and rubber boots holding an umbrella under a cloud with the sun peeking out. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
@@ -27,18 +27,9 @@
           "label": "Emoji picture: ☀️ 😎"
         },
         "options": [
-          {
-            "text": "It's rainy.",
-            "correct": false
-          },
-          {
-            "text": "It's sunny.",
-            "correct": true
-          },
-          {
-            "text": "It's snowy.",
-            "correct": false
-          }
+          { "text": "It's rainy.", "correct": false },
+          { "text": "It's sunny.", "correct": true },
+          { "text": "It's snowy.", "correct": false }
         ],
         "explanation": "☀️ = sunny: we say \"It's sunny\" when the sun is shining."
       },
@@ -50,18 +41,9 @@
           "label": "Emoji picture: 🌧️ ☂️"
         },
         "options": [
-          {
-            "text": "sunglasses",
-            "correct": false
-          },
-          {
-            "text": "a swimsuit",
-            "correct": false
-          },
-          {
-            "text": "an umbrella",
-            "correct": true
-          }
+          { "text": "sunglasses", "correct": false },
+          { "text": "a swimsuit", "correct": false },
+          { "text": "an umbrella", "correct": true }
         ],
         "explanation": "An umbrella keeps you dry when it rains."
       },
@@ -73,18 +55,9 @@
           "label": "Emoji picture: ❄️ ⛄"
         },
         "options": [
-          {
-            "text": "It's snowing.",
-            "correct": true
-          },
-          {
-            "text": "It's hot.",
-            "correct": false
-          },
-          {
-            "text": "It's sunny.",
-            "correct": false
-          }
+          { "text": "It's snowing.", "correct": true },
+          { "text": "It's hot.", "correct": false },
+          { "text": "It's sunny.", "correct": false }
         ],
         "explanation": "❄️ and ⛄ mean snow: \"It's snowing\" describes snow falling now."
       },
@@ -96,18 +69,9 @@
           "label": "Emoji picture: 🧣"
         },
         "options": [
-          {
-            "text": "a shoe",
-            "correct": false
-          },
-          {
-            "text": "a scarf",
-            "correct": true
-          },
-          {
-            "text": "a dress",
-            "correct": false
-          }
+          { "text": "a shoe", "correct": false },
+          { "text": "a scarf", "correct": true },
+          { "text": "a dress", "correct": false }
         ],
         "explanation": "A scarf is a long piece of cloth you wear around your neck when it's cold."
       },
@@ -119,18 +83,9 @@
           "label": "Emoji picture: 🧤"
         },
         "options": [
-          {
-            "text": "boots",
-            "correct": false
-          },
-          {
-            "text": "shorts",
-            "correct": false
-          },
-          {
-            "text": "gloves",
-            "correct": true
-          }
+          { "text": "boots", "correct": false },
+          { "text": "shorts", "correct": false },
+          { "text": "gloves", "correct": true }
         ],
         "explanation": "Gloves keep your hands warm; we always say \"gloves\" in the plural for a pair."
       },
@@ -142,18 +97,9 @@
           "label": "Emoji picture: ☀️ 👕 🩳"
         },
         "options": [
-          {
-            "text": "a T-shirt and shorts",
-            "correct": true
-          },
-          {
-            "text": "a coat and gloves",
-            "correct": false
-          },
-          {
-            "text": "a scarf and boots",
-            "correct": false
-          }
+          { "text": "a T-shirt and shorts", "correct": true },
+          { "text": "a coat and gloves", "correct": false },
+          { "text": "a scarf and boots", "correct": false }
         ],
         "explanation": "On hot days we wear light clothes like a T-shirt and shorts."
       },
@@ -165,18 +111,9 @@
           "label": "Emoji picture: ⛈️"
         },
         "options": [
-          {
-            "text": "It's snowing.",
-            "correct": false
-          },
-          {
-            "text": "There's a thunderstorm.",
-            "correct": true
-          },
-          {
-            "text": "It's sunny and clear.",
-            "correct": false
-          }
+          { "text": "It's snowing.", "correct": false },
+          { "text": "There's a thunderstorm.", "correct": true },
+          { "text": "It's sunny and clear.", "correct": false }
         ],
         "explanation": "⛈️ shows a thunderstorm: rain with thunder and lightning."
       },
@@ -188,18 +125,9 @@
           "label": "Emoji picture: 🥶 🧥"
         },
         "options": [
-          {
-            "text": "sandals",
-            "correct": false
-          },
-          {
-            "text": "swimsuit",
-            "correct": false
-          },
-          {
-            "text": "coat",
-            "correct": true
-          }
+          { "text": "sandals", "correct": false },
+          { "text": "swimsuit", "correct": false },
+          { "text": "coat", "correct": true }
         ],
         "explanation": "A coat is warm outerwear for cold weather."
       }

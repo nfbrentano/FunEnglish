@@ -15,9 +15,9 @@ palette (nfgbrentano.art.br): calm, warm, minimal, with a touch of gold.
 
 ## Rules
 
-- **Format:** thumbnails 1280×800 (16:10); content images up to 1600 px wide.
-- **Export:** WebP, ≤ 200 KB each (e.g. `cwebp -q 80 in.png -o thumb.webp`).
-- **Where:** `public/images/activities/<slug>/thumb.webp` (and `1.webp`, `2.webp`… for content images).
+- **Format:** thumbnails and category art 960×600 (aspect ratio 16:10); question options 480×480 (square aspect ratio 1:1); content images up to 960 px wide.
+- **Export:** WebP, ≤ 200 KB for thumbnails, ≤ 100 KB for content, ≤ 40 KB for options (e.g. `cwebp -q 80 in.png -o thumb.webp`).
+- **Where:** `public/images/activities/<slug>/thumb.webp` (and item images `question-1.webp`, `card-1.webp`…).
 - **Never** text inside the image: it can't be translated and it isn't accessible.
 - **People:** diverse, friendly, generic characters; never real people.
 - **Classroom-safe:** nothing violent, scary or suggestive, even for teen/adult activities.

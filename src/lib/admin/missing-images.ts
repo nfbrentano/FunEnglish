@@ -58,6 +58,13 @@ export function findMissingImages(
         .pop()!
         .replace(/\.[a-z0-9]+$/i, "");
       const subject = image.alt.trim().replace(/\.$/, "") || activity.title;
+      const isThumb = file.endsWith("thumb.webp") || file.includes("/categories/");
+      const isOption = /-option-\d+\.webp$/i.test(file);
+      const ratioSuffix = isThumb
+        ? " aspect ratio 16:10"
+        : isOption
+          ? " square aspect ratio 1:1"
+          : "";
       return [
         {
           activityId: activity.id,
@@ -66,7 +73,7 @@ export function findMissingImages(
           alt: image.alt,
           fileName: `${activity.slug}--${name}.png`,
           // The prompt saved with the image wins; otherwise build one from the alt (CA08).
-          prompt: image.prompt?.trim() || `${subject}. ${style}`,
+          prompt: image.prompt?.trim() || `${subject}. ${style}${ratioSuffix}`,
         },
       ];
     });
@@ -83,6 +90,8 @@ export function findMissingSiteImages(
     .filter((image) => !existing.has(image.src))
     .map((image) => {
       const [, , folder, file] = image.src.split("/");
+      const isThumb = image.src.includes("/categories/");
+      const ratioSuffix = isThumb ? " aspect ratio 16:10" : "";
       return {
         activityId: "",
         title: image.alt,
@@ -90,7 +99,7 @@ export function findMissingSiteImages(
         alt: image.alt,
         // Not an activity: upload it here (the bulk upload's <slug>--<name> names are for activities).
         fileName: `${folder}/${file.replace(/\.webp$/, ".png")}`,
-        prompt: `${image.subject}. ${style}`,
+        prompt: `${image.subject}. ${style}${ratioSuffix}`,
       };
     });
 }

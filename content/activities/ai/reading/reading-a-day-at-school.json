@@ -15,25 +15,16 @@
     "src": "/images/activities/reading-a-day-at-school/thumb.webp",
     "alt": "Children with backpacks walking into a bright school building with a tree beside it",
     "source": "ai",
-    "prompt": "Children with backpacks walking into a bright school building with a tree beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "Children with backpacks walking into a bright school building with a tree beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
       {
         "prompt": "Text: \"Mia gets up at seven. She takes the bus to school. School starts at eight.\" — How does Mia go to school?",
         "options": [
-          {
-            "text": "By car.",
-            "correct": false
-          },
-          {
-            "text": "By bus.",
-            "correct": true
-          },
-          {
-            "text": "On foot.",
-            "correct": false
-          }
+          { "text": "By car.", "correct": false },
+          { "text": "By bus.", "correct": true },
+          { "text": "On foot.", "correct": false }
         ],
         "explanation": "The text says \"She takes the bus to school.\"",
         "media": {
@@ -47,18 +38,9 @@
       {
         "prompt": "Text: \"Leo has math in the morning. He likes math. After math, he has art.\" — What does Leo have after math?",
         "options": [
-          {
-            "text": "Art.",
-            "correct": true
-          },
-          {
-            "text": "Science.",
-            "correct": false
-          },
-          {
-            "text": "Lunch.",
-            "correct": false
-          }
+          { "text": "Art.", "correct": true },
+          { "text": "Science.", "correct": false },
+          { "text": "Lunch.", "correct": false }
         ],
         "explanation": "\"After math, he has art\" tells us the next class is art.",
         "media": {
@@ -72,18 +54,9 @@
       {
         "prompt": "Text: \"Sara eats lunch at twelve. She has a sandwich and an apple. She drinks water.\" — What does Sara drink?",
         "options": [
-          {
-            "text": "Milk.",
-            "correct": false
-          },
-          {
-            "text": "Juice.",
-            "correct": false
-          },
-          {
-            "text": "Water.",
-            "correct": true
-          }
+          { "text": "Milk.", "correct": false },
+          { "text": "Juice.", "correct": false },
+          { "text": "Water.", "correct": true }
         ],
         "explanation": "The last sentence says \"She drinks water.\"",
         "media": {
@@ -97,18 +70,9 @@
       {
         "prompt": "Text: \"Ben's teacher is Mr. Lee. He is tall and funny. Ben's class has twenty students.\" — How many students are in Ben's class?",
         "options": [
-          {
-            "text": "Twelve.",
-            "correct": false
-          },
-          {
-            "text": "Twenty.",
-            "correct": true
-          },
-          {
-            "text": "Two.",
-            "correct": false
-          }
+          { "text": "Twelve.", "correct": false },
+          { "text": "Twenty.", "correct": true },
+          { "text": "Two.", "correct": false }
         ],
         "explanation": "The text says the class \"has twenty students\" (20).",
         "media": {
@@ -122,18 +86,9 @@
       {
         "prompt": "Text: \"Ana plays soccer at break time. Her friend Kim plays too. They are on the same team.\" — When does Ana play soccer?",
         "options": [
-          {
-            "text": "At break time.",
-            "correct": true
-          },
-          {
-            "text": "After dinner.",
-            "correct": false
-          },
-          {
-            "text": "In math class.",
-            "correct": false
-          }
+          { "text": "At break time.", "correct": true },
+          { "text": "After dinner.", "correct": false },
+          { "text": "In math class.", "correct": false }
         ],
         "explanation": "\"At break time\" is the time in the first sentence.",
         "media": {
@@ -147,18 +102,9 @@
       {
         "prompt": "Text: \"Tom forgets his pencil today. His friend Max gives him a pencil. Tom says, \"Thank you!\"\" — Who gives Tom a pencil?",
         "options": [
-          {
-            "text": "His teacher.",
-            "correct": false
-          },
-          {
-            "text": "His mom.",
-            "correct": false
-          },
-          {
-            "text": "Max.",
-            "correct": true
-          }
+          { "text": "His teacher.", "correct": false },
+          { "text": "His mom.", "correct": false },
+          { "text": "Max.", "correct": true }
         ],
         "explanation": "\"His friend Max gives him a pencil,\" so Max helps Tom.",
         "media": {
@@ -172,18 +118,9 @@
       {
         "prompt": "Text: \"Lily's favorite class is music. She sings and plays the piano. She doesn't like P.E.\" — What is Lily's favorite class?",
         "options": [
-          {
-            "text": "Music.",
-            "correct": true
-          },
-          {
-            "text": "P.E.",
-            "correct": false
-          },
-          {
-            "text": "Math.",
-            "correct": false
-          }
+          { "text": "Music.", "correct": true },
+          { "text": "P.E.", "correct": false },
+          { "text": "Math.", "correct": false }
         ],
         "explanation": "\"Favorite\" means the one you like best: Lily's favorite class is music.",
         "media": {
@@ -197,18 +134,9 @@
       {
         "prompt": "Text: \"School finishes at three. Sam walks home with his sister. Then he does his homework.\" — What does Sam do after he gets home?",
         "options": [
-          {
-            "text": "He takes the bus.",
-            "correct": false
-          },
-          {
-            "text": "He goes to school.",
-            "correct": false
-          },
-          {
-            "text": "He does his homework.",
-            "correct": true
-          }
+          { "text": "He takes the bus.", "correct": false },
+          { "text": "He goes to school.", "correct": false },
+          { "text": "He does his homework.", "correct": true }
         ],
         "explanation": "\"Then\" shows the next action: he does his homework.",
         "media": {

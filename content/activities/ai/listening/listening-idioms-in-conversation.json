@@ -15,7 +15,7 @@
     "src": "/images/activities/listening-idioms-in-conversation/thumb.webp",
     "alt": "Two coworkers chatting over coffee at a small table with speech bubbles above them",
     "source": "ai",
-    "prompt": "Two coworkers chatting over coffee at a small table with speech bubbles above them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+    "prompt": "Two coworkers chatting over coffee at a small table with speech bubbles above them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
   },
   "content": {
     "questions": [
@@ -26,18 +26,9 @@
           "text": "Don't worry about the math exam. Honestly, it was a piece of cake."
         },
         "options": [
-          {
-            "text": "The exam was very easy",
-            "correct": true
-          },
-          {
-            "text": "The exam was about desserts",
-            "correct": false
-          },
-          {
-            "text": "The exam was very long",
-            "correct": false
-          }
+          { "text": "The exam was very easy", "correct": true },
+          { "text": "The exam was about desserts", "correct": false },
+          { "text": "The exam was very long", "correct": false }
         ],
         "explanation": "\"A piece of cake\" means something very easy."
       },
@@ -48,18 +39,9 @@
           "text": "I think I'll skip the gym today. I'm feeling a bit under the weather."
         },
         "options": [
-          {
-            "text": "She's going to bed early tonight",
-            "correct": false
-          },
-          {
-            "text": "She feels a little sick",
-            "correct": true
-          },
-          {
-            "text": "She's afraid of flying",
-            "correct": false
-          }
+          { "text": "She's going to bed early tonight", "correct": false },
+          { "text": "She feels a little sick", "correct": true },
+          { "text": "She's afraid of flying", "correct": false }
         ],
         "explanation": "\"Under the weather\" means feeling slightly ill."
       },
@@ -70,18 +52,9 @@
           "text": "We're planning a surprise party for Jen on Friday. Whatever you do, don't let the cat out of the bag."
         },
         "options": [
-          {
-            "text": "Tell the secret to everyone",
-            "correct": false
-          },
-          {
-            "text": "Keep the surprise a secret",
-            "correct": true
-          },
-          {
-            "text": "Buy a new bag",
-            "correct": false
-          }
+          { "text": "Tell the secret to everyone", "correct": false },
+          { "text": "Keep the surprise a secret", "correct": true },
+          { "text": "Buy a new bag", "correct": false }
         ],
         "explanation": "\"Don't let the cat out of the bag\" means don't reveal a secret."
       },
@@ -92,18 +65,9 @@
           "text": "We got great seats for the concert, but they cost an arm and a leg."
         },
         "options": [
-          {
-            "text": "The tickets were free",
-            "correct": false
-          },
-          {
-            "text": "The tickets were very expensive",
-            "correct": true
-          },
-          {
-            "text": "The tickets were lost",
-            "correct": false
-          }
+          { "text": "The tickets were free", "correct": false },
+          { "text": "The tickets were very expensive", "correct": true },
+          { "text": "The tickets were lost", "correct": false }
         ],
         "explanation": "\"Cost an arm and a leg\" means cost a lot of money."
       },
@@ -114,18 +78,9 @@
           "text": "It's almost eight and we've finished the hardest part. Let's call it a day."
         },
         "options": [
-          {
-            "text": "Let's stop working for today",
-            "correct": true
-          },
-          {
-            "text": "Let's call someone named Day",
-            "correct": false
-          },
-          {
-            "text": "Let's start a new project",
-            "correct": false
-          }
+          { "text": "Let's stop working for today", "correct": true },
+          { "text": "Let's call someone named Day", "correct": false },
+          { "text": "Let's start a new project", "correct": false }
         ],
         "explanation": "\"Call it a day\" means to stop working, usually because you've done enough."
       },
@@ -136,18 +91,9 @@
           "text": "The repairman cut corners on our roof, and now it's leaking again."
         },
         "options": [
-          {
-            "text": "He did the job perfectly",
-            "correct": false
-          },
-          {
-            "text": "He did the job quickly and carelessly",
-            "correct": true
-          },
-          {
-            "text": "He refused to do the job",
-            "correct": false
-          }
+          { "text": "He did the job perfectly", "correct": false },
+          { "text": "He did the job quickly and carelessly", "correct": true },
+          { "text": "He refused to do the job", "correct": false }
         ],
         "explanation": "\"Cut corners\" means doing something the cheapest or easiest way, often skipping important steps."
       },
@@ -162,14 +108,8 @@
             "text": "She will decide later after she has more information",
             "correct": true
           },
-          {
-            "text": "She wants to build a bridge",
-            "correct": false
-          },
-          {
-            "text": "She has already decided",
-            "correct": false
-          }
+          { "text": "She wants to build a bridge", "correct": false },
+          { "text": "She has already decided", "correct": false }
         ],
         "explanation": "\"Cross that bridge when we come to it\" means deal with a problem only when it happens."
       },
@@ -180,18 +120,9 @@
           "text": "Mark said the real problem is poor communication, and I think he hit the nail on the head."
         },
         "options": [
-          {
-            "text": "Mark is very hungry",
-            "correct": false
-          },
-          {
-            "text": "Mark is very busy at work",
-            "correct": false
-          },
-          {
-            "text": "Mark said exactly the right thing",
-            "correct": true
-          }
+          { "text": "Mark is very hungry", "correct": false },
+          { "text": "Mark is very busy at work", "correct": false },
+          { "text": "Mark said exactly the right thing", "correct": true }
         ],
         "explanation": "\"Hit the nail on the head\" means to describe something exactly right."
       }
