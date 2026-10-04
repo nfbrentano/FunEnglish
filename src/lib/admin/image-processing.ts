@@ -1,12 +1,12 @@
 // Resizing and WebP encoding in the browser, with the same rules as `npm run images:import`
-// (spec: imagens pelo painel, RF04): thumbnails cropped to 1280×800, other images up to 1600 px
+// (spec: imagens pelo painel, RF04): thumbnails cropped to 960×600, other images up to 1600 px
 // wide, WebP ≤ 200 KB.
 
-export const THUMB = { width: 1280, height: 800 };
+export const THUMB = { width: 960, height: 600 };
 
 /**
  * Limits per kind (spec: mais imagens nas atividades, RNF01): thumbnails and category art are
- * 16:10 at 1280×800; an item's picture up to 960 px wide; a picture answer up to 480 px.
+ * 16:10 at 960×600; an item's picture up to 960 px wide; a picture answer up to 480 px.
  */
 export const LIMITS = {
   thumb: { width: THUMB.width, bytes: 200 * 1024 },

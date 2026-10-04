@@ -7,7 +7,7 @@
  * Then run:
  *   npm run images:import -- ~/Downloads/fun-english-images
  *
- * Each image is resized and converted to WebP like the admin upload (thumbnails 1280×800 ≤ 200 KB,
+ * Each image is resized and converted to WebP like the admin upload (thumbnails 960×600 ≤ 200 KB,
  * item pictures ≤ 960 px ≤ 100 KB, picture answers named <name>-option-N ≤ 480 px ≤ 40 KB) and
  * saved at public/images/activities/<slug>/<name>.webp.
  */
@@ -42,7 +42,7 @@ function expectedImages(): Set<string> {
 
 /** Same limits as the admin upload (spec: mais imagens nas atividades, RNF01). */
 const LIMITS = {
-  thumb: { width: 1280, bytes: 200 * 1024 },
+  thumb: { width: 960, bytes: 200 * 1024 },
   content: { width: 960, bytes: 100 * 1024 },
   option: { width: 480, bytes: 40 * 1024 },
 };
@@ -52,7 +52,7 @@ const kindOf = (name: string): keyof typeof LIMITS =>
 async function toWebp(input: string, kind: keyof typeof LIMITS): Promise<Buffer> {
   const image =
     kind === "thumb"
-      ? sharp(input).resize(1280, 800, { fit: "cover", position: "attention" })
+      ? sharp(input).resize(960, 600, { fit: "cover", position: "attention" })
       : sharp(input).resize({ width: LIMITS[kind].width, withoutEnlargement: true });
   for (let quality = 82; quality >= 34; quality -= 8) {
     const buffer = await image.clone().webp({ quality }).toBuffer();

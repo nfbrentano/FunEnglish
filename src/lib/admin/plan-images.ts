@@ -90,12 +90,15 @@ export const promptFor = (subject: string, style: string) =>
     .filter(Boolean)
     .join(" ");
 
-const image = (src: string, alt: string, style: string): Json => ({
-  src,
-  alt,
-  source: "ai",
-  prompt: promptFor(alt, style),
-});
+const image = (src: string, alt: string, style: string): Json => {
+  const isThumb = src.endsWith("thumb.webp") || src.includes("/categories/");
+  return {
+    src,
+    alt,
+    source: "ai",
+    prompt: promptFor(alt, style + (isThumb ? " aspect ratio 16:10" : "")),
+  };
+};
 
 /**
  * Adds a planned picture to every item without one (CA06): question-1.webp, card-2.webp…
@@ -243,8 +246,10 @@ export function fillMissingPrompts<T>(value: T, style: string): T {
       typeof object.src === "string" &&
       typeof object.alt === "string" &&
       !asText(object.prompt).trim()
-    )
-      object.prompt = promptFor(object.alt, style);
+    ) {
+      const isThumb = object.src.endsWith("thumb.webp") || object.src.includes("/categories/");
+      object.prompt = promptFor(object.alt, style + (isThumb ? " aspect ratio 16:10" : ""));
+    }
     return object;
   };
   return walk(value) as T;
