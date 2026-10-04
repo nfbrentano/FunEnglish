@@ -54,11 +54,13 @@ describe("StudentProfileView (RF05, CA04, CT04)", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     currentSearchParam = "s1";
+    vi.spyOn(repository, "getTeacherStudents").mockResolvedValue([mockStudent]);
   });
 
   it("renders student details and the 4 empty placeholder sections (CA04, CT04)", async () => {
     vi.spyOn(repository, "getStudent").mockResolvedValue(mockStudent);
     vi.spyOn(repository, "getTeacherClasses").mockResolvedValue(mockClasses);
+    vi.spyOn(repository, "getTeacherStudents").mockResolvedValue([mockStudent]);
 
     render(
       <ToastProvider>
