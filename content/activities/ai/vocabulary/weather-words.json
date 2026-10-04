@@ -21,7 +21,13 @@
     "cards": [
       {
         "front": {
-          "text": "☀️"
+          "text": "☀️",
+          "image": {
+            "src": "/images/activities/weather-words/card-1.webp",
+            "alt": "sunny",
+            "source": "ai",
+            "prompt": "sunny. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "sunny",
@@ -32,7 +38,13 @@
       },
       {
         "front": {
-          "text": "☁️"
+          "text": "☁️",
+          "image": {
+            "src": "/images/activities/weather-words/card-2.webp",
+            "alt": "cloudy",
+            "source": "ai",
+            "prompt": "cloudy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "cloudy",
@@ -43,7 +55,13 @@
       },
       {
         "front": {
-          "text": "🌧️"
+          "text": "🌧️",
+          "image": {
+            "src": "/images/activities/weather-words/card-3.webp",
+            "alt": "rainy",
+            "source": "ai",
+            "prompt": "rainy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "rainy",
@@ -54,7 +72,13 @@
       },
       {
         "front": {
-          "text": "❄️"
+          "text": "❄️",
+          "image": {
+            "src": "/images/activities/weather-words/card-4.webp",
+            "alt": "snowy",
+            "source": "ai",
+            "prompt": "snowy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "snowy",
@@ -65,7 +89,13 @@
       },
       {
         "front": {
-          "text": "🌬️"
+          "text": "🌬️",
+          "image": {
+            "src": "/images/activities/weather-words/card-5.webp",
+            "alt": "windy",
+            "source": "ai",
+            "prompt": "windy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "windy",
@@ -76,7 +106,13 @@
       },
       {
         "front": {
-          "text": "⛈️"
+          "text": "⛈️",
+          "image": {
+            "src": "/images/activities/weather-words/card-6.webp",
+            "alt": "stormy",
+            "source": "ai",
+            "prompt": "stormy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "stormy",
@@ -87,7 +123,13 @@
       },
       {
         "front": {
-          "text": "🌫️"
+          "text": "🌫️",
+          "image": {
+            "src": "/images/activities/weather-words/card-7.webp",
+            "alt": "foggy",
+            "source": "ai",
+            "prompt": "foggy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "foggy",
@@ -98,7 +140,13 @@
       },
       {
         "front": {
-          "text": "🌈"
+          "text": "🌈",
+          "image": {
+            "src": "/images/activities/weather-words/card-8.webp",
+            "alt": "rainbow",
+            "source": "ai",
+            "prompt": "rainbow. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "rainbow",
@@ -109,7 +157,13 @@
       },
       {
         "front": {
-          "text": "⚡"
+          "text": "⚡",
+          "image": {
+            "src": "/images/activities/weather-words/card-9.webp",
+            "alt": "lightning",
+            "source": "ai",
+            "prompt": "lightning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "lightning",
@@ -120,7 +174,13 @@
       },
       {
         "front": {
-          "text": "🥵"
+          "text": "🥵",
+          "image": {
+            "src": "/images/activities/weather-words/card-10.webp",
+            "alt": "hot",
+            "source": "ai",
+            "prompt": "hot. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "hot",
@@ -131,7 +191,13 @@
       },
       {
         "front": {
-          "text": "🥶"
+          "text": "🥶",
+          "image": {
+            "src": "/images/activities/weather-words/card-11.webp",
+            "alt": "cold",
+            "source": "ai",
+            "prompt": "cold. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "cold",
@@ -142,7 +208,13 @@
       },
       {
         "front": {
-          "text": "☂️"
+          "text": "☂️",
+          "image": {
+            "src": "/images/activities/weather-words/card-12.webp",
+            "alt": "umbrella",
+            "source": "ai",
+            "prompt": "umbrella. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
         },
         "back": {
           "text": "umbrella",

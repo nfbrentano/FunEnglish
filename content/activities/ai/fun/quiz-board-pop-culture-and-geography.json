@@ -1,0 +1,236 @@
+{
+  "slug": "quiz-board-pop-culture-and-geography",
+  "title": "Pop Culture & World Wonders Board",
+  "description": "Fun trivia quiz board covering global landmarks, music, movie quotes, and astonishing world records.",
+  "category": "fun",
+  "type": "quiz-board",
+  "levelMin": "beginner",
+  "levelMax": "advanced",
+  "tags": ["trivia", "fun", "geography", "pop culture", "game show", "teams"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/quiz-board-pop-culture-and-geography/thumb.webp",
+    "alt": "A vintage globe spinning next to a retro microphone and a golden cinema ticket",
+    "source": "ai",
+    "prompt": "A vintage globe spinning next to a retro microphone and a golden cinema ticket. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "categories": [
+      {
+        "name": "World Landmarks",
+        "clues": [
+          {
+            "value": 100,
+            "question": "In which European capital city would you find the Eiffel Tower?",
+            "answer": "Paris, France",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-1.webp",
+              "alt": "Paris, France",
+              "source": "ai",
+              "prompt": "Paris, France. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Which ancient wonder is a massive stone fortress complex located high in the Peruvian Andes?",
+            "answer": "Machu Picchu",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-2.webp",
+              "alt": "Machu Picchu",
+              "source": "ai",
+              "prompt": "Machu Picchu. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "What is the famous giant white amphitheater in Rome, Italy, used in ancient gladiatorial games?",
+            "answer": "The Colosseum",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-3.webp",
+              "alt": "The Colosseum",
+              "source": "ai",
+              "prompt": "The Colosseum. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Which Southeast Asian temple complex in Cambodia is the largest religious monument in the world?",
+            "answer": "Angkor Wat",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-4.webp",
+              "alt": "Angkor Wat",
+              "source": "ai",
+              "prompt": "Angkor Wat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Movie Magic",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Which classic sci-fi film franchise features the line: 'May the Force be with you'?",
+            "answer": "Star Wars",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-5.webp",
+              "alt": "Star Wars",
+              "source": "ai",
+              "prompt": "Star Wars. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "What kind of animal is Nemo in the beloved animated adventure 'Finding Nemo'?",
+            "answer": "A clownfish",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-6.webp",
+              "alt": "A clownfish",
+              "source": "ai",
+              "prompt": "A clownfish. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "In the Harry Potter series, what is the magical sport played on flying broomsticks?",
+            "answer": "Quidditch",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-7.webp",
+              "alt": "Quidditch",
+              "source": "ai",
+              "prompt": "Quidditch. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Which superhero alter ego belongs to billionaire technologist Tony Stark?",
+            "answer": "Iron Man",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-8.webp",
+              "alt": "Iron Man",
+              "source": "ai",
+              "prompt": "Iron Man. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Music & Sound",
+        "clues": [
+          {
+            "value": 100,
+            "question": "How many strings does a standard classical acoustic guitar normally have?",
+            "answer": "Six (6) strings",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-9.webp",
+              "alt": "Six (6) strings",
+              "source": "ai",
+              "prompt": "Six (6) strings. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Which legendary rock band from Liverpool included John, Paul, George, and Ringo?",
+            "answer": "The Beatles",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-10.webp",
+              "alt": "The Beatles",
+              "source": "ai",
+              "prompt": "The Beatles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "What brass musical instrument with a long sliding tube is famous in jazz and classical orchestras?",
+            "answer": "Trombone",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-11.webp",
+              "alt": "Trombone",
+              "source": "ai",
+              "prompt": "Trombone. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "What musical term describes singing without any instrumental accompaniment?",
+            "answer": "A cappella",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-12.webp",
+              "alt": "A cappella",
+              "source": "ai",
+              "prompt": "A cappella. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wild Records",
+        "clues": [
+          {
+            "value": 100,
+            "question": "What is officially the tallest land mammal in the world?",
+            "answer": "The giraffe",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-13.webp",
+              "alt": "The giraffe",
+              "source": "ai",
+              "prompt": "The giraffe. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Which is the largest hot desert on Earth, stretching across North Africa?",
+            "answer": "The Sahara Desert",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-14.webp",
+              "alt": "The Sahara Desert",
+              "source": "ai",
+              "prompt": "The Sahara Desert. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "What ocean holds the title for both largest surface area and deepest point on the planet?",
+            "answer": "The Pacific Ocean",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-15.webp",
+              "alt": "The Pacific Ocean",
+              "source": "ai",
+              "prompt": "The Pacific Ocean. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Which flightless Antarctic bird is the largest and heaviest of all living penguin species?",
+            "answer": "The Emperor Penguin",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-pop-culture-and-geography/clue-16.webp",
+              "alt": "The Emperor Penguin",
+              "source": "ai",
+              "prompt": "The Emperor Penguin. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

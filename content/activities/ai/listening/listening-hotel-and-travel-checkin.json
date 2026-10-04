@@ -1,0 +1,128 @@
+{
+  "slug": "listening-hotel-and-travel-checkin",
+  "title": "Hotel & Airport Check-in (Audio)",
+  "description": "Listen to realistic spoken announcements and front-desk dialogues to answer comprehension questions.",
+  "category": "listening",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["listening", "travel", "hotel", "airport", "audio", "tts"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/listening-hotel-and-travel-checkin/thumb.webp",
+    "alt": "A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport",
+    "source": "ai",
+    "prompt": "A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Listen to the hotel receptionist. What time is complimentary breakfast served?",
+        "media": {
+          "kind": "tts",
+          "text": "Good evening! Welcome to the Grand Oak Hotel. Complimentary buffet breakfast is served on the second floor every morning between six thirty and ten o'clock."
+        },
+        "options": [
+          { "text": "Between 6:30 AM and 10:00 AM", "correct": true },
+          { "text": "Between 7:00 AM and 11:00 AM", "correct": false },
+          { "text": "Only at 6:00 AM sharp", "correct": false }
+        ],
+        "explanation": "The receptionist stated breakfast is served 'between six thirty and ten o'clock'."
+      },
+      {
+        "prompt": "Listen to the airport gate announcement. What has changed about Flight 402?",
+        "media": {
+          "kind": "tts",
+          "text": "Attention all passengers on Flight 402 to Chicago. Your departure gate has changed from Gate B4 to Gate C12. Boarding will commence in twenty minutes."
+        },
+        "options": [
+          { "text": "The departure gate was moved to C12.", "correct": true },
+          { "text": "The flight was canceled due to bad weather.", "correct": false },
+          { "text": "The plane has already landed in Chicago.", "correct": false }
+        ],
+        "explanation": "The announcement explicitly states: 'Your departure gate has changed from Gate B4 to Gate C12'."
+      },
+      {
+        "prompt": "Listen to the concierge. How much does the express airport shuttle cost?",
+        "media": {
+          "kind": "tts",
+          "text": "Our express airport shuttle departs every forty minutes from the main entrance. Tickets are fifteen dollars per passenger, payable directly to the driver."
+        },
+        "options": [
+          { "text": "$15 per passenger", "correct": true },
+          { "text": "$50 per passenger", "correct": false },
+          { "text": "It is completely free for all guests", "correct": false }
+        ],
+        "explanation": "The concierge specifies that tickets are 'fifteen dollars per passenger'."
+      },
+      {
+        "prompt": "Listen to the front desk agent. What floor is the guest's room located on?",
+        "media": {
+          "kind": "tts",
+          "text": "Here are your electronic keycards for Room 418 on the fourth floor. Take the elevators on your right side."
+        },
+        "options": [
+          { "text": "The fourth floor", "correct": true },
+          { "text": "The first floor", "correct": false },
+          { "text": "The eighth floor", "correct": false }
+        ],
+        "explanation": "The agent confirms: 'Room 418 on the fourth floor'."
+      },
+      {
+        "prompt": "Listen to the train conductor. Which station is the next scheduled stop?",
+        "media": {
+          "kind": "tts",
+          "text": "Next stop will be Central Station. Please make sure to collect all your personal belongings before leaving the train."
+        },
+        "options": [
+          { "text": "Central Station", "correct": true },
+          { "text": "North Harbor Terminal", "correct": false },
+          { "text": "Airport West", "correct": false }
+        ],
+        "explanation": "The conductor announced: 'Next stop will be Central Station'."
+      },
+      {
+        "prompt": "Listen to the hotel staff member. Where is the fitness center and indoor pool?",
+        "media": {
+          "kind": "tts",
+          "text": "The fitness center and indoor heated pool are located in the basement level, open twenty-four hours a day with your room key."
+        },
+        "options": [
+          { "text": "In the basement level", "correct": true },
+          { "text": "On the rooftop terrace", "correct": false },
+          { "text": "Across the street in another building", "correct": false }
+        ],
+        "explanation": "The staff member clearly states they are 'located in the basement level'."
+      },
+      {
+        "prompt": "Listen to the gate agent. What is the baggage allowance for standard carry-on bags?",
+        "media": {
+          "kind": "tts",
+          "text": "Each passenger in economy class is permitted one personal item and one carry-on bag weighing up to ten kilograms."
+        },
+        "options": [
+          { "text": "Up to 10 kilograms", "correct": true },
+          { "text": "Up to 25 kilograms", "correct": false },
+          { "text": "No carry-on bags are permitted", "correct": false }
+        ],
+        "explanation": "The agent announces carry-on bags 'weighing up to ten kilograms'."
+      },
+      {
+        "prompt": "Listen to the tour guide. When will the city sightseeing bus return to the hotel?",
+        "media": {
+          "kind": "tts",
+          "text": "Our guided historical tour departs at nine in the morning and will return everyone safely to the hotel by five thirty in the evening."
+        },
+        "options": [
+          { "text": "At 5:30 PM", "correct": true },
+          { "text": "At 9:00 PM", "correct": false },
+          { "text": "At noon", "correct": false }
+        ],
+        "explanation": "The guide states the tour 'will return everyone safely to the hotel by five thirty in the evening'."
+      }
+    ]
+  }
+}

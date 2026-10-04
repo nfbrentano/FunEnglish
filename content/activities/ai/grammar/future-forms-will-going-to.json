@@ -1,0 +1,152 @@
+{
+  "slug": "future-forms-will-going-to",
+  "title": "Future Forms: Will vs Going To",
+  "description": "Master when to use 'will' for spontaneous decisions and promises, and 'going to' for plans and clear evidence.",
+  "category": "grammar",
+  "type": "quiz",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["future", "grammar", "will", "going to", "verbs"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/future-forms-will-going-to/thumb.webp",
+    "alt": "A small calendar with forward pointing arrows and an open road stretching toward a bright horizon",
+    "source": "ai",
+    "prompt": "A small calendar with forward pointing arrows and an open road stretching toward a bright horizon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "The phone is ringing! — Don't worry, I ___ get it.",
+        "options": [
+          { "text": "'ll", "correct": true },
+          { "text": "'m going to", "correct": false },
+          { "text": "going", "correct": false }
+        ],
+        "explanation": "Use 'will' for a spontaneous decision made at the moment of speaking.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-1.webp",
+          "alt": "The phone is ringing! — Don't worry, I 'll get it.",
+          "source": "ai",
+          "prompt": "The phone is ringing! — Don't worry, I 'll get it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Look at those dark clouds! It ___ rain very soon.",
+        "options": [
+          { "text": "is going to", "correct": true },
+          { "text": "will to", "correct": false },
+          { "text": "shall", "correct": false }
+        ],
+        "explanation": "Use 'be going to' when there is clear present evidence for a prediction.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-2.webp",
+          "alt": "Look at those dark clouds! It is going to rain very soon.",
+          "source": "ai",
+          "prompt": "Look at those dark clouds! It is going to rain very soon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "We have already bought our plane tickets. We ___ visit Spain this summer.",
+        "options": [
+          { "text": "are going to", "correct": true },
+          { "text": "will probably", "correct": false },
+          { "text": "would", "correct": false }
+        ],
+        "explanation": "Use 'be going to' for planned intentions and arrangements made in advance.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-3.webp",
+          "alt": "We have already bought our plane tickets. We are going to visit Spain this summer.",
+          "source": "ai",
+          "prompt": "We have already bought our plane tickets. We are going to visit Spain this summer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "I promise I ___ tell anyone your secret.",
+        "options": [
+          { "text": "won't", "correct": true },
+          { "text": "'m not going", "correct": false },
+          { "text": "don't will", "correct": false }
+        ],
+        "explanation": "Use 'will' or 'won't' for promises and offers.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-4.webp",
+          "alt": "I promise I won't tell anyone your secret.",
+          "source": "ai",
+          "prompt": "I promise I won't tell anyone your secret. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "What are your weekend plans? — I ___ clean my apartment on Saturday morning.",
+        "options": [
+          { "text": "'m going to", "correct": true },
+          { "text": "will to", "correct": false },
+          { "text": "would like", "correct": false }
+        ],
+        "explanation": "Use 'be going to' to talk about a prior plan or intention.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-5.webp",
+          "alt": "What are your weekend plans? — I 'm going to clean my apartment on Saturday morning.",
+          "source": "ai",
+          "prompt": "What are your weekend plans? — I 'm going to clean my apartment on Saturday morning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "That box looks really heavy. I ___ help you carry it upstairs.",
+        "options": [
+          { "text": "'ll", "correct": true },
+          { "text": "'m going", "correct": false },
+          { "text": "can to", "correct": false }
+        ],
+        "explanation": "Use 'will' to make a helpful offer on the spot.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-6.webp",
+          "alt": "That box looks really heavy. I 'll help you carry it upstairs.",
+          "source": "ai",
+          "prompt": "That box looks really heavy. I 'll help you carry it upstairs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Be careful with that glass! You ___ drop it!",
+        "options": [
+          { "text": "are going to", "correct": true },
+          { "text": "will be", "correct": false },
+          { "text": "shall", "correct": false }
+        ],
+        "explanation": "Use 'be going to' when you see an event that is about to happen right now.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-7.webp",
+          "alt": "Be careful with that glass! You are going to drop it!",
+          "source": "ai",
+          "prompt": "Be careful with that glass! You are going to drop it!. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "In my opinion, robots ___ do most household chores in thirty years.",
+        "options": [
+          { "text": "will", "correct": true },
+          { "text": "are going", "correct": false },
+          { "text": "were going to", "correct": false }
+        ],
+        "explanation": "Use 'will' for personal opinions and long-term predictions without immediate physical evidence.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/future-forms-will-going-to/question-8.webp",
+          "alt": "In my opinion, robots will do most household chores in thirty years.",
+          "source": "ai",
+          "prompt": "In my opinion, robots will do most household chores in thirty years. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "slug": "daily-routines-and-habits",
+  "title": "Daily Routines & Common Habits",
+  "description": "Learn everyday routine verbs and expressions with simple examples and definitions.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["routines", "daily life", "habits", "verbs", "beginner"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/daily-routines-and-habits/thumb.webp",
+    "alt": "An alarm clock, a warm coffee mug and an open morning planner on a tidy bedside table",
+    "source": "ai",
+    "prompt": "An alarm clock, a warm coffee mug and an open morning planner on a tidy bedside table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "text": "wake up",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-1.webp",
+            "alt": "wake up",
+            "source": "ai",
+            "prompt": "wake up. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "wake up",
+          "definition": "To stop sleeping and open your eyes.",
+          "example": "I usually wake up at 7:00 AM on weekdays."
+        },
+        "speak": "wake up"
+      },
+      {
+        "front": {
+          "text": "brush teeth",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-2.webp",
+            "alt": "brush teeth",
+            "source": "ai",
+            "prompt": "brush teeth. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "brush teeth",
+          "definition": "To clean your teeth with a toothbrush and toothpaste.",
+          "example": "Always brush your teeth before going to sleep."
+        },
+        "speak": "brush teeth"
+      },
+      {
+        "front": {
+          "text": "take a shower",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-3.webp",
+            "alt": "take a shower",
+            "source": "ai",
+            "prompt": "take a shower. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "take a shower",
+          "definition": "To wash your body under running water.",
+          "example": "He takes a warm shower every morning."
+        },
+        "speak": "take a shower"
+      },
+      {
+        "front": {
+          "text": "have breakfast",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-4.webp",
+            "alt": "have breakfast",
+            "source": "ai",
+            "prompt": "have breakfast. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "have breakfast",
+          "definition": "To eat the first meal of the day.",
+          "example": "We have breakfast together as a family."
+        },
+        "speak": "have breakfast"
+      },
+      {
+        "front": {
+          "text": "commute to work",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-5.webp",
+            "alt": "commute to work",
+            "source": "ai",
+            "prompt": "commute to work. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "commute to work",
+          "definition": "To travel between your home and your workplace.",
+          "example": "She commutes to work by subway every day."
+        },
+        "speak": "commute to work"
+      },
+      {
+        "front": {
+          "text": "do homework",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-6.webp",
+            "alt": "do homework",
+            "source": "ai",
+            "prompt": "do homework. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "do homework",
+          "definition": "To complete school assignments given to be done at home.",
+          "example": "The children do their homework right after school."
+        },
+        "speak": "do homework"
+      },
+      {
+        "front": {
+          "text": "make dinner",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-7.webp",
+            "alt": "make dinner",
+            "source": "ai",
+            "prompt": "make dinner. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "make dinner",
+          "definition": "To prepare and cook the evening meal.",
+          "example": "I love making dinner with fresh vegetables."
+        },
+        "speak": "make dinner"
+      },
+      {
+        "front": {
+          "text": "go to bed",
+          "image": {
+            "src": "/images/activities/daily-routines-and-habits/card-8.webp",
+            "alt": "go to bed",
+            "source": "ai",
+            "prompt": "go to bed. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "go to bed",
+          "definition": "To get into bed and prepare to sleep.",
+          "example": "I am tired, so I will go to bed early tonight."
+        },
+        "speak": "go to bed"
+      }
+    ]
+  }
+}

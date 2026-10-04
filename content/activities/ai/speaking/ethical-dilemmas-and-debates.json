@@ -1,0 +1,158 @@
+{
+  "slug": "ethical-dilemmas-and-debates",
+  "title": "Ethical Dilemmas & Deep Debates",
+  "description": "Provocative moral scenarios and philosophical questions to spark high-level debates in advanced ESL classrooms.",
+  "category": "speaking",
+  "type": "prompt-cards",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["ethics", "debate", "speaking", "advanced", "philosophy", "c1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/ethical-dilemmas-and-debates/thumb.webp",
+    "alt": "An elegant vintage brass justice balance resting upon two thick philosophical tomes",
+    "source": "ai",
+    "prompt": "An elegant vintage brass justice balance resting upon two thick philosophical tomes. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "Autonomous Vehicles & Emergency Protocols",
+        "options": [
+          "program cars to prioritize passenger safety above all else",
+          "program cars to minimize total casualties, even risking the passenger"
+        ],
+        "followUps": [
+          "Would you buy a vehicle that might sacrifice you to save pedestrians?",
+          "Who should bear legal responsibility in algorithmic accidents?"
+        ],
+        "vocabulary": [
+          "utilitarianism",
+          "algorithm",
+          "liability",
+          "imperative"
+        ],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-1.webp",
+          "alt": "Autonomous Vehicles & Emergency Protocols",
+          "source": "ai",
+          "prompt": "Autonomous Vehicles & Emergency Protocols. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Artificial Intelligence in Creative Arts",
+        "options": [
+          "restrict AI models from training on copyrighted artistic work",
+          "allow open access to cultural data to foster rapid technological innovation"
+        ],
+        "followUps": [
+          "Does genuine artistic value require human lived experience?",
+          "How can society protect creators while encouraging technological progress?"
+        ],
+        "vocabulary": [
+          "intellectual property",
+          "derivative",
+          "authenticity",
+          "remuneration"
+        ],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-2.webp",
+          "alt": "Artificial Intelligence in Creative Arts",
+          "source": "ai",
+          "prompt": "Artificial Intelligence in Creative Arts. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Genetic Enhancement & Longevity",
+        "options": [
+          "permit genetic editing solely to eliminate debilitating hereditary diseases",
+          "allow human cognitive and physical enhancements if individuals can afford them"
+        ],
+        "followUps": [
+          "Could widespread enhancement create irreversible social caste systems?",
+          "Where is the boundary between therapy and elective enhancement?"
+        ],
+        "vocabulary": ["bioethics", "disparity", "hereditary", "transhumanism"],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-3.webp",
+          "alt": "Genetic Enhancement & Longevity",
+          "source": "ai",
+          "prompt": "Genetic Enhancement & Longevity. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Right to Privacy vs Public Security",
+        "options": [
+          "ban facial recognition surveillance in all public urban spaces",
+          "permit universal surveillance to reduce violent crime and locate suspects"
+        ],
+        "followUps": [
+          "Is personal anonymity an obsolete concept in hyperconnected cities?",
+          "How can democratic institutions prevent authoritarian abuse of surveillance tools?"
+        ],
+        "vocabulary": [
+          "civil liberties",
+          "panopticon",
+          "deterrence",
+          "oversight"
+        ],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-4.webp",
+          "alt": "Right to Privacy vs Public Security",
+          "source": "ai",
+          "prompt": "Right to Privacy vs Public Security. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Universal Basic Income (UBI)",
+        "options": [
+          "guarantee an unconditional basic income to every adult citizen",
+          "maintain strictly targeted social assistance programs tied to employment"
+        ],
+        "followUps": [
+          "Would unconditional stipends discourage productive labor or ignite creativity?",
+          "How can nations sustainably fund broad wealth redistribution?"
+        ],
+        "vocabulary": [
+          "safety net",
+          "automation",
+          "inflationary",
+          "emancipation"
+        ],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-5.webp",
+          "alt": "Universal Basic Income (UBI)",
+          "source": "ai",
+          "prompt": "Universal Basic Income (UBI). Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Historical Artifacts & Repatriation",
+        "options": [
+          "mandate museums return ancestral artifacts to their countries of origin",
+          "keep artifacts in global encyclopedic museums with universal access"
+        ],
+        "followUps": [
+          "Does cultural heritage belong to humanity as a whole or specific descendant communities?",
+          "What criteria should dictate rightful institutional stewardship?"
+        ],
+        "vocabulary": [
+          "repatriation",
+          "provenance",
+          "colonial legacy",
+          "stewardship"
+        ],
+        "image": {
+          "src": "/images/activities/ethical-dilemmas-and-debates/card-6.webp",
+          "alt": "Historical Artifacts & Repatriation",
+          "source": "ai",
+          "prompt": "Historical Artifacts & Repatriation. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

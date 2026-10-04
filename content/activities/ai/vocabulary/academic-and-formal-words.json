@@ -1,0 +1,160 @@
+{
+  "slug": "academic-and-formal-words",
+  "title": "Formal & Academic Vocabulary",
+  "description": "Elevate your essays, professional reports, and presentations with high-level academic words.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["academic", "formal", "advanced", "vocabulary", "c1", "c2"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/academic-and-formal-words/thumb.webp",
+    "alt": "A classic fountain pen resting across an open hardcover academic book with delicate ribbon bookmark",
+    "source": "ai",
+    "prompt": "A classic fountain pen resting across an open hardcover academic book with delicate ribbon bookmark. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "text": "scrutinize",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-1.webp",
+            "alt": "scrutinize",
+            "source": "ai",
+            "prompt": "scrutinize. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "scrutinize",
+          "definition": "To examine or inspect very closely and thoroughly.",
+          "example": "Researchers must scrutinize the raw data before drawing conclusions."
+        },
+        "speak": "scrutinize"
+      },
+      {
+        "front": {
+          "text": "elucidate",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-2.webp",
+            "alt": "elucidate",
+            "source": "ai",
+            "prompt": "elucidate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "elucidate",
+          "definition": "To make something clear or explain it in detail.",
+          "example": "The professor attempted to elucidate the complex quantum theory."
+        },
+        "speak": "elucidate"
+      },
+      {
+        "front": {
+          "text": "ubiquitous",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-3.webp",
+            "alt": "ubiquitous",
+            "source": "ai",
+            "prompt": "ubiquitous. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "ubiquitous",
+          "definition": "Present, appearing, or found everywhere.",
+          "example": "Smartphones have become ubiquitous in modern metropolitan life."
+        },
+        "speak": "ubiquitous"
+      },
+      {
+        "front": {
+          "text": "mitigate",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-4.webp",
+            "alt": "mitigate",
+            "source": "ai",
+            "prompt": "mitigate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "mitigate",
+          "definition": "To make something bad less severe, serious, or painful.",
+          "example": "New urban forestry programs aim to mitigate the heat island effect."
+        },
+        "speak": "mitigate"
+      },
+      {
+        "front": {
+          "text": "corroborate",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-5.webp",
+            "alt": "corroborate",
+            "source": "ai",
+            "prompt": "corroborate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "corroborate",
+          "definition": "To confirm or give support to a statement, theory, or finding.",
+          "example": "Recent geological samples corroborate earlier seismic readings."
+        },
+        "speak": "corroborate"
+      },
+      {
+        "front": {
+          "text": "substantiate",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-6.webp",
+            "alt": "substantiate",
+            "source": "ai",
+            "prompt": "substantiate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "substantiate",
+          "definition": "To provide evidence to prove the truth of something.",
+          "example": "He was unable to substantiate his allegations with verifiable records."
+        },
+        "speak": "substantiate"
+      },
+      {
+        "front": {
+          "text": "disparate",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-7.webp",
+            "alt": "disparate",
+            "source": "ai",
+            "prompt": "disparate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "disparate",
+          "definition": "Essentially different in kind; not allowing comparison.",
+          "example": "The anthology brings together essays from disparate cultural contexts."
+        },
+        "speak": "disparate"
+      },
+      {
+        "front": {
+          "text": "paradigm",
+          "image": {
+            "src": "/images/activities/academic-and-formal-words/card-8.webp",
+            "alt": "paradigm",
+            "source": "ai",
+            "prompt": "paradigm. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "paradigm",
+          "definition": "A typical example, pattern, or model of something.",
+          "example": "This discovery sparked a paradigm shift in environmental science."
+        },
+        "speak": "paradigm"
+      }
+    ]
+  }
+}

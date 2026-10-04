@@ -1,0 +1,114 @@
+{
+  "slug": "modal-verbs-advice-and-rules",
+  "title": "Modal Verbs: Should, Must & Have To",
+  "description": "Practice choosing the correct modal verb for obligations, recommendations, and rules.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["modals", "grammar", "should", "must", "have to", "rules"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/modal-verbs-advice-and-rules/thumb.webp",
+    "alt": "A balance scale holding a checklist on one side and a gentle advisory lightbulb on the other",
+    "source": "ai",
+    "prompt": "A balance scale holding a checklist on one side and a gentle advisory lightbulb on the other. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "distractors": ["ought", "need"],
+    "items": [
+      {
+        "text": "You look exhausted. You [[should]] take a short break.",
+        "hint": "Use 'should' to give friendly advice or recommendations.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-1.webp",
+          "alt": "You look exhausted. You should take a short break.",
+          "source": "ai",
+          "prompt": "You look exhausted. You should take a short break. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Drivers [[must]] stop when the traffic light turns red.",
+        "hint": "Use 'must' for strict laws and essential safety obligations.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-2.webp",
+          "alt": "Drivers must stop when the traffic light turns red.",
+          "source": "ai",
+          "prompt": "Drivers must stop when the traffic light turns red. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Tomorrow is Sunday, so I don't [[have to]] wake up early.",
+        "hint": "'Don't have to' means there is no obligation or necessity.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-3.webp",
+          "alt": "Tomorrow is Sunday, so I don't have to wake up early.",
+          "source": "ai",
+          "prompt": "Tomorrow is Sunday, so I don't have to wake up early. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "You [[mustn't]] take photos inside the art museum gallery.",
+        "hint": "'Must not' expresses strong prohibition.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-4.webp",
+          "alt": "You mustn't take photos inside the art museum gallery.",
+          "source": "ai",
+          "prompt": "You mustn't take photos inside the art museum gallery. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Passengers [[have to]] show their passport at border control.",
+        "hint": "Use 'have to' for external rules imposed by authorities.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-5.webp",
+          "alt": "Passengers have to show their passport at border control.",
+          "source": "ai",
+          "prompt": "Passengers have to show their passport at border control. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "If your tooth still hurts tomorrow, you [[should]] visit the dentist.",
+        "hint": "Recommendation for health care.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-6.webp",
+          "alt": "If your tooth still hurts tomorrow, you should visit the dentist.",
+          "source": "ai",
+          "prompt": "If your tooth still hurts tomorrow, you should visit the dentist. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "You [[shouldn't]] spend so much time staring at screens before bed.",
+        "hint": "Advising against an unhealthy habit.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-7.webp",
+          "alt": "You shouldn't spend so much time staring at screens before bed.",
+          "source": "ai",
+          "prompt": "You shouldn't spend so much time staring at screens before bed. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "All employees [[must]] wear an ID badge while inside the facility.",
+        "hint": "Mandatory workplace policy.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/modal-verbs-advice-and-rules/sentence-8.webp",
+          "alt": "All employees must wear an ID badge while inside the facility.",
+          "source": "ai",
+          "prompt": "All employees must wear an ID badge while inside the facility. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

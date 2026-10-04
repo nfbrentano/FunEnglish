@@ -1,0 +1,166 @@
+{
+  "slug": "false-friends-english-portuguese",
+  "title": "False Friends: Common Traps",
+  "description": "Master deceptive cognates that look similar to Portuguese words but have surprisingly different meanings.",
+  "category": "vocabulary",
+  "type": "flashcards",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": [
+    "false friends",
+    "cognates",
+    "vocabulary",
+    "intermediate",
+    "confusion"
+  ],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/false-friends-english-portuguese/thumb.webp",
+    "alt": "Two similar decorative masks looking at each other with one holding a subtle magnifying glass",
+    "source": "ai",
+    "prompt": "Two similar decorative masks looking at each other with one holding a subtle magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "cards": [
+      {
+        "front": {
+          "text": "actually",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-1.webp",
+            "alt": "actually",
+            "source": "ai",
+            "prompt": "actually. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "actually",
+          "definition": "In fact or really (NOT 'currently').",
+          "example": "I thought she was French, but actually she is Canadian."
+        },
+        "speak": "actually"
+      },
+      {
+        "front": {
+          "text": "eventually",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-2.webp",
+            "alt": "eventually",
+            "source": "ai",
+            "prompt": "eventually. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "eventually",
+          "definition": "In the end or after a long time (NOT 'occasionally').",
+          "example": "We got lost, but eventually found the train station."
+        },
+        "speak": "eventually"
+      },
+      {
+        "front": {
+          "text": "pretend",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-3.webp",
+            "alt": "pretend",
+            "source": "ai",
+            "prompt": "pretend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "pretend",
+          "definition": "To act as if something is true when it is not (NOT 'to intend').",
+          "example": "The children like to pretend they are astronauts."
+        },
+        "speak": "pretend"
+      },
+      {
+        "front": {
+          "text": "intend",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-4.webp",
+            "alt": "intend",
+            "source": "ai",
+            "prompt": "intend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "intend",
+          "definition": "To have a plan or purpose to do something.",
+          "example": "I intend to study business at university next year."
+        },
+        "speak": "intend"
+      },
+      {
+        "front": {
+          "text": "attend",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-5.webp",
+            "alt": "attend",
+            "source": "ai",
+            "prompt": "attend. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "attend",
+          "definition": "To go to or be present at an event or class (NOT 'to assist / serve').",
+          "example": "Did you attend the marketing workshop yesterday?"
+        },
+        "speak": "attend"
+      },
+      {
+        "front": {
+          "text": "notice",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-6.webp",
+            "alt": "notice",
+            "source": "ai",
+            "prompt": "notice. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "notice",
+          "definition": "To see, hear, or become aware of something (NOT 'news / report').",
+          "example": "Did you notice the strange noise coming from the car?"
+        },
+        "speak": "notice"
+      },
+      {
+        "front": {
+          "text": "sensible",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-7.webp",
+            "alt": "sensible",
+            "source": "ai",
+            "prompt": "sensible. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "sensible",
+          "definition": "Practical, reasonable, and showing good judgment (NOT 'sensitive').",
+          "example": "Wearing warm boots in the snow is very sensible."
+        },
+        "speak": "sensible"
+      },
+      {
+        "front": {
+          "text": "sensitive",
+          "image": {
+            "src": "/images/activities/false-friends-english-portuguese/card-8.webp",
+            "alt": "sensitive",
+            "source": "ai",
+            "prompt": "sensitive. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+          }
+        },
+        "back": {
+          "text": "sensitive",
+          "definition": "Easily affected, hurt, or emotionally responsive.",
+          "example": "She is very sensitive to criticism, so be gentle."
+        },
+        "speak": "sensitive"
+      }
+    ]
+  }
+}

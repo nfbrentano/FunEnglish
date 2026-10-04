@@ -1,0 +1,158 @@
+{
+  "slug": "writing-complaint-letters",
+  "title": "Professional Complaint & Request Emails",
+  "description": "Practice drafting polite, firm, and structured business emails to resolve real-world service issues.",
+  "category": "writing",
+  "type": "prompt-cards",
+  "levelMin": "intermediate",
+  "levelMax": "advanced",
+  "tags": [
+    "writing",
+    "emails",
+    "formal",
+    "complaints",
+    "business english",
+    "functional writing"
+  ],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/writing-complaint-letters/thumb.webp",
+    "alt": "A formal sealed envelope resting beside a clean notepad and an elegant fountain pen",
+    "source": "ai",
+    "prompt": "A formal sealed envelope resting beside a clean notepad and an elegant fountain pen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": true,
+    "cards": [
+      {
+        "prompt": "You ordered an expensive laptop online, but it arrived two weeks late with a cracked screen. Write a formal complaint email to Customer Support requesting an immediate replacement or full refund.",
+        "followUps": [
+          "Did you state your order number and purchase date clearly?",
+          "Is your tone polite yet firm and professional?",
+          "Aim for 80 to 120 words."
+        ],
+        "vocabulary": [
+          "I am writing to express my dissatisfaction with...",
+          "Upon opening the package, I discovered...",
+          "Under the circumstances, I request...",
+          "I look forward to your prompt response.",
+          "Sincerely,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-1.webp",
+          "alt": "You ordered an expensive laptop online, but it arrived two weeks late with a cracked screen. Write a formal complaint email to Customer Support requesting an immediate replacement or full refund.",
+          "source": "ai",
+          "prompt": "You ordered an expensive laptop online, but it arrived two weeks late with a cracked screen. Write a formal complaint email to Customer Support requesting an immediate replacement or full refund. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "You stayed at a hotel over the weekend and there was continuous drilling construction noise right outside your room from 6:00 AM, despite promises of a quiet room. Write to the general manager requesting partial compensation.",
+        "followUps": [
+          "Did you explain how the issue negatively impacted your stay?",
+          "What specific remedy or compensation are you proposing?",
+          "Aim for 80 to 120 words."
+        ],
+        "vocabulary": [
+          "I am writing regarding my recent stay from...",
+          "Despite being assured that...",
+          "This severely disrupted our stay because...",
+          "I trust you will rectify this situation by...",
+          "Best regards,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-2.webp",
+          "alt": "You stayed at a hotel over the weekend and there was continuous drilling construction noise right outside your room from 6:00 AM, despite promises of a quiet room. Write to the general manager requesting partial compensation.",
+          "source": "ai",
+          "prompt": "You stayed at a hotel over the weekend and there was continuous drilling construction noise right outside your room from 6:00 AM, despite promises of a quiet room. Write to the general manager requesting partial compensation. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Your monthly internet bill arrived with an unexpected $45 'miscellaneous technical fee' that you never authorized or agreed to. Write a concise email to the billing department requesting its removal.",
+        "followUps": [
+          "Did you reference your account number and current billing period?",
+          "Did you ask for an updated invoice?",
+          "Aim for 70 to 100 words."
+        ],
+        "vocabulary": [
+          "I am writing concerning an unauthorized charge...",
+          "According to my contract terms...",
+          "Please credit this amount back to my account...",
+          "Could you provide an amended invoice?",
+          "Thank you for your assistance,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-3.webp",
+          "alt": "Your monthly internet bill arrived with an unexpected $45 'miscellaneous technical fee' that you never authorized or agreed to. Write a concise email to the billing department requesting its removal.",
+          "source": "ai",
+          "prompt": "Your monthly internet bill arrived with an unexpected $45 'miscellaneous technical fee' that you never authorized or agreed to. Write a concise email to the billing department requesting its removal. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "A freelance graphic designer missed three consecutive project deadlines without notifying you in advance, delaying your company's marketing campaign. Write a firm professional email outlining the consequences.",
+        "followUps": [
+          "Did you establish a final, non-negotiable deadline?",
+          "Did you explain the commercial consequences of further delays?",
+          "Aim for 80 to 120 words."
+        ],
+        "vocabulary": [
+          "I am writing to address the ongoing delays...",
+          "As per our agreed schedule...",
+          "Failure to deliver the final assets by [date] will result in...",
+          "Please confirm receipt of this notice immediately.",
+          "Regards,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-4.webp",
+          "alt": "A freelance graphic designer missed three consecutive project deadlines without notifying you in advance, delaying your company's marketing campaign. Write a firm professional email outlining the consequences.",
+          "source": "ai",
+          "prompt": "A freelance graphic designer missed three consecutive project deadlines without notifying you in advance, delaying your company's marketing campaign. Write a firm professional email outlining the consequences. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "You attended a professional conference where the main keynote speaker canceled and two workshops were overcrowded with no seating. Write a constructive feedback email requesting a partial refund of the registration fee.",
+        "followUps": [
+          "Did you acknowledge any positive aspects before stating your concerns?",
+          "Is your critique constructive rather than merely angry?",
+          "Aim for 90 to 130 words."
+        ],
+        "vocabulary": [
+          "While I appreciated the networking opportunities...",
+          "I was profoundly disappointed by...",
+          "Given the substantial registration fee...",
+          "I would appreciate a prompt review of this matter.",
+          "Yours faithfully,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-5.webp",
+          "alt": "You attended a professional conference where the main keynote speaker canceled and two workshops were overcrowded with no seating. Write a constructive feedback email requesting a partial refund of the registration fee.",
+          "source": "ai",
+          "prompt": "You attended a professional conference where the main keynote speaker canceled and two workshops were overcrowded with no seating. Write a constructive feedback email requesting a partial refund of the registration fee. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Your apartment landlord has not repaired a leaking kitchen sink despite three verbal requests over the past three weeks. Write a formal written notice requesting urgent maintenance within 48 hours.",
+        "followUps": [
+          "Did you document the previous dates when you made verbal requests?",
+          "Did you mention potential damage if left unaddressed?",
+          "Aim for 80 to 120 words."
+        ],
+        "vocabulary": [
+          "This letter serves as formal notice regarding...",
+          "As previously mentioned on [dates]...",
+          "To prevent water damage to the floorboards...",
+          "Please contact me immediately to arrange a repair technician.",
+          "Sincerely,"
+        ],
+        "image": {
+          "src": "/images/activities/writing-complaint-letters/card-6.webp",
+          "alt": "Your apartment landlord has not repaired a leaking kitchen sink despite three verbal requests over the past three weeks. Write a formal written notice requesting urgent maintenance within 48 hours.",
+          "source": "ai",
+          "prompt": "Your apartment landlord has not repaired a leaking kitchen sink despite three verbal requests over the past three weeks. Write a formal written notice requesting urgent maintenance within 48 hours. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

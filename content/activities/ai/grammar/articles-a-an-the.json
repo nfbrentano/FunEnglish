@@ -1,0 +1,114 @@
+{
+  "slug": "articles-a-an-the",
+  "title": "Articles: A, An, or The",
+  "description": "Practice using definite and indefinite articles (a, an, the) to complete everyday English sentences.",
+  "category": "grammar",
+  "type": "fill-blanks",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["articles", "grammar", "a an the", "basics"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/articles-a-an-the/thumb.webp",
+    "alt": "An open grammar notebook with stylized letter blocks showing A, An and The resting on a wooden desk",
+    "source": "ai",
+    "prompt": "An open grammar notebook with stylized letter blocks showing A, An and The resting on a wooden desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "distractors": ["this", "that"],
+    "items": [
+      {
+        "text": "I would like to eat [[an]] apple for breakfast.",
+        "hint": "Use 'an' before vowel sounds (a, e, i, o, u).",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-1.webp",
+          "alt": "I would like to eat an apple for breakfast.",
+          "source": "ai",
+          "prompt": "I would like to eat an apple for breakfast. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "She bought [[a]] new bicycle yesterday.",
+        "hint": "Use 'a' before consonant sounds.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-2.webp",
+          "alt": "She bought a new bicycle yesterday.",
+          "source": "ai",
+          "prompt": "She bought a new bicycle yesterday. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Can you please close [[the]] door? It is noisy outside.",
+        "hint": "Use 'the' for a specific door that both speaker and listener know.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-3.webp",
+          "alt": "Can you please close the door? It is noisy outside.",
+          "source": "ai",
+          "prompt": "Can you please close the door? It is noisy outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "He works at [[an]] office downtown.",
+        "hint": "'Office' starts with an 'o' vowel sound.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-4.webp",
+          "alt": "He works at an office downtown.",
+          "source": "ai",
+          "prompt": "He works at an office downtown. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Look up at [[the]] moon in the clear night sky.",
+        "hint": "There is only one moon, so we use 'the'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-5.webp",
+          "alt": "Look up at the moon in the clear night sky.",
+          "source": "ai",
+          "prompt": "Look up at the moon in the clear night sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "We saw [[a]] friendly dog running in the park.",
+        "hint": "Mentioning a singular countable animal for the first time.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-6.webp",
+          "alt": "We saw a friendly dog running in the park.",
+          "source": "ai",
+          "prompt": "We saw a friendly dog running in the park. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "She wants to be [[an]] architect when she graduates.",
+        "hint": "Professions starting with a vowel sound take 'an'.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-7.webp",
+          "alt": "She wants to be an architect when she graduates.",
+          "source": "ai",
+          "prompt": "She wants to be an architect when she graduates. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Turn off [[the]] lights when you leave the classroom.",
+        "hint": "Refers to the specific lights in this room.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/articles-a-an-the/sentence-8.webp",
+          "alt": "Turn off the lights when you leave the classroom.",
+          "source": "ai",
+          "prompt": "Turn off the lights when you leave the classroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

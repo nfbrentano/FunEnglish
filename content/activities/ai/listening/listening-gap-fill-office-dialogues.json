@@ -1,0 +1,90 @@
+{
+  "slug": "listening-gap-fill-office-dialogues",
+  "title": "Office & Work Dialogues (Audio)",
+  "description": "Listen to spoken workplace conversations and fill in the missing key terms you hear.",
+  "category": "listening",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["listening", "audio", "tts", "office", "business", "dialogue"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/listening-gap-fill-office-dialogues/thumb.webp",
+    "alt": "Modern wireless headphones resting next to a coffee cup, tablet, and a pen on an office desk",
+    "source": "ai",
+    "prompt": "Modern wireless headphones resting next to a coffee cup, tablet, and a pen on an office desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "distractors": ["invoice", "holiday", "ticket"],
+    "items": [
+      {
+        "text": "Could we please reschedule our team [[meeting]] for tomorrow afternoon?",
+        "hint": "Listen to the recording for the scheduled event.",
+        "media": {
+          "kind": "tts",
+          "text": "Could we please reschedule our team meeting for tomorrow afternoon?"
+        }
+      },
+      {
+        "text": "The project [[deadline]] has been extended until next Friday.",
+        "hint": "Listen for the time limit word.",
+        "media": {
+          "kind": "tts",
+          "text": "The project deadline has been extended until next Friday."
+        }
+      },
+      {
+        "text": "I will send you the updated sales [[report]] by email before noon.",
+        "hint": "Listen for the document being sent.",
+        "media": {
+          "kind": "tts",
+          "text": "I will send you the updated sales report by email before noon."
+        }
+      },
+      {
+        "text": "We need to prepare a compelling slide [[presentation]] for the executive board.",
+        "hint": "Listen for what they are presenting.",
+        "media": {
+          "kind": "tts",
+          "text": "We need to prepare a compelling slide presentation for the executive board."
+        }
+      },
+      {
+        "text": "Our department managed to stay well under [[budget]] this quarter.",
+        "hint": "Listen for the financial term.",
+        "media": {
+          "kind": "tts",
+          "text": "Our department managed to stay well under budget this quarter."
+        }
+      },
+      {
+        "text": "Please sign the revised employment [[contract]] and return it to Human Resources.",
+        "hint": "Listen for the formal agreement.",
+        "media": {
+          "kind": "tts",
+          "text": "Please sign the revised employment contract and return it to Human Resources."
+        }
+      },
+      {
+        "text": "The customer service team received very positive [[feedback]] from our clients.",
+        "hint": "Listen for customer opinions.",
+        "media": {
+          "kind": "tts",
+          "text": "The customer service team received very positive feedback from our clients."
+        }
+      },
+      {
+        "text": "We are hiring an experienced marketing [[manager]] to lead the new campaign.",
+        "hint": "Listen for the job position.",
+        "media": {
+          "kind": "tts",
+          "text": "We are hiring an experienced marketing manager to lead the new campaign."
+        }
+      }
+    ]
+  }
+}

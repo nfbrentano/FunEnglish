@@ -85,7 +85,14 @@
           { "text": "Exciting and happy", "correct": false },
           { "text": "Romantic", "correct": false }
         ],
-        "explanation": "It's a sad ending. Discuss: what would you have done?"
+        "explanation": "It's a sad ending. Discuss: what would you have done?",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/sintel-watch-and-answer/question-6.webp",
+          "alt": "How would you describe the ending?",
+          "source": "ai",
+          "prompt": "How would you describe the ending?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
       }
     ]
   }

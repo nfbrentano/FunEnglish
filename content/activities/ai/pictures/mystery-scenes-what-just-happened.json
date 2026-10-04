@@ -1,0 +1,148 @@
+{
+  "slug": "mystery-scenes-what-just-happened",
+  "title": "Mystery Scenes: Infer What Happened",
+  "description": "Analyze enigmatic aftermath scenes to make deductions, speculate with modal verbs, and infer hidden stories.",
+  "category": "pictures",
+  "type": "prompt-cards",
+  "levelMin": "advanced",
+  "levelMax": "advanced",
+  "tags": ["pictures", "inference", "deduction", "advanced", "speaking", "c1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/mystery-scenes-what-just-happened/thumb.webp",
+    "alt": "An abandoned trench coat on an empty wooden park bench under a lamppost with a dropped leather notebook",
+    "source": "ai",
+    "prompt": "An abandoned trench coat on an empty wooden park bench under a lamppost with a dropped leather notebook. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "The Deserted Banquet Hall",
+        "options": [
+          "infer why the banquet was abandoned mid-toast with half-eaten plates",
+          "deduce what the tipped-over chair at the head table implies"
+        ],
+        "followUps": [
+          "What modal verbs of deduction can you use (e.g., 'must have fled', 'could have been summoned')?",
+          "What subtle detail suggests this was an emergency rather than a casual departure?"
+        ],
+        "vocabulary": [
+          "hasty departure",
+          "conspicuous",
+          "unattended",
+          "catastrophe"
+        ],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-1.webp",
+          "alt": "The Deserted Banquet Hall",
+          "source": "ai",
+          "prompt": "The Deserted Banquet Hall. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Lighthouse Keeper's Office",
+        "options": [
+          "speculate on the meaning of the open nautical logbook dated three weeks ago",
+          "analyze the locked brass compass found on the floor near the doorway"
+        ],
+        "followUps": [
+          "Could the keeper have encountered a rogue storm or left voluntarily?",
+          "How does the still-burning lantern contradict the elapsed time in the log?"
+        ],
+        "vocabulary": ["maritime", "solitude", "peculiar", "anomaly"],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-2.webp",
+          "alt": "The Lighthouse Keeper's Office",
+          "source": "ai",
+          "prompt": "The Lighthouse Keeper's Office. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Vanished Chemist's Laboratory",
+        "options": [
+          "hypothesize what experiment caused the glowing residue on the chalkboard",
+          "explain why the safe door was left swinging wide open with only test tubes taken"
+        ],
+        "followUps": [
+          "Do you suspect corporate espionage, accidental breakthrough, or sabotage?",
+          "What precautions should the investigating authorities take upon entering?"
+        ],
+        "vocabulary": [
+          "contamination",
+          "breakthrough",
+          "precipitate",
+          "covert"
+        ],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-3.webp",
+          "alt": "The Vanished Chemist's Laboratory",
+          "source": "ai",
+          "prompt": "The Vanished Chemist's Laboratory. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Express Train Carriage",
+        "options": [
+          "reconstruct what happened when all luggage was left on the overhead racks",
+          "interpret the significance of a single unopened telegram left on a velvet seat"
+        ],
+        "followUps": [
+          "Did the passengers disembark intentionally or were they evacuated?",
+          "What narrative timeline best explains the undisturbed cups of tea?"
+        ],
+        "vocabulary": ["disembark", "evacuation", "undisturbed", "perplexing"],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-4.webp",
+          "alt": "The Express Train Carriage",
+          "source": "ai",
+          "prompt": "The Express Train Carriage. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Archeological Dig at Sundown",
+        "options": [
+          "deduce why the heavy canvas tarpaulin was cut from the outside rather than untied",
+          "theorize about the newly unearthed stone seal cracked cleanly in half"
+        ],
+        "followUps": [
+          "Who might have had an interest in disrupting this excavation?",
+          "What evidence points to specialized knowledge rather than opportunistic looting?"
+        ],
+        "vocabulary": ["relic", "excavation", "illicit", "compromised"],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-5.webp",
+          "alt": "The Archeological Dig at Sundown",
+          "source": "ai",
+          "prompt": "The Archeological Dig at Sundown. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The High-Rise Boardroom",
+        "options": [
+          "analyze the shredded documents resting in the wastebasket beside an uncorked champagne bottle",
+          "infer the outcome of the high-stakes merger from the handwritten note on the podium"
+        ],
+        "followUps": [
+          "Was this a celebrated acquisition or a bitter hostile takeover?",
+          "What psychological tone is communicated by the stark silence in the room?"
+        ],
+        "vocabulary": [
+          "hostile takeover",
+          "stakeholders",
+          "abrupt",
+          "confidentiality"
+        ],
+        "image": {
+          "src": "/images/activities/mystery-scenes-what-just-happened/card-6.webp",
+          "alt": "The High-Rise Boardroom",
+          "source": "ai",
+          "prompt": "The High-Rise Boardroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

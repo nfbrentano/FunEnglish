@@ -1,0 +1,236 @@
+{
+  "slug": "quiz-board-conversation-challenges",
+  "title": "Conversation Challenge Board",
+  "description": "Team speaking game where players choose conversation prompts worth 100 to 500 points to practice fluency.",
+  "category": "speaking",
+  "type": "quiz-board",
+  "levelMin": "beginner",
+  "levelMax": "advanced",
+  "tags": ["speaking", "fluency", "conversation", "game", "teamwork"],
+  "status": "published",
+  "featured": true,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/quiz-board-conversation-challenges/thumb.webp",
+    "alt": "Two friendly speech bubbles shaped like golden trophies on an illustrated game show podium",
+    "source": "ai",
+    "prompt": "Two friendly speech bubbles shaped like golden trophies on an illustrated game show podium. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "categories": [
+      {
+        "name": "Quick Introductions",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Describe your ideal Sunday morning in three sentences.",
+            "answer": "Accept any coherent 3-sentence description of relaxing, eating breakfast, or weekend hobbies.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-1.webp",
+              "alt": "Accept any coherent 3-sentence description of relaxing, eating breakfast, or weekend hobbies.",
+              "source": "ai",
+              "prompt": "Accept any coherent 3-sentence description of relaxing, eating breakfast, or weekend hobbies. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Name two skills you would love to learn this year and explain why.",
+            "answer": "Accept any two coherent skills with clear personal reasons.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-2.webp",
+              "alt": "Accept any two coherent skills with clear personal reasons.",
+              "source": "ai",
+              "prompt": "Accept any two coherent skills with clear personal reasons. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "If you could instantly travel to any city right now, where would you go and what is the first thing you'd do?",
+            "answer": "Accept any destination with an immediate activity explanation.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-3.webp",
+              "alt": "Accept any destination with an immediate activity explanation.",
+              "source": "ai",
+              "prompt": "Accept any destination with an immediate activity explanation. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Talk about a teacher or mentor who positively influenced your life.",
+            "answer": "Accept any genuine description of a positive influence and lessons learned.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-4.webp",
+              "alt": "Accept any genuine description of a positive influence and lessons learned.",
+              "source": "ai",
+              "prompt": "Accept any genuine description of a positive influence and lessons learned. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Hypothetical Scenarios",
+        "clues": [
+          {
+            "value": 100,
+            "question": "If animals could talk, which one would be the rudest and why?",
+            "answer": "Accept any funny or creative justification (e.g., cats, geese, seagulls).",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-5.webp",
+              "alt": "Accept any funny or creative justification (e.g., cats, geese, seagulls).",
+              "source": "ai",
+              "prompt": "Accept any funny or creative justification (e.g., cats, geese, seagulls). Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "If you could live in any historical era for one week, which would you pick?",
+            "answer": "Accept any historical period with sensible justification of curiosity or lifestyle.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-6.webp",
+              "alt": "Accept any historical period with sensible justification of curiosity or lifestyle.",
+              "source": "ai",
+              "prompt": "Accept any historical period with sensible justification of curiosity or lifestyle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "If you had to eat only three foods for the rest of your life, what would they be?",
+            "answer": "Accept any three foods with reasoning about nutrition, variety, or taste.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-7.webp",
+              "alt": "Accept any three foods with reasoning about nutrition, variety, or taste.",
+              "source": "ai",
+              "prompt": "Accept any three foods with reasoning about nutrition, variety, or taste. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Imagine you discovered an uninhabited tropical island. What three rules would you establish first?",
+            "answer": "Accept any three thoughtful or humorous community rules.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-8.webp",
+              "alt": "Accept any three thoughtful or humorous community rules.",
+              "source": "ai",
+              "prompt": "Accept any three thoughtful or humorous community rules. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Debate & Opinions",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Is it better to read the book before watching the movie adaptation, or vice versa?",
+            "answer": "Accept any clear stance supported by personal experiences or reasoning.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-9.webp",
+              "alt": "Accept any clear stance supported by personal experiences or reasoning.",
+              "source": "ai",
+              "prompt": "Accept any clear stance supported by personal experiences or reasoning. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Should high schools teach financial literacy and tax filing as mandatory subjects?",
+            "answer": "Accept reasoned arguments in favor or considering curriculum trade-offs.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-10.webp",
+              "alt": "Accept reasoned arguments in favor or considering curriculum trade-offs.",
+              "source": "ai",
+              "prompt": "Accept reasoned arguments in favor or considering curriculum trade-offs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Has social media improved or damaged human friendships overall?",
+            "answer": "Accept nuanced arguments addressing connectivity vs superficial relationships.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-11.webp",
+              "alt": "Accept nuanced arguments addressing connectivity vs superficial relationships.",
+              "source": "ai",
+              "prompt": "Accept nuanced arguments addressing connectivity vs superficial relationships. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Should space exploration receive billions in funding while Earth faces major crises?",
+            "answer": "Accept arguments balancing technological spinoffs against immediate planetary needs.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-12.webp",
+              "alt": "Accept arguments balancing technological spinoffs against immediate planetary needs.",
+              "source": "ai",
+              "prompt": "Accept arguments balancing technological spinoffs against immediate planetary needs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      },
+      {
+        "name": "Storytelling & Memory",
+        "clues": [
+          {
+            "value": 100,
+            "question": "Tell the group about your favorite childhood toy or game.",
+            "answer": "Accept any engaging short memory about playing or sharing as a kid.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-13.webp",
+              "alt": "Accept any engaging short memory about playing or sharing as a kid.",
+              "source": "ai",
+              "prompt": "Accept any engaging short memory about playing or sharing as a kid. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 200,
+            "question": "Describe an unexpected travel delay or mishap that turned into a fun adventure.",
+            "answer": "Accept any narrative detailing problem solving and optimism during travel.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-14.webp",
+              "alt": "Accept any narrative detailing problem solving and optimism during travel.",
+              "source": "ai",
+              "prompt": "Accept any narrative detailing problem solving and optimism during travel. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 300,
+            "question": "Share a time when you tried cooking something and it went completely wrong.",
+            "answer": "Accept any humorous cooking disaster and how it was resolved.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-15.webp",
+              "alt": "Accept any humorous cooking disaster and how it was resolved.",
+              "source": "ai",
+              "prompt": "Accept any humorous cooking disaster and how it was resolved. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          },
+          {
+            "value": 400,
+            "question": "Narrate an important achievement you worked extremely hard to accomplish.",
+            "answer": "Accept any story detailing perseverance, challenges, and eventual pride.",
+            "media": {
+              "kind": "image",
+              "src": "/images/activities/quiz-board-conversation-challenges/clue-16.webp",
+              "alt": "Accept any story detailing perseverance, challenges, and eventual pride.",
+              "source": "ai",
+              "prompt": "Accept any story detailing perseverance, challenges, and eventual pride. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

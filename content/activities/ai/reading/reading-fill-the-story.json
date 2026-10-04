@@ -1,0 +1,114 @@
+{
+  "slug": "reading-fill-the-story",
+  "title": "Fill the Missing Words: Short Stories",
+  "description": "Read engaging mini-stories and choose the correct contextual words to complete each narrative.",
+  "category": "reading",
+  "type": "fill-blanks",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["reading", "story", "fill blanks", "context", "beginner"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/reading-fill-the-story/thumb.webp",
+    "alt": "An open illustrated storybook with tiny golden stars and bookmarks resting beside a pair of reading glasses",
+    "source": "ai",
+    "prompt": "An open illustrated storybook with tiny golden stars and bookmarks resting beside a pair of reading glasses. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "distractors": ["swam", "cloud", "pencil"],
+    "items": [
+      {
+        "text": "Leo adopted a little brown puppy from the animal [[shelter]].",
+        "hint": "A place where lost or rescue animals are cared for.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-1.webp",
+          "alt": "Leo adopted a little brown puppy from the animal shelter.",
+          "source": "ai",
+          "prompt": "Leo adopted a little brown puppy from the animal shelter. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Every morning, the puppy barked happily when Leo opened the [[door]].",
+        "hint": "What you open to walk outside or enter a house.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-2.webp",
+          "alt": "Every morning, the puppy barked happily when Leo opened the door.",
+          "source": "ai",
+          "prompt": "Every morning, the puppy barked happily when Leo opened the door. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "They walked to the neighborhood [[park]] to play with a yellow tennis ball.",
+        "hint": "A green public space with trees and grass.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-3.webp",
+          "alt": "They walked to the neighborhood park to play with a yellow tennis ball.",
+          "source": "ai",
+          "prompt": "They walked to the neighborhood park to play with a yellow tennis ball. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "When Leo threw the ball, the puppy ran as fast as his little legs could [[go]].",
+        "hint": "A basic movement verb in the present tense.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-4.webp",
+          "alt": "When Leo threw the ball, the puppy ran as fast as his little legs could go.",
+          "source": "ai",
+          "prompt": "When Leo threw the ball, the puppy ran as fast as his little legs could go. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "After an hour of running, both of them were tired and [[thirsty]].",
+        "hint": "Feeling the need to drink fresh water.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-5.webp",
+          "alt": "After an hour of running, both of them were tired and thirsty.",
+          "source": "ai",
+          "prompt": "After an hour of running, both of them were tired and thirsty. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "Leo poured clean water into a blue [[bowl]] on the kitchen floor.",
+        "hint": "A round dish used for pet food and water.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-6.webp",
+          "alt": "Leo poured clean water into a blue bowl on the kitchen floor.",
+          "source": "ai",
+          "prompt": "Leo poured clean water into a blue bowl on the kitchen floor. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The puppy wagged his fluffy [[tail]] to show that he was happy.",
+        "hint": "The part of an animal's body that wags when happy.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-7.webp",
+          "alt": "The puppy wagged his fluffy tail to show that he was happy.",
+          "source": "ai",
+          "prompt": "The puppy wagged his fluffy tail to show that he was happy. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "At night, the puppy curled up on a soft [[blanket]] and fell fast asleep.",
+        "hint": "A warm fabric cover used on beds or sofas.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/reading-fill-the-story/sentence-8.webp",
+          "alt": "At night, the puppy curled up on a soft blanket and fell fast asleep.",
+          "source": "ai",
+          "prompt": "At night, the puppy curled up on a soft blanket and fell fast asleep. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

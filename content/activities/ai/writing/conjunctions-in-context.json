@@ -1,0 +1,120 @@
+{
+  "slug": "conjunctions-in-context",
+  "title": "Connecting Sentences: Conjunctions",
+  "description": "Improve your writing cohesion and flow by selecting the ideal transition words and conjunctions.",
+  "category": "writing",
+  "type": "fill-blanks",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": [
+    "writing",
+    "conjunctions",
+    "transitions",
+    "linking words",
+    "cohesion"
+  ],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/conjunctions-in-context/thumb.webp",
+    "alt": "Two puzzle pieces interlocking seamlessly on a writer desk beside a glass inkwell and dip pen",
+    "source": "ai",
+    "prompt": "Two puzzle pieces interlocking seamlessly on a writer desk beside a glass inkwell and dip pen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "mode": "word-bank",
+    "distractors": ["unless", "meanwhile", "despite"],
+    "items": [
+      {
+        "text": "The marketing team worked overtime; [[however]], the software launch was postponed.",
+        "hint": "Use 'however' to introduce a contrasting or unexpected result.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-1.webp",
+          "alt": "The marketing team worked overtime; however, the software launch was postponed.",
+          "source": "ai",
+          "prompt": "The marketing team worked overtime; however, the software launch was postponed. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "He practiced the piano diligently every single day [[in order to]] prepare for the recital.",
+        "hint": "Use 'in order to' to indicate purpose or intention.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-2.webp",
+          "alt": "He practiced the piano diligently every single day in order to prepare for the recital.",
+          "source": "ai",
+          "prompt": "He practiced the piano diligently every single day in order to prepare for the recital. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The flight was delayed [[due to]] dense fog over the coastal runway.",
+        "hint": "'Due to' introduces the cause or reason behind an event.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-3.webp",
+          "alt": "The flight was delayed due to dense fog over the coastal runway.",
+          "source": "ai",
+          "prompt": "The flight was delayed due to dense fog over the coastal runway. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "She has strong analytical skills. [[Furthermore]], she communicates complex ideas with remarkable ease.",
+        "hint": "Use 'furthermore' to add another reinforcing point.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-4.webp",
+          "alt": "She has strong analytical skills. Furthermore, she communicates complex ideas with remarkable ease.",
+          "source": "ai",
+          "prompt": "She has strong analytical skills. Furthermore, she communicates complex ideas with remarkable ease. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "You will not master a second language [[unless]] you practice speaking consistently.",
+        "hint": "'Unless' introduces an essential negative condition ('if not').",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-5.webp",
+          "alt": "You will not master a second language unless you practice speaking consistently.",
+          "source": "ai",
+          "prompt": "You will not master a second language unless you practice speaking consistently. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The startup developed an innovative product; [[as a result]], sales tripled within six months.",
+        "hint": "Use 'as a result' to show a direct consequence.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-6.webp",
+          "alt": "The startup developed an innovative product; as a result, sales tripled within six months.",
+          "source": "ai",
+          "prompt": "The startup developed an innovative product; as a result, sales tripled within six months. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "He completed the marathon [[although]] his knee began aching at mile eighteen.",
+        "hint": "'Although' introduces a concessive clause of contrast.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-7.webp",
+          "alt": "He completed the marathon although his knee began aching at mile eighteen.",
+          "source": "ai",
+          "prompt": "He completed the marathon although his knee began aching at mile eighteen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "text": "The store offers organic fruits [[as well as]] freshly baked artisanal bread.",
+        "hint": "'As well as' is used to add another similar item to a list.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/conjunctions-in-context/sentence-8.webp",
+          "alt": "The store offers organic fruits as well as freshly baked artisanal bread.",
+          "source": "ai",
+          "prompt": "The store offers organic fruits as well as freshly baked artisanal bread. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

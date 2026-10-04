@@ -1,0 +1,152 @@
+{
+  "slug": "crazy-world-facts-and-riddles",
+  "title": "Bizarre World Facts & Riddles",
+  "description": "Test your critical thinking and general knowledge with mind-bending science facts and clever wordplay riddles.",
+  "category": "fun",
+  "type": "quiz",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["trivia", "fun", "facts", "riddles", "curiosities"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/crazy-world-facts-and-riddles/thumb.webp",
+    "alt": "A playful question mark sprouting blooming botanical leaves beside an old riddle scroll",
+    "source": "ai",
+    "prompt": "A playful question mark sprouting blooming botanical leaves beside an old riddle scroll. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "questions": [
+      {
+        "prompt": "Riddle: What has keys but cannot open a single door, and has space but no rooms?",
+        "options": [
+          { "text": "A computer keyboard", "correct": true },
+          { "text": "A padlock factory", "correct": false },
+          { "text": "A wooden treasure chest", "correct": false }
+        ],
+        "explanation": "A computer keyboard has letter keys and a space bar, but no physical doors or rooms.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-1.webp",
+          "alt": "Riddle: What has keys but cannot open a single door, and has space but no rooms?",
+          "source": "ai",
+          "prompt": "Riddle: What has keys but cannot open a single door, and has space but no rooms?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Fact: Honey found by archaeologists in ancient Egyptian tombs from 3,000 years ago is...",
+        "options": [
+          { "text": "still completely edible and unspoiled", "correct": true },
+          { "text": "strictly toxic to modern humans", "correct": false },
+          { "text": "turned into solid metallic rock", "correct": false }
+        ],
+        "explanation": "Because of low moisture and natural acidity, properly sealed honey never spoils.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-2.webp",
+          "alt": "Fact: Honey found by archaeologists in ancient Egyptian tombs from 3,000 years ago is...",
+          "source": "ai",
+          "prompt": "Fact: Honey found by archaeologists in ancient Egyptian tombs from 3,000 years ago is... Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Riddle: The more of this you take, the more you leave behind. What is it?",
+        "options": [
+          { "text": "Footsteps", "correct": true },
+          { "text": "Photographs", "correct": false },
+          { "text": "Coins", "correct": false }
+        ],
+        "explanation": "Every step you take leaves another footstep behind you on the ground.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-3.webp",
+          "alt": "Riddle: The more of this you take, the more you leave behind. What is it?",
+          "source": "ai",
+          "prompt": "Riddle: The more of this you take, the more you leave behind. What is it?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Fact: An octopus has three hearts and their blood color is naturally...",
+        "options": [
+          { "text": "blue", "correct": true },
+          { "text": "green", "correct": false },
+          { "text": "bright yellow", "correct": false }
+        ],
+        "explanation": "Octopus blood contains hemocyanin (a copper-based protein), which turns their blood blue.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-4.webp",
+          "alt": "Fact: An octopus has three hearts and their blood color is naturally...",
+          "source": "ai",
+          "prompt": "Fact: An octopus has three hearts and their blood color is naturally... Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Riddle: What gets wetter and wetter the more it dries?",
+        "options": [
+          { "text": "A bath towel", "correct": true },
+          { "text": "A warm shower", "correct": false },
+          { "text": "A cloud", "correct": false }
+        ],
+        "explanation": "A towel absorbs moisture while drying your skin, becoming wetter in the process.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-5.webp",
+          "alt": "Riddle: What gets wetter and wetter the more it dries?",
+          "source": "ai",
+          "prompt": "Riddle: What gets wetter and wetter the more it dries?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Fact: Which of these popular fruits is botanically classified as a single giant berry?",
+        "options": [
+          { "text": "A banana", "correct": true },
+          { "text": "A strawberry", "correct": false },
+          { "text": "A blackberry", "correct": false }
+        ],
+        "explanation": "Botanically, bananas develop from a flower with a single ovary, qualifying them as true berries.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-6.webp",
+          "alt": "Fact: Which of these popular fruits is botanically classified as a single giant berry?",
+          "source": "ai",
+          "prompt": "Fact: Which of these popular fruits is botanically classified as a single giant berry?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Riddle: What has a neck but no head, and wears a cap but has no hair?",
+        "options": [
+          { "text": "A bottle", "correct": true },
+          { "text": "A giraffe", "correct": false },
+          { "text": "A guitar case", "correct": false }
+        ],
+        "explanation": "A glass or plastic beverage bottle has a narrow neck and a bottle cap.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-7.webp",
+          "alt": "Riddle: What has a neck but no head, and wears a cap but has no hair?",
+          "source": "ai",
+          "prompt": "Riddle: What has a neck but no head, and wears a cap but has no hair?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "Fact: How long can a garden snail sleep when environmental conditions are unfavorable?",
+        "options": [
+          { "text": "Up to three years", "correct": true },
+          { "text": "Exactly three days", "correct": false },
+          { "text": "Snails never sleep", "correct": false }
+        ],
+        "explanation": "In extreme droughts, snails can hibernate for up to three years until moisture returns.",
+        "media": {
+          "kind": "image",
+          "src": "/images/activities/crazy-world-facts-and-riddles/question-8.webp",
+          "alt": "Fact: How long can a garden snail sleep when environmental conditions are unfavorable?",
+          "source": "ai",
+          "prompt": "Fact: How long can a garden snail sleep when environmental conditions are unfavorable?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

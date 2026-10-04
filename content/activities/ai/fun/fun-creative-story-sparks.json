@@ -1,0 +1,133 @@
+{
+  "slug": "fun-creative-story-sparks",
+  "title": "Creative Story Sparks",
+  "description": "Fun narrative cards pairing strange characters, unusual settings, and sudden plot twists to inspire storytelling.",
+  "category": "fun",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["storytelling", "fun", "creativity", "prompts", "speaking"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/fun-creative-story-sparks/thumb.webp",
+    "alt": "A vintage typewriter with colorful illustrated sparks and floating origami birds rising from the paper",
+    "source": "ai",
+    "prompt": "A vintage typewriter with colorful illustrated sparks and floating origami birds rising from the paper. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "The Midnight Museum Guard",
+        "options": [
+          "a sleepy guard who notices the dinosaur skeleton is gone",
+          "a talking cat who gives visitors secret guided tours"
+        ],
+        "followUps": [
+          "What strange clue was left behind in the hall?",
+          "How did they solve the mystery before 8:00 AM?"
+        ],
+        "vocabulary": ["fossil", "exhibit", "footprints", "flashlight"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-1.webp",
+          "alt": "The Midnight Museum Guard",
+          "source": "ai",
+          "prompt": "The Midnight Museum Guard. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Recipe That Changed the World",
+        "options": [
+          "baking a chocolate cake that accidentally makes people tell the truth",
+          "inventing an ice cream flavor that grants 10 minutes of super speed"
+        ],
+        "followUps": [
+          "Who was the first unsuspecting person to take a bite?",
+          "How did the chef hide the secret ingredient?"
+        ],
+        "vocabulary": ["ingredient", "delicious", "unexpected", "recipe"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-2.webp",
+          "alt": "The Recipe That Changed the World",
+          "source": "ai",
+          "prompt": "The Recipe That Changed the World. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Time-Traveling Bicycle",
+        "options": [
+          "pedaling backward sends you 50 years into the past",
+          "pedaling forward takes you directly to the year 2300"
+        ],
+        "followUps": [
+          "Where was your very first unexpected stop?",
+          "What modern item did you show someone in that era?"
+        ],
+        "vocabulary": ["century", "gadget", "curious", "journey"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-3.webp",
+          "alt": "The Time-Traveling Bicycle",
+          "source": "ai",
+          "prompt": "The Time-Traveling Bicycle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Island of Lost Luggage",
+        "options": [
+          "a hidden island where every lost suitcase in aviation history arrives",
+          "a community of friendly monkeys who dress up in traveler suits"
+        ],
+        "followUps": [
+          "What valuable object was inside the golden trunk?",
+          "How did the explorer find their way back home?"
+        ],
+        "vocabulary": ["suitcase", "mystery", "paradise", "belongings"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-4.webp",
+          "alt": "The Island of Lost Luggage",
+          "source": "ai",
+          "prompt": "The Island of Lost Luggage. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Weather Control Remote",
+        "options": [
+          "pressing the blue button makes it snow fluffy marshmallows",
+          "pressing the red button creates a warm rainbow breeze"
+        ],
+        "followUps": [
+          "What happened when your neighbor accidentally pressed all buttons?",
+          "How did the city react to the sudden weather change?"
+        ],
+        "vocabulary": ["forecast", "marshmallow", "breeze", "remote control"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-5.webp",
+          "alt": "The Weather Control Remote",
+          "source": "ai",
+          "prompt": "The Weather Control Remote. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Pet Who Could Speak English",
+        "options": [
+          "your polite dog starts giving you career and fashion advice",
+          "your sarcastic parrot reveals all the secrets it overheard"
+        ],
+        "followUps": [
+          "What was the first shocking sentence your pet said?",
+          "Did you introduce your speaking pet to friends or keep it secret?"
+        ],
+        "vocabulary": ["fluent", "hilarious", "companion", "confession"],
+        "image": {
+          "src": "/images/activities/fun-creative-story-sparks/card-6.webp",
+          "alt": "The Pet Who Could Speak English",
+          "source": "ai",
+          "prompt": "The Pet Who Could Speak English. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}

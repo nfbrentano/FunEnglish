@@ -1,0 +1,140 @@
+{
+  "slug": "describe-the-room-and-objects",
+  "title": "Room Tour: Describe the Scene",
+  "description": "Examine room scenes and interior setups to describe object locations, prepositions of place, and daily routines.",
+  "category": "pictures",
+  "type": "prompt-cards",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": [
+    "pictures",
+    "description",
+    "house",
+    "prepositions",
+    "beginner",
+    "speaking"
+  ],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/describe-the-room-and-objects/thumb.webp",
+    "alt": "A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table",
+    "source": "ai",
+    "prompt": "A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+  },
+  "content": {
+    "writing": false,
+    "cards": [
+      {
+        "prompt": "The Cozy Living Room",
+        "options": [
+          "describe what is on top of the wooden coffee table",
+          "describe the position of the armchair relative to the window"
+        ],
+        "followUps": [
+          "What color are the cushions on the sofa?",
+          "Where would you place a reading lamp in this room?"
+        ],
+        "vocabulary": ["next to", "in front of", "armchair", "bookshelf"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-1.webp",
+          "alt": "The Cozy Living Room",
+          "source": "ai",
+          "prompt": "The Cozy Living Room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Bright Kitchen",
+        "options": [
+          "list three fruits or vegetables on the counter",
+          "explain where the refrigerator and stove are located"
+        ],
+        "followUps": [
+          "What meal looks like it is being prepared?",
+          "Is the kitchen clean and organized or busy and cluttered?"
+        ],
+        "vocabulary": ["countertop", "sink", "cupboard", "behind"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-2.webp",
+          "alt": "The Bright Kitchen",
+          "source": "ai",
+          "prompt": "The Bright Kitchen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Student Study Bedroom",
+        "options": [
+          "describe the items scattered on the study desk",
+          "talk about what is hanging on the wall above the bed"
+        ],
+        "followUps": [
+          "Do you think this student is organized or messy?",
+          "What time of day does the light outside the window suggest?"
+        ],
+        "vocabulary": ["desk lamp", "notebook", "under", "poster"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-3.webp",
+          "alt": "The Student Study Bedroom",
+          "source": "ai",
+          "prompt": "The Student Study Bedroom. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Sunny Garden Patio",
+        "options": [
+          "describe the plants and flowers growing in the terracotta pots",
+          "explain who might sit on the outdoor garden chairs"
+        ],
+        "followUps": [
+          "What sounds would you expect to hear in this garden?",
+          "Would you like to relax here with a book or with friends?"
+        ],
+        "vocabulary": ["patio", "blooming", "between", "shade"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-4.webp",
+          "alt": "The Sunny Garden Patio",
+          "source": "ai",
+          "prompt": "The Sunny Garden Patio. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Neighborhood Coffee Shop",
+        "options": [
+          "describe the bakery display case near the counter",
+          "talk about where the patrons are sitting with their laptops"
+        ],
+        "followUps": [
+          "What kind of hot beverages are people drinking?",
+          "How would you describe the atmosphere: quiet or bustling?"
+        ],
+        "vocabulary": ["barista", "mug", "corner table", "cozy"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-5.webp",
+          "alt": "The Neighborhood Coffee Shop",
+          "source": "ai",
+          "prompt": "The Neighborhood Coffee Shop. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      },
+      {
+        "prompt": "The Community Library Reading Corner",
+        "options": [
+          "describe the tall rows of bookshelves",
+          "talk about the large round table in the center of the hall"
+        ],
+        "followUps": [
+          "What is the golden rule when speaking inside a library?",
+          "What kind of books would you look for in this section?"
+        ],
+        "vocabulary": ["quiet", "aisle", "librarian", "stacked"],
+        "image": {
+          "src": "/images/activities/describe-the-room-and-objects/card-6.webp",
+          "alt": "The Community Library Reading Corner",
+          "source": "ai",
+          "prompt": "The Community Library Reading Corner. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image."
+        }
+      }
+    ]
+  }
+}
