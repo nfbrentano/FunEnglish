@@ -160,8 +160,8 @@ describe("image processing (RF04, CA04, CA09)", () => {
       sy: 63,
       sw: 3000,
       sh: 1875,
-      width: 1280,
-      height: 800,
+      width: 960,
+      height: 600,
     });
     // 2:1 is wider: crop the sides.
     expect(planResize(4000, 2000, "thumb")).toMatchObject({ sx: 400, sy: 0, sw: 3200, sh: 2000 });
