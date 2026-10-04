@@ -52,6 +52,9 @@ export const appCheckProtected = createCallable({
   },
 });
 
+// Student management functions (spec 01: Turmas e Alunos)
+export { deleteStudent } from "./students.js";
+
 // Re-export helpers and secret definitions for subsequent specs
 export { defineSecret };
 export { createCallable } from "./helpers/callable.js";

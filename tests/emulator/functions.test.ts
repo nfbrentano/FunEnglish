@@ -36,4 +36,16 @@ describe("Cloud Functions emulator integration (CA01, CA04)", () => {
     const protectedCallable = httpsCallable(functions, "appCheckProtected");
     await expect(protectedCallable()).rejects.toThrow();
   });
+
+  describe("deleteStudent callable (spec 01, RF07, CA06)", () => {
+    it("rejects unauthenticated calls with unauthenticated error", async () => {
+      const deleteStudentCallable = httpsCallable<{ studentId: string }>(
+        functions,
+        "deleteStudent",
+      );
+      await expect(deleteStudentCallable({ studentId: "s1" })).rejects.toThrow(
+        /Authentication required/i,
+      );
+    });
+  });
 });

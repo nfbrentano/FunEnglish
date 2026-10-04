@@ -19,3 +19,21 @@ export async function checkFunctionsHealth(echo?: string): Promise<HealthRespons
   const result = await healthCallable(echo ? { echo } : undefined);
   return result.data;
 }
+
+export interface DeleteStudentResponse {
+  success: true;
+  deletedStudentId: string;
+}
+
+/**
+ * Calls the Cloud Function to delete a student and recursively clean up subcollections (RF07, CA06).
+ */
+export async function callDeleteStudent(studentId: string): Promise<DeleteStudentResponse> {
+  const functions = getFunctionsInstance();
+  const callable = httpsCallable<{ studentId: string }, DeleteStudentResponse>(
+    functions,
+    "deleteStudent",
+  );
+  const result = await callable({ studentId });
+  return result.data;
+}

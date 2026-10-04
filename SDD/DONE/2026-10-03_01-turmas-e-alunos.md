@@ -1,7 +1,7 @@
 # [FEAT] Turmas e alunos (roster do professor)
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluído
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 01 (sequência 00 a 11) · **Depende de:** 00 (exclusão em cascata) · **Por quê nesta posição:** Base de dados (turmas, `students`, `portalUid`, `homeworkPin`) usada por todas as seguintes
 
 ## Detalhes da Atividade
@@ -49,13 +49,13 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que estou logado e sem turmas, quando crio a turma "Teens B1", então ela aparece em "My classes" com "0 students".
-- [ ] **CA02:** Dado a turma "Teens B1", quando colo 10 nomes, um por linha, e confirmo, então a turma passa a mostrar "10 students" e as linhas em branco são ignoradas.
-- [ ] **CA03:** Dado o aluno "Ana" em "Teens B1", quando o copio para "Conversation Club", então ele aparece nas duas turmas e continua sendo o mesmo aluno, com o mesmo histórico.
-- [ ] **CA04:** Dado o aluno "Ana", quando clico no nome dele, então abro a página do aluno com nome, turmas e as seções vazias de notas, trilhas, homework e vocabulário.
-- [ ] **CA05:** Dado uma turma arquivada, quando abro "My classes", então ela não aparece na lista principal, mas aparece em "Archived" e pode ser restaurada.
-- [ ] **CA06 (limite):** Dado que tento excluir um aluno, quando o modal de confirmação aparece, então ele avisa que os dados vinculados também serão excluídos, e nada é apagado se eu cancelar.
-- [ ] **CA07 (negativo):** Dado que o professor B está logado, quando tenta ler `students/{id}` de um aluno do professor A (pelo SDK ou pela URL), então a leitura é negada e nenhum dado aparece.
+- [x] **CA01:** Dado que estou logado e sem turmas, quando crio a turma "Teens B1", então ela aparece em "My classes" com "0 students".
+- [x] **CA02:** Dado a turma "Teens B1", quando colo 10 nomes, um por linha, e confirmo, então a turma passa a mostrar "10 students" e as linhas em branco são ignoradas.
+- [x] **CA03:** Dado o aluno "Ana" em "Teens B1", quando o copio para "Conversation Club", então ele aparece nas duas turmas e continua sendo o mesmo aluno, com o mesmo histórico.
+- [x] **CA04:** Dado o aluno "Ana", quando clico no nome dele, então abro a página do aluno com nome, turmas e as seções vazias de notas, trilhas, homework e vocabulário.
+- [x] **CA05:** Dado uma turma arquivada, quando abro "My classes", então ela não aparece na lista principal, mas aparece em "Archived" e pode ser restaurada.
+- [x] **CA06 (limite):** Dado que tento excluir um aluno, quando o modal de confirmação aparece, então ele avisa que os dados vinculados também serão excluídos, e nada é apagado se eu cancelar.
+- [x] **CA07 (negativo):** Dado que o professor B está logado, quando tenta ler `students/{id}` de um aluno do professor A (pelo SDK ou pela URL), então a leitura é negada e nenhum dado aparece.
 
 ## O que a atividade não inclui
 
@@ -73,9 +73,9 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | "My classes" fica no dashboard atual ou ganha uma rota própria (`/classes`)? | Design | Não | |
+| D01 | "My classes" fica no dashboard atual ou ganha uma rota própria (`/classes`)? | Design | Não | Integrado no dashboard atual em `/dashboard#classes` com navegação direta, e página dedicada do aluno em `/dashboard/student?id=...` |
 | D02 | Precisamos de consentimento dos responsáveis para cadastrar alunos menores (LGPD)? A política de privacidade precisa mudar? | PO | Não | Ignorar por enquanto (2026-10-03) |
-| D03 | Excluir a conta do professor exclui também os alunos? | PO | Não | Sugestão: sim |
+| D03 | Excluir a conta do professor exclui também os alunos? | PO | Não | Sim, exclusão em cascata das turmas e alunos do professor via Cloud Function `deleteStudent` |
 
 ## Sugestões de casos de teste
 

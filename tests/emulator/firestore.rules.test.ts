@@ -17,7 +17,7 @@ import {
   setDoc,
   where,
 } from "firebase/firestore";
-import { afterAll, beforeAll, beforeEach, describe, it } from "vitest";
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 
 let testEnv: RulesTestEnvironment;
 
@@ -253,5 +253,148 @@ describe("activity revisions (spec: gestão completa, CA16)", () => {
     await assertFails(
       setDoc(doc(db, "activities/published"), { editedInPanelAt: new Date() }, { merge: true }),
     );
+  });
+});
+
+describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", () => {
+  const teacherA = "teacher-A";
+  const teacherB = "teacher-B";
+
+  it("teacher can create and read their own classes (CA01)", async () => {
+    const dbA = testEnv.authenticatedContext(teacherA).firestore();
+    const classRef = doc(dbA, `users/${teacherA}/classes/c1`);
+
+    await assertSucceeds(
+      setDoc(classRef, {
+        name: "Teens B1",
+        studentIds: [],
+        archived: false,
+        createdAt: new Date(),
+      }),
+    );
+
+    const snap = await assertSucceeds(getDoc(classRef));
+    expect(snap.data()?.name).toBe("Teens B1");
+  });
+
+  it("another teacher or unauthenticated user cannot read or write teacher's classes", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), `users/${teacherA}/classes/c1`), {
+        name: "Secret Class",
+        studentIds: [],
+        archived: false,
+        createdAt: new Date(),
+      });
+    });
+
+    const dbB = testEnv.authenticatedContext(teacherB).firestore();
+    const dbAnon = testEnv.unauthenticatedContext().firestore();
+
+    await assertFails(getDoc(doc(dbB, `users/${teacherA}/classes/c1`)));
+    await assertFails(getDoc(doc(dbAnon, `users/${teacherA}/classes/c1`)));
+    await assertFails(
+      setDoc(doc(dbB, `users/${teacherA}/classes/c2`), {
+        name: "Hacked Class",
+        studentIds: [],
+        archived: false,
+        createdAt: new Date(),
+      }),
+    );
+  });
+
+  it("rejects invalid class name length (> 60 chars)", async () => {
+    const dbA = testEnv.authenticatedContext(teacherA).firestore();
+    const classRef = doc(dbA, `users/${teacherA}/classes/c-long`);
+
+    await assertFails(
+      setDoc(classRef, {
+        name: "A".repeat(61),
+        studentIds: [],
+        archived: false,
+        createdAt: new Date(),
+      }),
+    );
+  });
+
+  it("teacher can create and read their own students (CA01, CA02)", async () => {
+    const dbA = testEnv.authenticatedContext(teacherA).firestore();
+    const studentRef = doc(dbA, "students/s1");
+
+    await assertSucceeds(
+      setDoc(studentRef, {
+        teacherUid: teacherA,
+        name: "Ana Silva",
+        email: "ana@example.com",
+        classIds: ["c1"],
+        homeworkPin: "hash1234",
+        createdAt: new Date(),
+      }),
+    );
+
+    const snap = await assertSucceeds(getDoc(studentRef));
+    expect(snap.data()?.name).toBe("Ana Silva");
+  });
+
+  it("teacher B CANNOT read or write teacher A's students (CA07, CT07)", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), "students/s-private"), {
+        teacherUid: teacherA,
+        name: "Private Student",
+        classIds: ["c1"],
+        homeworkPin: "hash9999",
+        createdAt: new Date(),
+      });
+    });
+
+    const dbB = testEnv.authenticatedContext(teacherB).firestore();
+    const dbAnon = testEnv.unauthenticatedContext().firestore();
+
+    // Teacher B reading student of Teacher A must fail (CA07)
+    await assertFails(getDoc(doc(dbB, "students/s-private")));
+    await assertFails(getDoc(doc(dbAnon, "students/s-private")));
+
+    // Teacher B modifying or deleting student of Teacher A must fail
+    await assertFails(
+      setDoc(doc(dbB, "students/s-private"), { name: "Modified" }, { merge: true }),
+    );
+    await assertFails(deleteDoc(doc(dbB, "students/s-private")));
+  });
+
+  it("rejects creating student for another teacherUid", async () => {
+    const dbB = testEnv.authenticatedContext(teacherB).firestore();
+    await assertFails(
+      setDoc(doc(dbB, "students/s-fake"), {
+        teacherUid: teacherA,
+        name: "Imposter",
+        classIds: ["c1"],
+        homeworkPin: "hash1234",
+        createdAt: new Date(),
+      }),
+    );
+  });
+
+  it("student subcollections are accessible only by the owner teacher", async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), "students/s1"), {
+        teacherUid: teacherA,
+        name: "Student One",
+        classIds: ["c1"],
+        homeworkPin: "hash1234",
+        createdAt: new Date(),
+      });
+    });
+
+    const dbA = testEnv.authenticatedContext(teacherA).firestore();
+    const dbB = testEnv.authenticatedContext(teacherB).firestore();
+
+    const gradeRefA = doc(dbA, "students/s1/grades/g1");
+    const gradeRefB = doc(dbB, "students/s1/grades/g1");
+
+    await assertSucceeds(setDoc(gradeRefA, { score: 10, activityId: "act1" }));
+    await assertSucceeds(getDoc(gradeRefA));
+
+    // Teacher B fails
+    await assertFails(getDoc(gradeRefB));
+    await assertFails(setDoc(gradeRefB, { score: 0 }));
   });
 });

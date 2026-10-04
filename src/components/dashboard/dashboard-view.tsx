@@ -4,6 +4,7 @@ import { Clock, Heart, List, Pencil, Trash2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ActivityCard } from "@/components/catalog/activity-card";
 import { Carousel } from "@/components/catalog/carousel";
+import { ClassesSection } from "@/components/dashboard/classes-section";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/lib/auth/use-auth";
@@ -142,6 +143,7 @@ export function DashboardView({
         <p className="text-fg-secondary">{strings.dashboard.subtitle}</p>
         <nav aria-label={strings.dashboard.sectionsNav} className="flex flex-wrap gap-2 pt-2">
           {[
+            ["classes", strings.dashboard.classes],
             ["favorites", strings.dashboard.favorites],
             ["lists", strings.dashboard.lists],
             ["recent", strings.dashboard.recent],
@@ -156,6 +158,8 @@ export function DashboardView({
           ))}
         </nav>
       </header>
+
+      <ClassesSection />
 
       <Section
         id="favorites"
