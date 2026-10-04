@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Cloud Storage Security Rules
+// Initial state: deny all reads and writes by default (CA02).
+// Specs 03, 07, etc. will selectively grant access to specific paths (e.g. whiteboard images).
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # [CHORE] Infraestrutura do plano Blaze: Cloud Functions, Storage e Realtime Database
 
-> **Status:** Rascunho
+> **Status:** Concluído
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
 > **Ordem de implementação:** 00 (sequência 00 a 11) · **Depende de:** — · **Por quê nesta posição:** Prepara a base de servidor (Functions), arquivos (Storage), tempo real (RTDB) que as specs 01, 03, 07, 08, 09, 10 e 11 usam; feita antes, evita que cada spec monte sua própria infraestrutura
 
@@ -69,13 +69,13 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o repositório configurado, quando rodo `npm run emulators` e chamo a callable `health` pelo app local, então recebo `{ ok: true }`; e a mesma chamada funciona em produção depois do `deploy:functions`.
-- [ ] **CA02 (negativo):** Dado as regras iniciais, quando um usuário logado tenta ler ou escrever qualquer caminho no Storage ou no Realtime Database, então a operação é negada.
-- [ ] **CA03:** Dado o projeto configurado, quando confiro no console, então as Functions estão em `southamerica-east1`, o bucket do Storage em `us-central1` e o Realtime Database em `us-central1`, como documentado no README.
-- [ ] **CA04 (negativo):** Dado o App Check obrigatório, quando a callable pública é chamada por um script sem token de App Check, então a chamada é recusada.
-- [ ] **CA05:** Dado os emuladores, quando rodo `npm run test:emulator`, então os testes de regras do Firestore, do Storage e do RTDB e os testes das Functions rodam e passam.
-- [ ] **CA06:** Dado uma alteração só em `storage.rules`, quando rodo `npm run deploy:storage-rules`, então só as regras do Storage são publicadas.
-- [ ] **CA07:** Dado o orçamento configurado, quando consulto o Google Cloud Billing, então existe o alerta de US$ 10/mês com limiares de 50%, 90% e 100%, e todas as Functions têm `maxInstances` definido.
+- [x] **CA01:** Dado o repositório configurado, quando rodo `npm run emulators` e chamo a callable `health` pelo app local, então recebo `{ ok: true }`; e a mesma chamada funciona em produção depois do `deploy:functions`.
+- [x] **CA02 (negativo):** Dado as regras iniciais, quando um usuário logado tenta ler ou escrever qualquer caminho no Storage ou no Realtime Database, então a operação é negada.
+- [x] **CA03:** Dado o projeto configurado, quando confiro no console, então as Functions estão em `southamerica-east1`, o bucket do Storage em `us-central1` e o Realtime Database em `us-central1`, como documentado no README.
+- [x] **CA04 (negativo):** Dado o App Check obrigatório, quando a callable pública é chamada por um script sem token de App Check, então a chamada é recusada.
+- [x] **CA05:** Dado os emuladores, quando rodo `npm run test:emulator`, então os testes de regras do Firestore, do Storage e do RTDB e os testes das Functions rodam e passam.
+- [x] **CA06:** Dado uma alteração só em `storage.rules`, quando rodo `npm run deploy:storage-rules`, então só as regras do Storage são publicadas.
+- [x] **CA07:** Dado o orçamento configurado, quando consulto o Google Cloud Billing, então existe o alerta de US$ 10/mês com limiares de 50%, 90% e 100%, e todas as Functions têm `maxInstances` definido.
 
 ## O que a atividade não inclui
 
