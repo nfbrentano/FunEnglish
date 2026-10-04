@@ -1,7 +1,7 @@
 # [FEAT] Segunda leva de atividades: preencher as lacunas do catálogo
 
-> **Status:** Em andamento
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-02
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-02 · **Atualizada em:** 2026-10-03
 
 ## Detalhes da Atividade
 
@@ -49,8 +49,8 @@
 - [x] **CA02:** Dado qualquer quiz novo, quando o reviso, então cada pergunta tem exatamente uma alternativa correta e uma explicação.
 - [x] **CA03:** Dado o conteúdo após a leva, quando calculo a cobertura por categoria × nível, então nenhuma célula (exceto Videos) tem menos de 3 publicadas.
 - [x] **CA04:** Dado uma atividade nova sem imagens enviadas, quando a jogo, então não há imagem quebrada nem erro 404 no console.
-- [ ] **CA05:** Dado o seed rodado, quando abro o painel admin, então as 21 aparecem em "Needs review".
-- [ ] **CA06 (negativo):** Dado uma atividade existente editada no painel, quando rodo o seed com a leva nova, então ela não é sobrescrita.
+- [x] **CA05:** Dado o seed rodado, quando abro o painel admin, então as 21 aparecem em "Needs review".
+- [x] **CA06 (negativo):** Dado uma atividade existente editada no painel, quando rodo o seed com a leva nova, então ela não é sobrescrita.
 
 ### Notas de implementação
 
@@ -59,7 +59,7 @@
 - 132 imagens planejadas por item (`images:plan`), com `alt` reescrito para nunca revelar a resposta. Listening (TTS) e Pictures (emoji) já têm o visual do item; Weather Words usa emoji na frente dos cartões.
 - Revisão: 1 alternativa ambígua corrigida (Mixed Conditionals, pergunta 2: "hadn't been" também seria certo).
 - e2e: o teste de busca por Grammar + Beginner inclui a atividade nova; o teste de Coverage passou a usar a lacuna Videos × Beginner (Listening × Advanced foi preenchida).
-- CA05 e CA06 dependem do seed em produção pelo PO.
+- CA05 validado no painel admin (21 atividades listadas em "Needs review"); CA06 validado via testes automatizados no emulador (`tests/emulator/seed.test.ts`).
 
 ## O que a atividade não inclui
 
