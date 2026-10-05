@@ -1,7 +1,7 @@
 # [FEAT] Sessão de aula (Classroom Session) com barra lateral fixa
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 08 (sequência 00 a 11) · **Depende de:** 00 a 07 · **Por quê nesta posição:** Integra as ferramentas e publica o resumo; a sala ao vivo (09) a estende para os aparelhos dos alunos; o registro de atividades é usado pela spec 11
 
 ## Detalhes da Atividade
@@ -56,17 +56,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a turma "Teens B1" com 8 alunos, quando clico em "Start class", então a barra lateral abre com o nome da turma, o relógio da sessão em 00:00 e a aba Students com 8 presentes.
-- [ ] **CA02:** Dado uma sessão ativa, quando navego do catálogo para uma atividade e a coloco em tela cheia, então a barra continua visível (ou recolhida em ícones) com o mesmo estado.
-- [ ] **CA03:** Dado que marquei "Ana" como ausente, quando abro o sorteador, então "Ana" não aparece entre os nomes.
-- [ ] **CA04:** Dado que abri as atividades X e Y durante a sessão, quando clico em "End class", então o resumo lista X e Y na ordem em que foram abertas, com horário.
-- [ ] **CA05 (negativo):** Dado que escrevi uma nota privada sobre "Ana" e ativei o modo projeção, quando olho a barra e a tela, então nenhuma nota privada nem e-mail de aluno aparece.
-- [ ] **CA06:** Dado que estou na revisão do resumo, quando removo uma nota e confirmo, então a sessão fica encerrada, a nota removida não é publicada e o resumo aparece em "Past classes".
-- [ ] **CA07:** Dado que "Ana" estava presente e "Bruno" ausente, quando confirmo o encerramento, então só "Ana" recebe as palavras e as notas compartilhadas da aula.
-- [ ] **CA08 (erro):** Dado uma sessão ativa, quando recarrego a página ou fico offline e volto, então aparece "Resume class 'Teens B1'?" e, ao retomar, o timer da sessão, a lousa e as notas estão como antes.
-- [ ] **CA09 (limite):** Dado uma sessão ativa, quando tento iniciar outra turma, então um modal pede para encerrar ou descartar a sessão atual antes.
-- [ ] **CA11 (negativo):** Dado uma aula com nota compartilhada para "Ana" e outra para "Bruno", quando "Ana" abre o resumo dessa aula no portal, então vê o resumo inteiro (atividades, palavras, lousa e notas da turma) e a nota dela, mas não a nota de "Bruno".
-- [ ] **CA10 (negativo):** Dado uma sessão ativa, quando um aluno abre o link de compartilhamento (`?mode=student`) no mesmo navegador, então a barra lateral não é exibida.
+- [x] **CA01:** Dado a turma "Teens B1" com 8 alunos, quando clico em "Start class", então a barra lateral abre com o nome da turma, o relógio da sessão em 00:00 e a aba Students com 8 presentes.
+- [x] **CA02:** Dado uma sessão ativa, quando navego do catálogo para uma atividade e a coloco em tela cheia, então a barra continua visível (ou recolhida em ícones) com o mesmo estado.
+- [x] **CA03:** Dado que marquei "Ana" como ausente, quando abro o sorteador, então "Ana" não aparece entre os nomes.
+- [x] **CA04:** Dado que abri as atividades X e Y durante a sessão, quando clico em "End class", então o resumo lista X e Y na ordem em que foram abertas, com horário.
+- [x] **CA05 (negativo):** Dado que escrevi uma nota privada sobre "Ana" e ativei o modo projeção, quando olho a barra e a tela, então nenhuma nota privada nem e-mail de aluno aparece.
+- [x] **CA06:** Dado que estou na revisão do resumo, quando removo uma nota e confirmo, então a sessão fica encerrada, a nota removida não é publicada e o resumo aparece em "Past classes".
+- [x] **CA07:** Dado que "Ana" estava presente e "Bruno" ausente, quando confirmo o encerramento, então só "Ana" recebe as palavras e as notas compartilhadas da aula.
+- [x] **CA08 (erro):** Dado uma sessão ativa, quando recarrego a página ou fico offline e volto, então aparece "Resume class 'Teens B1'?" e, ao retomar, o timer da sessão, a lousa e as notas estão como antes.
+- [x] **CA09 (limite):** Dado uma sessão ativa, quando tento iniciar outra turma, então um modal pede para encerrar ou descartar a sessão atual antes.
+- [x] **CA11 (negativo):** Dado uma aula com nota compartilhada para "Ana" e outra para "Bruno", quando "Ana" abre o resumo dessa aula no portal, então vê o resumo inteiro (atividades, palavras, lousa e notas da turma) e a nota dela, mas não a nota de "Bruno".
+- [x] **CA10 (negativo):** Dado uma sessão ativa, quando um aluno abre o link de compartilhamento (`?mode=student`) no mesmo navegador, então a barra lateral não é exibida.
 
 ## O que a atividade não inclui
 
