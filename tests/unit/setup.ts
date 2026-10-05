@@ -34,6 +34,10 @@ HTMLDialogElement.prototype.close = function (this: HTMLDialogElement) {
 Element.prototype.scrollTo = function () {};
 Element.prototype.scrollBy = function () {};
 
+// HTMLMediaElement play/pause stubs for jsdom
+HTMLMediaElement.prototype.play = vi.fn().mockImplementation(() => Promise.resolve());
+HTMLMediaElement.prototype.pause = vi.fn();
+
 afterEach(() => {
   cleanup();
   localStorage.clear();

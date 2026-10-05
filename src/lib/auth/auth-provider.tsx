@@ -21,19 +21,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loadAuth()
       .then(({ auth, sdk }) => {
         if (!active) return;
-        const publish = (user: typeof auth.currentUser) =>
+        const publish = async (user: typeof auth.currentUser) => {
+          if (!user) {
+            setState({ loading: false, user: null });
+            return;
+          }
+          const { getUserRole } = await import("./profile");
+          const role = await getUserRole(user.uid);
+          if (!active) return;
           setState({
             loading: false,
-            user: user && {
+            user: {
               uid: user.uid,
               displayName: user.displayName,
               email: user.email,
               photoURL: user.photoURL,
+              role,
             },
           });
+        };
         unsubscribe = sdk.onAuthStateChanged(auth, publish);
-        onProfileChanged = () => publish(auth.currentUser);
+        onProfileChanged = () => void publish(auth.currentUser);
         window.addEventListener(PROFILE_CHANGED_EVENT, onProfileChanged);
+
       })
       .catch((error: unknown) => {
         console.warn("Could not start authentication", error);

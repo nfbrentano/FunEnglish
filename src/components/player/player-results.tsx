@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { RotateCcw, Trophy } from "lucide-react";
 import { Button, ButtonLink } from "@/components/ui/button";
 import type { ActivityResult } from "@/lib/player/types";
@@ -16,6 +17,7 @@ type PlayerResultsProps = {
   seconds: number;
   studentMode: boolean;
   onPlayAgain: () => void;
+  homeworkMessage?: ReactNode;
 };
 
 export function PlayerResults({
@@ -26,6 +28,7 @@ export function PlayerResults({
   seconds,
   studentMode,
   onPlayAgain,
+  homeworkMessage,
 }: PlayerResultsProps) {
   const band = resultBand(result.correct, result.total, scored);
   const teams = scores && scores.length > 1 ? scores : null;
@@ -62,6 +65,11 @@ export function PlayerResults({
       <p className="text-3xl font-medium">
         {result.headline ?? strings.player.correctOf(result.correct, result.total)}
       </p>
+      {homeworkMessage && (
+        <div className="rounded-full border border-success/30 bg-success/10 px-5 py-2 text-sm font-semibold text-success shadow-xs">
+          {homeworkMessage}
+        </div>
+      )}
       <p className="text-fg-secondary">
         {strings.player.timeLabel}:{" "}
         <span className="tabular-nums">{strings.player.time(seconds)}</span>

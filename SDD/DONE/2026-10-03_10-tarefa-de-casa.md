@@ -1,7 +1,7 @@
 # [FEAT] Envio de tarefas de casa (Homework Automation)
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-05  
 > **Ordem de implementação:** 10 (sequência 00 a 11) · **Depende de:** 00, 01, 03 · **Por quê nesta posição:** As submissões alimentam a conclusão automática da spec 11
 
 ## Detalhes da Atividade
@@ -61,19 +61,20 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a atividade "At the airport", quando clico em "Send as homework", escolho a turma "Teens B1" e o prazo 10/10, então recebo um link `/homework?h=…` com botões Copy e QR code.
-- [ ] **CA02:** Dado o link individual de "Ana" (`&s=…`), quando ela o abre sem estar logada, então vê "Hi, Ana!", joga a atividade sem a navegação do site, sem pedido de login e sem PIN, e a submissão fica registrada como `via: "token"` para "Ana".
-- [ ] **CA03:** Dado que "Ana" está logada no portal, quando abre o link, então ela não precisa escolher o nome e a submissão fica vinculada ao `portalUid` dela.
-- [ ] **CA04:** Dado que "Ana" terminou com 7/10, quando a tela de resultados aparece, então mostra "7/10" e "Sent to your teacher ✓", e o documento de submissão é criado.
-- [ ] **CA05:** Dado 5 de 8 alunos com envio, quando abro a tarefa no painel, então vejo "5/8 done", a nota e o tempo de cada um e os 3 nomes pendentes; e a página de cada aluno mostra a submissão.
-- [ ] **CA06 (limite):** Dado uma tarefa com prazo vencido e sem envio atrasado, quando um aluno abre o link, então vê "This homework is closed" e não consegue jogar.
-- [ ] **CA07 (limite):** Dado que "Ana" já enviou 3 vezes, quando tenta a quarta, então vê "You've used all 3 attempts" e nada é enviado.
-- [ ] **CA08:** Dado um homework de flashcards, quando o aluno termina, então o painel mostra "Completed" e o tempo, sem nota.
-- [ ] **CA09 (negativo):** Dado o link de uma tarefa, quando alguém tenta (pelo SDK) listar `homework`, ler as submissões, enviar `correct: 50, total: 10` ou ler `students/{id}`, então todas as operações são negadas.
-- [ ] **CA10 (erro):** Dado um id inexistente, uma tarefa excluída ou um hash `s` que não existe, quando o aluno abre o link, então vê "This homework link is not valid" com instrução para falar com o professor.
-- [ ] **CA11:** Dado o link da turma, quando "Bruno" escolhe "Ana" na lista e digita um PIN errado, então vê "Wrong PIN" e não consegue começar; e com o PIN correto de "Ana", a submissão fica registrada como `via: "pin"`.
-- [ ] **CA13 (negativo):** Dado o link da turma, quando alguém erra o PIN de "Ana" 5 vezes em 15 minutos, então a sexta tentativa, mesmo com o PIN correto, é recusada com "Too many attempts — ask your teacher", e o professor vê o aviso no painel.
-- [ ] **CA12 (negativo):** Dado que regenerei o link individual de "Ana", quando alguém abre o link antigo, então vê "This homework link is not valid"; e uma submissão enviada pelo SDK com o hash de "Ana" e o `studentId` de "Bruno" é negada.
+- [x] **CA01:** Dado a atividade "At the airport", quando clico em "Send as homework", escolho a turma "Teens B1" e o prazo 10/10, então recebo um link `/homework?h=…` com botões Copy e QR code.
+- [x] **CA02:** Dado o link individual de "Ana" (`&s=…`), quando ela o abre sem estar logada, então vê "Hi, Ana!", joga a atividade sem a navegação do site, sem pedido de login e sem PIN, e a submissão fica registrada como `via: "token"` para "Ana".
+- [x] **CA03:** Dado que "Ana" está logada no portal, quando abre o link, então ela não precisa escolher o nome e a submissão fica vinculada ao `portalUid` dela.
+- [x] **CA04:** Dado que "Ana" terminou com 7/10, quando a tela de resultados aparece, então mostra "7/10" e "Sent to your teacher ✓", e o documento de submissão é criado.
+- [x] **CA05:** Dado 5 de 8 alunos com envio, quando abro a tarefa no painel, então vejo "5/8 done", a nota e o tempo de cada um e os 3 nomes pendentes; e a página de cada aluno mostra a submissão.
+- [x] **CA06 (limite):** Dado uma tarefa com prazo vencido e sem envio atrasado, quando um aluno abre o link, então vê "This homework is closed" e não consegue jogar.
+- [x] **CA07 (limite):** Dado que "Ana" já enviou 3 vezes, quando tenta a quarta, então vê "You've used all 3 attempts" e nada é enviado.
+- [x] **CA08:** Dado um homework de flashcards, quando o aluno termina, então o painel mostra "Completed" e o tempo, sem nota.
+- [x] **CA09 (negativo):** Dado o link de uma tarefa, quando alguém tenta (pelo SDK) listar `homework`, ler as submissões, enviar `correct: 50, total: 10` ou ler `students/{id}`, então todas as operações são negadas.
+- [x] **CA10 (erro):** Dado um id inexistente, uma tarefa excluída ou um hash `s` que não existe, quando o aluno abre o link, então vê "This homework link is not valid" com instrução para falar com o professor.
+- [x] **CA11:** Dado o link da turma, quando "Bruno" escolhe "Ana" na lista e digita um PIN errado, então vê "Wrong PIN" e não consegue começar; e com o PIN correto de "Ana", a submissão fica registrada como `via: "pin"`.
+- [x] **CA13 (negativo):** Dado o link da turma, quando alguém erra o PIN de "Ana" 5 vezes em 15 minutos, então a sexta tentativa, mesmo com o PIN correto, é recusada com "Too many attempts — ask your teacher", e o professor vê o aviso no painel.
+- [x] **CA12 (negativo):** Dado que regenerei o link individual de "Ana", quando alguém abre o link antigo, então vê "This homework link is not valid"; e uma submissão enviada pelo SDK com o hash de "Ana" e o `studentId` de "Bruno" é negada.
+
 
 ## O que a atividade não inclui
 

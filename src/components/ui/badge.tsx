@@ -1,9 +1,23 @@
 import type { ReactNode } from "react";
 
-/** Solid background, so the text keeps its contrast even on top of images and tints. */
-export function Badge({ children }: { children: ReactNode }) {
+export function Badge({
+  children,
+  variant = "default",
+  className = "",
+}: {
+  children: ReactNode;
+  variant?: "default" | "outline" | string;
+  className?: string;
+}) {
+  const isOutline = variant === "outline";
   return (
-    <span className="inline-flex items-center rounded-full border border-accent bg-elevated px-2 py-0.5 text-[0.7rem] font-semibold tracking-wider text-accent uppercase">
+    <span
+      className={`inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] font-semibold tracking-wider uppercase ${
+        isOutline
+          ? "border border-border-strong text-fg-secondary bg-transparent"
+          : "border border-accent bg-elevated text-accent"
+      } ${className}`}
+    >
       {children}
     </span>
   );

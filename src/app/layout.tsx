@@ -5,8 +5,15 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { FavoritesUiProvider } from "@/components/favorites/favorites-ui";
 import { ToastProvider } from "@/components/ui/toast";
+import { ClassroomSidebar } from "@/components/session/classroom-sidebar";
+import { EndSessionModal } from "@/components/session/end-session-modal";
+import { ResumeSessionBanner } from "@/components/session/resume-session-banner";
+import { SessionConflictModal } from "@/components/session/session-conflict-modal";
 import { AuthProvider } from "@/lib/auth/auth-provider";
 import { FavoritesProvider } from "@/lib/favorites/favorites-provider";
+import { LiveRoomProvider } from "@/lib/live/live-context";
+import { LiveRoomModal } from "@/components/live/live-room-modal";
+import { SessionProvider } from "@/lib/session/session-context";
 import { SITE_NAME, siteUrl } from "@/lib/site";
 import { strings } from "@/lib/strings";
 import { studentModeInitScript } from "@/lib/student-mode-script";
@@ -46,12 +53,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ToastProvider>
             <FavoritesProvider>
               <FavoritesUiProvider>
-                <SiteHeader />
-                <main id="main" className="flex flex-1 flex-col">
-                  {children}
-                </main>
-                <SiteFooter />
-                <BottomNav />
+                <SessionProvider>
+                  <LiveRoomProvider>
+                    <SiteHeader />
+                    <main id="main" className="flex flex-1 flex-col">
+                      {children}
+                    </main>
+                    <SiteFooter />
+                    <BottomNav />
+                    <ClassroomSidebar />
+                    <LiveRoomModal />
+                    <EndSessionModal />
+                    <SessionConflictModal />
+                    <ResumeSessionBanner />
+                  </LiveRoomProvider>
+                </SessionProvider>
               </FavoritesUiProvider>
             </FavoritesProvider>
           </ToastProvider>

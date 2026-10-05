@@ -5,7 +5,10 @@ import { authErrorMessage, isCancelled } from "@/lib/auth/errors";
 import { loginHref, safeNext } from "@/lib/auth/redirect";
 
 const auth = vi.hoisted(() => ({
-  state: { user: null as null | { uid: string }, loading: false },
+  state: {
+    user: null as null | { uid: string; role?: "teacher" | "student" },
+    loading: false,
+  },
 }));
 const router = vi.hoisted(() => ({ replace: vi.fn() }));
 vi.mock("@/lib/auth/use-auth", () => ({
@@ -66,8 +69,18 @@ describe("RequireAuth", () => {
   });
 
   it("shows the page to teachers", () => {
-    auth.state = { user: { uid: "1" }, loading: false };
+    auth.state = { user: { uid: "1", role: "teacher" }, loading: false };
     render(<RequireAuth>Secret</RequireAuth>);
     expect(screen.getByText("Secret")).toBeInTheDocument();
   });
+
+  it("redirects student role from /dashboard to /student (RF07, CA06, CT05)", () => {
+    router.replace.mockClear();
+    auth.state = { user: { uid: "student-1", role: "student" }, loading: false };
+    render(<RequireAuth>Teacher Dashboard</RequireAuth>);
+
+    expect(screen.queryByText("Teacher Dashboard")).toBeNull();
+    expect(router.replace).toHaveBeenCalledWith("/student");
+  });
 });
+

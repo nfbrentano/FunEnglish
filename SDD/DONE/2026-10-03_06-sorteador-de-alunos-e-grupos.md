@@ -1,7 +1,7 @@
 # [FEAT] Sorteador de alunos e gerador de grupos (Wheel of Fortune)
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 06 (sequência 00 a 11) · **Depende de:** 01 (lista avulsa funciona sem) · **Por quê nesta posição:** Plugado na aba Picker pela spec 08
 
 ## Detalhes da Atividade
@@ -49,15 +49,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma sessão com 8 presentes, quando clico em "Spin", então a roleta gira e para destacando um dos 8 nomes em tamanho grande.
-- [ ] **CA02:** Dado "Don't repeat" ativo e 3 presentes, quando giro 3 vezes, então cada aluno é sorteado uma vez, e no quarto giro a roleta é reabastecida automaticamente com aviso "Everyone has been picked — starting over".
-- [ ] **CA03:** Dado que não há sessão ativa, quando colo 5 nomes na lista avulsa e recarrego a página, então os 5 nomes continuam lá.
-- [ ] **CA04:** Dado 10 presentes, quando peço "3 groups", então vejo 3 grupos de 4, 3 e 3, sem aluno repetido nem faltando; e "Shuffle again" gera outra divisão.
-- [ ] **CA05:** Dado um sorteio feito, quando clico em "Big screen", então o nome sorteado ocupa a tela em fonte grande.
-- [ ] **CA06:** Dado que "Ana" foi sorteada com "Don't repeat" ativo, quando clico em "Skip", então outro nome é sorteado e "Ana" volta a ser elegível.
-- [ ] **CA07 (estatístico):** Dado 4 nomes e "Don't repeat" desligado, quando sorteio 4.000 vezes em teste automatizado, então cada nome sai entre 900 e 1.100 vezes.
-- [ ] **CA08:** Dado `prefers-reduced-motion: reduce`, quando clico em "Spin", então o resultado aparece sem animação de giro.
-- [ ] **CA09 (limite/negativo):** Dado 0 ou 1 presente, quando abro o Picker, então "Spin" fica desabilitado com a mensagem "Add at least 2 names"; e pedir mais grupos que alunos mostra "Not enough students for N groups".
+- [x] **CA01:** Dado uma sessão com 8 presentes, quando clico em "Spin", então a roleta gira e para destacando um dos 8 nomes em tamanho grande.
+- [x] **CA02:** Dado "Don't repeat" ativo e 3 presentes, quando giro 3 vezes, então cada aluno é sorteado uma vez, e no quarto giro a roleta é reabastecida automaticamente com aviso "Everyone has been picked — starting over".
+- [x] **CA03:** Dado que não há sessão ativa, quando colo 5 nomes na lista avulsa e recarrego a página, então os 5 nomes continuam lá.
+- [x] **CA04:** Dado 10 presentes, quando peço "3 groups", então vejo 3 grupos de 4, 3 e 3, sem aluno repetido nem faltando; e "Shuffle again" gera outra divisão.
+- [x] **CA05:** Dado um sorteio feito, quando clico em "Big screen", então o nome sorteado ocupa a tela em fonte grande.
+- [x] **CA06:** Dado que "Ana" foi sorteada com "Don't repeat" ativo, quando clico em "Skip", então outro nome é sorteado e "Ana" volta a ser elegível.
+- [x] **CA07 (estatístico):** Dado 4 nomes e "Don't repeat" desligado, quando sorteio 4.000 vezes em teste automatizado, então cada nome sai entre 900 e 1.100 vezes.
+- [x] **CA08:** Dado `prefers-reduced-motion: reduce`, quando clico em "Spin", então o resultado aparece sem animação de giro.
+- [x] **CA09 (limite/negativo):** Dado 0 ou 1 presente, quando abro o Picker, então "Spin" fica desabilitado com a mensagem "Add at least 2 names"; e pedir mais grupos que alunos mostra "Not enough students for N groups".
 
 ## O que a atividade não inclui
 

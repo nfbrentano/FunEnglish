@@ -1,7 +1,7 @@
 # [FEAT] Portal do aluno com feedbacks consolidados
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluído
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 03 (sequência 00 a 11) · **Depende de:** 00, 01, 02 · **Por quê nesta posição:** Cria o papel `student`, o convite e o layout; as specs seguintes só acrescentam blocos
 
 ## Detalhes da Atividade
@@ -55,16 +55,16 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a página de "Ana", quando clico em "Invite to student portal", então vejo um código de 8 caracteres, o link `/join?code=…`, o QR code e a validade "Expires in 14 days".
-- [ ] **CA02:** Dado um convite válido, quando a aluna abre o link, cria a conta e confirma, então é levada a `/student`, o cadastro dela fica com `portalUid` preenchido e o convite deixa de funcionar.
-- [ ] **CA03:** Dado que o professor tem 2 notas compartilhadas de Strength, 3 de erro compartilhadas e 1 privada sobre "Ana", quando ela abre o portal, então vê 2 em "Strengths", 3 em "To review" e nenhuma referência à privada.
-- [ ] **CA04:** Dado 3 aulas encerradas com "Ana" presente, quando ela abre "Class history", então vê as 3 datas com as atividades e as notas e palavras de cada aula.
-- [ ] **CA05:** Dado o erro "he go → he goes" em 3 aulas, com 1 registro marcado como resolvido, quando "Ana" abre o portal, então vê o erro uma vez com "seen in 3 classes"; quando todos estiverem resolvidos, ele vai para "Mastered ✓".
-- [ ] **CA06 (negativo):** Dado que "Ana" (role `student`) está logada, quando acessa `/dashboard` ou `/admin`, então é redirecionada para `/student`; e quando tenta alterar o próprio `role` para `teacher`, a escrita é negada.
-- [ ] **CA07:** Dado que o professor clicou em "Remove portal access", quando "Ana" recarrega o portal, então vê "You're not connected to a teacher yet" e não lê mais nenhum dado.
-- [ ] **CA08:** Dado que "Ana" foi convidada por 2 professores, quando abre o portal, então vê o seletor "Teacher" e os dados de cada professor separados.
-- [ ] **CA09 (negativo):** Dado que "Ana" está logada, quando tenta pelo SDK ler `students/{id}` de "Bruno", resgatar um convite expirado ou um convite de outro aluno, ou sobrescrever um `portalUid` já preenchido, então todas as operações são negadas.
-- [ ] **CA10 (erro):** Dado um código inválido ou expirado, quando abro `/join?code=…`, então vejo "This invite is invalid or has expired. Ask your teacher for a new one."
+- [x] **CA01:** Dado a página de "Ana", quando clico em "Invite to student portal", então vejo um código de 8 caracteres, o link `/join?code=…`, o QR code e a validade "Expires in 14 days".
+- [x] **CA02:** Dado um convite válido, quando a aluna abre o link, cria a conta e confirma, então é levada a `/student`, o cadastro dela fica com `portalUid` preenchido e o convite deixa de funcionar.
+- [x] **CA03:** Dado que o professor tem 2 notas compartilhadas de Strength, 3 de erro compartilhadas e 1 privada sobre "Ana", quando ela abre o portal, então vê 2 em "Strengths", 3 em "To review" e nenhuma referência à privada.
+- [x] **CA04:** Dado 3 aulas encerradas com "Ana" presente, quando ela abre "Class history", então vê as 3 datas com as atividades e as notas e palavras de cada aula.
+- [x] **CA05:** Dado o erro "he go → he goes" em 3 aulas, com 1 registro marcado como resolvido, quando "Ana" abre o portal, então vê o erro uma vez com "seen in 3 classes"; quando todos estiverem resolvidos, ele vai para "Mastered ✓".
+- [x] **CA06 (negativo):** Dado que "Ana" (role `student`) está logada, quando acessa `/dashboard` ou `/admin`, então é redirecionada para `/student`; e quando tenta alterar o próprio `role` para `teacher`, a escrita é negada.
+- [x] **CA07:** Dado que o professor clicou em "Remove portal access", quando "Ana" recarrega o portal, então vê "You're not connected to a teacher yet" e não lê mais nenhum dado.
+- [x] **CA08:** Dado que "Ana" foi convidada por 2 professores, quando abre o portal, então vê o seletor "Teacher" e os dados de cada professor separados.
+- [x] **CA09 (negativo):** Dado que "Ana" está logada, quando tenta pelo SDK ler `students/{id}` de "Bruno", resgatar um convite expirado ou um convite de outro aluno, ou sobrescrever um `portalUid` já preenchido, então todas as operações são negadas.
+- [x] **CA10 (erro):** Dado um código inválido ou expirado, quando abro `/join?code=…`, então vejo "This invite is invalid or has expired. Ask your teacher for a new one."
 
 ## O que a atividade não inclui
 

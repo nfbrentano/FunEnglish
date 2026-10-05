@@ -3,6 +3,7 @@
 import { Share2 } from "lucide-react";
 import Link from "next/link";
 import { FavoriteButton } from "@/components/favorites/favorites-ui";
+import { SendHomeworkButton } from "@/components/homework/send-homework-button";
 import { ShareButton } from "@/components/share/share-button";
 import { Badge } from "@/components/ui/badge";
 import { LevelPill } from "@/components/ui/level-pill";
@@ -25,7 +26,7 @@ type ActivityCardProps = {
   priority?: boolean;
 };
 
-/** Whole card opens the activity; favorite and share sit above the link. */
+/** Whole card opens the activity; favorite, share and homework sit above the link. */
 export function ActivityCard({ item, imageAvailable, isNew = false, priority }: ActivityCardProps) {
   const category = getCategory(item.category)!;
 
@@ -40,6 +41,7 @@ export function ActivityCard({ item, imageAvailable, isNew = false, priority }: 
         )}
         <div className="absolute top-2 right-2 flex gap-1.5">
           <FavoriteButton activityId={item.id} title={item.title} className={actionClasses} />
+          <SendHomeworkButton activity={item} className={actionClasses} />
           <ShareButton activity={item} className={actionClasses}>
             <Share2 aria-hidden="true" className="size-4" />
           </ShareButton>

@@ -55,7 +55,31 @@ export const appCheckProtected = createCallable({
 // Student management functions (spec 01: Turmas e Alunos)
 export { deleteStudent } from "./students.js";
 
+// Student portal invite functions (spec 03: Portal do Aluno)
+export {
+  createStudentInvite,
+  getStudentInvite,
+  revokeStudentInvite,
+  removePortalAccess,
+  validateInvite,
+  redeemInvite,
+} from "./invites.js";
+
+// Classroom session functions (spec 08: Sessão de Aula, RF11, spec 11: RF06b)
+export { autoCloseInactiveSessions, onSessionEnded } from "./sessions.js";
+
+// Homework functions (spec 10: Tarefa de Casa)
+export {
+  createHomework,
+  getHomeworkForStudent,
+  verifyStudentPin,
+  regenerateStudentHomeworkToken,
+  submitHomework,
+  onHomeworkSubmissionCreated,
+} from "./homework.js";
+
 // Re-export helpers and secret definitions for subsequent specs
 export { defineSecret };
 export { createCallable } from "./helpers/callable.js";
 export { checkRateLimit, resetRateLimits } from "./helpers/rate-limit.js";
+

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SITE_NAME, SOCIAL_LINKS } from "@/lib/site";
 import { strings } from "@/lib/strings";
 
@@ -11,6 +14,8 @@ const FOOTER_LINKS = [
 ];
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/live") || pathname?.startsWith("/homework")) return null;
   return (
     <footer data-site-chrome className="mt-auto border-t border-border-subtle">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">

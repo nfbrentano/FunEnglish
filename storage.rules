@@ -5,6 +5,16 @@ rules_version = '2';
 // Specs 03, 07, etc. will selectively grant access to specific paths (e.g. whiteboard images).
 service firebase.storage {
   match /b/{bucket}/o {
+    // Boards images and exports (spec 07: Whiteboard, RNF07, CA09)
+    // Teacher writes images up to 2 MB (image/* only) under their own UID.
+    match /boards/{teacherUid}/{sessionId}/{imageId} {
+      allow write: if request.auth != null
+                   && request.auth.uid == teacherUid
+                   && request.resource.size <= 2 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+      allow read: if request.auth != null;
+    }
+
     match /{allPaths=**} {
       allow read, write: if false;
     }

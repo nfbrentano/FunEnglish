@@ -2,7 +2,6 @@
 
 import {
   ArrowLeft,
-  BookMarked,
   BookOpen,
   KeyRound,
   Mail,
@@ -25,7 +24,12 @@ import {
 } from "@/lib/classes/repository";
 import type { Student, TeacherClass } from "@/lib/classes/types";
 import { StudentNotesSection } from "@/components/notes/student-notes-section";
+import { StudentInviteCard } from "@/components/portal/student-invite-card";
+import { StudentVocabularySection } from "@/components/vocabulary/student-vocabulary-section";
+import { StudentHomeworkSection } from "@/components/dashboard/student-homework-section";
+import { StudentTracksSection } from "@/components/dashboard/student-tracks-section";
 import { strings } from "@/lib/strings";
+
 
 interface PlaceholderSectionProps {
   id: string;
@@ -227,7 +231,16 @@ export function StudentProfileView() {
             )}
           </div>
         </div>
+
+        {/* Student Portal Invite Widget (spec 03: RF01, RF08, CA01, CA07) */}
+        <div className="pt-2 border-t border-border-subtle">
+          <StudentInviteCard
+            student={student}
+            onStudentUpdated={(updated) => setStudent(updated)}
+          />
+        </div>
       </header>
+
 
       {/* Sections for student tracking */}
       <div className="space-y-10">
@@ -238,28 +251,19 @@ export function StudentProfileView() {
           allStudents={classmates.map((c) => ({ id: c.id, name: c.name }))}
         />
 
-        {/* Progress Paths (spec 11) */}
-        <PlaceholderSection
-          id="progress"
-          title={strings.student.progressSectionTitle}
-          icon={<Milestone className="size-4" />}
-          emptyText={strings.student.progressSectionEmpty}
+        {/* Progress Tracks (spec 11) */}
+        <StudentTracksSection
+          studentId={student.id}
+          studentName={student.name}
         />
 
-        {/* Homework (spec 10) */}
-        <PlaceholderSection
-          id="homework"
-          title={strings.student.homeworkSectionTitle}
-          icon={<BookOpen className="size-4" />}
-          emptyText={strings.student.homeworkSectionEmpty}
-        />
+        {/* Homework (spec 10: RF09, CA05) */}
+        <StudentHomeworkSection studentId={student.id} />
 
         {/* Vocabulary Bank (spec 04) */}
-        <PlaceholderSection
-          id="vocabulary"
-          title={strings.student.vocabularySectionTitle}
-          icon={<BookMarked className="size-4" />}
-          emptyText={strings.student.vocabularySectionEmpty}
+        <StudentVocabularySection
+          studentId={student.id}
+          studentName={student.name}
         />
       </div>
     </div>

@@ -104,11 +104,12 @@ function AccountMenu({
           <p className="truncate px-3 py-2 text-xs text-muted">{user.displayName || user.email}</p>
           <Link
             role="menuitem"
-            href="/dashboard"
+            href={user.role === "student" ? "/student" : "/dashboard"}
             className={itemClasses}
             onClick={() => setOpen(false)}
           >
-            <LayoutDashboard aria-hidden="true" className="size-4" /> {strings.account.dashboard}
+            <LayoutDashboard aria-hidden="true" className="size-4" />{" "}
+            {user.role === "student" ? "Student portal" : strings.account.dashboard}
           </Link>
           <button
             role="menuitem"

@@ -1,14 +1,18 @@
 "use client";
 
-import { Play } from "lucide-react";
+import { BookOpen, Play, Radio } from "lucide-react";
 import type { ReactNode } from "react";
+import { SendHomeworkButton } from "@/components/homework/send-homework-button";
 import { Button } from "@/components/ui/button";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { LevelPill } from "@/components/ui/level-pill";
 import { getCategory } from "@/lib/activities/categories";
+import { useAuth } from "@/lib/auth/use-auth";
+import { useLiveRoom } from "@/lib/live/live-context";
 import type { PlayableActivity } from "@/lib/player/load-activity";
 import type { PlayerSettings, RegisteredPlugin } from "@/lib/player/types";
 import { strings } from "@/lib/strings";
+import { useStudentMode } from "@/lib/student-mode";
 import { ActivityImage } from "./media/activity-image";
 
 const DEFAULT_TIMER_CHOICES = [10, 20, 30, 60];
@@ -45,6 +49,9 @@ export function PlayerIntro({
   onStart,
   message,
 }: PlayerIntroProps) {
+  const live = useLiveRoom();
+  const { user } = useAuth();
+  const studentMode = useStudentMode();
   const category = getCategory(activity.category)!;
   const supports = plugin?.supports;
   const minTeams = plugin?.minTeams ?? 1;
@@ -193,10 +200,53 @@ export function PlayerIntro({
             </fieldset>
           )}
           {onStart && (
-            <Button onClick={onStart} className="min-h-14 px-10 text-base" autoFocus>
-              <Play aria-hidden="true" className="size-5" />
-              {strings.player.start}
-            </Button>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {live?.isLiveActive && (
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    live.launchActivity({
+                      id: activity.id,
+                      title: activity.title,
+                      type: activity.type,
+                      content: activity.content,
+                    });
+                    onStart();
+                  }}
+                  className="min-h-14 px-8 text-base border-accent text-accent hover:bg-accent/10"
+                >
+                  <Radio className="size-5 animate-pulse" />
+                  <span>Play in Live Room ({live.liveRoom?.code})</span>
+                </Button>
+              )}
+              {!studentMode && user && (
+                <SendHomeworkButton
+                  activity={activity}
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-border-subtle bg-secondary px-6 text-base font-medium text-fg hover:border-accent hover:text-accent"
+                >
+                  <BookOpen className="size-5" />
+                  <span>{strings.homework.sendHomework}</span>
+                </SendHomeworkButton>
+              )}
+              <Button
+                onClick={() => {
+                  if (live?.isLiveActive) {
+                    live.launchActivity({
+                      id: activity.id,
+                      title: activity.title,
+                      type: activity.type,
+                      content: activity.content,
+                    });
+                  }
+                  onStart();
+                }}
+                className="min-h-14 px-10 text-base"
+                autoFocus
+              >
+                <Play aria-hidden="true" className="size-5" />
+                {strings.player.start}
+              </Button>
+            </div>
           )}
         </>
       )}

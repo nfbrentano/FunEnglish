@@ -1,7 +1,7 @@
 # [FEAT] Lousa virtual simples (Whiteboard)
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluído
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 07 (sequência 00 a 11) · **Depende de:** 00 (Storage para imagens) · **Por quê nesta posição:** Plugado na aba Board pela spec 08; o RF05 (enviar palavras) é ligado na 08
 
 ## Detalhes da Atividade
@@ -55,15 +55,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a aba Board aberta, quando desenho com a caneta vermelha grossa, então o traço aparece em tempo real com essa cor e espessura.
-- [ ] **CA02:** Dado três traços desenhados, quando aperto desfazer duas vezes e refazer uma, então restam dois traços.
-- [ ] **CA03:** Dado uma imagem de 4000 px na área de transferência, quando colo na lousa, então ela aparece reduzida para no máximo 1600 px e pode ser movida e redimensionada.
-- [ ] **CA04:** Dado a lousa na barra lateral, quando clico em "Expand board", então ela ocupa a área central com o mesmo conteúdo, e "Collapse" volta à atividade.
-- [ ] **CA05:** Dado a página 1 com conteúdo, quando crio a página 2 e volto para a 1, então o conteúdo da página 1 está intacto.
-- [ ] **CA06:** Dado caixas de texto com "suitcase" e "boarding pass", quando clico em "Send words to students" e confirmo as duas, então elas aparecem na seção de vocabulário da revisão do resumo.
-- [ ] **CA07:** Dado uma página com desenho e imagem, quando clico em "Export PNG", então baixo um arquivo PNG com o conteúdo visível.
-- [ ] **CA08 (erro/limite):** Dado uma lousa com conteúdo, quando recarrego a página ou abro a sessão em outro computador, então o conteúdo volta; quando encerro a sessão, as páginas aparecem no resumo da aula; e a sessão seguinte começa com a lousa vazia.
-- [ ] **CA09 (negativo):** Dado que colo um arquivo que não é imagem (PDF, por exemplo), quando solto na lousa, então nada é inserido e aparece "Only images can be pasted"; e uma tentativa de upload direto no Storage de um arquivo não imagem, maior que 2 MB ou no caminho de outro professor é negada pelas regras.
+- [x] **CA01:** Dado a aba Board aberta, quando desenho com a caneta vermelha grossa, então o traço aparece em tempo real com essa cor e espessura.
+- [x] **CA02:** Dado três traços desenhados, quando aperto desfazer duas vezes e refazer uma, então restam dois traços.
+- [x] **CA03:** Dado uma imagem de 4000 px na área de transferência, quando colo na lousa, então ela aparece reduzida para no máximo 1600 px e pode ser movida e redimensionada.
+- [x] **CA04:** Dado a lousa na barra lateral, quando clico em "Expand board", então ela ocupa a área central com o mesmo conteúdo, e "Collapse" volta à atividade.
+- [x] **CA05:** Dado a página 1 com conteúdo, quando crio a página 2 e volto para a 1, então o conteúdo da página 1 está intacto.
+- [x] **CA06:** Dado caixas de texto com "suitcase" e "boarding pass", quando clico em "Send words to students" e confirmo as duas, então elas aparecem na seção de vocabulário da revisão do resumo.
+- [x] **CA07:** Dado uma página com desenho e imagem, quando clico em "Export PNG", então baixo um arquivo PNG com o conteúdo visível.
+- [x] **CA08 (erro/limite):** Dado uma lousa com conteúdo, quando recarrego a página ou abro a sessão em outro computador, então o conteúdo volta; quando encerro a sessão, as páginas aparecem no resumo da aula; e a sessão seguinte começa com a lousa vazia.
+- [x] **CA09 (negativo):** Dado que colo um arquivo que não é imagem (PDF, por exemplo), quando solto na lousa, então nada é inserido e aparece "Only images can be pasted"; e uma tentativa de upload direto no Storage de um arquivo não imagem, maior que 2 MB ou no caminho de outro professor é negada pelas regras.
 
 ## O que a atividade não inclui
 

@@ -1,8 +1,9 @@
 "use client";
 
-import { Pencil, Share2 } from "lucide-react";
+import { BookOpen, Pencil, Share2 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { SendHomeworkButton } from "@/components/homework/send-homework-button";
 import { ShareButton } from "@/components/share/share-button";
 import { useIsAdmin } from "@/lib/admin/use-is-admin";
 import type { PlayableActivity } from "@/lib/player/load-activity";
@@ -19,6 +20,7 @@ import { strings } from "@/lib/strings";
 import { useStudentMode } from "@/lib/student-mode";
 import { useAuth } from "@/lib/auth/use-auth";
 import { firestoreHistory, type HistoryRepository } from "@/lib/history/history";
+import { useSessionContext } from "@/lib/session/session-context";
 import { PlayerErrorBoundary } from "./error-boundary";
 import { PlayerCategoryContext } from "./media/activity-image";
 import { PlayerIntro, withTeamCount } from "./player-intro";
@@ -60,6 +62,10 @@ type ActivityPlayerProps = {
   onStart?: () => void;
   /** Shows the admin "Edit activity" link; off inside the editor's preview. */
   editable?: boolean;
+  /** Callback fired when an activity completes with result and elapsed time in seconds (spec 10). */
+  onCompleteResult?: (result: ActivityResult, seconds: number) => void;
+  /** Custom feedback message banner for homework submission (spec 10). */
+  homeworkMessage?: React.ReactNode;
 };
 
 /** The shell every activity type runs in: intro → playing → results. */
@@ -69,6 +75,8 @@ export function ActivityPlayer({
   history = firestoreHistory,
   onStart,
   editable = true,
+  onCompleteResult,
+  homeworkMessage,
 }: ActivityPlayerProps) {
   const { user } = useAuth();
   const isAdmin = useIsAdmin();
@@ -77,6 +85,7 @@ export function ActivityPlayer({
   const studentMode = useStudentMode();
   const rootRef = useRef<HTMLDivElement>(null);
   const fullscreen = useFullscreen(rootRef);
+  const session = useSessionContext();
 
   const [phase, setPhase] = useState<Phase>("intro");
   const [settings, setSettings] = useState<PlayerSettings>(() => initialSettings(plugin));
@@ -100,18 +109,25 @@ export function ActivityPlayer({
       history
         .record(user.uid, activity.id)
         .catch((error: unknown) => console.warn("Could not save history", error));
+
+      session?.recordActivity({ id: activity.id, title: activity.title });
     }
-  }, [settings.teams, user, studentMode, history, activity.id, onStart]);
+  }, [settings.teams, user, studentMode, history, activity.id, activity.title, onStart, session]);
 
   const onScore = useCallback((delta: number, team = 0) => {
     setScores((current) => current.map((score, i) => (i === team ? score + delta : score)));
   }, []);
 
-  const onComplete = useCallback((final: ActivityResult) => {
-    setResult(final);
-    setSeconds(Math.round((Date.now() - startedAt.current) / 1000));
-    setPhase("results");
-  }, []);
+  const onComplete = useCallback(
+    (final: ActivityResult) => {
+      setResult(final);
+      const sec = Math.round((Date.now() - startedAt.current) / 1000);
+      setSeconds(sec);
+      setPhase("results");
+      onCompleteResult?.(final, sec);
+    },
+    [onCompleteResult],
+  );
 
   // F toggles fullscreen during a game (not while typing).
   useEffect(() => {
@@ -140,6 +156,10 @@ export function ActivityPlayer({
       >
         {phase === "intro" && editable && !studentMode && (
           <div className="flex justify-end gap-2">
+            <SendHomeworkButton activity={activity} className={introAction}>
+              <BookOpen aria-hidden="true" className="size-4" />
+              {strings.homework.sendHomework}
+            </SendHomeworkButton>
             <ShareButton activity={activity} className={introAction}>
               <Share2 aria-hidden="true" className="size-4" />
               {strings.catalog.share}
@@ -207,6 +227,7 @@ export function ActivityPlayer({
             seconds={seconds}
             studentMode={studentMode}
             onPlayAgain={start}
+            homeworkMessage={homeworkMessage}
           />
         )}
 

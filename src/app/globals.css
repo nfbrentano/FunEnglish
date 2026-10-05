@@ -75,3 +75,13 @@ dialog[open] {
   background: var(--bg-elevated);
   padding: 0.1em 0.4em;
 }
+
+@media (min-width: 1280px) {
+  body.session-sidebar-expanded {
+    padding-right: 420px;
+  }
+  body.session-sidebar-collapsed {
+    padding-right: 64px;
+  }
+}
+

@@ -4,8 +4,14 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { fetchCatalogIndexOnce } from "./fetch";
 import type { CatalogIndex } from "./schema";
 
+const FALLBACK_CATALOG: CatalogIndex = {
+  schemaVersion: 1,
+  updatedAt: new Date(0).toISOString(),
+  items: [],
+};
+
 /** The catalog baked in at build time, refreshed once from Firestore after the page loads. */
-export function useCatalogIndex(initial: CatalogIndex) {
+export function useCatalogIndex(initial: CatalogIndex = FALLBACK_CATALOG) {
   const [index, setIndex] = useState(initial);
   const [loaded, setLoaded] = useState(false);
 

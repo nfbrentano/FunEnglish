@@ -1,6 +1,52 @@
 {
   "rules": {
-    ".read": false,
-    ".write": false
+    "liveRoomPins": {
+      "$code": {
+        ".read": false,
+        ".write": "auth != null && (root.child('liveRooms/' + $code + '/teacherUid').val() === auth.uid || !data.exists())"
+      }
+    },
+    "liveRooms": {
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && ((!data.exists() && newData.child('teacherUid').val() === auth.uid) || data.child('teacherUid').val() === auth.uid)",
+
+        "teacherUid": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "sessionId": {
+          ".validate": "newData.isString()"
+        },
+        "locked": {
+          ".write": "auth != null && data.parent().child('teacherUid').val() === auth.uid"
+        },
+        "allowGuests": {
+          ".write": "auth != null && data.parent().child('teacherUid').val() === auth.uid"
+        },
+        "hideLeaderboard": {
+          ".write": "auth != null && data.parent().child('teacherUid').val() === auth.uid"
+        },
+        "state": {
+          ".write": "auth != null && data.parent().child('teacherUid').val() === auth.uid"
+        },
+        "roster": {
+          ".write": "auth != null && data.parent().child('teacherUid').val() === auth.uid"
+        },
+
+        "participants": {
+          "$uid": {
+            ".write": "auth != null && (root.child('liveRooms/' + $code + '/teacherUid').val() === auth.uid || (auth.uid === $uid && (data.exists() || (root.child('liveRooms/' + $code + '/locked').val() !== true && (!newData.exists() || (newData.child('via').val() === 'guest' ? root.child('liveRooms/' + $code + '/allowGuests').val() === true : (newData.child('via').val() === 'portal' ? root.child('liveRooms/' + $code + '/roster/' + newData.child('studentId').val() + '/portalUid').val() === auth.uid : root.child('liveRoomPins/' + $code + '/' + newData.child('studentId').val()).val() === newData.child('pinHash').val())))))))"
+          }
+        },
+
+        "answers": {
+          "$itemIndex": {
+            "$uid": {
+              ".write": "auth != null && (root.child('liveRooms/' + $code + '/teacherUid').val() === auth.uid || (auth.uid === $uid && !data.exists() && root.child('liveRooms/' + $code + '/state/itemIndex').val() == $itemIndex && root.child('liveRooms/' + $code + '/state/revealed').val() !== true && root.child('liveRooms/' + $code + '/locked').val() !== true && newData.child('value').isString() && newData.child('value').val().length <= 200))"
+            }
+          }
+        }
+      }
+    }
   }
 }

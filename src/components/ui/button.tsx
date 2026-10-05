@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ComponentProps } from "react";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonSize = "default" | "sm" | "lg";
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: "bg-accent text-primary hover:opacity-90",
@@ -9,23 +10,40 @@ const VARIANTS: Record<ButtonVariant, string> = {
   ghost: "text-fg-secondary hover:bg-elevated hover:text-fg",
 };
 
-export function buttonClasses(variant: ButtonVariant = "primary", className = ""): string {
+const SIZES: Record<ButtonSize, string> = {
+  default: "min-h-11 px-5 text-sm",
+  sm: "min-h-8 px-3 text-xs",
+  lg: "min-h-12 px-6 text-base",
+};
+
+export function buttonClasses(
+  variant: ButtonVariant = "primary",
+  className = "",
+  size: ButtonSize = "default",
+): string {
   return [
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium",
+    "inline-flex items-center justify-center gap-2 rounded-full font-medium",
     "transition-colors duration-200 disabled:pointer-events-none disabled:opacity-50",
+    SIZES[size],
     VARIANTS[variant],
     className,
   ].join(" ");
 }
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & { variant?: ButtonVariant };
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+};
 
-export function Button({ variant, className, type = "button", ...props }: ButtonProps) {
-  return <button type={type} className={buttonClasses(variant, className)} {...props} />;
+export function Button({ variant, size, className, type = "button", ...props }: ButtonProps) {
+  return <button type={type} className={buttonClasses(variant, className, size)} {...props} />;
 }
 
-type ButtonLinkProps = ComponentProps<typeof Link> & { variant?: ButtonVariant };
+type ButtonLinkProps = ComponentProps<typeof Link> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+};
 
-export function ButtonLink({ variant, className, ...props }: ButtonLinkProps) {
-  return <Link className={buttonClasses(variant, className)} {...props} />;
+export function ButtonLink({ variant, size, className, ...props }: ButtonLinkProps) {
+  return <Link className={buttonClasses(variant, className, size)} {...props} />;
 }

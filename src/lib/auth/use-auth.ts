@@ -7,7 +7,9 @@ export type AuthUser = {
   displayName: string | null;
   email: string | null;
   photoURL: string | null;
+  role?: "teacher" | "student";
 };
+
 
 export type AuthState = {
   user: AuthUser | null;

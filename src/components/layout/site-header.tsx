@@ -13,6 +13,8 @@ export function SiteHeader() {
   const pathname = usePathname();
   const { user, loading, signOut } = useAuth();
 
+  if (pathname?.startsWith("/live") || pathname?.startsWith("/homework")) return null;
+
   return (
     <header
       data-site-chrome

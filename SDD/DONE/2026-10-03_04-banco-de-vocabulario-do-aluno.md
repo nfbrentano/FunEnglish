@@ -1,7 +1,7 @@
 # [FEAT] Banco de vocabulário personalizado do aluno
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluído
+> **Autor:** Natanael Brentano · **Revisor:** Antigravity · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 04 (sequência 00 a 11) · **Depende de:** 01, 03 · **Por quê nesta posição:** Página "My words" no portal; usada pela sessão e pela lousa
 
 ## Detalhes da Atividade
@@ -51,14 +51,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado uma sessão com 6 presentes, quando digito "boarding pass" com o significado "cartão de embarque" em "Add word", então a palavra aparece na lista de palavras da sessão com a indicação "6 students".
-- [ ] **CA02:** Dado 3 palavras adicionadas na sessão, quando encerro a aula, então cada aluno presente tem as 3 palavras no dicionário, e os ausentes não têm nenhuma.
-- [ ] **CA03:** Dado a página de "Ana", quando adiciono "luggage" sem sessão ativa, então a palavra aparece no dicionário dela sem aula de origem.
-- [ ] **CA04 (limite):** Dado que "Ana" já tem "Luggage", quando o professor adiciona " luggage " em outra aula, então não surge duplicata e a palavra mostra "seen in 2 classes".
-- [ ] **CA05:** Dado 30 palavras no dicionário de "Ana", quando ela busca "pass" no portal, então vê só os termos que contêm "pass"; e o botão de áudio fala a palavra.
-- [ ] **CA06:** Dado a palavra "luggage", quando "Ana" clica em "I know this", então a palavra vai para a aba "Learned".
-- [ ] **CA07:** Dado 25 palavras não aprendidas, quando "Ana" clica em "Practice", então abre uma sessão de flashcards com 20 delas; com 0 palavras, o botão fica desabilitado com "Add words in class to practice".
-- [ ] **CA08 (negativo):** Dado que "Ana" está logada, quando tenta pelo SDK alterar o `meaning` de uma palavra, criar uma palavra ou ler o vocabulário de "Bruno", então as operações são negadas.
+- [x] **CA01:** Dado uma sessão com 6 presentes, quando digito "boarding pass" com o significado "cartão de embarque" em "Add word", então a palavra aparece na lista de palavras da sessão com a indicação "6 students".
+- [x] **CA02:** Dado 3 palavras adicionadas na sessão, quando encerro a aula, então cada aluno presente tem as 3 palavras no dicionário, e os ausentes não têm nenhuma.
+- [x] **CA03:** Dado a página de "Ana", quando adiciono "luggage" sem sessão ativa, então a palavra aparece no dicionário dela sem aula de origem.
+- [x] **CA04 (limite):** Dado que "Ana" já tem "Luggage", quando o professor adiciona " luggage " em outra aula, então não surge duplicata e a palavra mostra "seen in 2 classes".
+- [x] **CA05:** Dado 30 palavras no dicionário de "Ana", quando ela busca "pass" no portal, então vê só os termos que contêm "pass"; e o botão de áudio fala a palavra.
+- [x] **CA06:** Dado a palavra "luggage", quando "Ana" clica em "I know this", então a palavra vai para a aba "Learned".
+- [x] **CA07:** Dado 25 palavras não aprendidas, quando "Ana" clica em "Practice", então abre uma sessão de flashcards com 20 delas; com 0 palavras, o botão fica desabilitado com "Add words in class to practice".
+- [x] **CA08 (negativo):** Dado que "Ana" está logada, quando tenta pelo SDK alterar o `meaning` de uma palavra, criar uma palavra ou ler o vocabulário de "Bruno", então as operações são negadas.
 
 ## O que a atividade não inclui
 
@@ -77,8 +77,8 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | As palavras devem ser gravadas ao vivo (o aluno vê durante a aula) ou só no encerramento? | PO | Não | Sugestão: só no encerramento, para permitir a revisão |
-| D02 | O significado é em português ou em inglês (definição)? Ou os dois campos? | PO | Não | Sugestão: um campo livre "Meaning" |
+| D01 | As palavras devem ser gravadas ao vivo (o aluno vê durante a aula) ou só no encerramento? | PO | Não | Gravadas no encerramento da sessão em batch; ou direto no perfil do aluno fora da sessão |
+| D02 | O significado é em português ou em inglês (definição)? Ou os dois campos? | PO | Não | Um campo livre "Meaning" (tradução ou definição) |
 
 ## Sugestões de casos de teste
 

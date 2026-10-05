@@ -6,7 +6,9 @@ import {
   Copy,
   MoveRight,
   Pencil,
+  Play,
   Plus,
+  Printer,
   Trash2,
   UserMinus,
   Users,
@@ -16,8 +18,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
-import { MAX_CLASS_NAME_LENGTH, type CreatedStudentResult, type Student } from "@/lib/classes/types";
+import { useAuth } from "@/lib/auth/use-auth";
+import {
+  MAX_CLASS_NAME_LENGTH,
+  type CreatedStudentResult,
+  type Student,
+  type TeacherClass,
+} from "@/lib/classes/types";
 import { useClasses } from "@/lib/classes/use-classes";
+import { getPastSessions } from "@/lib/session/repository";
+import { useSessionContext } from "@/lib/session/session-context";
+import type { ClassroomSession } from "@/lib/session/types";
 import { strings } from "@/lib/strings";
 
 interface ClassesSectionProps {
@@ -41,6 +52,25 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
     removeFromClass,
     deleteStudent,
   } = classesHook ?? defaultHook;
+
+  const { user } = useAuth();
+  const session = useSessionContext();
+  const [classSubTab, setClassSubTab] = useState<Record<string, "students" | "past">>({});
+  const [pastSessionsMap, setPastSessionsMap] = useState<Record<string, ClassroomSession[]>>({});
+  const [loadingPastSessions, setLoadingPastSessions] = useState<Record<string, boolean>>({});
+
+  const handleLoadPastSessions = async (classId: string) => {
+    if (!user) return;
+    try {
+      setLoadingPastSessions((prev) => ({ ...prev, [classId]: true }));
+      const past = await getPastSessions(user.uid, classId);
+      setPastSessionsMap((prev) => ({ ...prev, [classId]: past }));
+    } catch (err) {
+      console.warn("Error loading past sessions:", err);
+    } finally {
+      setLoadingPastSessions((prev) => ({ ...prev, [classId]: false }));
+    }
+  };
 
   const toast = useToast();
   const [tab, setTab] = useState<"active" | "archived">("active");
@@ -68,6 +98,7 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
   const [studentToCopy, setStudentToCopy] = useState<Student | null>(null);
   const [studentToMove, setStudentToMove] = useState<{ student: Student; fromClassId: string } | null>(null);
   const [targetClassId, setTargetClassId] = useState<string>("");
+  const [printPinsClass, setPrintPinsClass] = useState<TeacherClass | null>(null);
 
   const toggleExpand = (classId: string) => {
     setExpandedClasses((prev) => ({ ...prev, [classId]: !prev[classId] }));
@@ -297,6 +328,24 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                     {tab === "active" && (
                       <>
                         <Button
+                          onClick={async () => {
+                            try {
+                              await session?.startClass(
+                                item.id,
+                                item.name,
+                                classStudents.map((s) => s.id),
+                              );
+                            } catch (err) {
+                              toast(err instanceof Error ? err.message : "Error starting class");
+                            }
+                          }}
+                          className="min-h-9 px-3.5 py-1 text-xs bg-accent text-primary hover:bg-accent/90"
+                          title={strings.session.startClass}
+                        >
+                          <Play className="size-3.5 fill-current" />
+                          <span className="font-semibold">{strings.session.startClass}</span>
+                        </Button>
+                        <Button
                           variant="ghost"
                           onClick={() => {
                             setBatchModalClassId(item.id);
@@ -314,6 +363,14 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                         >
                           <Plus className="size-4" />
                           <span className="hidden sm:inline">{strings.classes.singleAddButton}</span>
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          onClick={() => setPrintPinsClass(item)}
+                          title={strings.classes.printPins}
+                        >
+                          <Printer className="size-4" />
+                          <span className="hidden sm:inline">{strings.classes.printPins}</span>
                         </Button>
                         <Button
                           variant="ghost"
@@ -365,10 +422,103 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                   </div>
                 </div>
 
-                {/* Expanded roster */}
+                {/* Expanded details */}
                 {isExpanded && (
                   <div className="border-t border-border-subtle bg-primary/40 p-4 sm:p-5">
-                    {classStudents.length === 0 ? (
+                    {/* Sub-tabs: Students / Past classes (RF08, CA06) */}
+                    <div className="flex items-center gap-2 mb-4 border-b border-border-subtle pb-3">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setClassSubTab((prev) => ({ ...prev, [item.id]: "students" }))
+                        }
+                        className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                          (classSubTab[item.id] ?? "students") === "students"
+                            ? "bg-accent text-primary"
+                            : "text-fg-secondary hover:text-fg"
+                        }`}
+                      >
+                        {strings.classes.studentCount(classStudents.length)}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setClassSubTab((prev) => ({ ...prev, [item.id]: "past" }));
+                          if (!pastSessionsMap[item.id]) {
+                            void handleLoadPastSessions(item.id);
+                          }
+                        }}
+                        className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                          classSubTab[item.id] === "past"
+                            ? "bg-accent text-primary"
+                            : "text-fg-secondary hover:text-fg"
+                        }`}
+                      >
+                        {strings.session.pastClasses}
+                      </button>
+                    </div>
+
+                    {classSubTab[item.id] === "past" ? (
+                      <div>
+                        {loadingPastSessions[item.id] ? (
+                          <Skeleton className="h-24 w-full rounded-2xl" />
+                        ) : !pastSessionsMap[item.id] || pastSessionsMap[item.id].length === 0 ? (
+                          <div className="py-6 text-center text-xs text-muted">
+                            {strings.session.pastClassesEmpty}
+                          </div>
+                        ) : (
+                          <ul className="space-y-3">
+                            {pastSessionsMap[item.id].map((past) => (
+                              <li
+                                key={past.id}
+                                className="rounded-2xl border border-border-subtle bg-primary/20 p-4 space-y-2 text-xs"
+                              >
+                                <div className="flex items-center justify-between">
+                                  <span className="font-semibold text-fg text-sm">
+                                    {past.startedAt.toLocaleDateString(undefined, {
+                                      month: "short",
+                                      day: "numeric",
+                                      year: "numeric",
+                                    })}
+                                  </span>
+                                  <div className="flex items-center gap-2 text-muted">
+                                    {past.durationMinutes && (
+                                      <span>
+                                        {strings.session.review.durationMinutes(past.durationMinutes)}
+                                      </span>
+                                    )}
+                                    <span>·</span>
+                                    <span>
+                                      {Object.values(past.attendance || {}).filter(Boolean).length} present
+                                    </span>
+                                  </div>
+                                </div>
+
+                                {past.activitiesPlayed.length > 0 && (
+                                  <p className="text-fg-secondary">
+                                    <strong className="text-fg">Activities:</strong>{" "}
+                                    {past.activitiesPlayed.map((a) => a.title).join(", ")}
+                                  </p>
+                                )}
+
+                                {past.newWords.length > 0 && (
+                                  <p className="text-fg-secondary">
+                                    <strong className="text-fg">Vocabulary:</strong>{" "}
+                                    {past.newWords.map((w) => w.term).join(", ")}
+                                  </p>
+                                )}
+
+                                {past.boardText && (
+                                  <p className="text-fg-secondary italic">
+                                    "{past.boardText}"
+                                  </p>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ) : classStudents.length === 0 ? (
                       <div className="flex flex-col items-center justify-center gap-3 py-6 text-center">
                         <p className="text-sm text-fg-secondary">{strings.classes.noStudents}</p>
                         {tab === "active" && (
@@ -696,6 +846,72 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
               <Button onClick={handleConfirmMoveStudent} disabled={!targetClassId}>
                 <MoveRight className="size-4" />
                 <span>{strings.classes.moveToClass}</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Print PINs Modal (RF11) */}
+      {printPinsClass && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs">
+          <div className="w-full max-w-2xl max-h-[85vh] flex flex-col rounded-3xl border border-border-subtle bg-elevated shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between border-b border-border-subtle p-5">
+              <div>
+                <h3 className="font-display text-2xl font-medium text-fg">
+                  {strings.classes.printPinsTitle} – {printPinsClass.name}
+                </h3>
+                <p className="text-xs text-muted mt-1">{strings.classes.printPinsDesc}</p>
+              </div>
+              <Button
+                variant="ghost"
+                onClick={() => setPrintPinsClass(null)}
+                className="size-8 p-0"
+              >
+                ✕
+              </Button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-5">
+              {students.filter((s) => s.classIds.includes(printPinsClass.id)).length === 0 ? (
+                <p className="text-sm text-fg-secondary">{strings.classes.noStudents}</p>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {students
+                    .filter((s) => s.classIds.includes(printPinsClass.id))
+                    .map((s) => (
+                      <div
+                        key={s.id}
+                        className="rounded-2xl border border-border-subtle bg-primary p-4 space-y-2"
+                      >
+                        <div className="flex justify-between items-baseline">
+                          <span className="font-display text-base font-medium text-fg">{s.name}</span>
+                          <span className="text-[10px] text-muted">{printPinsClass.name}</span>
+                        </div>
+                        <div className="rounded-xl border border-border-subtle bg-elevated p-2 text-center">
+                          <span className="text-[10px] uppercase tracking-wider text-muted block">
+                            Homework PIN
+                          </span>
+                          <span className="font-mono text-xl font-bold tracking-widest text-accent">
+                            ••••
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-muted text-center leading-tight">
+                          Enter this PIN when accessing class homework links.
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+
+            <div className="flex justify-end gap-2 border-t border-border-subtle p-4">
+              <Button variant="secondary" onClick={() => setPrintPinsClass(null)}>
+                {strings.classes.closeModal}
+              </Button>
+              <Button onClick={() => window.print()}>
+                <Printer className="size-4" />
+                <span>{strings.classes.printButton}</span>
               </Button>
             </div>
           </div>

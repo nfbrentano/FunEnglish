@@ -1,6 +1,6 @@
 # [FEAT] Trilha de progresso visual (Roadmap Tracker)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
 > **Ordem de implementação:** 11 (sequência 00 a 11) · **Depende de:** 00, 01, 03, 08, 09 (opcional), 10 · **Por quê nesta posição:** Última: consome sessão, sala ao vivo e homework
 
@@ -53,15 +53,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a lista "Travel" com 5 atividades, quando escolho "Create from list", então é criada a trilha "Travel" com as 5 atividades na mesma ordem.
-- [ ] **CA02:** Dado uma trilha com 5 passos, quando arrasto o passo 5 para a posição 1 (ou uso o botão "Move up" 4 vezes), então a nova ordem é salva.
-- [ ] **CA03:** Dado a turma "Teens B1" com 8 alunos, quando atribuo a trilha "Travel" à turma, então os 8 alunos aparecem com "0% complete".
-- [ ] **CA04:** Dado "Ana" com 0 de 5 passos, quando marco 2 passos como concluídos, então a barra dela mostra "40% complete" e os passos 1 e 2 aparecem como concluídos.
-- [ ] **CA05:** Dado que "Ana" enviou o homework da atividade do passo 3, quando abro a página de "Ana", então o passo 3 aparece concluído com a origem "Homework" e a barra mostra "60% complete".
-- [ ] **CA06:** Dado a trilha atribuída à turma, quando abro a visão da turma, então vejo a matriz com cada aluno, os passos e o percentual de cada um.
-- [ ] **CA07:** Dado "Ana" com 2 de 5 concluídos, quando adiciono um 6º passo à trilha, então ela passa a "33% complete" (2 de 6) sem perder as 2 conclusões.
-- [ ] **CA08 (limite):** Dado que uma atividade da trilha foi despublicada, quando abro a trilha, então o passo aparece como "No longer available" e o total desconsidera esse passo.
-- [ ] **CA09 (negativo):** Dado que "Ana" está logada no portal, quando tenta marcar um passo como concluído pelo SDK, então a escrita é negada.
+- [x] **CA01:** Dado a lista "Travel" com 5 atividades, quando escolho "Create from list", então é criada a trilha "Travel" com as 5 atividades na mesma ordem.
+- [x] **CA02:** Dado uma trilha com 5 passos, quando arrasto o passo 5 para a posição 1 (ou uso o botão "Move up" 4 vezes), então a nova ordem é salva.
+- [x] **CA03:** Dado a turma "Teens B1" com 8 alunos, quando atribuo a trilha "Travel" à turma, então os 8 alunos aparecem com "0% complete".
+- [x] **CA04:** Dado "Ana" com 0 de 5 passos, quando marco 2 passos como concluídos, então a barra dela mostra "40% complete" e os passos 1 e 2 aparecem como concluídos.
+- [x] **CA05:** Dado que "Ana" enviou o homework da atividade do passo 3, quando abro a página de "Ana", então o passo 3 aparece concluído com a origem "Homework" e a barra mostra "60% complete".
+- [x] **CA06:** Dado a trilha atribuída à turma, quando abro a visão da turma, então vejo a matriz com cada aluno, os passos e o percentual de cada um.
+- [x] **CA07:** Dado "Ana" com 2 de 5 concluídos, quando adiciono um 6º passo à trilha, então ela passa a "33% complete" (2 de 6) sem perder as 2 conclusões.
+- [x] **CA08 (limite):** Dado que uma atividade da trilha foi despublicada, quando abro a trilha, então o passo aparece como "No longer available" e o total desconsidera esse passo.
+- [x] **CA09 (negativo):** Dado que "Ana" está logada no portal, quando tenta marcar um passo como concluído pelo SDK, então a escrita é negada.
 
 ## O que a atividade não inclui
 

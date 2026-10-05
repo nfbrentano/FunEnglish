@@ -19,11 +19,11 @@ service cloud.firestore {
       }
     }
 
-    // Teacher profiles: only the owner reads and writes; the role can't be changed by the client.
+    // Teacher and Student profiles: only the owner reads and writes; the role can't be changed by the client.
     match /users/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
       allow create: if request.auth != null && request.auth.uid == uid
-        && request.resource.data.role == "teacher"
+        && request.resource.data.role in ["teacher", "student"]
         && request.resource.data.keys().hasOnly(["displayName", "email", "photoURL", "role", "createdAt"]);
       allow update: if request.auth != null && request.auth.uid == uid
         && request.resource.data.role == resource.data.role;
@@ -62,12 +62,36 @@ service cloud.firestore {
           && request.resource.data.studentIds.size() <= 60
           && request.resource.data.archived is bool;
       }
+      // Classroom sessions (spec: sessão de aula, RF01, RF08, RNF01): private to teacher.
+      match /sessions/{sessionId} {
+        allow read, write, delete: if request.auth != null && request.auth.uid == uid;
+      }
+      // Tracks (spec: trilha de progresso visual, RF01, RF02, RNF01): private to teacher.
+      match /tracks/{trackId} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0
+          && request.resource.data.name.size() <= 60
+          && request.resource.data.activityIds is list
+          && request.resource.data.activityIds.size() >= 1
+          && request.resource.data.activityIds.size() <= 30
+          && (!('description' in request.resource.data) || (request.resource.data.description is string && request.resource.data.description.size() <= 300))
+          && (!('level' in request.resource.data) || request.resource.data.level is string)
+          && (!('countClassActivities' in request.resource.data) || request.resource.data.countClassActivities is bool)
+          && (!('assignedStudentIds' in request.resource.data) || (request.resource.data.assignedStudentIds is list && request.resource.data.assignedStudentIds.size() <= 500))
+          && (!('assignedClassIds' in request.resource.data) || (request.resource.data.assignedClassIds is list && request.resource.data.assignedClassIds.size() <= 100));
+      }
     }
 
-    // Students (spec: turmas e alunos, RNF01, RNF02, CA07):
-    // Root collection so student portal can read later; currently only the teacherUid can read and write.
+    // Students (spec: turmas e alunos, portal do aluno, RNF01, RNF02, RNF03, CA07, CA09):
+    // Root collection: teacher reads/writes, student reads when portalUid matches auth.uid.
     match /students/{studentId} {
-      allow read, delete: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+      allow read: if request.auth != null && (
+        resource.data.teacherUid == request.auth.uid ||
+        resource.data.portalUid == request.auth.uid
+      );
+      allow delete: if request.auth != null && resource.data.teacherUid == request.auth.uid;
       allow create: if request.auth != null
         && request.resource.data.teacherUid == request.auth.uid
         && request.resource.data.keys().hasOnly(["teacherUid", "name", "email", "classIds", "portalUid", "homeworkPin", "createdAt"])
@@ -128,11 +152,116 @@ service cloud.firestore {
           && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
 
-      // Other student subcollections (grades, vocabulary, progress, etc.) are private to teacher
+      // Session / class history for the student (spec: portal do aluno, RF05, CA04):
+      // Teacher reads and writes; student reads if portalUid matches.
+      match /classes/{sessionId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+        );
+        allow write: if request.auth != null &&
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
+      // Vocabulary subcollection (spec: banco de vocabulário do aluno, RNF01, RNF02, CA08):
+      // Teacher reads and writes all fields.
+      // Student (portalUid) reads words, and updates ONLY `learned`.
+      match /vocabulary/{wordId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+        );
+        allow create: if request.auth != null
+          && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid
+          && request.resource.data.term is string
+          && request.resource.data.term.size() > 0
+          && request.resource.data.term.size() <= 80
+          && request.resource.data.learned is bool
+          && request.resource.data.sessionIds is list
+          && request.resource.data.sessionIds.size() <= 50
+          && (!('meaning' in request.resource.data) || (request.resource.data.meaning is string && request.resource.data.meaning.size() <= 200))
+          && (!('example' in request.resource.data) || (request.resource.data.example is string && request.resource.data.example.size() <= 200));
+        allow update: if request.auth != null && (
+          (
+            get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid
+            && request.resource.data.term is string
+            && request.resource.data.term.size() > 0
+            && request.resource.data.term.size() <= 80
+            && request.resource.data.learned is bool
+            && request.resource.data.sessionIds is list
+            && request.resource.data.sessionIds.size() <= 50
+            && (!('meaning' in request.resource.data) || (request.resource.data.meaning is string && request.resource.data.meaning.size() <= 200))
+            && (!('example' in request.resource.data) || (request.resource.data.example is string && request.resource.data.example.size() <= 200))
+          ) ||
+          (
+            get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["learned"])
+            && request.resource.data.learned is bool
+          )
+        );
+        allow delete: if request.auth != null
+          && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
+      // Homework submissions for student (spec: tarefa de casa, RF09, CA05):
+      // Teacher reads; student reads if portalUid matches auth.uid.
+      match /homeworkSubmissions/{submissionId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+        );
+        allow write: if false;
+      }
+
+      // Progress tracks for student (spec: trilha de progresso visual, RF03, RF05, RNF01, RNF03, CA09):
+      // Teacher reads and writes; student reads if portalUid matches auth.uid; student writing is denied.
+      match /tracks/{trackId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+        );
+        allow write: if request.auth != null &&
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
+      // Other student subcollections (grades, progress, etc.) are private to teacher
       match /{subcollection}/{document=**} {
-        allow read, write: if subcollection != "notes" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+        allow read, write: if subcollection != "notes" && subcollection != "classes" && subcollection != "vocabulary" && subcollection != "homeworkSubmissions" && subcollection != "tracks" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
     }
+
+    // Student portal invites: read and written only via Cloud Functions (RNF02, CA09)
+    match /invites/{code} {
+      allow read, write: if false;
+    }
+
+    // Homework (spec: tarefa de casa, RF01, RF06, RNF01, RNF07, CA09):
+    match /homework/{homeworkId} {
+      // Anyone with ID can read the homework doc (get), but cannot list the collection (RNF01, CA09)
+      allow get: if true;
+      allow list: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.teacherUid == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+
+      // Assignees subcollection: handled only via Cloud Functions (RNF07)
+      match /assignees/{token} {
+        allow read, write: if false;
+      }
+
+      // Submissions subcollection: read only by the owner teacher; writes solely via submitHomework Cloud Function (RNF01, CA09)
+      match /submissions/{submissionId} {
+        allow read: if request.auth != null &&
+          get(/databases/$(database)/documents/homework/$(homeworkId)).data.teacherUid == request.auth.uid;
+        allow write: if false;
+      }
+    }
+
+    // PIN brute-force attempt tracking: managed by Cloud Functions, read by teacher
+    match /pinAttempts/{studentId} {
+      allow read: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+      allow write: if false;
+    }
+
 
     // Contact form (spec: páginas institucionais, RNF01): anyone can send, nobody reads from the
     // client. Messages are read in the Firebase console.

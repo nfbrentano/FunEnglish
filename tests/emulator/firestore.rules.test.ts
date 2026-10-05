@@ -15,6 +15,7 @@ import {
   query,
   serverTimestamp,
   setDoc,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
@@ -529,4 +530,592 @@ describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", 
       );
     });
   });
+
+  describe("student portal and invites (spec 03: RNF01, RNF02, RNF03, CA06, CA07, CA09)", () => {
+    const studentUser = "student-ana";
+    const studentDocId = "s-ana";
+    const otherStudentDocId = "s-bruno";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        // Student Ana linked to portal
+        await setDoc(doc(db, `students/${studentDocId}`), {
+          teacherUid: teacherA,
+          name: "Ana Silva",
+          classIds: ["c1"],
+          portalUid: studentUser,
+          homeworkPin: "hash1111",
+          createdAt: new Date(),
+        });
+
+        // Student Bruno linked to another portal user
+        await setDoc(doc(db, `students/${otherStudentDocId}`), {
+          teacherUid: teacherA,
+          name: "Bruno Costa",
+          classIds: ["c1"],
+          portalUid: "student-bruno",
+          homeworkPin: "hash2222",
+          createdAt: new Date(),
+        });
+
+        // Class session for Ana
+        await setDoc(doc(db, `students/${studentDocId}/classes/session-1`), {
+          sessionId: "session-1",
+          date: new Date(),
+          durationMinutes: 50,
+          activities: [{ id: "act1", title: "Past Simple Quiz" }],
+          words: ["went", "bought"],
+          classNotes: "Great participation today!",
+        });
+
+        // An invite in invites collection
+        await setDoc(doc(db, "invites/TEST1234"), {
+          code: "TEST1234",
+          studentId: studentDocId,
+          teacherUid: teacherA,
+          expiresAt: new Date(Date.now() + 86400000),
+        });
+      });
+    });
+
+    it("allows creating user profile with role: 'student' (RNF01)", async () => {
+      const dbStudent = testEnv.authenticatedContext("new-student").firestore();
+      await assertSucceeds(
+        setDoc(doc(dbStudent, "users/new-student"), {
+          displayName: "New Student",
+          email: "student@test.com",
+          photoURL: null,
+          role: "student",
+          createdAt: new Date(),
+        }),
+      );
+    });
+
+    it("student CANNOT change their role to 'teacher' (CA06)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      // Setup initial profile as student
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        await setDoc(doc(ctx.firestore(), `users/${studentUser}`), {
+          displayName: "Ana",
+          email: "ana@test.com",
+          photoURL: null,
+          role: "student",
+          createdAt: new Date(),
+        });
+      });
+
+      // Attempt to change role to teacher must fail (CA06)
+      await assertFails(
+        setDoc(doc(dbStudent, `users/${studentUser}`), { role: "teacher" }, { merge: true }),
+      );
+    });
+
+    it("student with portalUid can read their own student document", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      const snap = await assertSucceeds(getDoc(doc(dbStudent, `students/${studentDocId}`)));
+      expect(snap.data()?.name).toBe("Ana Silva");
+    });
+
+    it("student CANNOT read other students' documents (CA09)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      await assertFails(getDoc(doc(dbStudent, `students/${otherStudentDocId}`)));
+    });
+
+    it("student CANNOT update students collection or overwrite portalUid via SDK (CA09)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      // Attempt to update own student doc
+      await assertFails(
+        setDoc(doc(dbStudent, `students/${studentDocId}`), { name: "Hacked" }, { merge: true }),
+      );
+      // Attempt to overwrite another student's portalUid
+      await assertFails(
+        setDoc(
+          doc(dbStudent, `students/${otherStudentDocId}`),
+          { portalUid: studentUser },
+          { merge: true },
+        ),
+      );
+    });
+
+    it("student can read their own class session history, but not other students' (CA04, CA09)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      const snap = await assertSucceeds(
+        getDoc(doc(dbStudent, `students/${studentDocId}/classes/session-1`)),
+      );
+      expect(snap.data()?.words).toContain("went");
+
+      // Cannot read other student's class history
+      await assertFails(
+        getDoc(doc(dbStudent, `students/${otherStudentDocId}/classes/session-1`)),
+      );
+
+      // Student cannot write or delete class history
+      await assertFails(
+        setDoc(
+          doc(dbStudent, `students/${studentDocId}/classes/session-fake`),
+          { fake: true },
+        ),
+      );
+    });
+
+    it("client SDK CANNOT read or write invites collection (RNF02, CA09)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      const dbTeacher = testEnv.authenticatedContext(teacherA).firestore();
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+
+      // Nobody reads from client SDK
+      await assertFails(getDoc(doc(dbStudent, "invites/TEST1234")));
+      await assertFails(getDoc(doc(dbTeacher, "invites/TEST1234")));
+      await assertFails(getDoc(doc(dbAnon, "invites/TEST1234")));
+
+      // Nobody writes from client SDK
+      await assertFails(setDoc(doc(dbStudent, "invites/HACK1234"), { code: "HACK1234" }));
+      await assertFails(setDoc(doc(dbTeacher, "invites/HACK1234"), { code: "HACK1234" }));
+    });
+
+    it("when teacher removes portal access, student immediately loses read access (RF08, CA07)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      // Initially student can read
+      await assertSucceeds(getDoc(doc(dbStudent, `students/${studentDocId}`)));
+
+      // Teacher removes portalUid
+      const dbTeacher = testEnv.authenticatedContext(teacherA).firestore();
+      await assertSucceeds(
+        setDoc(doc(dbTeacher, `students/${studentDocId}`), { portalUid: "" }, { merge: true }),
+      );
+
+      // Student now fails to read
+      await assertFails(getDoc(doc(dbStudent, `students/${studentDocId}`)));
+    });
+  });
+
+  describe("student vocabulary (spec 04: RNF01, RNF02, CA08, CT08)", () => {
+    const teacherA = "teacher-1";
+    const studentUser = "student-portal-user-1";
+    const studentDocId = "student-ana-vocab";
+    const otherStudentDocId = "student-bruno-vocab";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        // Ana
+        await setDoc(doc(db, `students/${studentDocId}`), {
+          teacherUid: teacherA,
+          name: "Ana Silva",
+          classIds: ["c1"],
+          portalUid: studentUser,
+          homeworkPin: "hash1111",
+          createdAt: new Date(),
+        });
+        // Bruno
+        await setDoc(doc(db, `students/${otherStudentDocId}`), {
+          teacherUid: teacherA,
+          name: "Bruno Costa",
+          classIds: ["c1"],
+          portalUid: "student-bruno-uid",
+          homeworkPin: "hash2222",
+          createdAt: new Date(),
+        });
+
+        // Seed a word in Ana's dictionary
+        await setDoc(doc(db, `students/${studentDocId}/vocabulary/luggage`), {
+          term: "luggage",
+          meaning: "bagagem",
+          example: "Heavy luggage",
+          sessionIds: ["session-1"],
+          firstAddedAt: new Date().toISOString(),
+          lastAddedAt: new Date().toISOString(),
+          learned: false,
+        });
+
+        // Seed a word in Bruno's dictionary
+        await setDoc(doc(db, `students/${otherStudentDocId}/vocabulary/customs`), {
+          term: "customs",
+          meaning: "alfândega",
+          sessionIds: ["session-1"],
+          firstAddedAt: new Date().toISOString(),
+          lastAddedAt: new Date().toISOString(),
+          learned: false,
+        });
+      });
+    });
+
+    it("teacher can create, read, update and delete vocabulary words", async () => {
+      const dbTeacher = testEnv.authenticatedContext(teacherA).firestore();
+      // Read
+      const snap = await assertSucceeds(
+        getDoc(doc(dbTeacher, `students/${studentDocId}/vocabulary/luggage`)),
+      );
+      expect(snap.data()?.term).toBe("luggage");
+
+      // Create new word
+      await assertSucceeds(
+        setDoc(doc(dbTeacher, `students/${studentDocId}/vocabulary/passport`), {
+          term: "passport",
+          meaning: "passaporte",
+          sessionIds: ["session-1"],
+          firstAddedAt: new Date().toISOString(),
+          lastAddedAt: new Date().toISOString(),
+          learned: false,
+        }),
+      );
+
+      // Update
+      await assertSucceeds(
+        updateDoc(doc(dbTeacher, `students/${studentDocId}/vocabulary/passport`), {
+          meaning: "documento passaporte",
+        }),
+      );
+
+      // Delete
+      await assertSucceeds(
+        deleteDoc(doc(dbTeacher, `students/${studentDocId}/vocabulary/passport`)),
+      );
+    });
+
+    it("student can read their own vocabulary and update ONLY 'learned' (RNF02, CA08)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+
+      // Read own word succeeds
+      const snap = await assertSucceeds(
+        getDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`)),
+      );
+      expect(snap.data()?.meaning).toBe("bagagem");
+
+      // Update ONLY learned succeeds (CA06)
+      await assertSucceeds(
+        updateDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`), {
+          learned: true,
+        }),
+      );
+    });
+
+    it("student operations are DENIED when trying to alter meaning, create word or read other student vocabulary (CA08, CT08)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+
+      // 1. Alter meaning is denied (CA08)
+      await assertFails(
+        updateDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`), {
+          meaning: "hacked meaning",
+        }),
+      );
+
+      // 2. Creating a word is denied (CA08)
+      await assertFails(
+        setDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/boarding-pass`), {
+          term: "boarding pass",
+          meaning: "cartão de embarque",
+          sessionIds: [],
+          firstAddedAt: new Date().toISOString(),
+          lastAddedAt: new Date().toISOString(),
+          learned: false,
+        }),
+      );
+
+      // 3. Reading Bruno's vocabulary is denied (CA08)
+      await assertFails(
+        getDoc(doc(dbStudent, `students/${otherStudentDocId}/vocabulary/customs`)),
+      );
+    });
+  });
+
+  describe("classroom sessions (spec 08: sessão de aula, RF01, RF08, RNF01)", () => {
+    const teacherA = "teacher-A";
+    const teacherB = "teacher-B";
+
+    it("teacher can create, read, update, and delete their own sessions (CA01)", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const sessionRef = doc(dbA, `users/${teacherA}/sessions/s1`);
+
+      await assertSucceeds(
+        setDoc(sessionRef, {
+          classId: "c1",
+          className: "Teens B1",
+          startedAt: new Date(),
+          status: "active",
+          attendance: { student1: true },
+        }),
+      );
+
+      const snap = await assertSucceeds(getDoc(sessionRef));
+      expect(snap.data()?.status).toBe("active");
+
+      await assertSucceeds(
+        updateDoc(sessionRef, {
+          status: "ended",
+          endedAt: new Date(),
+        }),
+      );
+
+      await assertSucceeds(deleteDoc(sessionRef));
+    });
+
+    it("another teacher or unauthenticated user cannot read or write teacher's sessions", async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        await setDoc(doc(ctx.firestore(), `users/${teacherA}/sessions/s-secret`), {
+          classId: "c1",
+          className: "Secret Session",
+          startedAt: new Date(),
+          status: "active",
+        });
+      });
+
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+
+      await assertFails(getDoc(doc(dbB, `users/${teacherA}/sessions/s-secret`)));
+      await assertFails(getDoc(doc(dbAnon, `users/${teacherA}/sessions/s-secret`)));
+      await assertFails(
+        setDoc(doc(dbB, `users/${teacherA}/sessions/s-hacked`), {
+          status: "active",
+        }),
+      );
+    });
+  });
+
+  describe("homework (spec 10: RNF01, RNF07, CA09)", () => {
+    const teacherA = "teacher-hw-a";
+    const teacherB = "teacher-hw-b";
+    const studentUser = "student-portal-1";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        await setDoc(doc(db, "homework/hw-1"), {
+          teacherUid: teacherA,
+          activityId: "act-1",
+          activityTitle: "Animals Quiz",
+          open: true,
+          targetType: "class",
+        });
+        await setDoc(doc(db, "homework/hw-1/assignees/token-123"), {
+          studentId: "s-1",
+          firstName: "Ana",
+        });
+        await setDoc(doc(db, "homework/hw-1/submissions/sub-1"), {
+          studentId: "s-1",
+          studentName: "Ana",
+          correct: 5,
+          total: 5,
+        });
+        await setDoc(doc(db, "students/s-1"), {
+          name: "Ana",
+          teacherUid: teacherA,
+          portalUid: studentUser,
+          classIds: [],
+          homeworkPin: "dummy-hash",
+        });
+        await setDoc(doc(db, "students/s-1/homeworkSubmissions/sub-1"), {
+          homeworkId: "hw-1",
+          correct: 5,
+          total: 5,
+        });
+      });
+    });
+
+    it("anyone with ID can read the homework doc, but cannot list all homeworks (CA09)", async () => {
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+      await assertSucceeds(getDoc(doc(dbAnon, "homework/hw-1")));
+      await assertFails(getDocs(collection(dbAnon, "homework")));
+    });
+
+    it("teacher can list their own homeworks, but another teacher cannot list them", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+
+      await assertSucceeds(
+        getDocs(query(collection(dbA, "homework"), where("teacherUid", "==", teacherA))),
+      );
+      await assertFails(
+        getDocs(query(collection(dbB, "homework"), where("teacherUid", "==", teacherA))),
+      );
+    });
+
+    it("client cannot read or write assignees directly (RNF07)", async () => {
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+
+      await assertFails(getDoc(doc(dbAnon, "homework/hw-1/assignees/token-123")));
+      await assertFails(getDoc(doc(dbA, "homework/hw-1/assignees/token-123")));
+      await assertFails(
+        setDoc(doc(dbA, "homework/hw-1/assignees/token-fake"), { studentId: "s-1" }),
+      );
+    });
+
+    it("submissions are read only by the owner teacher, direct client writes are denied (RNF01, CA09)", async () => {
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+
+      // Non-teacher cannot read submissions
+      await assertFails(getDoc(doc(dbAnon, "homework/hw-1/submissions/sub-1")));
+      await assertFails(getDoc(doc(dbB, "homework/hw-1/submissions/sub-1")));
+
+      // Teacher A can read their submissions
+      await assertSucceeds(getDoc(doc(dbA, "homework/hw-1/submissions/sub-1")));
+
+      // Direct write/create from client is completely denied (CA09: "enviar correct: 50, total: 10")
+      await assertFails(
+        setDoc(doc(dbAnon, "homework/hw-1/submissions/sub-hacked"), {
+          correct: 50,
+          total: 10,
+        }),
+      );
+      await assertFails(
+        setDoc(doc(dbA, "homework/hw-1/submissions/sub-hacked"), {
+          correct: 50,
+          total: 10,
+        }),
+      );
+    });
+
+    it("student portal and teacher can read student homeworkSubmissions, but client write is denied", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+
+      await assertSucceeds(getDoc(doc(dbStudent, "students/s-1/homeworkSubmissions/sub-1")));
+      await assertSucceeds(getDoc(doc(dbA, "students/s-1/homeworkSubmissions/sub-1")));
+      await assertFails(getDoc(doc(dbB, "students/s-1/homeworkSubmissions/sub-1")));
+
+      await assertFails(
+        setDoc(doc(dbStudent, "students/s-1/homeworkSubmissions/sub-new"), {
+          correct: 100,
+        }),
+      );
+    });
+  });
+
+  describe("learning tracks (spec 11: RF01, RF02, RF03, RF05, RNF01, RNF03, CA09)", () => {
+    const teacherA = "teacher-track-a";
+    const teacherB = "teacher-track-b";
+    const studentUser = "student-portal-ana";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        await setDoc(doc(db, "students/s-ana"), {
+          name: "Ana",
+          teacherUid: teacherA,
+          portalUid: studentUser,
+          classIds: [],
+          homeworkPin: "dummy-hash",
+        });
+        await setDoc(doc(db, `users/${teacherA}/tracks/track-1`), {
+          name: "Travel module",
+          activityIds: ["act-1", "act-2"],
+          countClassActivities: true,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+        await setDoc(doc(db, "students/s-ana/tracks/track-1"), {
+          trackId: "track-1",
+          trackName: "Travel module",
+          activityIds: ["act-1", "act-2"],
+          completed: {},
+          assignedAt: new Date(),
+        });
+      });
+    });
+
+    it("teacher can CRUD their own tracks in users/{uid}/tracks", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const trackRef = doc(dbA, `users/${teacherA}/tracks/track-new`);
+
+      // Create
+      await assertSucceeds(
+        setDoc(trackRef, {
+          name: "Grammar Basics",
+          activityIds: ["act-1"],
+          description: "Learn essentials",
+          level: "beginner",
+          countClassActivities: false,
+        }),
+      );
+
+      // Read
+      await assertSucceeds(getDoc(trackRef));
+
+      // Update
+      await assertSucceeds(
+        updateDoc(trackRef, {
+          name: "Grammar Advanced",
+        }),
+      );
+
+      // Delete
+      await assertSucceeds(deleteDoc(trackRef));
+    });
+
+    it("teacher cannot create track with invalid name or empty activityIds", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+
+      // Empty name
+      await assertFails(
+        setDoc(doc(dbA, `users/${teacherA}/tracks/track-bad`), {
+          name: "",
+          activityIds: ["act-1"],
+        }),
+      );
+
+      // Empty activityIds
+      await assertFails(
+        setDoc(doc(dbA, `users/${teacherA}/tracks/track-bad`), {
+          name: "Valid Name",
+          activityIds: [],
+        }),
+      );
+    });
+
+    it("another teacher or unauthenticated user cannot read or write teacher's tracks", async () => {
+      const dbB = testEnv.authenticatedContext(teacherB).firestore();
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+
+      await assertFails(getDoc(doc(dbB, `users/${teacherA}/tracks/track-1`)));
+      await assertFails(getDoc(doc(dbAnon, `users/${teacherA}/tracks/track-1`)));
+      await assertFails(
+        setDoc(doc(dbB, `users/${teacherA}/tracks/track-1`), {
+          name: "Hacked",
+          activityIds: ["act-1"],
+        }),
+      );
+    });
+
+    it("teacher can read and update student track progress in students/{id}/tracks/{id}", async () => {
+      const dbA = testEnv.authenticatedContext(teacherA).firestore();
+      const progRef = doc(dbA, "students/s-ana/tracks/track-1");
+
+      await assertSucceeds(getDoc(progRef));
+      await assertSucceeds(
+        updateDoc(progRef, {
+          "completed.act-1": { at: new Date().toISOString(), source: "manual" },
+        }),
+      );
+    });
+
+    it("student portalUid can read their own track progress", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      await assertSucceeds(getDoc(doc(dbStudent, "students/s-ana/tracks/track-1")));
+    });
+
+    it("student portalUid CANNOT write or update track progress (CA09)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+      const progRef = doc(dbStudent, "students/s-ana/tracks/track-1");
+
+      await assertFails(
+        updateDoc(progRef, {
+          "completed.act-1": { at: new Date().toISOString(), source: "manual" },
+        }),
+      );
+      await assertFails(
+        setDoc(doc(dbStudent, "students/s-ana/tracks/track-new"), {
+          trackId: "track-new",
+          completed: {},
+        }),
+      );
+    });
+  });
 });
+
+

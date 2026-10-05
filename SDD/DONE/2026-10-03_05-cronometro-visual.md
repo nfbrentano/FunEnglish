@@ -1,7 +1,7 @@
 # [FEAT] Cronômetro e timer visual para a aula
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03  
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-04  
 > **Ordem de implementação:** 05 (sequência 00 a 11) · **Depende de:** — (componente isolado) · **Por quê nesta posição:** Plugado na aba Timer pela spec 08
 
 ## Detalhes da Atividade
@@ -49,14 +49,14 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a aba Timer aberta, quando clico na predefinição "2 min", então a contagem começa em 02:00 e diminui a cada segundo, com a barra de progresso acompanhando.
-- [ ] **CA02:** Dado o modo Stopwatch, quando inicio, pauso em 00:15, espero 10 s e retomo, então a contagem continua de 00:15.
-- [ ] **CA03:** Dado um countdown em 00:40, quando clico em "+30 s", então o tempo passa para 01:10 sem reiniciar.
-- [ ] **CA04:** Dado um countdown chegando a zero, quando ele termina, então a tela mostra "Time's up!" piscando e toca um som; com o mudo ativo, só o alerta visual aparece.
-- [ ] **CA05:** Dado um countdown ativo, quando clico em "Big screen", então o timer ocupa a tela inteira e `Esc` volta ao estado anterior sem parar a contagem.
-- [ ] **CA06:** Dado um countdown ativo, quando troco para a aba Board da barra, então o minitimer continua visível no cabeçalho.
-- [ ] **CA07 (limite):** Dado um countdown de 10 min, quando deixo a aba do navegador em segundo plano por 5 min e volto, então o tempo restante está correto, com erro menor que 1 s.
-- [ ] **CA08 (negativo):** Dado que digito "120:00" ou "abc" no tempo personalizado, quando tento iniciar, então o botão Start fica desabilitado e aparece a mensagem "Enter a time up to 99:59".
+- [x] **CA01:** Dado a aba Timer aberta, quando clico na predefinição "2 min", então a contagem começa em 02:00 e diminui a cada segundo, com a barra de progresso acompanhando.
+- [x] **CA02:** Dado o modo Stopwatch, quando inicio, pauso em 00:15, espero 10 s e retomo, então a contagem continua de 00:15.
+- [x] **CA03:** Dado um countdown em 00:40, quando clico em "+30 s", então o tempo passa para 01:10 sem reiniciar.
+- [x] **CA04:** Dado um countdown chegando a zero, quando ele termina, então a tela mostra "Time's up!" piscando e toca um som; com o mudo ativo, só o alerta visual aparece.
+- [x] **CA05:** Dado um countdown ativo, quando clico em "Big screen", então o timer ocupa a tela inteira e `Esc` volta ao estado anterior sem parar a contagem.
+- [x] **CA06:** Dado um countdown ativo, quando troco para a aba Board da barra, então o minitimer continua visível no cabeçalho.
+- [x] **CA07 (limite):** Dado um countdown de 10 min, quando deixo a aba do navegador em segundo plano por 5 min e volto, então o tempo restante está correto, com erro menor que 1 s.
+- [x] **CA08 (negativo):** Dado que digito "120:00" ou "abc" no tempo personalizado, quando tento iniciar, então o botão Start fica desabilitado e aparece a mensagem "Enter a time up to 99:59".
 
 ## O que a atividade não inclui
 

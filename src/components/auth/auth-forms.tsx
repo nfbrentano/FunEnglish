@@ -36,12 +36,18 @@ function useSearch(): string {
   );
 }
 
-/** Sends a signed-in teacher to `next` (also when they open /login while already logged in). */
+/** Sends a signed-in user to their destination (/student for students, or `next` for teachers). */
 function useRedirectWhenSignedIn() {
   const router = useRouter();
   const { user } = useAuth();
   useEffect(() => {
-    if (user) router.replace(nextFromUrl());
+    if (user) {
+      if (user.role === "student") {
+        router.replace("/student");
+      } else {
+        router.replace(nextFromUrl());
+      }
+    }
   }, [user, router]);
 }
 

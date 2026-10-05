@@ -42,7 +42,9 @@ export function BottomNav() {
   const { user } = useAuth();
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const accountHref = user ? "/dashboard" : "/login";
+  if (pathname?.startsWith("/live") || pathname?.startsWith("/homework")) return null;
+
+  const accountHref = user ? (user.role === "student" ? "/student" : "/dashboard") : "/login";
 
   return (
     <>
@@ -74,7 +76,7 @@ export function BottomNav() {
             href={accountHref}
             label={strings.nav.account}
             Icon={User}
-            active={["/login", "/signup", "/dashboard"].includes(pathname)}
+            active={["/login", "/signup", "/dashboard", "/student"].includes(pathname)}
           />
           <li className="flex flex-1">
             <button
