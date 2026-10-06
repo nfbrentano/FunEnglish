@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, LogOut } from "lucide-react";
+import { LayoutDashboard, LogOut, Pencil } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
@@ -111,6 +111,16 @@ function AccountMenu({
             <LayoutDashboard aria-hidden="true" className="size-4" />{" "}
             {user.role === "student" ? "Student portal" : strings.account.dashboard}
           </Link>
+          {user.role !== "student" && (
+            <Link
+              role="menuitem"
+              href="/lousa"
+              className={itemClasses}
+              onClick={() => setOpen(false)}
+            >
+              <Pencil aria-hidden="true" className="size-4" /> Lousa
+            </Link>
+          )}
           <button
             role="menuitem"
             type="button"

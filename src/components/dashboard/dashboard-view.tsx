@@ -142,12 +142,30 @@ export function DashboardView({
 
   return (
     <div className="mx-auto w-full max-w-300 space-y-14 px-4 py-12">
-      <header className="space-y-2">
-        <h1 className="font-display text-5xl font-medium">
-          {name ? strings.dashboard.welcome(name) : strings.dashboard.welcomeAnonymous}
-        </h1>
-        <p className="text-fg-secondary">{strings.dashboard.subtitle}</p>
-        <nav aria-label={strings.dashboard.sectionsNav} className="flex flex-wrap gap-2 pt-2">
+      <header className="space-y-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <h1 className="font-display text-5xl font-medium">
+              {name ? strings.dashboard.welcome(name) : strings.dashboard.welcomeAnonymous}
+            </h1>
+            <p className="text-fg-secondary">{strings.dashboard.subtitle}</p>
+          </div>
+          <ButtonLink
+            href="/lousa"
+            className="flex items-center gap-2 self-start rounded-full bg-accent px-5 py-2.5 font-semibold text-primary shadow-sm hover:bg-accent/90"
+          >
+            <Pencil className="size-4" />
+            <span>Abrir Lousa Digital</span>
+          </ButtonLink>
+        </div>
+        <nav aria-label={strings.dashboard.sectionsNav} className="flex flex-wrap gap-2 pt-1">
+          <a
+            href="/lousa"
+            className="flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-medium text-accent hover:bg-accent hover:text-primary transition-colors"
+          >
+            <Pencil className="size-3.5" />
+            Lousa
+          </a>
           {[
             ["students", "My Students"],
             ["availability", "Availability"],
