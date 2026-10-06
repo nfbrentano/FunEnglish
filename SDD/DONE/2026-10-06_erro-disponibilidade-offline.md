@@ -23,6 +23,7 @@
 | RF03 | `functions/src/billing.ts` e `booking.ts` obtêm o Firestore via `getAdminFirestore()` dentro dos handlers (não no topo do módulo, onde falhava com `app/no-app`), e o build das functions não tem variáveis sem uso (TS6133). Run 37475807065. | P0 | CA04 |
 | RF04 | `dashboard.test.tsx` mocka as seções com testes próprios (pendências, billing, alunos, disponibilidade, turmas, homework, trilhas), que chamavam o Firestore e logavam após o teardown (`Closing rpc while "onUserConsoleLog" was pending`, run 37483230393). | P0 | CA02 |
 | RF05 | Corrigir o que o commit f0897e4 quebrou no CI (run 37508461028): import duplicado de `ClassroomTimer` em `classroom-sidebar.tsx` e erros de tipo no `next build` (`Weekday` em `availability-section.tsx`, `null` do Konva e `variant="default"` inexistente em `interactive-whiteboard.tsx`). | P0 | CA04 |
+| RF06 | `FavoritesProvider` sincroniza a ref `latest` em `useLayoutEffect`: com `useEffect`, uma ação logo após a renderização lia estado antigo (ex.: `deleteList` não achava a lista). Teste intermitente no CI: `favorites.test.tsx > deleting a list keeps its favorites` (PR #31, run 37514466733). | P0 | CA02 |
 
 ### Requisitos não-funcionais
 

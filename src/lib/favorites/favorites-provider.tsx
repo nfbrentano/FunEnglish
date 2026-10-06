@@ -5,6 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -71,8 +72,9 @@ export function FavoritesProvider({
     setLists([]);
   }
   // Latest values for the callbacks (kept stable, so hearts don't re-render on every change).
+  // Synced in a layout effect so an action fired right after a render never sees stale state.
   const latest = useRef({ favorites, lists });
-  useEffect(() => {
+  useLayoutEffect(() => {
     latest.current = { favorites, lists };
   }, [favorites, lists]);
 
