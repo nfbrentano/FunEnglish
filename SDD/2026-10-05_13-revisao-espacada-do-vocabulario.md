@@ -1,8 +1,10 @@
 # [FEAT] Revisão espaçada do vocabulário do aluno (Daily Review)
 
 > **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-05
-> **Ordem de implementação:** 13 · **Depende de:** 03, 04 · **Por quê nesta posição:** Dá ao aluno um motivo para voltar ao portal entre as aulas, usando dados que já existem
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
+> **Ordem de implementação:** 13 (ordem nova: 4ª das pendentes, depois da 14) · **Depende de:** 03, 04 (17 para a visão do professor) · **Por quê nesta posição:** Dá ao aluno um motivo para voltar ao portal entre as aulas, usando dados que já existem
+>
+> **Atualização 2026-10-06:** revisada depois das specs 17–20. O banco de vocabulário já é por aluno, então o núcleo não muda. A visão do professor fica na página do aluno com abas (spec 17), e a dúvida sobre "nível kids" foi reescrita: o nível agora é CEFR.
 
 ## Detalhes da Atividade
 
@@ -25,7 +27,7 @@
 | RF04 | Limite diário configurável pelo aluno (padrão 20 revisões e 10 palavras novas) | P1 | CA04 |
 | RF05 | Modo inverso opcional (significado → termo) | P1 | CA05 |
 | RF06 | Ao terminar: resumo ("12 reviewed · 3 to repeat") e sequência de dias ("🔥 4-day streak") | P1 | CA06 |
-| RF07 | Professor vê na página do aluno: palavras dominadas (intervalo ≥ 21 dias), em revisão e atrasadas; e a data da última revisão | P1 | CA07 |
+| RF07 | Professor vê na página do aluno (aba Vocabulary, com resumo na Overview, spec 17 RF07/RF10): palavras dominadas (intervalo ≥ 21 dias), em revisão e atrasadas; e a data da última revisão | P1 | CA07 |
 | RF08 | "Learned" manual (spec 04) passa a significar "suspensa": a palavra sai da revisão | P0 | CA08 |
 
 ### Requisitos não-funcionais
@@ -72,6 +74,7 @@
 - Lembrete diário por e-mail/push quando houver palavras vencidas.
 - Revisão em outros formatos (ditado com TTS, completar a frase do exemplo).
 - Importar palavras de atividades do catálogo para o banco (RF08 da spec 04).
+- No início da aula 1:1 (spec 17), mostrar ao professor as palavras vencidas do aluno para revisarem juntos.
 
 ## Dúvidas em aberto
 
@@ -79,7 +82,7 @@
 |---|--------|-----------------------------|-------------|----------|
 | D01 | Alunos sem portal (só link de homework) também revisam? | PO | Não | Sugestão: não na v1 |
 | D02 | O professor pode forçar uma palavra a voltar para a revisão (reset)? | PO | Não | |
-| D03 | 4 botões ou 2 ("Didn't know / Knew it") para crianças? | design | Não | Sugestão: 2 botões quando o nível for kids |
+| D03 | 4 botões ou 2 ("Didn't know / Knew it") para crianças? | design | Não | Não existe "nível kids": o nível do aluno é CEFR (A1–C2, spec 17). Sugestão: opção "Simple review (2 buttons)" por aluno, ligada pelo professor |
 
 ## Sugestões de casos de teste
 
@@ -97,7 +100,7 @@
 
 ## URL Complementar
 
-- Documentação técnica: `SDD/DONE/2026-10-03_04-banco-de-vocabulario-do-aluno.md`; `SDD/DONE/2026-10-03_03-portal-do-aluno.md`.
+- Documentação técnica: `SDD/DONE/2026-10-03_04-banco-de-vocabulario-do-aluno.md`; `SDD/DONE/2026-10-03_03-portal-do-aluno.md`; `SDD/DONE/2026-10-05_17-alunos-individuais-e-aula-1a1.md`.
 - Protótipo / mockup:
 - Discussões relacionadas: P2 "Repetição espaçada" da spec 04.
 - Referências de design: algoritmo SM-2 (SuperMemo), Anki.
