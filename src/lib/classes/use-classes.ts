@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth/use-auth";
+import {
   archiveClass,
   copyStudentToClass,
   createClass,

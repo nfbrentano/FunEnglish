@@ -26,6 +26,7 @@ function formatTimestamp(ms: number): string {
 }
 
 export function EndSessionModal() {
+  const [now] = useState(() => Date.now());
   const session = useSessionContext();
   const toast = useToast();
   const { students } = useClasses();
@@ -35,11 +36,10 @@ export function EndSessionModal() {
   }
 
   const active = session.activeSession;
-
   // Calculate elapsed minutes
   const initialDurationMinutes = Math.max(
     1,
-    Math.round((Date.now() - active.startedAt.getTime()) / 60000),
+    Math.round((now - active.startedAt.getTime()) / 60000),
   );
 
   return (
