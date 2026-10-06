@@ -61,8 +61,9 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
 
   const handlePointerDown = (e: KonvaEventObject<PointerEvent>) => {
     if (!isTeacher) return;
+    const pos = e.target.getStage()?.getPointerPosition();
+    if (!pos) return;
     setIsDrawing(true);
-    const pos = e.target.getStage().getPointerPosition();
     const newStrokeId = `stroke_${Date.now().toString().padStart(15, "0")}_${Math.floor(Math.random() * 1000)}`;
     currentStrokeIdRef.current = newStrokeId;
 
@@ -80,8 +81,8 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
 
   const handlePointerMove = (e: KonvaEventObject<PointerEvent>) => {
     if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
-    const stage = e.target.getStage();
-    const point = stage.getPointerPosition();
+    const point = e.target.getStage()?.getPointerPosition();
+    if (!point) return;
     
     setStrokes((prev) => {
       const lastStroke = prev[prev.length - 1];
@@ -184,7 +185,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
               <Trash2 className="size-4" /> Limpar Lousa
             </Button>
             {onClose && (
-              <Button onClick={onClose} variant="default" className="gap-1.5 px-4 text-xs font-semibold">
+              <Button onClick={onClose} variant="primary" className="gap-1.5 px-4 text-xs font-semibold">
                 <X className="size-4" /> Fechar Lousa
               </Button>
             )}

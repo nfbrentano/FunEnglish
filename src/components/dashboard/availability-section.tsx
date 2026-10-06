@@ -5,7 +5,7 @@ import { Clock, Calendar, Settings, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth/use-auth";
 import { getAvailabilitySettings, saveAvailabilitySettings } from "@/lib/schedule/repository";
-import type { AvailabilitySettings, AvailabilityWindow, AvailabilityBlock } from "@/lib/schedule/types";
+import type { AvailabilitySettings, AvailabilityWindow, AvailabilityBlock, Weekday } from "@/lib/schedule/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
 
@@ -132,7 +132,7 @@ export function AvailabilitySection() {
                 <div key={idx} className="flex flex-wrap items-center gap-3 p-3 border border-border-subtle rounded-xl bg-primary">
                   <select
                     value={win.weekday}
-                    onChange={(e) => updateWindow(idx, "weekday", parseInt(e.target.value))}
+                    onChange={(e) => updateWindow(idx, "weekday", Number(e.target.value) as Weekday)}
                     className="flex-1 min-w-30 rounded-lg bg-elevated border border-border-strong px-2 py-1.5 text-sm"
                   >
                     {WEEKDAYS.map((day, i) => (

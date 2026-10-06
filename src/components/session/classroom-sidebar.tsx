@@ -24,7 +24,6 @@ import { Button } from "@/components/ui/button";
 import { ClassroomBoard } from "@/components/board/classroom-board";
 import { ClassroomPicker } from "@/components/ui/classroom-picker";
 import { ClassroomTimer } from "@/components/ui/classroom-timer";
-import { ClassroomTimer } from "@/components/ui/classroom-timer";
 import { LiveRoomSidebarPanel } from "@/components/live/live-room-sidebar-panel";
 import { InteractiveWhiteboard } from "@/components/live/interactive-whiteboard";
 import { useClasses } from "@/lib/classes/use-classes";
