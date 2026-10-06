@@ -53,8 +53,12 @@ function mapSessionDoc(id: string, data: DocumentData): ClassroomSession {
   return {
     id,
     teacherUid: data.teacherUid,
+    kind: data.kind || "class",
     classId: data.classId,
-    className: data.className || "Class",
+    className: data.className,
+    studentId: data.studentId,
+    studentName: data.studentName,
+    mode: data.mode,
     startedAt: toDate(data.startedAt),
     endedAt: data.endedAt ? toDate(data.endedAt) : undefined,
     status: (data.status as SessionStatus) || "active",
@@ -74,6 +78,9 @@ function mapSessionDoc(id: string, data: DocumentData): ClassroomSession {
     boardText: data.boardText || "",
     durationMinutes: typeof data.durationMinutes === "number" ? data.durationMinutes : undefined,
     classNotes: data.classNotes || "",
+    summary: data.summary,
+    nextFocus: data.nextFocus,
+    summaryShared: data.summaryShared,
     lastActivityAt: data.lastActivityAt ? toDate(data.lastActivityAt) : undefined,
   };
 }
@@ -120,6 +127,61 @@ export async function createSession(
     teacherUid,
     classId,
     className,
+    startedAt: now,
+    status: "active",
+    attendance,
+    activitiesPlayed: [],
+    newWords: [],
+    notes: [],
+    boardText: "",
+    classNotes: "",
+    lastActivityAt: now,
+  };
+}
+
+/**
+ * Creates and starts a new 1:1 session for a student (Spec 17).
+ */
+export async function createOneToOneSession(
+  teacherUid: string,
+  studentId: string,
+  studentName: string,
+  mode?: "online" | "in-person",
+): Promise<ClassroomSession> {
+  const db = getDb();
+  const sessionsCol = collection(db, `users/${teacherUid}/sessions`);
+  const sessionRef = doc(sessionsCol);
+  const now = new Date();
+
+  // For 1:1, we don't strictly need attendance, but we can set it to true for the single student.
+  const attendance: Record<string, boolean> = { [studentId]: true };
+
+  const sessionData = {
+    teacherUid,
+    kind: "one-to-one",
+    studentId,
+    studentName,
+    mode: mode || "online",
+    startedAt: now,
+    status: "active",
+    attendance,
+    activitiesPlayed: [],
+    newWords: [],
+    notes: [],
+    boardText: "",
+    classNotes: "",
+    lastActivityAt: now,
+  };
+
+  await setDoc(sessionRef, sessionData);
+
+  return {
+    id: sessionRef.id,
+    teacherUid,
+    kind: "one-to-one",
+    studentId,
+    studentName,
+    mode: mode || "online",
     startedAt: now,
     status: "active",
     attendance,
@@ -230,6 +292,9 @@ export async function endSession(
     classNotes: review.classNotes || "",
     durationMinutes: review.durationMinutes,
     liveResults: review.liveResults || null,
+    summary: review.summary || null,
+    nextFocus: review.nextFocus || null,
+    summaryShared: review.summaryShared || false,
     lastActivityAt: now,
   });
 
@@ -280,9 +345,16 @@ export async function endSession(
       words: review.words.map((w) => w.term),
       boardText: review.boardText || "",
       classNotes: review.classNotes || "",
+      summary: review.summaryShared ? review.summary : null,
+      nextFocus: review.summaryShared ? review.nextFocus : null,
       studentNotes: studentSharedNotes,
       liveResult: studentLiveResult,
       createdAt: now,
+    });
+    
+    // Update student's lastLessonAt
+    await updateDoc(doc(db, `students/${studentId}`), {
+      lastLessonAt: session.startedAt,
     });
   }
 
@@ -338,6 +410,7 @@ export async function endSession(
 export async function getPastSessions(
   teacherUid: string,
   classId?: string,
+  studentId?: string,
 ): Promise<ClassroomSession[]> {
   const db = getDb();
   const sessionsCol = collection(db, `users/${teacherUid}/sessions`);
@@ -354,6 +427,9 @@ export async function getPastSessions(
     if (classId) {
       return sessions.filter((s) => s.classId === classId);
     }
+    if (studentId) {
+      return sessions.filter((s) => s.studentId === studentId && s.kind === "one-to-one");
+    }
     return sessions;
   } catch (err) {
     console.warn("Could not query past sessions with order, using fallback:", err);
@@ -364,6 +440,9 @@ export async function getPastSessions(
       .sort((a, b) => b.startedAt.getTime() - a.startedAt.getTime());
     if (classId) {
       return sessions.filter((s) => s.classId === classId);
+    }
+    if (studentId) {
+      return sessions.filter((s) => s.studentId === studentId && s.kind === "one-to-one");
     }
     return sessions;
   }

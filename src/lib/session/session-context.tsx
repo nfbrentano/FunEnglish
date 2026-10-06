@@ -14,6 +14,7 @@ import { useStudentMode } from "@/lib/student-mode";
 import type { CreateNoteInput, StudentNote } from "@/lib/notes/types";
 import {
   createSession,
+  createOneToOneSession,
   discardSession,
   endSession,
   getActiveSession,
@@ -44,6 +45,7 @@ export interface SessionContextType {
 
   // Actions
   startClass: (classId: string, className: string, studentIds: string[]) => Promise<void>;
+  startOneToOne: (studentId: string, studentName: string, mode?: "online" | "in-person") => Promise<void>;
   resumeSession: () => void;
   dismissResume: () => void;
   discardCurrentSession: () => Promise<void>;
@@ -316,6 +318,34 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     [user, activeSession],
   );
 
+  // Start 1:1 session action (Spec 17)
+  const startOneToOne = useCallback(
+    async (studentId: string, studentName: string, mode?: "online" | "in-person") => {
+      if (!user) throw new Error("Must be logged in to start lesson.");
+
+      if (activeSession && activeSession.status === "active") {
+        if (activeSession.studentId === studentId && activeSession.kind === "one-to-one") {
+          setIsSidebarOpen(true);
+          setIsCollapsed(false);
+          return;
+        }
+        // Conflict logic needs updating to handle 1:1 conflicts, for now we just use the same prompt
+        setPendingClassToStart({ classId: studentId, className: studentName, studentIds: [studentId] });
+        setConflictModalOpen(true);
+        return;
+      }
+
+      const session = await createOneToOneSession(user.uid, studentId, studentName, mode);
+      setActiveSession(session);
+      saveLocalSnapshot(user.uid, session);
+      setIsSidebarOpen(true);
+      setIsCollapsed(false);
+      setActiveTab("notes"); // In 1:1 we default to notes instead of students
+      setResumePromptClass(null);
+    },
+    [user, activeSession],
+  );
+
   // Resume class action (RF09, CA08)
   const resumeSession = useCallback(() => {
     if (!resumePromptClass) return;
@@ -546,6 +576,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         toggleProjectionMode,
 
         startClass,
+        startOneToOne,
         resumeSession,
         dismissResume,
         discardCurrentSession,

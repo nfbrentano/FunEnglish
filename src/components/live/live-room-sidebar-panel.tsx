@@ -178,7 +178,7 @@ export function LiveRoomSidebarPanel() {
                           {student?.name || "Student"}
                         </span>
                         <span className="text-[11px] text-muted truncate">
-                          "{ans.value}"
+                          &quot;{ans.value}&quot;
                         </span>
                       </div>
                       {ans.pointsAwarded ? (
@@ -208,7 +208,7 @@ export function LiveRoomSidebarPanel() {
             <p className="text-xs text-muted leading-relaxed">
               Student devices currently show:
               <br />
-              <span className="font-semibold text-fg">"Look at your teacher's screen 👀"</span>
+              <span className="font-semibold text-fg">&quot;Look at your teacher&apos;s screen 👀&quot;</span>
             </p>
           </div>
           <p className="text-[11px] text-accent/90">

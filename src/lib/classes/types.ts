@@ -41,3 +41,10 @@ export interface CreatedStudentResult {
   student: Student;
   rawPin: string;
 }
+
+export interface StudentPrivateProfile {
+  phone?: string;
+  meetingUrl?: string;
+  address?: string;
+  privateNotes?: string;
+}

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
 import { useClasses } from "@/lib/classes/use-classes";
+import type { SessionMode } from "@/lib/session/types";
 import { useSessionContext } from "@/lib/session/session-context";
 
 export function StudentsSection() {
@@ -83,7 +84,7 @@ export function StudentsSection() {
                 onClick={async () => {
                   try {
                     if (session?.startOneToOne) {
-                      await session.startOneToOne(student.id, student.name, student.defaultMode as any);
+                      await session.startOneToOne(student.id, student.name, student.defaultMode as SessionMode);
                     } else {
                       // Fallback if session context doesn't have startOneToOne yet
                       toast("startOneToOne not implemented in session context yet");

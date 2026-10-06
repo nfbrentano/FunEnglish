@@ -510,7 +510,7 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
 
                                 {past.boardText && (
                                   <p className="text-fg-secondary italic">
-                                    "{past.boardText}"
+                                    &quot;{past.boardText}&quot;
                                   </p>
                                 )}
                               </li>

@@ -320,28 +320,30 @@ export function ClassroomSidebar() {
         }`}
       >
         {/* Students Tab */}
-        <button
-          type="button"
-          role="tab"
-          id="tab-students"
-          aria-selected={activeTab === "students"}
-          aria-controls="panel-students"
-          onClick={() => {
-            setActiveTab("students");
-            if (isCollapsed) toggleCollapsed();
-          }}
-          title={`${strings.session.tabs.students} (${presentCount})`}
-          className={`flex items-center justify-center gap-1.5 rounded-xl transition-all ${
-            isCollapsed ? "size-10" : "flex-1 py-1.5 text-xs font-medium"
-          } ${
-            activeTab === "students"
-              ? "bg-accent text-primary shadow-sm"
-              : "text-fg-secondary hover:bg-elevated hover:text-fg"
-          }`}
-        >
-          <Users className="size-4" />
-          {!isCollapsed && <span>{strings.session.tabs.students}</span>}
-        </button>
+        {activeSession.kind !== "one-to-one" && (
+          <button
+            type="button"
+            role="tab"
+            id="tab-students"
+            aria-selected={activeTab === "students"}
+            aria-controls="panel-students"
+            onClick={() => {
+              setActiveTab("students");
+              if (isCollapsed) toggleCollapsed();
+            }}
+            title={`${strings.session.tabs.students} (${presentCount})`}
+            className={`flex items-center justify-center gap-1.5 rounded-xl transition-all ${
+              isCollapsed ? "size-10" : "flex-1 py-1.5 text-xs font-medium"
+            } ${
+              activeTab === "students"
+                ? "bg-accent text-primary shadow-sm"
+                : "text-fg-secondary hover:bg-elevated hover:text-fg"
+            }`}
+          >
+            <Users className="size-4" />
+            {!isCollapsed && <span>{strings.session.tabs.students}</span>}
+          </button>
+        )}
 
         {/* Timer Tab */}
         <button
@@ -392,28 +394,30 @@ export function ClassroomSidebar() {
         </button>
 
         {/* Picker Tab */}
-        <button
-          type="button"
-          role="tab"
-          id="tab-picker"
-          aria-selected={activeTab === "picker"}
-          aria-controls="panel-picker"
-          onClick={() => {
-            setActiveTab("picker");
-            if (isCollapsed) toggleCollapsed();
-          }}
-          title={strings.session.tabs.picker}
-          className={`flex items-center justify-center gap-1.5 rounded-xl transition-all ${
-            isCollapsed ? "size-10" : "flex-1 py-1.5 text-xs font-medium"
-          } ${
-            activeTab === "picker"
-              ? "bg-accent text-primary shadow-sm"
-              : "text-fg-secondary hover:bg-elevated hover:text-fg"
-          }`}
-        >
-          <Sparkles className="size-4" />
-          {!isCollapsed && <span>{strings.session.tabs.picker}</span>}
-        </button>
+        {activeSession.kind !== "one-to-one" && (
+          <button
+            type="button"
+            role="tab"
+            id="tab-picker"
+            aria-selected={activeTab === "picker"}
+            aria-controls="panel-picker"
+            onClick={() => {
+              setActiveTab("picker");
+              if (isCollapsed) toggleCollapsed();
+            }}
+            title={strings.session.tabs.picker}
+            className={`flex items-center justify-center gap-1.5 rounded-xl transition-all ${
+              isCollapsed ? "size-10" : "flex-1 py-1.5 text-xs font-medium"
+            } ${
+              activeTab === "picker"
+                ? "bg-accent text-primary shadow-sm"
+                : "text-fg-secondary hover:bg-elevated hover:text-fg"
+            }`}
+          >
+            <Sparkles className="size-4" />
+            {!isCollapsed && <span>{strings.session.tabs.picker}</span>}
+          </button>
+        )}
 
         {/* Notes Tab */}
         <button

@@ -4,18 +4,13 @@ import {
   AlertTriangle,
   BookOpen,
   Calendar,
-  CheckCircle,
-  Clock,
-  ExternalLink,
   Lock,
   LockOpen,
   Share2,
   Trash2,
-  Users,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
@@ -56,6 +51,7 @@ export function HomeworkSection() {
     if (!user) return;
     let active = true;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     Promise.all([getTeacherHomeworkList(user.uid), getTeacherPinLockouts(user.uid)])
       .then(([list, lockouts]) => {
@@ -73,6 +69,7 @@ export function HomeworkSection() {
     return () => {
       active = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const loadSubmissions = async (hwId: string) => {

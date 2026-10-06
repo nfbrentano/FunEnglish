@@ -4,7 +4,6 @@ import {
   Check,
   Circle,
   Milestone,
-  Minus,
   Plus,
   Trash2,
 } from "lucide-react";
@@ -61,7 +60,9 @@ export function StudentTracksSection({ studentId, studentName }: StudentTracksSe
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId, user]);
 
   const handleToggleStep = async (
@@ -90,6 +91,7 @@ export function StudentTracksSection({ studentId, studentName }: StudentTracksSe
       await setStepCompletion(studentId, trackId, activityId, !currentlyCompleted, "manual");
     } catch (err) {
       toast("Error updating step completion");
+      console.warn("handleToggleStep err:", err);
       loadData();
     }
   };

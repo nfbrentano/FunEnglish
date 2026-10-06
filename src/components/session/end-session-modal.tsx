@@ -77,6 +77,9 @@ function EndSessionModalInner({
   const [boardText, setBoardText] = useState(active.boardText || "");
   const [classNotes, setClassNotes] = useState(active.classNotes || "");
   const [notes, setNotes] = useState<StudentNote[]>([...active.notes]);
+  const [summary, setSummary] = useState(active.summary || "");
+  const [nextFocus, setNextFocus] = useState(active.nextFocus || "");
+  const [summaryShared, setSummaryShared] = useState(active.summaryShared ?? false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const live = useLiveRoom();
 
@@ -171,6 +174,9 @@ function EndSessionModalInner({
         classNotes,
         durationMinutes,
         liveResults,
+        summary,
+        nextFocus,
+        summaryShared,
       });
       if (live?.isLiveActive) {
         await live.closeRoom();
@@ -367,19 +373,58 @@ function EndSessionModalInner({
             />
           </div>
 
-          {/* Whole class notes */}
-          <div className="space-y-2">
-            <h3 className="text-sm font-semibold text-fg">
-              {strings.session.review.classNotesHeading}
-            </h3>
-            <textarea
-              value={classNotes}
-              onChange={(e) => setClassNotes(e.target.value)}
-              rows={2}
-              placeholder={strings.session.review.classNotesPlaceholder}
-              className="w-full rounded-2xl border border-border-subtle bg-primary p-3 text-xs text-fg placeholder:text-muted focus:border-accent focus:outline-none"
-            />
-          </div>
+          {/* Summary & Next Focus (1:1 only) */}
+          {active.kind === "one-to-one" && (
+            <div className="space-y-4 rounded-2xl border border-accent/20 bg-accent/5 p-4">
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold text-fg">Lesson Summary</h3>
+                <textarea
+                  value={summary}
+                  onChange={(e) => setSummary(e.target.value)}
+                  rows={3}
+                  maxLength={2000}
+                  placeholder="Summary of this 1:1 session..."
+                  className="w-full rounded-xl border border-border-strong bg-primary p-3 text-xs text-fg placeholder-muted focus:border-accent focus:outline-none"
+                />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold text-fg">Next Lesson Focus</h3>
+                <textarea
+                  value={nextFocus}
+                  onChange={(e) => setNextFocus(e.target.value)}
+                  rows={2}
+                  maxLength={300}
+                  placeholder="What should be the focus next time?"
+                  className="w-full rounded-xl border border-border-strong bg-primary p-3 text-xs text-fg placeholder-muted focus:border-accent focus:outline-none"
+                />
+              </div>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={summaryShared}
+                  onChange={(e) => setSummaryShared(e.target.checked)}
+                  className="rounded border-border-strong text-accent focus:ring-accent"
+                />
+                <span className="text-xs text-fg-secondary">Share summary and focus with student</span>
+              </label>
+            </div>
+          )}
+
+          {/* Whole class notes (Class only) */}
+          {active.kind !== "one-to-one" && (
+            <div className="space-y-2">
+              <h3 className="text-sm font-semibold text-fg">
+                {strings.session.review.classNotesHeading}
+              </h3>
+              <textarea
+                value={classNotes}
+                onChange={(e) => setClassNotes(e.target.value)}
+                rows={2}
+                placeholder={strings.session.review.classNotesPlaceholder}
+                className="w-full rounded-2xl border border-border-subtle bg-primary p-3 text-xs text-fg placeholder:text-muted focus:border-accent focus:outline-none"
+              />
+            </div>
+          )}
 
           {/* Student feedback and notes (CA06: edit or remove before confirm) */}
           <div className="space-y-2">

@@ -26,6 +26,7 @@ import {
   type CreatedStudentResult,
   type Student,
   type TeacherClass,
+  type StudentPrivateProfile,
 } from "./types";
 
 function toDate(val: unknown): Date {
@@ -633,4 +634,22 @@ export async function getTeacherStudents(teacherUid: string): Promise<Student[]>
       lastLessonAt: data.lastLessonAt ? toDate(data.lastLessonAt) : undefined,
     };
   });
+}
+
+/**
+ * Fetches the private profile for a student (Spec 17).
+ */
+export async function getStudentPrivateProfile(studentId: string): Promise<StudentPrivateProfile | null> {
+  const db = getDb();
+  const snap = await getDoc(doc(db, `students/${studentId}/private/profile`));
+  if (!snap.exists()) return null;
+  return snap.data() as StudentPrivateProfile;
+}
+
+/**
+ * Updates the private profile for a student (Spec 17).
+ */
+export async function updateStudentPrivateProfile(studentId: string, profile: StudentPrivateProfile): Promise<void> {
+  const db = getDb();
+  await setDoc(doc(db, `students/${studentId}/private/profile`), profile, { merge: true });
 }

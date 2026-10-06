@@ -63,6 +63,9 @@ export interface SessionEndReviewData {
   classNotes?: string;
   durationMinutes: number;
   liveResults?: Record<string, SessionLiveResult>;
+  summary?: string;
+  nextFocus?: string;
+  summaryShared?: boolean;
 }
 
 export const SESSION_LOCAL_STORAGE_PREFIX = "fun-english-active-session";
