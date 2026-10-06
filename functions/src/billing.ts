@@ -1,16 +1,15 @@
 import { onDocumentUpdated } from "firebase-functions/v2/firestore";
 import { onSchedule } from "firebase-functions/v2/scheduler";
-import { getFirestore, FieldValue } from "firebase-admin/firestore";
-
-const db = getFirestore();
+import { FieldValue } from "firebase-admin/firestore";
+import { getAdminFirestore } from "./helpers/firebase-admin.js";
 
 export const onLessonUpdated = onDocumentUpdated("users/{teacherUid}/lessons/{lessonId}", async (event) => {
+  const db = getAdminFirestore();
   const before = event.data?.before.data();
   const after = event.data?.after.data();
   if (!before || !after) return;
 
   const lessonId = event.params.lessonId;
-  const teacherUid = event.params.teacherUid;
   const studentId = after.studentId;
   if (!studentId) return;
 
@@ -115,6 +114,7 @@ export const onLessonUpdated = onDocumentUpdated("users/{teacherUid}/lessons/{le
 });
 
 export const renewMonthlyPlans = onSchedule("every day 00:00", async (event) => {
+  const db = getAdminFirestore();
   const now = new Date();
   const yearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   

@@ -1,15 +1,8 @@
 import { z } from "zod";
-import { getFirestore, FieldValue } from "firebase-admin/firestore";
+import { FieldValue } from "firebase-admin/firestore";
+import { getAdminFirestore } from "./helpers/firebase-admin.js";
 import { createCallable } from "./helpers/callable.js";
 import { HttpsError } from "firebase-functions/v2/https";
-
-const db = getFirestore();
-
-// Helper to calculate available slots
-function computeSlots(settings: any, existingLessons: any[], now: Date) {
-  // Mock logic for now
-  return [];
-}
 
 export const getAvailableSlots = createCallable({
   schema: z.object({
@@ -19,6 +12,7 @@ export const getAvailableSlots = createCallable({
     endDate: z.string(), // ISO date
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
 
     const teacherRef = db.doc(`users/${data.teacherUid}/availability/settings`);
@@ -39,6 +33,7 @@ export const bookLesson = createCallable({
     mode: z.enum(["online", "in-person"])
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
     const studentUid = context.auth.uid;
 
@@ -89,6 +84,7 @@ export const cancelLesson = createCallable({
     lessonId: z.string(),
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
     
     const lessonRef = db.doc(`users/${data.teacherUid}/lessons/${data.lessonId}`);
@@ -109,6 +105,7 @@ export const respondToProposal = createCallable({
     accept: z.boolean(),
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
     
     const lessonRef = db.doc(`users/${data.teacherUid}/lessons/${data.lessonId}`);
@@ -135,6 +132,7 @@ export const rescheduleLesson = createCallable({
     durationMin: z.number(),
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
     
     const lessonRef = db.doc(`users/${data.teacherUid}/lessons/${data.lessonId}`);
@@ -156,6 +154,7 @@ export const joinLesson = createCallable({
     lessonId: z.string(),
   }),
   handler: async (data, context) => {
+    const db = getAdminFirestore();
     if (!context.auth) throw new HttpsError("unauthenticated", "Must be logged in");
     
     const lessonRef = db.doc(`users/${data.teacherUid}/lessons/${data.lessonId}`);
