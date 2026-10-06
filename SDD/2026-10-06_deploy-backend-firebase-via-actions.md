@@ -18,7 +18,7 @@
 
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
-| RF01 | Job `deploy-backend` em `deploy.yml` roda `firebase deploy --only functions,firestore:rules,firestore:indexes,storage,database` no projeto de produção. | P0 | CA01 |
+| RF01 | Job `deploy-backend` em `deploy.yml` roda `firebase deploy --only functions,firestore:rules,firestore:indexes,database` no projeto de produção. Regras do Storage ficam manuais (`npm run deploy:storage-rules`), ver D03. | P0 | CA01 |
 | RF02 | O job só roda depois do job `deploy` (lint, testes e builds já aprovados) e nunca roda se ele falhar. | P0 | CA02 |
 | RF03 | O job só roda com a variável de repositório `DEPLOY_BACKEND` = `true` (liga/desliga sem mudar código). | P0 | CA03 |
 | RF04 | Não roda no rebuild diário agendado (`schedule`): ele existe só para o Hosting. | P1 | CA04 |
@@ -52,6 +52,7 @@
 
 ## O que a atividade não inclui
 
+- Regras do Storage no CI: motivo: 404 do bucket padrão para o service account (D03); publicadas à mão.
 - Deploy do backend em preview de PR: motivo: functions/regras não têm canal de preview; publicaria em produção.
 - Conceder os papéis IAM: motivo: alteração de segurança na conta GCP, feita pelo dono do projeto.
 - Workload Identity Federation (sem chave JSON): motivo: o projeto já usa chave JSON; migração é outra iniciativa.
@@ -66,6 +67,7 @@
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
 | D02 | Quais papéis faltaram no primeiro run? | dev | Não | `roles/firebasestorage.viewer` (`firebasestorage.defaultBucket.get`, run 37487215629). |
+| D03 | Por que o Storage ficou fora? | dev | Não | Com o bucket já ativo, `GET /v1alpha/projects/fun-english-972a2/defaultBucket` responde 200 para o Owner e 404 para o `github-deploy` (runs 37502482208, tentativas 2–4). Decisão: Storage fora do CI. |
 | D01 | Usar o mesmo service account do Hosting ou um novo só para o backend? | dev | Não | Mesmo (menos segredos); papéis listados no README. |
 
 ## Sugestões de casos de teste

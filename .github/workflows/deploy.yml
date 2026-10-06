@@ -49,8 +49,9 @@ jobs:
           channelId: live
 
   deploy-backend:
-    # Cloud Functions, Firestore rules and indexes, Storage and Realtime Database rules, once the site job
-    # has passed lint and tests. Off until the DEPLOY_BACKEND variable is "true" (needs the extra IAM
+    # Cloud Functions, Firestore rules and indexes and Realtime Database rules, once the site job has
+    # passed lint and tests. Storage rules stay manual (npm run deploy:storage-rules): the Firebase
+    # Storage API answers 404 for the default bucket to this service account. Off until the DEPLOY_BACKEND variable is "true" (needs the extra IAM
     # roles in README > Deploy). Not on the daily rebuild, which only refreshes the static site.
     needs: deploy
     if: ${{ vars.DEPLOY_BACKEND == 'true' && github.event_name != 'schedule' }}
@@ -70,6 +71,6 @@ jobs:
       # Artifact Registry cleanup policy, both of which would otherwise prompt.
       - run: >-
           npx firebase deploy
-          --only functions,firestore:rules,firestore:indexes,storage,database
+          --only functions,firestore:rules,firestore:indexes,database
           --project ${{ vars.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
           --non-interactive --force

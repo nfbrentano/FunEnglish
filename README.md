@@ -121,13 +121,14 @@ One-time setup:
 ### Functions and rules
 
 The `deploy-backend` job in `deploy.yml` runs `firebase deploy --only
-functions,firestore:rules,firestore:indexes,storage,database` after the site job passes, on pushes to
-`main` and manual runs. It uses the same `FIREBASE_SERVICE_ACCOUNT`, which then also needs:
+functions,firestore:rules,firestore:indexes,database` after the site job passes, on pushes to `main`
+and manual runs. Storage rules are not in it (the Firebase Storage API answers 404 for the default
+bucket to the service account): publish them by hand with `npm run deploy:storage-rules` when
+`storage.rules` changes. The job uses the same `FIREBASE_SERVICE_ACCOUNT`, which then also needs:
 
 - **Cloud Functions Admin**, **Service Account User**, **Artifact Registry Administrator**,
   **Cloud Scheduler Admin** and **Service Usage Consumer** (functions, including scheduled ones);
-- **Firebase Rules Admin** (Firestore and Storage rules), **Cloud Storage for Firebase Viewer**
-  (finds the default bucket for Storage rules), **Cloud Datastore Index Admin** (indexes) and
+- **Firebase Rules Admin** (Firestore rules), **Cloud Datastore Index Admin** (indexes) and
   **Firebase Realtime Database Admin** (database rules).
 
 Then set the repository variable `DEPLOY_BACKEND` to `true`. Until then the job is skipped and the
