@@ -117,3 +117,19 @@ One-time setup:
    - Variables `NEXT_PUBLIC_SITE_URL` (`https://<project-id>.web.app`) and the
      `NEXT_PUBLIC_FIREBASE_*` web config.
 3. Push to `main` (or run the Deploy workflow by hand). The site is at `https://<project-id>.web.app`.
+
+### Functions and rules
+
+The `deploy-backend` job in `deploy.yml` runs `firebase deploy --only
+functions,firestore:rules,firestore:indexes,storage,database` after the site job passes, on pushes to
+`main` and manual runs. It uses the same `FIREBASE_SERVICE_ACCOUNT`, which then also needs:
+
+- **Cloud Functions Admin**, **Service Account User**, **Artifact Registry Administrator**,
+  **Cloud Scheduler Admin** and **Service Usage Consumer** (functions, including scheduled ones);
+- **Firebase Rules Admin** (Firestore and Storage rules), **Cloud Datastore Index Admin** (indexes)
+  and **Firebase Realtime Database Admin** (database rules).
+
+Then set the repository variable `DEPLOY_BACKEND` to `true`. Until then the job is skipped and the
+backend is deployed by hand (`npm run deploy:functions`, `npm run deploy:rules`). `--force` deletes
+functions and indexes that are no longer in the repo, so create indexes in `firestore.indexes.json`,
+not in the console.

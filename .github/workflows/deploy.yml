@@ -47,3 +47,29 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           projectId: ${{ vars.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
           channelId: live
+
+  deploy-backend:
+    # Cloud Functions, Firestore rules and indexes, Storage and Realtime Database rules, once the site job
+    # has passed lint and tests. Off until the DEPLOY_BACKEND variable is "true" (needs the extra IAM
+    # roles in README > Deploy). Not on the daily rebuild, which only refreshes the static site.
+    needs: deploy
+    if: ${{ vars.DEPLOY_BACKEND == 'true' && github.event_name != 'schedule' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm --prefix functions ci
+      - uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      # --force: lets functions and indexes missing from the repo be deleted, and sets the
+      # Artifact Registry cleanup policy, both of which would otherwise prompt.
+      - run: >-
+          npx firebase deploy
+          --only functions,firestore:rules,firestore:indexes,storage,database
+          --project ${{ vars.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+          --non-interactive --force
