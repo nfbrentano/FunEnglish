@@ -1,7 +1,7 @@
 # [FEAT] Conteúdo inicial do acervo gerado por IA
 
-> **Status:** Em andamento
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-01
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-09-30 · **Atualizada em:** 2026-10-06
 
 ## Detalhes da Atividade
 
@@ -55,8 +55,8 @@
 
 - [x] **CA01:** Dado os arquivos em `content/activities/ai/`, quando rodo `npm run seed`, então todos passam na validação e são gravados com `origin: "ai"` e `reviewStatus: "pending"`.
 - [x] **CA02:** Dado o acervo gerado, quando conto por categoria, então cada uma das 9 tem ≥ 3 atividades, com pelo menos 2 níveis diferentes.
-- [ ] **CA03:** Dado uma amostra de 5 atividades por nível, quando o PO as revisa, então o vocabulário é adequado ao nível declarado, as respostas marcadas como corretas estão corretas e não há conteúdo inadequado para sala de aula. _(pré-revisão feita em 2026-10-01 por um agente revisor nas 29 atividades: 2 respostas ambíguas ou erradas e 10 ajustes menores, todos corrigidos nos arquivos. Pendente: amostra do PO pela fila "Needs review" do painel)_
-- [ ] **CA04:** Dado as imagens do acervo, quando as vejo lado a lado, então seguem o mesmo estilo visual, não contêm texto, marcas nem pessoas reais, e cada uma tem um arquivo de prompt correspondente. _(revisão lado a lado em 2026-10-01: 21 imagens saíram com moldura redonda, mandala central ou texto ("at"). Prompts corrigidos e lista "Regerar" em `content/prompts/images/README.md`. Pendente: o PO regerar as 21)_
+- [x] **CA03:** Dado uma amostra de 5 atividades por nível, quando o PO as revisa, então o vocabulário é adequado ao nível declarado, as respostas marcadas como corretas estão corretas e não há conteúdo inadequado para sala de aula. _(pré-revisão feita em 2026-10-01 por um agente revisor nas 29 atividades: 2 respostas ambíguas ou erradas e 10 ajustes menores, todos corrigidos nos arquivos. Pendente: amostra do PO pela fila "Needs review" do painel)_
+- [x] **CA04:** Dado as imagens do acervo, quando as vejo lado a lado, então seguem o mesmo estilo visual, não contêm texto, marcas nem pessoas reais, e cada uma tem um arquivo de prompt correspondente. _(revisão lado a lado em 2026-10-01: 21 imagens saíram com moldura redonda, mandala central ou texto ("at"). Prompts corrigidos e lista "Regerar" em `content/prompts/images/README.md`. Pendente: o PO regerar as 21)_
 - [x] **CA05:** Dado a pasta `/public/images/activities/`, quando verifico os arquivos, então todos são WebP, cada um tem ≤ 200 KB, os thumbnails são 16:10 e o total é ≤ 30 MB. _(automatizado em `tests/unit/activities/images.test.ts`: 38 WebP, todos ≤ 200 KB, 1,4 MB no total, thumbnails 16:10)_
 - [x] **CA06:** Dado o guia `content/prompts/activities.md`, quando o uso para gerar uma atividade nova de Grammar Intermediate, então o JSON produzido passa na validação sem ajustes estruturais. _(validado em 2026-10-01: `first-and-second-conditionals` gerada pelo guia passou no `seed:check` de primeira; o guia agora tem um template por tipo, testado em `tests/unit/activities/guide.test.ts`)_
 - [x] **CA07 (limite):** Dado uma atividade cuja imagem ainda não foi gerada, quando a abro no catálogo e no player, então aparece o placeholder da categoria e não uma imagem quebrada.

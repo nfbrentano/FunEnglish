@@ -1,7 +1,7 @@
 # [FEAT] Fila de imagens no painel: anexar várias e enviar todas de uma vez
 
-> **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-03
+> **Status:** Concluída
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-03 · **Atualizada em:** 2026-10-06
 
 ## Detalhes da Atividade
 
@@ -59,17 +59,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o item "reading-science-news / thumb" em Missing images, quando clico em "Attach" e escolho um PNG de 1536×1024, então vejo a prévia recortada em 16:10, o selo "Queued" e "1 image queued" na barra, e **nenhum** commit é feito.
-- [ ] **CA02:** Dado 3 imagens na fila, quando clico em "Send all (3)", então vejo o progresso, é criado **1 commit** em `main` com os 3 arquivos em `public/images/activities/…`, a mensagem cita os 3 slugs, a fila fica vazia e os 3 itens aparecem como "Uploaded — live after the deploy".
-- [ ] **CA03:** Dado 5 imagens na fila, quando recarrego a página (ou fecho e reabro o navegador), então os 5 itens continuam na fila com as prévias.
-- [ ] **CA04:** Dado um item na fila, quando clico em "Replace" e escolho outra imagem, então a prévia muda e a fila continua com 1 item para esse arquivo; e "Remove" o tira da fila.
-- [ ] **CA05 (erro):** Dado 10 imagens na fila, quando o envio falha (sem rede ou GitHub responde erro), então aparece a mensagem de erro com "Try again", as 10 imagens continuam na fila e nenhum commit é criado em `main`.
-- [ ] **CA06 (limite):** Dado um item na fila cuja imagem já está no site após um deploy, quando abro a página, então o item aparece como "Already on the site" e não entra no "Send all".
-- [ ] **CA07:** Dado que escolho 4 arquivos com "Upload several", sendo 3 com nome válido e 1 com nome desconhecido, quando confirmo, então os 3 válidos entram na fila (sem enviar) e o desconhecido aparece em "Skipped".
-- [ ] **CA08:** Dado 2 imagens na fila, quando tento fechar a aba ou sair da página, então o navegador pede confirmação.
-- [ ] **CA09 (limite):** Dado uma fila com 200 itens, quando tento anexar mais um, então vejo "Queue is full — send what you have first" e o item não é adicionado.
-- [ ] **CA10 (negativo):** Dado um navegador em modo privado com o IndexedDB bloqueado, quando anexo imagens, então a fila funciona na sessão atual, aparece o aviso de que não sobreviverá a recarregar, e não há erro no console.
-- [ ] **CA11 (negativo):** Dado o token do GitHub não configurado, quando clico em "Send all", então vejo o aviso para conectar o GitHub (como hoje), e a fila permanece intacta.
+- [x] **CA01:** Dado o item "reading-science-news / thumb" em Missing images, quando clico em "Attach" e escolho um PNG de 1536×1024, então vejo a prévia recortada em 16:10, o selo "Queued" e "1 image queued" na barra, e **nenhum** commit é feito.
+- [x] **CA02:** Dado 3 imagens na fila, quando clico em "Send all (3)", então vejo o progresso, é criado **1 commit** em `main` com os 3 arquivos em `public/images/activities/…`, a mensagem cita os 3 slugs, a fila fica vazia e os 3 itens aparecem como "Uploaded — live after the deploy".
+- [x] **CA03:** Dado 5 imagens na fila, quando recarrego a página (ou fecho e reabro o navegador), então os 5 itens continuam na fila com as prévias.
+- [x] **CA04:** Dado um item na fila, quando clico em "Replace" e escolho outra imagem, então a prévia muda e a fila continua com 1 item para esse arquivo; e "Remove" o tira da fila.
+- [x] **CA05 (erro):** Dado 10 imagens na fila, quando o envio falha (sem rede ou GitHub responde erro), então aparece a mensagem de erro com "Try again", as 10 imagens continuam na fila e nenhum commit é criado em `main`.
+- [x] **CA06 (limite):** Dado um item na fila cuja imagem já está no site após um deploy, quando abro a página, então o item aparece como "Already on the site" e não entra no "Send all".
+- [x] **CA07:** Dado que escolho 4 arquivos com "Upload several", sendo 3 com nome válido e 1 com nome desconhecido, quando confirmo, então os 3 válidos entram na fila (sem enviar) e o desconhecido aparece em "Skipped".
+- [x] **CA08:** Dado 2 imagens na fila, quando tento fechar a aba ou sair da página, então o navegador pede confirmação.
+- [x] **CA09 (limite):** Dado uma fila com 200 itens, quando tento anexar mais um, então vejo "Queue is full — send what you have first" e o item não é adicionado.
+- [x] **CA10 (negativo):** Dado um navegador em modo privado com o IndexedDB bloqueado, quando anexo imagens, então a fila funciona na sessão atual, aparece o aviso de que não sobreviverá a recarregar, e não há erro no console.
+- [x] **CA11 (negativo):** Dado o token do GitHub não configurado, quando clico em "Send all", então vejo o aviso para conectar o GitHub (como hoje), e a fila permanece intacta.
 
 ## O que a atividade não inclui
 

@@ -102,35 +102,89 @@ export async function verifyToken(token: string, fetcher: Fetch = fetch): Promis
   return login;
 }
 
+export const BLOB_CONCURRENCY = 4;
+
+async function callWithRetry<T>(
+  token: string,
+  path: string,
+  init: RequestInit = {},
+  fetcher: Fetch = fetch,
+  maxRetries = 2,
+): Promise<T> {
+  let attempt = 0;
+  while (true) {
+    try {
+      return await call<T>(token, path, init, fetcher);
+    } catch (err) {
+      if (
+        attempt < maxRetries &&
+        err instanceof GitHubError &&
+        (err.status === 403 || err.status === 429)
+      ) {
+        attempt++;
+        const delay = Math.pow(2, attempt) * 500;
+        await new Promise((r) => setTimeout(r, delay));
+        continue;
+      }
+      throw err;
+    }
+  }
+}
+
+/** Runs tasks with a maximum concurrency limit (RNF04). */
+export async function mapConcurrent<T, R>(
+  items: readonly T[],
+  limit: number,
+  fn: (item: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let currentIndex = 0;
+
+  async function worker() {
+    while (currentIndex < items.length) {
+      const idx = currentIndex++;
+      results[idx] = await fn(items[idx], idx);
+    }
+  }
+
+  const workers = Array.from({ length: Math.min(limit, items.length) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
 export type RepoFile = { path: string; base64: string };
 
 /**
- * Commits files to main in ONE commit (Git Data API: blobs, tree, commit, ref). Retries once if
- * main moved meanwhile. Returns the commit's web URL.
+ * Commits files to main in ONE commit (Git Data API: blobs, tree, commit, ref).
+ * Uploads blobs with concurrency limited to 4 and backoff retry on 403/429 (RNF04, CA05).
+ * Retries once if main moved meanwhile. Returns the commit's web URL.
  */
 export async function commitFiles(
   token: string,
   files: readonly RepoFile[],
   message: string,
   fetcher: Fetch = fetch,
+  onBlobProgress?: (completed: number, total: number) => void,
 ): Promise<string> {
   if (files.length === 0) throw new GitHubError("Nothing to upload.");
-  const blobs = await Promise.all(
-    files.map(async (file) => ({
+  let completedCount = 0;
+  const blobs = await mapConcurrent(files, BLOB_CONCURRENCY, async (file) => {
+    const res = await callWithRetry<{ sha: string }>(
+      token,
+      `/repos/${REPO}/git/blobs`,
+      {
+        method: "POST",
+        body: JSON.stringify({ content: file.base64, encoding: "base64" }),
+      },
+      fetcher,
+    );
+    completedCount++;
+    onBlobProgress?.(completedCount, files.length);
+    return {
       path: file.path,
-      sha: (
-        await call<{ sha: string }>(
-          token,
-          `/repos/${REPO}/git/blobs`,
-          {
-            method: "POST",
-            body: JSON.stringify({ content: file.base64, encoding: "base64" }),
-          },
-          fetcher,
-        )
-      ).sha,
-    })),
-  );
+      sha: res.sha,
+    };
+  });
 
   for (let attempt = 0; ; attempt++) {
     const ref = await call<{ object: { sha: string } }>(
