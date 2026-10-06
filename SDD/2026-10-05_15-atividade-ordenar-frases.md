@@ -1,8 +1,8 @@
 # [FEAT] Novo tipo de atividade: Ordenar frases (Sentence Builder)
 
 > **Status:** Rascunho
-> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-05
-> **Ordem de implementação:** 15 · **Depende de:** motor de atividades, painel admin · **Por quê nesta posição:** Independente; pode ser feita em paralelo às specs 12–14
+> **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
+> **Ordem de implementação:** 15 (ordem nova: 1ª das pendentes) · **Depende de:** motor de atividades, painel admin · **Por quê nesta posição:** Independente do modelo de alunos (revisada em 2026-10-06, sem mudança de escopo); pode ser feita em paralelo às specs 12–14
 
 ## Detalhes da Atividade
 
@@ -25,7 +25,7 @@
 | RF04 | Pontuação: 1 ponto por frase certa na 1ª tentativa; "Try again" permitido, sem ponto | P0 | CA05 |
 | RF05 | Opções do plugin: "Show translation" e "Read aloud after correct" (TTS) | P1 | CA06 |
 | RF06 | Editor no admin (`structured-editor`) com pré-visualização das peças e botão "Split by words" | P0 | CA07 |
-| RF07 | Suporte a homework (grava `answers[]` com `itemId`, `given`, `correct`) e à sala ao vivo | P1 | CA08 |
+| RF07 | Suporte a homework (grava `answers[]` com `itemId`, `given`, `correct`) e à sala ao vivo, inclusive a 1:1 (spec 17) | P1 | CA08 |
 | RF08 | Prompt de IA em `content/prompts/activities.md` atualizado com o novo tipo, para gerar conteúdo | P1 | |
 
 ### Requisitos não-funcionais
