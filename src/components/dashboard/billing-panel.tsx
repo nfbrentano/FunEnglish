@@ -49,15 +49,6 @@ export function BillingPanel() {
     }
   };
 
-  const handleExportCsv = async () => {
-    if (!user) return;
-    const now = new Date();
-    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-    
-    // We can just fetch the ledgers again using getTeacherMonthlyRevenue's internal logic, or add a new function
-    // For now, let's just trigger a toast
-    // Proper CSV requires fetching `ledger` entries with amountCents
-  };
 
   return (
     <div className="rounded-2xl border border-border-subtle bg-elevated shadow-sm overflow-hidden">

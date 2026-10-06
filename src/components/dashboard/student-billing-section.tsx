@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Plus, Minus, CreditCard, Clock, FileText, Download, MessageCircle, X } from "lucide-react";
+import { Plus, CreditCard, Clock, FileText, Download, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";

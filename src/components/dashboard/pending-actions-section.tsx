@@ -57,7 +57,7 @@ export function PendingActionsSection() {
             if (profile?.phone) {
               phoneMap[id] = profile.phone;
             }
-          } catch (e) {
+          } catch (_) {
             // ignore
           }
         })

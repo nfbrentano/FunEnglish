@@ -2,6 +2,8 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { Stage, Layer, Line } from "react-konva";
+import type Konva from "konva";
+import type { KonvaEventObject } from "konva/lib/Node";
 import { getDatabaseInstance } from "@/lib/firebase";
 import { ref, onValue, set, remove, off } from "firebase/database";
 import { Trash2, Eraser, Pen, X } from "lucide-react";
@@ -15,6 +17,9 @@ interface Stroke {
   tool: "pen" | "eraser";
 }
 
+// Konva strokes from realtime db might lack specific types
+type RTDBStrokeData = Record<string, Omit<Stroke, "id">>;
+
 interface InteractiveWhiteboardProps {
   roomCode: string;
   isTeacher: boolean;
@@ -24,9 +29,9 @@ interface InteractiveWhiteboardProps {
 export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: InteractiveWhiteboardProps) {
   const [strokes, setStrokes] = useState<Stroke[]>([]);
   const [tool, setTool] = useState<"pen" | "eraser">("pen");
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("black");
   const [isDrawing, setIsDrawing] = useState(false);
-  const stageRef = useRef<any>(null);
+  const stageRef = useRef<Konva.Stage | null>(null);
   const currentStrokeIdRef = useRef<string | null>(null);
 
   // Sync with Firebase Realtime Database
@@ -36,7 +41,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
     const drawingsRef = ref(db, `liveRooms/${roomCode}/drawings`);
     
     const unsubscribe = onValue(drawingsRef, (snapshot) => {
-      const data = snapshot.val();
+      const data = snapshot.val() as RTDBStrokeData | null;
       if (data) {
         // Convert map to array and sort by ID (which has timestamp)
         const strokesArray = Object.keys(data).map(key => ({
@@ -54,7 +59,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
     };
   }, [roomCode]);
 
-  const handlePointerDown = (e: any) => {
+  const handlePointerDown = (e: KonvaEventObject<PointerEvent>) => {
     if (!isTeacher) return;
     setIsDrawing(true);
     const pos = e.target.getStage().getPointerPosition();
@@ -73,7 +78,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
     setStrokes((prev) => [...prev, newStroke]);
   };
 
-  const handlePointerMove = (e: any) => {
+  const handlePointerMove = (e: KonvaEventObject<PointerEvent>) => {
     if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
     const stage = e.target.getStage();
     const point = stage.getPointerPosition();
@@ -121,7 +126,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
      remove(drawingsRef).catch(err => console.error("Failed to clear board:", err));
   };
 
-  const colors = ["#000000", "#EF4444", "#3B82F6", "#10B981"];
+  const colors = ["black", "red", "blue", "green"];
 
   // Use state for window dimensions to avoid hydration errors
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -201,7 +206,7 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
               <Line
                 key={stroke.id}
                 points={stroke.points}
-                stroke={stroke.tool === "eraser" ? "#ffffff" : stroke.color}
+                stroke={stroke.tool === "eraser" ? "white" : stroke.color}
                 strokeWidth={stroke.size}
                 tension={0.5}
                 lineCap="round"

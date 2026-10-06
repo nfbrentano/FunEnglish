@@ -66,7 +66,7 @@ export function AvailabilitySection() {
     }));
   };
 
-  const updateWindow = (idx: number, field: keyof AvailabilityWindow, value: any) => {
+  const updateWindow = <K extends keyof AvailabilityWindow>(idx: number, field: K, value: AvailabilityWindow[K]) => {
     setSettings(s => {
       const newWindows = [...s.windows];
       newWindows[idx] = { ...newWindows[idx], [field]: value };
@@ -89,7 +89,7 @@ export function AvailabilitySection() {
     }));
   };
 
-  const updateBlock = (idx: number, field: keyof AvailabilityBlock, value: any) => {
+  const updateBlock = <K extends keyof AvailabilityBlock>(idx: number, field: K, value: AvailabilityBlock[K]) => {
     setSettings(s => {
       const newBlocks = [...s.blocks];
       newBlocks[idx] = { ...newBlocks[idx], [field]: value };
