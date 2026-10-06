@@ -42,6 +42,19 @@ export function SiteHeader() {
                 </li>
               );
             })}
+            {user && user.role !== "student" && (
+              <li>
+                <Link
+                  href="/lousa"
+                  aria-current={isActivePath(pathname, "/lousa") ? "page" : undefined}
+                  className={`text-sm transition-colors duration-200 ${
+                    isActivePath(pathname, "/lousa") ? "text-accent" : "text-fg-secondary hover:text-fg"
+                  }`}
+                >
+                  Lousa
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
         <div className="ml-auto hidden items-center gap-4 md:flex">

@@ -1,6 +1,6 @@
 # [CHORE] Deploy de functions e regras do Firebase via GitHub Actions
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano (com Claude) · **Revisor:** · **Criada em:** 2026-10-06 · **Atualizada em:** 2026-10-06
 
 ## Detalhes da Atividade
@@ -44,11 +44,11 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado `DEPLOY_BACKEND=true` e o service account com os papéis, quando há push na `main`, então functions, regras e índices são publicados e o job fica verde.
-- [ ] **CA02:** Dado que lint ou testes falham no job `deploy`, quando o workflow roda, então `deploy-backend` não executa.
+- [x] **CA01:** Dado `DEPLOY_BACKEND=true` e o service account com os papéis, quando há push na `main`, então functions, regras e índices são publicados e o job fica verde.
+- [x] **CA02:** Dado que lint ou testes falham no job `deploy`, quando o workflow roda, então `deploy-backend` não executa.
 - [x] **CA03:** Dado que `DEPLOY_BACKEND` não existe, quando há push na `main`, então `deploy-backend` aparece como *skipped* e o deploy do Hosting segue normal.
-- [ ] **CA04:** Dado o rebuild diário agendado, quando o workflow roda, então `deploy-backend` é *skipped*.
-- [ ] **CA05:** Dado que falta uma permissão IAM, quando `deploy-backend` falha, então o Hosting já foi publicado pelo job `deploy`.
+- [ ] **CA04:** Dado o rebuild diário agendado, quando o workflow roda, então `deploy-backend` é *skipped*. _(garantido pela condição `github.event_name != 'schedule'`; ainda não observado num run agendado)_
+- [x] **CA05:** Dado que falta uma permissão IAM, quando `deploy-backend` falha, então o Hosting já foi publicado pelo job `deploy`.
 
 ## O que a atividade não inclui
 
@@ -68,6 +68,7 @@
 |---|--------|-----------------------------|-------------|----------|
 | D02 | Quais papéis faltaram no primeiro run? | dev | Não | `roles/firebasestorage.viewer` (`firebasestorage.defaultBucket.get`, run 37487215629). |
 | D03 | Por que o Storage ficou fora? | dev | Não | Com o bucket já ativo, `GET /v1alpha/projects/fun-english-972a2/defaultBucket` responde 200 para o Owner e 404 para o `github-deploy` (runs 37502482208, tentativas 2–4). Decisão: Storage fora do CI. |
+| D04 | Evidências | dev | Não | CA01: run 37509254733 (25 functions, 8 criadas; regras Firestore/RTDB; índices). CA02: run 37508461028 (testes falharam, backend *skipped*). CA03: run de 636f0ae. CA05: run 37487215629 (Hosting publicado, backend falhou). |
 | D01 | Usar o mesmo service account do Hosting ou um novo só para o backend? | dev | Não | Mesmo (menos segredos); papéis listados no README. |
 
 ## Sugestões de casos de teste
