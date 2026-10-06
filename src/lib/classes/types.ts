@@ -11,6 +11,11 @@ export interface TeacherClass {
   createdAt: Date;
 }
 
+export type StudentLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+export type StudentGoal = "Travel" | "Work" | "Exam" | "Conversation" | "School" | "Other";
+export type StudentStatus = "Active" | "Paused" | "Former";
+export type SessionMode = "online" | "in-person";
+
 export interface Student {
   id: string;
   teacherUid: string;
@@ -20,6 +25,16 @@ export interface Student {
   portalUid?: string;
   homeworkPin: string; // SHA-256 hex hash
   createdAt: Date;
+  
+  // Spec 17 fields for 1:1 and profile
+  level?: StudentLevel;
+  goal?: StudentGoal;
+  goalNote?: string;
+  interests?: string[];
+  defaultMode?: SessionMode;
+  status?: StudentStatus;
+  startedAt?: Date;
+  lastLessonAt?: Date;
 }
 
 export interface CreatedStudentResult {

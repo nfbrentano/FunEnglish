@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ActivityCard } from "@/components/catalog/activity-card";
 import { Carousel } from "@/components/catalog/carousel";
 import { ClassesSection } from "@/components/dashboard/classes-section";
+import { StudentsSection } from "@/components/dashboard/students-section";
 import { HomeworkSection } from "@/components/dashboard/homework-section";
 import { TracksSection } from "@/components/tracks/tracks-section";
 import { Button, ButtonLink } from "@/components/ui/button";
@@ -145,6 +146,7 @@ export function DashboardView({
         <p className="text-fg-secondary">{strings.dashboard.subtitle}</p>
         <nav aria-label={strings.dashboard.sectionsNav} className="flex flex-wrap gap-2 pt-2">
           {[
+            ["students", "My Students"],
             ["classes", strings.dashboard.classes],
             ["homework", strings.homework.dashboardTitle],
             ["tracks", strings.dashboard.tracks],
@@ -162,6 +164,8 @@ export function DashboardView({
           ))}
         </nav>
       </header>
+
+      <StudentsSection />
 
       <ClassesSection />
 

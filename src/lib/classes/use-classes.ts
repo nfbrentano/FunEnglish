@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth/use-auth";
-import {
   archiveClass,
   copyStudentToClass,
   createClass,
   createStudent,
+  createIndividualStudent,
   createStudentsBatch,
   deleteClass,
   deleteStudentAccount,
@@ -119,6 +119,20 @@ export function useClasses() {
     return result;
   };
 
+  const addIndividualStudent = async (data: {
+    name: string;
+    email?: string;
+    level?: string;
+    goal?: string;
+    interests?: string[];
+    defaultMode?: string;
+  }): Promise<CreatedStudentResult> => {
+    if (!user) throw new Error("Must be logged in.");
+    const result = await createIndividualStudent(user.uid, data);
+    await refresh();
+    return result;
+  };
+
   const addStudentsBatch = async (
     classId: string,
     rawText: string,
@@ -183,6 +197,7 @@ export function useClasses() {
     toggleArchiveClass,
     removeClass,
     addStudent,
+    addIndividualStudent,
     addStudentsBatch,
     copyStudent,
     moveStudent,

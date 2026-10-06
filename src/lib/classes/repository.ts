@@ -242,6 +242,88 @@ export async function createStudent(
 }
 
 /**
+ * Creates an individual student without a class, using the new 1:1 profile fields (Spec 17).
+ */
+export async function createIndividualStudent(
+  teacherUid: string,
+  data: {
+    name: string;
+    email?: string;
+    level?: string;
+    goal?: string;
+    interests?: string[];
+    defaultMode?: string;
+  }
+): Promise<CreatedStudentResult> {
+  const trimmedName = data.name.trim().replace(/\s+/g, " ");
+  if (!trimmedName || trimmedName.length > 100) {
+    throw new Error("Student name must be between 1 and 100 characters.");
+  }
+
+  const trimmedEmail = data.email?.trim() || undefined;
+  if (trimmedEmail) {
+    const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 254) {
+      throw new Error("Invalid student email address.");
+    }
+  }
+
+  const db = getDb();
+  
+  // Check teacher overall limit
+  const teacherStudentsQuery = query(
+    collection(db, "students"),
+    where("teacherUid", "==", teacherUid),
+  );
+  const teacherStudentsSnap = await getDocs(teacherStudentsQuery);
+  if (teacherStudentsSnap.size >= MAX_STUDENTS_PER_TEACHER) {
+    throw new Error(
+      `Teacher has reached the maximum of ${MAX_STUDENTS_PER_TEACHER} students.`
+    );
+  }
+
+  const studentRef = doc(collection(db, "students"));
+  const rawPin = generateHomeworkPin();
+  const hashedPin = await hashHomeworkPin(rawPin);
+  const now = new Date();
+
+  const studentDocData: Record<string, unknown> = {
+    teacherUid,
+    name: trimmedName,
+    classIds: [], // no class
+    homeworkPin: hashedPin,
+    createdAt: now,
+    status: "Active",
+  };
+  
+  if (trimmedEmail) studentDocData.email = trimmedEmail;
+  if (data.level) studentDocData.level = data.level;
+  if (data.goal) studentDocData.goal = data.goal;
+  if (data.interests && data.interests.length > 0) studentDocData.interests = data.interests.slice(0, 10);
+  if (data.defaultMode) studentDocData.defaultMode = data.defaultMode;
+
+  await setDoc(studentRef, studentDocData);
+
+  return {
+    student: {
+      id: studentRef.id,
+      teacherUid,
+      name: trimmedName,
+      email: trimmedEmail,
+      classIds: [],
+      homeworkPin: hashedPin,
+      createdAt: now,
+      status: "Active",
+      level: data.level as any,
+      goal: data.goal as any,
+      interests: data.interests?.slice(0, 10),
+      defaultMode: data.defaultMode as any,
+    },
+    rawPin,
+  };
+}
+
+/**
  * Adds multiple students in a batch from raw pasted text (RF03, CA02).
  */
 export async function createStudentsBatch(
@@ -511,6 +593,14 @@ export async function getStudent(studentId: string): Promise<Student | null> {
     portalUid: data.portalUid,
     homeworkPin: data.homeworkPin,
     createdAt: toDate(data.createdAt),
+    level: data.level,
+    goal: data.goal,
+    goalNote: data.goalNote,
+    interests: data.interests,
+    defaultMode: data.defaultMode,
+    status: data.status,
+    startedAt: data.startedAt ? toDate(data.startedAt) : undefined,
+    lastLessonAt: data.lastLessonAt ? toDate(data.lastLessonAt) : undefined,
   };
 }
 
@@ -533,6 +623,14 @@ export async function getTeacherStudents(teacherUid: string): Promise<Student[]>
       portalUid: data.portalUid,
       homeworkPin: data.homeworkPin,
       createdAt: toDate(data.createdAt),
+      level: data.level,
+      goal: data.goal,
+      goalNote: data.goalNote,
+      interests: data.interests,
+      defaultMode: data.defaultMode,
+      status: data.status,
+      startedAt: data.startedAt ? toDate(data.startedAt) : undefined,
+      lastLessonAt: data.lastLessonAt ? toDate(data.lastLessonAt) : undefined,
     };
   });
 }

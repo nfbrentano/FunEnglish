@@ -24,11 +24,21 @@ export interface SessionLiveResult {
   score: number;
 }
 
+export type SessionKind = "class" | "one-to-one";
+export type SessionMode = "online" | "in-person";
+
 export interface ClassroomSession {
   id: string;
   teacherUid: string;
-  classId: string;
-  className: string;
+  kind?: SessionKind; // optional for backwards compatibility, defaults to "class"
+  classId?: string;
+  className?: string;
+  studentId?: string;
+  studentName?: string;
+  mode?: SessionMode;
+  summary?: string;
+  nextFocus?: string;
+  summaryShared?: boolean;
   startedAt: Date;
   endedAt?: Date;
   status: SessionStatus;
