@@ -196,7 +196,7 @@ export function ClassroomSidebar() {
     <aside
       aria-label="Classroom Session Sidebar"
       className={`fixed right-0 top-0 bottom-0 z-40 flex flex-col border-l border-border-subtle bg-elevated shadow-2xl transition-all duration-200 select-none ${
-        isCollapsed ? "w-16" : "w-full max-w-[420px] sm:w-[420px]"
+        isCollapsed ? "w-16" : "w-full max-w-105 sm:w-105"
       }`}
     >
       {/* Top Header */}
@@ -611,7 +611,7 @@ export function ClassroomSidebar() {
               id="panel-board"
               role="tabpanel"
               aria-labelledby="tab-board"
-              className="h-full min-h-[460px] p-2 space-y-2"
+              className="h-full min-h-115 p-2 space-y-2"
             >
               {live?.isLiveActive && (
                 <div className="flex items-center justify-between rounded-2xl border border-border-subtle bg-primary/30 p-2 px-3">

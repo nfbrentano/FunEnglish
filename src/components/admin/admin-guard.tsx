@@ -23,7 +23,7 @@ function AdminOnly({ children }: { children: ReactNode }) {
       <div
         role="status"
         aria-label={strings.admin.loading}
-        className="mx-auto w-full max-w-[1200px] px-4 py-16"
+        className="mx-auto w-full max-w-300 px-4 py-16"
       >
         <Skeleton className="h-40 w-full" />
       </div>
@@ -31,7 +31,7 @@ function AdminOnly({ children }: { children: ReactNode }) {
   }
   if (!admin) {
     return (
-      <div className="mx-auto w-full max-w-[1200px] px-4">
+      <div className="mx-auto w-full max-w-300 px-4">
         <PlayerMessage title={strings.admin.notAuthorized}>
           {strings.admin.notAuthorizedHint}
         </PlayerMessage>

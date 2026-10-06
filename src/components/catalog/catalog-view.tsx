@@ -55,7 +55,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
           />
         }
       />
-      <div className="mx-auto w-full max-w-[1200px] space-y-14 px-4 py-12">
+      <div className="mx-auto w-full max-w-300 space-y-14 px-4 py-12">
         {!waiting && items.length > 0 && (
           <FilterBar
             filters={filters}
@@ -141,7 +141,7 @@ function CatalogSkeleton() {
           <div className="flex gap-4 overflow-hidden">
             {[0, 1, 2, 3].map((card) => (
               <div key={card} className="w-64 shrink-0 space-y-3 md:w-72">
-                <Skeleton className="aspect-[16/10] w-full rounded-2xl" />
+                <Skeleton className="aspect-16/10 w-full rounded-2xl" />
                 <Skeleton className="h-5 w-3/4" />
                 <Skeleton className="h-4 w-1/2" />
               </div>

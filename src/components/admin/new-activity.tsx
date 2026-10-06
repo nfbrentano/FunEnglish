@@ -155,7 +155,7 @@ export function NewActivity({ guide, imageStyle = "" }: { guide: Guide; imageSty
   const select = `${inputClasses()} w-auto min-w-44`;
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] space-y-8 px-4 py-10">
+    <div className="mx-auto w-full max-w-300 space-y-8 px-4 py-10">
       <Link
         href="/admin"
         className="inline-flex items-center gap-2 text-sm text-fg-secondary hover:text-fg"

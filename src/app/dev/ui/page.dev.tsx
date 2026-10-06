@@ -16,7 +16,7 @@ import { TimerProvider } from "@/lib/timer/timer-context";
 // Development-only gallery of the base components (layout spec, CA06). Not part of the export.
 export default function UiGallery() {
   return (
-    <div className="mx-auto w-full max-w-[1200px] space-y-12 px-4 py-12">
+    <div className="mx-auto w-full max-w-300 space-y-12 px-4 py-12">
       <header className="space-y-3">
         <h1 className="font-display text-5xl">Component gallery</h1>
         <ThemeSelector />
@@ -66,7 +66,7 @@ export default function UiGallery() {
             <LevelPill min="beginner" max="intermediate" />
           </Card>
           <Card className="space-y-3 p-4">
-            <Skeleton className="aspect-[16/10] w-full" />
+            <Skeleton className="aspect-16/10 w-full" />
             <Skeleton className="h-4 w-3/4" />
             <Skeleton className="h-3 w-1/2" />
           </Card>

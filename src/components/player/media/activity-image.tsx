@@ -106,7 +106,7 @@ export function CategoryArt({
       <div
         aria-hidden="true"
         data-testid="category-art"
-        className={`flex aspect-[16/10] items-center justify-center rounded-2xl ${className}`}
+        className={`flex aspect-16/10 items-center justify-center rounded-2xl ${className}`}
         style={{
           background: `color-mix(in oklab, ${info?.color ?? "var(--accent)"} 18%, transparent)`,
         }}

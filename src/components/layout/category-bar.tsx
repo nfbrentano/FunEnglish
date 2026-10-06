@@ -56,7 +56,7 @@ export function CategoryBar() {
 
   return (
     <nav aria-label={strings.nav.categories} className="border-b border-border-subtle">
-      <div className="relative mx-auto max-w-[1200px]">
+      <div className="relative mx-auto max-w-300">
         {!edges.start && (
           <button
             type="button"

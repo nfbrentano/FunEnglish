@@ -51,7 +51,7 @@ export function CategoryView({ initial, imagePaths, category }: CategoryViewProp
   return (
     <>
       <section className="border-b border-border-subtle">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-6 px-4 py-12 md:flex-row md:items-end md:justify-between">
+        <div className="mx-auto flex max-w-300 flex-col gap-6 px-4 py-12 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-4">
             {category ? (
               <CategoryIcon category={category} size="lg" />
@@ -86,7 +86,7 @@ export function CategoryView({ initial, imagePaths, category }: CategoryViewProp
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-[1200px] space-y-8 px-4 py-10">
+      <div className="mx-auto w-full max-w-300 space-y-8 px-4 py-10">
         {!waiting && items.length === 0 ? (
           <div className="flex flex-col items-center gap-4 py-16 text-center">
             <p className="font-display text-3xl">{strings.catalog.emptyCategory}</p>

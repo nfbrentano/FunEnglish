@@ -60,7 +60,7 @@ export function FlashcardsEditor({
                         : rest,
                     });
                   }}
-                  className="size-4 accent-(--accent)"
+                  className="size-4 accent-accent"
                 />
                 {t.withImage}
               </label>

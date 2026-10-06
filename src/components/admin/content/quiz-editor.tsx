@@ -114,7 +114,7 @@ function QuestionFields({
               name={group}
               checked={option.correct === true}
               onChange={(e) => setCorrect(i, e.target.checked)}
-              className="size-4 accent-(--accent)"
+              className="size-4 accent-accent"
               aria-label={t.markCorrect(i + 1, number)}
             />
             <span aria-hidden="true">{t.correct}</span>
@@ -148,7 +148,7 @@ function QuestionFields({
               });
             }
           }}
-          className="size-4 accent-(--accent)"
+          className="size-4 accent-accent"
         />
         {t.chooseAll}
       </label>

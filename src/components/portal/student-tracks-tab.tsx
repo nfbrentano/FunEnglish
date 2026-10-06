@@ -190,7 +190,7 @@ export function StudentTracksTab({ studentId }: StudentTracksTabProps) {
                           }`}
                         >
                           {isCompleted ? (
-                            <Check className="size-4 stroke-[3]" />
+                            <Check className="size-4 stroke-3" />
                           ) : isUnavailable ? (
                             <Minus className="size-3.5" />
                           ) : (

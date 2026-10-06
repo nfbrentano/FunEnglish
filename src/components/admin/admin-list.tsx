@@ -203,7 +203,7 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] space-y-8 px-4 py-12">
+    <div className="mx-auto w-full max-w-300 space-y-8 px-4 py-12">
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="font-display text-5xl font-medium">{strings.admin.title}</h1>
@@ -331,7 +331,7 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
 
             onChange={(e) => set({ fewImages: e.target.checked })}
 
-            className="size-4 accent-(--accent)"
+            className="size-4 accent-accent"
           />
 
           {l.fewImages}
@@ -341,7 +341,7 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
             type="checkbox"
             checked={filters.needsReview}
             onChange={(e) => set({ needsReview: e.target.checked })}
-            className="size-4 accent-(--accent)"
+            className="size-4 accent-accent"
           />
           {strings.admin.needsReview}
           <span aria-live="polite" className="rounded-full bg-accent-muted px-2 text-accent">
@@ -501,7 +501,7 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
                       onChange={(e) =>
                         setSelected(e.target.checked ? new Set(shown.map((a) => a.id)) : new Set())
                       }
-                      className="size-4 accent-(--accent)"
+                      className="size-4 accent-accent"
                     />
                   </th>
                   <th scope="col" className="px-4 py-3">
@@ -537,7 +537,7 @@ export function AdminList({ imagePaths = [] }: { imagePaths?: string[] }) {
                         aria-label={l.selectOne(a.title)}
                         checked={selected.has(a.id)}
                         onChange={() => toggle(a.id)}
-                        className="size-4 accent-(--accent)"
+                        className="size-4 accent-accent"
                       />
                     </td>
                     <td className="px-4 py-3">

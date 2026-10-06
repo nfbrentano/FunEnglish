@@ -14,7 +14,7 @@ export default function StudentPage() {
     <RequireAuth allowedRoles={["student"]}>
       <Suspense
         fallback={
-          <div className="mx-auto w-full max-w-[900px] space-y-8 px-4 py-12">
+          <div className="mx-auto w-full max-w-225 space-y-8 px-4 py-12">
             <Skeleton className="h-12 w-64 rounded-2xl" />
             <Skeleton className="h-44 w-full rounded-3xl" />
             <Skeleton className="h-64 w-full rounded-3xl" />

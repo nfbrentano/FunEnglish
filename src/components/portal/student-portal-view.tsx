@@ -155,7 +155,7 @@ export function StudentPortalView() {
 
   if (loading) {
     return (
-      <div className="mx-auto w-full max-w-[900px] space-y-8 px-4 py-12">
+      <div className="mx-auto w-full max-w-225 space-y-8 px-4 py-12">
         <Skeleton className="h-12 w-64 rounded-2xl" />
         <Skeleton className="h-44 w-full rounded-3xl" />
         <Skeleton className="h-64 w-full rounded-3xl" />
@@ -166,7 +166,7 @@ export function StudentPortalView() {
   // Not connected to a teacher yet (RF08, CA07)
   if (!selectedStudent || studentRecords.length === 0) {
     return (
-      <div className="mx-auto w-full max-w-[650px] px-4 py-16 text-center">
+      <div className="mx-auto w-full max-w-162.5 px-4 py-16 text-center">
         <div className="rounded-3xl border border-dashed border-border-strong bg-elevated p-8 sm:p-12 space-y-5 shadow-xs">
           <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-accent-muted text-accent">
             <GraduationCap className="size-7" />
@@ -195,7 +195,7 @@ export function StudentPortalView() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[900px] space-y-8 px-4 py-8 sm:py-10">
+    <div className="mx-auto w-full max-w-225 space-y-8 px-4 py-8 sm:py-10">
       {/* Top navigation & greeting banner */}
       <header className="rounded-3xl border border-border-subtle bg-elevated p-6 sm:p-8 space-y-6 shadow-xs">
         <div className="flex flex-wrap items-start justify-between gap-4">

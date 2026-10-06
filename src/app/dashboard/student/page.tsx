@@ -14,7 +14,7 @@ export default function StudentPage() {
     <RequireAuth>
       <Suspense
         fallback={
-          <div className="mx-auto w-full max-w-[1000px] p-6">
+          <div className="mx-auto w-full max-w-250 p-6">
             <Skeleton className="h-64 w-full rounded-3xl" />
           </div>
         }

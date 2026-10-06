@@ -18,7 +18,7 @@ export function SiteFooter() {
   if (pathname?.startsWith("/live") || pathname?.startsWith("/homework")) return null;
   return (
     <footer data-site-chrome className="mt-auto border-t border-border-subtle">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex max-w-300 flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="font-display text-xl">{SITE_NAME}</p>
           <p className="text-sm text-muted">{strings.footer.tagline}</p>

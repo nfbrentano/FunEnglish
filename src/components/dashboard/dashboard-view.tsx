@@ -141,7 +141,7 @@ export function DashboardView({
     .slice(0, HISTORY_SHOWN);
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] space-y-14 px-4 py-12">
+    <div className="mx-auto w-full max-w-300 space-y-14 px-4 py-12">
       <header className="space-y-2">
         <h1 className="font-display text-5xl font-medium">
           {name ? strings.dashboard.welcome(name) : strings.dashboard.welcomeAnonymous}

@@ -390,7 +390,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
       <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border-subtle bg-elevated/90 px-4 backdrop-blur-md">
         <div className="flex items-center gap-2">
           <span className="flex size-2 rounded-full bg-success animate-pulse" />
-          <span className="font-display text-sm font-bold text-fg truncate max-w-[160px]">
+          <span className="font-display text-sm font-bold text-fg truncate max-w-40">
             {room.className}
           </span>
         </div>
@@ -400,7 +400,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
             <Trophy className="size-3.5" />
             <span>{userScore} pts</span>
           </div>
-          <span className="text-xs font-medium text-muted truncate max-w-[100px]">
+          <span className="text-xs font-medium text-muted truncate max-w-25">
             {participant.name}
           </span>
         </div>
@@ -661,7 +661,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
               </Badge>
             </div>
 
-            <div className="flex min-h-[300px] w-full flex-col items-center justify-center rounded-3xl border border-border-subtle bg-primary/20 p-6 text-center">
+            <div className="flex min-h-75 w-full flex-col items-center justify-center rounded-3xl border border-border-subtle bg-primary/20 p-6 text-center">
               <p className="text-xs font-medium text-fg">
                 {room.state.board?.text || "Whiteboard is currently mirrored on your screen."}
               </p>

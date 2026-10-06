@@ -67,7 +67,7 @@ export function HomeView({ initial, imagePaths }: { initial: CatalogIndex; image
       {highlights.length > 0 && (
         <section
           aria-labelledby="featured-title"
-          className="mx-auto w-full max-w-[1200px] space-y-6 px-4 py-16"
+          className="mx-auto w-full max-w-300 space-y-6 px-4 py-16"
         >
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-1">
@@ -97,7 +97,7 @@ export function HomeView({ initial, imagePaths }: { initial: CatalogIndex; image
 
       <section
         aria-labelledby="categories-title"
-        className="mx-auto w-full max-w-[1200px] space-y-6 px-4 pb-16"
+        className="mx-auto w-full max-w-300 space-y-6 px-4 pb-16"
       >
         <h2 id="categories-title" className="font-display text-4xl font-medium">
           {t.categoriesTitle}

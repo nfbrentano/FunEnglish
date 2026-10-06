@@ -79,11 +79,14 @@ describe("StudentProfileView (RF05, CA04, CT04)", () => {
     expect(screen.getByText(/Homework PIN/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Generate new PIN/i })).toBeInTheDocument();
 
-    // Check all 4 placeholder sections (CA04)
-    expect(screen.getByRole("heading", { name: /Grades & Errors/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Progress Tracks/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Homework/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Vocabulary Bank/i })).toBeInTheDocument();
+    // Check all tabs exist
+    expect(screen.getByRole("button", { name: /Overview/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Lessons/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Notes/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Vocabulary/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Homework/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Tracks/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Billing/i })).toBeInTheDocument();
 
     // Check back to classes link
     const backLink = screen.getByRole("link", { name: /Back to classes/i });

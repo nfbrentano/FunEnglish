@@ -400,7 +400,7 @@ export function ActivityEditor({
       <div
         role="status"
         aria-label={t.loading}
-        className="mx-auto w-full max-w-[1200px] px-4 py-12"
+        className="mx-auto w-full max-w-300 px-4 py-12"
       >
         <Skeleton className="h-96 w-full" />
       </div>
@@ -617,7 +617,7 @@ export function ActivityEditor({
                       type="checkbox"
                       checked={draft.featured}
                       onChange={(e) => set({ featured: e.target.checked })}
-                      className="size-4 accent-(--accent)"
+                      className="size-4 accent-accent"
                     />
                     {t.fields.featured}
                   </label>
@@ -1074,7 +1074,7 @@ const PlanImagesDialog = forwardRef<
               type="checkbox"
               checked={answers}
               onChange={(e) => onAnswersChange(e.target.checked)}
-              className="size-4 accent-(--accent)"
+              className="size-4 accent-accent"
             />
             {t.plan.answers}
           </label>

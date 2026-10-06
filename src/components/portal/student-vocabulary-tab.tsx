@@ -191,7 +191,7 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
       {/* Search, Filter Tabs and Sorting */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
         {/* Search input (CA05) */}
-        <div className="relative flex-1 min-w-[200px] max-w-sm">
+        <div className="relative flex-1 min-w-50 max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted pointer-events-none" />
           <input
             type="text"
@@ -395,7 +395,7 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
                   {/* Flashcard container */}
                   <div
                     onClick={() => setIsCardFlipped((prev) => !prev)}
-                    className="relative cursor-pointer min-h-[220px] rounded-2xl border-2 border-border-subtle bg-primary p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all hover:border-accent shadow-xs select-none"
+                    className="relative cursor-pointer min-h-55 rounded-2xl border-2 border-border-subtle bg-primary p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all hover:border-accent shadow-xs select-none"
                   >
                     {!isCardFlipped ? (
                       /* FRONT: Term + Audio */

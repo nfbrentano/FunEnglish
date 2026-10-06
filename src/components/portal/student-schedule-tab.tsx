@@ -110,7 +110,7 @@ export function StudentScheduleTab({
             return (
               <article key={lesson.id} className="rounded-2xl border border-border-subtle bg-elevated p-5 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between shadow-sm">
                 <div className="flex gap-4">
-                  <div className="flex flex-col items-center justify-center bg-primary rounded-xl p-3 border border-border-subtle min-w-[70px]">
+                  <div className="flex flex-col items-center justify-center bg-primary rounded-xl p-3 border border-border-subtle min-w-17.5">
                     <span className="text-xs font-semibold text-accent uppercase tracking-wider">{lesson.start.toLocaleString('en-US', { month: 'short' })}</span>
                     <span className="text-2xl font-display font-medium text-fg">{lesson.start.getDate()}</span>
                   </div>

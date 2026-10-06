@@ -58,7 +58,7 @@ export function RequireAuth({ children, allowedRoles }: RequireAuthProps) {
       <div
         role="status"
         aria-label={strings.player.loading}
-        className="mx-auto w-full max-w-[1200px] space-y-4 px-4 py-16"
+        className="mx-auto w-full max-w-300 space-y-4 px-4 py-16"
       >
         <Skeleton className="h-12 w-72" />
         <Skeleton className="h-40 w-full" />

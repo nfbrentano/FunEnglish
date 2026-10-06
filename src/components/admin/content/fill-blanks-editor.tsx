@@ -84,7 +84,7 @@ export function FillBlanksEditor({
                 e.target.checked ? { ...rest, credit: { title: "", artist: "", url: "" } } : rest,
               );
             }}
-            className="size-4 accent-(--accent)"
+            className="size-4 accent-accent"
           />
           {t.credit}
         </label>

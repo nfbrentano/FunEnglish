@@ -35,7 +35,7 @@ export function CoverageView({ imagePaths = [] }: { imagePaths?: string[] }) {
       <div
         role="status"
         aria-label={strings.admin.loading}
-        className="mx-auto w-full max-w-[1200px] px-4 py-12"
+        className="mx-auto w-full max-w-300 px-4 py-12"
       >
         <Skeleton className="h-96 w-full" />
       </div>
@@ -44,7 +44,7 @@ export function CoverageView({ imagePaths = [] }: { imagePaths?: string[] }) {
   const { byLevel, byType } = computeCoverage(items);
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] space-y-10 px-4 py-10">
+    <div className="mx-auto w-full max-w-300 space-y-10 px-4 py-10">
       <Link
         href="/admin"
         className="inline-flex items-center gap-2 text-sm text-fg-secondary hover:text-fg"

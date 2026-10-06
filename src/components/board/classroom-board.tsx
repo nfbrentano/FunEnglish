@@ -128,7 +128,7 @@ export function ClassroomBoard({
       className={`flex flex-col bg-surface border border-border rounded-2xl shadow-sm overflow-hidden transition-all ${
         isExpanded
           ? "fixed inset-2 md:inset-6 z-50 shadow-2xl bg-surface/98 backdrop-blur"
-          : "w-full h-[620px]"
+          : "w-full h-155"
       } ${className}`}
     >
       {/* Top Toolbar */}
@@ -427,7 +427,7 @@ export function ClassroomBoard({
       )}
 
       {/* Canvas Area */}
-      <div className="flex-1 relative overflow-hidden bg-surface-raised min-h-[300px]">
+      <div className="flex-1 relative overflow-hidden bg-surface-raised min-h-75">
         <BoardCanvas board={board} />
       </div>
 

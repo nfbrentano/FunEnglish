@@ -19,7 +19,7 @@ export function ActivityThumbnail({
   const category = getCategory(item.category)!;
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+    <div className="relative aspect-16/10 overflow-hidden bg-secondary">
       {available ? (
         <Image
           src={item.thumbnail.src}

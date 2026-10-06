@@ -20,7 +20,7 @@ export function SiteHeader() {
       data-site-chrome
       className="sticky top-0 z-40 border-b border-border-subtle bg-primary/85 backdrop-blur-md"
     >
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center gap-8 px-4">
+      <div className="mx-auto flex h-16 max-w-300 items-center gap-8 px-4">
         <Link href="/" className="font-display text-2xl font-medium tracking-wide text-fg">
           {SITE_NAME}
         </Link>

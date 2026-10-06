@@ -173,7 +173,7 @@ export function StudentBillingSection({ studentId, studentName, phone }: { stude
           {ledger.length === 0 ? (
             <div className="text-sm text-fg-secondary py-4 text-center border border-dashed rounded-xl">No history found.</div>
           ) : (
-            <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2">
+            <div className="space-y-3 max-h-75 overflow-y-auto pr-2">
               {ledger.map(entry => (
                 <div key={entry.id} className="flex items-center justify-between text-sm py-2 border-b border-border-subtle last:border-0">
                   <div className="space-y-0.5">

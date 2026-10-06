@@ -152,7 +152,7 @@ function ListsPanel({
                   onChange={(event) =>
                     void setInList(activityId, list.id, event.target.checked).catch(() => {})
                   }
-                  className="size-4 accent-(--accent)"
+                  className="size-4 accent-accent"
                 />
                 {list.name}
               </label>

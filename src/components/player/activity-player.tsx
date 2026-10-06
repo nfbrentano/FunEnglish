@@ -152,7 +152,7 @@ export function ActivityPlayer({
     <PlayerCategoryContext.Provider value={activity.category}>
       <div
         ref={rootRef}
-        className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col bg-primary px-4 py-6 [&:fullscreen]:max-w-none [&:fullscreen]:overflow-auto [&:fullscreen]:p-10"
+        className="mx-auto flex w-full max-w-300 flex-1 flex-col bg-primary px-4 py-6 [&:fullscreen]:max-w-none [&:fullscreen]:overflow-auto [&:fullscreen]:p-10"
       >
         {phase === "intro" && editable && !studentMode && (
           <div className="flex justify-end gap-2">

@@ -210,7 +210,7 @@ export function ClassroomPicker({
             </div>
 
             {/* SVG Wheel */}
-            <div className="relative h-[280px] w-[280px] sm:h-[320px] sm:w-[320px]">
+            <div className="relative h-70 w-70 sm:h-80 sm:w-[320px]">
               <svg
                 viewBox="0 0 320 320"
                 className="h-full w-full drop-shadow-lg"

@@ -71,7 +71,7 @@ export function PlayerIntro({
         height={800}
         priority
         fallback={{ kind: "category", category: activity.category }}
-        className="aspect-[16/10] w-full max-w-md rounded-2xl object-cover shadow-sm"
+        className="aspect-16/10 w-full max-w-md rounded-2xl object-cover shadow-sm"
       />
       <div className="flex items-center gap-2 text-sm text-fg-secondary">
         <CategoryIcon category={category} />
@@ -100,7 +100,7 @@ export function PlayerIntro({
                       type="checkbox"
                       checked={settings.shuffle}
                       onChange={(event) => set({ shuffle: event.target.checked })}
-                      className="size-4 accent-(--accent)"
+                      className="size-4 accent-accent"
                     />
                     {strings.player.shuffle}
                   </label>
@@ -115,7 +115,7 @@ export function PlayerIntro({
                         type="checkbox"
                         checked={settings.extra[option.id] === true}
                         onChange={(event) => setExtra(option.id, event.target.checked)}
-                        className="size-4 accent-(--accent)"
+                        className="size-4 accent-accent"
                       />
                       {option.label}
                     </label>

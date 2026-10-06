@@ -26,7 +26,7 @@ export function PromptCardsEditor({
           type="checkbox"
           checked={content.writing === true}
           onChange={(e) => onChange({ ...content, writing: e.target.checked })}
-          className="size-4 accent-(--accent)"
+          className="size-4 accent-accent"
         />
         {t.writingMode}
       </label>
@@ -66,7 +66,7 @@ export function PromptCardsEditor({
                     onChange={(e) =>
                       update(e.target.checked ? { ...card, options: ["", ""] } : drop("options"))
                     }
-                    className="size-4 accent-(--accent)"
+                    className="size-4 accent-accent"
                   />
                   {t.thisOrThat}
                 </label>
@@ -81,7 +81,7 @@ export function PromptCardsEditor({
                           : drop("image"),
                       )
                     }
-                    className="size-4 accent-(--accent)"
+                    className="size-4 accent-accent"
                   />
                   {t.withImage}
                 </label>

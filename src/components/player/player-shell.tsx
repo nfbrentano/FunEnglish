@@ -38,7 +38,7 @@ export function PlayerShell() {
   if (state.status === "ready") return <ActivityPlayer activity={state.activity} />;
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] px-4 py-6">
+    <div className="mx-auto w-full max-w-300 px-4 py-6">
       {state.status === "loading" && (
         <div
           role="status"

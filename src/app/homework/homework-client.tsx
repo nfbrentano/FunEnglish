@@ -386,7 +386,7 @@ export function HomeworkPageClient() {
     <div className="flex min-h-screen flex-col bg-primary">
       {/* Top compact student bar */}
       <header className="border-b border-border-subtle bg-secondary/80 px-4 py-2.5">
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-300 items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="font-display font-medium text-fg text-sm sm:text-base">
               {hw.activityTitle}

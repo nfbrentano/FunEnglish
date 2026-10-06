@@ -310,9 +310,9 @@ export function StudentNotesSection({
                           {strings.notes.classesCount(item.count)}
                         </span>
                       </div>
-                      <p className="font-medium text-fg break-words">{item.sampleText}</p>
+                      <p className="font-medium text-fg wrap-break-word">{item.sampleText}</p>
                       {item.sampleCorrection && (
-                        <p className="text-[11px] text-muted italic break-words">
+                        <p className="text-[11px] text-muted italic wrap-break-word">
                           Correction: {item.sampleCorrection}
                         </p>
                       )}
@@ -504,7 +504,7 @@ export function StudentNotesSection({
                           {/* Note text */}
                           <div className="pt-2">
                             <p
-                              className={`text-sm text-fg break-words ${
+                              className={`text-sm text-fg wrap-break-word ${
                                 isResolved ? "line-through text-muted" : ""
                               }`}
                             >
@@ -516,7 +516,7 @@ export function StudentNotesSection({
                           {note.correction && (
                             <div className="mt-2 rounded-lg bg-primary/70 border border-border-subtle px-3 py-1.5 text-xs text-muted flex items-baseline gap-2">
                               <span className="font-semibold text-accent">Correction:</span>
-                              <span className="text-fg-secondary italic break-words">
+                              <span className="text-fg-secondary italic wrap-break-word">
                                 {note.correction}
                               </span>
                             </div>

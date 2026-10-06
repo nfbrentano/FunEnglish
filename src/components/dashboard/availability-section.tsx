@@ -130,7 +130,7 @@ export function AvailabilitySection() {
                   <select
                     value={win.weekday}
                     onChange={(e) => updateWindow(idx, "weekday", parseInt(e.target.value))}
-                    className="flex-1 min-w-[120px] rounded-lg bg-elevated border border-border-strong px-2 py-1.5 text-sm"
+                    className="flex-1 min-w-30 rounded-lg bg-elevated border border-border-strong px-2 py-1.5 text-sm"
                   >
                     {WEEKDAYS.map((day, i) => (
                       <option key={i} value={i}>{day}</option>

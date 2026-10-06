@@ -425,7 +425,7 @@ function TextBoxOverlay({
       ) : (
         <div
           style={{ color: item.color }}
-          className="whitespace-pre-wrap break-words text-base font-sans select-none cursor-pointer min-h-[1.5em]"
+          className="whitespace-pre-wrap wrap-break-word text-base font-sans select-none cursor-pointer min-h-[1.5em]"
         >
           {item.text || <span className="text-slate-400 italic">Empty text box</span>}
         </div>

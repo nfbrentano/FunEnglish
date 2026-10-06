@@ -137,7 +137,7 @@ export function StudentProfileView() {
 
   if (loading) {
     return (
-      <div className="mx-auto w-full max-w-[1000px] space-y-6 px-4 py-10">
+      <div className="mx-auto w-full max-w-250 space-y-6 px-4 py-10">
         <Skeleton className="h-10 w-48 rounded-full" />
         <Skeleton className="h-44 w-full rounded-3xl" />
         <Skeleton className="h-64 w-full rounded-3xl" />
@@ -147,7 +147,7 @@ export function StudentProfileView() {
 
   if (error || !student) {
     return (
-      <div className="mx-auto w-full max-w-[1000px] space-y-6 px-4 py-12 text-center">
+      <div className="mx-auto w-full max-w-250 space-y-6 px-4 py-12 text-center">
         <div className="rounded-3xl border border-dashed border-border-strong p-12 space-y-4">
           <h2 className="font-display text-3xl font-medium text-fg">{strings.student.notFound}</h2>
           <p className="text-fg-secondary">{strings.student.notFoundDesc}</p>
@@ -168,7 +168,7 @@ export function StudentProfileView() {
   const enrolledClasses = classes.filter((c) => student.classIds.includes(c.id));
 
   return (
-    <div className="mx-auto w-full max-w-[1000px] space-y-10 px-4 py-10">
+    <div className="mx-auto w-full max-w-250 space-y-10 px-4 py-10">
       {/* Top back navigation */}
       <div>
         <Link
@@ -226,7 +226,7 @@ export function StudentProfileView() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 min-w-[200px]">
+          <div className="flex flex-col gap-2 min-w-50">
             <Button
               className="bg-accent text-primary hover:bg-accent/90 w-full"
               onClick={async () => {
@@ -381,6 +381,29 @@ export function StudentProfileView() {
                     maxLength={1000}
                     className="w-full rounded-xl border border-border-subtle bg-primary p-2.5 text-sm text-fg min-h-24"
                   />
+                </div>
+              </div>
+              <div className="pt-4 border-t border-border-subtle mt-4">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <h5 className="text-sm font-semibold text-fg">Homework PIN</h5>
+                    <p className="text-xs text-muted mt-0.5">
+                      {activePin || student.homeworkPin ? "Active PIN: " : "No PIN generated."}
+                      {(activePin || student.homeworkPin) && (
+                        <span className="font-mono text-accent bg-accent/10 px-1.5 py-0.5 rounded ml-1 font-bold">
+                          {activePin || student.homeworkPin}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={handleRegeneratePin}
+                    disabled={regenerating}
+                  >
+                    {regenerating ? "Generating..." : "Generate new PIN"}
+                  </Button>
                 </div>
               </div>
               <div className="flex justify-end pt-2">
