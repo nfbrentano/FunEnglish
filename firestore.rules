@@ -66,6 +66,22 @@ service cloud.firestore {
       match /sessions/{sessionId} {
         allow read, write, delete: if request.auth != null && request.auth.uid == uid;
       }
+      // Plans (spec: planejamento de aula, RNF01, RNF03): private to teacher.
+      match /plans/{planId} {
+        allow read, delete: if request.auth != null && request.auth.uid == uid;
+        allow create, update: if request.auth != null && request.auth.uid == uid
+          && request.resource.data.keys().hasAll(["classId", "title", "items", "words", "status", "updatedAt"])
+          && request.resource.data.title is string
+          && request.resource.data.title.size() > 0
+          && request.resource.data.title.size() <= 80
+          && (!('goal' in request.resource.data) || (request.resource.data.goal is string && request.resource.data.goal.size() <= 300))
+          && request.resource.data.items is list
+          && request.resource.data.items.size() > 0
+          && request.resource.data.items.size() <= 15
+          && request.resource.data.words is list
+          && request.resource.data.words.size() <= 30
+          && request.resource.data.status in ["draft", "used"];
+      }
       // Tracks (spec: trilha de progresso visual, RF01, RF02, RNF01): private to teacher.
       match /tracks/{trackId} {
         allow read, delete: if request.auth != null && request.auth.uid == uid;

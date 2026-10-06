@@ -52,6 +52,13 @@ export interface ClassroomSession {
   lastActivityAt?: Date;
   liveRoomCode?: string;
   liveResults?: Record<string, SessionLiveResult>;
+  planId?: string;
+  planItems?: {
+    kind: "activity" | "block";
+    activityId?: string;
+    title: string;
+    minutes: number;
+  }[];
 }
 
 export interface SessionEndReviewData {
