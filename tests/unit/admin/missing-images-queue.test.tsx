@@ -18,13 +18,13 @@ const mockActivities: Activity[] = [
     slug: "reading-science-news",
     title: "Reading Science News",
     category: "reading",
-    level: "B1",
+    levelMin: "intermediate",
+    levelMax: "intermediate",
     status: "published",
     type: "quiz",
     createdAt: new Date(),
     updatedAt: new Date(),
     content: {
-      type: "quiz",
       questions: [
         {
           prompt: "Q1",
@@ -47,13 +47,13 @@ const mockActivities: Activity[] = [
     slug: "travel-stories",
     title: "Travel Stories",
     category: "vocabulary",
-    level: "A2",
+    levelMin: "beginner",
+    levelMax: "beginner",
     status: "published",
     type: "quiz",
     createdAt: new Date(),
     updatedAt: new Date(),
     content: {
-      type: "quiz",
       questions: [
         {
           prompt: "Q2",
