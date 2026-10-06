@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "@next/env": "^16.3.8",
+    "date-fns": "^4.4.0",
+    "date-fns-tz": "^3.2.0",
     "firebase": "^12.19.0",
     "firebase-admin": "^14.5.0",
     "lucide-react": "^1.49.0",

@@ -8,6 +8,7 @@ import { ClassesSection } from "@/components/dashboard/classes-section";
 import { StudentsSection } from "@/components/dashboard/students-section";
 import { HomeworkSection } from "@/components/dashboard/homework-section";
 import { TracksSection } from "@/components/tracks/tracks-section";
+import { BillingPanel } from "@/components/dashboard/billing-panel";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/lib/auth/use-auth";
@@ -164,6 +165,8 @@ export function DashboardView({
           ))}
         </nav>
       </header>
+
+      <BillingPanel />
 
       <StudentsSection />
 

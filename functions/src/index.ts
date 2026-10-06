@@ -78,6 +78,12 @@ export {
   onHomeworkSubmissionCreated,
 } from "./homework.js";
 
+// Billing and credits functions (spec 19: Pacotes de aulas e créditos)
+export {
+  onLessonUpdated,
+  renewMonthlyPlans,
+} from "./billing.js";
+
 // Re-export helpers and secret definitions for subsequent specs
 export { defineSecret };
 export { createCallable } from "./helpers/callable.js";

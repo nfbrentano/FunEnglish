@@ -24,18 +24,21 @@ import {
   getStudentPrivateProfile,
   updateStudentPrivateProfile,
 } from "@/lib/classes/repository";
+import { getBillingPlan } from "@/lib/billing/repository";
 import type { Student, TeacherClass, StudentPrivateProfile, SessionMode } from "@/lib/classes/types";
 import { StudentNotesSection } from "@/components/notes/student-notes-section";
 import { StudentInviteCard } from "@/components/portal/student-invite-card";
+import { StudentSuggestedActivities } from "./student-suggested-activities";
 import { StudentVocabularySection } from "@/components/vocabulary/student-vocabulary-section";
 import { StudentHomeworkSection } from "@/components/dashboard/student-homework-section";
 import { StudentTracksSection } from "@/components/dashboard/student-tracks-section";
+import { StudentBillingSection } from "@/components/dashboard/student-billing-section";
 import { useSessionContext } from "@/lib/session/session-context";
 import { getPastSessions } from "@/lib/session/repository";
 import type { ClassroomSession } from "@/lib/session/types";
 import { strings } from "@/lib/strings";
 
-type TabId = "overview" | "lessons" | "notes" | "vocabulary" | "homework" | "tracks";
+type TabId = "overview" | "lessons" | "notes" | "vocabulary" | "homework" | "tracks" | "billing";
 
 
 export function StudentProfileView() {
@@ -228,6 +231,13 @@ export function StudentProfileView() {
               className="bg-accent text-primary hover:bg-accent/90 w-full"
               onClick={async () => {
                 try {
+                  const plan = await getBillingPlan(student.id);
+                  if (plan && plan.type === "package" && plan.creditsBalance <= 0) {
+                    if (!window.confirm(`${student.name} has no lessons left. Start anyway?`)) {
+                      return;
+                    }
+                  }
+
                   if (session?.startOneToOne) {
                     await session.startOneToOne(student.id, student.name, student.defaultMode as SessionMode);
                   }
@@ -295,6 +305,7 @@ export function StudentProfileView() {
             { id: "vocabulary", label: "Vocabulary" },
             { id: "homework", label: "Homework" },
             { id: "tracks", label: "Tracks" },
+            { id: "billing", label: "Billing" },
           ].map(tab => (
             <button
               key={tab.id}
@@ -319,6 +330,11 @@ export function StudentProfileView() {
             <div className="rounded-2xl border border-dashed border-border-strong p-6 text-fg-secondary text-sm">
               Next lesson focus, remaining credits, and pending homework will appear here.
             </div>
+
+            <StudentSuggestedActivities 
+              level={student.level} 
+              interests={student.interests} 
+            />
             
             <div className="rounded-2xl border border-border-subtle bg-elevated p-6 space-y-4">
               <h4 className="font-display text-lg font-medium text-fg flex items-center gap-2">
@@ -443,6 +459,14 @@ export function StudentProfileView() {
           <StudentTracksSection
             studentId={student.id}
             studentName={student.name}
+          />
+        )}
+
+        {activeTab === "billing" && (
+          <StudentBillingSection
+            studentId={student.id}
+            studentName={student.name}
+            phone={privateProfile?.phone}
           />
         )}
       </div>

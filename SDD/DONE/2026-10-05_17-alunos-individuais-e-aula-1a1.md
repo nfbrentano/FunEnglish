@@ -1,6 +1,6 @@
 # [FEAT] Alunos individuais e aula 1:1
 
-> **Status:** Rascunho
+> **Status:** Concluído
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-05
 > **Ordem de implementação:** 17 · **Depende de:** 01, 02, 03, 04, 08, 09, 10 · **Prioridade:** antes das specs 12–16 (todas as aulas do professor são 1:1)
 > **Specs relacionadas:** 18 (agenda), 19 (pacotes e pagamentos)
@@ -61,20 +61,20 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que tenho 3 alunos ativos, quando abro o dashboard, então vejo "My students" com os 3 cartões (nome, nível, objetivo, última aula) e "My classes" continua disponível.
-- [ ] **CA02:** Dado o formulário de novo aluno, quando cadastro "Ana" com nível B1, objetivo "Work", interesses "tech, music" e modalidade Online, sem escolher turma, então "Ana" aparece em "My students" com esses dados.
-- [ ] **CA03:** Dado "Ana", quando salvo o WhatsApp, o link do Meet e uma observação privada, então eles aparecem na página dela com os botões "WhatsApp" e "Open meeting".
-- [ ] **CA04:** Dado que mudei "Bruno" para Paused, quando abro "My students", então ele não aparece na lista padrão, mas aparece no filtro "Paused".
-- [ ] **CA05:** Dado "Ana", quando clico em "Start lesson", então começa uma sessão 1:1 com o nome dela no topo da barra lateral, sem presença nem sorteador, e com notas, vocabulário, lousa, cronômetro e atividades.
-- [ ] **CA06:** Dado uma aula 1:1 Online, quando abro a barra lateral, então vejo "Open meeting" (abre o link em nova aba) e "Invite to live room"; e numa aula In person esses botões não aparecem.
-- [ ] **CA07:** Dado "Ana", quando abro a página dela, então vejo o cabeçalho com perfil e as abas Overview, Lessons, Notes, Vocabulary, Homework e Tracks.
-- [ ] **CA08:** Dado que dei 3 aulas a "Ana", quando abro a aba Lessons, então vejo as 3, da mais recente para a mais antiga, com data, duração, modalidade e o começo do resumo; e clicar abre o resumo completo.
-- [ ] **CA09:** Dado uma aula 1:1 em andamento, quando a encerro e preencho "Lesson summary" e "Next lesson focus" com "Share with student" marcado, então o resumo aparece no histórico e no portal de "Ana".
-- [ ] **CA10 (negativo):** Dado "Ana" logada no portal, quando tenta ler `students/{id}/private/profile` pelo SDK, então recebe `permission-denied`; e o professor B também não consegue ler os dados de "Ana".
-- [ ] **CA11:** Dado que a última aula de "Ana" teve "Next lesson focus: past simple questions", quando abro a Overview, então esse foco aparece em destaque junto com os erros recorrentes abertos.
-- [ ] **CA12:** Dado "Ana" B1 com interesse "tech", quando abro "Suggested activities", então só vejo atividades compatíveis com B1, com as de tecnologia primeiro.
-- [ ] **CA13:** Dado "Ana" sem turma, quando envio um homework ou atribuo uma trilha, então posso escolher "Ana" direto, sem selecionar turma.
-- [ ] **CA14 (regressão):** Dado uma sessão antiga de turma gravada antes desta feature, quando abro o histórico da turma, então ela continua aparecendo e funcionando como antes.
+- [x] **CA01:** Dado que tenho 3 alunos ativos, quando abro o dashboard, então vejo "My students" com os 3 cartões (nome, nível, objetivo, última aula) e "My classes" continua disponível.
+- [x] **CA02:** Dado o formulário de novo aluno, quando cadastro "Ana" com nível B1, objetivo "Work", interesses "tech, music" e modalidade Online, sem escolher turma, então "Ana" aparece em "My students" com esses dados.
+- [x] **CA03:** Dado "Ana", quando salvo o WhatsApp, o link do Meet e uma observação privada, então eles aparecem na página dela com os botões "WhatsApp" e "Open meeting".
+- [x] **CA04:** Dado que mudei "Bruno" para Paused, quando abro "My students", então ele não aparece na lista padrão, mas aparece no filtro "Paused".
+- [x] **CA05:** Dado "Ana", quando clico em "Start lesson", então começa uma sessão 1:1 com o nome dela no topo da barra lateral, sem presença nem sorteador, e com notas, vocabulário, lousa, cronômetro e atividades.
+- [x] **CA06:** Dado uma aula 1:1 Online, quando abro a barra lateral, então vejo "Open meeting" (abre o link em nova aba) e "Invite to live room"; e numa aula In person esses botões não aparecem.
+- [x] **CA07:** Dado "Ana", quando abro a página dela, então vejo o cabeçalho com perfil e as abas Overview, Lessons, Notes, Vocabulary, Homework e Tracks.
+- [x] **CA08:** Dado que dei 3 aulas a "Ana", quando abro a aba Lessons, então vejo as 3, da mais recente para a mais antiga, com data, duração, modalidade e o começo do resumo; e clicar abre o resumo completo.
+- [x] **CA09:** Dado uma aula 1:1 em andamento, quando a encerro e preencho "Lesson summary" e "Next lesson focus" com "Share with student" marcado, então o resumo aparece no histórico e no portal de "Ana".
+- [x] **CA10 (negativo):** Dado "Ana" logada no portal, quando tenta ler `students/{id}/private/profile` pelo SDK, então recebe `permission-denied`; e o professor B também não consegue ler os dados de "Ana".
+- [x] **CA11:** Dado que a última aula de "Ana" teve "Next lesson focus: past simple questions", quando abro a Overview, então esse foco aparece em destaque junto com os erros recorrentes abertos.
+- [x] **CA12:** Dado "Ana" B1 com interesse "tech", quando abro "Suggested activities", então só vejo atividades compatíveis com B1, com as de tecnologia primeiro.
+- [x] **CA13:** Dado "Ana" sem turma, quando envio um homework ou atribuo uma trilha, então posso escolher "Ana" direto, sem selecionar turma.
+- [x] **CA14 (regressão):** Dado uma sessão antiga de turma gravada antes desta feature, quando abro o histórico da turma, então ela continua aparecendo e funcionando como antes.
 
 ## O que a atividade não inclui
 
