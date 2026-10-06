@@ -2,6 +2,12 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, vi } from "vitest";
 
+process.env.NEXT_PUBLIC_FIREBASE_API_KEY = "test-api-key";
+process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = "test-domain";
+process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID = "test-project";
+process.env.NEXT_PUBLIC_FIREBASE_APP_ID = "test-app-id";
+process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATORS = "true";
+
 // Browser APIs jsdom doesn't implement.
 export const colorScheme = { prefersDark: true };
 
