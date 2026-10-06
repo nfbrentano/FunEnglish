@@ -19,6 +19,7 @@
 | ID | Descrição | Prioridade | CAs |
 |----|-----------|------------|-----|
 | RF01 | Erro em `getAvailabilitySettings` é capturado, logado e encerra o loading (mesmo padrão do `BillingPanel`). | P0 | CA01, CA02 |
+| RF02 | `student-profile.test.tsx` mocka `getStudentPrivateProfile` e `getPastSessions`, sem depender do Firestore real (no CI o timeout offline estourava o `waitFor`, run 37475304038). | P0 | CA03 |
 
 ### Requisitos não-funcionais
 
@@ -37,6 +38,7 @@
 ## Critérios de Aceitação / Entregas
 
 - [x] **CA01:** Dado que o Firestore está indisponível, quando o dashboard carrega a seção de disponibilidade, então o erro é logado e a seção sai do estado de loading com os valores padrão.
+- [x] **CA03:** Dado o CI sem acesso ao Firestore, quando os testes de `StudentProfileView` rodam, então nenhuma chamada real ao Firestore é feita e "Student not found" aparece dentro do timeout.
 - [x] **CA02:** Dado o CI sem acesso ao Firestore, quando `npm test` roda, então não há *Unhandled Rejection* e o processo termina com código 0.
 
 ## O que a atividade não inclui
@@ -57,6 +59,7 @@ N/A: correção pontual sem dúvidas pendentes.
 | # | Cenário | Tipo (unit/integração/e2e/manual) | Cobre | Passos | Resultado esperado |
 |---|---------|-----------------------------------|-------|--------|--------------------|
 | CT01 | Suíte completa offline | unit | CA01, CA02 | `npm test` | 0 erros, todos os testes passam |
+| CT03 | Perfil sem Firestore | unit | CA03 | `npx vitest run tests/unit/dashboard/student-profile.test.tsx` | Passa, sem logs do Firestore |
 | CT02 | Deploy | integração | CA02 | Push para `main` | Workflow `Deploy` verde |
 
 ## URL Complementar

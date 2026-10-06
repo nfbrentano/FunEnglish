@@ -3,6 +3,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { StudentProfileView } from "@/components/dashboard/student-profile-view";
 import { ToastProvider } from "@/components/ui/toast";
 import * as repository from "@/lib/classes/repository";
+import * as sessionRepository from "@/lib/session/repository";
 import type { Student, TeacherClass } from "@/lib/classes/types";
 
 const mockUser = {
@@ -55,6 +56,9 @@ describe("StudentProfileView (RF05, CA04, CT04)", () => {
     vi.restoreAllMocks();
     currentSearchParam = "s1";
     vi.spyOn(repository, "getTeacherStudents").mockResolvedValue([mockStudent]);
+    // Keep the load off the real Firestore: offline in CI it outlasts waitFor's timeout.
+    vi.spyOn(repository, "getStudentPrivateProfile").mockResolvedValue(null);
+    vi.spyOn(sessionRepository, "getPastSessions").mockResolvedValue([]);
   });
 
   it("renders student details and the 4 empty placeholder sections (CA04, CT04)", async () => {
