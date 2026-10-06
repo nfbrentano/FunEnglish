@@ -126,8 +126,9 @@ functions,firestore:rules,firestore:indexes,storage,database` after the site job
 
 - **Cloud Functions Admin**, **Service Account User**, **Artifact Registry Administrator**,
   **Cloud Scheduler Admin** and **Service Usage Consumer** (functions, including scheduled ones);
-- **Firebase Rules Admin** (Firestore and Storage rules), **Cloud Datastore Index Admin** (indexes)
-  and **Firebase Realtime Database Admin** (database rules).
+- **Firebase Rules Admin** (Firestore and Storage rules), **Cloud Storage for Firebase Viewer**
+  (finds the default bucket for Storage rules), **Cloud Datastore Index Admin** (indexes) and
+  **Firebase Realtime Database Admin** (database rules).
 
 Then set the repository variable `DEPLOY_BACKEND` to `true`. Until then the job is skipped and the
 backend is deployed by hand (`npm run deploy:functions`, `npm run deploy:rules`). `--force` deletes

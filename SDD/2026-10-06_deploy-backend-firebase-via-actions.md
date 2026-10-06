@@ -65,6 +65,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
+| D02 | Quais papéis faltaram no primeiro run? | dev | Não | `roles/firebasestorage.viewer` (`firebasestorage.defaultBucket.get`, run 37487215629). |
 | D01 | Usar o mesmo service account do Hosting ou um novo só para o backend? | dev | Não | Mesmo (menos segredos); papéis listados no README. |
 
 ## Sugestões de casos de teste
