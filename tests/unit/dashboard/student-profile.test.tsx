@@ -31,6 +31,19 @@ vi.mock("@/lib/notes/repository", async (importOriginal) => {
   };
 });
 
+vi.mock("@/lib/vocabulary/repository", () => ({
+  getStudentVocabulary: vi.fn().mockResolvedValue([]),
+}));
+
+vi.mock("@/lib/plans/repository", () => ({
+  getUpcomingPlansForStudent: vi.fn().mockResolvedValue([]),
+  getUpcomingPlansForClass: vi.fn().mockResolvedValue([]),
+  createPlan: vi.fn(),
+  updatePlan: vi.fn(),
+  deletePlan: vi.fn(),
+  duplicatePlan: vi.fn(),
+}));
+
 const mockStudent: Student = {
   id: "s1",
   teacherUid: "teacher-1",

@@ -13,6 +13,7 @@ import {
 import { getDb } from "@/lib/firebase";
 import { recordSessionVocabulary } from "@/lib/vocabulary/repository";
 import type { StudentNote } from "@/lib/notes/types";
+import type { Plan } from "@/lib/plans/types";
 import type {
   ClassroomSession,
   SessionEndReviewData,
@@ -82,18 +83,29 @@ function mapSessionDoc(id: string, data: DocumentData): ClassroomSession {
     nextFocus: data.nextFocus,
     summaryShared: data.summaryShared,
     lastActivityAt: data.lastActivityAt ? toDate(data.lastActivityAt) : undefined,
+    planId: typeof data.planId === "string" ? data.planId : undefined,
+    planItems: Array.isArray(data.planItems)
+      ? data.planItems.map((it: Record<string, unknown>) => ({
+          kind: it.kind === "block" ? ("block" as const) : ("activity" as const),
+          activityId: typeof it.activityId === "string" ? it.activityId : undefined,
+          title: String(it.title || ""),
+          minutes: Number(it.minutes) || 10,
+        }))
+      : undefined,
   };
 }
 
 /**
  * Creates and starts a new classroom session for a class (RF01, CA01).
  * All class students start as present in attendance.
+ * Optionally initializes from a lesson plan (RF05, RNF02, CA03, CA05).
  */
 export async function createSession(
   teacherUid: string,
   classId: string,
   className: string,
   studentIds: string[],
+  plan?: Plan,
 ): Promise<ClassroomSession> {
   const db = getDb();
   const sessionsCol = collection(db, `users/${teacherUid}/sessions`);
@@ -105,7 +117,11 @@ export async function createSession(
     attendance[sId] = true;
   }
 
-  const sessionData = {
+  const newWords = plan?.words?.length
+    ? plan.words.map((term) => ({ term }))
+    : [];
+
+  const sessionData: Record<string, unknown> = {
     teacherUid,
     classId,
     className,
@@ -113,12 +129,17 @@ export async function createSession(
     status: "active",
     attendance,
     activitiesPlayed: [],
-    newWords: [],
+    newWords,
     notes: [],
     boardText: "",
     classNotes: "",
     lastActivityAt: now,
   };
+
+  if (plan) {
+    sessionData.planId = plan.id;
+    sessionData.planItems = plan.items.map((it) => ({ ...it }));
+  }
 
   await setDoc(sessionRef, sessionData);
 
@@ -131,22 +152,26 @@ export async function createSession(
     status: "active",
     attendance,
     activitiesPlayed: [],
-    newWords: [],
+    newWords,
     notes: [],
     boardText: "",
     classNotes: "",
     lastActivityAt: now,
+    planId: plan?.id,
+    planItems: plan?.items ? plan.items.map((it) => ({ ...it })) : undefined,
   };
 }
 
 /**
  * Creates and starts a new 1:1 session for a student (Spec 17).
+ * Optionally initializes from a lesson plan (RF05, RNF02, CA09).
  */
 export async function createOneToOneSession(
   teacherUid: string,
   studentId: string,
   studentName: string,
   mode?: "online" | "in-person",
+  plan?: Plan,
 ): Promise<ClassroomSession> {
   const db = getDb();
   const sessionsCol = collection(db, `users/${teacherUid}/sessions`);
@@ -156,7 +181,11 @@ export async function createOneToOneSession(
   // For 1:1, we don't strictly need attendance, but we can set it to true for the single student.
   const attendance: Record<string, boolean> = { [studentId]: true };
 
-  const sessionData = {
+  const newWords = plan?.words?.length
+    ? plan.words.map((term) => ({ term }))
+    : [];
+
+  const sessionData: Record<string, unknown> = {
     teacherUid,
     kind: "one-to-one",
     studentId,
@@ -166,12 +195,17 @@ export async function createOneToOneSession(
     status: "active",
     attendance,
     activitiesPlayed: [],
-    newWords: [],
+    newWords,
     notes: [],
     boardText: "",
     classNotes: "",
     lastActivityAt: now,
   };
+
+  if (plan) {
+    sessionData.planId = plan.id;
+    sessionData.planItems = plan.items.map((it) => ({ ...it }));
+  }
 
   await setDoc(sessionRef, sessionData);
 
@@ -186,11 +220,13 @@ export async function createOneToOneSession(
     status: "active",
     attendance,
     activitiesPlayed: [],
-    newWords: [],
+    newWords,
     notes: [],
     boardText: "",
     classNotes: "",
     lastActivityAt: now,
+    planId: plan?.id,
+    planItems: plan?.items ? plan.items.map((it) => ({ ...it })) : undefined,
   };
 }
 

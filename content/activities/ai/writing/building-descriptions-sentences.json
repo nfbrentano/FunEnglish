@@ -1,0 +1,60 @@
+{
+  "slug": "building-descriptions-sentences",
+  "title": "Describing People and Places",
+  "description": "Order words, adjectives and prepositional phrases to write vivid descriptions of people and settings.",
+  "category": "writing",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["writing", "descriptions", "adjectives", "places", "a1", "a2"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/building-descriptions-sentences/thumb.webp",
+    "alt": "An artist sketchbook and colored drawing pencils showing miniature sketches of cozy city buildings",
+    "source": "ai",
+    "prompt": "An artist sketchbook and colored drawing pencils showing miniature sketches of cozy city buildings. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "She has long dark curly hair.",
+        "chunks": ["She", "has", "long dark curly", "hair"],
+        "translation": "Ela tem cabelo comprido, escuro e cacheado.",
+        "hint": "Put adjectives before the noun 'hair'."
+      },
+      {
+        "sentence": "There is a quiet park near our school.",
+        "chunks": ["There is", "a quiet park", "near our school"],
+        "translation": "Há um parque tranquilo perto da nossa escola."
+      },
+      {
+        "sentence": "My new teacher is extremely smart and helpful.",
+        "chunks": ["My new teacher", "is", "extremely smart", "and helpful"],
+        "translation": "Minha nova professora é extremamente inteligente e prestativa."
+      },
+      {
+        "sentence": "We live in a small modern apartment.",
+        "chunks": ["We live", "in a small modern", "apartment"],
+        "translation": "Nós moramos em um apartamento pequeno e moderno."
+      },
+      {
+        "sentence": "The blue sky was full of white clouds.",
+        "chunks": ["The blue sky", "was full of", "white clouds"],
+        "translation": "O céu azul estava cheio de nuvens brancas."
+      },
+      {
+        "sentence": "He wore a comfortable brown leather jacket.",
+        "chunks": ["He wore", "a comfortable", "brown leather jacket"],
+        "translation": "Ele vestiu uma jaqueta de couro marrom confortável."
+      },
+      {
+        "sentence": "That old library has thousands of fascinating books.",
+        "chunks": ["That old library", "has", "thousands of", "fascinating books"],
+        "translation": "Aquela biblioteca antiga tem milhares de livros fascinantes."
+      }
+    ]
+  }
+}

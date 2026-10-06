@@ -1,14 +1,18 @@
 "use client";
 
 import {
+  ArrowRight,
+  CheckCircle2,
   Clock,
   Edit3,
   Eye,
   EyeOff,
+  ListOrdered,
   LogOut,
   Maximize2,
   PanelRightClose,
   PanelRightOpen,
+  PlayCircle,
   Plus,
   Radio,
   Sparkles,
@@ -17,8 +21,12 @@ import {
   Users,
   X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { activityHref } from "@/components/catalog/activity-card";
+import { useCatalogIndex } from "@/lib/catalog/use-catalog-index";
+import type { PlanItem } from "@/lib/plans/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ClassroomBoard } from "@/components/board/classroom-board";
@@ -74,6 +82,68 @@ export function ClassroomSidebar() {
 
   const active = session?.activeSession;
   const startedAt = active?.startedAt;
+
+  const router = useRouter();
+  const { index: catalogIndex } = useCatalogIndex();
+  const [completedBlockIndices, setCompletedBlockIndices] = useState<Set<number>>(new Set());
+
+  const catalogMap = useMemo(() => {
+    return new Map(catalogIndex.items.map((it) => [it.id, it]));
+  }, [catalogIndex.items]);
+
+  // Compute Now and Next items for plan tab (Spec 12, RF05, CA03)
+  const planItems = useMemo(() => active?.planItems || [], [active?.planItems]);
+  const playedActivityIds = useMemo(() => {
+    return new Set(active?.activitiesPlayed.map((a) => a.id) || []);
+  }, [active?.activitiesPlayed]);
+
+  const nowItemIndex = useMemo(() => {
+    return planItems.findIndex((it, idx) => {
+      if (it.kind === "activity" && it.activityId) {
+        return !playedActivityIds.has(it.activityId);
+      }
+      return !completedBlockIndices.has(idx);
+    });
+  }, [planItems, playedActivityIds, completedBlockIndices]);
+
+  const nowItem = nowItemIndex >= 0 ? planItems[nowItemIndex] : null;
+
+  const nextItemIndex = useMemo(() => {
+    if (nowItemIndex < 0) return -1;
+    return planItems.findIndex((it, idx) => {
+      if (idx <= nowItemIndex) return false;
+      if (it.kind === "activity" && it.activityId) {
+        return !playedActivityIds.has(it.activityId);
+      }
+      return !completedBlockIndices.has(idx);
+    });
+  }, [planItems, nowItemIndex, playedActivityIds, completedBlockIndices]);
+
+  const nextItem = nextItemIndex >= 0 ? planItems[nextItemIndex] : null;
+
+  const handleAdvanceToItem = (item: PlanItem) => {
+    if (item.kind === "activity" && item.activityId) {
+      const catItem = catalogMap.get(item.activityId);
+      if (catItem) {
+        session?.recordActivity({ id: catItem.id, title: catItem.title });
+        router.push(activityHref(catItem));
+      }
+    } else {
+      const idx = planItems.indexOf(item);
+      if (idx >= 0) {
+        setCompletedBlockIndices((prev) => new Set([...prev, idx]));
+      }
+    }
+  };
+
+  const toggleBlockCompleted = (idx: number) => {
+    setCompletedBlockIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (!startedAt) {
@@ -504,6 +574,32 @@ export function ClassroomSidebar() {
           <Radio className={`size-4 ${live?.isLiveActive ? "animate-pulse" : ""}`} />
           {!isCollapsed && <span>Live</span>}
         </button>
+
+        {/* Plan Tab (Spec 12, RF05, CA03) */}
+        {planItems.length > 0 && (
+          <button
+            type="button"
+            role="tab"
+            id="tab-plan"
+            aria-selected={activeTab === "plan"}
+            aria-controls="panel-plan"
+            onClick={() => {
+              setActiveTab("plan");
+              if (isCollapsed) toggleCollapsed();
+            }}
+            title="Lesson Plan"
+            className={`flex items-center justify-center gap-1.5 rounded-xl transition-all ${
+              isCollapsed ? "size-10" : "flex-1 py-1.5 text-xs font-medium"
+            } ${
+              activeTab === "plan"
+                ? "bg-accent text-primary shadow-sm"
+                : "text-fg-secondary hover:bg-elevated hover:text-fg"
+            }`}
+          >
+            <ListOrdered className="size-4" />
+            {!isCollapsed && <span>Plan</span>}
+          </button>
+        )}
       </div>
 
       {/* Main panel body */}
@@ -870,6 +966,133 @@ export function ClassroomSidebar() {
               className="h-full"
             >
               <LiveRoomSidebarPanel />
+            </div>
+          )}
+
+          {/* 7. PLAN TAB PANEL (Spec 12, RF05, CA03) */}
+          {activeTab === "plan" && planItems.length > 0 && (
+            <div
+              id="panel-plan"
+              role="tabpanel"
+              aria-labelledby="tab-plan"
+              className="p-4 space-y-4"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-muted uppercase tracking-wider">
+                  Lesson Plan ({planItems.length} items)
+                </span>
+                <span className="text-xs text-muted">
+                  {planItems.reduce((acc, it) => acc + (it.minutes || 0), 0)} min total
+                </span>
+              </div>
+
+              {/* Now & Next card */}
+              <div className="rounded-2xl border border-accent/30 bg-accent/5 p-3.5 space-y-3">
+                {nowItem ? (
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent block">
+                      Now:
+                    </span>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-sm font-semibold text-fg truncate">{nowItem.title}</p>
+                      <span className="text-xs text-muted font-normal shrink-0">({nowItem.minutes}m)</span>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-xs text-muted">All plan items completed!</p>
+                )}
+
+                {nextItem && (
+                  <div className="pt-2 border-t border-border-subtle flex items-center justify-between gap-2">
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted block">
+                        Next:
+                      </span>
+                      <p className="text-xs font-medium text-fg-secondary truncate">
+                        {nextItem.title} ({nextItem.minutes}m)
+                      </p>
+                    </div>
+                    <Button
+                      size="sm"
+                      className="text-xs bg-accent text-primary hover:bg-accent/90 shrink-0"
+                      onClick={() => handleAdvanceToItem(nextItem)}
+                    >
+                      <span>Next</span>
+                      <ArrowRight className="size-3.5 ml-1" />
+                    </Button>
+                  </div>
+                )}
+              </div>
+
+              {/* Sequence list */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-fg-secondary block">
+                  Sequence
+                </span>
+                <ul className="space-y-2">
+                  {planItems.map((item, idx) => {
+                    const isPlayed =
+                      (item.kind === "activity" && item.activityId && playedActivityIds.has(item.activityId)) ||
+                      completedBlockIndices.has(idx);
+                    const isCurrent = nowItemIndex === idx;
+                    const catItem = item.activityId ? catalogMap.get(item.activityId) : undefined;
+
+                    return (
+                      <li
+                        key={`${idx}-${item.title}`}
+                        className={`flex items-center justify-between gap-2.5 rounded-xl border p-2.5 text-xs transition-colors ${
+                          isCurrent
+                            ? "border-accent bg-accent/10"
+                            : isPlayed
+                              ? "border-border-subtle bg-secondary/30 opacity-70"
+                              : "border-border-subtle bg-secondary/80"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 min-w-0 flex-1">
+                          {isPlayed ? (
+                            <CheckCircle2 className="size-4 text-emerald-500 shrink-0" />
+                          ) : isCurrent ? (
+                            <PlayCircle className="size-4 text-accent shrink-0" />
+                          ) : (
+                            <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-border-subtle text-[10px] font-bold text-fg-secondary">
+                              {idx + 1}
+                            </span>
+                          )}
+                          <span className={`font-medium truncate ${isPlayed ? "line-through text-muted" : "text-fg"}`}>
+                            {item.title}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="text-[11px] text-muted">{item.minutes}m</span>
+                          {catItem ? (
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="h-7 px-2 text-[11px]"
+                              onClick={() => {
+                                session?.recordActivity({ id: catItem.id, title: catItem.title });
+                                router.push(activityHref(catItem));
+                              }}
+                            >
+                              Open
+                            </Button>
+                          ) : item.kind === "block" ? (
+                            <button
+                              type="button"
+                              onClick={() => toggleBlockCompleted(idx)}
+                              className="p-1 text-fg-secondary hover:text-fg"
+                              title={isPlayed ? "Mark pending" : "Mark done"}
+                            >
+                              <CheckCircle2 className={`size-3.5 ${isPlayed ? "text-emerald-500" : "text-muted"}`} />
+                            </button>
+                          ) : null}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           )}
         </div>

@@ -17,14 +17,17 @@ import { useToast } from "@/components/ui/toast";
 import { useAuth } from "@/lib/auth/use-auth";
 import {
   deleteHomeworkTask,
+  getHomeworkActivityContent,
   getHomeworkSubmissions,
   getTeacherHomeworkList,
   getTeacherPinLockouts,
   toggleHomeworkOpen,
 } from "@/lib/homework/repository";
 import type { Homework, HomeworkSubmission, PinLockoutInfo } from "@/lib/homework/types";
+import { isGradableActivity } from "@/lib/homework/question-analysis";
 import { strings } from "@/lib/strings";
 import { SendHomeworkModal } from "@/components/homework/send-homework-modal";
+import { QuestionAnalysisView } from "@/components/homework/question-analysis-view";
 
 export function HomeworkSection() {
   const { user } = useAuth();
@@ -38,6 +41,8 @@ export function HomeworkSection() {
   // Expanded task details
   const [expandedHwId, setExpandedHwId] = useState<string | null>(null);
   const [submissionsByHw, setSubmissionsByHw] = useState<Record<string, HomeworkSubmission[]>>({});
+  const [activityContentByHw, setActivityContentByHw] = useState<Record<string, any>>({});
+  const [activeTabByHw, setActiveTabByHw] = useState<Record<string, "submissions" | "questions">>({});
   const [loadingSubmissions, setLoadingSubmissions] = useState<string | null>(null);
 
   // Re-share modal
@@ -72,12 +77,18 @@ export function HomeworkSection() {
      
   }, [user]);
 
-  const loadSubmissions = async (hwId: string) => {
-    if (submissionsByHw[hwId]) return;
+  const loadSubmissions = async (hw: Homework) => {
+    if (submissionsByHw[hw.id]) return;
     try {
-      setLoadingSubmissions(hwId);
-      const subs = await getHomeworkSubmissions(hwId);
-      setSubmissionsByHw((prev) => ({ ...prev, [hwId]: subs }));
+      setLoadingSubmissions(hw.id);
+      const [subs, actContent] = await Promise.all([
+        getHomeworkSubmissions(hw.id),
+        getHomeworkActivityContent(hw.activityId).catch(() => null),
+      ]);
+      setSubmissionsByHw((prev) => ({ ...prev, [hw.id]: subs }));
+      if (actContent) {
+        setActivityContentByHw((prev) => ({ ...prev, [hw.id]: actContent }));
+      }
     } catch (err) {
       console.warn("Could not load submissions for homework:", err);
     } finally {
@@ -85,12 +96,16 @@ export function HomeworkSection() {
     }
   };
 
-  const handleToggleExpand = (hwId: string) => {
-    if (expandedHwId === hwId) {
+  const handleToggleExpand = (hw: Homework) => {
+    if (expandedHwId === hw.id) {
       setExpandedHwId(null);
     } else {
-      setExpandedHwId(hwId);
-      void loadSubmissions(hwId);
+      setExpandedHwId(hw.id);
+      void loadSubmissions(hw);
+      // If single student target, default to questions view (RF01, CA10)
+      if (hw.targetType === "students" && hw.studentIds?.length === 1) {
+        setActiveTabByHw((prev) => ({ ...prev, [hw.id]: "questions" }));
+      }
     }
   };
 
@@ -306,7 +321,7 @@ export function HomeworkSection() {
 
                     <Button
                       variant="secondary"
-                      onClick={() => handleToggleExpand(hw.id)}
+                      onClick={() => handleToggleExpand(hw)}
                       className="h-9 px-3 text-xs"
                     >
                       {isExpanded ? "Hide Details" : "View Details"}
@@ -314,7 +329,7 @@ export function HomeworkSection() {
                   </div>
                 </div>
 
-                {/* Expanded Details: Submissions Table & Pending Roster (RF06, CA05, RF08) */}
+                {/* Expanded Details: Submissions Table & Questions Analysis (RF01, RF02, CA01, CA02, CA09) */}
                 {isExpanded && (
                   <div className="border-t border-border-subtle bg-primary/40 p-5 sm:p-6 space-y-6">
                     {/* Teacher note if present */}
@@ -325,11 +340,59 @@ export function HomeworkSection() {
                       </div>
                     )}
 
-                    {/* Submissions Table */}
-                    <div className="space-y-3">
-                      <h4 className="text-sm font-semibold text-fg">
-                        {strings.homework.submissionsHeading} ({subs.length})
-                      </h4>
+                    {/* Navigation Tabs for Gradable Activities (RF01, CA01, CA09) */}
+                    {isGradableActivity(hw.activityType) && (
+                      <div className="flex border-b border-border-subtle gap-4">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveTabByHw((prev) => ({
+                              ...prev,
+                              [hw.id]: "submissions",
+                            }))
+                          }
+                          className={`pb-2.5 text-xs font-semibold border-b-2 -mb-px transition-colors ${
+                            activeTabByHw[hw.id] !== "questions"
+                              ? "border-accent text-accent"
+                              : "border-transparent text-muted hover:text-fg"
+                          }`}
+                        >
+                          {strings.homework.tabs.submissions} ({subs.length})
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveTabByHw((prev) => ({
+                              ...prev,
+                              [hw.id]: "questions",
+                            }))
+                          }
+                          className={`pb-2.5 text-xs font-semibold border-b-2 -mb-px transition-colors ${
+                            activeTabByHw[hw.id] === "questions"
+                              ? "border-accent text-accent"
+                              : "border-transparent text-muted hover:text-fg"
+                          }`}
+                        >
+                          {strings.homework.tabs.questions}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Content View: Questions Analysis or Submissions Table */}
+                    {isGradableActivity(hw.activityType) &&
+                    activeTabByHw[hw.id] === "questions" ? (
+                      <QuestionAnalysisView
+                        homework={hw}
+                        submissions={subs}
+                        activityContent={activityContentByHw[hw.id]}
+                      />
+                    ) : (
+                      <>
+                        {/* Submissions Table */}
+                        <div className="space-y-3">
+                          <h4 className="text-sm font-semibold text-fg">
+                            {strings.homework.submissionsHeading} ({subs.length})
+                          </h4>
 
                       {loadingSubmissions === hw.id ? (
                         <div className="p-4 text-center text-xs text-muted">Loading submissions…</div>
@@ -406,11 +469,13 @@ export function HomeworkSection() {
                         </div>
                       </div>
                     )}
-                  </div>
+                  </>
                 )}
               </div>
-            );
-          })}
+            )}
+          </div>
+        );
+      })}
         </div>
       )}
 

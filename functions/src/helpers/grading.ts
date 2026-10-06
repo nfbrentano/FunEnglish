@@ -34,6 +34,24 @@ export function isBlankCorrect(value: string, answers: readonly string[]): boole
 }
 
 /**
+ * Same comparison as the player (src/lib/activities/sentence-order.ts): capitals, extra spaces,
+ * curly apostrophes, commas and the final punctuation don't count.
+ */
+export function normalizeSentence(text: string): string {
+  return normalizeAnswer(text.trim().replace(/\s*[.!?]+$/, "").replace(/,/g, " "));
+}
+
+export function isSentenceOrderCorrect(
+  given: readonly string[],
+  item: { sentence?: unknown; alternatives?: unknown },
+): boolean {
+  const answer = normalizeSentence(given.join(" "));
+  if (answer === "" || typeof item?.sentence !== "string") return false;
+  const accepted = [item.sentence, ...(Array.isArray(item.alternatives) ? item.alternatives : [])];
+  return accepted.some((s) => typeof s === "string" && normalizeSentence(s) === answer);
+}
+
+/**
  * Server-side grading of activity submissions (RNF04, RF10, CA08, CA09).
  * Ignores any client-submitted score and grades raw answers against activity content.
  */
@@ -131,6 +149,23 @@ export function gradeActivityAnswers(
       ? rawAnswers.filter((a) => Boolean(a && (a as any).correct)).length
       : 0;
     return { correct, total: totalClues };
+  }
+
+  // Sentence Builder: the first order the student built, per item (spec 15, RF04, RF07)
+  if (activityType === "sentence-order" && Array.isArray(content.items)) {
+    const items: any[] = content.items;
+    let correct = 0;
+    items.forEach((item, idx) => {
+      const entry = rawAnswers?.[idx];
+      let given: string[] = [];
+      if (Array.isArray(entry)) {
+        given = entry.map(String);
+      } else if (entry && typeof entry === "object" && Array.isArray((entry as any).given)) {
+        given = (entry as any).given.map(String);
+      }
+      if (isSentenceOrderCorrect(given, item)) correct++;
+    });
+    return { correct, total: items.length };
   }
 
   // Default fallback

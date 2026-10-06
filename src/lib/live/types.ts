@@ -50,6 +50,9 @@ export interface LiveCurrentQuestion {
   explanation?: string;
   /** Fill-in-the-blanks template, e.g. "She [[has|'s]] lived here." or text with gaps */
   blanksTemplate?: string;
+  /** Sentence Builder pieces, already shuffled, and the fixed final punctuation (spec 15). */
+  chunks?: string[];
+  punctuation?: string;
   /** Presentation cards (flashcards/prompt-cards) */
   presentationTitle?: string;
   presentationCard?: {

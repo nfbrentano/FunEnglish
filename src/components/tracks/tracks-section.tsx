@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CalendarPlus,
   Grid,
   ListPlus,
   Milestone,
@@ -19,6 +20,7 @@ import { useCatalogIndex } from "@/lib/catalog/use-catalog-index";
 import { useClasses } from "@/lib/classes/use-classes";
 import { useFavorites } from "@/lib/favorites/favorites-provider";
 import type { FavoriteList } from "@/lib/favorites/repository";
+import { PlanEditorModal } from "@/components/plans/plan-editor-modal";
 import { strings } from "@/lib/strings";
 import {
   assignTrackToStudents,
@@ -54,6 +56,7 @@ export function TracksSection({ initialCatalog = [] }: TracksSectionProps) {
   const [isFromListOpen, setIsFromListOpen] = useState(false);
   const [assigningTrack, setAssigningTrack] = useState<LearningTrack | null>(null);
   const [matrixTrack, setMatrixTrack] = useState<LearningTrack | null>(null);
+  const [planFromTrack, setPlanFromTrack] = useState<LearningTrack | null>(null);
 
   const catalogItems = index.items.length > 0 ? index.items : initialCatalog;
 
@@ -251,6 +254,16 @@ export function TracksSection({ initialCatalog = [] }: TracksSectionProps) {
                       <Grid className="size-3.5 mr-1" />
                       <span>{strings.tracks.classMatrix}</span>
                     </Button>
+
+                    <Button
+                      variant="ghost"
+                      onClick={() => setPlanFromTrack(track)}
+                      className="h-8 px-2.5 text-xs text-accent"
+                      title="Create plan from track"
+                    >
+                      <CalendarPlus className="size-3.5 mr-1" />
+                      <span>Create Plan</span>
+                    </Button>
                   </div>
 
                   <div className="flex items-center gap-1">
@@ -330,6 +343,30 @@ export function TracksSection({ initialCatalog = [] }: TracksSectionProps) {
           catalogItems={catalogItems}
           isOpen={Boolean(matrixTrack)}
           onClose={() => setMatrixTrack(null)}
+        />
+      )}
+
+      {/* Create Plan from Track modal (RF07, CA06) */}
+      {planFromTrack && (
+        <PlanEditorModal
+          open={Boolean(planFromTrack)}
+          onClose={() => setPlanFromTrack(null)}
+          initialTitle={`Plan: ${planFromTrack.name}`}
+          initialGoal={`Follow track: ${planFromTrack.name}`}
+          initialItems={planFromTrack.activityIds.slice(0, 15).map((actId) => {
+            const item = catalogItems.find((c) => c.slug === actId || c.id === actId);
+            return {
+              kind: "activity",
+              activityId: actId,
+              title: item?.title || actId,
+              minutes: 10,
+            };
+          })}
+          onSaved={() => {
+            const trackName = planFromTrack.name;
+            setPlanFromTrack(null);
+            toast(`Lesson plan created from track "${trackName}"!`);
+          }}
         />
       )}
     </section>

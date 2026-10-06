@@ -211,7 +211,7 @@ export function HomeworkPageClient() {
         studentPin: via === "pin" ? pin : undefined,
         studentName: selectedStudentName,
         seconds,
-        answers: (result as any).rawAnswers || [],
+        answers: result.rawAnswers ?? [],
       });
 
       if (res.success) {

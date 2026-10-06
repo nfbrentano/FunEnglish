@@ -1,6 +1,6 @@
 # [FEAT] Novo tipo de atividade: Ordenar frases (Sentence Builder)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
 > **Ordem de implementação:** 15 (ordem nova: 1ª das pendentes) · **Depende de:** motor de atividades, painel admin · **Por quê nesta posição:** Independente do modelo de alunos (revisada em 2026-10-06, sem mudança de escopo); pode ser feita em paralelo às specs 12–14
 
@@ -50,15 +50,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um JSON com `sentence: "She doesn't like coffee."`, quando rodo `npm run seed:check`, então ele é válido; e um item com uma só palavra é recusado com mensagem clara.
-- [ ] **CA02:** Dado o item acima, quando a atividade abre, então vejo 4 peças embaralhadas em ordem diferente da correta, e tocar em uma a move para a linha de resposta.
-- [ ] **CA03:** Dado que montei "she doesn't like coffee", quando aperto "Check", então a resposta é aceita (maiúscula inicial e ponto final ignorados).
-- [ ] **CA04:** Dado `alternatives: ["Yesterday I went home."]` para "I went home yesterday.", quando monto a alternativa, então ela é aceita.
-- [ ] **CA05:** Dado que errei na 1ª tentativa e acertei na 2ª, quando termino, então essa frase não soma ponto e o resultado final mostra a contagem correta.
-- [ ] **CA06:** Dado "Read aloud after correct" ligado, quando acerto, então a frase é lida em voz alta.
-- [ ] **CA07:** Dado o editor do admin, quando digito uma frase e clico "Split by words", então vejo as peças e posso juntar duas peças em um trecho ("a lot of").
-- [ ] **CA08:** Dado um homework `sentence-order`, quando "Ana" termina, então a submissão tem `answers[]` com a ordem dada em cada item.
-- [ ] **CA09 (negativo):** Dado apenas o teclado, quando jogo a atividade, então consigo montar e conferir a frase sem mouse, e o foco nunca fica preso.
+- [x] **CA01:** Dado um JSON com `sentence: "She doesn't like coffee."`, quando rodo `npm run seed:check`, então ele é válido; e um item com uma só palavra é recusado com mensagem clara.
+- [x] **CA02:** Dado o item acima, quando a atividade abre, então vejo 4 peças embaralhadas em ordem diferente da correta, e tocar em uma a move para a linha de resposta.
+- [x] **CA03:** Dado que montei "she doesn't like coffee", quando aperto "Check", então a resposta é aceita (maiúscula inicial e ponto final ignorados).
+- [x] **CA04:** Dado `alternatives: ["Yesterday I went home."]` para "I went home yesterday.", quando monto a alternativa, então ela é aceita.
+- [x] **CA05:** Dado que errei na 1ª tentativa e acertei na 2ª, quando termino, então essa frase não soma ponto e o resultado final mostra a contagem correta.
+- [x] **CA06:** Dado "Read aloud after correct" ligado, quando acerto, então a frase é lida em voz alta.
+- [x] **CA07:** Dado o editor do admin, quando digito uma frase e clico "Split by words", então vejo as peças e posso juntar duas peças em um trecho ("a lot of").
+- [x] **CA08:** Dado um homework `sentence-order`, quando "Ana" termina, então a submissão tem `answers[]` com a ordem dada em cada item.
+- [x] **CA09 (negativo):** Dado apenas o teclado, quando jogo a atividade, então consigo montar e conferir a frase sem mouse, e o foco nunca fica preso.
 
 ## O que a atividade não inclui
 

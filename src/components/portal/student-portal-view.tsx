@@ -10,15 +10,19 @@ import {
   Clock,
   Compass,
   ExternalLink,
+  Flame,
+  ArrowLeft,
+  FileText,
   GraduationCap,
   LogOut,
   Milestone,
   Share2,
   Sparkles,
   Trophy,
+  Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
@@ -38,6 +42,17 @@ import type {
 import { StudentVocabularyTab } from "@/components/portal/student-vocabulary-tab";
 import { StudentTracksTab } from "@/components/portal/student-tracks-tab";
 import { StudentScheduleTab } from "@/components/portal/student-schedule-tab";
+import { DailyReviewModal } from "@/components/portal/daily-review-modal";
+import { PrintableReportView } from "@/components/reports/printable-report-view";
+import { getStudentReports } from "@/lib/reports/repository";
+import type { ProgressReportSnapshot } from "@/lib/reports/types";
+import { getStudentVocabulary } from "@/lib/vocabulary/repository";
+import {
+  calculateStreak,
+  getTodayDateString,
+  isWordDue,
+} from "@/lib/vocabulary/srs";
+import type { StudentWord } from "@/lib/vocabulary/types";
 import { strings } from "@/lib/strings";
 
 export function StudentPortalView() {
@@ -49,8 +64,14 @@ export function StudentPortalView() {
 
   const [notes, setNotes] = useState<StudentNote[]>([]);
   const [classHistory, setClassHistory] = useState<StudentClassHistoryItem[]>([]);
+  const [vocabulary, setVocabulary] = useState<StudentWord[]>([]);
+  const [reports, setReports] = useState<ProgressReportSnapshot[]>([]);
+  const [selectedReport, setSelectedReport] = useState<ProgressReportSnapshot | null>(null);
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"overview" | "schedule" | "tracks" | "words" | "history">("overview");
+  const [activeTab, setActiveTab] = useState<
+    "overview" | "schedule" | "tracks" | "words" | "history" | "reports"
+  >("overview");
   const [expandedClasses, setExpandedClasses] = useState<Record<string, boolean>>({});
 
   // 1. Load all student documents linked to this portalUid
@@ -93,6 +114,9 @@ export function StudentPortalView() {
         if (active) {
           setNotes([]);
           setClassHistory([]);
+          setVocabulary([]);
+          setReports([]);
+          setSelectedReport(null);
         }
       });
       return () => {
@@ -103,17 +127,22 @@ export function StudentPortalView() {
     Promise.all([
       getSharedStudentNotes(selectedStudentId),
       getStudentClassHistory(selectedStudentId),
+      getStudentVocabulary(selectedStudentId).catch(() => []),
+      getStudentReports(selectedStudentId).catch(() => []),
     ])
-      .then(([loadedNotes, loadedClasses]) => {
+      .then(([loadedNotes, loadedClasses, loadedVocab, loadedReports]) => {
         if (!active) return;
         setNotes(loadedNotes);
         setClassHistory(loadedClasses);
+        setVocabulary(loadedVocab);
+        setReports(loadedReports.filter((r) => !r.revoked));
       })
       .catch((err) => {
         if (!active) return;
-        console.warn("Error loading student notes/history:", err);
+        console.warn("Error loading student notes/history/vocab:", err);
         setNotes([]);
         setClassHistory([]);
+        setVocabulary([]);
       });
 
     return () => {
@@ -123,6 +152,18 @@ export function StudentPortalView() {
 
   const selectedStudent =
     studentRecords.find((r) => r.id === selectedStudentId) || studentRecords[0] || null;
+
+  const todayStr = useMemo(() => getTodayDateString(), []);
+  const dueWords = useMemo(
+    () => vocabulary.filter((w) => isWordDue(w, todayStr)),
+    [vocabulary, todayStr],
+  );
+  const streak = useMemo(() => {
+    const dates = vocabulary
+      .map((w) => w.lastReviewedAt?.slice(0, 10))
+      .filter((d): d is string => Boolean(d));
+    return calculateStreak(dates, todayStr);
+  }, [vocabulary, todayStr]);
 
   const { strengths, toReview, mastered } = consolidatePortalNotes(notes);
 
@@ -326,12 +367,71 @@ export function StudentPortalView() {
               {strings.portal.tabs.history} ({classHistory.length})
             </span>
           </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "reports"}
+            onClick={() => setActiveTab("reports")}
+            className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-2 ${
+              activeTab === "reports"
+                ? "border-accent text-accent"
+                : "border-transparent text-muted hover:text-fg"
+            }`}
+          >
+            <FileText className="size-4" />
+            <span>
+              Reports ({reports.length})
+            </span>
+          </button>
         </div>
       </header>
 
       {/* Main Tab Content */}
       {activeTab === "overview" && (
         <div className="space-y-6">
+          {/* Daily Review Card (RF01, CA01) */}
+          <section className="relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-r from-accent/15 via-primary to-accent/10 p-6 sm:p-7 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex size-7 items-center justify-center rounded-full bg-accent text-primary">
+                    <Zap className="size-4 fill-current" />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent">
+                    Daily Spaced Review
+                  </span>
+                  {streak > 0 && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-xs font-bold text-amber-500">
+                      <Flame className="size-3.5 fill-current" />
+                      {streak}-day streak
+                    </span>
+                  )}
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-fg">
+                  {dueWords.length > 0
+                    ? `${dueWords.length} words to review today`
+                    : "All words reviewed for today!"}
+                </h2>
+                <p className="text-xs text-muted max-w-md">
+                  {dueWords.length > 0
+                    ? "Keep your vocabulary fresh with 2 minutes of spaced repetition flashcards."
+                    : "Great job keeping up with your studies! Come back tomorrow for new reviews."}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <Button
+                  onClick={() => setIsReviewOpen(true)}
+                  disabled={dueWords.length === 0}
+                  className="font-semibold gap-2 shadow-md min-h-[44px]"
+                >
+                  <Sparkles className="size-4" />
+                  Start review
+                </Button>
+              </div>
+            </div>
+          </section>
+
           {/* Block 1: Strengths (RF04, CA03) */}
           <section className="rounded-3xl border border-border-subtle bg-elevated p-6 sm:p-7 space-y-4 shadow-xs">
             <h2 className="flex items-center gap-2.5 font-display text-xl sm:text-2xl font-medium text-fg">
@@ -628,6 +728,97 @@ export function StudentPortalView() {
             </div>
           )}
         </section>
+      )}
+
+      {/* Reports Tab Content (RF07, CA08) */}
+      {activeTab === "reports" && (
+        <section className="space-y-6">
+          {selectedReport ? (
+            <div className="space-y-4">
+              <Button
+                variant="ghost"
+                onClick={() => setSelectedReport(null)}
+                className="gap-2 text-xs no-print text-muted hover:text-fg"
+              >
+                <ArrowLeft className="size-4" />
+                <span>Back to reports list</span>
+              </Button>
+              <PrintableReportView
+                report={selectedReport}
+                onPrint={() => window.print()}
+                showPrintButton={true}
+              />
+            </div>
+          ) : reports.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-border-subtle p-12 text-center text-xs text-muted">
+              No progress reports have been shared with you yet.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {reports.map((rep) => (
+                <div
+                  key={rep.id}
+                  className="rounded-3xl border border-border-subtle bg-elevated p-6 space-y-4 shadow-sm"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="text-xs uppercase font-bold text-accent tracking-wider">
+                        Progress Report
+                      </span>
+                      <h3 className="font-display text-xl font-semibold text-fg mt-0.5">
+                        {rep.period.label}
+                      </h3>
+                      <span className="text-xs text-muted block mt-1">
+                        Teacher: {rep.teacherName}
+                      </span>
+                    </div>
+
+                    <Button
+                      size="sm"
+                      onClick={() => setSelectedReport(rep)}
+                      className="gap-1.5 text-xs bg-accent text-primary hover:bg-accent/90"
+                    >
+                      <FileText className="size-3.5" />
+                      <span>View Report</span>
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-2 border-t border-border-subtle text-xs">
+                    {rep.metrics.lessons && (
+                      <div className="rounded-xl bg-primary/40 p-2.5">
+                        <span className="text-muted block text-[11px]">Lessons</span>
+                        <span className="font-semibold text-fg">{rep.metrics.lessons.displayString}</span>
+                      </div>
+                    )}
+                    {rep.metrics.homework && (
+                      <div className="rounded-xl bg-primary/40 p-2.5">
+                        <span className="text-muted block text-[11px]">Homework</span>
+                        <span className="font-semibold text-fg">{rep.metrics.homework.displayString}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Daily Spaced Repetition Review Modal (RF02, RF03, CA02, CA03) */}
+      {selectedStudentId && (
+        <DailyReviewModal
+          isOpen={isReviewOpen}
+          onClose={() => setIsReviewOpen(false)}
+          studentId={selectedStudentId}
+          words={vocabulary}
+          onFinished={() => {
+            if (selectedStudentId) {
+              getStudentVocabulary(selectedStudentId)
+                .then(setVocabulary)
+                .catch(() => {});
+            }
+          }}
+        />
       )}
     </div>
   );

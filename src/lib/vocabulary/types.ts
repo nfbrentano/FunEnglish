@@ -13,8 +13,20 @@ export interface StudentWord {
   firstAddedAt: string;
   /** ISO timestamp when the word was last added or encountered. */
   lastAddedAt: string;
-  /** Marked as learned ("I know this") by the student (RF06). */
+  /** Marked as learned ("I know this") by the student (RF06); in SRS, acts as suspended (RF08). */
   learned: boolean;
+  /** Next review date string (YYYY-MM-DD, RNF01, RNF06). */
+  dueAt?: string;
+  /** Days between reviews (RNF01). */
+  intervalDays?: number;
+  /** Ease factor multiplier (default 2.5, min 1.3, RNF01). */
+  ease?: number;
+  /** Repetitions count (RNF01). */
+  reps?: number;
+  /** Number of times forgotten / Again (RNF01). */
+  lapses?: number;
+  /** ISO timestamp of last review completion (RNF01). */
+  lastReviewedAt?: string;
 }
 
 export interface CreateWordInput {
@@ -22,6 +34,11 @@ export interface CreateWordInput {
   meaning?: string;
   example?: string;
   sessionId?: string;
+  dueAt?: string;
+  intervalDays?: number;
+  ease?: number;
+  reps?: number;
+  lapses?: number;
 }
 
 export interface UpdateWordInput {
@@ -30,6 +47,12 @@ export interface UpdateWordInput {
   example?: string;
   learned?: boolean;
   sessionIds?: string[];
+  dueAt?: string;
+  intervalDays?: number;
+  ease?: number;
+  reps?: number;
+  lapses?: number;
+  lastReviewedAt?: string;
 }
 
 export interface SessionWordInput {

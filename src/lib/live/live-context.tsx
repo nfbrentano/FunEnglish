@@ -9,6 +9,12 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import {
+  acceptedSentences,
+  chunksOf,
+  finalPunctuation,
+  shuffleChunks,
+} from "../activities/sentence-order";
 import { useAuth } from "../auth/use-auth";
 import { generateRoomCode } from "./code";
 import {
@@ -91,6 +97,16 @@ export interface LiveRoomContextType {
 }
 
 const LiveRoomContext = createContext<LiveRoomContextType | null>(null);
+
+/** The pieces go out already shuffled (never in the right order), like in the player (spec 15). */
+function sentenceOrderQuestion(item: { sentence: string; chunks?: string[]; translation?: string }) {
+  const chunks = chunksOf(item);
+  return {
+    prompt: item.translation || "Put the words in order",
+    chunks: shuffleChunks(item).map((i) => chunks[i]),
+    punctuation: finalPunctuation(item.sentence),
+  };
+}
 
 const LIVE_ROOM_STORAGE_KEY = "fun-english-active-live-room";
 
@@ -262,6 +278,8 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
         items = activity.content?.cards || [];
       } else if (activity.type === "prompt-cards") {
         items = activity.content?.cards || [];
+      } else if (activity.type === "sentence-order") {
+        items = activity.content?.items || [];
       }
 
       const itemIndex = 0;
@@ -303,6 +321,8 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
           prompt: currentItem.sentence || currentItem.text || "",
           blanksTemplate: currentItem.sentence || currentItem.text || "",
         };
+      } else if (activity.type === "sentence-order" && currentItem) {
+        questionData = sentenceOrderQuestion(currentItem);
       }
 
       await updateLiveRoomState(roomCode, {
@@ -334,6 +354,8 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
     } else if (current.type === "fill-blanks") {
       // Extracted answers from template or currentItem
       correctAnswers = currentItem.answers || [];
+    } else if (current.type === "sentence-order") {
+      correctAnswers = acceptedSentences(currentItem);
     }
 
     await revealCurrentQuestion({
@@ -382,6 +404,8 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
         prompt: currentItem.sentence || currentItem.text || "",
         blanksTemplate: currentItem.sentence || currentItem.text || "",
       };
+    } else if (current.type === "sentence-order" && currentItem) {
+      questionData = sentenceOrderQuestion(currentItem);
     }
 
     await updateLiveRoomState(roomCode, {

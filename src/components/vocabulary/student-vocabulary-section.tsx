@@ -1,16 +1,20 @@
 "use client";
 
 import {
+  Award,
   BookMarked,
+  Calendar,
   CheckCircle2,
+  Clock,
   Edit2,
   Plus,
+  RotateCcw,
   Search,
   Trash2,
   Volume2,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
@@ -22,6 +26,7 @@ import {
   getStudentVocabulary,
   updateWord,
 } from "@/lib/vocabulary/repository";
+import { getVocabularyReviewStats } from "@/lib/vocabulary/srs";
 import type { StudentWord } from "@/lib/vocabulary/types";
 
 interface StudentVocabularySectionProps {
@@ -36,6 +41,8 @@ export function StudentVocabularySection({
   const [words, setWords] = useState<StudentWord[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const reviewStats = useMemo(() => getVocabularyReviewStats(words), [words]);
 
   // Add modal state
   const [isAddOpen, setIsAddOpen] = useState(false);
@@ -218,6 +225,61 @@ export function StudentVocabularySection({
         </Button>
       </div>
 
+      {/* Review stats overview (RF07, CA07) */}
+      {!loading && words.length > 0 && (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="flex items-center gap-3 rounded-xl border border-border-subtle bg-primary/40 p-3">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+              <Award className="size-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold text-fg">
+                {strings.vocabulary.reviewStats.mastered(reviewStats.mastered)}
+              </div>
+              <div className="text-[11px] text-muted">≥ 21 days interval</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 rounded-xl border border-border-subtle bg-primary/40 p-3">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 text-sky-500">
+              <RotateCcw className="size-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold text-fg">
+                {strings.vocabulary.reviewStats.inReview(reviewStats.inReview)}
+              </div>
+              <div className="text-[11px] text-muted">active SRS</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 rounded-xl border border-border-subtle bg-primary/40 p-3">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+              <Clock className="size-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold text-fg">
+                {strings.vocabulary.reviewStats.due(reviewStats.dueCount)}
+              </div>
+              <div className="text-[11px] text-muted">ready for review</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 rounded-xl border border-border-subtle bg-primary/40 p-3">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+              <Calendar className="size-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="text-xs font-semibold text-fg">
+                {reviewStats.lastReviewedAt
+                  ? new Date(reviewStats.lastReviewedAt).toLocaleDateString()
+                  : strings.vocabulary.reviewStats.noReviewsYet}
+              </div>
+              <div className="text-[11px] text-muted">last review</div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Search & stats bar */}
       <div className="flex items-center gap-3">
         <div className="relative flex-1 max-w-sm">
@@ -269,6 +331,15 @@ export function StudentVocabularySection({
                   </div>
 
                   <div className="flex items-center gap-1">
+                    {word.intervalDays !== undefined && (
+                      <span
+                        className="rounded-full bg-accent-muted px-2 py-0.5 text-[11px] font-medium text-accent"
+                        title={`Ease: ${word.ease ?? 2.5}, Reps: ${word.reps ?? 0}`}
+                      >
+                        {word.intervalDays}d
+                      </span>
+                    )}
+
                     {word.learned ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-500">
                         <CheckCircle2 className="size-3" />

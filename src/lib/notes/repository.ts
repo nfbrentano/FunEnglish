@@ -133,6 +133,8 @@ export async function getStudentNotes(
       visibility: (data.visibility as NoteVisibility) ?? "private",
       resolved: Boolean(data.resolved),
       sessionId: data.sessionId ?? undefined,
+      source: (data.source as any) ?? undefined,
+      homeworkId: data.homeworkId ?? undefined,
       createdAt: toDate(data.createdAt),
       updatedAt: toDate(data.updatedAt),
     });
@@ -171,6 +173,8 @@ export async function createStudentNote(
   const visibility = resolveDefaultVisibility(validatedCategory, input.visibility);
   const resolved = Boolean(input.resolved);
   const sessionId = input.sessionId?.trim() || undefined;
+  const source = input.source;
+  const homeworkId = input.homeworkId?.trim() || undefined;
 
   const db = getDb();
   const notesRef = collection(db, `students/${studentId}/notes`);
@@ -190,6 +194,12 @@ export async function createStudentNote(
   if (sessionId) {
     payload.sessionId = sessionId;
   }
+  if (source) {
+    payload.source = source;
+  }
+  if (homeworkId) {
+    payload.homeworkId = homeworkId;
+  }
 
   const docRef = await addDoc(notesRef, payload);
 
@@ -202,6 +212,8 @@ export async function createStudentNote(
     visibility,
     resolved,
     sessionId,
+    source,
+    homeworkId,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -284,6 +296,12 @@ export async function updateStudentNote(
   }
   if (updates.sessionId !== undefined) {
     payload.sessionId = updates.sessionId ?? "";
+  }
+  if (updates.source !== undefined) {
+    payload.source = updates.source ?? "";
+  }
+  if (updates.homeworkId !== undefined) {
+    payload.homeworkId = updates.homeworkId ?? "";
   }
 
   await updateDoc(noteRef, payload);

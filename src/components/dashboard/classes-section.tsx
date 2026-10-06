@@ -28,8 +28,9 @@ import {
 import { useClasses } from "@/lib/classes/use-classes";
 import { getPastSessions } from "@/lib/session/repository";
 import { useSessionContext } from "@/lib/session/session-context";
-import type { ClassroomSession } from "@/lib/session/types";
+import { ClassroomSession } from "@/lib/session/types";
 import { strings } from "@/lib/strings";
+import { UpcomingPlansSection } from "@/components/plans/upcoming-plans-section";
 
 interface ClassesSectionProps {
   classesHook?: ReturnType<typeof useClasses>;
@@ -55,7 +56,7 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
 
   const { user } = useAuth();
   const session = useSessionContext();
-  const [classSubTab, setClassSubTab] = useState<Record<string, "students" | "past">>({});
+  const [classSubTab, setClassSubTab] = useState<Record<string, "students" | "plans" | "past">>({});
   const [pastSessionsMap, setPastSessionsMap] = useState<Record<string, ClassroomSession[]>>({});
   const [loadingPastSessions, setLoadingPastSessions] = useState<Record<string, boolean>>({});
 
@@ -425,7 +426,7 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                 {/* Expanded details */}
                 {isExpanded && (
                   <div className="border-t border-border-subtle bg-primary/40 p-4 sm:p-5">
-                    {/* Sub-tabs: Students / Past classes (RF08, CA06) */}
+                    {/* Sub-tabs: Students / Lesson Plans / Past classes (RF08, CA07) */}
                     <div className="flex items-center gap-2 mb-4 border-b border-border-subtle pb-3">
                       <button
                         type="button"
@@ -439,6 +440,19 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                         }`}
                       >
                         {strings.classes.studentCount(classStudents.length)}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setClassSubTab((prev) => ({ ...prev, [item.id]: "plans" }))
+                        }
+                        className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                          classSubTab[item.id] === "plans"
+                            ? "bg-accent text-primary"
+                            : "text-fg-secondary hover:text-fg"
+                        }`}
+                      >
+                        Lesson Plans
                       </button>
                       <button
                         type="button"
@@ -458,7 +472,14 @@ export function ClassesSection({ classesHook }: ClassesSectionProps) {
                       </button>
                     </div>
 
-                    {classSubTab[item.id] === "past" ? (
+                    {classSubTab[item.id] === "plans" ? (
+                      <UpcomingPlansSection
+                        targetType="class"
+                        targetId={item.id}
+                        targetName={item.name}
+                        studentIds={item.studentIds || []}
+                      />
+                    ) : classSubTab[item.id] === "past" ? (
                       <div>
                         {loadingPastSessions[item.id] ? (
                           <Skeleton className="h-24 w-full rounded-2xl" />

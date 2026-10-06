@@ -2,6 +2,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   orderBy,
   query,
@@ -103,6 +104,16 @@ export async function getHomeworkSubmissions(homeworkId: string): Promise<Homewo
   );
   const snap = await getDocs(q);
   return snap.docs.map((d) => mapSubmissionDoc(d.id, { ...d.data(), homeworkId }));
+}
+
+/**
+ * Loads published activity content for question analysis (spec 14: RNF03).
+ */
+export async function getHomeworkActivityContent(activityId: string): Promise<any | null> {
+  const db = getDb();
+  const snap = await getDoc(doc(db, "activities", activityId));
+  if (!snap.exists()) return null;
+  return snap.data()?.content ?? null;
 }
 
 /**

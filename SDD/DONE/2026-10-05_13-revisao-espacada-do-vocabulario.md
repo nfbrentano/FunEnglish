@@ -1,6 +1,6 @@
 # [FEAT] Revisão espaçada do vocabulário do aluno (Daily Review)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
 > **Ordem de implementação:** 13 (ordem nova: 4ª das pendentes, depois da 14) · **Depende de:** 03, 04 (17 para a visão do professor) · **Por quê nesta posição:** Dá ao aluno um motivo para voltar ao portal entre as aulas, usando dados que já existem
 >
@@ -53,15 +53,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que "Ana" tem 8 palavras com `dueAt` até hoje e 5 futuras, quando abre o portal, então vê "8 words to review today".
-- [ ] **CA02:** Dado a revisão aberta, quando "Ana" toca no cartão (ou aperta Espaço), então vê o significado e o exemplo e os 4 botões de avaliação.
-- [ ] **CA03:** Dado uma palavra com `intervalDays = 3` e `ease = 2.5`, quando "Ana" escolhe "Good", então `intervalDays` passa a 8 (arredondado) e `dueAt` = hoje + 8; e com "Again" a palavra volta ao fim da fila atual e `lapses` aumenta 1.
-- [ ] **CA04:** Dado 50 palavras vencidas e limite 20, quando "Ana" começa a revisão, então revisa no máximo 20 e vê "Daily goal reached".
-- [ ] **CA05:** Dado o modo inverso ligado, quando a revisão começa, então a frente mostra o significado e o verso o termo.
-- [ ] **CA06:** Dado que "Ana" revisou ontem e hoje, quando termina a revisão de hoje, então vê "2-day streak".
-- [ ] **CA07:** Dado que "Ana" tem 4 palavras com intervalo ≥ 21 dias, quando o professor abre a página dela, então vê "4 mastered" e a data da última revisão.
-- [ ] **CA08:** Dado uma palavra marcada como "learned", quando "Ana" inicia a revisão, então essa palavra não aparece.
-- [ ] **CA09 (negativo):** Dado "Ana" logada no portal, quando tenta alterar `term` de uma palavra ou escrever no vocabulário de "Bruno" pelo SDK, então recebe `permission-denied`.
+- [x] **CA01:** Dado que "Ana" tem 8 palavras com `dueAt` até hoje e 5 futuras, quando abre o portal, então vê "8 words to review today".
+- [x] **CA02:** Dado a revisão aberta, quando "Ana" toca no cartão (ou aperta Espaço), então vê o significado e o exemplo e os 4 botões de avaliação.
+- [x] **CA03:** Dado uma palavra com `intervalDays = 3` e `ease = 2.5`, quando "Ana" escolhe "Good", então `intervalDays` passa a 8 (arredondado) e `dueAt` = hoje + 8; e com "Again" a palavra volta ao fim da fila atual e `lapses` aumenta 1.
+- [x] **CA04:** Dado 50 palavras vencidas e limite 20, quando "Ana" começa a revisão, então revisa no máximo 20 e vê "Daily goal reached".
+- [x] **CA05:** Dado o modo inverso ligado, quando a revisão começa, então a frente mostra o significado e o verso o termo.
+- [x] **CA06:** Dado que "Ana" revisou ontem e hoje, quando termina a revisão de hoje, então vê "2-day streak".
+- [x] **CA07:** Dado que "Ana" tem 4 palavras com intervalo ≥ 21 dias, quando o professor abre a página dela, então vê "4 mastered" e a data da última revisão.
+- [x] **CA08:** Dado uma palavra marcada como "learned", quando "Ana" inicia a revisão, então essa palavra não aparece.
+- [x] **CA09 (negativo):** Dado "Ana" logada no portal, quando tenta alterar `term` de uma palavra ou escrever no vocabulário de "Bruno" pelo SDK, então recebe `permission-denied`.
 
 ## O que a atividade não inclui
 

@@ -20,6 +20,8 @@ import {
   getActiveSession,
   updateSession,
 } from "./repository";
+import { markPlanUsed } from "@/lib/plans/repository";
+import type { Plan } from "@/lib/plans/types";
 import {
   SESSION_LOCAL_STORAGE_PREFIX,
   type ClassroomSession,
@@ -44,8 +46,8 @@ export interface SessionContextType {
   toggleProjectionMode: () => void;
 
   // Actions
-  startClass: (classId: string, className: string, studentIds: string[]) => Promise<void>;
-  startOneToOne: (studentId: string, studentName: string, mode?: "online" | "in-person") => Promise<void>;
+  startClass: (classId: string, className: string, studentIds: string[], plan?: Plan) => Promise<void>;
+  startOneToOne: (studentId: string, studentName: string, mode?: "online" | "in-person", plan?: Plan) => Promise<void>;
   resumeSession: () => void;
   dismissResume: () => void;
   discardCurrentSession: () => Promise<void>;
@@ -288,9 +290,9 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeSession]);
 
-  // Start class action (RF01, RF10, CA01, CA09)
+  // Start class action (RF01, RF10, CA01, CA09, Spec 12 RF05)
   const startClass = useCallback(
-    async (classId: string, className: string, studentIds: string[]) => {
+    async (classId: string, className: string, studentIds: string[], plan?: Plan) => {
       if (!user) throw new Error("Must be logged in to start class.");
 
       // Check if another session is already active
@@ -299,6 +301,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
           // Same class: just reopen sidebar
           setIsSidebarOpen(true);
           setIsCollapsed(false);
+          if (plan) setActiveTab("plan");
           return;
         }
         // Different class: prompt conflict modal (CA09)
@@ -307,26 +310,37 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         return;
       }
 
-      const session = await createSession(user.uid, classId, className, studentIds);
+      const session = await createSession(user.uid, classId, className, studentIds, plan);
+      if (plan) {
+        markPlanUsed(user.uid, plan.id, session.id).catch((err) =>
+          console.warn("Failed marking plan used:", err),
+        );
+      }
       setActiveSession(session);
       saveLocalSnapshot(user.uid, session);
       setIsSidebarOpen(true);
       setIsCollapsed(false);
-      setActiveTab("students"); // CA01: aba Students com presentes
+      setActiveTab(plan ? "plan" : "students"); // Spec 12: tab plan if started from plan
       setResumePromptClass(null);
     },
     [user, activeSession],
   );
 
-  // Start 1:1 session action (Spec 17)
+  // Start 1:1 session action (Spec 17, Spec 12 RF05, CA09)
   const startOneToOne = useCallback(
-    async (studentId: string, studentName: string, mode?: "online" | "in-person") => {
+    async (
+      studentId: string,
+      studentName: string,
+      mode?: "online" | "in-person",
+      plan?: Plan,
+    ) => {
       if (!user) throw new Error("Must be logged in to start lesson.");
 
       if (activeSession && activeSession.status === "active") {
         if (activeSession.studentId === studentId && activeSession.kind === "one-to-one") {
           setIsSidebarOpen(true);
           setIsCollapsed(false);
+          if (plan) setActiveTab("plan");
           return;
         }
         // Conflict logic needs updating to handle 1:1 conflicts, for now we just use the same prompt
@@ -335,12 +349,17 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         return;
       }
 
-      const session = await createOneToOneSession(user.uid, studentId, studentName, mode);
+      const session = await createOneToOneSession(user.uid, studentId, studentName, mode, plan);
+      if (plan) {
+        markPlanUsed(user.uid, plan.id, session.id).catch((err) =>
+          console.warn("Failed marking plan used:", err),
+        );
+      }
       setActiveSession(session);
       saveLocalSnapshot(user.uid, session);
       setIsSidebarOpen(true);
       setIsCollapsed(false);
-      setActiveTab("notes"); // In 1:1 we default to notes instead of students
+      setActiveTab(plan ? "plan" : "notes"); // In 1:1 with plan default to plan, else notes
       setResumePromptClass(null);
     },
     [user, activeSession],

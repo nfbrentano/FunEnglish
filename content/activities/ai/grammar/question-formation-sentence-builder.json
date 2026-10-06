@@ -1,0 +1,59 @@
+{
+  "slug": "question-formation-sentence-builder",
+  "title": "Question Formation: Sentence Builder",
+  "description": "Construct questions by placing question words, auxiliary verbs, subjects, and main verbs in the right sequence.",
+  "category": "grammar",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["questions", "wh questions", "auxiliary verbs", "grammar", "a1", "a2"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/question-formation-sentence-builder/thumb.webp",
+    "alt": "A stylish magnifying glass hovering over question mark puzzle pieces on a study desk",
+    "source": "ai",
+    "prompt": "A stylish magnifying glass hovering over question mark puzzle pieces on a study desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "Where do you live?",
+        "translation": "Onde você mora?",
+        "hint": "Question word + auxiliary verb + subject + main verb."
+      },
+      {
+        "sentence": "What time does the lesson start?",
+        "chunks": ["What time", "does", "the lesson", "start"],
+        "translation": "A que horas a aula começa?"
+      },
+      {
+        "sentence": "Why are you studying English today?",
+        "chunks": ["Why", "are", "you", "studying", "English", "today"],
+        "translation": "Por que você está estudando inglês hoje?"
+      },
+      {
+        "sentence": "How many books do you read every month?",
+        "chunks": ["How many", "books", "do", "you", "read", "every month"],
+        "translation": "Quantos livros você lê todo mês?"
+      },
+      {
+        "sentence": "Can you help me with this exercise?",
+        "chunks": ["Can", "you", "help", "me", "with this", "exercise"],
+        "translation": "Você pode me ajudar com este exercício?"
+      },
+      {
+        "sentence": "When did they arrive at the station?",
+        "chunks": ["When", "did", "they", "arrive", "at the station"],
+        "translation": "Quando eles chegaram à estação?"
+      },
+      {
+        "sentence": "Who is waiting outside the door?",
+        "chunks": ["Who", "is", "waiting", "outside", "the door"],
+        "translation": "Quem está esperando do lado de fora da porta?"
+      }
+    ]
+  }
+}

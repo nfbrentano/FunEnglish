@@ -38,6 +38,15 @@ export const CONTENT_TEMPLATES: Record<ActivityType, unknown> = {
     writing: false,
     cards: [{ prompt: "Which do you prefer?", options: ["Tea", "Coffee"], followUps: ["Why?"] }],
   },
+  "sentence-order": {
+    items: [
+      { sentence: "She doesn't like coffee.", translation: "Ela não gosta de café." },
+      {
+        sentence: "I went home yesterday.",
+        alternatives: ["Yesterday I went home."],
+      },
+    ],
+  },
 };
 
 /** Empty but structured `content` per type, for "Start blank" (spec: gestão completa, RF08). */
@@ -54,4 +63,5 @@ export const BLANK_CONTENT: Record<ActivityType, unknown> = {
     })),
   },
   "prompt-cards": { writing: false, cards: [{ prompt: "" }] },
+  "sentence-order": { items: [{ sentence: "" }] },
 };

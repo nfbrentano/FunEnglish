@@ -8,6 +8,19 @@ import type { StudentNote } from "@/lib/notes/types";
 import * as portalRepo from "@/lib/portal/repository";
 import type { StudentClassHistoryItem } from "@/lib/portal/types";
 
+vi.mock("@/lib/vocabulary/repository", () => ({
+  getStudentVocabulary: vi.fn().mockResolvedValue([]),
+  recordWordReviews: vi.fn().mockResolvedValue(undefined),
+  updateWord: vi.fn().mockResolvedValue(undefined),
+  setWordLearned: vi.fn().mockResolvedValue(undefined),
+}));
+
+vi.mock("@/lib/reports/repository", () => ({
+  getStudentReports: vi.fn().mockResolvedValue([]),
+  saveProgressReport: vi.fn().mockResolvedValue({ reportId: "mock-r1" }),
+  revokeReportShare: vi.fn().mockResolvedValue(undefined),
+}));
+
 const mockAuthUser = {
   uid: "student-uid-1",
   displayName: "Ana Silva",
@@ -263,7 +276,7 @@ describe("StudentPortalView (spec 03: RF03, RF04, RF05, RF06, CA03, CA04, CA05, 
     await userEvent.click(historyTab);
 
     // 3 class dates visible (CA04)
-    expect(screen.getByText(/Oct 1, 2026/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Oct 1, 2026/i)).toBeInTheDocument();
     expect(screen.getByText(/Oct 2, 2026/i)).toBeInTheDocument();
     expect(screen.getByText(/Oct 3, 2026/i)).toBeInTheDocument();
 

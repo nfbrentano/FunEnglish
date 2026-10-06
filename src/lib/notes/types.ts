@@ -34,6 +34,8 @@ export interface StudentNote {
   visibility: NoteVisibility;
   resolved: boolean;
   sessionId?: string;
+  source?: "lesson" | "homework" | "general";
+  homeworkId?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -45,6 +47,8 @@ export interface CreateNoteInput {
   visibility?: NoteVisibility;
   resolved?: boolean;
   sessionId?: string;
+  source?: "lesson" | "homework" | "general";
+  homeworkId?: string;
 }
 
 export interface UpdateNoteInput {
@@ -54,6 +58,8 @@ export interface UpdateNoteInput {
   visibility?: NoteVisibility;
   resolved?: boolean;
   sessionId?: string | null;
+  source?: "lesson" | "homework" | "general" | null;
+  homeworkId?: string | null;
 }
 
 export interface NoteFilterOptions {

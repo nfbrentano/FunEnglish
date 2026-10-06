@@ -28,6 +28,7 @@ import {
 import { computeLeaderboard } from "@/lib/live/scoring";
 import type { LiveParticipant, LiveRoom, LiveRoomMode } from "@/lib/live/types";
 import { InteractiveWhiteboard } from "./interactive-whiteboard";
+import { LiveSentenceBuilder } from "./live-sentence-builder";
 
 export interface StudentLiveViewProps {
   initialCode?: string;
@@ -528,6 +529,17 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
                   </Button>
                 )}
               </form>
+            )}
+
+            {/* Sentence Builder (spec 15, RF07) */}
+            {room.state.activityType === "sentence-order" && room.state.question.chunks && (
+              <LiveSentenceBuilder
+                key={room.state.itemIndex ?? 0}
+                chunks={room.state.question.chunks}
+                punctuation={room.state.question.punctuation}
+                disabled={answerSubmitted || isRevealed}
+                onSubmit={handleAnswer}
+              />
             )}
 
             {/* Answer Feedback after Reveal (CA06) */}

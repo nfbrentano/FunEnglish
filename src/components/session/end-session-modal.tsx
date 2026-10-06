@@ -1,14 +1,32 @@
 "use client";
 
-import { Check, Clock, Copy, Plus, Radio, Trash2, Users, X } from "lucide-react";
-import { useId, useMemo, useState } from "react";
+import {
+  ArrowRight,
+  Check,
+  Clock,
+  Copy,
+  ListOrdered,
+  Plus,
+  Radio,
+  Trash2,
+  Users,
+  X,
+} from "lucide-react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/toast";
+import { useAuth } from "@/lib/auth/use-auth";
 import { useClasses } from "@/lib/classes/use-classes";
 import { useLiveRoom } from "@/lib/live/live-context";
+import { getStudentNotes } from "@/lib/notes/repository";
 import type { StudentNote } from "@/lib/notes/types";
+import {
+  aggregateLiveRoomQuestions,
+  suggestNextFocus,
+} from "@/lib/homework/question-analysis";
+import { createPlan } from "@/lib/plans/repository";
 import { formatClassSummaryForWhatsApp } from "@/lib/portal/repository";
 import type {
   ClassroomSession,
@@ -81,7 +99,43 @@ function EndSessionModalInner({
   const [nextFocus, setNextFocus] = useState(active.nextFocus || "");
   const [summaryShared, setSummaryShared] = useState(active.summaryShared ?? false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { user } = useAuth();
+  const [hasMovedToNextPlan, setHasMovedToNextPlan] = useState(false);
+  const [isMovingPlan, setIsMovingPlan] = useState(false);
   const live = useLiveRoom();
+
+  // Uncompleted items from session's lesson plan (RF06, CA04)
+  const remainingPlanItems = useMemo(() => {
+    if (!active.planItems || active.planItems.length === 0) return [];
+    const playedActivityIds = new Set(activities.map((a) => a.id));
+    return active.planItems.filter((item) => {
+      if (item.kind === "activity" && item.activityId) {
+        return !playedActivityIds.has(item.activityId);
+      }
+      return true;
+    });
+  }, [active.planItems, activities]);
+
+  const handleMoveToNextPlan = async () => {
+    if (!user || remainingPlanItems.length === 0) return;
+    try {
+      setIsMovingPlan(true);
+      await createPlan(user.uid, {
+        targetType: active.kind === "one-to-one" ? "student" : "class",
+        studentId: active.studentId,
+        classId: active.classId,
+        title: `Follow-up: ${active.className || active.studentName || "Next lesson"}`,
+        items: remainingPlanItems.map((it) => ({ ...it })),
+        words: [],
+      });
+      setHasMovedToNextPlan(true);
+      toast("Remaining items moved to a new lesson plan!");
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Error creating next plan");
+    } finally {
+      setIsMovingPlan(false);
+    }
+  };
 
   // Compute Live Room results per participant (RF12, CA11)
   const liveResults = useMemo(() => {
@@ -107,6 +161,32 @@ function EndSessionModalInner({
     }
     return results;
   }, [live?.liveRoom]);
+
+  // Open error notes suggestions for 1:1 next lesson focus (RF08, CA11)
+  const [suggestedFocusPoints, setSuggestedFocusPoints] = useState<string[]>([]);
+  useEffect(() => {
+    if (active.kind !== "one-to-one" || !active.studentId) return;
+    let isMounted = true;
+    getStudentNotes(active.studentId, { status: "open" })
+      .then((existingNotes) => {
+        if (!isMounted) return;
+        const allNotes = [...existingNotes, ...notes];
+        const suggestions = suggestNextFocus(allNotes);
+        setSuggestedFocusPoints(suggestions);
+      })
+      .catch((err) => {
+        console.warn("Could not load student error notes for focus suggestions:", err);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, [active.kind, active.studentId, notes]);
+
+  // Question performance summary for live room (RF06, CA06)
+  const liveQuestionAggregates = useMemo(() => {
+    if (!live?.liveRoom?.answers) return [];
+    return aggregateLiveRoomQuestions(live.liveRoom.answers);
+  }, [live?.liveRoom?.answers]);
 
   // Present students list
   const presentStudents = useMemo(() => {
@@ -290,6 +370,49 @@ function EndSessionModalInner({
             )}
           </div>
 
+          {/* Unfinished Plan Items (RF06, CA04) */}
+          {remainingPlanItems.length > 0 && (
+            <div className="space-y-2 rounded-2xl border border-accent/20 bg-accent-muted/10 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <ListOrdered className="size-4 text-accent" />
+                  <h3 className="text-sm font-semibold text-fg">
+                    Unfinished Plan Items ({remainingPlanItems.length})
+                  </h3>
+                </div>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  disabled={isMovingPlan || hasMovedToNextPlan}
+                  onClick={handleMoveToNextPlan}
+                  className="gap-1.5 text-xs font-semibold"
+                >
+                  <ArrowRight className="size-3.5" />
+                  {hasMovedToNextPlan ? "Moved to next plan ✓" : "Move to next plan"}
+                </Button>
+              </div>
+              <p className="text-xs text-muted">
+                These items from your lesson plan weren&apos;t completed during this session.
+              </p>
+              <ul className="divide-y divide-border-subtle rounded-xl border border-border-subtle bg-primary/40">
+                {remainingPlanItems.map((item, index) => (
+                  <li
+                    key={`${item.title}-${index}`}
+                    className="flex items-center justify-between gap-2 p-2.5 text-xs"
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="text-muted font-mono">{index + 1}.</span>
+                      <span className="font-medium text-fg truncate">{item.title}</span>
+                    </div>
+                    <span className="text-[11px] text-muted whitespace-nowrap">
+                      {item.minutes} min · {item.kind === "block" ? "Block" : "Activity"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Live Quiz Results (RF12, CA11) */}
           {liveResults && Object.keys(liveResults).length > 0 && (
             <div className="space-y-2">
@@ -317,6 +440,43 @@ function EndSessionModalInner({
                   </div>
                 ))}
               </div>
+
+              {/* Question Performance (RF06, CA06) */}
+              {liveQuestionAggregates.length > 0 && (
+                <div className="mt-3 space-y-2 border-t border-border-subtle pt-3">
+                  <span className="text-xs font-semibold text-muted uppercase tracking-wider block">
+                    Question Performance ({liveQuestionAggregates.length})
+                  </span>
+                  <div className="space-y-1.5 max-h-48 overflow-y-auto">
+                    {liveQuestionAggregates.map((q) => (
+                      <div
+                        key={q.itemId}
+                        className="flex items-center justify-between rounded-xl bg-primary/40 px-3 py-1.5 text-xs"
+                      >
+                        <span className="truncate max-w-[280px] text-fg font-medium">
+                          {q.prompt}
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`font-mono font-semibold ${
+                              q.accuracyPercentage >= 75
+                                ? "text-success"
+                                : q.accuracyPercentage >= 50
+                                ? "text-amber-500"
+                                : "text-destructive"
+                            }`}
+                          >
+                            {q.accuracyPercentage}%
+                          </span>
+                          <span className="text-muted text-[11px]">
+                            ({q.correctCount}/{q.totalAnswers})
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -397,6 +557,23 @@ function EndSessionModalInner({
                   placeholder="What should be the focus next time?"
                   className="w-full rounded-xl border border-border-strong bg-primary p-3 text-xs text-fg placeholder-muted focus:border-accent focus:outline-none"
                 />
+                {suggestedFocusPoints.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                    <span className="text-[11px] text-muted">Suggested from errors:</span>
+                    {suggestedFocusPoints.map((sug) => (
+                      <button
+                        key={sug}
+                        type="button"
+                        onClick={() => {
+                          setNextFocus((prev) => (prev ? `${prev}, ${sug}` : sug));
+                        }}
+                        className="rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 text-[11px] font-medium text-accent hover:bg-accent/20 transition-colors"
+                      >
+                        + {sug}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
               <label className="flex items-center gap-2">
                 <input

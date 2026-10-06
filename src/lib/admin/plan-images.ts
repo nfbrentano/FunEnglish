@@ -16,7 +16,8 @@ const asText = (v: unknown) => (typeof v === "string" ? v : "");
 export function itemsOf(type: ActivityType, content: unknown): { kind: ItemKind; item: Json }[] {
   const c = (content ?? {}) as Json;
   if (type === "quiz") return asArray(c.questions).map((item) => ({ kind: "question", item }));
-  if (type === "fill-blanks") return asArray(c.items).map((item) => ({ kind: "sentence", item }));
+  if (type === "fill-blanks" || type === "sentence-order")
+    return asArray(c.items).map((item) => ({ kind: "sentence", item }));
   if (type === "flashcards" || type === "prompt-cards")
     return asArray(c.cards).map((item) => ({ kind: "card", item }));
   return asArray(c.categories).flatMap((cat) =>
@@ -82,6 +83,7 @@ function draftAlt(type: ActivityType, item: Json): string {
   if (type === "fill-blanks") return plainText(asText(item.text));
   if (type === "flashcards") return asText((item.back as Json | undefined)?.text);
   if (type === "prompt-cards") return plainText(asText(item.prompt));
+  if (type === "sentence-order") return plainText(asText(item.sentence));
   return plainText(asText(item.answer) || asText(item.question));
 }
 

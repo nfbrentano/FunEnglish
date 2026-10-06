@@ -1,6 +1,6 @@
 # [FEAT] Análise por questão do homework e sugestão automática de notas de erro
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
 > **Ordem de implementação:** 14 (ordem nova: 3ª das pendentes, depois da 12) · **Depende de:** 02, 09, 10, 17 · **Por quê nesta posição:** Aproveita o `answers[]` que o homework já grava (spec 10, RNF04) e ainda não é exibido; as notas sugeridas alimentam o foco e o plano da próxima aula (spec 12)
 >
@@ -54,17 +54,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um homework de quiz com 10 questões e 6 envios, quando abro a aba "Questions", então vejo as 10 questões com % de acerto, a mais errada no topo.
-- [ ] **CA02:** Dado a questão 4 com 4 de 6 erros, quando a abro, então vejo a resposta correta, quantos escolheram cada alternativa e os nomes dos 4 alunos.
-- [ ] **CA03:** Dado que "Ana" errou as questões 2 e 4, quando abro o envio dela, então vejo as duas com a resposta dela e a correta.
-- [ ] **CA04:** Dado o envio de "Ana", quando aceito a sugestão da questão 4, então é criada uma nota privada de "grammar" com o texto e a correção, com `source: "homework"`.
-- [ ] **CA05:** Dado que "Ana" já tem a nota "goed → went", quando uso "Add all as notes" com esse mesmo erro, então não é criada uma nota duplicada e o erro conta como recorrente.
-- [ ] **CA06:** Dado uma sala ao vivo encerrada, quando abro o resumo da sessão, então vejo a mesma lista de questões com % de acerto.
-- [ ] **CA07:** Dado um envio antigo sem `itemId`, quando abro a análise, então as questões aparecem como "Question N" sem erro na tela.
-- [ ] **CA08:** Dado que editei a atividade e removi uma questão depois dos envios, quando abro a análise, então essa questão aparece como "Question changed" e as demais continuam corretas.
-- [ ] **CA09 (negativo):** Dado um homework de flashcards, quando abro o detalhe, então a aba "Questions" e as sugestões não aparecem.
-- [ ] **CA10:** Dado um homework enviado só para "Ana" (aluna individual), quando abro o detalhe, então vejo direto as questões que ela errou, com a resposta dela e a correta, sem a lista de % por questão.
-- [ ] **CA11:** Dado que aceitei 2 notas de erro de "Ana" a partir do homework, quando encerro a próxima aula 1:1 dela, então o campo "Next lesson focus" sugere esses 2 pontos.
+- [x] **CA01:** Dado um homework de quiz com 10 questões e 6 envios, quando abro a aba "Questions", então vejo as 10 questões com % de acerto, a mais errada no topo.
+- [x] **CA02:** Dado a questão 4 com 4 de 6 erros, quando a abro, então vejo a resposta correta, quantos escolheram cada alternativa e os nomes dos 4 alunos.
+- [x] **CA03:** Dado que "Ana" errou as questões 2 e 4, quando abro o envio dela, então vejo as duas com a resposta dela e a correta.
+- [x] **CA04:** Dado o envio de "Ana", quando aceito a sugestão da questão 4, então é criada uma nota privada de "grammar" com o texto e a correção, com `source: "homework"`.
+- [x] **CA05:** Dado que "Ana" já tem a nota "goed → went", quando uso "Add all as notes" com esse mesmo erro, então não é criada uma nota duplicada e o erro conta como recorrente.
+- [x] **CA06:** Dado uma sala ao vivo encerrada, quando abro o resumo da sessão, então vejo a mesma lista de questões com % de acerto.
+- [x] **CA07:** Dado um envio antigo sem `itemId`, quando abro a análise, então as questões aparecem como "Question N" sem erro na tela.
+- [x] **CA08:** Dado que editei a atividade e removi uma questão depois dos envios, quando abro a análise, então essa questão aparece como "Question changed" e as demais continuam corretas.
+- [x] **CA09 (negativo):** Dado um homework de flashcards, quando abro o detalhe, então a aba "Questions" e as sugestões não aparecem.
+- [x] **CA10:** Dado um homework enviado só para "Ana" (aluna individual), quando abro o detalhe, então vejo direto as questões que ela errou, com a resposta dela e a correta, sem a lista de % por questão.
+- [x] **CA11:** Dado que aceitei 2 notas de erro de "Ana" a partir do homework, quando encerro a próxima aula 1:1 dela, então o campo "Next lesson focus" sugere esses 2 pontos.
 
 ## O que a atividade não inclui
 

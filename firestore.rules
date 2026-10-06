@@ -66,11 +66,16 @@ service cloud.firestore {
       match /sessions/{sessionId} {
         allow read, write, delete: if request.auth != null && request.auth.uid == uid;
       }
-      // Plans (spec: planejamento de aula, RNF01, RNF03): private to teacher.
+      // Plans (spec: planejamento de aula, RNF01, RNF03, RNF06): private to teacher.
       match /plans/{planId} {
         allow read, delete: if request.auth != null && request.auth.uid == uid;
         allow create, update: if request.auth != null && request.auth.uid == uid
-          && request.resource.data.keys().hasAll(["classId", "title", "items", "words", "status", "updatedAt"])
+          && request.resource.data.keys().hasAll(["title", "items", "words", "status", "updatedAt"])
+          && (
+            ('classId' in request.resource.data && !('studentId' in request.resource.data)) ||
+            ('studentId' in request.resource.data && !('classId' in request.resource.data))
+          )
+          && (!('targetType' in request.resource.data) || request.resource.data.targetType in ["student", "class"])
           && request.resource.data.title is string
           && request.resource.data.title.size() > 0
           && request.resource.data.title.size() <= 80
@@ -210,7 +215,13 @@ service cloud.firestore {
           && request.resource.data.sessionIds is list
           && request.resource.data.sessionIds.size() <= 50
           && (!('meaning' in request.resource.data) || (request.resource.data.meaning is string && request.resource.data.meaning.size() <= 200))
-          && (!('example' in request.resource.data) || (request.resource.data.example is string && request.resource.data.example.size() <= 200));
+          && (!('example' in request.resource.data) || (request.resource.data.example is string && request.resource.data.example.size() <= 200))
+          && (!('dueAt' in request.resource.data) || request.resource.data.dueAt is string)
+          && (!('intervalDays' in request.resource.data) || (request.resource.data.intervalDays is number && request.resource.data.intervalDays >= 0))
+          && (!('ease' in request.resource.data) || (request.resource.data.ease is number && request.resource.data.ease >= 1.0))
+          && (!('reps' in request.resource.data) || (request.resource.data.reps is number && request.resource.data.reps >= 0))
+          && (!('lapses' in request.resource.data) || (request.resource.data.lapses is number && request.resource.data.lapses >= 0))
+          && (!('lastReviewedAt' in request.resource.data) || request.resource.data.lastReviewedAt is string);
         allow update: if request.auth != null && (
           (
             get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid
@@ -222,11 +233,25 @@ service cloud.firestore {
             && request.resource.data.sessionIds.size() <= 50
             && (!('meaning' in request.resource.data) || (request.resource.data.meaning is string && request.resource.data.meaning.size() <= 200))
             && (!('example' in request.resource.data) || (request.resource.data.example is string && request.resource.data.example.size() <= 200))
+            && (!('dueAt' in request.resource.data) || request.resource.data.dueAt is string)
+            && (!('intervalDays' in request.resource.data) || (request.resource.data.intervalDays is number && request.resource.data.intervalDays >= 0))
+            && (!('ease' in request.resource.data) || (request.resource.data.ease is number && request.resource.data.ease >= 1.0))
+            && (!('reps' in request.resource.data) || (request.resource.data.reps is number && request.resource.data.reps >= 0))
+            && (!('lapses' in request.resource.data) || (request.resource.data.lapses is number && request.resource.data.lapses >= 0))
+            && (!('lastReviewedAt' in request.resource.data) || request.resource.data.lastReviewedAt is string)
           ) ||
           (
             get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
-            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["learned"])
-            && request.resource.data.learned is bool
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+              "learned", "dueAt", "intervalDays", "ease", "reps", "lapses", "lastReviewedAt"
+            ])
+            && (!('learned' in request.resource.data) || request.resource.data.learned is bool)
+            && (!('dueAt' in request.resource.data) || request.resource.data.dueAt is string)
+            && (!('intervalDays' in request.resource.data) || (request.resource.data.intervalDays is number && request.resource.data.intervalDays >= 0))
+            && (!('ease' in request.resource.data) || (request.resource.data.ease is number && request.resource.data.ease >= 1.0))
+            && (!('reps' in request.resource.data) || (request.resource.data.reps is number && request.resource.data.reps >= 0))
+            && (!('lapses' in request.resource.data) || (request.resource.data.lapses is number && request.resource.data.lapses >= 0))
+            && (!('lastReviewedAt' in request.resource.data) || request.resource.data.lastReviewedAt is string)
           )
         );
         allow delete: if request.auth != null
@@ -265,10 +290,31 @@ service cloud.firestore {
           get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
 
+      // Progress reports for student (spec: relatorio de progresso, RF06, RNF02, CA06, CA08):
+      // Teacher reads and writes; student reads if portalUid matches auth.uid and report is not revoked.
+      match /reports/{reportId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          (
+            resource.data.revoked != true &&
+            get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+          )
+        );
+        allow write: if request.auth != null &&
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
       // Other student subcollections (grades, progress, etc.) are private to teacher
       match /{subcollection}/{document=**} {
-        allow read, write: if subcollection != "notes" && subcollection != "classes" && subcollection != "vocabulary" && subcollection != "homeworkSubmissions" && subcollection != "tracks" && subcollection != "schedule" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+        allow read, write: if subcollection != "notes" && subcollection != "classes" && subcollection != "vocabulary" && subcollection != "homeworkSubmissions" && subcollection != "tracks" && subcollection != "schedule" && subcollection != "reports" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
+    }
+
+    // Public progress reports (spec: relatorio de progresso, RNF03, CA06, CA07):
+    match /publicReports/{tokenHash} {
+      allow get: if resource.data.revoked != true;
+      allow list: if false;
+      allow write: if request.auth != null;
     }
 
     // Student portal invites: read and written only via Cloud Functions (RNF02, CA09)

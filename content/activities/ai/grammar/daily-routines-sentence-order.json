@@ -1,0 +1,55 @@
+{
+  "slug": "daily-routines-sentence-order",
+  "title": "Daily Routines: Word Order",
+  "description": "Arrange shuffled words and expressions to build correct sentences about daily habits and routines.",
+  "category": "grammar",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "beginner",
+  "tags": ["daily routines", "present simple", "habits", "word order", "a1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/daily-routines-sentence-order/thumb.webp",
+    "alt": "A cozy alarm clock, an open notebook and a steaming coffee mug on a morning desk",
+    "source": "ai",
+    "prompt": "A cozy alarm clock, an open notebook and a steaming coffee mug on a morning desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "I always wake up at seven in the morning.",
+        "chunks": ["I", "always", "wake up", "at seven", "in the morning"],
+        "translation": "Eu sempre acordo às sete da manhã.",
+        "hint": "Subject + adverb of frequency + verb."
+      },
+      {
+        "sentence": "She drinks a cup of coffee before work.",
+        "chunks": ["She", "drinks", "a cup of", "coffee", "before work"],
+        "translation": "Ela bebe uma xícara de café antes do trabalho."
+      },
+      {
+        "sentence": "They usually eat lunch together at noon.",
+        "chunks": ["They", "usually", "eat lunch", "together", "at noon"],
+        "translation": "Eles normalmente almoçam juntos ao meio-dia."
+      },
+      {
+        "sentence": "He brushes his teeth after every meal.",
+        "chunks": ["He", "brushes", "his teeth", "after", "every meal"],
+        "translation": "Ele escova os dentes após cada refeição."
+      },
+      {
+        "sentence": "We walk the dog in the park every afternoon.",
+        "chunks": ["We", "walk the dog", "in the park", "every afternoon"],
+        "translation": "Nós passeamos com o cachorro no parque toda tarde."
+      },
+      {
+        "sentence": "My brother goes to bed at ten o'clock.",
+        "chunks": ["My brother", "goes to bed", "at ten o'clock"],
+        "translation": "Meu irmão vai para a cama às dez horas."
+      }
+    ]
+  }
+}

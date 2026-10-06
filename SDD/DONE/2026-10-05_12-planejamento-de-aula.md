@@ -1,6 +1,6 @@
 # [FEAT] Planejamento de aula (Lesson Plan)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
 > **Ordem de implementação:** 12 (ordem nova: 2ª das pendentes, depois da 15) · **Depende de:** 01, 08, 17, 18 · **Por quê nesta posição:** Já foi começada com o modelo só de turmas (tipo `Plan`, regra de `plans` e `planId`/`planItems` na sessão, commit ee48f6f); precisa ser corrigida antes que outros módulos dependam dela
 >
@@ -57,16 +57,16 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado a turma "Teens B1", quando crio o plano "Food & drinks" com 3 atividades e o bloco "Warm-up (5 min)", então o plano aparece em "Upcoming plans" com 4 itens e tempo total calculado.
-- [ ] **CA02:** Dado um plano de 60 min ligado a uma aula de 50 min, quando abro o plano, então vejo o aviso "Plan is 10 min longer than the lesson".
-- [ ] **CA03:** Dado um plano salvo, quando clico em "Start class from plan", então a sessão começa com o item 1 em destaque e "Next ▶" abre o item 2 em 1 clique.
-- [ ] **CA04:** Dado que fiz 3 de 4 itens, quando encerro a aula, então o resumo lista o item restante com a opção "Move to next plan", e editar o plano depois não altera a sessão encerrada.
-- [ ] **CA05:** Dado um plano com 5 palavras-alvo, quando inicio a aula, então as 5 palavras já aparecem no gerenciador de vocabulário da sessão, para confirmar ou remover.
-- [ ] **CA06:** Dado a trilha "Travel" com 5 passos, quando escolho "Create plan from track", então o plano é criado com as 5 atividades na mesma ordem.
-- [ ] **CA07:** Dado dois planos com datas futuras, quando abro a turma, então eles aparecem por data, e um plano já usado não aparece em "Upcoming".
-- [ ] **CA08 (negativo):** Dado o professor B, quando tenta ler ou editar um plano do professor A pelo SDK, então recebe `permission-denied`; um plano com 16 itens é recusado; um plano sem aluno nem turma é recusado; e um plano antigo só com `classId` continua abrindo.
-- [ ] **CA09:** Dado a aluna "Ana" com aula agendada amanhã às 19h (50 min), quando crio um plano para essa aula, então ele aparece na Overview de Ana junto da próxima aula, e "Start lesson" abre a sessão 1:1 com a fila do plano.
-- [ ] **CA10:** Dado que a última aula de "Ana" terminou com "Next lesson focus: past simple questions", quando crio um plano novo para ela, então o objetivo já vem com esse texto, para editar.
+- [x] **CA01:** Dado a turma "Teens B1", quando crio o plano "Food & drinks" com 3 atividades e o bloco "Warm-up (5 min)", então o plano aparece em "Upcoming plans" com 4 itens e tempo total calculado.
+- [x] **CA02:** Dado um plano de 60 min ligado a uma aula de 50 min, quando abro o plano, então vejo o aviso "Plan is 10 min longer than the lesson".
+- [x] **CA03:** Dado um plano salvo, quando clico em "Start class from plan", então a sessão começa com o item 1 em destaque e "Next ▶" abre o item 2 em 1 clique.
+- [x] **CA04:** Dado que fiz 3 de 4 itens, quando encerro a aula, então o resumo lista o item restante com a opção "Move to next plan", e editar o plano depois não altera a sessão encerrada.
+- [x] **CA05:** Dado um plano com 5 palavras-alvo, quando inicio a aula, então as 5 palavras já aparecem no gerenciador de vocabulário da sessão, para confirmar ou remover.
+- [x] **CA06:** Dado a trilha "Travel" com 5 passos, quando escolho "Create plan from track", então o plano é criado com as 5 atividades na mesma ordem.
+- [x] **CA07:** Dado dois planos com datas futuras, quando abro a turma, então eles aparecem por data, e um plano já usado não aparece em "Upcoming".
+- [x] **CA08 (negativo):** Dado o professor B, quando tenta ler ou editar um plano do professor A pelo SDK, então recebe `permission-denied`; um plano com 16 itens é recusado; um plano sem aluno nem turma é recusado; e um plano antigo só com `classId` continua abrindo.
+- [x] **CA09:** Dado a aluna "Ana" com aula agendada amanhã às 19h (50 min), quando crio um plano para essa aula, então ele aparece na Overview de Ana junto da próxima aula, e "Start lesson" abre a sessão 1:1 com a fila do plano.
+- [x] **CA10:** Dado que a última aula de "Ana" terminou com "Next lesson focus: past simple questions", quando crio um plano novo para ela, então o objetivo já vem com esse texto, para editar.
 
 ## O que a atividade não inclui
 

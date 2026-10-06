@@ -1,0 +1,61 @@
+{
+  "slug": "adverbs-of-frequency-order",
+  "title": "Adverbs of Frequency in Order",
+  "description": "Master where to place adverbs of frequency (always, usually, often, never) in English sentences.",
+  "category": "grammar",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["adverbs", "frequency", "grammar", "word order", "a2"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/adverbs-of-frequency-order/thumb.webp",
+    "alt": "A minimalist calendar with frequency checkboxes and a pocket watch on a wooden table",
+    "source": "ai",
+    "prompt": "A minimalist calendar with frequency checkboxes and a pocket watch on a wooden table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "He is always late for class.",
+        "chunks": ["He", "is", "always", "late for", "class"],
+        "translation": "Ele está sempre atrasado para a aula.",
+        "hint": "Put the adverb AFTER the verb 'to be'."
+      },
+      {
+        "sentence": "We usually eat dinner at home.",
+        "chunks": ["We", "usually", "eat dinner", "at home"],
+        "translation": "Nós normalmente jantamos em casa.",
+        "hint": "Put the adverb BEFORE main verbs."
+      },
+      {
+        "sentence": "She never drinks cold milk.",
+        "chunks": ["She", "never", "drinks", "cold milk"],
+        "translation": "Ela nunca bebe leite frio."
+      },
+      {
+        "sentence": "They often visit their grandparents on Sundays.",
+        "chunks": ["They", "often", "visit", "their grandparents", "on Sundays"],
+        "translation": "Eles frequentemente visitam os avós aos domingos."
+      },
+      {
+        "sentence": "I sometimes listen to music while studying.",
+        "chunks": ["I", "sometimes", "listen to", "music", "while studying"],
+        "translation": "Às vezes eu escuto música enquanto estudo."
+      },
+      {
+        "sentence": "You are hardly ever angry.",
+        "chunks": ["You", "are", "hardly ever", "angry"],
+        "translation": "Você quase nunca fica com raiva."
+      },
+      {
+        "sentence": "My teacher is always very patient with us.",
+        "chunks": ["My teacher", "is", "always", "very patient", "with us"],
+        "translation": "Meu professor é sempre muito paciente conosco."
+      }
+    ]
+  }
+}

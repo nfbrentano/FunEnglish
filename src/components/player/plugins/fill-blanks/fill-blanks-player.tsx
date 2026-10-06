@@ -45,7 +45,12 @@ export default function FillBlanksPlayer({
   const [checked, setChecked] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [hint, setHint] = useState(false);
-  const totals = useRef({ correct: 0, total: 0, review: [] as ReviewItem[] });
+  const totals = useRef({
+    correct: 0,
+    total: 0,
+    review: [] as ReviewItem[],
+    answers: {} as Record<number, { itemId: string; given: string[]; blanks: string[]; correct: boolean }>,
+  });
   const firstInput = useRef<HTMLInputElement>(null);
 
   const last = index === content.items.length - 1;
@@ -64,6 +69,15 @@ export default function FillBlanksPlayer({
     totals.current.correct += correct;
     totals.current.total += blanks.length;
     if (correct > 0) onScore(correct);
+
+    const userVals = blanks.map((_, i) => answerAt(i));
+    totals.current.answers[index] = {
+      itemId: (item as any).id || String(index),
+      given: userVals,
+      blanks: userVals,
+      correct: results.every(Boolean),
+    };
+
     blanks.forEach((blank, i) => {
       if (!results[i]) {
         totals.current.review.push({
@@ -77,8 +91,13 @@ export default function FillBlanksPlayer({
 
   function next() {
     if (last) {
-      const { correct, total, review } = totals.current;
-      onComplete({ correct, total, review });
+      const { correct, total, review, answers } = totals.current;
+      onComplete({
+        correct,
+        total,
+        review,
+        rawAnswers: content.items.map((_, i) => answers[i] ?? null),
+      });
       return;
     }
     const nextBlanks = blanksOf(parseBlanks(content.items[index + 1].text));

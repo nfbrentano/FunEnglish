@@ -1,0 +1,63 @@
+{
+  "slug": "connecting-clauses-because-and-so",
+  "title": "Connecting Clauses: Because and So",
+  "description": "Combine clauses to explain reasons and results using because and so in compound sentences.",
+  "category": "writing",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["writing", "conjunctions", "because", "so", "reasons", "a2", "b1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/connecting-clauses-because-and-so/thumb.webp",
+    "alt": "Two interlocking wooden bridge puzzle pieces connecting two paper scrolls on a desk",
+    "source": "ai",
+    "prompt": "Two interlocking wooden bridge puzzle pieces connecting two paper scrolls on a desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "I stayed at home because it was raining heavily.",
+        "chunks": ["I stayed at home", "because", "it was raining", "heavily"],
+        "alternatives": ["Because it was raining heavily I stayed at home."],
+        "translation": "Fiquei em casa porque estava chovendo muito.",
+        "hint": "'Because' introduces the reason."
+      },
+      {
+        "sentence": "He was exhausted so he went to sleep early.",
+        "chunks": ["He was exhausted", "so", "he went to sleep", "early"],
+        "translation": "Ele estava exausto, então foi dormir cedo.",
+        "hint": "'So' introduces the result."
+      },
+      {
+        "sentence": "She studied hard so she passed the exam.",
+        "chunks": ["She studied hard", "so", "she passed", "the exam"],
+        "translation": "Ela estudou muito, então passou no exame."
+      },
+      {
+        "sentence": "We cooked dinner at home because restaurants were closed.",
+        "chunks": ["We cooked dinner", "at home", "because", "restaurants were closed"],
+        "alternatives": ["Because restaurants were closed we cooked dinner at home."],
+        "translation": "Cozinhamos o jantar em casa porque os restaurantes estavam fechados."
+      },
+      {
+        "sentence": "The traffic was terrible so we arrived late.",
+        "chunks": ["The traffic", "was terrible", "so", "we arrived late"],
+        "translation": "O trânsito estava terrível, então chegamos atrasados."
+      },
+      {
+        "sentence": "I love reading because it helps me relax.",
+        "chunks": ["I love reading", "because", "it helps me", "relax"],
+        "translation": "Adoro ler porque me ajuda a relaxar."
+      },
+      {
+        "sentence": "She forgot her umbrella so she got wet.",
+        "chunks": ["She forgot", "her umbrella", "so", "she got wet"],
+        "translation": "Ela esqueceu o guarda-chuva, então se molhou."
+      }
+    ]
+  }
+}

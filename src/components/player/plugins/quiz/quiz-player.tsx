@@ -118,6 +118,12 @@ export default function QuizPlayer({
         correct: history.current.length - wrong.length,
         total: questions.length,
         review,
+        rawAnswers: history.current.map((h, i) => ({
+          itemId: (h.question as any).id || String(i),
+          given: h.answer.chosen,
+          chosen: h.answer.chosen,
+          correct: h.answer.correct,
+        })),
       });
       return;
     }

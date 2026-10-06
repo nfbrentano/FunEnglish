@@ -201,3 +201,38 @@ describe("PromptCardsEditor and FlashcardsEditor", () => {
     expect(valid()).toBe(true);
   });
 });
+
+describe("SentenceOrderEditor", () => {
+  it("splits by words, joins two pieces into a chunk and saves a valid item (CA07)", async () => {
+    render(<Harness type="sentence-order" initial={{ items: [{ sentence: "" }] }} />);
+    await userEvent.type(screen.getByLabelText("Sentence"), "We drink a lot of water.");
+    await userEvent.click(screen.getByRole("button", { name: "Split by words" }));
+    expect(json().items[0].chunks).toEqual(["We", "drink", "a", "lot", "of", "water"]);
+
+    await userEvent.click(screen.getByRole("button", { name: "Join “a” and “lot”" }));
+    await userEvent.click(screen.getByRole("button", { name: "Join “a lot” and “of”" }));
+    expect(json().items[0].chunks).toEqual(["We", "drink", "a lot of", "water"]);
+    expect(valid()).toBe(true);
+
+    // A chunk can be split back into words.
+    await userEvent.click(screen.getByRole("button", { name: "Split “a lot of” into words" }));
+    expect(json().items[0].chunks).toEqual(["We", "drink", "a", "lot", "of", "water"]);
+  });
+
+  it("keeps alternatives one per line, so commas stay inside a sentence", async () => {
+    render(
+      <Harness type="sentence-order" initial={{ items: [{ sentence: "I went home yesterday." }] }} />,
+    );
+    const field = screen.getByLabelText("Other accepted orders, one per line");
+    await userEvent.type(field, "Yesterday, I went home.");
+    await userEvent.tab();
+    expect(json().items[0].alternatives).toEqual(["Yesterday, I went home."]);
+    expect(valid()).toBe(true);
+  });
+
+  it("flags a single-word sentence next to the field", async () => {
+    render(<Harness type="sentence-order" initial={{ items: [{ sentence: "Hello." }] }} />);
+    expect(screen.getByText("A sentence needs at least two pieces to put in order")).toBeInTheDocument();
+    expect(valid()).toBe(false);
+  });
+});

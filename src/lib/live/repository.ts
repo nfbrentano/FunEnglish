@@ -10,6 +10,7 @@ import { loadAuth } from "../auth/firebase-auth";
 import { hashHomeworkPin } from "../classes/pin";
 import { getDatabaseInstance } from "../firebase";
 import { isBlankCorrect } from "../activities/blanks";
+import { normalizeSentence } from "../activities/sentence-order";
 import { calculateAnswerPoints } from "./scoring";
 import type {
   LiveAnswer,
@@ -381,6 +382,10 @@ export async function revealCurrentQuestion(params: {
     let isCorrect = false;
     if (params.activityType === "fill-blanks") {
       isCorrect = isBlankCorrect(studentVal, params.correctAnswers);
+    } else if (params.activityType === "sentence-order") {
+      const built = normalizeSentence(studentVal);
+      isCorrect =
+        built !== "" && params.correctAnswers.some((s) => normalizeSentence(s) === built);
     } else {
       isCorrect = params.correctAnswers.some(
         (correct) => correct.toLowerCase().trim() === studentVal.toLowerCase(),

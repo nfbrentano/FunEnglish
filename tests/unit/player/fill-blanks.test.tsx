@@ -31,7 +31,9 @@ describe("FillBlanksPlayer — typing", () => {
     expect(screen.getAllByLabelText("Correct")).toHaveLength(2);
     expect(props.onScore).toHaveBeenCalledWith(2);
     await userEvent.click(screen.getByRole("button", { name: "See results" }));
-    expect(props.onComplete).toHaveBeenCalledWith({ correct: 2, total: 2, review: [] });
+    expect(props.onComplete).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 2, total: 2, review: [] }),
+    );
   });
 
   it("marks wrong gaps and can show the answer", async () => {
@@ -51,11 +53,13 @@ describe("FillBlanksPlayer — typing", () => {
     await userEvent.click(screen.getByRole("button", { name: "Next" }));
     await userEvent.type(screen.getByRole("textbox", { name: "Gap 1" }), "are{Enter}");
     await userEvent.click(screen.getByRole("button", { name: "See results" }));
-    expect(props.onComplete).toHaveBeenCalledWith({
-      correct: 1,
-      total: 2,
-      review: [{ prompt: "I ___ tired.", answer: "am", chosen: "iz" }],
-    });
+    expect(props.onComplete).toHaveBeenCalledWith(
+      expect.objectContaining({
+        correct: 1,
+        total: 2,
+        review: [{ prompt: "I ___ tired.", answer: "am", chosen: "iz" }],
+      }),
+    );
   });
 });
 

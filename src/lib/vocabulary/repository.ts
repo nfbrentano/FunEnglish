@@ -63,6 +63,12 @@ export async function getStudentVocabulary(studentId: string): Promise<StudentWo
       firstAddedAt: toIsoString(data.firstAddedAt),
       lastAddedAt: toIsoString(data.lastAddedAt),
       learned: Boolean(data.learned),
+      dueAt: typeof data.dueAt === "string" ? data.dueAt : undefined,
+      intervalDays: typeof data.intervalDays === "number" ? data.intervalDays : undefined,
+      ease: typeof data.ease === "number" ? data.ease : undefined,
+      reps: typeof data.reps === "number" ? data.reps : undefined,
+      lapses: typeof data.lapses === "number" ? data.lapses : undefined,
+      lastReviewedAt: typeof data.lastReviewedAt === "string" ? data.lastReviewedAt : undefined,
     });
   }
 
@@ -192,6 +198,24 @@ export async function updateWord(
   if (updates.sessionIds !== undefined) {
     payload.sessionIds = updates.sessionIds.slice(0, 50);
   }
+  if (updates.dueAt !== undefined) {
+    payload.dueAt = updates.dueAt;
+  }
+  if (updates.intervalDays !== undefined) {
+    payload.intervalDays = updates.intervalDays;
+  }
+  if (updates.ease !== undefined) {
+    payload.ease = updates.ease;
+  }
+  if (updates.reps !== undefined) {
+    payload.reps = updates.reps;
+  }
+  if (updates.lapses !== undefined) {
+    payload.lapses = updates.lapses;
+  }
+  if (updates.lastReviewedAt !== undefined) {
+    payload.lastReviewedAt = updates.lastReviewedAt;
+  }
 
   await updateDoc(wordRef, payload);
 }
@@ -217,6 +241,43 @@ export async function setWordLearned(
   const db = getDb();
   const wordRef = doc(db, "students", studentId, "vocabulary", wordId);
   await updateDoc(wordRef, { learned: Boolean(learned) });
+}
+
+/**
+ * Batch records review ratings and updated SM-2 scheduling for student's words (RF03, RNF03, CA03).
+ */
+export async function recordWordReviews(
+  studentId: string,
+  reviews: Array<{
+    wordId: string;
+    dueAt: string;
+    intervalDays: number;
+    ease: number;
+    reps: number;
+    lapses: number;
+  }>,
+): Promise<void> {
+  if (!reviews.length) return;
+  const db = getDb();
+  const now = new Date().toISOString();
+
+  const BATCH_SIZE = 500;
+  for (let i = 0; i < reviews.length; i += BATCH_SIZE) {
+    const chunk = reviews.slice(i, i + BATCH_SIZE);
+    const batch = writeBatch(db);
+    for (const r of chunk) {
+      const wordRef = doc(db, "students", studentId, "vocabulary", r.wordId);
+      batch.update(wordRef, {
+        dueAt: r.dueAt,
+        intervalDays: r.intervalDays,
+        ease: r.ease,
+        reps: r.reps,
+        lapses: r.lapses,
+        lastReviewedAt: now,
+      });
+    }
+    await batch.commit();
+  }
 }
 
 /**

@@ -8,6 +8,7 @@ import {
   promptCardsContentSchema,
   quizBoardContentSchema,
   quizContentSchema,
+  sentenceOrderContentSchema,
 } from "./content";
 
 export const SCHEMA_VERSION = 1;
@@ -18,6 +19,7 @@ export const ACTIVITY_TYPES = [
   "fill-blanks",
   "quiz-board",
   "prompt-cards",
+  "sentence-order",
 ] as const;
 
 const levelSchema = z.enum(LEVELS);
@@ -59,6 +61,11 @@ export const activityInputSchema = z
     z.object({ ...baseFields, type: z.literal("fill-blanks"), content: fillBlanksContentSchema }),
     z.object({ ...baseFields, type: z.literal("quiz-board"), content: quizBoardContentSchema }),
     z.object({ ...baseFields, type: z.literal("prompt-cards"), content: promptCardsContentSchema }),
+    z.object({
+      ...baseFields,
+      type: z.literal("sentence-order"),
+      content: sentenceOrderContentSchema,
+    }),
   ])
   .refine((a) => LEVELS.indexOf(a.levelMin) <= LEVELS.indexOf(a.levelMax), {
     message: "levelMin must not be above levelMax",

@@ -61,6 +61,8 @@ const PICTURE_RULE: Record<ActivityType, string> = {
   "quiz-board":
     'Give clues a picture when it helps: "media": {"kind": "image", "alt": "what the picture shows"}.',
   "prompt-cards": 'Give every card a picture: "image": {"alt": "what the picture shows"}.',
+  "sentence-order":
+    'Give items a picture when it helps: "media": {"kind": "image", "alt": "what the picture shows"}.',
 };
 
 const COUNT_NOUN: Record<ActivityType, string> = {
@@ -69,6 +71,7 @@ const COUNT_NOUN: Record<ActivityType, string> = {
   "fill-blanks": "sentences",
   "quiz-board": "clues per category",
   "prompt-cards": "cards",
+  "sentence-order": "sentences",
 };
 
 /** The JSON template for any type: the quiz wrapper with this type's content. */

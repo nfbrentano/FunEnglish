@@ -183,6 +183,36 @@ prompt):
 }
 ```
 
+### sentence-order
+
+6–10 items, one sentence each, 3–10 pieces (at most 14). Write the correct `sentence` with its
+final punctuation: the punctuation stays fixed at the end and is not a piece. By default each word
+is a piece and contractions (`doesn't`) stay one piece; use `chunks` to keep phrases together
+(`"a lot of"`), and they must make the sentence in order. Add `alternatives` only for other orders
+that are really correct, with the same words. Good for word order, questions, adverbs of
+frequency and time phrases. Use `translation` (Portuguese) for beginners.
+
+`"type": "sentence-order"` and this `content`:
+
+```json
+{
+  "items": [
+    { "sentence": "She doesn't like coffee.", "translation": "Ela não gosta de café." },
+    {
+      "sentence": "I went home yesterday.",
+      "alternatives": ["Yesterday I went home."]
+    },
+    {
+      "sentence": "We drink a lot of water every day.",
+      "chunks": ["We", "drink", "a lot of", "water", "every day"],
+      "hint": "a lot of + noun"
+    }
+  ]
+}
+```
+
+Optional per item: `hint`, `translation` and `media` (same kinds as the quiz).
+
 ## After generating
 
 1. `npm run seed:check` — fix anything it reports.

@@ -123,6 +123,13 @@ export async function getStudentLessonsForPortal(
   });
 }
 
+export async function getStudentLessons(
+  teacherUid: string,
+  studentId: string
+): Promise<Lesson[]> {
+  return getStudentLessonsForPortal(teacherUid, studentId);
+}
+
 export async function saveLesson(teacherUid: string, lesson: Lesson): Promise<void> {
   const db = getDb();
   const lessonRef = doc(db, `users/${teacherUid}/lessons/${lesson.id}`);

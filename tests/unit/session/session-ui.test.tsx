@@ -13,6 +13,12 @@ import { SessionProvider, useSessionContext } from "@/lib/session/session-contex
 import type { ClassroomSession } from "@/lib/session/types";
 import * as studentModeHook from "@/lib/student-mode";
 
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn(), replace: vi.fn(), back: vi.fn() }),
+  usePathname: () => "/session",
+  useSearchParams: () => new URLSearchParams(),
+}));
+
 const mockStudents = [
   { id: "s1", name: "Ana Silva", email: "ana@example.com", classIds: ["c1"] },
   { id: "s2", name: "Bruno Costa", email: "bruno@example.com", classIds: ["c1"] },

@@ -4,13 +4,15 @@ import {
   BookMarked,
   Check,
   CheckCircle2,
+  Flame,
   RotateCw,
   Search,
   Sparkles,
   Volume2,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { DailyReviewModal } from "@/components/portal/daily-review-modal";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
@@ -20,6 +22,7 @@ import {
   getStudentVocabulary,
   setWordLearned,
 } from "@/lib/vocabulary/repository";
+import { calculateStreak, getDueWords } from "@/lib/vocabulary/srs";
 import type { StudentWord } from "@/lib/vocabulary/types";
 
 interface StudentVocabularyTabProps {
@@ -30,6 +33,11 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
   const toast = useToast();
   const [words, setWords] = useState<StudentWord[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // SRS Daily Review
+  const [isDailyReviewOpen, setIsDailyReviewOpen] = useState(false);
+  const dueWords = useMemo(() => getDueWords(words), [words]);
+  const streak = useMemo(() => calculateStreak(words), [words]);
 
   // Filters & sorting
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,6 +51,15 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
   const [practiceFinished, setPracticeFinished] = useState(false);
   const [cardsKnewCount, setCardsKnewCount] = useState(0);
+
+  const loadVocabulary = useCallback(async () => {
+    try {
+      const data = await getStudentVocabulary(studentId);
+      setWords(data);
+    } catch (err) {
+      console.error("Error loading student vocabulary:", err);
+    }
+  }, [studentId]);
 
   useEffect(() => {
     let active = true;
@@ -163,8 +180,19 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
           <p className="text-xs text-fg-secondary">{strings.portal.wordsSubtitle}</p>
         </div>
 
-        {/* Practice Button (RF07, CA07) */}
-        <div>
+        {/* Header Actions: Daily Review + Practice Button (RF01, RF07) */}
+        <div className="flex flex-wrap items-center gap-2">
+          {dueWords.length > 0 && (
+            <Button
+              variant="primary"
+              onClick={() => setIsDailyReviewOpen(true)}
+              className="h-10 px-4 text-xs font-semibold shadow-xs bg-amber-500 hover:bg-amber-600 text-slate-950"
+            >
+              <Flame className="size-4 mr-1.5 fill-current text-amber-950" />
+              <span>{strings.portal.dailyReviewButton(dueWords.length)}</span>
+            </Button>
+          )}
+
           {unlearnedWords.length === 0 ? (
             <Button
               variant="secondary"
@@ -177,9 +205,9 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
             </Button>
           ) : (
             <Button
-              variant="primary"
+              variant={dueWords.length > 0 ? "secondary" : "primary"}
               onClick={startPractice}
-              className="h-10 px-5 text-xs font-semibold shadow-xs"
+              className="h-10 px-4 text-xs font-semibold shadow-xs"
             >
               <Sparkles className="size-4 mr-1.5" />
               <span>{strings.portal.practiceButton} ({Math.min(unlearnedWords.length, 20)})</span>
@@ -471,6 +499,16 @@ export function StudentVocabularyTab({ studentId }: StudentVocabularyTabProps) {
           </div>
         </div>
       )}
+
+      {/* Daily Review Modal (RF01, RF02, etc.) */}
+      <DailyReviewModal
+        isOpen={isDailyReviewOpen}
+        onClose={() => setIsDailyReviewOpen(false)}
+        studentId={studentId}
+        words={words}
+        initialStreak={streak}
+        onReviewComplete={loadVocabulary}
+      />
     </div>
   );
 }

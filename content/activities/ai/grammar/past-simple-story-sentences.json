@@ -1,0 +1,63 @@
+{
+  "slug": "past-simple-story-sentences",
+  "title": "Past Simple: Building Sentences",
+  "description": "Form past tense sentences with regular and irregular verbs and time expressions like yesterday, last night and ago.",
+  "category": "grammar",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["past simple", "narrative", "time expressions", "grammar", "a2"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/past-simple-story-sentences/thumb.webp",
+    "alt": "An antique polaroid camera and aged photo prints on a wooden scrapbook table",
+    "source": "ai",
+    "prompt": "An antique polaroid camera and aged photo prints on a wooden scrapbook table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "I went to the supermarket yesterday.",
+        "alternatives": ["Yesterday I went to the supermarket."],
+        "translation": "Eu fui ao supermercado ontem.",
+        "hint": "Time expressions can go at the end or at the beginning."
+      },
+      {
+        "sentence": "She did not watch TV last night.",
+        "chunks": ["She", "did not", "watch TV", "last night"],
+        "alternatives": ["Last night she did not watch TV."],
+        "translation": "Ela não assistiu TV ontem à noite."
+      },
+      {
+        "sentence": "They played soccer in the afternoon.",
+        "chunks": ["They", "played soccer", "in the afternoon"],
+        "alternatives": ["In the afternoon they played soccer."],
+        "translation": "Eles jogaram futebol à tarde."
+      },
+      {
+        "sentence": "We had a wonderful picnic by the lake.",
+        "chunks": ["We", "had", "a wonderful picnic", "by the lake"],
+        "translation": "Nós fizemos um piquenique maravilhoso perto do lago."
+      },
+      {
+        "sentence": "He bought a new bicycle two weeks ago.",
+        "chunks": ["He", "bought", "a new bicycle", "two weeks ago"],
+        "translation": "Ele comprou uma bicicleta nova duas semanas atrás."
+      },
+      {
+        "sentence": "Did you see that interesting movie?",
+        "chunks": ["Did", "you", "see", "that interesting movie"],
+        "translation": "Você viu aquele filme interessante?"
+      },
+      {
+        "sentence": "Last year my family traveled to London.",
+        "chunks": ["Last year", "my family", "traveled", "to London"],
+        "alternatives": ["My family traveled to London last year."],
+        "translation": "No ano passado minha família viajou para Londres."
+      }
+    ]
+  }
+}

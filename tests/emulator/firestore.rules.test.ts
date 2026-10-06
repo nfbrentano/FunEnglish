@@ -791,17 +791,40 @@ describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", 
       );
     });
 
-    it("student operations are DENIED when trying to alter meaning, create word or read other student vocabulary (CA08, CT08)", async () => {
+    it("student can update SRS review fields on their own vocabulary (spec 13: RNF02, CA09)", async () => {
       const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
 
-      // 1. Alter meaning is denied (CA08)
+      // Updating SRS fields succeeds
+      await assertSucceeds(
+        updateDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`), {
+          dueAt: "2026-10-15",
+          intervalDays: 8,
+          ease: 2.5,
+          reps: 3,
+          lapses: 0,
+          lastReviewedAt: "2026-10-06T12:00:00.000Z",
+        }),
+      );
+    });
+
+    it("student operations are DENIED when trying to alter term or meaning, create word or read other student vocabulary (CA08, CA09, CT08)", async () => {
+      const dbStudent = testEnv.authenticatedContext(studentUser).firestore();
+
+      // 1. Alter term is denied (CA09)
+      await assertFails(
+        updateDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`), {
+          term: "hacked term",
+        }),
+      );
+
+      // 2. Alter meaning is denied (CA08, CA09)
       await assertFails(
         updateDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/luggage`), {
           meaning: "hacked meaning",
         }),
       );
 
-      // 2. Creating a word is denied (CA08)
+      // 3. Creating a word is denied (CA08)
       await assertFails(
         setDoc(doc(dbStudent, `students/${studentDocId}/vocabulary/boarding-pass`), {
           term: "boarding pass",
@@ -813,9 +836,14 @@ describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", 
         }),
       );
 
-      // 3. Reading Bruno's vocabulary is denied (CA08)
+      // 4. Reading or writing Bruno's vocabulary is denied (CA08, CA09)
       await assertFails(
         getDoc(doc(dbStudent, `students/${otherStudentDocId}/vocabulary/customs`)),
+      );
+      await assertFails(
+        updateDoc(doc(dbStudent, `students/${otherStudentDocId}/vocabulary/customs`), {
+          intervalDays: 5,
+        }),
       );
     });
   });
@@ -1114,6 +1142,202 @@ describe("classes and students (spec 01: turmas e alunos, RNF01, RNF02, CA07)", 
           completed: {},
         }),
       );
+    });
+  });
+
+  describe("lesson plans (spec 12, RNF01, RNF03, RNF06, CA08)", () => {
+    const teacherPlanA = "teacher-plan-a";
+    const teacherPlanB = "teacher-plan-b";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        // Seed a legacy plan with classId only
+        await setDoc(doc(db, `users/${teacherPlanA}/plans/legacy-plan`), {
+          classId: "class-1",
+          title: "Legacy Class Plan",
+          items: [{ kind: "activity", activityId: "act-1", title: "Activity 1", minutes: 10 }],
+          words: ["hello"],
+          status: "draft",
+          updatedAt: new Date(),
+        });
+      });
+    });
+
+    it("teacher can create plan for student or class and read own plans", async () => {
+      const dbA = testEnv.authenticatedContext(teacherPlanA).firestore();
+
+      // Student plan
+      await assertSucceeds(
+        setDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-student`), {
+          targetType: "student",
+          studentId: "s-123",
+          title: "Student 1:1 Plan",
+          items: [{ kind: "block", title: "Warm up", minutes: 5 }],
+          words: ["word1"],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+
+      // Class plan
+      await assertSucceeds(
+        setDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-class`), {
+          targetType: "class",
+          classId: "c-123",
+          title: "Class Plan",
+          items: [{ kind: "activity", activityId: "act-1", title: "Act 1", minutes: 15 }],
+          words: [],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+
+      // Read own plan
+      const snap = await assertSucceeds(getDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-student`)));
+      expect(snap.exists()).toBe(true);
+
+      // Legacy plan is readable (RNF06)
+      const legacySnap = await assertSucceeds(getDoc(doc(dbA, `users/${teacherPlanA}/plans/legacy-plan`)));
+      expect(legacySnap.exists()).toBe(true);
+    });
+
+    it("teacher B receives permission-denied when attempting to read or write teacher A's plans (CA08)", async () => {
+      const dbB = testEnv.authenticatedContext(teacherPlanB).firestore();
+
+      await assertFails(getDoc(doc(dbB, `users/${teacherPlanA}/plans/legacy-plan`)));
+      await assertFails(
+        setDoc(doc(dbB, `users/${teacherPlanA}/plans/plan-hack`), {
+          targetType: "student",
+          studentId: "s-123",
+          title: "Hacked Plan",
+          items: [{ kind: "block", title: "Warm up", minutes: 5 }],
+          words: [],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+    });
+
+    it("rejects plan with 16 items (CA08, RNF03)", async () => {
+      const dbA = testEnv.authenticatedContext(teacherPlanA).firestore();
+      const items = Array.from({ length: 16 }, (_, i) => ({
+        kind: "activity",
+        activityId: `act-${i}`,
+        title: `Act ${i}`,
+        minutes: 5,
+      }));
+
+      await assertFails(
+        setDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-oversized`), {
+          targetType: "student",
+          studentId: "s-123",
+          title: "Oversized Plan",
+          items,
+          words: [],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+    });
+
+    it("rejects plan with neither studentId nor classId, or with both (CA08, RNF01)", async () => {
+      const dbA = testEnv.authenticatedContext(teacherPlanA).firestore();
+
+      // Neither
+      await assertFails(
+        setDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-none`), {
+          title: "No Target Plan",
+          items: [{ kind: "block", title: "Warm up", minutes: 5 }],
+          words: [],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+
+      // Both
+      await assertFails(
+        setDoc(doc(dbA, `users/${teacherPlanA}/plans/plan-both`), {
+          studentId: "s-123",
+          classId: "c-123",
+          title: "Both Targets Plan",
+          items: [{ kind: "block", title: "Warm up", minutes: 5 }],
+          words: [],
+          status: "draft",
+          updatedAt: new Date(),
+        }),
+      );
+    });
+  });
+
+  describe("progress reports (spec 16)", () => {
+    const teacherId = "teacher-rep-1";
+    const studentId = "student-rep-1";
+    const portalUid = "portal-rep-1";
+    const otherStudentPortalUid = "portal-rep-2";
+
+    beforeEach(async () => {
+      await testEnv.withSecurityRulesDisabled(async (ctx) => {
+        const db = ctx.firestore();
+        await setDoc(doc(db, `students/${studentId}`), {
+          teacherUid: teacherId,
+          name: "Ana",
+          classIds: [],
+          homeworkPin: "hash",
+          portalUid,
+          createdAt: new Date(),
+        });
+        await setDoc(doc(db, `students/${studentId}/reports/rep-1`), {
+          period: { type: "last-month", from: "2026-09-01", to: "2026-09-30", label: "September 2026" },
+          metrics: {},
+          revoked: false,
+          createdAt: new Date(),
+        });
+        await setDoc(doc(db, "publicReports/token-hash-valid"), {
+          tokenHash: "token-hash-valid",
+          studentId,
+          reportId: "rep-1",
+          revoked: false,
+          snapshot: { id: "rep-1" },
+        });
+        await setDoc(doc(db, "publicReports/token-hash-revoked"), {
+          tokenHash: "token-hash-revoked",
+          studentId,
+          reportId: "rep-1",
+          revoked: true,
+          snapshot: { id: "rep-1" },
+        });
+      });
+    });
+
+    it("teacher can read and write student reports (RNF02, CA06)", async () => {
+      const dbTeacher = testEnv.authenticatedContext(teacherId).firestore();
+      await assertSucceeds(getDoc(doc(dbTeacher, `students/${studentId}/reports/rep-1`)));
+      await assertSucceeds(
+        setDoc(doc(dbTeacher, `students/${studentId}/reports/rep-2`), {
+          period: { type: "last-month", from: "2026-09-01", to: "2026-09-30", label: "September 2026" },
+          metrics: {},
+          revoked: false,
+          createdAt: new Date(),
+        }),
+      );
+    });
+
+    it("student portal user can read their own unrevoked report (CA08)", async () => {
+      const dbStudent = testEnv.authenticatedContext(portalUid).firestore();
+      await assertSucceeds(getDoc(doc(dbStudent, `students/${studentId}/reports/rep-1`)));
+    });
+
+    it("other student cannot read report (CA08)", async () => {
+      const dbOther = testEnv.authenticatedContext(otherStudentPortalUid).firestore();
+      await assertFails(getDoc(doc(dbOther, `students/${studentId}/reports/rep-1`)));
+    });
+
+    it("public can get active public report, but not revoked or list (RNF03, CA06, CA07)", async () => {
+      const dbAnon = testEnv.unauthenticatedContext().firestore();
+      await assertSucceeds(getDoc(doc(dbAnon, "publicReports/token-hash-valid")));
+      await assertFails(getDoc(doc(dbAnon, "publicReports/token-hash-revoked")));
+      await assertFails(getDocs(collection(dbAnon, "publicReports")));
     });
   });
 });

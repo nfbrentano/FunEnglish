@@ -40,6 +40,11 @@ export type ActivityResult = {
   headline?: string;
   /** Items to go over again (e.g. wrong answers). */
   review?: ReviewItem[];
+  /**
+   * What the student answered, one entry per item in content order. Homework sends it to the
+   * server, which grades it again (functions/src/helpers/grading.ts) and ignores the score above.
+   */
+  rawAnswers?: unknown[];
 };
 
 /** What the player shell gives every activity type. */

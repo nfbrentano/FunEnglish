@@ -2,6 +2,7 @@
 
 import {
   ArrowLeft,
+  FileText,
   KeyRound,
   Mail,
   Users,
@@ -33,10 +34,13 @@ import { StudentVocabularySection } from "@/components/vocabulary/student-vocabu
 import { StudentHomeworkSection } from "@/components/dashboard/student-homework-section";
 import { StudentTracksSection } from "@/components/dashboard/student-tracks-section";
 import { StudentBillingSection } from "@/components/dashboard/student-billing-section";
+import { UpcomingPlansSection } from "@/components/plans/upcoming-plans-section";
+import { ProgressReportModal } from "@/components/reports/progress-report-modal";
 import { useSessionContext } from "@/lib/session/session-context";
 import { getPastSessions } from "@/lib/session/repository";
 import type { ClassroomSession } from "@/lib/session/types";
 import { strings } from "@/lib/strings";
+import { getStudentVocabulary } from "@/lib/vocabulary/repository";
 
 type TabId = "overview" | "lessons" | "notes" | "vocabulary" | "homework" | "tracks" | "billing";
 
@@ -57,11 +61,13 @@ export function StudentProfileView() {
   const [editingPrivate, setEditingPrivate] = useState<StudentPrivateProfile>({});
   const [isSavingPrivate, setIsSavingPrivate] = useState(false);
   const [pastSessions, setPastSessions] = useState<ClassroomSession[]>([]);
+  const [unlearnedWords, setUnlearnedWords] = useState<string[]>([]);
   const [internalLoading, setInternalLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const [activePin, setActivePin] = useState<string | null>(null);
   const [regenerating, setRegenerating] = useState(false);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
 
   const loading = !studentId || !user ? false : internalLoading;
 
@@ -78,7 +84,7 @@ export function StudentProfileView() {
       getStudentPrivateProfile(studentId).catch(() => null),
       getPastSessions(user.uid, undefined, studentId).catch(() => []),
     ])
-      .then(([foundStudent, teacherClasses, teacherStudents, profile, sessions]) => {
+      .then(async ([foundStudent, teacherClasses, teacherStudents, profile, sessions]) => {
         if (!active) return;
         if (!foundStudent || foundStudent.teacherUid !== user.uid) {
           setError(strings.student.notFound);
@@ -89,6 +95,14 @@ export function StudentProfileView() {
           setPrivateProfile(profile);
           setEditingPrivate(profile || {});
           setPastSessions(sessions);
+          try {
+            const vocab = await getStudentVocabulary(studentId);
+            if (active) {
+              setUnlearnedWords(vocab.filter((w) => !w.learned).map((w) => w.term));
+            }
+          } catch {
+            // Ignore vocabulary fetch error if offline or permissions
+          }
         }
       })
       .catch((err) => {
@@ -271,6 +285,13 @@ export function StudentProfileView() {
             >
               <MessageCircle className="size-4 mr-2" /> WhatsApp
             </Button>
+            <Button
+              variant="secondary"
+              className="w-full"
+              onClick={() => setReportModalOpen(true)}
+            >
+              <FileText className="size-4 mr-2" /> Progress Report
+            </Button>
           </div>
         </div>
 
@@ -327,9 +348,15 @@ export function StudentProfileView() {
         {activeTab === "overview" && (
           <div className="space-y-6">
             <h3 className="font-display text-2xl font-medium">Overview</h3>
-            <div className="rounded-2xl border border-dashed border-border-strong p-6 text-fg-secondary text-sm">
-              Next lesson focus, remaining credits, and pending homework will appear here.
-            </div>
+
+            {/* Upcoming Lesson Plans (RF08, CA07, CA09, CA10) */}
+            <UpcomingPlansSection
+              targetType="student"
+              targetId={student.id}
+              targetName={student.name}
+              initialGoal={pastSessions[0]?.nextFocus}
+              suggestedWords={unlearnedWords}
+            />
 
             <StudentSuggestedActivities 
               level={student.level} 
@@ -493,6 +520,12 @@ export function StudentProfileView() {
           />
         )}
       </div>
+
+      <ProgressReportModal
+        open={reportModalOpen}
+        student={student}
+        onClose={() => setReportModalOpen(false)}
+      />
     </div>
   );
 }

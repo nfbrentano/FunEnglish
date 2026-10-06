@@ -1,0 +1,60 @@
+{
+  "slug": "formal-email-sentences",
+  "title": "Formal Email Phrases in Order",
+  "description": "Construct key formal email phrases for openings, attachments, inquiries, and professional sign-offs.",
+  "category": "writing",
+  "type": "sentence-order",
+  "levelMin": "intermediate",
+  "levelMax": "intermediate",
+  "tags": ["writing", "formal emails", "business english", "phrases", "b1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/formal-email-sentences/thumb.webp",
+    "alt": "A sleek fountain pen resting beside a sealed correspondence envelope with a wax stamp on a desk",
+    "source": "ai",
+    "prompt": "A sleek fountain pen resting beside a sealed correspondence envelope with a wax stamp on a desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "Thank you for your prompt response to my email.",
+        "chunks": ["Thank you", "for your prompt response", "to my email"],
+        "translation": "Obrigado por sua resposta rápida ao meu e-mail.",
+        "hint": "Common polite opening phrase."
+      },
+      {
+        "sentence": "I am writing to inquire about the job position.",
+        "chunks": ["I am writing", "to inquire about", "the job position"],
+        "translation": "Estou escrevendo para me informar sobre a vaga de trabalho."
+      },
+      {
+        "sentence": "Please find attached the requested document.",
+        "chunks": ["Please find attached", "the requested", "document"],
+        "translation": "Segue em anexo o documento solicitado."
+      },
+      {
+        "sentence": "Please do not hesitate to contact me if you have questions.",
+        "chunks": ["Please do not hesitate", "to contact me", "if you have", "questions"],
+        "translation": "Por favor, não hesite em entrar em contato caso tenha dúvidas."
+      },
+      {
+        "sentence": "I look forward to hearing from you soon.",
+        "chunks": ["I look forward", "to hearing", "from you", "soon"],
+        "translation": "Aguardo seu retorno em breve."
+      },
+      {
+        "sentence": "I would appreciate it if you could confirm the meeting.",
+        "chunks": ["I would appreciate it", "if you could", "confirm", "the meeting"],
+        "translation": "Agradeceria se você pudesse confirmar a reunião."
+      },
+      {
+        "sentence": "Thank you in advance for your assistance.",
+        "chunks": ["Thank you", "in advance", "for your", "assistance"],
+        "translation": "Agradeço antecipadamente pela sua assistência."
+      }
+    ]
+  }
+}

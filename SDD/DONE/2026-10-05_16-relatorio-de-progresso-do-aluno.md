@@ -1,6 +1,6 @@
 # [FEAT] Relatório de progresso do aluno (para aluno e responsáveis)
 
-> **Status:** Rascunho
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-05 · **Atualizada em:** 2026-10-06
 > **Ordem de implementação:** 16 (ordem nova: última das pendentes) · **Depende de:** 01, 02, 04, 08, 10, 11, 17, 18 (13, 14 e 19 opcionais) · **Por quê nesta posição:** Consolida dados de todos os módulos; fica melhor depois deles
 >
@@ -55,17 +55,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado "Ana" com aulas em setembro e outubro, quando escolho "Last month", então o relatório usa só os dados do último mês.
-- [ ] **CA02:** Dado que "Ana" (aluna individual) teve 8 aulas na agenda, 7 `done` e 1 `no-show`, enviou 4 de 5 homeworks com média 82% e aprendeu 25 palavras, quando gero o relatório, então vejo "7/8 lessons", "4/5 homework · 82% average" e "25 new words".
-- [ ] **CA03:** Dado o relatório gerado, quando escrevo o comentário e 2 metas, então eles aparecem no fim do relatório e no PDF.
-- [ ] **CA04 (negativo):** Dado que "Ana" tem notas privadas de pronúncia, quando gero o relatório, então o texto dessas notas não aparece em nenhuma seção nem no link público.
-- [ ] **CA05:** Dado o relatório aberto, quando clico em "Print / Save as PDF", então a pré-visualização mostra 1–2 páginas A4 sem cabeçalho/rodapé do site.
-- [ ] **CA06:** Dado um link compartilhado, quando adiciono novos homeworks de "Ana", então o link continua mostrando os números do momento em que foi gerado.
-- [ ] **CA07 (negativo):** Dado que revoguei o link, quando alguém o abre, então vê "This report link is no longer available"; e um token inventado mostra a mesma mensagem.
-- [ ] **CA08:** Dado "Ana" logada no portal, quando abre "Reports", então vê os relatórios compartilhados com ela e não vê os de outros alunos.
-- [ ] **CA09:** Dado que escolhi "Português" ao gerar, quando abro o relatório, então os títulos das seções estão em português.
-- [ ] **CA10:** Dado "Ana" com nível B1 e objetivo "Work", e 3 aulas no período das quais 2 com resumo compartilhado, quando gero o relatório, então vejo "B1 · Work" no cabeçalho e só os 2 resumos compartilhados.
-- [ ] **CA11 (negativo):** Dado "Ana" com pacote de 8 aulas, quando gero e compartilho o relatório sem marcar "Package", então o link público não mostra aulas restantes nem valores; e o telefone e o endereço do perfil privado não aparecem em nenhum caso.
+- [x] **CA01:** Dado "Ana" com aulas em setembro e outubro, quando escolho "Last month", então o relatório usa só os dados do último mês.
+- [x] **CA02:** Dado que "Ana" (aluna individual) teve 8 aulas na agenda, 7 `done` e 1 `no-show`, enviou 4 de 5 homeworks com média 82% e aprendeu 25 palavras, quando gero o relatório, então vejo "7/8 lessons", "4/5 homework · 82% average" e "25 new words".
+- [x] **CA03:** Dado o relatório gerado, quando escrevo o comentário e 2 metas, então eles aparecem no fim do relatório e no PDF.
+- [x] **CA04 (negativo):** Dado que "Ana" tem notas privadas de pronúncia, quando gero o relatório, então o texto dessas notas não aparece em nenhuma seção nem no link público.
+- [x] **CA05:** Dado o relatório aberto, quando clico em "Print / Save as PDF", então a pré-visualização mostra 1–2 páginas A4 sem cabeçalho/rodapé do site.
+- [x] **CA06:** Dado um link compartilhado, quando adiciono novos homeworks de "Ana", então o link continua mostrando os números do momento em que foi gerado.
+- [x] **CA07 (negativo):** Dado que revoguei o link, quando alguém o abre, então vê "This report link is no longer available"; e um token inventado mostra a mesma mensagem.
+- [x] **CA08:** Dado "Ana" logada no portal, quando abre "Reports", então vê os relatórios compartilhados com ela e não vê os de outros alunos.
+- [x] **CA09:** Dado que escolhi "Português" ao gerar, quando abro o relatório, então os títulos das seções estão em português.
+- [x] **CA10:** Dado "Ana" com nível B1 e objetivo "Work", e 3 aulas no período das quais 2 com resumo compartilhado, quando gero o relatório, então vejo "B1 · Work" no cabeçalho e só os 2 resumos compartilhados.
+- [x] **CA11 (negativo):** Dado "Ana" com pacote de 8 aulas, quando gero e compartilho o relatório sem marcar "Package", então o link público não mostra aulas restantes nem valores; e o telefone e o endereço do perfil privado não aparecem em nenhum caso.
 
 ## O que a atividade não inclui
 

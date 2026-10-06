@@ -24,6 +24,14 @@ export interface Homework {
   createdAt: Date;
 }
 
+export interface QuestionSubmissionAnswer {
+  itemId?: string;
+  given?: unknown;
+  chosen?: unknown;
+  blanks?: unknown;
+  correct?: boolean;
+}
+
 export interface HomeworkSubmission {
   id: string;
   homeworkId: string;
@@ -34,7 +42,7 @@ export interface HomeworkSubmission {
   correct: number;
   total: number;
   seconds: number;
-  answers?: unknown[];
+  answers?: QuestionSubmissionAnswer[] | unknown[];
   completedAt: Date;
   late: boolean;
 }

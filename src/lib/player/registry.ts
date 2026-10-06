@@ -5,6 +5,7 @@ import {
   promptCardsContentSchema,
   quizBoardContentSchema,
   quizContentSchema,
+  sentenceOrderContentSchema,
 } from "../activities/schema/content";
 import { strings } from "../strings";
 import { definePlugin, type PluginRegistry } from "./types";
@@ -98,6 +99,31 @@ export const PLUGINS = {
       {
         ssr: false,
       },
+    ),
+  }),
+  "sentence-order": definePlugin({
+    label: "Sentence Builder",
+    instructions:
+      "Tap the pieces in the right order to build the sentence, then press Check. Tap a piece in your sentence to send it back.",
+    schema: sentenceOrderContentSchema,
+    supports: { scoring: true, teams: false, timer: false, shuffle: true },
+    options: [
+      {
+        id: "showTranslation",
+        label: strings.sentenceOrder.showTranslation,
+        type: "toggle",
+        default: false,
+      },
+      {
+        id: "readAloud",
+        label: strings.sentenceOrder.readAloudOption,
+        type: "toggle",
+        default: true,
+      },
+    ],
+    Component: dynamic(
+      () => import("@/components/player/plugins/sentence-order/sentence-order-player"),
+      { ssr: false },
     ),
   }),
 } satisfies PluginRegistry;

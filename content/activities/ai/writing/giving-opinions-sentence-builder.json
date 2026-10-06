@@ -1,0 +1,60 @@
+{
+  "slug": "giving-opinions-sentence-builder",
+  "title": "Expressing Opinions: Sentence Builder",
+  "description": "Learn to write opinion statements and essay arguments using introductory phrases and viewpoint expressions.",
+  "category": "writing",
+  "type": "sentence-order",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["writing", "opinions", "arguments", "persuasive", "a2", "b1"],
+  "status": "published",
+  "featured": false,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/giving-opinions-sentence-builder/thumb.webp",
+    "alt": "Two speech bubbles crafted from folded origami paper facing each other on a study desk",
+    "source": "ai",
+    "prompt": "Two speech bubbles crafted from folded origami paper facing each other on a study desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "items": [
+      {
+        "sentence": "In my opinion reading books is very rewarding.",
+        "chunks": ["In my opinion", "reading books", "is very rewarding"],
+        "translation": "Na minha opinião, ler livros é muito gratificante.",
+        "hint": "Opinion phrase + gerund subject + verb phrase."
+      },
+      {
+        "sentence": "I strongly believe that exercise improves our mental health.",
+        "chunks": ["I strongly believe", "that exercise", "improves", "our mental health"],
+        "translation": "Eu acredito firmemente que o exercício melhora nossa saúde mental."
+      },
+      {
+        "sentence": "From my perspective online learning has many advantages.",
+        "chunks": ["From my perspective", "online learning", "has", "many advantages"],
+        "translation": "Da minha perspectiva, o aprendizado online tem muitas vantagens."
+      },
+      {
+        "sentence": "It seems to me that teamwork produces better results.",
+        "chunks": ["It seems to me", "that teamwork", "produces", "better results"],
+        "translation": "Parece-me que o trabalho em equipe produz resultados melhores."
+      },
+      {
+        "sentence": "As far as I know the museum is free on Sundays.",
+        "chunks": ["As far as I know", "the museum", "is free", "on Sundays"],
+        "translation": "Até onde eu sei, o museu é gratuito aos domingos."
+      },
+      {
+        "sentence": "Personally I prefer living in a quiet town.",
+        "chunks": ["Personally", "I prefer living", "in a quiet town"],
+        "translation": "Pessoalmente, eu prefiro morar em uma cidade tranquila."
+      },
+      {
+        "sentence": "I completely agree with your interesting idea.",
+        "chunks": ["I completely agree", "with your", "interesting idea"],
+        "translation": "Eu concordo completamente com a sua ideia interessante."
+      }
+    ]
+  }
+}

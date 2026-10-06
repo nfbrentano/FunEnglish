@@ -1,8 +1,9 @@
 import type { StudentNote } from "@/lib/notes/types";
+import type { PlanItem } from "@/lib/plans/types";
 
 export type SessionStatus = "active" | "ended" | "draft";
 
-export type SessionTab = "timer" | "board" | "picker" | "notes" | "students" | "live";
+export type SessionTab = "timer" | "board" | "picker" | "notes" | "students" | "live" | "plan";
 
 export interface SessionActivity {
   id: string;

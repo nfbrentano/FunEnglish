@@ -88,14 +88,16 @@ describe("QuizPlayer", () => {
     }
 
     expect(props.onScore).toHaveBeenCalledTimes(8);
-    expect(props.onComplete).toHaveBeenCalledWith({
-      correct: 8,
-      total: 10,
-      review: [
-        { prompt: "Q9", answer: "have", chosen: "had" },
-        { prompt: "Q10", answer: "have", chosen: "had" },
-      ],
-    });
+    expect(props.onComplete).toHaveBeenCalledWith(
+      expect.objectContaining({
+        correct: 8,
+        total: 10,
+        review: [
+          { prompt: "Q9", answer: "have", chosen: "had" },
+          { prompt: "Q10", answer: "have", chosen: "had" },
+        ],
+      }),
+    );
   });
 
   it("gives each team its own turn", async () => {

@@ -153,6 +153,24 @@ export const strings = {
     showHint: "Show hint",
     score: (correct: number, total: number) => `${correct} of ${total} correct`,
   },
+  sentenceOrder: {
+    prompt: "Put the words in order",
+    answerLine: "Your sentence",
+    tray: "Pieces",
+    empty: "Tap the pieces below to build the sentence.",
+    add: (piece: string) => `Add “${piece}”`,
+    remove: (piece: string, position: number) =>
+      `Remove “${piece}” (position ${position}) from your sentence`,
+    wrongPlace: "in the wrong place",
+    keyboardHint: "Enter adds a piece · Backspace removes the last one",
+    correct: "Correct!",
+    wrong: "Not quite. The highlighted pieces are in the wrong place.",
+    tryAgain: "Try again",
+    showAnswer: "Show answer",
+    readAloud: "Read aloud",
+    showTranslation: "Show translation",
+    readAloudOption: "Read the sentence aloud when it's right",
+  },
   board: {
     board: "Game board",
     cell: (category: string, value: number, used: boolean) =>
@@ -547,6 +565,28 @@ export const strings = {
         "Pick files named <slug>--<name>.png, as shown under each image. One commit for all.",
       unknownFiles: (names: string[]) => `Skipped (name not in the list): ${names.join(", ")}`,
       uploaded: "Uploaded",
+      uploadedLiveAfterDeploy: "Uploaded — live after the deploy",
+      attach: "Attach",
+      queued: "Queued",
+      queuedSummary: (n: number, kb: number) =>
+        `${n} ${n === 1 ? "image queued" : "images queued"} · ${kb} KB`,
+      sendAll: (n: number) => `Send all (${n})`,
+      clearQueue: "Clear queue",
+      clearQueueConfirm: "Clear all queued images?",
+      queueFull: "Queue is full — send what you have first",
+      storageUnavailableWarning:
+        "Your queue won't survive a reload in this browser",
+      alreadyOnSite: "Already on the site",
+      uploadProgress: (current: number, total: number) =>
+        `Uploading ${current} of ${total}…`,
+      unsavedWarning: (n: number) =>
+        `You have ${n} ${n === 1 ? "image" : "images"} not sent yet. Leave anyway?`,
+      filterAll: "All",
+      filterMissing: "Missing",
+      filterQueued: "Queued",
+      filterThumbnailsOnly: "Thumbnails only",
+      tryAgain: "Try again",
+      remove: "Remove",
     },
     settings: {
       title: "Settings",
@@ -675,6 +715,17 @@ export const strings = {
       distractorsHint: "Comma separated. Only used in Word bank mode.",
       credit: "Song or video credit",
       creditFields: { title: "Title", artist: "Artist", url: "Link" },
+      // Sentence Builder
+      orderSentenceHint: "The correct sentence. Its final punctuation stays fixed at the end.",
+      splitByWords: "Split by words",
+      useDefaultSplit: "One piece per word",
+      pieces: "Pieces students will order",
+      piecesDefault: "One piece per word. Split by words to join some into chunks.",
+      joinPieces: (left: string, right: string) => `Join “${left}” and “${right}”`,
+      splitPiece: (piece: string) => `Split “${piece}” into words`,
+      orderAlternatives: "Other accepted orders, one per line",
+      orderAlternativesHint: "Same words, another order (e.g. Yesterday I went home).",
+      translation: "Translation",
       // Flashcards
       cards: "Cards",
       card: (n: number) => `Card ${n}`,
@@ -933,6 +984,13 @@ export const strings = {
     noWordsFound: "No words found matching your search.",
     learned: "Learned",
     learning: "Learning",
+    reviewStats: {
+      mastered: (n: number) => `${n} mastered`,
+      inReview: (n: number) => `${n} in review`,
+      due: (n: number) => `${n} due`,
+      lastReview: (date: string) => `Last review: ${date}`,
+      noReviewsYet: "No reviews yet",
+    },
   },
   portal: {
     title: "Student Portal",
@@ -957,6 +1015,7 @@ export const strings = {
     markToLearn: "Still learning",
     learnedBadge: "Learned ✓",
     practiceButton: "Practice",
+    dailyReviewButton: (n: number) => `Daily Review (${n})`,
     practiceTooltipEmpty: "Add words in class to practice",
     practiceModalTitle: "Practice Flashcards",
     practiceCardOf: (current: number, total: number) => `Card ${current} of ${total}`,
@@ -1263,6 +1322,27 @@ export const strings = {
     pinLockoutAlert: (studentName: string) => `⚠️ ${studentName}'s PIN is temporarily locked due to 5 failed attempts.`,
     completedBadge: "Completed",
     lateBadge: "Late",
+    tabs: {
+      submissions: "Submissions",
+      questions: "Questions",
+    },
+    questionAnalysis: {
+      title: "Question Analysis",
+      accuracy: (pct: number) => `${pct}% correct`,
+      mostMissedTitle: "Most Missed Questions",
+      correctAnswer: "Correct Answer",
+      givenAnswer: "Student Answer",
+      missedBy: (names: string) => `Missed by: ${names}`,
+      missedCount: (n: number) => `${n} ${n === 1 ? "student" : "students"} missed this`,
+      suggestedNotes: "Suggested Error Notes",
+      addAsNote: "Add as note",
+      addAllNotes: "Add all as notes",
+      noteAdded: "Error note added",
+      notesAddedBatch: (added: number, skipped: number) =>
+        `${added} note${added === 1 ? "" : "s"} added${skipped > 0 ? ` (${skipped} duplicate${skipped === 1 ? "" : "s"} skipped)` : ""}`,
+      questionChanged: "Question changed",
+      noErrors: "Great job! No errors recorded in this submission.",
+    },
   },
 } as const;
 
