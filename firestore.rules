@@ -82,9 +82,19 @@ service cloud.firestore {
           && (!('assignedStudentIds' in request.resource.data) || (request.resource.data.assignedStudentIds is list && request.resource.data.assignedStudentIds.size() <= 500))
           && (!('assignedClassIds' in request.resource.data) || (request.resource.data.assignedClassIds is list && request.resource.data.assignedClassIds.size() <= 100));
       }
-      // Lessons (spec: agenda de aulas individuais, RNF04): private to teacher.
+      // Lessons (spec: agenda de aulas individuais, RNF04): private to teacher, but students can read their own.
       match /lessons/{lessonId} {
-        allow read, write: if request.auth != null && request.auth.uid == uid;
+        allow read: if request.auth != null && (
+          request.auth.uid == uid ||
+          (resource == null) ||
+          (resource.data.studentId != null && get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.portalUid == request.auth.uid)
+        );
+        allow write: if request.auth != null && request.auth.uid == uid;
+      }
+      // Availability settings (spec: agendamento, CA02): teacher manages, students read.
+      match /availability/settings {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && request.auth.uid == uid;
       }
     }
 
@@ -228,9 +238,20 @@ service cloud.firestore {
           get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
 
+      // Schedule rules for student (spec: agendamento, CA01):
+      // Teacher reads and writes; student reads if portalUid matches auth.uid.
+      match /schedule/{ruleId} {
+        allow read: if request.auth != null && (
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid ||
+          get(/databases/$(database)/documents/students/$(studentId)).data.portalUid == request.auth.uid
+        );
+        allow write: if request.auth != null &&
+          get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+      }
+
       // Other student subcollections (grades, progress, etc.) are private to teacher
       match /{subcollection}/{document=**} {
-        allow read, write: if subcollection != "notes" && subcollection != "classes" && subcollection != "vocabulary" && subcollection != "homeworkSubmissions" && subcollection != "tracks" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
+        allow read, write: if subcollection != "notes" && subcollection != "classes" && subcollection != "vocabulary" && subcollection != "homeworkSubmissions" && subcollection != "tracks" && subcollection != "schedule" && request.auth != null && get(/databases/$(database)/documents/students/$(studentId)).data.teacherUid == request.auth.uid;
       }
     }
 
