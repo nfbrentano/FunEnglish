@@ -32,6 +32,9 @@ export function AvailabilitySection() {
       if (!active) return;
       if (data) setSettings(data);
       setLoading(false);
+    }).catch(err => {
+      console.error(err);
+      if (active) setLoading(false);
     });
     return () => { active = false; };
   }, [user]);
