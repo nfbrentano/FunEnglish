@@ -140,7 +140,10 @@ export function ClassroomSidebar() {
   } = session;
 
   // Filter students belonging to this class
-  const classStudents = students.filter((s) => s.classIds.includes(activeSession.classId));
+  const classStudents = students.filter((s) => 
+    (activeSession.classId && s.classIds.includes(activeSession.classId)) || 
+    (activeSession.studentId && s.id === activeSession.studentId)
+  );
 
   // If none found with classIds, fallback to students present in attendance
   const effectiveStudents: Array<{
@@ -153,7 +156,7 @@ export function ClassroomSidebar() {
       ? classStudents
       : Object.keys(activeSession.attendance).map((id) => {
           const found = students.find((s) => s.id === id);
-          return found || { id, name: "Student", email: undefined, classIds: [activeSession.classId] };
+          return found || { id, name: "Student", email: undefined, classIds: activeSession.classId ? [activeSession.classId] : [] };
         });
 
   // Present students list & count (CA01, CA03)

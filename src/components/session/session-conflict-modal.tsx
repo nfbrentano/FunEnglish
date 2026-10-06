@@ -47,7 +47,7 @@ export function SessionConflictModal() {
         </div>
 
         <p className="text-sm text-fg-secondary">
-          {strings.session.conflictDesc(activeSession.className, pendingClassToStart.className)}
+          {strings.session.conflictDesc(activeSession.className || "Class", pendingClassToStart.className)}
         </p>
 
         <div className="flex flex-col gap-2 pt-2">

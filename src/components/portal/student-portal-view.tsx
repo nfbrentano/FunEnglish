@@ -37,6 +37,7 @@ import type {
 } from "@/lib/portal/types";
 import { StudentVocabularyTab } from "@/components/portal/student-vocabulary-tab";
 import { StudentTracksTab } from "@/components/portal/student-tracks-tab";
+import { StudentScheduleTab } from "@/components/portal/student-schedule-tab";
 import { strings } from "@/lib/strings";
 
 export function StudentPortalView() {
@@ -49,7 +50,7 @@ export function StudentPortalView() {
   const [notes, setNotes] = useState<StudentNote[]>([]);
   const [classHistory, setClassHistory] = useState<StudentClassHistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"overview" | "tracks" | "words" | "history">("overview");
+  const [activeTab, setActiveTab] = useState<"overview" | "schedule" | "tracks" | "words" | "history">("overview");
   const [expandedClasses, setExpandedClasses] = useState<Record<string, boolean>>({});
 
   // 1. Load all student documents linked to this portalUid
@@ -270,6 +271,20 @@ export function StudentPortalView() {
           <button
             type="button"
             role="tab"
+            aria-selected={activeTab === "schedule"}
+            onClick={() => setActiveTab("schedule")}
+            className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-2 ${
+              activeTab === "schedule"
+                ? "border-accent text-accent"
+                : "border-transparent text-muted hover:text-fg"
+            }`}
+          >
+            <Calendar className="size-4" />
+            <span>Schedule</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
             aria-selected={activeTab === "tracks"}
             onClick={() => setActiveTab("tracks")}
             className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-px flex items-center gap-2 ${
@@ -445,6 +460,10 @@ export function StudentPortalView() {
             <StudentTracksTab studentId={selectedStudent.id} />
           )}
         </div>
+      )}
+
+      {activeTab === "schedule" && selectedStudent && (
+        <StudentScheduleTab teacherUid={selectedStudent.teacherUid} studentId={selectedStudent.id} />
       )}
 
       {activeTab === "tracks" && selectedStudent && (

@@ -84,6 +84,16 @@ export {
   renewMonthlyPlans,
 } from "./billing.js";
 
+// Booking and availability functions (spec 20: Agendamento pelo aluno)
+export {
+  getAvailableSlots,
+  bookLesson,
+  cancelLesson,
+  respondToProposal,
+  rescheduleLesson,
+  joinLesson,
+} from "./booking.js";
+
 // Re-export helpers and secret definitions for subsequent specs
 export { defineSecret };
 export { createCallable } from "./helpers/callable.js";

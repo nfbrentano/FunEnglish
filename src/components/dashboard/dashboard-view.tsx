@@ -9,6 +9,8 @@ import { StudentsSection } from "@/components/dashboard/students-section";
 import { HomeworkSection } from "@/components/dashboard/homework-section";
 import { TracksSection } from "@/components/tracks/tracks-section";
 import { BillingPanel } from "@/components/dashboard/billing-panel";
+import { AvailabilitySection } from "@/components/dashboard/availability-section";
+import { PendingActionsSection } from "@/components/dashboard/pending-actions-section";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/lib/auth/use-auth";
@@ -148,6 +150,7 @@ export function DashboardView({
         <nav aria-label={strings.dashboard.sectionsNav} className="flex flex-wrap gap-2 pt-2">
           {[
             ["students", "My Students"],
+            ["availability", "Availability"],
             ["classes", strings.dashboard.classes],
             ["homework", strings.homework.dashboardTitle],
             ["tracks", strings.dashboard.tracks],
@@ -166,9 +169,13 @@ export function DashboardView({
         </nav>
       </header>
 
+      <PendingActionsSection />
+
       <BillingPanel />
 
       <StudentsSection />
+
+      <AvailabilitySection />
 
       <ClassesSection />
 

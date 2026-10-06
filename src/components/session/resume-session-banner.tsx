@@ -26,7 +26,7 @@ export function ResumeSessionBanner() {
         </span>
         <div className="text-sm">
           <p className="font-semibold text-fg">
-            {strings.session.resumeClass(resumePromptClass.className)}
+            {strings.session.resumeClass(resumePromptClass.className || "Class")}
           </p>
           <p className="text-xs text-muted">
             {Object.keys(resumePromptClass.attendance || {}).length} students enrolled

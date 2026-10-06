@@ -55,7 +55,10 @@ export function LiveRoomModal() {
     setIsStarting(true);
     try {
       // Find class students and their PINs
-      const classStudents = students.filter((s) => s.classIds.includes(activeSession.classId));
+      const classStudents = students.filter((s) => 
+        (activeSession.classId && s.classIds.includes(activeSession.classId)) ||
+        (activeSession.studentId && s.id === activeSession.studentId)
+      );
       const roster = classStudents.map((s) => ({
         studentId: s.id,
         firstName: s.name.split(" ")[0],
@@ -72,7 +75,7 @@ export function LiveRoomModal() {
 
       await live.startRoom({
         sessionId: activeSession.id,
-        className: activeSession.className,
+        className: activeSession.className || classStudents[0]?.name || "Individual Lesson",
         roster,
         studentPins,
       });

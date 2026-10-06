@@ -149,7 +149,7 @@ function EndSessionModalInner({
 
   const handleCopyWhatsApp = () => {
     const text = formatClassSummaryForWhatsApp({
-      studentName: active.className,
+      studentName: active.className || "Class",
       date: active.startedAt,
       durationMinutes,
       activities: activities.map((a) => ({ title: a.title })),

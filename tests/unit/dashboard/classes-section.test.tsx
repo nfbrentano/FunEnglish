@@ -62,6 +62,7 @@ function createMockHook(overrides?: Partial<ReturnType<typeof useClasses>>): Ret
     toggleArchiveClass: vi.fn(),
     removeClass: vi.fn(),
     addStudent: vi.fn(),
+    addIndividualStudent: vi.fn(),
     addStudentsBatch: vi.fn(),
     copyStudent: vi.fn(),
     moveStudent: vi.fn(),
