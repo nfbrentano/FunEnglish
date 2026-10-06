@@ -21,6 +21,7 @@
 | RF01 | Erro em `getAvailabilitySettings` é capturado, logado e encerra o loading (mesmo padrão do `BillingPanel`). | P0 | CA01, CA02 |
 | RF02 | `student-profile.test.tsx` mocka `getStudentPrivateProfile` e `getPastSessions`, sem depender do Firestore real (no CI o timeout offline estourava o `waitFor`, run 37475304038). | P0 | CA03 |
 | RF03 | `functions/src/billing.ts` e `booking.ts` obtêm o Firestore via `getAdminFirestore()` dentro dos handlers (não no topo do módulo, onde falhava com `app/no-app`), e o build das functions não tem variáveis sem uso (TS6133). Run 37475807065. | P0 | CA04 |
+| RF04 | `dashboard.test.tsx` mocka as seções com testes próprios (pendências, billing, alunos, disponibilidade, turmas, homework, trilhas), que chamavam o Firestore e logavam após o teardown (`Closing rpc while "onUserConsoleLog" was pending`, run 37483230393). | P0 | CA02 |
 
 ### Requisitos não-funcionais
 

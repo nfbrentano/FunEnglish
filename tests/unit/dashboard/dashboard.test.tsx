@@ -23,6 +23,16 @@ vi.mock("@/lib/auth/use-auth", () => ({
 }));
 vi.mock("next/navigation", () => ({ usePathname: () => "/dashboard" }));
 vi.mock("@/lib/catalog/fetch", () => ({ fetchCatalogIndexOnce: () => new Promise(() => {}) }));
+// Sections with their own tests; rendered for real they hit Firestore and log after teardown.
+vi.mock("@/components/dashboard/pending-actions-section", () => ({
+  PendingActionsSection: () => null,
+}));
+vi.mock("@/components/dashboard/billing-panel", () => ({ BillingPanel: () => null }));
+vi.mock("@/components/dashboard/students-section", () => ({ StudentsSection: () => null }));
+vi.mock("@/components/dashboard/availability-section", () => ({ AvailabilitySection: () => null }));
+vi.mock("@/components/dashboard/classes-section", () => ({ ClassesSection: () => null }));
+vi.mock("@/components/dashboard/homework-section", () => ({ HomeworkSection: () => null }));
+vi.mock("@/components/tracks/tracks-section", () => ({ TracksSection: () => null }));
 
 const catalog: CatalogIndex = {
   schemaVersion: 1,
