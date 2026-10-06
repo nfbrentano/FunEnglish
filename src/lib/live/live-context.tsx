@@ -80,7 +80,10 @@ export interface LiveRoomContextType {
 
   isBoardMirrored: boolean;
   setIsBoardMirrored: (mirrored: boolean) => void;
-  syncBoard: (boardState: LiveRoomBoardState) => Promise<void>;
+  syncBoard: (boardState: LiveRoomBoardState) => void;
+
+  isWhiteboardOpen: boolean;
+  toggleWhiteboard: () => Promise<void>;
 
   // Alert for duplicate device (CA13)
   duplicateDeviceAlert: string | null;
@@ -101,6 +104,7 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
   const [isTimerMirrored, setIsTimerMirrored] = useState(false);
   const [isPickerMirrored, setIsPickerMirrored] = useState(false);
   const [isBoardMirrored, setIsBoardMirrored] = useState(false);
+  const [isWhiteboardOpen, setIsWhiteboardOpen] = useState(false);
 
   // Active activity in teacher's session
   const currentActivityRef = useRef<{
@@ -428,6 +432,17 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
     [roomCode],
   );
 
+  const toggleWhiteboard = useCallback(async () => {
+    if (!roomCode || !liveRoom) return;
+    const nextState = !isWhiteboardOpen;
+    setIsWhiteboardOpen(nextState);
+    if (nextState) {
+      await updateLiveRoomState(roomCode, { mode: "whiteboard" });
+    } else {
+      await updateLiveRoomState(roomCode, { mode: "lobby" });
+    }
+  }, [roomCode, liveRoom, isWhiteboardOpen]);
+
   return (
     <LiveRoomContext.Provider
       value={{
@@ -456,6 +471,8 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
         isBoardMirrored,
         setIsBoardMirrored,
         syncBoard,
+        isWhiteboardOpen,
+        toggleWhiteboard,
         duplicateDeviceAlert,
         dismissDuplicateAlert,
       }}

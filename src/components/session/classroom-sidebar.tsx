@@ -24,7 +24,9 @@ import { Button } from "@/components/ui/button";
 import { ClassroomBoard } from "@/components/board/classroom-board";
 import { ClassroomPicker } from "@/components/ui/classroom-picker";
 import { ClassroomTimer } from "@/components/ui/classroom-timer";
+import { ClassroomTimer } from "@/components/ui/classroom-timer";
 import { LiveRoomSidebarPanel } from "@/components/live/live-room-sidebar-panel";
+import { InteractiveWhiteboard } from "@/components/live/interactive-whiteboard";
 import { useClasses } from "@/lib/classes/use-classes";
 import { useLiveRoom } from "@/lib/live/live-context";
 import {
@@ -247,6 +249,27 @@ export function ClassroomSidebar() {
                 <Radio className={`size-3.5 ${live?.isLiveActive ? "animate-pulse" : ""}`} />
                 <span className="hidden sm:inline">
                   {live?.isLiveActive ? `Live: ${live.liveRoom?.code}` : "Live room"}
+                </span>
+              </button>
+
+              {/* Lousa Toggle (RF01, CA01, CA02) */}
+              <button
+                type="button"
+                onClick={() => live?.toggleWhiteboard()}
+                title={
+                  live?.isWhiteboardOpen
+                    ? "Fechar Lousa"
+                    : "Abrir Lousa"
+                }
+                className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium transition-colors ${
+                  live?.isWhiteboardOpen
+                    ? "bg-accent text-primary shadow-sm"
+                    : "border border-border-subtle bg-primary/40 text-fg-secondary hover:text-fg"
+                }`}
+              >
+                <Edit3 className="size-3.5" />
+                <span className="hidden sm:inline">
+                  {live?.isWhiteboardOpen ? "Lousa Aberta" : "Lousa"}
                 </span>
               </button>
 
@@ -857,8 +880,31 @@ export function ClassroomSidebar() {
 
   // If in fullscreen, portal directly into the fullscreen element (CA02)
   if (portalTarget) {
-    return createPortal(sidebarContent, portalTarget);
+    return createPortal(
+      <>
+        {sidebarContent}
+        {live?.isWhiteboardOpen && live.roomCode && (
+          <InteractiveWhiteboard
+            roomCode={live.roomCode}
+            isTeacher={true}
+            onClose={() => live.toggleWhiteboard()}
+          />
+        )}
+      </>,
+      portalTarget
+    );
   }
 
-  return sidebarContent;
+  return (
+    <>
+      {sidebarContent}
+      {live?.isWhiteboardOpen && live.roomCode && (
+        <InteractiveWhiteboard
+          roomCode={live.roomCode}
+          isTeacher={true}
+          onClose={() => live.toggleWhiteboard()}
+        />
+      )}
+    </>
+  );
 }

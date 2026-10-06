@@ -27,6 +27,7 @@ import {
 } from "@/lib/live/repository";
 import { computeLeaderboard } from "@/lib/live/scoring";
 import type { LiveParticipant, LiveRoom, LiveRoomMode } from "@/lib/live/types";
+import { InteractiveWhiteboard } from "./interactive-whiteboard";
 
 export interface StudentLiveViewProps {
   initialCode?: string;
@@ -692,6 +693,14 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
           </div>
         )}
       </main>
+
+      {/* H. INTERACTIVE WHITEBOARD (RF03, CA04) */}
+      {room.state.mode === "whiteboard" && (
+        <InteractiveWhiteboard
+          roomCode={room.code}
+          isTeacher={false}
+        />
+      )}
     </div>
   );
 }

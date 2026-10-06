@@ -5,6 +5,7 @@ export type LiveRoomMode =
   | "tool_timer"
   | "tool_picker"
   | "tool_board"
+  | "whiteboard"
   | "ended";
 
 export type ParticipantVia = "pin" | "portal" | "guest";
