@@ -71,14 +71,15 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const pendingEraseRef = useRef<Set<string> | null>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [selectedItemIds, setSelectedItemIds] = useState<string[]>([]);
+  const [clipboardItems, setClipboardItems] = useState<BoardItem[]>([]);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [currentStroke, setCurrentStroke] = useState<BoardStroke | null>(null);
   const currentStrokeRef = useRef<BoardStroke | null>(null);
 
-  // Undo / Redo stacks: history of items array for current page
-  const [undoStack, setUndoStack] = useState<BoardItem[][]>([]);
-  const [redoStack, setRedoStack] = useState<BoardItem[][]>([]);
+  // Undo / Redo stacks: history of items array per page id
+  const [undoStacks, setUndoStacks] = useState<Record<string, BoardItem[][]>>({});
+  const [redoStacks, setRedoStacks] = useState<Record<string, BoardItem[][]>>({});
 
   // Safe page reference
   const safePageIndex = Math.min(Math.max(0, currentPageIndex), Math.max(0, pages.length - 1));
@@ -89,9 +90,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     (newIndex: number) => {
       if (newIndex >= 0 && newIndex < pages.length) {
         setCurrentPageIndex(newIndex);
-        setSelectedItemId(null);
-        setUndoStack([]);
-        setRedoStack([]);
+        setSelectedItemIds([]);
       }
     },
     [pages.length],
@@ -122,16 +121,20 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   }, [pages, currentPageIndex, sessionId, onBoardTextChange]);
 
   // Push new state to undo stack
-  const pushToUndo = useCallback((prevItems: BoardItem[]) => {
-    setUndoStack((prev) => {
-      const next = [...prev, prevItems];
-      if (next.length > MAX_UNDO_STEPS) {
-        return next.slice(next.length - MAX_UNDO_STEPS);
-      }
-      return next;
-    });
-    setRedoStack([]);
-  }, []);
+  const pushToUndo = useCallback(
+    (prevItems: BoardItem[], pageId: string) => {
+      setUndoStacks((prev) => {
+        const stack = prev[pageId] || [];
+        const next = [...stack, prevItems];
+        if (next.length > MAX_UNDO_STEPS) {
+          return { ...prev, [pageId]: next.slice(next.length - MAX_UNDO_STEPS) };
+        }
+        return { ...prev, [pageId]: next };
+      });
+      setRedoStacks((prev) => ({ ...prev, [pageId]: [] }));
+    },
+    [],
+  );
 
   // Update items of current page
   const updateCurrentPageItems = useCallback(
@@ -142,7 +145,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         if (!page) return prevPages;
 
         if (recordUndo) {
-          pushToUndo(page.items);
+          pushToUndo(page.items, page.id);
         }
 
         const newItems = updater(page.items);
@@ -155,44 +158,56 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
 
   // Undo (CA02)
   const undo = useCallback(() => {
-    if (undoStack.length === 0) return;
-    const previousItems = undoStack[undoStack.length - 1];
-    setUndoStack((prev) => prev.slice(0, prev.length - 1));
+    const pageId = currentPage.id;
+    const stack = undoStacks[pageId] || [];
+    if (stack.length === 0) return;
+    
+    const previousItems = stack[stack.length - 1];
+    setUndoStacks((prev) => ({ ...prev, [pageId]: stack.slice(0, stack.length - 1) }));
 
     setPages((prevPages) => {
       const nextPages = [...prevPages];
       const page = nextPages[safePageIndex];
       if (!page) return prevPages;
 
-      setRedoStack((prev) => [...prev, page.items]);
+      setRedoStacks((prev) => {
+        const rStack = prev[pageId] || [];
+        return { ...prev, [pageId]: [...rStack, page.items] };
+      });
       nextPages[safePageIndex] = { ...page, items: previousItems };
       return nextPages;
     });
-    setSelectedItemId(null);
-  }, [undoStack, safePageIndex]);
+    setSelectedItemIds([]);
+  }, [undoStacks, safePageIndex, currentPage.id]);
 
   // Redo (CA02)
   const redo = useCallback(() => {
-    if (redoStack.length === 0) return;
-    const nextItems = redoStack[redoStack.length - 1];
-    setRedoStack((prev) => prev.slice(0, prev.length - 1));
+    const pageId = currentPage.id;
+    const stack = redoStacks[pageId] || [];
+    if (stack.length === 0) return;
+    
+    const nextItems = stack[stack.length - 1];
+    setRedoStacks((prev) => ({ ...prev, [pageId]: stack.slice(0, stack.length - 1) }));
 
     setPages((prevPages) => {
       const nextPages = [...prevPages];
       const page = nextPages[safePageIndex];
       if (!page) return prevPages;
 
-      setUndoStack((prev) => [...prev, page.items]);
+      setUndoStacks((prev) => {
+        const uStack = prev[pageId] || [];
+        return { ...prev, [pageId]: [...uStack, page.items] };
+      });
       nextPages[safePageIndex] = { ...page, items: nextItems };
       return nextPages;
     });
-    setSelectedItemId(null);
-  }, [redoStack, safePageIndex]);
+    setSelectedItemIds([]);
+  }, [redoStacks, safePageIndex, currentPage.id]);
 
   // Clear current page (RF01)
   const clearCurrentPage = useCallback(() => {
     updateCurrentPageItems(() => []);
-    setSelectedItemId(null);
+    setSelectedItemIds([]);
   }, [updateCurrentPageItems]);
 
   // Set background of current page
@@ -215,9 +230,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     const newPage = createEmptyPage(`page-${Date.now()}`);
     setPages((prev) => [...prev, newPage]);
     setCurrentPageIndex(pages.length);
-    setSelectedItemId(null);
-    setUndoStack([]);
-    setRedoStack([]);
+    setSelectedItemIds([]);
   }, [pages.length]);
 
   const deletePage = useCallback(
@@ -225,9 +238,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       if (pages.length <= 1) return;
       setPages((prev) => prev.filter((_, idx) => idx !== indexToDelete));
       setCurrentPageIndex((prev) => (prev >= indexToDelete && prev > 0 ? prev - 1 : prev));
-      setSelectedItemId(null);
-      setUndoStack([]);
-      setRedoStack([]);
+      setSelectedItemIds([]);
     },
     [pages.length, safePageIndex],
   );
@@ -299,12 +310,12 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       setIsDrawing(false);
       if (erased.size > 0) {
         updateCurrentPageItems((items) => items.filter((item) => !erased.has(item.id)));
-        setSelectedItemId(null);
+        setSelectedItemIds((prev) => prev.filter(id => !erased.has(id)));
       }
       return;
     }
     const stroke = currentStrokeRef.current;
-    if (stroke && stroke.points.length > 0) {
+    if (stroke && stroke.points.length > 0 && stroke.tool !== "laser") {
       updateCurrentPageItems((items) => [...items, stroke]);
     }
     currentStrokeRef.current = null;
@@ -327,7 +338,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         color: activeColor,
       };
       updateCurrentPageItems((items) => [...items, newTextBox]);
-      setSelectedItemId(newTextBox.id);
+      setSelectedItemIds([newTextBox.id]);
       return newTextBox.id;
     },
     [activeColor, updateCurrentPageItems],
@@ -366,6 +377,25 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     [updateCurrentPageItems],
   );
 
+  const moveSelectedItems = useCallback(
+    (dx: number, dy: number) => {
+      if (selectedItemIds.length === 0) return;
+      updateCurrentPageItems((items) => {
+        return items.map((item) => {
+          if (selectedItemIds.includes(item.id)) {
+            if (item.type === "text" || item.type === "image") {
+              return { ...item, x: item.x + dx, y: item.y + dy };
+            } else if (item.type === "stroke") {
+              return { ...item, points: item.points.map(p => ({ x: p.x + dx, y: p.y + dy })) };
+            }
+          }
+          return item;
+        });
+      });
+    },
+    [selectedItemIds, updateCurrentPageItems],
+  );
+
   const updateItemDimensions = useCallback(
     (id: string, width: number, height: number) => {
       updateCurrentPageItems((items) =>
@@ -385,12 +415,61 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const deleteItem = useCallback(
     (id: string) => {
       updateCurrentPageItems((items) => items.filter((item) => item.id !== id));
-      if (selectedItemId === id) {
-        setSelectedItemId(null);
-      }
+      setSelectedItemIds((prev) => prev.filter(selected => selected !== id));
     },
-    [updateCurrentPageItems, selectedItemId],
+    [updateCurrentPageItems],
   );
+  
+  const deleteSelectedItems = useCallback(() => {
+    if (selectedItemIds.length === 0) return;
+    updateCurrentPageItems((items) => items.filter((item) => !selectedItemIds.includes(item.id)));
+    setSelectedItemIds([]);
+  }, [selectedItemIds, updateCurrentPageItems]);
+
+  const copySelectedItems = useCallback(() => {
+    if (selectedItemIds.length === 0) return;
+    const itemsToCopy = currentPage.items.filter(item => selectedItemIds.includes(item.id));
+    setClipboardItems(itemsToCopy);
+  }, [selectedItemIds, currentPage.items]);
+
+  const duplicateSelectedItems = useCallback(() => {
+    if (selectedItemIds.length === 0) return;
+    const itemsToCopy = currentPage.items.filter(item => selectedItemIds.includes(item.id));
+    if (itemsToCopy.length === 0) return;
+    
+    updateCurrentPageItems((items) => {
+      const newItems = itemsToCopy.map(item => {
+        const newId = `${item.type}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+        if (item.type === "text" || item.type === "image") {
+          return { ...item, id: newId, x: item.x + 20, y: item.y + 20 };
+        } else if (item.type === "stroke") {
+          return { ...item, id: newId, points: item.points.map(p => ({ x: p.x + 20, y: p.y + 20 })) };
+        }
+        return item as BoardItem;
+      });
+      
+      setSelectedItemIds(newItems.map(i => i.id));
+      return [...items, ...newItems];
+    });
+  }, [selectedItemIds, currentPage.items, updateCurrentPageItems]);
+
+  const pasteItems = useCallback(() => {
+    if (clipboardItems.length === 0) return;
+    updateCurrentPageItems((items) => {
+      const newItems = clipboardItems.map(item => {
+        const newId = `${item.type}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+        if (item.type === "text" || item.type === "image") {
+          return { ...item, id: newId, x: item.x + 20, y: item.y + 20 };
+        } else if (item.type === "stroke") {
+          return { ...item, id: newId, points: item.points.map(p => ({ x: p.x + 20, y: p.y + 20 })) };
+        }
+        return item as BoardItem;
+      });
+      
+      setSelectedItemIds(newItems.map(i => i.id));
+      return [...items, ...newItems];
+    });
+  }, [clipboardItems, updateCurrentPageItems]);
 
   // Pasting or dropping images (RF02, CA03, CA09)
   const pasteOrDropFile = useCallback(
@@ -417,7 +496,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         };
 
         updateCurrentPageItems((items) => [...items, newImage]);
-        setSelectedItemId(newImage.id);
+        setSelectedItemIds([newImage.id]);
         setActiveTool("select");
         return true;
       } catch (err: unknown) {
@@ -464,9 +543,10 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     clearBoardLocally(sessionId);
     setPages([createEmptyPage()]);
     setCurrentPageIndex(0);
-    setSelectedItemId(null);
-    setUndoStack([]);
-    setRedoStack([]);
+    setSelectedItemIds([]);
+    setUndoStacks({});
+    setRedoStacks({});
+    setClipboardItems([]);
   }, [sessionId]);
 
   return {
@@ -481,11 +561,12 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     isSaving: lastSavedPages !== pages,
     isExpanded,
     errorMessage,
-    selectedItemId,
+    selectedItemIds,
+    clipboardItems,
     isDrawing,
     currentStroke,
-    canUndo: undoStack.length > 0,
-    canRedo: redoStack.length > 0,
+    canUndo: (undoStacks[currentPage.id]?.length || 0) > 0,
+    canRedo: (redoStacks[currentPage.id]?.length || 0) > 0,
     totalPages: pages.length,
     maxPages: MAX_PAGES,
 
@@ -497,7 +578,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setEraserMode,
     setIsExpanded,
     toggleExpanded: () => setIsExpanded((prev) => !prev),
-    setSelectedItemId,
+    setSelectedItemIds,
     clearErrorMessage: () => setErrorMessage(null),
     switchPage,
     addPage,
@@ -510,7 +591,12 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     updateTextBox,
     updateItemPosition,
     updateItemDimensions,
+    moveSelectedItems,
     deleteItem,
+    deleteSelectedItems,
+    copySelectedItems,
+    duplicateSelectedItems,
+    pasteItems,
     pasteOrDropFile,
     undo,
     redo,
