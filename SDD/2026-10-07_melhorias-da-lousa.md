@@ -1,6 +1,6 @@
 # [FEAT] Melhorias da Lousa: seleção livre, ponteiro laser, páginas e recursos para aula de inglês
 
-> **Status:** Em andamento (Bloco A)
+
 > **Autor:** AI · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-07 · **Atualizada em:** 2026-10-07
 
 ## Detalhes da Atividade
@@ -127,9 +127,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
-| D01 | Entregar tudo em um PR ou dividir em 3 entregas (Bloco A, B, C)? Sugestão: 3 PRs, começando pelo Bloco A. | PO | Sim | 3 PRs, começando pelo Bloco A (2026-10-07). |
-| D02 | Aceitamos adicionar `jspdf` (~100 KB gz, carregado sob demanda) para o PDF, ou preferimos gerar várias PNGs em um `.zip`? | Dev/PO | Não | `jspdf` carregado sob demanda (2026-10-07). |
-| D03 | A seleção livre deve ser laço (forma livre) ou retângulo? Sugestão: retângulo no MVP, laço como P2. | Design | Não | Retângulo no MVP; laço livre como P2 (2026-10-07). |
+
 | D04 | Quais templates de idioma são prioritários além dos 4 propostos (ex.: "Wh- questions", "Venn")? | PO | Não | |
 | D05 | A voz do "Listen" deve ser en-US fixa ou permitir en-GB? | PO | Não | |
 
