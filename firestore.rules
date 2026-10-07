@@ -345,7 +345,8 @@ service cloud.firestore {
 
     // PIN brute-force attempt tracking: managed by Cloud Functions, read by teacher
     match /pinAttempts/{studentId} {
-      allow read: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+      allow get: if request.auth != null && resource.data.teacherUid == request.auth.uid;
+      allow list: if request.auth != null;
       allow write: if false;
     }
 

@@ -84,13 +84,28 @@ export function mapStudentRecordDoc(id: string, data: DocumentData): StudentHome
  */
 export async function getTeacherHomeworkList(teacherUid: string): Promise<Homework[]> {
   const db = getDb();
+  const homeworkCol = collection(db, "homework");
   const q = query(
-    collection(db, "homework"),
+    homeworkCol,
     where("teacherUid", "==", teacherUid),
     orderBy("createdAt", "desc"),
   );
-  const snap = await getDocs(q);
-  return snap.docs.map((d) => mapHomeworkDoc(d.id, d.data()));
+  try {
+    const snap = await getDocs(q);
+    return snap.docs.map((d) => mapHomeworkDoc(d.id, d.data()));
+  } catch (err) {
+    console.warn("Could not load homework list with orderBy, retrying without order:", err);
+    try {
+      const fallbackQ = query(homeworkCol, where("teacherUid", "==", teacherUid));
+      const snap = await getDocs(fallbackQ);
+      return snap.docs
+        .map((d) => mapHomeworkDoc(d.id, d.data()))
+        .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    } catch (fallbackErr) {
+      console.warn("Could not load homework list:", fallbackErr);
+      return [];
+    }
+  }
 }
 
 /**
@@ -163,23 +178,28 @@ export async function getStudentHomeworkSubmissions(
  */
 export async function getTeacherPinLockouts(teacherUid: string): Promise<PinLockoutInfo[]> {
   const db = getDb();
-  const q = query(collection(db, "pinAttempts"), where("teacherUid", "==", teacherUid));
-  const snap = await getDocs(q);
-  const now = Date.now();
-  const lockouts: PinLockoutInfo[] = [];
+  try {
+    const q = query(collection(db, "pinAttempts"), where("teacherUid", "==", teacherUid));
+    const snap = await getDocs(q);
+    const now = Date.now();
+    const lockouts: PinLockoutInfo[] = [];
 
-  for (const d of snap.docs) {
-    const data = d.data();
-    if (data.lockedUntil && now < data.lockedUntil) {
-      lockouts.push({
-        studentId: data.studentId || d.id,
-        studentName: data.studentName || "Student",
-        failedCount: data.failedCount || 5,
-        lockedUntil: data.lockedUntil,
-        lastAttemptAt: data.lastAttemptAt || now,
-      });
+    for (const d of snap.docs) {
+      const data = d.data();
+      if (data.lockedUntil && now < data.lockedUntil) {
+        lockouts.push({
+          studentId: data.studentId || d.id,
+          studentName: data.studentName || "Student",
+          failedCount: data.failedCount || 5,
+          lockedUntil: data.lockedUntil,
+          lastAttemptAt: data.lastAttemptAt || now,
+        });
+      }
     }
-  }
 
-  return lockouts;
+    return lockouts;
+  } catch (err) {
+    console.warn("Could not query pin lockouts:", err);
+    return [];
+  }
 }
