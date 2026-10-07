@@ -1,11 +1,4 @@
-import {
-  get,
-  onDisconnect,
-  onValue,
-  ref,
-  set,
-  update,
-} from "firebase/database";
+import { get, onDisconnect, onValue, ref, set, update } from "firebase/database";
 import { loadAuth } from "../auth/firebase-auth";
 import { hashHomeworkPin } from "../classes/pin";
 import { getDatabaseInstance } from "../firebase";
@@ -67,55 +60,92 @@ export async function createLiveRoom(params: {
   };
 
   // Write live room and hidden PIN hashes concurrently
-  await Promise.all([
-    set(roomRef, initialRoom),
-    set(pinsRef, params.studentPins),
-  ]);
+  await Promise.all([set(roomRef, initialRoom), set(pinsRef, params.studentPins)]);
 
   return initialRoom;
 }
 
+let pendingLiveAuth: Promise<string> | null = null;
+
 /**
- * Subscribes to full live room updates in real-time.
+ * Room reads need a signed-in user (database.rules.json): wait for a saved session to be restored,
+ * then fall back to anonymous sign-in for students without an account
+ * (SDD/2026-10-06_entrada-do-aluno-na-sala-ao-vivo.md).
+ */
+export function ensureLiveAuth(): Promise<string> {
+  pendingLiveAuth ??= (async () => {
+    const { auth, sdk } = await loadAuth();
+    await auth.authStateReady();
+    if (auth.currentUser) return auth.currentUser.uid;
+    const cred = await sdk.signInAnonymously(auth);
+    return cred.user.uid;
+  })().finally(() => {
+    pendingLiveAuth = null;
+  });
+  return pendingLiveAuth;
+}
+
+/**
+ * Subscribes to full live room updates in real-time, once a user is signed in.
+ * `onError` runs when signing in fails; without it the callback gets null.
  */
 export function subscribeLiveRoom(
   code: string,
   callback: (room: LiveRoom | null) => void,
+  onError?: (err: unknown) => void,
 ): () => void {
   const db = getDatabaseInstance();
   const roomRef = ref(db, `liveRooms/${code}`);
+  let cancelled = false;
+  let unsubscribe = () => {};
 
-  const unsubscribe = onValue(
-    roomRef,
-    (snapshot) => {
-      if (snapshot.exists()) {
-        const val = snapshot.val();
-        const room: LiveRoom = {
-          code: val.code || code,
-          teacherUid: val.teacherUid || "",
-          sessionId: val.sessionId || "",
-          className: val.className || "Class",
-          locked: Boolean(val.locked),
-          allowGuests: Boolean(val.allowGuests),
-          hideLeaderboard: Boolean(val.hideLeaderboard),
-          createdAt: val.createdAt || Date.now(),
-          state: val.state || { mode: "lobby" },
-          roster: val.roster || {},
-          participants: val.participants || {},
-          answers: val.answers || {},
-        };
-        callback(room);
-      } else {
+  ensureLiveAuth()
+    .then(() => {
+      if (cancelled) return;
+      unsubscribe = subscribe();
+    })
+    .catch((err) => {
+      console.warn("Failed signing in to the live room:", err);
+      if (cancelled) return;
+      if (onError) onError(err);
+      else callback(null);
+    });
+
+  const subscribe = () =>
+    onValue(
+      roomRef,
+      (snapshot) => {
+        if (snapshot.exists()) {
+          const val = snapshot.val();
+          const room: LiveRoom = {
+            code: val.code || code,
+            teacherUid: val.teacherUid || "",
+            sessionId: val.sessionId || "",
+            className: val.className || "Class",
+            locked: Boolean(val.locked),
+            allowGuests: Boolean(val.allowGuests),
+            hideLeaderboard: Boolean(val.hideLeaderboard),
+            createdAt: val.createdAt || Date.now(),
+            state: val.state || { mode: "lobby" },
+            roster: val.roster || {},
+            participants: val.participants || {},
+            answers: val.answers || {},
+          };
+          callback(room);
+        } else {
+          callback(null);
+        }
+      },
+      (err) => {
+        console.warn("Failed subscribing to live room:", err);
         callback(null);
-      }
-    },
-    (err) => {
-      console.warn("Failed subscribing to live room:", err);
-      callback(null);
-    },
-  );
+      },
+    );
 
-  return () => unsubscribe();
+  return () => {
+    cancelled = true;
+    unsubscribe();
+  };
 }
 
 /**
@@ -134,7 +164,10 @@ export function subscribeServerTimeOffset(callback: (offsetMs: number) => void):
 
 export type JoinLiveRoomResult =
   | { success: true; participant: LiveParticipant }
-  | { success: false; error: "NOT_FOUND" | "LOCKED" | "FULL" | "WRONG_PIN" | "GUESTS_DISABLED" | "UNKNOWN" };
+  | {
+      success: false;
+      error: "NOT_FOUND" | "LOCKED" | "FULL" | "WRONG_PIN" | "GUESTS_DISABLED" | "UNKNOWN";
+    };
 
 /**
  * Student joins or reconnects to a live room (RF02, CA02, CA03, CA10, CA13, CA14).
@@ -150,6 +183,8 @@ export async function joinLiveRoom(params: {
 }): Promise<JoinLiveRoomResult> {
   const db = getDatabaseInstance();
   const roomRef = ref(db, `liveRooms/${params.code}`);
+  // Sign in first: reading the room is denied to visitors without a user.
+  const uid = await ensureLiveAuth();
   const snap = await get(roomRef);
 
   if (!snap.exists()) {
@@ -174,15 +209,6 @@ export async function joinLiveRoom(params: {
       return { success: false, error: "FULL" };
     }
   }
-
-  // Ensure authenticated (Firebase Anonymous Auth if no user logged in)
-  const { auth, sdk } = await loadAuth();
-  let currentUser = auth.currentUser;
-  if (!currentUser) {
-    const cred = await sdk.signInAnonymously(auth);
-    currentUser = cred.user;
-  }
-  const uid = currentUser.uid;
 
   let via: "pin" | "portal" | "guest" = "guest";
   let pinHash: string | undefined;
@@ -246,7 +272,11 @@ export async function joinLiveRoom(params: {
   };
 
   const participantRef = ref(db, `liveRooms/${params.code}/participants/${uid}`);
-  await set(participantRef, participantData);
+  // The Realtime Database rejects undefined values (a guest has no studentId or pinHash).
+  await set(
+    participantRef,
+    Object.fromEntries(Object.entries(participantData).filter(([, value]) => value !== undefined)),
+  );
 
   // Set onDisconnect presence
   onDisconnect(participantRef).update({ online: false });
@@ -386,8 +416,7 @@ export async function revealCurrentQuestion(params: {
       isCorrect = isBlankCorrect(studentVal, params.correctAnswers);
     } else if (params.activityType === "sentence-order") {
       const built = normalizeSentence(studentVal);
-      isCorrect =
-        built !== "" && params.correctAnswers.some((s) => normalizeSentence(s) === built);
+      isCorrect = built !== "" && params.correctAnswers.some((s) => normalizeSentence(s) === built);
     } else {
       isCorrect = params.correctAnswers.some(
         (correct) => correct.toLowerCase().trim() === studentVal.toLowerCase(),
@@ -403,7 +432,8 @@ export async function revealCurrentQuestion(params: {
       params.durationSec || 30,
     );
 
-    answerUpdates[`liveRooms/${params.code}/answers/${params.itemIndex}/${uid}/correct`] = isCorrect;
+    answerUpdates[`liveRooms/${params.code}/answers/${params.itemIndex}/${uid}/correct`] =
+      isCorrect;
     answerUpdates[`liveRooms/${params.code}/answers/${params.itemIndex}/${uid}/pointsAwarded`] =
       points;
 
@@ -432,10 +462,7 @@ export async function revealCurrentQuestion(params: {
 /**
  * Mirror timer to live room (RF09, CA09).
  */
-export async function mirrorLiveTimer(
-  code: string,
-  timerState: LiveRoomTimerState,
-): Promise<void> {
+export async function mirrorLiveTimer(code: string, timerState: LiveRoomTimerState): Promise<void> {
   const db = getDatabaseInstance();
   await update(ref(db, `liveRooms/${code}/state`), {
     mode: "tool_timer",
@@ -446,10 +473,7 @@ export async function mirrorLiveTimer(
 /**
  * Mirror random picker result to live room (RF09, CA09).
  */
-export async function mirrorLivePicker(
-  code: string,
-  picked: LiveRoomPickedState,
-): Promise<void> {
+export async function mirrorLivePicker(code: string, picked: LiveRoomPickedState): Promise<void> {
   const db = getDatabaseInstance();
   await update(ref(db, `liveRooms/${code}/state`), {
     mode: "tool_picker",
@@ -460,10 +484,7 @@ export async function mirrorLivePicker(
 /**
  * Mirror whiteboard content to live room (RF09, CA09).
  */
-export async function mirrorLiveBoard(
-  code: string,
-  board: LiveRoomBoardState,
-): Promise<void> {
+export async function mirrorLiveBoard(code: string, board: LiveRoomBoardState): Promise<void> {
   const db = getDatabaseInstance();
   await update(ref(db, `liveRooms/${code}/state`), {
     mode: "tool_board",

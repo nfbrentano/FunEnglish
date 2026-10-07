@@ -23,13 +23,17 @@ vi.mock("@/lib/firebase", () => ({
 }));
 
 const mockSignInAnonymously = vi.fn().mockResolvedValue({ user: { uid: "anon-student-1" } });
+const mockAuth: { currentUser: { uid: string } | null; authStateReady: () => Promise<void> } = {
+  currentUser: null,
+  authStateReady: vi.fn().mockResolvedValue(undefined),
+};
 vi.mock("@/lib/auth/firebase-auth", () => ({
-  loadAuth: vi.fn().mockResolvedValue({
-    auth: { currentUser: null },
+  loadAuth: vi.fn().mockImplementation(async () => ({
+    auth: mockAuth,
     sdk: {
       signInAnonymously: (...args: any[]) => mockSignInAnonymously(...args),
     },
-  }),
+  })),
 }));
 
 vi.mock("@/lib/classes/pin", () => ({
@@ -46,12 +50,14 @@ import {
   setHideLeaderboard,
   setRoomLocked,
   submitLiveAnswer,
+  subscribeLiveRoom,
   updateLiveRoomState,
 } from "@/lib/live/repository";
 
 describe("Live Room Repository (SDD/2026-10-03_09-sala-ao-vivo.md)", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mockAuth.currentUser = null;
   });
 
   it("createLiveRoom initializes liveRooms/{code} and liveRoomPins/{code} (RF01, RNF01)", async () => {
@@ -264,5 +270,55 @@ describe("Live Room Repository (SDD/2026-10-03_09-sala-ao-vivo.md)", () => {
       { mode: "ended" },
     );
     expect(ended.state.mode).toBe("ended");
+  });
+
+  describe("student sign-in before reading the room (SDD/2026-10-06_entrada-do-aluno-na-sala-ao-vivo.md)", () => {
+    const flush = () => new Promise((resolve) => setTimeout(resolve, 0));
+
+    it("CT01 / CA01: a visitor signs in anonymously before the room is read", async () => {
+      subscribeLiveRoom("ABCDEF", vi.fn());
+      expect(mockOnValue).not.toHaveBeenCalled();
+      await flush();
+      expect(mockSignInAnonymously).toHaveBeenCalledTimes(1);
+      expect(mockOnValue).toHaveBeenCalledTimes(1);
+      expect(mockSignInAnonymously.mock.invocationCallOrder[0]).toBeLessThan(
+        mockOnValue.mock.invocationCallOrder[0],
+      );
+    });
+
+    it("CT03 / CA03: a signed-in user keeps their account", async () => {
+      mockAuth.currentUser = { uid: "portal-student" };
+      subscribeLiveRoom("ABCDEF", vi.fn());
+      await flush();
+      expect(mockSignInAnonymously).not.toHaveBeenCalled();
+      expect(mockOnValue).toHaveBeenCalledTimes(1);
+    });
+
+    it("CT04 / CA04: a failed sign-in reports the error instead of reading", async () => {
+      vi.spyOn(console, "warn").mockImplementation(() => {});
+      mockSignInAnonymously.mockRejectedValueOnce(new Error("auth/operation-not-allowed"));
+      const onError = vi.fn();
+      subscribeLiveRoom("ABCDEF", vi.fn(), onError);
+      await flush();
+      expect(onError).toHaveBeenCalledTimes(1);
+      expect(mockOnValue).not.toHaveBeenCalled();
+    });
+
+    it("CT02 / CA02: a guest joins without undefined fields, signed in before the room read", async () => {
+      mockGet.mockResolvedValueOnce({
+        exists: () => true,
+        val: () => ({ code: "ABCDEF", locked: false, allowGuests: true, participants: {} }),
+      });
+
+      const result = await joinLiveRoom({ code: "ABCDEF", name: "Guest Kid", isGuest: true });
+
+      expect(result.success).toBe(true);
+      expect(mockSignInAnonymously.mock.invocationCallOrder[0]).toBeLessThan(
+        mockGet.mock.invocationCallOrder[0],
+      );
+      const written = mockSet.mock.calls.at(-1)?.[1] as Record<string, unknown>;
+      expect(written).toMatchObject({ uid: "anon-student-1", name: "Guest Kid", via: "guest" });
+      expect(Object.values(written)).not.toContain(undefined);
+    });
   });
 });

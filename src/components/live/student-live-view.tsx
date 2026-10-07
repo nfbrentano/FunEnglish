@@ -80,27 +80,35 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
     setIsLoadingRoom(true);
     setRoomError(null);
 
-    const unsub = subscribeLiveRoom(code, (updatedRoom) => {
-      setIsLoadingRoom(false);
-      if (!updatedRoom) {
-        setRoomError("Class not found. Check the 6-character code.");
-        setRoom(null);
-        return;
-      }
-
-      setRoom(updatedRoom);
-
-      // Check if current participant was kicked or disconnected
-      if (participant) {
-        const currentP = updatedRoom.participants?.[participant.uid];
-        if (currentP) {
-          if ((currentP as any).kicked) {
-            setIsKicked(true);
-          }
-          setParticipant(currentP);
+    const unsub = subscribeLiveRoom(
+      code,
+      (updatedRoom) => {
+        setIsLoadingRoom(false);
+        if (!updatedRoom) {
+          setRoomError("Class not found. Check the 6-character code.");
+          setRoom(null);
+          return;
         }
-      }
-    });
+
+        setRoom(updatedRoom);
+
+        // Check if current participant was kicked or disconnected
+        if (participant) {
+          const currentP = updatedRoom.participants?.[participant.uid];
+          if (currentP) {
+            if ((currentP as any).kicked) {
+              setIsKicked(true);
+            }
+            setParticipant(currentP);
+          }
+        }
+      },
+      () => {
+        setIsLoadingRoom(false);
+        setRoomError("Couldn't connect to the class. Try again in a moment.");
+        setRoom(null);
+      },
+    );
 
     return () => unsub();
   }, [code, participant?.uid]);
@@ -199,9 +207,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
         <div className="flex size-16 items-center justify-center rounded-3xl bg-red-500/10 text-red-500 mb-4">
           <XCircle className="size-8" />
         </div>
-        <h1 className="font-display text-xl font-bold text-fg">
-          You were removed from the class
-        </h1>
+        <h1 className="font-display text-xl font-bold text-fg">You were removed from the class</h1>
         <p className="mt-2 text-xs text-muted max-w-xs">
           The teacher has removed your device from this live session.
         </p>
@@ -228,7 +234,8 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              const input = (e.currentTarget.elements.namedItem("roomCode") as HTMLInputElement)?.value;
+              const input = (e.currentTarget.elements.namedItem("roomCode") as HTMLInputElement)
+                ?.value;
               if (input) setCode(normalizeRoomCode(input));
             }}
             className="space-y-4"
@@ -250,7 +257,11 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
               </p>
             )}
 
-            <Button type="submit" disabled={isLoadingRoom} className="w-full min-h-12 text-sm font-bold">
+            <Button
+              type="submit"
+              disabled={isLoadingRoom}
+              className="w-full min-h-12 text-sm font-bold"
+            >
               {isLoadingRoom ? "Connecting…" : "Next"}
             </Button>
           </form>
@@ -276,7 +287,10 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
           </div>
 
           {room.locked && (
-            <div role="alert" className="rounded-2xl border border-red-500/20 bg-red-500/10 p-3 text-center text-xs text-red-500 font-medium">
+            <div
+              role="alert"
+              className="rounded-2xl border border-red-500/20 bg-red-500/10 p-3 text-center text-xs text-red-500 font-medium"
+            >
               This class is locked. Ask your teacher to unlock it.
             </div>
           )}
@@ -419,12 +433,10 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
             </div>
 
             <div className="space-y-2">
-              <h2 className="font-display text-2xl font-bold text-fg">
-                Waiting for your teacher…
-              </h2>
+              <h2 className="font-display text-2xl font-bold text-fg">Waiting for your teacher…</h2>
               <p className="text-xs text-muted max-w-xs mx-auto leading-relaxed">
-                You're in! When the teacher starts an activity, questions and tools will appear right
-                here.
+                You're in! When the teacher starts an activity, questions and tools will appear
+                right here.
               </p>
             </div>
 
@@ -509,7 +521,9 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  const val = (e.currentTarget.elements.namedItem("blankAnswer") as HTMLInputElement)?.value;
+                  const val = (
+                    e.currentTarget.elements.namedItem("blankAnswer") as HTMLInputElement
+                  )?.value;
                   if (val) handleAnswer(val);
                 }}
                 className="space-y-3"
@@ -591,9 +605,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
                         Top 5 Leaderboard
                       </span>
                       {userRank && (
-                        <span className="text-[11px] text-muted">
-                          Your rank: #{userRank.rank}
-                        </span>
+                        <span className="text-[11px] text-muted">Your rank: #{userRank.rank}</span>
                       )}
                     </div>
                     <ol className="space-y-1">
@@ -637,10 +649,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
               <p className="text-xs text-muted">Synchronized with your teacher</p>
             </div>
 
-            <MirroredTimerDisplay
-              timerState={room.state.timer}
-              serverOffsetMs={serverOffsetMs}
-            />
+            <MirroredTimerDisplay timerState={room.state.timer} serverOffsetMs={serverOffsetMs} />
           </div>
         )}
 
@@ -690,9 +699,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
             </div>
 
             <div className="space-y-2">
-              <h2 className="font-display text-2xl font-bold text-fg">
-                Class ended — thanks! 🎉
-              </h2>
+              <h2 className="font-display text-2xl font-bold text-fg">Class ended — thanks! 🎉</h2>
               <p className="text-xs text-muted max-w-xs mx-auto">
                 Great job in today's class! Your results were saved to your class record.
               </p>
@@ -708,10 +715,7 @@ export function StudentLiveView({ initialCode = "" }: StudentLiveViewProps) {
 
       {/* H. INTERACTIVE WHITEBOARD (RF03, CA04) */}
       {room.state.mode === "whiteboard" && (
-        <InteractiveWhiteboard
-          roomCode={room.code}
-          isTeacher={false}
-        />
+        <InteractiveWhiteboard roomCode={room.code} isTeacher={false} />
       )}
     </div>
   );
