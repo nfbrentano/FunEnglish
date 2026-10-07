@@ -22,6 +22,7 @@ import {
   Trash2,
   Type,
   Undo2,
+  Wand,
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -93,7 +94,7 @@ export function ClassroomBoard({
     activeColor,
     activePenWidthKey,
     eraserMode,
-    selectedItemId,
+    selectedItemIds,
     isSaving,
     isExpanded,
     errorMessage,
@@ -113,6 +114,10 @@ export function ClassroomBoard({
     addPage,
     deletePage,
     deleteItem,
+    deleteSelectedItems,
+    copySelectedItems,
+    duplicateSelectedItems,
+    pasteItems,
     setBackground,
     undo,
     redo,
@@ -196,6 +201,13 @@ export function ClassroomBoard({
       } else if (key === "y") {
         e.preventDefault();
         redo();
+      } else if (key === "c") {
+        copySelectedItems();
+      } else if (key === "v") {
+        pasteItems();
+      } else if (key === "d") {
+        e.preventDefault();
+        duplicateSelectedItems();
       }
       return;
     }
@@ -206,13 +218,13 @@ export function ClassroomBoard({
       else if (isExpanded) toggleExpanded();
       return;
     }
-    if ((e.key === "Delete" || e.key === "Backspace") && selectedItemId) {
+    if ((e.key === "Delete" || e.key === "Backspace") && selectedItemIds.length > 0) {
       e.preventDefault();
-      deleteItem(selectedItemId);
+      deleteSelectedItems();
       return;
     }
 
-    const tools = { v: "select", p: "pen", h: "highlighter", t: "text" } as const;
+    const tools = { v: "select", p: "pen", h: "highlighter", t: "text", l: "laser" } as const;
     if (key in tools) {
       setActiveTool(tools[key as keyof typeof tools]);
     } else if (key === "e") {
@@ -409,6 +421,15 @@ export function ClassroomBoard({
           onClick={() => setActiveTool("highlighter")}
           active={activeTool === "highlighter"}
           pressed={activeTool === "highlighter"}
+        />
+        <BoardButton
+          label="Laser"
+          shortcut="L"
+          tooltip={tooltip}
+          icon={<Wand aria-hidden="true" className={icon} />}
+          onClick={() => setActiveTool("laser")}
+          active={activeTool === "laser"}
+          pressed={activeTool === "laser"}
         />
         <div className="relative">
           <BoardButton

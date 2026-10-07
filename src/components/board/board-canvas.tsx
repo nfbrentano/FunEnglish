@@ -25,6 +25,7 @@ import {
   type BoardTextBox,
   type Point,
 } from "@/lib/board/types";
+import { findItemsInRect } from "@/lib/board/hit-test";
 import type { WhiteboardInstance } from "@/lib/board/use-whiteboard";
 import { strings } from "@/lib/strings";
 
@@ -67,13 +68,13 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     activePenWidthKey,
     eraserMode,
     pendingEraseIds,
-    selectedItemId,
+    selectedItemIds,
     isDrawing,
     currentStroke,
     startDrawing,
     continueDrawing,
     finishDrawing,
-    setSelectedItemId,
+    setSelectedItemIds,
     addTextBox,
     updateTextBox,
     updateItemPosition,
@@ -117,6 +118,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     initialHeight: number;
   } | null>(null);
   const [editingTextId, setEditingTextId] = useState<string | null>(null);
+  const [lasso, setLasso] = useState<{ start: Point; end: Point } | null>(null);
 
   // Background layer: only changes with the page background, surface or size.
   useEffect(() => {
@@ -182,7 +184,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     const pt = toPagePoint(e.clientX, e.clientY);
 
     if (drawsInk) {
-      setSelectedItemId(null);
+      setSelectedItemIds([]);
       setEditingTextId(null);
       target.setPointerCapture?.(e.pointerId);
       startDrawing(pt);
@@ -191,8 +193,13 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
       e.preventDefault();
       const newId = addTextBox(pt.x, pt.y, "");
       setEditingTextId(newId);
+    } else if (activeTool === "select") {
+      setSelectedItemIds([]);
+      setEditingTextId(null);
+      target.setPointerCapture?.(e.pointerId);
+      setLasso({ start: pt, end: pt });
     } else {
-      setSelectedItemId(null);
+      setSelectedItemIds([]);
       setEditingTextId(null);
     }
   };
@@ -205,7 +212,9 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
       return;
     }
 
-    if (dragState) {
+    if (lasso) {
+      setLasso(prev => prev ? { ...prev, end: toPagePoint(e.clientX, e.clientY) } : null);
+    } else if (dragState) {
       const rect = pageRef.current?.getBoundingClientRect();
       const ratio = BOARD_PAGE_WIDTH / (rect?.width || BOARD_PAGE_WIDTH);
       const deltaX = (e.clientX - dragState.startX) * ratio;
@@ -228,13 +237,25 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
   };
 
   const handlePointerUp = (e: ReactPointerEvent<HTMLDivElement>) => {
+    try {
+      (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+    } catch {}
+
     if (isDrawing) {
-      try {
-        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
-      } catch {
-        // pointer capture release ignore
-      }
       finishDrawing();
+    }
+    if (lasso) {
+      const rect = {
+        x: Math.min(lasso.start.x, lasso.end.x),
+        y: Math.min(lasso.start.y, lasso.end.y),
+        width: Math.abs(lasso.end.x - lasso.start.x),
+        height: Math.abs(lasso.end.y - lasso.start.y),
+      };
+      if (rect.width > 2 || rect.height > 2) {
+        const hits = findItemsInRect(currentPage.items, rect);
+        setSelectedItemIds(hits);
+      }
+      setLasso(null);
     }
     if (dragState) setDragState(null);
   };
@@ -271,7 +292,9 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
 
   const startDrag = (e: ReactPointerEvent, item: BoardItem, type: "move" | "resize") => {
     e.stopPropagation();
-    setSelectedItemId(item.id);
+    if (!selectedItemIds.includes(item.id)) {
+      setSelectedItemIds([item.id]);
+    }
     if (item.type === "text" || item.type === "image") {
       setDragState({
         type,
@@ -368,9 +391,9 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
                 pageScale={pageScale}
                 faded={pendingEraseIds.has(item.id)}
                 interactive={!drawsInk}
-                isSelected={selectedItemId === item.id}
+                isSelected={selectedItemIds.includes(item.id)}
                 isEditing={editingTextId === item.id}
-                onSelect={() => setSelectedItemId(item.id)}
+                onSelect={() => setSelectedItemIds([item.id])}
                 onStartEdit={() => setEditingTextId(item.id)}
                 onFinishEdit={() => {
                   setEditingTextId(null);
@@ -389,8 +412,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
                 key={item.id}
                 item={item}
                 interactive={!drawsInk}
-                isSelected={selectedItemId === item.id}
-                onSelect={() => setSelectedItemId(item.id)}
+                isSelected={selectedItemIds.includes(item.id)}
+                onSelect={() => setSelectedItemIds([item.id])}
                 onStartMove={(e) => startDrag(e, item, "move")}
                 onStartResize={(e) => startDrag(e, item, "resize")}
               />
@@ -398,6 +421,18 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
           }
           return null;
         })}
+
+        {lasso && (
+          <div
+            className="absolute border border-accent bg-accent/10 pointer-events-none z-50"
+            style={{
+              left: `${(Math.min(lasso.start.x, lasso.end.x) / BOARD_PAGE_WIDTH) * 100}%`,
+              top: `${(Math.min(lasso.start.y, lasso.end.y) / BOARD_PAGE_HEIGHT) * 100}%`,
+              width: `${(Math.abs(lasso.end.x - lasso.start.x) / BOARD_PAGE_WIDTH) * 100}%`,
+              height: `${(Math.abs(lasso.end.y - lasso.start.y) / BOARD_PAGE_HEIGHT) * 100}%`,
+            }}
+          />
+        )}
       </div>
 
       <div

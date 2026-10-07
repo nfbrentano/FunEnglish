@@ -53,6 +53,9 @@ export const BOARD_SURFACES: Record<BoardSurface, BoardSurfacePalette> = {
   },
 };
 
+/** Laser pointer trail (RF05): a glow and a lighter core, readable on both surfaces. */
+export const BOARD_LASER = { glow: "#ff3b30", core: "#ffd6d3" } as const;
+
 /** Colors saved before ink keys existed (old board palette and the live board's CSS names). */
 const LEGACY_INKS: Record<string, BoardInk> = {
   "#1e293b": "ink",

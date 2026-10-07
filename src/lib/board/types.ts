@@ -3,7 +3,8 @@
  * SDD/2026-10-06_redesign-ux-ui-lousa.md).
  */
 
-export type BoardTool = "pen" | "highlighter" | "eraser" | "text" | "select";
+/** "laser" points without drawing: its trail is never saved, exported or undone (RF05). */
+export type BoardTool = "pen" | "highlighter" | "eraser" | "text" | "select" | "laser";
 
 export type BoardBackground = "white" | "grid" | "lines";
 
@@ -16,7 +17,7 @@ export interface Point {
 export interface BoardStroke {
   id: string;
   type: "stroke";
-  tool: "pen" | "highlighter" | "eraser";
+  tool: "pen" | "highlighter" | "eraser" | "laser";
   color: string;
   width: number;
   points: Point[];
