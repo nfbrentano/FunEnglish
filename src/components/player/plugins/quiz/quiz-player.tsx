@@ -225,7 +225,7 @@ export default function QuizPlayer({
                     width={480}
                     height={360}
                     fallback={{ kind: "hide" }}
-                    className="aspect-[4/3] max-h-[22vh] w-full rounded-xl object-contain"
+                    className="aspect-4/3 max-h-[22vh] w-full rounded-xl object-contain"
                   />
                 )}
                 <span className={pictures ? "flex items-center gap-3 px-2" : "contents"}>

@@ -263,7 +263,7 @@ export function DailyReviewModal({
       aria-labelledby="review-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3 backdrop-blur-sm sm:p-4 animate-in fade-in duration-200"
     >
-      <div className="relative flex w-full max-w-xl flex-col rounded-3xl border border-border-subtle bg-surface shadow-2xl overflow-hidden min-h-[480px]">
+      <div className="relative flex w-full max-w-xl flex-col rounded-3xl border border-border-subtle bg-surface shadow-2xl overflow-hidden min-h-120">
         {/* Header bar */}
         <div className="flex items-center justify-between border-b border-border-subtle px-5 py-4 bg-primary/30">
           <div className="flex items-center gap-3">
@@ -361,7 +361,7 @@ export function DailyReviewModal({
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") handleFlip();
                 }}
-                className="relative flex flex-col justify-center items-center min-h-[220px] rounded-3xl border border-border-strong bg-elevated/70 p-6 text-center shadow-md cursor-pointer hover:border-accent/40 transition-all select-none"
+                className="relative flex flex-col justify-center items-center min-h-55 rounded-3xl border border-border-strong bg-elevated/70 p-6 text-center shadow-md cursor-pointer hover:border-accent/40 transition-all select-none"
               >
                 {/* Mode Indicator */}
                 <span className="absolute top-3 left-4 text-[10px] text-muted uppercase tracking-wider font-semibold">
@@ -417,7 +417,7 @@ export function DailyReviewModal({
                 <Button
                   size="lg"
                   onClick={handleFlip}
-                  className="w-full font-semibold min-h-[48px]"
+                  className="w-full font-semibold min-h-12"
                 >
                   Reveal Answer (Space)
                 </Button>
@@ -428,7 +428,7 @@ export function DailyReviewModal({
                     type="button"
                     onClick={() => handleRate("again")}
                     disabled={isSaving}
-                    className="flex flex-col items-center justify-center rounded-2xl border border-red-500/30 bg-red-500/10 p-3 text-red-500 font-semibold hover:bg-red-500/20 active:scale-95 transition-all min-h-[52px]"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-red-500/30 bg-red-500/10 p-3 text-red-500 font-semibold hover:bg-red-500/20 active:scale-95 transition-all min-h-13"
                   >
                     <span className="text-xs">Again</span>
                     <span className="text-[10px] text-muted font-normal">
@@ -441,7 +441,7 @@ export function DailyReviewModal({
                     type="button"
                     onClick={() => handleRate("hard")}
                     disabled={isSaving}
-                    className="flex flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10 p-3 text-amber-500 font-semibold hover:bg-amber-500/20 active:scale-95 transition-all min-h-[52px]"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10 p-3 text-amber-500 font-semibold hover:bg-amber-500/20 active:scale-95 transition-all min-h-13"
                   >
                     <span className="text-xs">Hard</span>
                     <span className="text-[10px] text-muted font-normal">
@@ -454,7 +454,7 @@ export function DailyReviewModal({
                     type="button"
                     onClick={() => handleRate("good")}
                     disabled={isSaving}
-                    className="flex flex-col items-center justify-center rounded-2xl border border-blue-500/30 bg-blue-500/10 p-3 text-blue-500 font-semibold hover:bg-blue-500/20 active:scale-95 transition-all min-h-[52px]"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-blue-500/30 bg-blue-500/10 p-3 text-blue-500 font-semibold hover:bg-blue-500/20 active:scale-95 transition-all min-h-13"
                   >
                     <span className="text-xs">Good</span>
                     <span className="text-[10px] text-muted font-normal">
@@ -467,7 +467,7 @@ export function DailyReviewModal({
                     type="button"
                     onClick={() => handleRate("easy")}
                     disabled={isSaving}
-                    className="flex flex-col items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-emerald-500 font-semibold hover:bg-emerald-500/20 active:scale-95 transition-all min-h-[52px]"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-emerald-500 font-semibold hover:bg-emerald-500/20 active:scale-95 transition-all min-h-13"
                   >
                     <span className="text-xs">Easy</span>
                     <span className="text-[10px] text-muted font-normal">

@@ -80,7 +80,7 @@ export function WhiteboardPageView() {
       <main className="w-full">
         <ClassroomBoard
           sessionId={sessionId}
-          className="!h-[calc(100vh-10rem)] min-h-[580px] w-full shadow-md"
+          className="h-[calc(100vh-10rem)]! min-h-145 w-full shadow-md"
         />
       </main>
 

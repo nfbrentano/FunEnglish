@@ -453,7 +453,7 @@ function EndSessionModalInner({
                         key={q.itemId}
                         className="flex items-center justify-between rounded-xl bg-primary/40 px-3 py-1.5 text-xs"
                       >
-                        <span className="truncate max-w-[280px] text-fg font-medium">
+                        <span className="truncate max-w-70 text-fg font-medium">
                           {q.prompt}
                         </span>
                         <div className="flex items-center gap-2">

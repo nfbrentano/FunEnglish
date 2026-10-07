@@ -390,7 +390,7 @@ export function StudentPortalView() {
       {activeTab === "overview" && (
         <div className="space-y-6">
           {/* Daily Review Card (RF01, CA01) */}
-          <section className="relative overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-r from-accent/15 via-primary to-accent/10 p-6 sm:p-7 shadow-xs">
+          <section className="relative overflow-hidden rounded-3xl border border-accent/30 bg-linear-to-r from-accent/15 via-primary to-accent/10 p-6 sm:p-7 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
@@ -423,7 +423,7 @@ export function StudentPortalView() {
                 <Button
                   onClick={() => setIsReviewOpen(true)}
                   disabled={dueWords.length === 0}
-                  className="font-semibold gap-2 shadow-md min-h-[44px]"
+                  className="font-semibold gap-2 shadow-md min-h-11"
                 >
                   <Sparkles className="size-4" />
                   Start review
