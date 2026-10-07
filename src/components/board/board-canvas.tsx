@@ -442,7 +442,6 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
             }}
           />
         )}
-        
         {(activeTool === "reveal" || curtainOffset > 0) && (
           <div
             className="absolute top-0 inset-x-0 bg-black z-50 transition-none"
