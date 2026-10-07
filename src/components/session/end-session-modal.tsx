@@ -138,14 +138,14 @@ function EndSessionModalInner({
   };
 
   // Compute Live Room results per participant (RF12, CA11)
+  const liveRoom = live?.liveRoom;
   const liveResults = useMemo(() => {
-    if (!live?.liveRoom) return undefined;
-    const room = live.liveRoom;
+    if (!liveRoom) return undefined;
     const results: Record<string, SessionLiveResult> = {};
-    for (const [uid, p] of Object.entries(room.participants || {})) {
+    for (const [uid, p] of Object.entries(liveRoom.participants || {})) {
       let correctCount = 0;
       let totalQuestions = 0;
-      for (const itemAns of Object.values(room.answers || {})) {
+      for (const itemAns of Object.values(liveRoom.answers || {})) {
         if (itemAns[uid]) {
           totalQuestions++;
           if (itemAns[uid].correct) correctCount++;
@@ -160,7 +160,7 @@ function EndSessionModalInner({
       };
     }
     return results;
-  }, [live?.liveRoom]);
+  }, [liveRoom]);
 
   // Open error notes suggestions for 1:1 next lesson focus (RF08, CA11)
   const [suggestedFocusPoints, setSuggestedFocusPoints] = useState<string[]>([]);
@@ -183,10 +183,11 @@ function EndSessionModalInner({
   }, [active.kind, active.studentId, notes]);
 
   // Question performance summary for live room (RF06, CA06)
+  const liveAnswers = liveRoom?.answers;
   const liveQuestionAggregates = useMemo(() => {
-    if (!live?.liveRoom?.answers) return [];
-    return aggregateLiveRoomQuestions(live.liveRoom.answers);
-  }, [live?.liveRoom?.answers]);
+    if (!liveAnswers) return [];
+    return aggregateLiveRoomQuestions(liveAnswers);
+  }, [liveAnswers]);
 
   // Present students list
   const presentStudents = useMemo(() => {

@@ -1,5 +1,4 @@
 import type { StudentNote } from "@/lib/notes/types";
-import type { PlanItem } from "@/lib/plans/types";
 
 export type SessionStatus = "active" | "ended" | "draft";
 

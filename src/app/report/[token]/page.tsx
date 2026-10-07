@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { PublicReportClient } from "./report-client";
 
-export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [{ token: "_" }];
+}
 
 export const metadata: Metadata = {
   title: "Fun English Progress Report",

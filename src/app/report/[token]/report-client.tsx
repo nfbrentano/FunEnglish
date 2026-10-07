@@ -22,8 +22,18 @@ export function PublicReportClient({
     paramsPromise
       .then((params) => {
         if (!active) return;
-        setToken(params.token);
-        return getPublicReport(params.token);
+        let actualToken = params.token;
+        if ((!actualToken || actualToken === "_") && typeof window !== "undefined") {
+          const match = window.location.pathname.match(/\/report\/([^/?#]+)/);
+          if (match?.[1]) {
+            actualToken = match[1];
+          }
+        }
+        setToken(actualToken);
+        if (actualToken === "_") {
+          return null;
+        }
+        return getPublicReport(actualToken);
       })
       .then((foundReport) => {
         if (!active) return;

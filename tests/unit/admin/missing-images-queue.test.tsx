@@ -98,7 +98,7 @@ describe("MissingImagesView Image Queue (spec: fila de imagens no painel, RF01-R
     globalThis.URL.revokeObjectURL = vi.fn();
 
     vi.spyOn(activitiesAdmin, "listActivities").mockResolvedValue(mockActivities);
-    vi.spyOn(imageProcessing, "toWebp").mockImplementation(async (file) => {
+    vi.spyOn(imageProcessing, "toWebp").mockImplementation(async () => {
       return new Blob(["webp-data"], { type: "image/webp" });
     });
   });
