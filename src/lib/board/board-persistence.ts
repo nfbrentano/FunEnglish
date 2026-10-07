@@ -370,3 +370,52 @@ export async function downloadBoardPageAsPng(
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+/**
+ * Exports all pages to a single PDF using jsPDF (RF08, CA09).
+ * Surface is forced to "light" for PDF export.
+ */
+export async function downloadBoardAsPdf(pages: BoardPage[]): Promise<void> {
+  if (typeof document === "undefined") return;
+
+  // Import jspdf dynamically (D02)
+  const { jsPDF } = await import("jspdf");
+  
+  // Create a PDF with A4 dimensions (landscape: 297x210 mm)
+  const pdf = new jsPDF({
+    orientation: "landscape",
+    unit: "mm",
+    format: "a4",
+  });
+
+  const width = 1280; // Render at logical width
+  const height = 720;
+  
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i];
+    ctx.clearRect(0, 0, width, height);
+    
+    await renderBoardPageToCanvas(ctx, page, width, height, {
+      scale: 1,
+      surface: "light",
+    });
+
+    // convert canvas to image data
+    const imgData = canvas.toDataURL("image/jpeg", 0.85);
+
+    if (i > 0) {
+      pdf.addPage();
+    }
+    
+    // Fill the A4 landscape page (297x210mm)
+    pdf.addImage(imgData, "JPEG", 0, 0, 297, 210);
+  }
+
+  pdf.save("whiteboard-export.pdf");
+}

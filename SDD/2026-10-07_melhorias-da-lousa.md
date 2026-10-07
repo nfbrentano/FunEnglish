@@ -127,6 +127,7 @@
 
 | # | Dúvida | Responsável (PO/dev/design) | Bloqueante? | Resposta |
 |---|--------|-----------------------------|-------------|----------|
+
 | D04 | Quais templates de idioma são prioritários além dos 4 propostos (ex.: "Wh- questions", "Venn")? | PO | Não | |
 | D05 | A voz do "Listen" deve ser en-US fixa ou permitir en-GB? | PO | Não | |
 
