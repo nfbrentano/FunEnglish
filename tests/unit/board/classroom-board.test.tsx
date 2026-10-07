@@ -5,7 +5,7 @@ import { ClassroomBoard } from "@/components/board/classroom-board";
 import type { BoardPage } from "@/lib/board/types";
 
 describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => {
-  it("renders toolbar with tools, thicknesses, colors and controls (RNF06)", () => {
+  it("renders toolbar with tools, thicknesses, colors and controls (RNF06)", async () => {
     render(<ClassroomBoard sessionId="toolbar-test" />);
 
     // Tools
@@ -21,18 +21,21 @@ describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => 
     expect(undoBtn).toBeDisabled();
     expect(redoBtn).toBeDisabled();
 
-    // Thickness buttons
-    expect(screen.getByRole("button", { name: "Thin width" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Medium width" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Thick width" })).toBeInTheDocument();
+    // Thickness and colors live in the style popover (SDD/2026-10-06_redesign-ux-ui-lousa.md, RF03)
+    await userEvent.click(screen.getByRole("button", { name: "Color and width" }));
+    expect(screen.getByRole("radio", { name: "Thin width" })).toBeInTheDocument();
+    expect(screen.getByRole("radio", { name: "Medium width" })).toBeInTheDocument();
+    expect(screen.getByRole("radio", { name: "Thick width" })).toBeInTheDocument();
+    expect(screen.getAllByRole("radio", { name: /^(Ink|Red|Blue|Green|Amber|Violet)$/ })).toHaveLength(6);
 
-    // Background buttons
-    expect(screen.getByRole("button", { name: "Plain" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Grid" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Lined" })).toBeInTheDocument();
+    // Backgrounds live in the "More options" menu (RF07)
+    await userEvent.click(screen.getByRole("button", { name: "More options" }));
+    expect(screen.getByRole("radio", { name: "Plain" })).toBeInTheDocument();
+    expect(screen.getByRole("radio", { name: "Grid" })).toBeInTheDocument();
+    expect(screen.getByRole("radio", { name: "Lined" })).toBeInTheDocument();
 
     // Page indicator
-    expect(screen.getByText("Page 1 of 1")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 1 of 1" })).toBeInTheDocument();
   });
 
   it("CT04 / CA04: toggles Expand board and Collapse board", async () => {
@@ -51,25 +54,25 @@ describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => 
   it("CT05 / CA05: supports multi-page navigation (add page, previous, next)", async () => {
     render(<ClassroomBoard sessionId="page-nav-test" />);
 
-    expect(screen.getByText("Page 1 of 1")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 1 of 1" })).toBeInTheDocument();
 
     // Add page
     const addBtn = screen.getByRole("button", { name: "Add new page" });
     await userEvent.click(addBtn);
 
-    expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 2 of 2" })).toBeInTheDocument();
 
     // Previous page
     const prevBtn = screen.getByRole("button", { name: "Previous page" });
     await userEvent.click(prevBtn);
 
-    expect(screen.getByText("Page 1 of 2")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 1 of 2" })).toBeInTheDocument();
 
     // Next page
     const nextBtn = screen.getByRole("button", { name: "Next page" });
     await userEvent.click(nextBtn);
 
-    expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 2 of 2" })).toBeInTheDocument();
   });
 
   it("CT06 / CA06: 'Send words to students' extracts 'suitcase' and 'boarding pass', confirms and calls callback", async () => {
@@ -133,6 +136,7 @@ describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => 
   it("CT07 / CA07: 'Export PNG' triggers page export", async () => {
     render(<ClassroomBoard sessionId="export-test" />);
 
+    await userEvent.click(screen.getByRole("button", { name: "More options" }));
     const exportBtn = screen.getByRole("button", { name: "Export PNG" });
     expect(exportBtn).toBeInTheDocument();
 

@@ -1,5 +1,6 @@
 /**
- * Types and constants for the Virtual Classroom Whiteboard (SDD/2026-10-03_07-lousa-virtual.md).
+ * Types and constants for the Virtual Classroom Whiteboard (SDD/2026-10-03_07-lousa-virtual.md,
+ * SDD/2026-10-06_redesign-ux-ui-lousa.md).
  */
 
 export type BoardTool = "pen" | "highlighter" | "eraser" | "text" | "select";
@@ -11,6 +12,7 @@ export interface Point {
   y: number;
 }
 
+/** `color` holds an ink key ("ink", "red"…); boards saved before ink keys may hold a hex value. */
 export interface BoardStroke {
   id: string;
   type: "stroke";
@@ -58,18 +60,10 @@ export interface BoardData {
   currentPageIndex: number;
 }
 
-export const BOARD_COLORS = [
-  "#1e293b", // Black / Dark slate
-  "#ef4444", // Red
-  "#3b82f6", // Blue
-  "#10b981", // Green
-  "#f59e0b", // Yellow / Amber
-  "#8b5cf6", // Purple
-] as const;
+export type { BoardInk as BoardColor } from "./ink";
 
-export const BOARD_WHITE = "#ffffff";
-
-export type BoardColor = (typeof BOARD_COLORS)[number];
+/** "area" cuts through ink where it passes; "object" removes whole strokes, texts and images (RF06). */
+export type BoardEraserMode = "area" | "object";
 
 export const BOARD_PEN_WIDTHS = {
   thin: 3,
@@ -78,6 +72,7 @@ export const BOARD_PEN_WIDTHS = {
 } as const;
 
 export type BoardPenWidthKey = keyof typeof BOARD_PEN_WIDTHS;
+export const BOARD_PEN_WIDTH_KEYS: BoardPenWidthKey[] = ["thin", "medium", "thick"];
 
 export const BOARD_HIGHLIGHTER_WIDTH = 24;
 export const BOARD_ERASER_WIDTH = 24;

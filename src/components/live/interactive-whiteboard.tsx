@@ -6,9 +6,27 @@ import type Konva from "konva";
 import type { KonvaEventObject } from "konva/lib/Node";
 import { getDatabaseInstance } from "@/lib/firebase";
 import { ref, onValue, set, remove, off } from "firebase/database";
-import { Trash2, Eraser, Pen, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Eraser, Pencil, Radio, Trash2, X } from "lucide-react";
+import {
+  BoardButton,
+  Dock,
+  DockDivider,
+  DockPositionToggle,
+  InkPicker,
+  Island,
+  StyleSwatch,
+  dockPopoverClasses,
+} from "@/components/board/board-ui";
+import { Popover } from "@/components/ui/popover";
+import { BOARD_SURFACES, resolveInk, type BoardInk } from "@/lib/board/ink";
+import { useBoardSurface, useDockPosition } from "@/lib/board/preferences";
+import { BOARD_PEN_WIDTHS, type BoardPenWidthKey } from "@/lib/board/types";
+import { strings } from "@/lib/strings";
 
+const s = strings.whiteboard;
+const ERASER_SIZE = 20;
+
+/** `color` holds an ink key; strokes synced before ink keys hold a CSS color name. */
 interface Stroke {
   id: string;
   points: number[];
@@ -26,10 +44,19 @@ interface InteractiveWhiteboardProps {
   onClose?: () => void;
 }
 
-export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: InteractiveWhiteboardProps) {
+export function InteractiveWhiteboard({
+  roomCode,
+  isTeacher,
+  onClose,
+}: InteractiveWhiteboardProps) {
   const [strokes, setStrokes] = useState<Stroke[]>([]);
   const [tool, setTool] = useState<"pen" | "eraser">("pen");
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState<BoardInk>("ink");
+  const [widthKey, setWidthKey] = useState<BoardPenWidthKey>("thin");
+  const [showStyle, setShowStyle] = useState(false);
+  const surface = useBoardSurface();
+  const dockPosition = useDockPosition();
+  const palette = BOARD_SURFACES[surface];
   const [isDrawing, setIsDrawing] = useState(false);
   const stageRef = useRef<Konva.Stage | null>(null);
   const currentStrokeIdRef = useRef<string | null>(null);
@@ -39,15 +66,17 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
     if (!roomCode) return;
     const db = getDatabaseInstance();
     const drawingsRef = ref(db, `liveRooms/${roomCode}/drawings`);
-    
+
     const unsubscribe = onValue(drawingsRef, (snapshot) => {
       const data = snapshot.val() as RTDBStrokeData | null;
       if (data) {
         // Convert map to array and sort by ID (which has timestamp)
-        const strokesArray = Object.keys(data).map(key => ({
-          id: key,
-          ...data[key]
-        })).sort((a, b) => a.id.localeCompare(b.id));
+        const strokesArray = Object.keys(data)
+          .map((key) => ({
+            id: key,
+            ...data[key],
+          }))
+          .sort((a, b) => a.id.localeCompare(b.id));
         setStrokes(strokesArray);
       } else {
         setStrokes([]);
@@ -71,10 +100,10 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
       id: newStrokeId,
       points: [pos.x, pos.y],
       color,
-      size: tool === "eraser" ? 20 : 3,
+      size: tool === "eraser" ? ERASER_SIZE : BOARD_PEN_WIDTHS[widthKey],
       tool,
     };
-    
+
     // Optimistic UI update
     setStrokes((prev) => [...prev, newStroke]);
   };
@@ -83,16 +112,16 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
     if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
     const point = e.target.getStage()?.getPointerPosition();
     if (!point) return;
-    
+
     setStrokes((prev) => {
       const lastStroke = prev[prev.length - 1];
       if (!lastStroke || lastStroke.id !== currentStrokeIdRef.current) return prev;
-      
+
       const updatedStroke = {
         ...lastStroke,
-        points: lastStroke.points.concat([point.x, point.y])
+        points: lastStroke.points.concat([point.x, point.y]),
       };
-      
+
       return prev.slice(0, prev.length - 1).concat([updatedStroke]);
     });
   };
@@ -100,46 +129,44 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
   const handlePointerUp = () => {
     if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
     setIsDrawing(false);
-    
+
     // Sync to Firebase
-    const lastStroke = strokes.find(s => s.id === currentStrokeIdRef.current);
+    const lastStroke = strokes.find((s) => s.id === currentStrokeIdRef.current);
     if (lastStroke) {
-       const db = getDatabaseInstance();
-       const strokeRef = ref(db, `liveRooms/${roomCode}/drawings/${lastStroke.id}`);
-       // Throttling or batching could be added here for RNF01, 
-       // but sending on mouse up guarantees final state synchronization.
-       // Sending during mousemove would require careful debouncing/throttling.
-       // To satisfy CA04 ("traço aparece ... quase instantaneamente"):
-       // Let's just save on mouseup for simplicity or write points in smaller batches.
-       set(strokeRef, {
-         points: lastStroke.points,
-         color: lastStroke.color,
-         size: lastStroke.size,
-         tool: lastStroke.tool
-       }).catch(err => console.error("Failed to sync stroke:", err));
+      const db = getDatabaseInstance();
+      const strokeRef = ref(db, `liveRooms/${roomCode}/drawings/${lastStroke.id}`);
+      // Throttling or batching could be added here for RNF01,
+      // but sending on mouse up guarantees final state synchronization.
+      // Sending during mousemove would require careful debouncing/throttling.
+      // To satisfy CA04 ("traço aparece ... quase instantaneamente"):
+      // Let's just save on mouseup for simplicity or write points in smaller batches.
+      set(strokeRef, {
+        points: lastStroke.points,
+        color: lastStroke.color,
+        size: lastStroke.size,
+        tool: lastStroke.tool,
+      }).catch((err) => console.error("Failed to sync stroke:", err));
     }
   };
 
   const handleClear = () => {
-     if (!isTeacher) return;
-     const db = getDatabaseInstance();
-     const drawingsRef = ref(db, `liveRooms/${roomCode}/drawings`);
-     remove(drawingsRef).catch(err => console.error("Failed to clear board:", err));
+    if (!isTeacher) return;
+    const db = getDatabaseInstance();
+    const drawingsRef = ref(db, `liveRooms/${roomCode}/drawings`);
+    remove(drawingsRef).catch((err) => console.error("Failed to clear board:", err));
   };
-
-  const colors = ["black", "red", "blue", "green"];
 
   // Use state for window dimensions to avoid hydration errors
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  
+
   useEffect(() => {
     const updateDimensions = () => {
       setDimensions({
         width: window.innerWidth,
-        height: window.innerHeight - (isTeacher ? 60 : 0) // Leave room for toolbar if teacher
+        height: window.innerHeight,
       });
     };
-    
+
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
@@ -147,51 +174,91 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
 
   if (dimensions.width === 0) return null; // Avoid rendering on server
 
+  // Same islands, dock and inks as the classroom board (SDD/2026-10-06_redesign-ux-ui-lousa.md, RF14).
   return (
-    <div className={`absolute inset-0 z-50 flex flex-col bg-white overflow-hidden touch-none`}>
-      {isTeacher && (
-        <div className="flex shrink-0 items-center gap-4 border-b border-border-subtle p-3 bg-neutral-100 shadow-sm relative z-10">
-          <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl shadow-xs border border-neutral-200">
-            <button
+    <div
+      style={{ backgroundColor: palette.background }}
+      className="@container absolute inset-0 z-50 isolate flex flex-col overflow-hidden touch-none transition-colors duration-300"
+    >
+      {isTeacher ? (
+        <>
+          <Dock position={dockPosition} label={s.tools}>
+            <BoardButton
+              label={s.pen}
+              tooltip={dockPosition}
+              icon={<Pencil aria-hidden="true" className="size-4" />}
               onClick={() => setTool("pen")}
-              title="Caneta"
-              className={`p-2 rounded-lg transition-colors ${tool === "pen" ? "bg-accent text-white shadow-sm" : "text-neutral-600 hover:bg-neutral-100"}`}
-            >
-              <Pen className="size-4" />
-            </button>
-            <button
+              active={tool === "pen"}
+              pressed={tool === "pen"}
+            />
+            <BoardButton
+              label={s.eraser}
+              tooltip={dockPosition}
+              icon={<Eraser aria-hidden="true" className="size-4" />}
               onClick={() => setTool("eraser")}
-              title="Borracha"
-              className={`p-2 rounded-lg transition-colors ${tool === "eraser" ? "bg-accent text-white shadow-sm" : "text-neutral-600 hover:bg-neutral-100"}`}
-            >
-              <Eraser className="size-4" />
-            </button>
-          </div>
-          <div className="h-6 w-px bg-neutral-300 mx-1" />
-          <div className="flex items-center gap-2">
-             {colors.map(c => (
-               <button
-                 key={c}
-                 onClick={() => { setTool("pen"); setColor(c); }}
-                 className={`size-8 rounded-full border-2 transition-transform ${color === c && tool === "pen" ? "border-accent scale-110 shadow-sm" : "border-transparent opacity-80 hover:opacity-100"}`}
-                 style={{ backgroundColor: c }}
-                 title={`Cor ${c}`}
-               />
-             ))}
-          </div>
-          <div className="flex-1" />
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" onClick={handleClear} className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50 hover:text-red-700">
-              <Trash2 className="size-4" /> Limpar Lousa
-            </Button>
+              active={tool === "eraser"}
+              pressed={tool === "eraser"}
+            />
+            <DockDivider position={dockPosition} />
+            <div className="relative">
+              <BoardButton
+                label={s.style}
+                tooltip={dockPosition}
+                icon={<StyleSwatch color={color} widthKey={widthKey} surface={surface} />}
+                onClick={() => setShowStyle((open) => !open)}
+                expanded={showStyle}
+                className={showStyle ? "bg-accent-muted" : ""}
+              />
+              <Popover
+                open={showStyle}
+                onClose={() => setShowStyle(false)}
+                label={s.style}
+                className={`w-64 ${dockPopoverClasses(dockPosition)}`}
+              >
+                <InkPicker
+                  surface={surface}
+                  color={color}
+                  onColor={(ink) => {
+                    setColor(ink);
+                    setTool("pen");
+                  }}
+                  widthKey={widthKey}
+                  onWidth={setWidthKey}
+                />
+              </Popover>
+            </div>
+            <span className="hidden @3xl:contents">
+              <DockDivider position={dockPosition} />
+            </span>
+            <DockPositionToggle position={dockPosition} />
+          </Dock>
+
+          <Island className="absolute top-3 right-3 z-30">
+            <BoardButton
+              danger
+              label={s.clear}
+              icon={<Trash2 aria-hidden="true" className="size-4" />}
+              onClick={handleClear}
+            />
             {onClose && (
-              <Button onClick={onClose} variant="primary" className="gap-1.5 px-4 text-xs font-semibold">
-                <X className="size-4" /> Fechar Lousa
-              </Button>
+              <button
+                type="button"
+                onClick={onClose}
+                className="ml-0.5 flex h-9 items-center gap-1.5 rounded-xl bg-accent px-3 text-xs font-semibold text-primary transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent pointer-coarse:h-11"
+              >
+                <X aria-hidden="true" className="size-4" />
+                {s.closeBoard}
+              </button>
             )}
-          </div>
-        </div>
-      )}
+          </Island>
+        </>
+      ) : null}
+
+      <span className="pointer-events-none absolute top-3 left-3 z-30 flex h-9 items-center gap-1.5 rounded-full border border-border-subtle bg-elevated/90 px-3 text-xs font-semibold text-fg shadow-sm backdrop-blur-md">
+        <Radio aria-hidden="true" className="size-3.5 text-accent" />
+        {s.liveBoard}
+      </span>
+
       <div className="flex-1 overflow-hidden relative cursor-crosshair">
         <Stage
           width={dimensions.width}
@@ -207,7 +274,9 @@ export function InteractiveWhiteboard({ roomCode, isTeacher, onClose }: Interact
               <Line
                 key={stroke.id}
                 points={stroke.points}
-                stroke={stroke.tool === "eraser" ? "white" : stroke.color}
+                stroke={
+                  stroke.tool === "eraser" ? palette.ink.ink : resolveInk(stroke.color, surface)
+                }
                 strokeWidth={stroke.size}
                 tension={0.5}
                 lineCap="round"

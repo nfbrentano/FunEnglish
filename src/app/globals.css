@@ -85,3 +85,11 @@ dialog[open] {
   }
 }
 
+
+/* Board popovers and islands (SDD/2026-10-06_redesign-ux-ui-lousa.md, RNF05). */
+@keyframes board-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}

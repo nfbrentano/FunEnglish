@@ -41,9 +41,9 @@ describe("Whiteboard Shortcut and Page (SDD/2026-10-06_atalho-lousa.md)", () => 
 
     render(<WhiteboardPageView />);
 
-    // Title and subtitle
-    expect(screen.getByRole("heading", { name: "Lousa Digital" })).toBeInTheDocument();
-    expect(screen.getByText(/Quadro livre para anotações/i)).toBeInTheDocument();
+    // Title and subtitle, in English like the rest of the board (SDD/2026-10-06_redesign-ux-ui-lousa.md, D01)
+    expect(screen.getByRole("heading", { name: "Whiteboard" })).toBeInTheDocument();
+    expect(screen.getByText(/Free board for notes/i)).toBeInTheDocument();
 
     // Link back to Dashboard
     const dashboardLink = screen.getByRole("link", { name: /Dashboard/i });
@@ -51,7 +51,7 @@ describe("Whiteboard Shortcut and Page (SDD/2026-10-06_atalho-lousa.md)", () => 
     expect(dashboardLink).toHaveAttribute("href", "/dashboard");
 
     // Live Room trigger button
-    expect(screen.getByRole("button", { name: /Conectar com Alunos/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Connect students/i })).toBeInTheDocument();
 
     // Full board tools are rendered
     expect(screen.getByRole("button", { name: "Pen" })).toBeInTheDocument();

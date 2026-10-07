@@ -9,16 +9,18 @@ import {
   loadBoardLocally,
   saveBoardLocally,
 } from "./board-persistence";
+import { findItemsAt } from "./hit-test";
 import { validateAndResizeBoardImage } from "./image-utils";
+import type { BoardInk, BoardSurface } from "./ink";
 import {
-  BOARD_COLORS,
   BOARD_ERASER_WIDTH,
   BOARD_HIGHLIGHTER_WIDTH,
+  BOARD_PEN_WIDTH_KEYS,
   BOARD_PEN_WIDTHS,
   MAX_PAGES,
   MAX_UNDO_STEPS,
   type BoardBackground,
-  type BoardColor,
+  type BoardEraserMode,
   type BoardImage,
   type BoardItem,
   type BoardPage,
@@ -61,8 +63,12 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
 
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const [activeTool, setActiveTool] = useState<BoardTool>("pen");
-  const [activeColor, setActiveColor] = useState<BoardColor>(BOARD_COLORS[0]);
+  const [activeColor, setActiveColor] = useState<BoardInk>("ink");
   const [activePenWidthKey, setActivePenWidthKey] = useState<BoardPenWidthKey>("medium");
+  const [eraserMode, setEraserMode] = useState<BoardEraserMode>("area");
+  // Items the whole-stroke eraser has touched in the current gesture, removed on release (RF06).
+  const [pendingEraseIds, setPendingEraseIds] = useState<ReadonlySet<string>>(new Set());
+  const pendingEraseRef = useRef<Set<string> | null>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
@@ -91,7 +97,9 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     [pages.length],
   );
 
-  // Auto-save debounced to localStorage (RNF01, CA08)
+  // Auto-save debounced to localStorage (RNF01, CA08). "Saving…" lasts while pages differ
+  // from the last saved snapshot (RF10).
+  const [lastSavedPages, setLastSavedPages] = useState(pages);
   const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   useEffect(() => {
     if (saveTimeoutRef.current) {
@@ -99,6 +107,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     }
     saveTimeoutRef.current = setTimeout(() => {
       saveBoardLocally(sessionId, { pages, currentPageIndex });
+      setLastSavedPages(pages);
       if (onBoardTextChange) {
         const text = extractBoardText(pages);
         onBoardTextChange(text);
@@ -223,12 +232,31 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     [pages.length, safePageIndex],
   );
 
+  // Whole-stroke eraser: collect touched items while dragging (RF06, CA20)
+  const collectEraseAt = useCallback(
+    (pt: Point) => {
+      const pending = pendingEraseRef.current;
+      if (!pending) return;
+      const hits = findItemsAt(currentPage.items, pt, BOARD_ERASER_WIDTH / 2);
+      if (hits.some((id) => !pending.has(id))) {
+        hits.forEach((id) => pending.add(id));
+        setPendingEraseIds(new Set(pending));
+      }
+    },
+    [currentPage.items],
+  );
+
   // Drawing interactions (RF01, CA01)
   const startDrawing = useCallback(
     (pt: Point) => {
       if (activeTool === "select" || activeTool === "text") return;
 
       setIsDrawing(true);
+      if (activeTool === "eraser" && eraserMode === "object") {
+        pendingEraseRef.current = new Set();
+        collectEraseAt(pt);
+        return;
+      }
       let width: number = BOARD_PEN_WIDTHS[activePenWidthKey];
       if (activeTool === "highlighter") width = BOARD_HIGHLIGHTER_WIDTH;
       if (activeTool === "eraser") width = BOARD_ERASER_WIDTH;
@@ -237,18 +265,22 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         id: `stroke-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         type: "stroke",
         tool: activeTool,
-        color: activeTool === "eraser" ? "#ffffff" : activeColor,
+        color: activeColor,
         width,
         points: [pt],
       };
       currentStrokeRef.current = stroke;
       setCurrentStroke(stroke);
     },
-    [activeTool, activeColor, activePenWidthKey],
+    [activeTool, activeColor, activePenWidthKey, eraserMode, collectEraseAt],
   );
 
   const continueDrawing = useCallback(
     (pt: Point) => {
+      if (pendingEraseRef.current) {
+        collectEraseAt(pt);
+        return;
+      }
       if (!currentStrokeRef.current) return;
       currentStrokeRef.current = {
         ...currentStrokeRef.current,
@@ -256,10 +288,21 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       };
       setCurrentStroke(currentStrokeRef.current);
     },
-    [],
+    [collectEraseAt],
   );
 
   const finishDrawing = useCallback(() => {
+    const erased = pendingEraseRef.current;
+    if (erased) {
+      pendingEraseRef.current = null;
+      setPendingEraseIds(new Set());
+      setIsDrawing(false);
+      if (erased.size > 0) {
+        updateCurrentPageItems((items) => items.filter((item) => !erased.has(item.id)));
+        setSelectedItemId(null);
+      }
+      return;
+    }
     const stroke = currentStrokeRef.current;
     if (stroke && stroke.points.length > 0) {
       updateCurrentPageItems((items) => [...items, stroke]);
@@ -278,7 +321,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         text: initialText,
         x,
         y,
-        width: 200,
+        width: 320,
         height: 60,
         fontSize: 24,
         color: activeColor,
@@ -387,9 +430,20 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   );
 
   // Export PNG (RF06, CA07)
-  const exportPng = useCallback(async () => {
-    await downloadBoardPageAsPng(currentPage, safePageIndex);
-  }, [currentPage, safePageIndex]);
+  const exportPng = useCallback(
+    async (surface: BoardSurface) => {
+      await downloadBoardPageAsPng(currentPage, safePageIndex, surface);
+    },
+    [currentPage, safePageIndex],
+  );
+
+  // "[" and "]" step through the pen widths (RF12)
+  const stepPenWidth = useCallback((direction: 1 | -1) => {
+    setActivePenWidthKey((current) => {
+      const index = BOARD_PEN_WIDTH_KEYS.indexOf(current) + direction;
+      return BOARD_PEN_WIDTH_KEYS[Math.max(0, Math.min(BOARD_PEN_WIDTH_KEYS.length - 1, index))];
+    });
+  }, []);
 
   // Extract vocabulary words (RF05, CA06)
   const getCandidateWords = useCallback(() => {
@@ -422,6 +476,9 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     activeTool,
     activeColor,
     activePenWidthKey,
+    eraserMode,
+    pendingEraseIds,
+    isSaving: lastSavedPages !== pages,
     isExpanded,
     errorMessage,
     selectedItemId,
@@ -436,6 +493,8 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setActiveTool,
     setActiveColor,
     setActivePenWidthKey,
+    stepPenWidth,
+    setEraserMode,
     setIsExpanded,
     toggleExpanded: () => setIsExpanded((prev) => !prev),
     setSelectedItemId,

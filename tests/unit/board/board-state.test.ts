@@ -133,15 +133,15 @@ describe("Whiteboard Persistence & Text Extraction (RNF01, RNF02, CA06, CA08)", 
 });
 
 describe("useWhiteboard Hook Actions & Logic (CA01, CA02, CA05)", () => {
-  it("CT01 / CA01: drawing with red thick pen records stroke with color '#ef4444' and width 12", () => {
+  it("CT01 / CA01: drawing with red thick pen records stroke with ink 'red' and width 12", () => {
     const { result } = renderHook(() => useWhiteboard({ sessionId: "draw-test" }));
 
     act(() => {
-      result.current.setActiveColor("#ef4444");
+      result.current.setActiveColor("red");
       result.current.setActivePenWidthKey("thick");
     });
 
-    expect(result.current.activeColor).toBe("#ef4444");
+    expect(result.current.activeColor).toBe("red");
     expect(result.current.activePenWidthKey).toBe("thick");
 
     act(() => {
@@ -155,7 +155,7 @@ describe("useWhiteboard Hook Actions & Logic (CA01, CA02, CA05)", () => {
     const stroke = items[0];
     expect(stroke.type).toBe("stroke");
     if (stroke.type === "stroke") {
-      expect(stroke.color).toBe("#ef4444");
+      expect(stroke.color).toBe("red");
       expect(stroke.width).toBe(12);
       expect(stroke.points).toHaveLength(2);
     }

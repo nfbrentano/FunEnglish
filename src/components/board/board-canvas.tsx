@@ -5,31 +5,68 @@ import {
   useEffect,
   useRef,
   useState,
-  type KeyboardEvent,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import { renderBoardPageToCanvas } from "@/lib/board/board-persistence";
 import {
-  BOARD_WHITE,
+  BOARD_PAGE_HEIGHT,
+  BOARD_PAGE_WIDTH,
+  BOARD_TEXT_LINE_HEIGHT,
+  drawBoardStroke,
+  renderBoardBackground,
+  renderBoardInk,
+} from "@/lib/board/board-persistence";
+import { BOARD_SURFACES, resolveInk, type BoardSurface } from "@/lib/board/ink";
+import {
+  BOARD_ERASER_WIDTH,
+  BOARD_HIGHLIGHTER_WIDTH,
+  BOARD_PEN_WIDTHS,
   type BoardImage,
   type BoardItem,
   type BoardTextBox,
   type Point,
 } from "@/lib/board/types";
 import type { WhiteboardInstance } from "@/lib/board/use-whiteboard";
+import { strings } from "@/lib/strings";
 
 export interface BoardCanvasProps {
   board: WhiteboardInstance;
+  surface: BoardSurface;
   className?: string;
 }
 
-export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
+const s = strings.whiteboard;
+/** Space between the page and the board edge. */
+const PAGE_MARGIN = 12;
+
+/** Sizes the canvas buffer for the device pixel ratio (capped at 2) and returns page → buffer scale. */
+function fitCanvas(canvas: HTMLCanvasElement, cssWidth: number, cssHeight: number): number {
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const width = Math.max(1, Math.round(cssWidth * dpr));
+  const height = Math.max(1, Math.round(cssHeight * dpr));
+  if (canvas.width !== width) canvas.width = width;
+  if (canvas.height !== height) canvas.height = height;
+  return width / BOARD_PAGE_WIDTH;
+}
+
+/**
+ * The page: a 16:9 sheet scaled to fit ("contain") and centered, drawn in layers so the eraser cuts
+ * ink only (SDD/2026-10-06_redesign-ux-ui-lousa.md, RF06, RNF03):
+ * background canvas → images → ink canvas → text and selection overlays.
+ */
+export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
+  const backgroundRef = useRef<HTMLCanvasElement>(null);
+  const inkRef = useRef<HTMLCanvasElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   const {
     currentPage,
     activeTool,
+    activeColor,
+    activePenWidthKey,
+    eraserMode,
+    pendingEraseIds,
     selectedItemId,
     isDrawing,
     currentStroke,
@@ -43,11 +80,32 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
     updateItemDimensions,
     deleteItem,
     pasteOrDropFile,
-    undo,
-    redo,
   } = board;
 
-  // Dragging / resizing state for selected items
+  // Fit the page into the available area, keeping 16:9.
+  const [frame, setFrame] = useState({ width: BOARD_PAGE_WIDTH, height: BOARD_PAGE_HEIGHT });
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      if (width > 0 && height > 0) setFrame({ width, height });
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  const pageScale = Math.max(
+    0.05,
+    Math.min(
+      (frame.width - PAGE_MARGIN * 2) / BOARD_PAGE_WIDTH,
+      (frame.height - PAGE_MARGIN * 2) / BOARD_PAGE_HEIGHT,
+    ),
+  );
+  const pageWidth = BOARD_PAGE_WIDTH * pageScale;
+  const pageHeight = BOARD_PAGE_HEIGHT * pageScale;
+  const palette = BOARD_SURFACES[surface];
+
   const [dragState, setDragState] = useState<{
     type: "move" | "resize";
     itemId: string;
@@ -58,116 +116,113 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
     initialWidth: number;
     initialHeight: number;
   } | null>(null);
-
-  // Editing text box state
   const [editingTextId, setEditingTextId] = useState<string | null>(null);
 
-  // Get canvas coordinates from mouse/touch event
-  const getCanvasPoint = useCallback((e: ReactPointerEvent | PointerEvent): Point => {
-    const canvas = canvasRef.current;
-    if (!canvas) return { x: 0, y: 0 };
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
+  // Background layer: only changes with the page background, surface or size.
+  useEffect(() => {
+    const canvas = backgroundRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    const scale = fitCanvas(canvas, pageWidth, pageHeight);
+    renderBoardBackground(ctx, currentPage.background, surface, canvas.width, canvas.height, scale);
+  }, [currentPage.background, surface, pageWidth, pageHeight]);
+
+  // Ink layer: strokes, eraser cuts and the stroke being drawn.
+  useEffect(() => {
+    const canvas = inkRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+    const scale = fitCanvas(canvas, pageWidth, pageHeight);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    renderBoardInk(ctx, currentPage.items, surface, { scale, fadedIds: pendingEraseIds });
+    if (currentStroke) drawBoardStroke(ctx, currentStroke, surface, scale);
+  }, [currentPage.items, currentStroke, pendingEraseIds, surface, pageWidth, pageHeight]);
+
+  /** Client position → page coordinates (1280×720). */
+  const toPagePoint = useCallback((clientX: number, clientY: number): Point => {
+    const rect = pageRef.current?.getBoundingClientRect();
+    const width = rect?.width || BOARD_PAGE_WIDTH;
+    const height = rect?.height || BOARD_PAGE_HEIGHT;
     return {
-      x: Math.round((e.clientX - rect.left) * scaleX),
-      y: Math.round((e.clientY - rect.top) * scaleY),
+      x: Math.round(((clientX - (rect?.left ?? 0)) / width) * BOARD_PAGE_WIDTH),
+      y: Math.round(((clientY - (rect?.top ?? 0)) / height) * BOARD_PAGE_HEIGHT),
     };
   }, []);
 
-  // Redraw canvas whenever items or currentStroke change
-  const redraw = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+  const drawsInk = activeTool === "pen" || activeTool === "highlighter" || activeTool === "eraser";
+  const toolWidth =
+    activeTool === "highlighter"
+      ? BOARD_HIGHLIGHTER_WIDTH
+      : activeTool === "eraser"
+        ? BOARD_ERASER_WIDTH
+        : BOARD_PEN_WIDTHS[activePenWidthKey];
 
-    // Render base page
-    renderBoardPageToCanvas(ctx, currentPage, canvas.width, canvas.height);
-
-    // If currently drawing, render the active in-progress stroke
-    if (currentStroke && currentStroke.points.length > 0) {
-      ctx.save();
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.lineWidth = currentStroke.width;
-
-      if (currentStroke.tool === "eraser") {
-        ctx.strokeStyle = BOARD_WHITE;
-      } else if (currentStroke.tool === "highlighter") {
-        ctx.strokeStyle = currentStroke.color;
-        ctx.globalAlpha = 0.4;
-      } else {
-        ctx.strokeStyle = currentStroke.color;
-        ctx.globalAlpha = 1.0;
-      }
-
-      ctx.beginPath();
-      const first = currentStroke.points[0];
-      ctx.moveTo(first.x, first.y);
-
-      for (let i = 1; i < currentStroke.points.length; i++) {
-        const pt = currentStroke.points[i];
-        ctx.lineTo(pt.x, pt.y);
-      }
-      ctx.stroke();
-      ctx.restore();
+  // Brush-size cursor that follows the mouse (RF10). Moved through the DOM to avoid re-renders.
+  const moveCursor = (e: ReactPointerEvent) => {
+    const cursor = cursorRef.current;
+    const container = containerRef.current;
+    if (!cursor || !container) return;
+    if (!drawsInk || e.pointerType !== "mouse") {
+      cursor.style.opacity = "0";
+      return;
     }
-  }, [currentPage, currentStroke]);
+    const rect = container.getBoundingClientRect();
+    cursor.style.opacity = "1";
+    cursor.style.transform = `translate(${e.clientX - rect.left}px, ${e.clientY - rect.top}px) translate(-50%, -50%)`;
+  };
 
-  useEffect(() => {
-    redraw();
-  }, [redraw]);
+  const hideCursor = () => {
+    if (cursorRef.current) cursorRef.current.style.opacity = "0";
+  };
 
-  // Pointer event handlers
   const handlePointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
-    // If target is inside an overlay input or handle, don't start drawing
     const target = e.target as HTMLElement;
-    if (target.dataset.boardControl) return;
+    if (target.closest("[data-board-control]")) return;
 
-    const pt = getCanvasPoint(e);
+    const pt = toPagePoint(e.clientX, e.clientY);
 
-    if (activeTool === "pen" || activeTool === "highlighter" || activeTool === "eraser") {
+    if (drawsInk) {
       setSelectedItemId(null);
       setEditingTextId(null);
-      (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+      target.setPointerCapture?.(e.pointerId);
       startDrawing(pt);
     } else if (activeTool === "text") {
-      // Place new text box
+      // Keep the focus on the new text box instead of the board region.
+      e.preventDefault();
       const newId = addTextBox(pt.x, pt.y, "");
       setEditingTextId(newId);
-    } else if (activeTool === "select") {
-      // Deselect if clicking on empty canvas
+    } else {
       setSelectedItemId(null);
       setEditingTextId(null);
     }
   };
 
   const handlePointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    moveCursor(e);
+
     if (isDrawing) {
-      const pt = getCanvasPoint(e);
-      continueDrawing(pt);
+      continueDrawing(toPagePoint(e.clientX, e.clientY));
       return;
     }
 
     if (dragState) {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-
-      const deltaX = (e.clientX - dragState.startX) * scaleX;
-      const deltaY = (e.clientY - dragState.startY) * scaleY;
+      const rect = pageRef.current?.getBoundingClientRect();
+      const ratio = BOARD_PAGE_WIDTH / (rect?.width || BOARD_PAGE_WIDTH);
+      const deltaX = (e.clientX - dragState.startX) * ratio;
+      const deltaY = (e.clientY - dragState.startY) * ratio;
 
       if (dragState.type === "move") {
-        const newX = Math.round(dragState.initialX + deltaX);
-        const newY = Math.round(dragState.initialY + deltaY);
-        updateItemPosition(dragState.itemId, newX, newY);
-      } else if (dragState.type === "resize") {
-        const newWidth = Math.max(40, Math.round(dragState.initialWidth + deltaX));
-        const newHeight = Math.max(30, Math.round(dragState.initialHeight + deltaY));
-        updateItemDimensions(dragState.itemId, newWidth, newHeight);
+        updateItemPosition(
+          dragState.itemId,
+          Math.round(dragState.initialX + deltaX),
+          Math.round(dragState.initialY + deltaY),
+        );
+      } else {
+        updateItemDimensions(
+          dragState.itemId,
+          Math.max(40, Math.round(dragState.initialWidth + deltaX)),
+          Math.max(30, Math.round(dragState.initialHeight + deltaY)),
+        );
       }
     }
   };
@@ -181,34 +236,7 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
       }
       finishDrawing();
     }
-    if (dragState) {
-      setDragState(null);
-    }
-  };
-
-  // Keyboard navigation & shortcuts
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    // Check for undo/redo
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
-      e.preventDefault();
-      if (e.shiftKey) {
-        redo();
-      } else {
-        undo();
-      }
-      return;
-    }
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y") {
-      e.preventDefault();
-      redo();
-      return;
-    }
-
-    // Delete selected item
-    if ((e.key === "Delete" || e.key === "Backspace") && selectedItemId && !editingTextId) {
-      e.preventDefault();
-      deleteItem(selectedItemId);
-    }
+    if (dragState) setDragState(null);
   };
 
   // Paste handler (RF02, CA03, CA09)
@@ -232,30 +260,21 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
     [pasteOrDropFile],
   );
 
-  // Drag and drop handler (RF02, CA03, CA09)
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "copy";
-  };
-
   const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const files = e.dataTransfer?.files;
-    if (files && files.length > 0) {
-      const file = files[0];
-      const pt = getCanvasPoint(e as unknown as ReactPointerEvent);
+    const file = e.dataTransfer?.files?.[0];
+    if (file) {
+      const pt = toPagePoint(e.clientX, e.clientY);
       await pasteOrDropFile(file, pt.x, pt.y);
     }
   };
 
-  // Start moving item
-  const startMoveItem = (e: ReactPointerEvent, item: BoardItem) => {
+  const startDrag = (e: ReactPointerEvent, item: BoardItem, type: "move" | "resize") => {
     e.stopPropagation();
     setSelectedItemId(item.id);
-
     if (item.type === "text" || item.type === "image") {
       setDragState({
-        type: "move",
+        type,
         itemId: item.id,
         startX: e.clientX,
         startY: e.clientY,
@@ -267,80 +286,133 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
     }
   };
 
-  // Start resizing item
-  const startResizeItem = (e: ReactPointerEvent, item: BoardItem) => {
-    e.stopPropagation();
-    if (item.type === "text" || item.type === "image") {
-      setDragState({
-        type: "resize",
-        itemId: item.id,
-        startX: e.clientX,
-        startY: e.clientY,
-        initialX: item.x,
-        initialY: item.y,
-        initialWidth: item.width,
-        initialHeight: item.height,
-      });
-    }
-  };
+  const isEmpty = currentPage.items.length === 0 && !currentStroke;
+  const inkColor = resolveInk(activeColor, surface);
 
   return (
     <div
       ref={containerRef}
       tabIndex={0}
       role="region"
-      aria-label="Whiteboard Canvas"
-      onKeyDown={handleKeyDown}
+      aria-label={s.canvasLabel}
       onPaste={handlePaste}
-      onDragOver={handleDragOver}
+      onDragOver={(e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "copy";
+      }}
       onDrop={handleDrop}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
-      className={`relative w-full h-full select-none overflow-hidden touch-none focus:outline-none ${className}`}
+      onPointerLeave={hideCursor}
+      className={`absolute inset-0 touch-none overflow-hidden select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-inset ${
+        drawsInk ? "cursor-crosshair" : activeTool === "text" ? "cursor-text" : "cursor-default"
+      } ${className}`}
     >
-      <canvas
-        ref={canvasRef}
-        width={1280}
-        height={720}
-        className="w-full h-full block bg-white cursor-crosshair"
+      <div
+        ref={pageRef}
+        style={{
+          width: pageWidth,
+          height: pageHeight,
+          left: (frame.width - pageWidth) / 2,
+          top: (frame.height - pageHeight) / 2,
+          backgroundColor: palette.background,
+        }}
+        className="absolute overflow-hidden rounded-xl shadow-[0_1px_3px_rgb(0_0_0/0.12),0_8px_24px_rgb(0_0_0/0.10)] ring-1 ring-border-subtle transition-colors duration-300"
+      >
+        <canvas ref={backgroundRef} aria-hidden="true" className="absolute inset-0 size-full" />
+
+        {isEmpty && (
+          <div
+            aria-hidden="true"
+            style={{ color: palette.ink.ink }}
+            className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 text-center opacity-40"
+          >
+            <p className="font-display text-2xl @3xl:text-3xl">{s.emptyHint}</p>
+            <p className="hidden text-xs tracking-wide @3xl:block">{s.emptyShortcuts}</p>
+          </div>
+        )}
+
+        {/* Images sit under the ink so the highlighter can mark them. */}
+        {currentPage.items.map((item) =>
+          item.type === "image" && item.url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={item.id}
+              src={item.url}
+              alt={s.pastedImageAlt}
+              draggable={false}
+              style={{
+                left: `${(item.x / BOARD_PAGE_WIDTH) * 100}%`,
+                top: `${(item.y / BOARD_PAGE_HEIGHT) * 100}%`,
+                width: `${(item.width / BOARD_PAGE_WIDTH) * 100}%`,
+                height: `${(item.height / BOARD_PAGE_HEIGHT) * 100}%`,
+              }}
+              className={`pointer-events-none absolute object-contain transition-opacity select-none ${
+                pendingEraseIds.has(item.id) ? "opacity-25" : ""
+              }`}
+            />
+          ) : null,
+        )}
+
+        <canvas ref={inkRef} aria-hidden="true" className="absolute inset-0 size-full" />
+
+        {currentPage.items.map((item) => {
+          if (item.type === "text") {
+            return (
+              <TextBoxOverlay
+                key={item.id}
+                item={item}
+                color={resolveInk(item.color, surface)}
+                pageScale={pageScale}
+                faded={pendingEraseIds.has(item.id)}
+                interactive={!drawsInk}
+                isSelected={selectedItemId === item.id}
+                isEditing={editingTextId === item.id}
+                onSelect={() => setSelectedItemId(item.id)}
+                onStartEdit={() => setEditingTextId(item.id)}
+                onFinishEdit={() => {
+                  setEditingTextId(null);
+                  // A text box left empty disappears instead of cluttering the page.
+                  if (!item.text.trim()) deleteItem(item.id);
+                }}
+                onChangeText={(text) => updateTextBox(item.id, text)}
+                onStartMove={(e) => startDrag(e, item, "move")}
+                onStartResize={(e) => startDrag(e, item, "resize")}
+              />
+            );
+          }
+          if (item.type === "image") {
+            return (
+              <ImageOverlay
+                key={item.id}
+                item={item}
+                interactive={!drawsInk}
+                isSelected={selectedItemId === item.id}
+                onSelect={() => setSelectedItemId(item.id)}
+                onStartMove={(e) => startDrag(e, item, "move")}
+                onStartResize={(e) => startDrag(e, item, "resize")}
+              />
+            );
+          }
+          return null;
+        })}
+      </div>
+
+      <div
+        ref={cursorRef}
+        aria-hidden="true"
+        style={{
+          width: Math.max(6, toolWidth * pageScale),
+          height: Math.max(6, toolWidth * pageScale),
+          borderColor: activeTool === "eraser" ? palette.ink.ink : inkColor,
+          opacity: 0,
+        }}
+        className={`pointer-events-none absolute top-0 left-0 rounded-full border-[1.5px] ${
+          activeTool === "eraser" && eraserMode === "object" ? "border-dashed" : ""
+        }`}
       />
-
-      {/* Interactive Overlay for Text Boxes and Images */}
-      {currentPage.items.map((item) => {
-        if (item.type === "text") {
-          return (
-            <TextBoxOverlay
-              key={item.id}
-              item={item}
-              isSelected={selectedItemId === item.id}
-              isEditing={editingTextId === item.id}
-              onSelect={() => setSelectedItemId(item.id)}
-              onStartEdit={() => setEditingTextId(item.id)}
-              onFinishEdit={() => setEditingTextId(null)}
-              onChangeText={(text) => updateTextBox(item.id, text)}
-              onStartMove={(e) => startMoveItem(e, item)}
-              onStartResize={(e) => startResizeItem(e, item)}
-            />
-          );
-        }
-
-        if (item.type === "image") {
-          return (
-            <ImageOverlay
-              key={item.id}
-              item={item}
-              isSelected={selectedItemId === item.id}
-              onSelect={() => setSelectedItemId(item.id)}
-              onStartMove={(e) => startMoveItem(e, item)}
-              onStartResize={(e) => startResizeItem(e, item)}
-            />
-          );
-        }
-
-        return null;
-      })}
     </div>
   );
 }
@@ -350,6 +422,10 @@ export function BoardCanvas({ board, className = "" }: BoardCanvasProps) {
 // ----------------------------------------------------------------------
 interface TextBoxOverlayProps {
   item: BoardTextBox;
+  color: string;
+  pageScale: number;
+  faded: boolean;
+  interactive: boolean;
   isSelected: boolean;
   isEditing: boolean;
   onSelect: () => void;
@@ -362,6 +438,10 @@ interface TextBoxOverlayProps {
 
 function TextBoxOverlay({
   item,
+  color,
+  pageScale,
+  faded,
+  interactive,
   isSelected,
   isEditing,
   onSelect,
@@ -371,23 +451,29 @@ function TextBoxOverlay({
   onStartMove,
   onStartResize,
 }: TextBoxOverlayProps) {
-  // Convert 1280x720 canvas coordinates to percentages for responsive scaling
-  const leftPct = (item.x / 1280) * 100;
-  const topPct = (item.y / 720) * 100;
-  const widthPct = (item.width / 1280) * 100;
+  // Same font metrics as the PNG export, so what you see is what gets exported.
+  const textStyle = {
+    color,
+    fontSize: item.fontSize * pageScale,
+    lineHeight: BOARD_TEXT_LINE_HEIGHT,
+  };
 
   return (
     <div
-      data-board-control="true"
+      data-board-control={interactive || isEditing ? "true" : undefined}
       style={{
-        left: `${leftPct}%`,
-        top: `${topPct}%`,
-        width: `${widthPct}%`,
+        left: `${(item.x / BOARD_PAGE_WIDTH) * 100}%`,
+        top: `${(item.y / BOARD_PAGE_HEIGHT) * 100}%`,
+        width: `${(item.width / BOARD_PAGE_WIDTH) * 100}%`,
       }}
-      className={`absolute z-10 p-1.5 transition-shadow ${
+      className={`absolute z-10 rounded-sm transition-opacity ${faded ? "opacity-25" : ""} ${
+        interactive || isEditing ? "" : "pointer-events-none"
+      } ${
         isSelected
-          ? "ring-2 ring-blue-500 rounded bg-blue-50/20"
-          : "hover:ring-1 hover:ring-slate-300 rounded"
+          ? "outline-2 outline-offset-4 outline-accent"
+          : interactive
+            ? "hover:outline-1 hover:outline-offset-4 hover:outline-accent/50"
+            : ""
       }`}
       onPointerDown={(e) => {
         e.stopPropagation();
@@ -398,15 +484,14 @@ function TextBoxOverlay({
         onStartEdit();
       }}
     >
-      {/* Move handle */}
-      {isSelected && (
+      {isSelected && !isEditing && (
         <div
           data-board-control="true"
           onPointerDown={onStartMove}
-          title="Drag to move"
-          className="absolute -top-3.5 left-0 px-1.5 py-0.5 bg-blue-600 text-white rounded text-[10px] font-medium cursor-move select-none"
+          title={s.dragToMove}
+          className="absolute -top-8 left-0 cursor-move rounded-md bg-accent px-2 py-0.5 text-[11px] font-semibold text-primary shadow-sm select-none"
         >
-          Move
+          {s.move}
         </div>
       )}
 
@@ -418,26 +503,28 @@ function TextBoxOverlay({
           value={item.text}
           onChange={(e) => onChangeText(e.target.value)}
           onBlur={onFinishEdit}
-          placeholder="Type text…"
-          style={{ color: item.color }}
-          className="w-full bg-white/95 rounded p-1 text-base outline-none resize-none border border-blue-400 font-sans shadow-sm"
+          onKeyDown={(e) => {
+            if (e.key === "Escape") e.currentTarget.blur();
+          }}
+          placeholder={s.typeTextHere}
+          style={textStyle}
+          className="block w-full resize-none overflow-hidden bg-transparent p-0 font-sans caret-accent outline-none placeholder:opacity-50"
         />
       ) : (
         <div
-          style={{ color: item.color }}
-          className="whitespace-pre-wrap wrap-break-word text-base font-sans select-none cursor-pointer min-h-[1.5em]"
+          style={textStyle}
+          className="min-h-[1.3em] cursor-pointer font-sans whitespace-pre-wrap select-none wrap-break-word"
         >
-          {item.text || <span className="text-slate-400 italic">Empty text box</span>}
+          {item.text || <span className="italic opacity-50">{s.emptyTextBox}</span>}
         </div>
       )}
 
-      {/* Resize handle */}
       {isSelected && (
         <div
           data-board-control="true"
           onPointerDown={onStartResize}
-          title="Drag to resize"
-          className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 bg-blue-600 rounded-full cursor-se-resize shadow"
+          title={s.dragToResize}
+          className="absolute -right-2.5 -bottom-2.5 size-3.5 cursor-se-resize rounded-full bg-accent shadow ring-2 ring-elevated"
         />
       )}
     </div>
@@ -445,10 +532,11 @@ function TextBoxOverlay({
 }
 
 // ----------------------------------------------------------------------
-// Image Overlay
+// Image Overlay: selection box and handles over the image drawn below the ink.
 // ----------------------------------------------------------------------
 interface ImageOverlayProps {
   item: BoardImage;
+  interactive: boolean;
   isSelected: boolean;
   onSelect: () => void;
   onStartMove: (e: ReactPointerEvent) => void;
@@ -457,29 +545,27 @@ interface ImageOverlayProps {
 
 function ImageOverlay({
   item,
+  interactive,
   isSelected,
   onSelect,
   onStartMove,
   onStartResize,
 }: ImageOverlayProps) {
-  const leftPct = (item.x / 1280) * 100;
-  const topPct = (item.y / 720) * 100;
-  const widthPct = (item.width / 1280) * 100;
-  const heightPct = (item.height / 720) * 100;
-
   return (
     <div
-      data-board-control="true"
+      data-board-control={interactive ? "true" : undefined}
       style={{
-        left: `${leftPct}%`,
-        top: `${topPct}%`,
-        width: `${widthPct}%`,
-        height: `${heightPct}%`,
+        left: `${(item.x / BOARD_PAGE_WIDTH) * 100}%`,
+        top: `${(item.y / BOARD_PAGE_HEIGHT) * 100}%`,
+        width: `${(item.width / BOARD_PAGE_WIDTH) * 100}%`,
+        height: `${(item.height / BOARD_PAGE_HEIGHT) * 100}%`,
       }}
-      className={`absolute z-10 transition-shadow ${
+      className={`absolute z-10 rounded-sm ${interactive ? "" : "pointer-events-none"} ${
         isSelected
-          ? "ring-2 ring-blue-500 rounded bg-blue-500/10 cursor-move"
-          : "hover:ring-1 hover:ring-slate-300 rounded cursor-pointer"
+          ? "cursor-move outline-2 outline-offset-2 outline-accent"
+          : interactive
+            ? "cursor-pointer hover:outline-1 hover:outline-offset-2 hover:outline-accent/50"
+            : ""
       }`}
       onPointerDown={(e) => {
         e.stopPropagation();
@@ -487,24 +573,12 @@ function ImageOverlay({
         onStartMove(e);
       }}
     >
-      {/* Visual Image Render */}
-      {item.url && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={item.url}
-          alt="Whiteboard pasted media"
-          className="w-full h-full object-contain pointer-events-none select-none rounded"
-          draggable={false}
-        />
-      )}
-
-      {/* Resize handle */}
       {isSelected && (
         <div
           data-board-control="true"
           onPointerDown={onStartResize}
-          title="Drag to resize image"
-          className="absolute -bottom-2 -right-2 w-4 h-4 bg-blue-600 rounded-full cursor-se-resize shadow ring-2 ring-white"
+          title={s.dragToResize}
+          className="absolute -right-2 -bottom-2 size-4 cursor-se-resize rounded-full bg-accent shadow ring-2 ring-elevated"
         />
       )}
     </div>
