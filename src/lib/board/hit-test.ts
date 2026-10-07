@@ -26,6 +26,19 @@ export function itemContainsPoint(item: BoardItem, pt: Point, radius = 0): boole
     return false;
   }
 
+  if (item.type === "shape") {
+    let { x, y, width, height } = item;
+    if (width < 0) { x += width; width = Math.abs(width); }
+    if (height < 0) { y += height; height = Math.abs(height); }
+    const r = radius + item.strokeWidth / 2;
+    return (
+      pt.x >= x - r &&
+      pt.x <= x + width + r &&
+      pt.y >= y - r &&
+      pt.y <= y + height + r
+    );
+  }
+
   const height =
     item.type === "text"
       ? Math.max(item.height, item.text.split("\n").length * item.fontSize * BOARD_TEXT_LINE_HEIGHT)
@@ -77,6 +90,13 @@ export function getItemBounds(item: BoardItem): Rect {
     }
     const half = item.width / 2;
     return { x: minX - half, y: minY - half, width: maxX - minX + item.width, height: maxY - minY + item.width };
+  }
+  if (item.type === "shape") {
+    let { x, y, width, height } = item;
+    if (width < 0) { x += width; width = Math.abs(width); }
+    if (height < 0) { y += height; height = Math.abs(height); }
+    const half = item.strokeWidth / 2;
+    return { x: x - half, y: y - half, width: width + item.strokeWidth, height: height + item.strokeWidth };
   }
   const height =
     item.type === "text"

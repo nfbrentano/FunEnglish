@@ -7,6 +7,7 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { Volume2 } from "lucide-react";
 import {
   BOARD_PAGE_HEIGHT,
   BOARD_PAGE_WIDTH,
@@ -81,6 +82,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     updateItemDimensions,
     deleteItem,
     pasteOrDropFile,
+    curtainOffset,
+    setCurtainOffset,
   } = board;
 
   // Fit the page into the available area, keeping 16:9.
@@ -108,7 +111,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
   const palette = BOARD_SURFACES[surface];
 
   const [dragState, setDragState] = useState<{
-    type: "move" | "resize";
+    type: "move" | "resize" | "curtain";
     itemId: string;
     startX: number;
     startY: number;
@@ -226,12 +229,18 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
           Math.round(dragState.initialX + deltaX),
           Math.round(dragState.initialY + deltaY),
         );
-      } else {
+      } else if (dragState.type === "resize") {
         updateItemDimensions(
           dragState.itemId,
           Math.max(40, Math.round(dragState.initialWidth + deltaX)),
           Math.max(30, Math.round(dragState.initialHeight + deltaY)),
         );
+      } else if (dragState.type === "curtain") {
+        const deltaY = e.clientY - dragState.startY;
+        const rect = pageRef.current?.getBoundingClientRect();
+        const height = rect?.height || BOARD_PAGE_HEIGHT;
+        const newOffset = dragState.initialHeight + (deltaY / height);
+        setCurtainOffset(newOffset);
       }
     }
   };
@@ -433,6 +442,38 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
             }}
           />
         )}
+        
+        {(activeTool === "reveal" || curtainOffset > 0) && (
+          <div
+            className="absolute top-0 inset-x-0 bg-black z-50 transition-none"
+            style={{ 
+              height: `${curtainOffset * 100}%`,
+              display: activeTool === "reveal" || curtainOffset > 0 ? "block" : "none"
+            }}
+          >
+            {activeTool === "reveal" && (
+              <div 
+                className="absolute bottom-0 inset-x-0 h-4 bg-accent/80 cursor-ns-resize flex items-center justify-center pointer-events-auto"
+                onPointerDown={(e) => {
+                  e.stopPropagation();
+                  (e.target as HTMLElement).setPointerCapture(e.pointerId);
+                  setDragState({
+                    type: "curtain",
+                    itemId: "curtain",
+                    startX: e.clientX,
+                    startY: e.clientY,
+                    initialX: 0,
+                    initialY: 0,
+                    initialWidth: 0,
+                    initialHeight: curtainOffset,
+                  });
+                }}
+              >
+                <div className="w-16 h-1.5 bg-white/50 rounded-full" />
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div
@@ -486,6 +527,13 @@ function TextBoxOverlay({
   onStartMove,
   onStartResize,
 }: TextBoxOverlayProps) {
+  const handleSpeak = (e: ReactPointerEvent | React.MouseEvent) => {
+    e.stopPropagation();
+    if (!item.text.trim()) return;
+    const utterance = new SpeechSynthesisUtterance(item.text);
+    utterance.lang = "en-US";
+    window.speechSynthesis.speak(utterance);
+  };
   // Same font metrics as the PNG export, so what you see is what gets exported.
   const textStyle = {
     color,
@@ -520,14 +568,26 @@ function TextBoxOverlay({
       }}
     >
       {isSelected && !isEditing && (
-        <div
-          data-board-control="true"
-          onPointerDown={onStartMove}
-          title={s.dragToMove}
-          className="absolute -top-8 left-0 cursor-move rounded-md bg-accent px-2 py-0.5 text-[11px] font-semibold text-primary shadow-sm select-none"
-        >
-          {s.move}
-        </div>
+        <>
+          <div
+            data-board-control="true"
+            onPointerDown={onStartMove}
+            title={s.dragToMove}
+            className="absolute -top-8 left-0 cursor-move rounded-md bg-accent px-2 py-0.5 text-[11px] font-semibold text-primary shadow-sm select-none"
+          >
+            {s.move}
+          </div>
+          <button
+            data-board-control="true"
+            type="button"
+            onPointerDown={handleSpeak}
+            onClick={handleSpeak}
+            title="Listen"
+            className="absolute -top-8 right-0 flex size-6 cursor-pointer items-center justify-center rounded-md bg-accent text-primary shadow-sm hover:bg-accent/80 focus-visible:outline-2 focus-visible:outline-accent"
+          >
+            <Volume2 aria-hidden="true" className="size-3.5" />
+          </button>
+        </>
       )}
 
       {isEditing ? (

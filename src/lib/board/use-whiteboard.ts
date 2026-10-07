@@ -26,6 +26,7 @@ import {
   type BoardItem,
   type BoardPage,
   type BoardPenWidthKey,
+  type BoardShape,
   type BoardStroke,
   type BoardTextBox,
   type BoardTool,
@@ -66,7 +67,9 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const [activeTool, setActiveTool] = useState<BoardTool>("pen");
   const [activeColor, setActiveColor] = useState<BoardInk>("ink");
   const [activePenWidthKey, setActivePenWidthKey] = useState<BoardPenWidthKey>("medium");
+  const [activeShapeType, setActiveShapeType] = useState<BoardShape["shapeType"]>("rectangle");
   const [eraserMode, setEraserMode] = useState<BoardEraserMode>("area");
+  const [curtainOffset, setCurtainOffset] = useState<number>(0);
   // Items the whole-stroke eraser has touched in the current gesture, removed on release (RF06).
   const [pendingEraseIds, setPendingEraseIds] = useState<ReadonlySet<string>>(new Set());
   const pendingEraseRef = useRef<Set<string> | null>(null);
@@ -77,6 +80,8 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [currentStroke, setCurrentStroke] = useState<BoardStroke | null>(null);
   const currentStrokeRef = useRef<BoardStroke | null>(null);
+  const [currentShape, setCurrentShape] = useState<BoardShape | null>(null);
+  const currentShapeRef = useRef<BoardShape | null>(null);
 
   // Undo / Redo stacks: history of items array per page id
   const [undoStacks, setUndoStacks] = useState<Record<string, BoardItem[][]>>({});
@@ -253,7 +258,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         id: `page-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         items: pageToDuplicate.items.map(item => {
           const newId = `${item.type}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
-          if (item.type === "stroke" || item.type === "text" || item.type === "image") {
+          if (item.type === "stroke" || item.type === "text" || item.type === "image" || item.type === "shape") {
             return { ...item, id: newId } as BoardItem;
           }
           return item as BoardItem;
@@ -315,14 +320,32 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         collectEraseAt(pt);
         return;
       }
+      
       let width: number = BOARD_PEN_WIDTHS[activePenWidthKey];
       if (activeTool === "highlighter") width = BOARD_HIGHLIGHTER_WIDTH;
       if (activeTool === "eraser") width = BOARD_ERASER_WIDTH;
 
+      if (activeTool === "shape") {
+        const shape: BoardShape = {
+          id: `shape-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+          type: "shape",
+          shapeType: activeShapeType,
+          x: pt.x,
+          y: pt.y,
+          width: 0,
+          height: 0,
+          color: activeColor,
+          strokeWidth: width,
+        };
+        currentShapeRef.current = shape;
+        setCurrentShape(shape);
+        return;
+      }
+
       const stroke: BoardStroke = {
         id: `stroke-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         type: "stroke",
-        tool: activeTool,
+        tool: activeTool as "pen" | "highlighter" | "eraser" | "laser",
         color: activeColor,
         width,
         points: [pt],
@@ -337,6 +360,13 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     (pt: Point) => {
       if (pendingEraseRef.current) {
         collectEraseAt(pt);
+        return;
+      }
+      if (activeTool === "shape" && currentShapeRef.current) {
+        const shape = currentShapeRef.current;
+        shape.width = pt.x - shape.x;
+        shape.height = pt.y - shape.y;
+        setCurrentShape({ ...shape });
         return;
       }
       if (!currentStrokeRef.current) return;
@@ -361,6 +391,28 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       }
       return;
     }
+    
+    const shape = currentShapeRef.current;
+    if (shape && activeTool === "shape") {
+      let { x, y, width, height } = shape;
+      if (width < 0) {
+        x += width;
+        width = Math.abs(width);
+      }
+      if (height < 0) {
+        y += height;
+        height = Math.abs(height);
+      }
+      if (width > 0 && height > 0) {
+        const finalShape = { ...shape, x, y, width, height };
+        updateCurrentPageItems((items) => [...items, finalShape]);
+      }
+      currentShapeRef.current = null;
+      setCurrentShape(null);
+      setIsDrawing(false);
+      return;
+    }
+
     const stroke = currentStrokeRef.current;
     if (stroke && stroke.points.length > 0 && stroke.tool !== "laser") {
       updateCurrentPageItems((items) => [...items, stroke]);
@@ -368,7 +420,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     currentStrokeRef.current = null;
     setIsDrawing(false);
     setCurrentStroke(null);
-  }, [updateCurrentPageItems]);
+  }, [updateCurrentPageItems, activeTool]);
 
   // Text Box Operations (RF01, CA06)
   const addTextBox = useCallback(
@@ -392,12 +444,17 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   );
 
   const updateTextBox = useCallback(
-    (id: string, text: string) => {
+    (id: string, text: string, opts?: { fontSize?: number; isBold?: boolean }) => {
       updateCurrentPageItems(
         (items) =>
           items.map((item) => {
             if (item.id === id && item.type === "text") {
-              return { ...item, text };
+              return { 
+                ...item, 
+                text, 
+                ...(opts?.fontSize !== undefined && { fontSize: opts.fontSize }),
+                ...(opts?.isBold !== undefined && { isBold: opts.isBold }),
+              };
             }
             return item;
           }),
@@ -413,7 +470,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       updateCurrentPageItems((items) =>
         items.map((item) => {
           if (item.id === id) {
-            if (item.type === "text" || item.type === "image") {
+            if (item.type === "text" || item.type === "image" || item.type === "shape") {
               return { ...item, x, y };
             }
           }
@@ -430,7 +487,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       updateCurrentPageItems((items) => {
         return items.map((item) => {
           if (selectedItemIds.includes(item.id)) {
-            if (item.type === "text" || item.type === "image") {
+            if (item.type === "text" || item.type === "image" || item.type === "shape") {
               return { ...item, x: item.x + dx, y: item.y + dy };
             } else if (item.type === "stroke") {
               return { ...item, points: item.points.map(p => ({ x: p.x + dx, y: p.y + dy })) };
@@ -448,7 +505,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       updateCurrentPageItems((items) =>
         items.map((item) => {
           if (item.id === id) {
-            if (item.type === "image" || item.type === "text") {
+            if (item.type === "image" || item.type === "text" || item.type === "shape") {
               return { ...item, width, height };
             }
           }
@@ -608,7 +665,9 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     activeTool,
     activeColor,
     activePenWidthKey,
+    activeShapeType,
     eraserMode,
+    curtainOffset,
     pendingEraseIds,
     isSaving: lastSavedPages !== pages,
     isExpanded,
@@ -617,6 +676,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     clipboardItems,
     isDrawing,
     currentStroke,
+    currentShape,
     canUndo: (undoStacks[currentPage.id]?.length || 0) > 0,
     canRedo: (redoStacks[currentPage.id]?.length || 0) > 0,
     totalPages: pages.length,
@@ -626,8 +686,10 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setActiveTool,
     setActiveColor,
     setActivePenWidthKey,
+    setActiveShapeType,
     stepPenWidth,
     setEraserMode,
+    setCurtainOffset,
     setIsExpanded,
     toggleExpanded: () => setIsExpanded((prev) => !prev),
     setSelectedItemIds,
