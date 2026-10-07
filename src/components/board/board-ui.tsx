@@ -323,18 +323,25 @@ export function MenuItem({
   label,
   onClick,
   danger = false,
+  disabled = false,
 }: {
   icon: ReactNode;
   label: string;
   onClick: () => void;
   danger?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       className={`flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11 ${
-        danger ? "text-error hover:bg-error/10" : "text-fg hover:bg-accent-muted"
+        disabled
+          ? "opacity-50 cursor-not-allowed"
+          : danger
+            ? "text-error hover:bg-error/10"
+            : "text-fg hover:bg-accent-muted"
       }`}
     >
       {icon}

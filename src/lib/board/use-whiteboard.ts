@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   clearBoardLocally,
   downloadBoardPageAsPng,
+  downloadBoardAsPdf,
   extractBoardText,
   extractBoardWords,
   loadBoardLocally,
@@ -241,6 +242,52 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       setSelectedItemIds([]);
     },
     [pages.length, safePageIndex],
+  );
+
+  const duplicatePage = useCallback(
+    (indexToDuplicate = safePageIndex) => {
+      if (pages.length >= MAX_PAGES) return;
+      const pageToDuplicate = pages[indexToDuplicate];
+      const newPage: BoardPage = {
+        ...pageToDuplicate,
+        id: `page-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        items: pageToDuplicate.items.map(item => {
+          const newId = `${item.type}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+          if (item.type === "stroke" || item.type === "text" || item.type === "image") {
+            return { ...item, id: newId } as BoardItem;
+          }
+          return item as BoardItem;
+        })
+      };
+      
+      setPages((prev) => {
+        const next = [...prev];
+        next.splice(indexToDuplicate + 1, 0, newPage);
+        return next;
+      });
+      setCurrentPageIndex(indexToDuplicate + 1);
+      setSelectedItemIds([]);
+    },
+    [pages, safePageIndex],
+  );
+
+  const reorderPage = useCallback(
+    (fromIndex: number, toIndex: number) => {
+      if (fromIndex < 0 || fromIndex >= pages.length || toIndex < 0 || toIndex >= pages.length) return;
+      setPages((prev) => {
+        const next = [...prev];
+        const [moved] = next.splice(fromIndex, 1);
+        next.splice(toIndex, 0, moved);
+        return next;
+      });
+      setCurrentPageIndex((prev) => {
+        if (prev === fromIndex) return toIndex;
+        if (fromIndex < prev && toIndex >= prev) return prev - 1;
+        if (fromIndex > prev && toIndex <= prev) return prev + 1;
+        return prev;
+      });
+    },
+    [pages.length],
   );
 
   // Whole-stroke eraser: collect touched items while dragging (RF06, CA20)
@@ -516,6 +563,11 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     [currentPage, safePageIndex],
   );
 
+  // Export PDF (RF08, CA09)
+  const exportPdf = useCallback(async () => {
+    await downloadBoardAsPdf(pages);
+  }, [pages]);
+
   // "[" and "]" step through the pen widths (RF12)
   const stepPenWidth = useCallback((direction: 1 | -1) => {
     setActivePenWidthKey((current) => {
@@ -583,6 +635,8 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     switchPage,
     addPage,
     deletePage,
+    duplicatePage,
+    reorderPage,
     setBackground,
     startDrawing,
     continueDrawing,
@@ -602,6 +656,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     redo,
     clearCurrentPage,
     exportPng,
+    exportPdf,
     getCandidateWords,
     sendWordsToStudents,
     resetBoard,

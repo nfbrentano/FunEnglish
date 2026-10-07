@@ -6,6 +6,7 @@ import {
   ChevronLeft,
   ChevronRight,
   CloudCheck,
+  Copy,
   Download,
   Ellipsis,
   Eraser,
@@ -113,6 +114,8 @@ export function ClassroomBoard({
     switchPage,
     addPage,
     deletePage,
+    duplicatePage,
+    reorderPage,
     deleteItem,
     deleteSelectedItems,
     copySelectedItems,
@@ -123,6 +126,7 @@ export function ClassroomBoard({
     redo,
     clearCurrentPage,
     exportPng,
+    exportPdf,
     getCandidateWords,
     sendWordsToStudents,
   } = board;
@@ -365,6 +369,14 @@ export function ClassroomBoard({
               }}
             />
             <MenuItem
+              icon={<Download aria-hidden="true" className={icon} />}
+              label="Export all (PDF)"
+              onClick={() => {
+                closePanel();
+                void exportPdf();
+              }}
+            />
+            <MenuItem
               icon={<Send aria-hidden="true" className={icon} />}
               label={s.sendWords}
               onClick={handleOpenSendWords}
@@ -563,6 +575,22 @@ export function ClassroomBoard({
               {pages.map((page, index) => (
                 <button
                   key={page.id}
+                  draggable
+                  onDragStart={(e) => {
+                    e.dataTransfer.setData("text/plain", index.toString());
+                    e.dataTransfer.effectAllowed = "move";
+                  }}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = "move";
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    const fromIndex = parseInt(e.dataTransfer.getData("text/plain"), 10);
+                    if (!isNaN(fromIndex) && fromIndex !== index) {
+                      reorderPage(fromIndex, index);
+                    }
+                  }}
                   type="button"
                   onClick={() => {
                     switchPage(index);
@@ -586,6 +614,15 @@ export function ClassroomBoard({
             {totalPages > 1 && (
               <>
                 <div className="my-1 h-px bg-border-subtle" />
+                <MenuItem
+                  icon={<Copy aria-hidden="true" className={icon} />}
+                  label="Duplicar página"
+                  onClick={() => {
+                    closePanel();
+                    duplicatePage();
+                  }}
+                  disabled={totalPages >= maxPages}
+                />
                 <MenuItem
                   danger
                   icon={<Trash2 aria-hidden="true" className={icon} />}
