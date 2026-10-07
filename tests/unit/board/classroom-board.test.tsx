@@ -46,6 +46,10 @@ describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => 
 
     await userEvent.click(expandBtn);
     expect(screen.getByRole("button", { name: "Collapse board" })).toBeInTheDocument();
+    // Regression: "relative" next to "fixed" collapsed the expanded board to 2 px.
+    const root = document.querySelector("[data-board-surface]");
+    expect(root).toHaveClass("fixed");
+    expect(root).not.toHaveClass("relative");
 
     await userEvent.click(screen.getByRole("button", { name: "Collapse board" }));
     expect(screen.getByRole("button", { name: "Expand board" })).toBeInTheDocument();

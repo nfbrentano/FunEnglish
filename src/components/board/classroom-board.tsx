@@ -247,8 +247,11 @@ export function ClassroomBoard({
     <div
       ref={rootRef}
       data-board-surface={surface}
-      className={`@container relative isolate overflow-hidden rounded-2xl border border-border-subtle bg-secondary text-fg transition-colors duration-300 ${
-        isExpanded ? "fixed inset-2 z-50 shadow-2xl md:inset-6" : `h-155 w-full ${className}`
+      className={`@container isolate overflow-hidden rounded-2xl border border-border-subtle bg-secondary text-fg transition-colors duration-300 ${
+        // Only one position utility at a time: with both, "relative" wins and the board collapses.
+        isExpanded
+          ? "fixed inset-2 z-50 shadow-2xl md:inset-6"
+          : `relative h-155 w-full ${className}`
       }`}
     >
       <BoardCanvas board={board} surface={surface} />
