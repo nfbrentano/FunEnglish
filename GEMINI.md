@@ -1,5 +1,28 @@
 # Instruções do projeto
 
+## Git Workflow (Branches e Pull Requests)
+
+Toda nova feature, correção ou tarefa deve utilizar o fluxo de branches e Pull Requests (PR) no Git:
+
+### 1. Branches
+- **Nunca** desenvolva diretamente na branch `main`.
+- Antes de iniciar, garanta que a branch base esteja atualizada: `git checkout main && git pull`.
+- Crie uma nova branch a partir da `main` seguindo o padrão de nomenclatura:
+  - `feat/nome-da-feature` para novas funcionalidades.
+  - `fix/nome-do-bug` para correções de problemas.
+  - `docs/nome-da-tarefa` para documentação e especificações.
+  - `chore/nome-da-tarefa` para manutenção, dependências ou tarefas operacionais.
+  - `refactor/nome-da-refatoracao` para refatorações de código.
+- O nome da branch deve ser sempre em minúsculas e separado por hífens.
+
+### 2. Pull Requests (PR)
+- Ao iniciar o desenvolvimento (ou logo após versionar a especificação inicial/primeiro commit), suba a branch para o repositório remoto: `git push -u origin <nome-da-branch>`.
+- Abra um Pull Request direcionado para a branch `main`.
+  - Pode ser aberto como **Draft PR** enquanto a implementação estiver em andamento.
+- Use um título claro e descritivo com prefixo de conventional commit (ex.: `feat: adicionar suporte a X`, `fix: corrigir erro em Y`).
+- Na descrição do PR, resuma as alterações e mencione a especificação correspondente em `SDD/`.
+- Após a implementação, validação dos testes e aprovação, conclua o PR com o merge na `main`.
+
 ## Spec Driven Development (SDD)
 
 Toda nova feature, correção ou atividade deve ter uma especificação escrita **antes** da implementação.
@@ -30,10 +53,13 @@ SDD/2026-09-23_busca-de-poemas.md
 SDD/2026-09-23_modo-escuro.md
 ```
 
-### Fluxo
+### Fluxo Completo de Desenvolvimento
 
-1. Copiar `SDD/modelo_feature.md` para `SDD/AAAA-MM-DD_nome-da-feature.md`.
-2. Preencher todas as seções.
-3. Implementar seguindo os requisitos e critérios de aceitação.
-4. Validar com os casos de teste sugeridos antes de concluir.
-5. Após concluir, mover o arquivo para `SDD/DONE/AAAA-MM-DD_nome-da-feature.md` (ex.: `mv SDD/2026-09-23_modo-escuro.md SDD/DONE/`, ou `git mv` se o arquivo já estiver versionado).
+1. **Atualizar a base:** `git checkout main && git pull`.
+2. **Criar a branch da tarefa:** `git checkout -b <tipo>/<nome-da-tarefa>` a partir de `main`.
+3. **Criar a especificação SDD:** copiar `SDD/modelo_feature.md` para `SDD/AAAA-MM-DD_nome-da-feature.md` e preencher todas as seções.
+4. **Subir branch e abrir PR:** enviar a branch (`git push -u origin <nome-da-branch>`) e abrir o Pull Request (pode ser Draft) apontando para `main`.
+5. **Implementar:** desenvolver o código seguindo os requisitos e critérios de aceitação definidos na especificação.
+6. **Validar:** executar os casos de teste sugeridos antes de concluir.
+7. **Mover especificação:** mover o arquivo para `SDD/DONE/AAAA-MM-DD_nome-da-feature.md` (ex.: `git mv SDD/AAAA-MM-DD_nome-da-feature.md SDD/DONE/`).
+8. **Finalizar PR:** comitar as alterações finais, enviar para a branch remota e finalizar o Pull Request para merge na `main`.
