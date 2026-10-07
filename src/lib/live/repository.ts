@@ -37,6 +37,8 @@ export async function createLiveRoom(params: {
   className: string;
   roster: LiveRosterStudent[];
   studentPins: Record<string, string>; // studentId -> hashedPin
+  /** Rooms opened from the standalone whiteboard let students in with just the code. */
+  allowGuests?: boolean;
 }): Promise<LiveRoom> {
   const db = getDatabaseInstance();
   const roomRef = ref(db, `liveRooms/${params.code}`);
@@ -53,7 +55,7 @@ export async function createLiveRoom(params: {
     sessionId: params.sessionId,
     className: params.className,
     locked: false,
-    allowGuests: false,
+    allowGuests: params.allowGuests ?? false,
     hideLeaderboard: false,
     createdAt: Date.now(),
     state: {

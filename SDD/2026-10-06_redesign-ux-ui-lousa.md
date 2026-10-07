@@ -116,6 +116,8 @@
 - Corrigido junto: o texto aparecia duas vezes (no canvas e no overlay); agora o canvas da tela desenha só traços, e o texto é desenhado no canvas apenas no PNG, com a mesma quebra de linha do overlay. Caixas de texto deixadas vazias são removidas.
 - CA21: hoje nenhum fluxo envia o PNG da lousa ao encerrar a sessão (o portal mostra só o texto). A regra "sempre clara" foi garantida na função `exportBoardPageToBlob`, que é clara por padrão, e vale quando esse envio for implementado.
 
+- Correção pós-deploy: o botão "Expand board" encolhia a lousa para 2 px (as classes `relative` e `fixed` juntas, com `relative` vencendo). Corrigido, com teste de regressão.
+
 **Validação pendente (manual):**
 - CA10: confirmar a devolução do foco ao fechar com Esc numa aba visível. No painel de testes a aba estava em segundo plano, e nesse estado o Chromium não dispara o evento `close` do `<dialog>`.
 - CA12: sala ao vivo com professor e aluno em temas diferentes (precisa do Firebase).

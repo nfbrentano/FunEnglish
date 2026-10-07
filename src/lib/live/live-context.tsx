@@ -57,6 +57,7 @@ export interface LiveRoomContextType {
     className: string;
     roster: LiveRosterStudent[];
     studentPins: Record<string, string>;
+    allowGuests?: boolean;
   }) => Promise<string>;
   closeRoom: () => Promise<void>;
   kickStudent: (uid: string) => Promise<void>;
@@ -196,6 +197,7 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
       className: string;
       roster: LiveRosterStudent[];
       studentPins: Record<string, string>;
+      allowGuests?: boolean;
     }): Promise<string> => {
       if (!user) throw new Error("Teacher not logged in");
 
@@ -207,6 +209,7 @@ export function LiveRoomProvider({ children }: { children: ReactNode }) {
         className: params.className,
         roster: params.roster,
         studentPins: params.studentPins,
+        allowGuests: params.allowGuests,
       });
 
       setRoomCode(code);

@@ -31,6 +31,7 @@ export function LiveRoomModal() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedInvite, setCopiedInvite] = useState(false);
   const [isStarting, setIsStarting] = useState(false);
+  const [startError, setStartError] = useState<string | null>(null);
 
   const activeSession = session?.activeSession;
   const room = live?.liveRoom;
@@ -51,14 +52,18 @@ export function LiveRoomModal() {
   if (!isOpen || !live) return null;
 
   const handleStartRoom = async () => {
-    if (!activeSession) return;
     setIsStarting(true);
+    setStartError(null);
     try {
-      // Find class students and their PINs
-      const classStudents = students.filter((s) => 
-        (activeSession.classId && s.classIds.includes(activeSession.classId)) ||
-        (activeSession.studentId && s.id === activeSession.studentId)
-      );
+      // In a class: that class (or student). From the standalone whiteboard, with no class started:
+      // every student of the teacher, plus guests (SDD/2026-10-06_sala-ao-vivo-sem-aula.md).
+      const classStudents = activeSession
+        ? students.filter(
+            (s) =>
+              (activeSession.classId && s.classIds.includes(activeSession.classId)) ||
+              (activeSession.studentId && s.id === activeSession.studentId),
+          )
+        : students;
       const roster = classStudents.map((s) => ({
         studentId: s.id,
         firstName: s.name.split(" ")[0],
@@ -74,13 +79,17 @@ export function LiveRoomModal() {
       }
 
       await live.startRoom({
-        sessionId: activeSession.id,
-        className: activeSession.className || classStudents[0]?.name || "Individual Lesson",
+        sessionId: activeSession?.id ?? "",
+        className: activeSession
+          ? activeSession.className || classStudents[0]?.name || "Individual Lesson"
+          : "Whiteboard",
         roster,
         studentPins,
+        allowGuests: !activeSession,
       });
     } catch (e) {
       console.error("Failed to start live room:", e);
+      setStartError("Couldn't open the live room. Try again.");
     } finally {
       setIsStarting(false);
     }
@@ -144,7 +153,9 @@ export function LiveRoomModal() {
               </div>
               <div className="max-w-sm space-y-1.5">
                 <h3 className="font-display text-xl font-bold text-fg">
-                  Open live room for this class
+                  {activeSession
+                    ? "Open live room for this class"
+                    : "Open a live room for the whiteboard"}
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
                   Students join on their own phones or computers with a 6-character code or link to
@@ -159,6 +170,11 @@ export function LiveRoomModal() {
               >
                 {isStarting ? "Opening room…" : "Open live room"}
               </Button>
+              {startError && (
+                <p role="alert" className="text-xs font-medium text-error">
+                  {startError}
+                </p>
+              )}
             </div>
           ) : (
             /* Active Live Room State (RF01, RF03, CA01, CA04) */
