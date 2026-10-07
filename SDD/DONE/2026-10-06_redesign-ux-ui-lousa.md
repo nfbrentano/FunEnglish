@@ -1,6 +1,6 @@
 # [UI] Redesign de UX/UI da Lousa: visual moderno e adaptado aos temas
 
-> **Status:** Em validação (implementada; faltam os testes manuais listados em "Notas da implementação")
+> **Status:** Concluída (validada em produção pelo professor em 2026-10-06)
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-06 · **Atualizada em:** 2026-10-06
 > **Substitui visualmente:** a UI entregue em `SDD/DONE/2026-10-03_07-lousa-virtual.md`, `SDD/DONE/2026-10-06_lousa-interativa.md` e `SDD/DONE/2026-10-06_atalho-lousa.md`. As funcionalidades dessas specs continuam valendo; esta muda só a aparência, a organização dos controles e o comportamento visual nos temas.
 
@@ -118,7 +118,7 @@
 
 - Correção pós-deploy: o botão "Expand board" encolhia a lousa para 2 px (as classes `relative` e `fixed` juntas, com `relative` vencendo). Corrigido, com teste de regressão.
 
-**Validação pendente (manual):**
+**Validação manual não registrada item a item** (o professor validou o uso geral em produção; ficam como checagem futura):
 - CA10: confirmar a devolução do foco ao fechar com Esc numa aba visível. No painel de testes a aba estava em segundo plano, e nesse estado o Chromium não dispara o evento `close` do `<dialog>`.
 - CA12: sala ao vivo com professor e aluno em temas diferentes (precisa do Firebase).
 - CA13: iPad com caneta. A largura de celular (375 px) já foi conferida no navegador.

@@ -1,6 +1,6 @@
 # [FIX] Abrir sala ao vivo a partir da lousa sem aula iniciada
 
-> **Status:** Em validação (implementada; falta abrir a sala em produção com login de professor)
+> **Status:** Concluída (validada em produção em 2026-10-06)
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-10-06 · **Atualizada em:** 2026-10-06
 
 ## Detalhes da Atividade
@@ -39,7 +39,7 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um professor na `/lousa` sem aula iniciada, quando clica em "Connect students" e depois em "Open live room", então a sala é criada, o modal mostra o código e "Guests: Allowed".
+- [x] **CA01:** Dado um professor na `/lousa` sem aula iniciada, quando clica em "Connect students" e depois em "Open live room", então a sala é criada, o modal mostra o código e "Guests: Allowed".
 - [x] **CA02:** Dado um professor com aula iniciada, quando abre a sala, então a lista é a da turma e os convidados ficam desligados, como antes.
 - [x] **CA03 (erro):** Dado que a criação da sala falha (ex.: sem conexão), quando clica em "Open live room", então aparece a mensagem de erro e o botão volta a "Open live room".
 
