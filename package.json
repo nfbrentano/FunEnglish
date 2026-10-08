@@ -81,5 +81,9 @@
   },
   "engines": {
     "node": ">=22.12"
+  },
+  "overrides": {
+    "uuid": "^11.1.1",
+    "@grpc/grpc-js": "^1.14.5"
   }
 }
