@@ -26,6 +26,18 @@ export function itemContainsPoint(item: BoardItem, pt: Point, radius = 0): boole
     return false;
   }
 
+  if (item.type === "shape") {
+    // simplified hit test for shape: check bounding box
+    const half = item.strokeWidth / 2;
+    const reach = radius + half;
+    return (
+      pt.x >= item.x - reach &&
+      pt.x <= item.x + item.width + reach &&
+      pt.y >= item.y - reach &&
+      pt.y <= item.y + item.height + reach
+    );
+  }
+
   const height =
     item.type === "text"
       ? Math.max(item.height, item.text.split("\n").length * item.fontSize * BOARD_TEXT_LINE_HEIGHT)
@@ -77,6 +89,10 @@ export function getItemBounds(item: BoardItem): Rect {
     }
     const half = item.width / 2;
     return { x: minX - half, y: minY - half, width: maxX - minX + item.width, height: maxY - minY + item.width };
+  }
+  if (item.type === "shape") {
+    const half = item.strokeWidth / 2;
+    return { x: item.x - half, y: item.y - half, width: item.width + item.strokeWidth, height: item.height + item.strokeWidth };
   }
   const height =
     item.type === "text"

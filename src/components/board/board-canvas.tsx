@@ -14,6 +14,7 @@ import {
   drawBoardStroke,
   renderBoardBackground,
   renderBoardInk,
+  drawBoardShape,
 } from "@/lib/board/board-persistence";
 import { BOARD_SURFACES, resolveInk, type BoardSurface } from "@/lib/board/ink";
 import {
@@ -71,6 +72,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     selectedItemIds,
     isDrawing,
     currentStroke,
+    currentShape,
     startDrawing,
     continueDrawing,
     finishDrawing,
@@ -138,7 +140,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     renderBoardInk(ctx, currentPage.items, surface, { scale, fadedIds: pendingEraseIds });
     if (currentStroke) drawBoardStroke(ctx, currentStroke, surface, scale);
-  }, [currentPage.items, currentStroke, pendingEraseIds, surface, pageWidth, pageHeight]);
+    if (currentShape) drawBoardShape(ctx, currentShape, surface, scale);
+  }, [currentPage.items, currentStroke, currentShape, pendingEraseIds, surface, pageWidth, pageHeight]);
 
   /** Client position → page coordinates (1280×720). */
   const toPagePoint = useCallback((clientX: number, clientY: number): Point => {
@@ -208,7 +211,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     moveCursor(e);
 
     if (isDrawing) {
-      continueDrawing(toPagePoint(e.clientX, e.clientY));
+      continueDrawing(toPagePoint(e.clientX, e.clientY), { shiftKey: e.shiftKey });
       return;
     }
 
@@ -221,16 +224,26 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
       const deltaY = (e.clientY - dragState.startY) * ratio;
 
       if (dragState.type === "move") {
-        updateItemPosition(
-          dragState.itemId,
-          Math.round(dragState.initialX + deltaX),
-          Math.round(dragState.initialY + deltaY),
-        );
+        if (selectedItemIds.length > 1) {
+           board.moveSelectedItems(Math.round(deltaX), Math.round(deltaY), false);
+           // We need to keep dragging, so we shouldn't accumulate deltaX.
+           // Actually, moveSelectedItems applies relative movement! So we must use the delta since *last* frame, not initial.
+           // Wait, we can track lastX and lastY.
+           // Since we don't have lastX, let's update dragState.
+           setDragState({ ...dragState, startX: e.clientX, startY: e.clientY });
+        } else {
+           updateItemPosition(
+             dragState.itemId,
+             Math.round(dragState.initialX + deltaX),
+             Math.round(dragState.initialY + deltaY),
+           );
+        }
       } else {
         updateItemDimensions(
           dragState.itemId,
           Math.max(40, Math.round(dragState.initialWidth + deltaX)),
           Math.max(30, Math.round(dragState.initialHeight + deltaY)),
+          false
         );
       }
     }
@@ -257,7 +270,15 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
       }
       setLasso(null);
     }
-    if (dragState) setDragState(null);
+    if (dragState) {
+       // if we moved multiple items or resized, commit history
+       if (dragState.type === "move" && selectedItemIds.length > 1) {
+         board.pushToUndo();
+       } else if (dragState.type === "resize") {
+         board.pushToUndo();
+       }
+       setDragState(null);
+    }
   };
 
   // Paste handler (RF02, CA03, CA09)
@@ -295,7 +316,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     if (!selectedItemIds.includes(item.id)) {
       setSelectedItemIds([item.id]);
     }
-    if (item.type === "text" || item.type === "image") {
+    if (item.type === "text" || item.type === "image" || item.type === "shape") {
       setDragState({
         type,
         itemId: item.id,
@@ -309,7 +330,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     }
   };
 
-  const isEmpty = currentPage.items.length === 0 && !currentStroke;
+  const isEmpty = currentPage.items.length === 0 && !currentStroke && !currentShape;
   const inkColor = resolveInk(activeColor, surface);
 
   return (
@@ -409,6 +430,19 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
           if (item.type === "image") {
             return (
               <ImageOverlay
+                key={item.id}
+                item={item}
+                interactive={!drawsInk}
+                isSelected={selectedItemIds.includes(item.id)}
+                onSelect={() => setSelectedItemIds([item.id])}
+                onStartMove={(e) => startDrag(e, item, "move")}
+                onStartResize={(e) => startDrag(e, item, "resize")}
+              />
+            );
+          }
+          if (item.type === "shape") {
+             return (
+              <ShapeOverlay
                 key={item.id}
                 item={item}
                 interactive={!drawsInk}
@@ -594,6 +628,67 @@ function ImageOverlay({
         top: `${(item.y / BOARD_PAGE_HEIGHT) * 100}%`,
         width: `${(item.width / BOARD_PAGE_WIDTH) * 100}%`,
         height: `${(item.height / BOARD_PAGE_HEIGHT) * 100}%`,
+      }}
+      className={`absolute z-10 rounded-sm ${interactive ? "" : "pointer-events-none"} ${
+        isSelected
+          ? "cursor-move outline-2 outline-offset-2 outline-accent"
+          : interactive
+            ? "cursor-pointer hover:outline-1 hover:outline-offset-2 hover:outline-accent/50"
+            : ""
+      }`}
+      onPointerDown={(e) => {
+        e.stopPropagation();
+        onSelect();
+        onStartMove(e);
+      }}
+    >
+      {isSelected && (
+        <div
+          data-board-control="true"
+          onPointerDown={onStartResize}
+          title={s.dragToResize}
+          className="absolute -right-2 -bottom-2 size-4 cursor-se-resize rounded-full bg-accent shadow ring-2 ring-elevated"
+        />
+      )}
+    </div>
+  );
+}
+
+// ----------------------------------------------------------------------
+// Shape Overlay: selection box and handles over the shape drawn below the ink.
+// ----------------------------------------------------------------------
+interface ShapeOverlayProps {
+  item: BoardItem; // Should be BoardShape
+  interactive: boolean;
+  isSelected: boolean;
+  onSelect: () => void;
+  onStartMove: (e: ReactPointerEvent) => void;
+  onStartResize: (e: ReactPointerEvent) => void;
+}
+
+function ShapeOverlay({
+  item,
+  interactive,
+  isSelected,
+  onSelect,
+  onStartMove,
+  onStartResize,
+}: ShapeOverlayProps) {
+  if (item.type !== "shape") return null;
+  // Account for negative width/height (drawn backwards)
+  const left = item.width < 0 ? item.x + item.width : item.x;
+  const top = item.height < 0 ? item.y + item.height : item.y;
+  const width = Math.abs(item.width);
+  const height = Math.abs(item.height);
+
+  return (
+    <div
+      data-board-control={interactive ? "true" : undefined}
+      style={{
+        left: `${(left / BOARD_PAGE_WIDTH) * 100}%`,
+        top: `${(top / BOARD_PAGE_HEIGHT) * 100}%`,
+        width: `${(width / BOARD_PAGE_WIDTH) * 100}%`,
+        height: `${(height / BOARD_PAGE_HEIGHT) * 100}%`,
       }}
       className={`absolute z-10 rounded-sm ${interactive ? "" : "pointer-events-none"} ${
         isSelected

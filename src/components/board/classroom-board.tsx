@@ -25,6 +25,11 @@ import {
   Undo2,
   Wand,
   X,
+  Square,
+  Circle,
+  Minus,
+  ArrowRight,
+  Shapes,
 } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
@@ -63,7 +68,7 @@ export interface ClassroomBoardProps extends UseWhiteboardOptions {
   leading?: ReactNode;
 }
 
-type Panel = "style" | "eraser" | "more" | "pages" | null;
+type Panel = "style" | "eraser" | "more" | "pages" | "shape" | null;
 
 const s = strings.whiteboard;
 const icon = "size-4";
@@ -107,6 +112,8 @@ export function ClassroomBoard({
     setActiveTool,
     setActiveColor,
     setActivePenWidthKey,
+    setActiveShapeType,
+    activeShapeType,
     stepPenWidth,
     setEraserMode,
     toggleExpanded,
@@ -335,9 +342,13 @@ export function ClassroomBoard({
               value={currentPage.background}
               onChange={setBackground}
               options={[
-                { value: "white", label: s.backgroundWhite },
-                { value: "grid", label: s.backgroundGrid },
-                { value: "lines", label: s.backgroundLines },
+                { value: "white", label: s.backgroundWhite || "White" },
+                { value: "grid", label: s.backgroundGrid || "Grid" },
+                { value: "lines", label: s.backgroundLines || "Lines" },
+                { value: "timeline", label: "Timeline" },
+                { value: "conjugation", label: "Conjugation" },
+                { value: "t-chart", label: "T-Chart" },
+                { value: "calligraphy", label: "Calligraphy" },
               ]}
             />
             <SegmentedOptions
@@ -512,6 +523,62 @@ export function ClassroomBoard({
           active={activeTool === "text"}
           pressed={activeTool === "text"}
         />
+        <div className="relative">
+          <BoardButton
+            label="Shape"
+            tooltip={tooltip}
+            icon={<Shapes aria-hidden="true" className={icon} />}
+            onClick={() => {
+              if (activeTool === "shape") togglePanel("shape");
+              else {
+                setActiveTool("shape");
+                closePanel();
+              }
+            }}
+            active={activeTool === "shape"}
+            pressed={activeTool === "shape"}
+            expanded={openPanel === "shape"}
+          />
+          <Popover
+            open={openPanel === "shape"}
+            onClose={closePanel}
+            label="Shapes"
+            className={`w-56 ${besideDock}`}
+          >
+            <div role="radiogroup" aria-label="Shapes" className="space-y-0.5">
+              {(
+                [
+                  ["line", "Line", <Minus key="l" aria-hidden="true" className={icon} />],
+                  ["arrow", "Arrow", <ArrowRight key="a" aria-hidden="true" className={icon} />],
+                  ["rect", "Rectangle", <Square key="r" aria-hidden="true" className={icon} />],
+                  ["ellipse", "Ellipse", <Circle key="e" aria-hidden="true" className={icon} />],
+                ] as const
+              ).map(([mode, label, modeIcon]) => (
+                <button
+                  key={mode}
+                  type="button"
+                  role="radio"
+                  aria-checked={activeShapeType === mode}
+                  onClick={() => {
+                    setActiveShapeType(mode);
+                    closePanel();
+                  }}
+                  className={`flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11 ${
+                    activeShapeType === mode
+                      ? "bg-accent-muted text-fg"
+                      : "text-fg-secondary hover:bg-accent-muted hover:text-fg"
+                  }`}
+                >
+                  {modeIcon}
+                  <span className="flex-1">{label}</span>
+                  {activeShapeType === mode && (
+                    <Check aria-hidden="true" className="size-4 text-accent" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </Popover>
+        </div>
         <DockDivider position={dockPosition} />
         <div className="relative">
           <BoardButton

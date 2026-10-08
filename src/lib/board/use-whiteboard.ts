@@ -26,6 +26,7 @@ import {
   type BoardItem,
   type BoardPage,
   type BoardPenWidthKey,
+  type BoardShape,
   type BoardStroke,
   type BoardTextBox,
   type BoardTool,
@@ -77,6 +78,9 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   const [currentStroke, setCurrentStroke] = useState<BoardStroke | null>(null);
   const currentStrokeRef = useRef<BoardStroke | null>(null);
+  const [activeShapeType, setActiveShapeType] = useState<"line" | "arrow" | "rect" | "ellipse">("arrow");
+  const [currentShape, setCurrentShape] = useState<BoardShape | null>(null);
+  const currentShapeRef = useRef<BoardShape | null>(null);
 
   // Undo / Redo stacks: history of items array per page id
   const [undoStacks, setUndoStacks] = useState<Record<string, BoardItem[][]>>({});
@@ -319,10 +323,27 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       if (activeTool === "highlighter") width = BOARD_HIGHLIGHTER_WIDTH;
       if (activeTool === "eraser") width = BOARD_ERASER_WIDTH;
 
+      if (activeTool === "shape") {
+        const shape: BoardShape = {
+          id: `shape-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+          type: "shape",
+          shapeType: activeShapeType,
+          x: pt.x,
+          y: pt.y,
+          width: 0,
+          height: 0,
+          color: activeColor,
+          strokeWidth: width,
+        };
+        currentShapeRef.current = shape;
+        setCurrentShape(shape);
+        return;
+      }
+
       const stroke: BoardStroke = {
         id: `stroke-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
         type: "stroke",
-        tool: activeTool,
+        tool: activeTool === "reveal" ? "pen" : activeTool,
         color: activeColor,
         width,
         points: [pt],
@@ -334,9 +355,35 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   );
 
   const continueDrawing = useCallback(
-    (pt: Point) => {
+    (pt: Point, options: { shiftKey?: boolean } = {}) => {
       if (pendingEraseRef.current) {
         collectEraseAt(pt);
+        return;
+      }
+      if (currentShapeRef.current) {
+        let dx = pt.x - currentShapeRef.current.x;
+        let dy = pt.y - currentShapeRef.current.y;
+        
+        if (options.shiftKey) {
+          if (currentShapeRef.current.shapeType === "rect" || currentShapeRef.current.shapeType === "ellipse") {
+            const max = Math.max(Math.abs(dx), Math.abs(dy));
+            dx = dx > 0 ? max : -max;
+            dy = dy > 0 ? max : -max;
+          } else if (currentShapeRef.current.shapeType === "line" || currentShapeRef.current.shapeType === "arrow") {
+            const angle = Math.atan2(dy, dx);
+            const snappedAngle = Math.round(angle / (Math.PI / 4)) * (Math.PI / 4);
+            const dist = Math.hypot(dx, dy);
+            dx = Math.cos(snappedAngle) * dist;
+            dy = Math.sin(snappedAngle) * dist;
+          }
+        }
+        
+        currentShapeRef.current = {
+          ...currentShapeRef.current,
+          width: dx,
+          height: dy,
+        };
+        setCurrentShape(currentShapeRef.current);
         return;
       }
       if (!currentStrokeRef.current) return;
@@ -361,6 +408,14 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
       }
       return;
     }
+
+    const shape = currentShapeRef.current;
+    if (shape && (Math.abs(shape.width) > 2 || Math.abs(shape.height) > 2)) {
+      updateCurrentPageItems((items) => [...items, shape]);
+    }
+    currentShapeRef.current = null;
+    setCurrentShape(null);
+
     const stroke = currentStrokeRef.current;
     if (stroke && stroke.points.length > 0 && stroke.tool !== "laser") {
       updateCurrentPageItems((items) => [...items, stroke]);
@@ -383,6 +438,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         height: 60,
         fontSize: 24,
         color: activeColor,
+        bold: false,
       };
       updateCurrentPageItems((items) => [...items, newTextBox]);
       setSelectedItemIds([newTextBox.id]);
@@ -407,6 +463,20 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     [updateCurrentPageItems],
   );
 
+  const updateTextBoxStyle = useCallback(
+    (id: string, updates: Partial<Pick<BoardTextBox, "fontSize" | "bold" | "color">>) => {
+      updateCurrentPageItems((items) =>
+        items.map((item) => {
+          if (item.id === id && item.type === "text") {
+            return { ...item, ...updates };
+          }
+          return item;
+        })
+      );
+    },
+    [updateCurrentPageItems],
+  );
+
   // Item Position & Dimensions (RF02, CA03)
   const updateItemPosition = useCallback(
     (id: string, x: number, y: number) => {
@@ -425,12 +495,12 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   );
 
   const moveSelectedItems = useCallback(
-    (dx: number, dy: number) => {
+    (dx: number, dy: number, recordUndo = true) => {
       if (selectedItemIds.length === 0) return;
       updateCurrentPageItems((items) => {
         return items.map((item) => {
           if (selectedItemIds.includes(item.id)) {
-            if (item.type === "text" || item.type === "image") {
+            if (item.type === "text" || item.type === "image" || item.type === "shape") {
               return { ...item, x: item.x + dx, y: item.y + dy };
             } else if (item.type === "stroke") {
               return { ...item, points: item.points.map(p => ({ x: p.x + dx, y: p.y + dy })) };
@@ -438,23 +508,23 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
           }
           return item;
         });
-      });
+      }, recordUndo);
     },
     [selectedItemIds, updateCurrentPageItems],
   );
 
   const updateItemDimensions = useCallback(
-    (id: string, width: number, height: number) => {
+    (id: string, width: number, height: number, recordUndo = true) => {
       updateCurrentPageItems((items) =>
         items.map((item) => {
           if (item.id === id) {
-            if (item.type === "image" || item.type === "text") {
+            if (item.type === "image" || item.type === "text" || item.type === "shape") {
               return { ...item, width, height };
             }
           }
           return item;
         }),
-      );
+      recordUndo);
     },
     [updateCurrentPageItems],
   );
@@ -608,6 +678,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     activeTool,
     activeColor,
     activePenWidthKey,
+    activeShapeType,
     eraserMode,
     pendingEraseIds,
     isSaving: lastSavedPages !== pages,
@@ -617,6 +688,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     clipboardItems,
     isDrawing,
     currentStroke,
+    currentShape,
     canUndo: (undoStacks[currentPage.id]?.length || 0) > 0,
     canRedo: (redoStacks[currentPage.id]?.length || 0) > 0,
     totalPages: pages.length,
@@ -626,6 +698,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setActiveTool,
     setActiveColor,
     setActivePenWidthKey,
+    setActiveShapeType,
     stepPenWidth,
     setEraserMode,
     setIsExpanded,
@@ -643,6 +716,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     finishDrawing,
     addTextBox,
     updateTextBox,
+    updateTextBoxStyle,
     updateItemPosition,
     updateItemDimensions,
     moveSelectedItems,
@@ -660,6 +734,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     getCandidateWords,
     sendWordsToStudents,
     resetBoard,
+    pushToUndo: () => pushToUndo(currentPage.items, currentPage.id),
   };
 }
 

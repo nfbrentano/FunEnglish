@@ -5,6 +5,7 @@ import {
   type BoardData,
   type BoardItem,
   type BoardPage,
+  type BoardShape,
   type BoardStroke,
   type BoardTextBox,
 } from "./types";
@@ -166,6 +167,80 @@ export function renderBoardBackground(
       ctx.lineTo(width, y);
     }
     ctx.stroke();
+  } else if (background === "timeline") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const midY = height / 2;
+    ctx.moveTo(50 * scale, midY);
+    ctx.lineTo(width - 50 * scale, midY);
+    // arrow
+    ctx.moveTo(width - 60 * scale, midY - 10 * scale);
+    ctx.lineTo(width - 50 * scale, midY);
+    ctx.lineTo(width - 60 * scale, midY + 10 * scale);
+    // ticks
+    const ticks = [0.25, 0.5, 0.75];
+    for (const t of ticks) {
+      const x = width * t;
+      ctx.moveTo(x, midY - 15 * scale);
+      ctx.lineTo(x, midY + 15 * scale);
+    }
+    ctx.stroke();
+    ctx.fillStyle = palette.ink.ink;
+    ctx.font = `bold ${Math.round(20 * scale)}px ${BOARD_TEXT_FONT}`;
+    ctx.textAlign = "center";
+    ctx.fillText("PAST", width * 0.25, midY + 35 * scale);
+    ctx.fillText("PRESENT", width * 0.5, midY + 35 * scale);
+    ctx.fillText("FUTURE", width * 0.75, midY + 35 * scale);
+    ctx.textAlign = "start";
+  } else if (background === "conjugation") {
+    ctx.strokeStyle = palette.grid;
+    ctx.lineWidth = 2;
+    const midX = width / 2;
+    ctx.beginPath();
+    // vertical
+    ctx.moveTo(midX, 50 * scale);
+    ctx.lineTo(midX, height - 50 * scale);
+    // horizontal
+    ctx.moveTo(midX - 150 * scale, 120 * scale);
+    ctx.lineTo(midX + 150 * scale, 120 * scale);
+    ctx.stroke();
+  } else if (background === "t-chart") {
+    ctx.strokeStyle = palette.grid;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const midX = width / 2;
+    ctx.moveTo(midX, 50 * scale);
+    ctx.lineTo(midX, height - 50 * scale);
+    ctx.moveTo(50 * scale, 100 * scale);
+    ctx.lineTo(width - 50 * scale, 100 * scale);
+    ctx.stroke();
+  } else if (background === "calligraphy") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 1;
+    const groupHeight = 120 * scale;
+    for (let yOffset = 50 * scale; yOffset < height - groupHeight; yOffset += groupHeight) {
+      ctx.beginPath();
+      // top
+      ctx.moveTo(50 * scale, yOffset);
+      ctx.lineTo(width - 50 * scale, yOffset);
+      ctx.stroke();
+      // mid
+      ctx.beginPath();
+      ctx.setLineDash([5 * scale, 5 * scale]);
+      ctx.moveTo(50 * scale, yOffset + 30 * scale);
+      ctx.lineTo(width - 50 * scale, yOffset + 30 * scale);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // bottom
+      ctx.beginPath();
+      ctx.moveTo(50 * scale, yOffset + 60 * scale);
+      ctx.lineTo(width - 50 * scale, yOffset + 60 * scale);
+      // descender
+      ctx.moveTo(50 * scale, yOffset + 90 * scale);
+      ctx.lineTo(width - 50 * scale, yOffset + 90 * scale);
+      ctx.stroke();
+    }
   }
 }
 
@@ -219,6 +294,54 @@ export function drawBoardStroke(
   ctx.restore();
 }
 
+export function drawBoardShape(
+  ctx: CanvasRenderingContext2D,
+  shape: BoardShape,
+  surface: BoardSurface,
+  scale = 1,
+  opacity = 1,
+): void {
+  ctx.save();
+  ctx.strokeStyle = resolveInk(shape.color, surface);
+  ctx.lineWidth = shape.strokeWidth * scale;
+  ctx.globalAlpha = opacity;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  ctx.beginPath();
+  const x = shape.x * scale;
+  const y = shape.y * scale;
+  const w = shape.width * scale;
+  const h = shape.height * scale;
+
+  if (shape.shapeType === "rect") {
+    ctx.rect(x, y, w, h);
+  } else if (shape.shapeType === "ellipse") {
+    const rx = Math.abs(w / 2);
+    const ry = Math.abs(h / 2);
+    ctx.ellipse(x + w / 2, y + h / 2, rx, ry, 0, 0, 2 * Math.PI);
+  } else if (shape.shapeType === "line" || shape.shapeType === "arrow") {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + w, y + h);
+    if (shape.shapeType === "arrow") {
+      const angle = Math.atan2(h, w);
+      const headLen = 15 * scale;
+      ctx.lineTo(
+        x + w - headLen * Math.cos(angle - Math.PI / 6),
+        y + h - headLen * Math.sin(angle - Math.PI / 6)
+      );
+      ctx.moveTo(x + w, y + h);
+      ctx.lineTo(
+        x + w - headLen * Math.cos(angle + Math.PI / 6),
+        y + h - headLen * Math.sin(angle + Math.PI / 6)
+      );
+    }
+  }
+
+  ctx.stroke();
+  ctx.restore();
+}
+
 /** Splits text into lines that fit `maxWidth`, keeping the user's line breaks. */
 function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
   const lines: string[] = [];
@@ -246,7 +369,8 @@ function drawText(
 ): void {
   ctx.save();
   ctx.fillStyle = resolveInk(textItem.color, surface);
-  ctx.font = `${Math.round(textItem.fontSize * scale)}px ${BOARD_TEXT_FONT}`;
+  const weight = textItem.bold ? "bold " : "";
+  ctx.font = `${weight}${Math.round(textItem.fontSize * scale)}px ${BOARD_TEXT_FONT}`;
   ctx.textBaseline = "top";
 
   const lineHeight = textItem.fontSize * BOARD_TEXT_LINE_HEIGHT * scale;
@@ -298,6 +422,9 @@ export async function renderBoardPageToCanvas(
   const inkCtx = inkCanvas.getContext("2d");
   if (inkCtx) {
     renderBoardInk(inkCtx, page.items, surface, { scale });
+    for (const item of page.items) {
+      if (item.type === "shape") drawBoardShape(inkCtx, item, surface, scale);
+    }
     ctx.drawImage(inkCanvas, 0, 0);
   }
 
