@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { PrintableReportView } from "@/components/reports/printable-report-view";
 import { getPublicReport } from "@/lib/reports/repository";
@@ -11,7 +11,6 @@ export function PublicReportClient({
 }: {
   paramsPromise: Promise<{ token: string }>;
 }) {
-  const [token, setToken] = useState<string | null>(null);
   const [report, setReport] = useState<ProgressReportSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +28,6 @@ export function PublicReportClient({
             actualToken = match[1];
           }
         }
-        setToken(actualToken);
         if (actualToken === "_") {
           return null;
         }

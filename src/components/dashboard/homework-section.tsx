@@ -41,7 +41,7 @@ export function HomeworkSection() {
   // Expanded task details
   const [expandedHwId, setExpandedHwId] = useState<string | null>(null);
   const [submissionsByHw, setSubmissionsByHw] = useState<Record<string, HomeworkSubmission[]>>({});
-  const [activityContentByHw, setActivityContentByHw] = useState<Record<string, any>>({});
+  const [activityContentByHw, setActivityContentByHw] = useState<Record<string, unknown>>({});
   const [activeTabByHw, setActiveTabByHw] = useState<Record<string, "submissions" | "questions">>({});
   const [loadingSubmissions, setLoadingSubmissions] = useState<string | null>(null);
 
