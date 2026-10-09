@@ -116,7 +116,6 @@ export function ClassroomBoard({
     deletePage,
     duplicatePage,
     reorderPage,
-    deleteItem,
     deleteSelectedItems,
     copySelectedItems,
     duplicateSelectedItems,

@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+
 const CONTENT_DIR = path.join(process.cwd(), "content", "activities");
 const OUTPUT_DIR = path.join(process.cwd(), "public", "images", "activities");
 

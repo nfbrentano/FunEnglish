@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Plus, CreditCard, Clock, FileText, Download, MessageCircle, X } from "lucide-react";
+import { Plus, CreditCard, FileText, Download, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/toast";
 import { getBillingPlan, updateBillingPlan, getLedgerEntries, addLedgerEntry } from "@/lib/billing/repository";
-import type { BillingPlan, LedgerEntry, BillingPlanType, PaymentMethod, LedgerEntryType } from "@/lib/billing/types";
+import type { BillingPlan, LedgerEntry, PaymentMethod, LedgerEntryType } from "@/lib/billing/types";
 
 export function StudentBillingSection({ studentId, studentName, phone }: { studentId: string; studentName: string; phone?: string }) {
   const toast = useToast();
