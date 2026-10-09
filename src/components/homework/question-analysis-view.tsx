@@ -1,17 +1,15 @@
 "use client";
 
 import {
-  AlertCircle,
   BarChart2,
   Check,
   ChevronDown,
   ChevronUp,
-  FileText,
   Plus,
   Sparkles,
   User,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
 import {
@@ -29,7 +27,7 @@ import { strings } from "@/lib/strings";
 interface QuestionAnalysisViewProps {
   homework: Homework;
   submissions: HomeworkSubmission[];
-  activityContent: any;
+  activityContent: unknown;
   activityCategory?: string;
   onNoteAdded?: () => void;
 }

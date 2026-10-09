@@ -1,6 +1,6 @@
 # [FIX] Resolução de Falhas de Lint e Bloqueios no Deploy CI
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-09 · **Atualizada em:** 2026-10-09
 
 ## Detalhes da Atividade
@@ -44,8 +44,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o repositório atualizado, quando executado `npx eslint . --quiet`, então não deve haver nenhum erro bloqueante retornado (exit code 0).
-- [ ] **CA02:** Dado que `get_missing.js` foi excluído e os imports limpos, quando executado `npm run build`, então o build de produção deve finalizar com sucesso.
+- [x] **CA01:** Dado o repositório atualizado, quando executado `npx eslint . --quiet`, então não deve haver nenhum erro bloqueante retornado (exit code 0).
+- [x] **CA02:** Dado que `get_missing.js` foi excluído e os imports limpos, quando executado `npm run build`, então o build de produção deve finalizar com sucesso.
 
 ## O que a atividade não inclui
 
