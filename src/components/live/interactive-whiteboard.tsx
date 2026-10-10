@@ -5,7 +5,7 @@ import { Stage, Layer, Line } from "react-konva";
 import type Konva from "konva";
 import type { KonvaEventObject } from "konva/lib/Node";
 import { getDatabaseInstance } from "@/lib/firebase";
-import { ref, onValue, set, remove, off } from "firebase/database";
+import { ref, onValue, set, remove } from "firebase/database";
 import { Eraser, Pencil, Radio, Trash2, X } from "lucide-react";
 import {
   BoardButton,
@@ -84,7 +84,7 @@ export function InteractiveWhiteboard({
     });
 
     return () => {
-      off(drawingsRef);
+      unsubscribe();
     };
   }, [roomCode]);
 

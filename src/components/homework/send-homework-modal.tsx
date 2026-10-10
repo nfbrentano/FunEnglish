@@ -1,18 +1,6 @@
 "use client";
 
-import {
-  BookOpen,
-  Calendar,
-  Check,
-  Clock,
-  Copy,
-  ExternalLink,
-  QrCode,
-  RefreshCw,
-  Share2,
-  Users,
-  X,
-} from "lucide-react";
+import { BookOpen, Calendar, Copy, QrCode, RefreshCw, Share2, Users, X } from "lucide-react";
 import QRCode from "qrcode";
 import { useEffect, useId, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -136,7 +124,9 @@ export function SendHomeworkModal({ activity, open, onClose }: SendHomeworkModal
 
   const handleCopyAll = async () => {
     if (individualLinks.length === 0) return;
-    const lines = individualLinks.map((l) => `${l.studentName}: ${origin}/homework?h=${createdHomeworkId}&s=${l.token}`);
+    const lines = individualLinks.map(
+      (l) => `${l.studentName}: ${origin}/homework?h=${createdHomeworkId}&s=${l.token}`,
+    );
     await handleCopy(lines.join("\n"), strings.homework.allCopied);
   };
 
@@ -327,7 +317,10 @@ export function SendHomeworkModal({ activity, open, onClose }: SendHomeworkModal
               {/* Step 2: Deadline & Late Policy */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label htmlFor="hw-due-date" className="flex items-center gap-1.5 text-xs font-medium text-muted">
+                  <label
+                    htmlFor="hw-due-date"
+                    className="flex items-center gap-1.5 text-xs font-medium text-muted"
+                  >
                     <Calendar className="size-3.5" />
                     <span>{strings.homework.dueDateLabel}</span>
                   </label>
@@ -374,7 +367,11 @@ export function SendHomeworkModal({ activity, open, onClose }: SendHomeworkModal
 
               {/* Submit button */}
               <div className="flex justify-end pt-2">
-                <Button onClick={handleCreate} disabled={submitting || loadingInitial} className="px-6">
+                <Button
+                  onClick={handleCreate}
+                  disabled={submitting || loadingInitial}
+                  className="px-6"
+                >
                   {submitting ? strings.homework.generating : strings.homework.generateButton}
                 </Button>
               </div>
@@ -442,9 +439,7 @@ export function SendHomeworkModal({ activity, open, onClose }: SendHomeworkModal
                       <h3 className="text-sm font-semibold text-fg">
                         {strings.homework.individualLinksTitle}
                       </h3>
-                      <p className="text-xs text-muted">
-                        {strings.homework.individualLinksDesc}
-                      </p>
+                      <p className="text-xs text-muted">{strings.homework.individualLinksDesc}</p>
                     </div>
                     <Button
                       variant="secondary"
@@ -468,7 +463,9 @@ export function SendHomeworkModal({ activity, open, onClose }: SendHomeworkModal
                         >
                           <div className="min-w-0 flex-1">
                             <p className="font-medium text-fg truncate">{linkItem.studentName}</p>
-                            <p className="text-[11px] font-mono text-muted truncate">{personalUrl}</p>
+                            <p className="text-[11px] font-mono text-muted truncate">
+                              {personalUrl}
+                            </p>
                           </div>
                           <div className="flex items-center gap-1.5 shrink-0">
                             <Button
