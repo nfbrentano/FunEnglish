@@ -491,7 +491,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `adverbs-of-frequency-order` (1 imagens)
 
-- [ ] **Arquivo:** `adverbs-of-frequency-order--thumb.png`
+- [x] **Arquivo:** `adverbs-of-frequency-order--thumb.png`
   - **Descrição / Conceito:** A minimalist calendar with frequency checkboxes and a pocket watch on a wooden table
   - **Prompt completo:** `A minimalist calendar with frequency checkboxes and a pocket watch on a wooden table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -531,7 +531,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `daily-routines-sentence-order` (1 imagens)
 
-- [ ] **Arquivo:** `daily-routines-sentence-order--thumb.png`
+- [x] **Arquivo:** `daily-routines-sentence-order--thumb.png`
   - **Descrição / Conceito:** A cozy alarm clock, an open notebook and a steaming coffee mug on a morning desk
   - **Prompt completo:** `A cozy alarm clock, an open notebook and a steaming coffee mug on a morning desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -749,7 +749,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `past-simple-story-sentences` (1 imagens)
 
-- [ ] **Arquivo:** `past-simple-story-sentences--thumb.png`
+- [x] **Arquivo:** `past-simple-story-sentences--thumb.png`
   - **Descrição / Conceito:** An antique polaroid camera and aged photo prints on a wooden scrapbook table
   - **Prompt completo:** `An antique polaroid camera and aged photo prints on a wooden scrapbook table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -865,13 +865,13 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `question-formation-sentence-builder` (1 imagens)
 
-- [ ] **Arquivo:** `question-formation-sentence-builder--thumb.png`
+- [x] **Arquivo:** `question-formation-sentence-builder--thumb.png`
   - **Descrição / Conceito:** A stylish magnifying glass hovering over question mark puzzle pieces on a study desk
   - **Prompt completo:** `A stylish magnifying glass hovering over question mark puzzle pieces on a study desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `reported-speech` (9 imagens)
 
-- [ ] **Arquivo:** `reported-speech--thumb.png`
+- [x] **Arquivo:** `reported-speech--thumb.png`
   - **Descrição / Conceito:** Two friends whispering on a park bench while a third person listens and holds a notebook
   - **Prompt completo:** `Two friends whispering on a park bench while a third person listens and holds a notebook. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -931,43 +931,43 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `listening-gap-fill-office-dialogues` (1 imagens)
 
-- [ ] **Arquivo:** `listening-gap-fill-office-dialogues--thumb.png`
+- [x] **Arquivo:** `listening-gap-fill-office-dialogues--thumb.png`
   - **Descrição / Conceito:** Modern wireless headphones resting next to a coffee cup, tablet, and a pen on an office desk
   - **Prompt completo:** `Modern wireless headphones resting next to a coffee cup, tablet, and a pen on an office desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `listening-hotel-and-travel-checkin` (1 imagens)
 
-- [ ] **Arquivo:** `listening-hotel-and-travel-checkin--thumb.png`
+- [x] **Arquivo:** `listening-hotel-and-travel-checkin--thumb.png`
   - **Descrição / Conceito:** A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport
   - **Prompt completo:** `A vintage hotel service bell and boarding pass lying next to classic travel luggage and passport. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `listening-idioms-in-conversation` (1 imagens)
 
-- [ ] **Arquivo:** `listening-idioms-in-conversation--thumb.png`
+- [x] **Arquivo:** `listening-idioms-in-conversation--thumb.png`
   - **Descrição / Conceito:** Two coworkers chatting over coffee at a small table with speech bubbles above them
   - **Prompt completo:** `Two coworkers chatting over coffee at a small table with speech bubbles above them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `listening-news-briefs` (1 imagens)
 
-- [ ] **Arquivo:** `listening-news-briefs--thumb.png`
+- [x] **Arquivo:** `listening-news-briefs--thumb.png`
   - **Descrição / Conceito:** A small radio on a kitchen table next to a cup of tea and a folded newspaper with blank pages
   - **Prompt completo:** `A small radio on a kitchen table next to a cup of tea and a folded newspaper with blank pages. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `listening-speaker-attitude` (1 imagens)
 
-- [ ] **Arquivo:** `listening-speaker-attitude--thumb.png`
+- [x] **Arquivo:** `listening-speaker-attitude--thumb.png`
   - **Descrição / Conceito:** A woman with headphones raising one eyebrow while a speech bubble floats beside her
   - **Prompt completo:** `A woman with headphones raising one eyebrow while a speech bubble floats beside her. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `listening-weather-forecasts` (1 imagens)
 
-- [ ] **Arquivo:** `listening-weather-forecasts--thumb.png`
+- [x] **Arquivo:** `listening-weather-forecasts--thumb.png`
   - **Descrição / Conceito:** A sun and a cloud with rain on a map aspect ratio 16:10
   - **Prompt completo:** `A sun and a cloud with rain on a map aspect ratio 16:10`
 
 ## Atividade: `describe-the-room-and-objects` (7 imagens)
 
-- [ ] **Arquivo:** `describe-the-room-and-objects--thumb.png`
+- [x] **Arquivo:** `describe-the-room-and-objects--thumb.png`
   - **Descrição / Conceito:** A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table
   - **Prompt completo:** `A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
