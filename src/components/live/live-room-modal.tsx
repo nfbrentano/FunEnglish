@@ -1,21 +1,8 @@
 "use client";
 
-import {
-  Check,
-  Copy,
-  Lock,
-  QrCode,
-  Radio,
-  Share2,
-  Unlock,
-  UserCheck,
-  UserX,
-  Users,
-  X,
-} from "lucide-react";
+import { Check, Copy, Lock, Radio, Share2, Unlock, UserX, Users, X } from "lucide-react";
 import QRCode from "qrcode";
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { generateInviteText } from "@/lib/live/code";
 import { useLiveRoom } from "@/lib/live/live-context";

@@ -1,7 +1,6 @@
 "use client";
 
 import { BookOpen } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { useAuth } from "@/lib/auth/use-auth";
 import { strings } from "@/lib/strings";
@@ -15,14 +14,15 @@ interface SendHomeworkButtonProps {
 
 export function SendHomeworkButton({ activity, className, children }: SendHomeworkButtonProps) {
   const { user } = useAuth();
-  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (!user) {
-      router.push(`/login?redirect=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname : "")}`);
+      window.location.assign(
+        `/login?redirect=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname : "")}`,
+      );
       return;
     }
     setOpen(true);
@@ -40,13 +40,7 @@ export function SendHomeworkButton({ activity, className, children }: SendHomewo
         {children ?? <BookOpen aria-hidden="true" className="size-4" />}
       </button>
 
-      {open && (
-        <SendHomeworkModal
-          activity={activity}
-          open={open}
-          onClose={() => setOpen(false)}
-        />
-      )}
+      {open && <SendHomeworkModal activity={activity} open={open} onClose={() => setOpen(false)} />}
     </>
   );
 }

@@ -9,9 +9,10 @@ const IMAGES = join(process.cwd(), "public", "images");
 const MAX_TOTAL = 30 * 1024 * 1024;
 
 const files = (dir: string) =>
-  readdirSync(dir, { recursive: true, encoding: "utf8" }).filter((f) =>
-    statSync(join(dir, f)).isFile(),
-  );
+  readdirSync(dir, { recursive: true, encoding: "utf8" }).filter((f) => {
+    if (f.split(/[/\\]/).some((part) => part.startsWith("."))) return false;
+    return statSync(join(dir, f)).isFile();
+  });
 
 /** Width and height from a WebP header (lossy VP8, lossless VP8L or extended VP8X). */
 export function webpSize(buffer: Buffer): { width: number; height: number } | null {
