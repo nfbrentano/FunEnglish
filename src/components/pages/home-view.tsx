@@ -11,6 +11,7 @@ import { useAuth } from "@/lib/auth/use-auth";
 import type { CatalogIndex } from "@/lib/catalog/schema";
 import { homeHighlights, isNew } from "@/lib/catalog/sections";
 import { useCatalogIndex, useClientNow } from "@/lib/catalog/use-catalog-index";
+import { stripVersion } from "@/lib/site-images";
 import { strings } from "@/lib/strings";
 
 const t = strings.homePage;
@@ -21,6 +22,7 @@ export function HomeView({ initial, imagePaths }: { initial: CatalogIndex; image
   const { user } = useAuth();
   const now = useClientNow();
   const images = useMemo(() => new Set(imagePaths), [imagePaths]);
+  const hasImage = (src: string) => images.has(stripVersion(src));
   const highlights = homeHighlights(index.items);
   const count = index.items.length;
 
@@ -85,7 +87,7 @@ export function HomeView({ initial, imagePaths }: { initial: CatalogIndex; image
               <li key={item.id}>
                 <ActivityCard
                   item={item}
-                  imageAvailable={images.has(item.thumbnail.src)}
+                  imageAvailable={hasImage(item.thumbnail.src)}
                   isNew={now !== null && isNew(item.createdAt, now)}
                   priority={i < 3}
                 />

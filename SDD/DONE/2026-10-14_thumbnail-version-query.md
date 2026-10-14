@@ -1,6 +1,6 @@
 # [FIX] Suporte a URLs de Thumbnail com Versão de Cache no Catálogo
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -38,8 +38,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um item de catálogo cujo `thumbnail.src` contenha query param (ex.: `/images/activities/sentences-about-my-day/thumb.webp?v=d3eb764f`), quando renderizado em `CatalogView`, `CategoryView`, `HomeView` ou `DashboardView`, então `imageAvailable` avalia como `true` e a tag `<img>` do thumbnail é exibida.
-- [ ] **CA02:** Dado o comando `npm test`, quando executado, então todos os testes passam sem regressões.
+- [x] **CA01:** Dado um item de catálogo cujo `thumbnail.src` contenha query param (ex.: `/images/activities/sentences-about-my-day/thumb.webp?v=d3eb764f`), quando renderizado em `CatalogView`, `CategoryView`, `HomeView` ou `DashboardView`, então `imageAvailable` avalia como `true` e a tag `<img>` do thumbnail é exibida.
+- [x] **CA02:** Dado o comando `npm test`, quando executado, então todos os testes passam sem regressões.
 
 ## O que a atividade não inclui
 

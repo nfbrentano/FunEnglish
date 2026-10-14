@@ -9,6 +9,7 @@ import { filterCatalog, hasActiveFilters, serializeFilters } from "@/lib/catalog
 import type { CatalogIndex } from "@/lib/catalog/schema";
 import { isNew, latest, sectionsByCategory } from "@/lib/catalog/sections";
 import { useCatalogFilters } from "@/lib/catalog/use-catalog-filters";
+import { stripVersion } from "@/lib/site-images";
 import { strings } from "@/lib/strings";
 import { ActivityCard } from "./activity-card";
 import { Carousel } from "./carousel";
@@ -29,6 +30,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
   const { index, waiting } = useCatalogIndex(initial);
   const now = useClientNow();
   const images = useMemo(() => new Set(imagePaths), [imagePaths]);
+  const hasImage = (src: string) => images.has(stripVersion(src));
 
   const { filters, setFilters, clearFilters: clearUrlFilters } = useCatalogFilters();
   // Remounting the search field on Clear also cancels a search still waiting on its debounce.
@@ -73,7 +75,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
           <ResultsGrid
             key={serializeFilters(filters)}
             items={results}
-            hasImage={(src) => images.has(src)}
+            hasImage={hasImage}
             isNew={isRecent}
             onClear={clearFilters}
           />
@@ -96,7 +98,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
                   <ActivityCard
                     key={item.id}
                     item={item}
-                    imageAvailable={images.has(item.thumbnail.src)}
+                    imageAvailable={hasImage(item.thumbnail.src)}
                     isNew={isRecent(item.createdAt)}
                     priority={i < 4}
                   />
@@ -118,7 +120,7 @@ export function CatalogView({ initial, imagePaths }: CatalogViewProps) {
                     <ActivityCard
                       key={item.id}
                       item={item}
-                      imageAvailable={images.has(item.thumbnail.src)}
+                      imageAvailable={hasImage(item.thumbnail.src)}
                       isNew={isRecent(item.createdAt)}
                     />
                   ))}

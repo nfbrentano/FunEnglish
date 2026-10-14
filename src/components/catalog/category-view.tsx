@@ -11,6 +11,7 @@ import type { CatalogIndex } from "@/lib/catalog/schema";
 import { isNew } from "@/lib/catalog/sections";
 import { useCatalogFilters } from "@/lib/catalog/use-catalog-filters";
 import { useCatalogIndex, useClientNow } from "@/lib/catalog/use-catalog-index";
+import { stripVersion } from "@/lib/site-images";
 import { strings } from "@/lib/strings";
 import { FilterBar } from "./filter-bar";
 import { ResultsGrid } from "./results-grid";
@@ -120,7 +121,7 @@ export function CategoryView({ initial, imagePaths, category }: CategoryViewProp
               <ResultsGrid
                 key={serializeFilters(filters)}
                 items={results}
-                hasImage={(src) => images.has(src)}
+                hasImage={(src) => images.has(stripVersion(src))}
                 isNew={(createdAt) => now !== null && isNew(createdAt, now)}
                 onClear={clearFilters}
                 restorePosition
