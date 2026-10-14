@@ -1,6 +1,6 @@
 # [CHORE] Atualização de Dependências Desatualizadas (npm outdated)
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -43,8 +43,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que as versões foram atualizadas em `package.json` e `functions/package.json`, quando executado `npm update` e `npm --prefix functions update`, então os lockfiles são sincronizados e refletem as versões mais recentes do range planejado.
-- [ ] **CA02:** Dado que as dependências foram atualizadas, quando executados os comandos `npm run lint`, `npm run lint:functions`, `npm run typecheck`, `npm test`, `npm run test:functions`, `npm run build` e `npm run build:functions`, então todos os comandos terminam com código 0 (sucesso).
+- [x] **CA01:** Dado que as versões foram atualizadas em `package.json` e `functions/package.json`, quando executado `npm update` e `npm --prefix functions update`, então os lockfiles são sincronizados e refletem as versões mais recentes do range planejado.
+- [x] **CA02:** Dado que as dependências foram atualizadas, quando executados os comandos `npm run lint`, `npm run lint:functions`, `npm run typecheck`, `npm test`, `npm run test:functions`, `npm run build` e `npm run build:functions`, então todos os comandos terminam com código 0 (sucesso).
 
 ## O que a atividade não inclui
 
