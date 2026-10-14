@@ -1,6 +1,6 @@
 # [FIX] Resolução de Falha do Build Turbopack com Google Fonts
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -47,8 +47,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que a aplicação utiliza Cormorant Garamond nos títulos (`font-display`), quando a página é carregada, a fonte é aplicada via variável CSS `--font-cormorant` servida localmente sem requisições ao Google Fonts durante o build.
-- [ ] **CA02:** Dado o comando `npm run build`, quando executado no ambiente local e no GitHub Actions, então o build do Turbopack é concluído com sucesso com 0 erros de fonte.
+- [x] **CA01:** Dado que a aplicação utiliza Cormorant Garamond nos títulos (`font-display`), quando a página é carregada, a fonte é aplicada via variável CSS `--font-cormorant` servida localmente sem requisições ao Google Fonts durante o build.
+- [x] **CA02:** Dado o comando `npm run build`, quando executado no ambiente local e no GitHub Actions, então o build do Turbopack é concluído com sucesso com 0 erros de fonte.
 
 ## O que a atividade não inclui
 
