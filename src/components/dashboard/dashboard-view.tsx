@@ -25,6 +25,7 @@ import {
   type HistoryRepository,
   type PlayRecord,
 } from "@/lib/history/history";
+import { stripVersion } from "@/lib/site-images";
 import { strings } from "@/lib/strings";
 
 type DashboardViewProps = {
@@ -126,7 +127,7 @@ export function DashboardView({
   const card = (item: CatalogItem) => (
     <ActivityCard
       item={item}
-      imageAvailable={images.has(item.thumbnail.src)}
+      imageAvailable={images.has(stripVersion(item.thumbnail.src))}
       isNew={now !== null && isNew(item.createdAt, now)}
     />
   );

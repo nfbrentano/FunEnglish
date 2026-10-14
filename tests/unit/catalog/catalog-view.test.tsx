@@ -68,4 +68,32 @@ describe("CatalogView", () => {
     await waitFor(() => expect(console.warn).toHaveBeenCalled());
     expect(screen.getAllByRole("img", { name: "A kitchen table" })[0].tagName).toBe("IMG");
   });
+
+  it("renders the image element when thumbnail src includes a cache-busting query param", async () => {
+    const withVersionQuery: CatalogIndex = {
+      schemaVersion: 1,
+      updatedAt: "2026-09-30T00:00:00.000Z",
+      items: [
+        {
+          ...withOne.items[0],
+          id: "2",
+          slug: "sentences-about-my-day",
+          thumbnail: {
+            src: "/images/activities/sentences-about-my-day/thumb.webp?v=d3eb764f",
+            alt: "Sentences about my day cover",
+          },
+        },
+      ],
+    };
+    fetchMock.fn.mockResolvedValue(withVersionQuery);
+    render(
+      <CatalogView
+        initial={empty}
+        imagePaths={["/images/activities/sentences-about-my-day/thumb.webp"]}
+      />,
+    );
+
+    const img = (await screen.findAllByRole("img", { name: "Sentences about my day cover" }))[0];
+    expect(img.tagName).toBe("IMG");
+  });
 });
