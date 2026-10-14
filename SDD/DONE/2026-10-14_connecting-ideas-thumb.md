@@ -1,6 +1,6 @@
 # [FEAT] Geração e Integração de Capas: Connecting Ideas e Capital Letters
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -40,8 +40,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que as novas capas foram salvas em `public/images/activities/`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então as dimensões (960×600), formato WebP e tamanho <= 200 KB são validados com sucesso.
-- [ ] **CA02:** Dado o build completo `npm run build` e testes `npm test`, quando executados, então ambos passam com código de saída 0.
+- [x] **CA01:** Dado que as novas capas foram salvas em `public/images/activities/`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então as dimensões (960×600), formato WebP e tamanho <= 200 KB são validados com sucesso.
+- [x] **CA02:** Dado o build completo `npm run build` e testes `npm test`, quando executados, então ambos passam com código de saída 0.
 
 ## O que a atividade não inclui
 

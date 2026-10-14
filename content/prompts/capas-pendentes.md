@@ -1,4 +1,4 @@
-# Capas Faltantes (8 Thumbnails Pendentes)
+# Capas Faltantes (6 Thumbnails Pendentes)
 
 Gere as imagens no **Image Playground** (Mac), Midjourney ou ChatGPT e salve em `~/Downloads/fun-english-images`.
 Em seguida rode:
@@ -7,11 +7,6 @@ npm run images:import -- ~/Downloads/fun-english-images
 ```
 
 ---
-
-### Capital Letters and Punctuation (`capital-letters-and-punctuation`)
-- **Arquivo:** `capital-letters-and-punctuation--thumb.png`
-- **Prompt:**
-> A pencil and an eraser resting on a blank notebook page beside a magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
 
 ### Connecting Sentences: Conjunctions (`conjunctions-in-context`)
 - **Arquivo:** `conjunctions-in-context--thumb.png`
@@ -22,11 +17,6 @@ npm run images:import -- ~/Downloads/fun-english-images
 - **Arquivo:** `connecting-clauses-because-and-so--thumb.png`
 - **Prompt:**
 > Two interlocking wooden bridge puzzle pieces connecting two paper scrolls on a desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Connecting Ideas: And, But, Because, So (`connecting-ideas-and-but-because`)
-- **Arquivo:** `connecting-ideas-and-but-because--thumb.png`
-- **Prompt:**
-> Two puzzle pieces joining together on a wooden table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
 
 ### Formal Email Phrases in Order (`formal-email-sentences`)
 - **Arquivo:** `formal-email-sentences--thumb.png`
