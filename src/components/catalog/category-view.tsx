@@ -114,7 +114,7 @@ export function CategoryView({ initial, imagePaths, category }: CategoryViewProp
                 className="grid gap-4 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
               >
                 {Array.from({ length: 8 }, (_, i) => (
-                  <Skeleton key={i} className="aspect-[4/3] w-full rounded-2xl" />
+                  <Skeleton key={i} className="aspect-4/3 w-full rounded-2xl" />
                 ))}
               </div>
             ) : (
