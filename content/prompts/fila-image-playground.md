@@ -2079,7 +2079,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `capital-letters-and-punctuation` (9 imagens)
 
-- [ ] **Arquivo:** `capital-letters-and-punctuation--thumb.png`
+- [x] **Arquivo:** `capital-letters-and-punctuation--thumb.png`
   - **Descrição / Conceito:** A pencil and an eraser resting on a blank notebook page beside a magnifying glass
   - **Prompt completo:** `A pencil and an eraser resting on a blank notebook page beside a magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -2161,7 +2161,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `connecting-ideas-and-but-because` (9 imagens)
 
-- [ ] **Arquivo:** `connecting-ideas-and-but-because--thumb.png`
+- [x] **Arquivo:** `connecting-ideas-and-but-because--thumb.png`
   - **Descrição / Conceito:** Two puzzle pieces joining together on a wooden table
   - **Prompt completo:** `Two puzzle pieces joining together on a wooden table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
