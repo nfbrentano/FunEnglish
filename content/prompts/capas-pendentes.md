@@ -1,4 +1,4 @@
-# Capas Faltantes (33 Thumbnails Pendentes)
+# Capas Faltantes (20 Thumbnails Pendentes)
 
 Gere as imagens no **Image Playground** (Mac), Midjourney ou ChatGPT e salve em `~/Downloads/fun-english-images`.
 Em seguida rode:
@@ -7,71 +7,6 @@ npm run images:import -- ~/Downloads/fun-english-images
 ```
 
 ---
-
-### Emoji Animals (`emoji-animals`)
-- **Arquivo:** `emoji-animals--thumb.png`
-- **Prompt:**
-> A friendly group of cartoon animals, a dog, a cat, an elephant and a frog, sitting together in a meadow. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Emoji Phrasal Verbs (`emoji-phrasal-verbs`)
-- **Arquivo:** `emoji-phrasal-verbs--thumb.png`
-- **Prompt:**
-> An airplane rising into the sky above a small house where a person is putting on a warm coat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Emoji Proverbs (`emoji-proverbs`)
-- **Arquivo:** `emoji-proverbs--thumb.png`
-- **Prompt:**
-> A small bird on a branch at sunrise next to an apple and a basket of eggs. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Emoji Weather and Clothes (`emoji-weather-and-clothes`)
-- **Arquivo:** `emoji-weather-and-clothes--thumb.png`
-- **Prompt:**
-> A child in a yellow raincoat and rubber boots holding an umbrella under a cloud with the sun peeking out. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Mystery Scenes: Infer What Happened (`mystery-scenes-what-just-happened`)
-- **Arquivo:** `mystery-scenes-what-just-happened--thumb.png`
-- **Prompt:**
-> An abandoned trench coat on an empty wooden park bench under a lamppost with a dropped leather notebook. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Reading: A Day at School (`reading-a-day-at-school`)
-- **Arquivo:** `reading-a-day-at-school--thumb.png`
-- **Prompt:**
-> Children with backpacks walking into a bright school building with a tree beside it. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Inspiring Biographies of Pioneers (`reading-biographies-pioneers`)
-- **Arquivo:** `reading-biographies-pioneers--thumb.png`
-- **Prompt:**
-> A vintage brass telescope and compass resting on a stack of ancient leather-bound manuscripts. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Fill the Missing Words: Short Stories (`reading-fill-the-story`)
-- **Arquivo:** `reading-fill-the-story--thumb.png`
-- **Prompt:**
-> An open illustrated storybook with tiny golden stars and bookmarks resting beside a pair of reading glasses. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Reading: Holiday Postcards (`reading-holiday-postcards`)
-- **Arquivo:** `reading-holiday-postcards--thumb.png`
-- **Prompt:**
-> A small stack of blank illustrated postcards next to an open suitcase and a straw sun hat. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Reading Restaurant Reviews (`reading-restaurant-reviews`)
-- **Arquivo:** `reading-restaurant-reviews--thumb.png`
-- **Prompt:**
-> A phone screen showing five gold stars and a food review aspect ratio 16:10. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Reading: Science News (`reading-science-news`)
-- **Arquivo:** `reading-science-news--thumb.png`
-- **Prompt:**
-> A microscope on a lab table beside a small branch of coral and a model of a distant planet. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### All About Me (`all-about-me`)
-- **Arquivo:** `all-about-me--thumb.png`
-- **Prompt:**
-> A smiling child holding up a drawing of their family, surrounded by a ball, a cat and a bowl of fruit. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
-
-### Ethical Dilemmas & Deep Debates (`ethical-dilemmas-and-debates`)
-- **Arquivo:** `ethical-dilemmas-and-debates--thumb.png`
-- **Prompt:**
-> An elegant vintage brass justice balance resting upon two thick philosophical tomes. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10
 
 ### Conversation Challenge Board (`quiz-board-conversation-challenges`)
 - **Arquivo:** `quiz-board-conversation-challenges--thumb.png`
