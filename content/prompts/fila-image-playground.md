@@ -1449,7 +1449,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `quiz-board-conversation-challenges` (17 imagens)
 
-- [ ] **Arquivo:** `quiz-board-conversation-challenges--thumb.png`
+- [x] **Arquivo:** `quiz-board-conversation-challenges--thumb.png`
   - **Descrição / Conceito:** Two friendly speech bubbles shaped like golden trophies on an illustrated game show podium
   - **Prompt completo:** `Two friendly speech bubbles shaped like golden trophies on an illustrated game show podium. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1543,7 +1543,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `workplace-roleplays-and-debates` (9 imagens)
 
-- [ ] **Arquivo:** `workplace-roleplays-and-debates--thumb.png`
+- [x] **Arquivo:** `workplace-roleplays-and-debates--thumb.png`
   - **Descrição / Conceito:** Two professionals having a discussion at a conference table with laptops and coffee cups aspect ratio 16:10
   - **Prompt completo:** `Two professionals having a discussion at a conference table with laptops and coffee cups aspect ratio 16:10`
 
@@ -1615,7 +1615,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `would-you-rather-teens-and-adults` (7 imagens)
 
-- [ ] **Arquivo:** `would-you-rather-teens-and-adults--thumb.png`
+- [x] **Arquivo:** `would-you-rather-teens-and-adults--thumb.png`
   - **Descrição / Conceito:** Two rustic wooden directional arrows pointing in opposite directions with small whimsical questions marks
   - **Prompt completo:** `Two rustic wooden directional arrows pointing in opposite directions with small whimsical questions marks. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1661,7 +1661,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `academic-and-formal-words` (9 imagens)
 
-- [ ] **Arquivo:** `academic-and-formal-words--thumb.png`
+- [x] **Arquivo:** `academic-and-formal-words--thumb.png`
   - **Descrição / Conceito:** A classic fountain pen resting across an open hardcover academic book with delicate ribbon bookmark
   - **Prompt completo:** `A classic fountain pen resting across an open hardcover academic book with delicate ribbon bookmark. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1699,7 +1699,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `collocations-make-and-do` (11 imagens)
 
-- [ ] **Arquivo:** `collocations-make-and-do--thumb.png`
+- [x] **Arquivo:** `collocations-make-and-do--thumb.png`
   - **Descrição / Conceito:** Two pairs of hands at a table, one shaping clay into a bowl and the other washing a plate
   - **Prompt completo:** `Two pairs of hands at a table, one shaping clay into a bowl and the other washing a plate. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1745,7 +1745,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `daily-routines-and-habits` (9 imagens)
 
-- [ ] **Arquivo:** `daily-routines-and-habits--thumb.png`
+- [x] **Arquivo:** `daily-routines-and-habits--thumb.png`
   - **Descrição / Conceito:** An alarm clock, a warm coffee mug and an open morning planner on a tidy bedside table
   - **Prompt completo:** `An alarm clock, a warm coffee mug and an open morning planner on a tidy bedside table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1783,7 +1783,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `false-friends-english-portuguese` (9 imagens)
 
-- [ ] **Arquivo:** `false-friends-english-portuguese--thumb.png`
+- [x] **Arquivo:** `false-friends-english-portuguese--thumb.png`
   - **Descrição / Conceito:** Two similar decorative masks looking at each other with one holding a subtle magnifying glass
   - **Prompt completo:** `Two similar decorative masks looking at each other with one holding a subtle magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1855,7 +1855,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `personality-and-character-traits` (11 imagens)
 
-- [ ] **Arquivo:** `personality-and-character-traits--thumb.png`
+- [x] **Arquivo:** `personality-and-character-traits--thumb.png`
   - **Descrição / Conceito:** A group of diverse smiling people expressing different emotions and friendly attitudes aspect ratio 16:10
   - **Prompt completo:** `A group of diverse smiling people expressing different emotions and friendly attitudes aspect ratio 16:10`
 
@@ -1935,7 +1935,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `prepositional-phrases-in-depth` (9 imagens)
 
-- [ ] **Arquivo:** `prepositional-phrases-in-depth--thumb.png`
+- [x] **Arquivo:** `prepositional-phrases-in-depth--thumb.png`
   - **Descrição / Conceito:** A compass resting on an open vintage map beside a brass magnifying glass
   - **Prompt completo:** `A compass resting on an open vintage map beside a brass magnifying glass. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -1973,7 +1973,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `travel-vocabulary` (11 imagens)
 
-- [ ] **Arquivo:** `travel-vocabulary--thumb.png`
+- [x] **Arquivo:** `travel-vocabulary--thumb.png`
   - **Descrição / Conceito:** A suitcase and a passport on a table aspect ratio 16:10
   - **Prompt completo:** `A suitcase and a passport on a table aspect ratio 16:10`
 
@@ -2019,7 +2019,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `weather-words` (13 imagens)
 
-- [ ] **Arquivo:** `weather-words--thumb.png`
+- [x] **Arquivo:** `weather-words--thumb.png`
   - **Descrição / Conceito:** A bright sun, a fluffy cloud, falling raindrops and a snowflake above a green hill
   - **Prompt completo:** `A bright sun, a fluffy cloud, falling raindrops and a snowflake above a green hill. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -2073,7 +2073,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `building-descriptions-sentences` (1 imagens)
 
-- [ ] **Arquivo:** `building-descriptions-sentences--thumb.png`
+- [x] **Arquivo:** `building-descriptions-sentences--thumb.png`
   - **Descrição / Conceito:** An artist sketchbook and colored drawing pencils showing miniature sketches of cozy city buildings
   - **Prompt completo:** `An artist sketchbook and colored drawing pencils showing miniature sketches of cozy city buildings. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
