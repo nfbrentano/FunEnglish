@@ -1,6 +1,6 @@
 # [FIX] Ajuste de Classe de Aspect Ratio no CategoryView
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -37,8 +37,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o arquivo `src/components/catalog/category-view.tsx`, quando inspecionado pelo linter, então a classe `aspect-4/3` é utilizada no lugar de `aspect-[4/3]` e nenhum aviso é gerado.
-- [ ] **CA02:** Dado que a correção foi aplicada, quando executados os testes e o build, então todo o conjunto passa sem erros.
+- [x] **CA01:** Dado o arquivo `src/components/catalog/category-view.tsx`, quando inspecionado pelo linter, então a classe `aspect-4/3` é utilizada no lugar de `aspect-[4/3]` e nenhum aviso é gerado.
+- [x] **CA02:** Dado que a correção foi aplicada, quando executados os testes e o build, então todo o conjunto passa sem erros.
 
 ## O que a atividade não inclui
 
