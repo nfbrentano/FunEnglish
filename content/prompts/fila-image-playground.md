@@ -17,7 +17,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `crazy-world-facts-and-riddles` (8 imagens)
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-1.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-1.png`
   - **Descrição / Conceito:** Riddle: What has keys but cannot open a single door, and has space but no rooms?
   - **Prompt completo:** `Riddle: What has keys but cannot open a single door, and has space but no rooms?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -1655,7 +1655,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** What does the speaker suggest?
   - **Prompt completo:** `What does the speaker suggest?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ted-keep-your-goals-to-yourself--question-7.png`
+- [x] **Arquivo:** `ted-keep-your-goals-to-yourself--question-7.png`
   - **Descrição / Conceito:** In the talk, "resist the temptation" means…
   - **Prompt completo:** `In the talk, "resist the temptation" means…. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
