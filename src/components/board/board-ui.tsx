@@ -1,10 +1,19 @@
 "use client";
 
-import { PanelLeft, PanelTop } from "lucide-react";
+import { Bold, Check, Eraser, PanelLeft, PanelTop, Spline } from "lucide-react";
 import type { ReactNode } from "react";
 import { BOARD_INKS, BOARD_SURFACES, type BoardInk, type BoardSurface } from "@/lib/board/ink";
 import { setDockPosition, type BoardDockPosition } from "@/lib/board/preferences";
-import { BOARD_PEN_WIDTH_KEYS, BOARD_PEN_WIDTHS, type BoardPenWidthKey } from "@/lib/board/types";
+import {
+  BOARD_PEN_WIDTH_KEYS,
+  BOARD_PEN_WIDTHS,
+  BOARD_TEXT_SIZES,
+  BOARD_TEXT_SIZE_KEYS,
+  type BoardEraserMode,
+  type BoardPenWidthKey,
+  type BoardTextBox,
+  type BoardTextSizeKey,
+} from "@/lib/board/types";
 import { strings } from "@/lib/strings";
 
 /**
@@ -347,5 +356,186 @@ export function MenuItem({
       {icon}
       {label}
     </button>
+  );
+}
+
+/** Eraser mode picker: object (whole stroke) or area (RF01, RF02). */
+export function EraserModePicker({
+  mode,
+  onChange,
+}: {
+  mode: BoardEraserMode;
+  onChange: (mode: BoardEraserMode) => void;
+}) {
+  return (
+    <>
+      <div role="radiogroup" aria-label={s.eraserModes} className="space-y-0.5">
+        {(
+          [
+            [
+              "object",
+              s.eraseObjects,
+              <Spline key="o" aria-hidden="true" className="size-4" />,
+            ],
+            ["area", s.eraseArea, <Eraser key="a" aria-hidden="true" className="size-4" />],
+          ] as const
+        ).map(([m, label, modeIcon]) => (
+          <button
+            key={m}
+            type="button"
+            role="radio"
+            aria-checked={mode === m}
+            onClick={() => onChange(m)}
+            className={`flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11 ${
+              mode === m
+                ? "bg-accent-muted text-fg"
+                : "text-fg-secondary hover:bg-accent-muted hover:text-fg"
+            }`}
+          >
+            {modeIcon}
+            <span className="flex-1">{label}</span>
+            {mode === m && <Check aria-hidden="true" className="size-4 text-accent" />}
+          </button>
+        ))}
+      </div>
+      <p className="px-3 pt-1.5 pb-1 text-[11px] text-muted">⇧E</p>
+    </>
+  );
+}
+
+export interface TextFormatBarProps {
+  selectedTexts: BoardTextBox[];
+  surface: BoardSurface;
+  dockPosition?: BoardDockPosition;
+  onStepFontSize: (direction: 1 | -1) => void;
+  onSetTextSize: (key: BoardTextSizeKey) => void;
+  onToggleBold: () => void;
+  onSetColor: (color: BoardInk) => void;
+}
+
+/** Floating format bar shown when one or more text boxes are selected (RF05-RF11). */
+export function TextFormatBar({
+  selectedTexts,
+  surface,
+  dockPosition = "left",
+  onStepFontSize,
+  onSetTextSize,
+  onToggleBold,
+  onSetColor,
+}: TextFormatBarProps) {
+  if (selectedTexts.length === 0) return null;
+
+  const palette = BOARD_SURFACES[surface];
+  const allBold = selectedTexts.every((t) => t.bold);
+  const firstColor = selectedTexts[0]?.color;
+  const commonColor = selectedTexts.every((t) => t.color === firstColor) ? firstColor : null;
+
+  return (
+    <div
+      role="toolbar"
+      aria-label={s.textFormat}
+      className={`pointer-events-auto absolute left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 rounded-2xl border border-border-subtle bg-elevated/95 p-1 shadow-lg backdrop-blur-md transition-all duration-150 ${
+        dockPosition === "top" ? "top-28 @5xl:top-16" : "top-3"
+      }`}
+    >
+      {/* Decrease font size */}
+      <button
+        type="button"
+        data-board-control="true"
+        onPointerDown={(e) => e.preventDefault()}
+        onClick={() => onStepFontSize(-1)}
+        aria-label={s.fontSmaller}
+        title={`${s.fontSmaller} (⌘⇧<)`}
+        className="flex size-8 items-center justify-center rounded-xl text-xs font-bold text-fg transition-colors hover:bg-accent-muted focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:size-10"
+      >
+        A−
+      </button>
+
+      {/* Preset sizes S / M / L / XL */}
+      <div className="flex items-center gap-0.5">
+        {BOARD_TEXT_SIZE_KEYS.map((key) => {
+          const isSelected = selectedTexts.every((t) => t.fontSize === BOARD_TEXT_SIZES[key]);
+          return (
+            <button
+              key={key}
+              type="button"
+              data-board-control="true"
+              onPointerDown={(e) => e.preventDefault()}
+              onClick={() => onSetTextSize(key)}
+              aria-pressed={isSelected}
+              aria-label={
+                key === "s"
+                  ? s.textSizeS
+                  : key === "m"
+                    ? s.textSizeM
+                    : key === "l"
+                      ? s.textSizeL
+                      : s.textSizeXL
+              }
+              className={`flex size-8 items-center justify-center rounded-xl text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:size-10 ${
+                isSelected ? "bg-accent text-primary" : "text-fg hover:bg-accent-muted"
+              }`}
+            >
+              {key.toUpperCase()}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Increase font size */}
+      <button
+        type="button"
+        data-board-control="true"
+        onPointerDown={(e) => e.preventDefault()}
+        onClick={() => onStepFontSize(1)}
+        aria-label={s.fontLarger}
+        title={`${s.fontLarger} (⌘⇧>)`}
+        className="flex size-8 items-center justify-center rounded-xl text-xs font-bold text-fg transition-colors hover:bg-accent-muted focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:size-10"
+      >
+        A+
+      </button>
+
+      <Divider vertical />
+
+      {/* Bold toggle */}
+      <button
+        type="button"
+        data-board-control="true"
+        onPointerDown={(e) => e.preventDefault()}
+        onClick={onToggleBold}
+        aria-pressed={allBold}
+        aria-label={s.bold}
+        title={`${s.bold} (⌘B)`}
+        className={`flex size-8 items-center justify-center rounded-xl transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:size-10 ${
+          allBold ? "bg-accent text-primary" : "text-fg hover:bg-accent-muted"
+        }`}
+      >
+        <Bold aria-hidden="true" className="size-4" />
+      </button>
+
+      <Divider vertical />
+
+      {/* Inks */}
+      <div role="radiogroup" aria-label={s.textColor} className="flex items-center gap-1 px-1">
+        {BOARD_INKS.map((ink) => (
+          <button
+            key={ink}
+            type="button"
+            role="radio"
+            data-board-control="true"
+            onPointerDown={(e) => e.preventDefault()}
+            onClick={() => onSetColor(ink)}
+            aria-label={s.inks[ink]}
+            aria-checked={commonColor === ink}
+            style={{ backgroundColor: palette.ink[ink] }}
+            className={`size-6 rounded-full transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:size-7 ${
+              commonColor === ink
+                ? "ring-2 ring-accent ring-offset-2 ring-offset-elevated scale-110"
+                : ""
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

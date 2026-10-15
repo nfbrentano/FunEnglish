@@ -10,20 +10,30 @@ function distanceToSegment(p: Point, a: Point, b: Point): number {
   return Math.hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy));
 }
 
+/** Whether the point touches a stroke polyline with the given width and tolerance radius. */
+export function strokeContainsPoint(
+  points: Point[],
+  width: number,
+  pt: Point,
+  radius = 0,
+): boolean {
+  const reach = radius + width / 2;
+  const [first, ...rest] = points;
+  if (!first) return false;
+  if (rest.length === 0) return Math.hypot(pt.x - first.x, pt.y - first.y) <= reach;
+  let previous = first;
+  for (const current of rest) {
+    if (distanceToSegment(pt, previous, current) <= reach) return true;
+    previous = current;
+  }
+  return false;
+}
+
 /** Whether the point (page coordinates) touches the item, with `radius` of tolerance. */
 export function itemContainsPoint(item: BoardItem, pt: Point, radius = 0): boolean {
   if (item.type === "stroke") {
     if (item.tool === "eraser") return false;
-    const reach = radius + item.width / 2;
-    const [first, ...rest] = item.points;
-    if (!first) return false;
-    if (rest.length === 0) return Math.hypot(pt.x - first.x, pt.y - first.y) <= reach;
-    let previous = first;
-    for (const current of rest) {
-      if (distanceToSegment(pt, previous, current) <= reach) return true;
-      previous = current;
-    }
-    return false;
+    return strokeContainsPoint(item.points, item.width, pt, radius);
   }
 
   const height =

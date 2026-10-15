@@ -13,11 +13,14 @@ import {
 import { findItemsAt } from "./hit-test";
 import { validateAndResizeBoardImage } from "./image-utils";
 import type { BoardInk, BoardSurface } from "./ink";
+import { readEraserModePreference, setEraserModePreference } from "./preferences";
+import { stepFontSize } from "./text-style";
 import {
   BOARD_ERASER_WIDTH,
   BOARD_HIGHLIGHTER_WIDTH,
   BOARD_PEN_WIDTH_KEYS,
   BOARD_PEN_WIDTHS,
+  BOARD_TEXT_SIZES,
   MAX_PAGES,
   MAX_UNDO_STEPS,
   type BoardBackground,
@@ -28,6 +31,7 @@ import {
   type BoardPenWidthKey,
   type BoardStroke,
   type BoardTextBox,
+  type BoardTextSizeKey,
   type BoardTool,
   type Point,
 } from "./types";
@@ -66,7 +70,25 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
   const [activeTool, setActiveTool] = useState<BoardTool>("pen");
   const [activeColor, setActiveColor] = useState<BoardInk>("ink");
   const [activePenWidthKey, setActivePenWidthKey] = useState<BoardPenWidthKey>("medium");
-  const [eraserMode, setEraserMode] = useState<BoardEraserMode>("area");
+  const [eraserMode, setEraserModeState] = useState<BoardEraserMode>(() =>
+    readEraserModePreference(),
+  );
+  const setEraserMode = useCallback((mode: BoardEraserMode) => {
+    setEraserModeState(mode);
+    setEraserModePreference(mode);
+  }, []);
+
+  useEffect(() => {
+    const sync = () => setEraserModeState(readEraserModePreference());
+    window.addEventListener("fun-english-board-preferences", sync);
+    return () => window.removeEventListener("fun-english-board-preferences", sync);
+  }, []);
+
+  // Text formatting preferences for newly created text boxes (RF12)
+  const [activeTextFontSize, setActiveTextFontSize] = useState<number>(24);
+  const [activeTextBold, setActiveTextBold] = useState<boolean>(false);
+  const [activeTextColor, setActiveTextColor] = useState<BoardInk | undefined>(undefined);
+
   // Items the whole-stroke eraser has touched in the current gesture, removed on release (RF06).
   const [pendingEraseIds, setPendingEraseIds] = useState<ReadonlySet<string>>(new Set());
   const pendingEraseRef = useRef<Set<string> | null>(null);
@@ -370,7 +392,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setCurrentStroke(null);
   }, [updateCurrentPageItems]);
 
-  // Text Box Operations (RF01, CA06)
+  // Text Box Operations (RF01, CA06, RF12)
   const addTextBox = useCallback(
     (x: number, y: number, initialText = "Text") => {
       const newTextBox: BoardTextBox = {
@@ -381,15 +403,115 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
         y,
         width: 320,
         height: 60,
-        fontSize: 24,
-        color: activeColor,
+        fontSize: activeTextFontSize,
+        color: activeTextColor || activeColor,
+        ...(activeTextBold ? { bold: true } : {}),
       };
       updateCurrentPageItems((items) => [...items, newTextBox]);
       setSelectedItemIds([newTextBox.id]);
       return newTextBox.id;
     },
-    [activeColor, updateCurrentPageItems],
+    [activeColor, activeTextFontSize, activeTextColor, activeTextBold, updateCurrentPageItems],
   );
+
+  // Text formatting actions for selected text boxes (RF05-RF12)
+  const selectedTexts = currentPage.items.filter(
+    (i): i is BoardTextBox => i.type === "text" && selectedItemIds.includes(i.id),
+  );
+
+  const stepSelectedFontSize = useCallback(
+    (direction: 1 | -1) => {
+      const ids = new Set(selectedItemIds);
+      const targetTexts = currentPage.items.filter(
+        (i): i is BoardTextBox => i.type === "text" && ids.has(i.id),
+      );
+      if (targetTexts.length === 0) return;
+
+      const hasChange = targetTexts.some(
+        (t) => stepFontSize(t.fontSize, direction) !== t.fontSize,
+      );
+      if (!hasChange) return;
+
+      setActiveTextFontSize((prev) => stepFontSize(prev, direction));
+      updateCurrentPageItems((items) =>
+        items.map((i) => {
+          if (i.type === "text" && ids.has(i.id)) {
+            return { ...i, fontSize: stepFontSize(i.fontSize, direction) };
+          }
+          return i;
+        }),
+      );
+    },
+    [selectedItemIds, currentPage.items, updateCurrentPageItems],
+  );
+
+  const setSelectedTextSize = useCallback(
+    (key: BoardTextSizeKey) => {
+      const ids = new Set(selectedItemIds);
+      const targetTexts = currentPage.items.filter(
+        (i): i is BoardTextBox => i.type === "text" && ids.has(i.id),
+      );
+      if (targetTexts.length === 0) return;
+
+      const newSize = BOARD_TEXT_SIZES[key];
+      const hasChange = targetTexts.some((t) => t.fontSize !== newSize);
+      if (!hasChange) return;
+
+      setActiveTextFontSize(newSize);
+      updateCurrentPageItems((items) =>
+        items.map((i) => {
+          if (i.type === "text" && ids.has(i.id)) {
+            return { ...i, fontSize: newSize };
+          }
+          return i;
+        }),
+      );
+    },
+    [selectedItemIds, currentPage.items, updateCurrentPageItems],
+  );
+
+  const setSelectedTextColor = useCallback(
+    (ink: BoardInk) => {
+      const ids = new Set(selectedItemIds);
+      const targetTexts = currentPage.items.filter(
+        (i): i is BoardTextBox => i.type === "text" && ids.has(i.id),
+      );
+      if (targetTexts.length === 0) return;
+
+      const hasChange = targetTexts.some((t) => t.color !== ink);
+      if (!hasChange) return;
+
+      setActiveTextColor(ink);
+      updateCurrentPageItems((items) =>
+        items.map((i) => {
+          if (i.type === "text" && ids.has(i.id)) {
+            return { ...i, color: ink };
+          }
+          return i;
+        }),
+      );
+    },
+    [selectedItemIds, currentPage.items, updateCurrentPageItems],
+  );
+
+  const toggleSelectedTextBold = useCallback(() => {
+    const ids = new Set(selectedItemIds);
+    const targetTexts = currentPage.items.filter(
+      (i): i is BoardTextBox => i.type === "text" && ids.has(i.id),
+    );
+    if (targetTexts.length === 0) return;
+
+    const newBold = targetTexts.some((t) => !t.bold);
+    setActiveTextBold(newBold);
+    updateCurrentPageItems((items) =>
+      items.map((i) => {
+        if (i.type === "text" && ids.has(i.id)) {
+          return { ...i, bold: newBold };
+        }
+        return i;
+      }),
+    );
+  }, [selectedItemIds, currentPage.items, updateCurrentPageItems]);
 
   const updateTextBox = useCallback(
     (id: string, text: string) => {
@@ -621,6 +743,7 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     canRedo: (redoStacks[currentPage.id]?.length || 0) > 0,
     totalPages: pages.length,
     maxPages: MAX_PAGES,
+    selectedTexts,
 
     // Actions
     setActiveTool,
@@ -628,6 +751,10 @@ export function useWhiteboard(options: UseWhiteboardOptions = {}) {
     setActivePenWidthKey,
     stepPenWidth,
     setEraserMode,
+    stepSelectedFontSize,
+    setSelectedTextSize,
+    setSelectedTextColor,
+    toggleSelectedTextBold,
     setIsExpanded,
     toggleExpanded: () => setIsExpanded((prev) => !prev),
     setSelectedItemIds,

@@ -1,6 +1,6 @@
 # [FEAT] Lousa: borracha de traço inteiro como padrão e comandos de formatação de texto
 
-> **Status:** Em revisão
+> **Status:** Concluída
 > **Autor:** AI · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade

@@ -7,7 +7,7 @@ import {
   loadBoardLocally,
   saveBoardLocally,
 } from "@/lib/board/board-persistence";
-import type { BoardPage } from "@/lib/board/types";
+import type { BoardPage, BoardStroke, BoardTextBox } from "@/lib/board/types";
 import { useWhiteboard } from "@/lib/board/use-whiteboard";
 
 describe("Whiteboard Persistence & Text Extraction (RNF01, RNF02, CA06, CA08)", () => {
@@ -283,5 +283,343 @@ describe("useWhiteboard Hook Actions & Logic (CA01, CA02, CA05)", () => {
       result.current.setBackground("lines");
     });
     expect(result.current.currentPage.background).toBe("lines");
+  });
+
+  it("CT01 / CA01: default eraser mode is object; clicking once on a stroke erases whole stroke", () => {
+    const stroke1: BoardStroke = {
+      id: "s1",
+      type: "stroke",
+      tool: "pen",
+      color: "ink",
+      width: 6,
+      points: [
+        { x: 100, y: 100 },
+        { x: 200, y: 100 },
+      ],
+    };
+    const stroke2: BoardStroke = {
+      id: "s2",
+      type: "stroke",
+      tool: "pen",
+      color: "ink",
+      width: 6,
+      points: [
+        { x: 100, y: 200 },
+        { x: 200, y: 200 },
+      ],
+    };
+
+    const initialPages: BoardPage[] = [
+      { id: "p1", background: "white", items: [stroke1, stroke2] },
+    ];
+
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "default-eraser-test", initialPages }),
+    );
+
+    // Verify default eraser mode is "object" (RF01)
+    expect(result.current.eraserMode).toBe("object");
+
+    act(() => {
+      result.current.setActiveTool("eraser");
+    });
+
+    // Click on stroke1
+    act(() => {
+      result.current.startDrawing({ x: 150, y: 100 });
+    });
+    expect(result.current.pendingEraseIds.has("s1")).toBe(true);
+    act(() => {
+      result.current.finishDrawing();
+    });
+
+    // s1 should be erased, s2 remains
+    expect(result.current.currentPage.items.map((i) => i.id)).toEqual(["s2"]);
+
+    // A single undo restores s1
+    act(() => {
+      result.current.undo();
+    });
+    expect(result.current.currentPage.items.map((i) => i.id)).toEqual(["s1", "s2"]);
+  });
+
+  it("CT02 / CA02: dragging across 2 strokes in object mode erases both; 1 undo restores both", () => {
+    const stroke1: BoardStroke = {
+      id: "s1",
+      type: "stroke",
+      tool: "pen",
+      color: "ink",
+      width: 6,
+      points: [
+        { x: 100, y: 100 },
+        { x: 200, y: 100 },
+      ],
+    };
+    const stroke2: BoardStroke = {
+      id: "s2",
+      type: "stroke",
+      tool: "pen",
+      color: "ink",
+      width: 6,
+      points: [
+        { x: 100, y: 200 },
+        { x: 200, y: 200 },
+      ],
+    };
+
+    const initialPages: BoardPage[] = [
+      { id: "p1", background: "white", items: [stroke1, stroke2] },
+    ];
+
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "multi-erase-test", initialPages }),
+    );
+
+    act(() => {
+      result.current.setActiveTool("eraser");
+    });
+
+    // Drag crossing both lines
+    act(() => {
+      result.current.startDrawing({ x: 150, y: 100 });
+      result.current.continueDrawing({ x: 150, y: 150 });
+      result.current.continueDrawing({ x: 150, y: 200 });
+    });
+    expect(result.current.pendingEraseIds.has("s1")).toBe(true);
+    expect(result.current.pendingEraseIds.has("s2")).toBe(true);
+
+    act(() => {
+      result.current.finishDrawing();
+    });
+
+    // Both should be erased
+    expect(result.current.currentPage.items).toHaveLength(0);
+
+    // A single undo restores both
+    act(() => {
+      result.current.undo();
+    });
+    expect(result.current.currentPage.items.map((i) => i.id)).toEqual(["s1", "s2"]);
+  });
+
+  it("CT08 / CA07: setSelectedTextSize updates font size of all selected texts and ignores strokes", () => {
+    const text1: BoardTextBox = {
+      id: "t1",
+      type: "text",
+      text: "hello",
+      x: 50,
+      y: 50,
+      width: 200,
+      height: 50,
+      fontSize: 24,
+      color: "ink",
+    };
+    const text2: BoardTextBox = {
+      id: "t2",
+      type: "text",
+      text: "world",
+      x: 50,
+      y: 150,
+      width: 200,
+      height: 50,
+      fontSize: 24,
+      color: "ink",
+    };
+    const stroke1: BoardStroke = {
+      id: "s1",
+      type: "stroke",
+      tool: "pen",
+      color: "ink",
+      width: 6,
+      points: [{ x: 10, y: 10 }],
+    };
+
+    const initialPages: BoardPage[] = [
+      { id: "p1", background: "white", items: [text1, text2, stroke1] },
+    ];
+
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "format-text-test", initialPages }),
+    );
+
+    // Select text1, text2 and stroke1
+    act(() => {
+      result.current.setSelectedItemIds(["t1", "t2", "s1"]);
+    });
+
+    expect(result.current.selectedTexts.map((t) => t.id)).toEqual(["t1", "t2"]);
+
+    // Change to size 'l' (36px)
+    act(() => {
+      result.current.setSelectedTextSize("l");
+    });
+
+    const items = result.current.currentPage.items;
+    const updatedT1 = items.find((i) => i.id === "t1") as BoardTextBox;
+    const updatedT2 = items.find((i) => i.id === "t2") as BoardTextBox;
+    const unchangedS1 = items.find((i) => i.id === "s1") as BoardStroke;
+
+    expect(updatedT1.fontSize).toBe(36);
+    expect(updatedT2.fontSize).toBe(36);
+    expect(unchangedS1.width).toBe(6);
+
+    // Single undo reverts both texts back to 24px
+    act(() => {
+      result.current.undo();
+    });
+    const revertedT1 = result.current.currentPage.items.find((i) => i.id === "t1") as BoardTextBox;
+    const revertedT2 = result.current.currentPage.items.find((i) => i.id === "t2") as BoardTextBox;
+    expect(revertedT1.fontSize).toBe(24);
+    expect(revertedT2.fontSize).toBe(24);
+  });
+
+  it("CT09 / CA08: setSelectedTextColor changes color of selected texts", () => {
+    const text1: BoardTextBox = {
+      id: "t1",
+      type: "text",
+      text: "colored text",
+      x: 50,
+      y: 50,
+      width: 200,
+      height: 50,
+      fontSize: 24,
+      color: "ink",
+    };
+
+    const { result } = renderHook(() =>
+      useWhiteboard({
+        sessionId: "color-text-test",
+        initialPages: [{ id: "p1", background: "white", items: [text1] }],
+      }),
+    );
+
+    act(() => {
+      result.current.setSelectedItemIds(["t1"]);
+    });
+
+    act(() => {
+      result.current.setSelectedTextColor("red");
+    });
+
+    const updated = result.current.currentPage.items[0] as BoardTextBox;
+    expect(updated.color).toBe("red");
+  });
+
+  it("CT13 / CA12: toggleSelectedTextBold toggles bold, and new text boxes inherit active formatting", () => {
+    const text1: BoardTextBox = {
+      id: "t1",
+      type: "text",
+      text: "bold test",
+      x: 50,
+      y: 50,
+      width: 200,
+      height: 50,
+      fontSize: 24,
+      color: "ink",
+    };
+
+    const { result } = renderHook(() =>
+      useWhiteboard({
+        sessionId: "bold-test",
+        initialPages: [{ id: "p1", background: "white", items: [text1] }],
+      }),
+    );
+
+    act(() => {
+      result.current.setSelectedItemIds(["t1"]);
+    });
+
+    // Make bold
+    act(() => {
+      result.current.toggleSelectedTextBold();
+    });
+    expect((result.current.currentPage.items[0] as BoardTextBox).bold).toBe(true);
+
+    // Change size to xl
+    act(() => {
+      result.current.setSelectedTextSize("xl");
+    });
+    expect((result.current.currentPage.items[0] as BoardTextBox).fontSize).toBe(56);
+
+    // Create a new text box: should inherit bold and 56 (RF12, CA12)
+    act(() => {
+      result.current.addTextBox(100, 100, "New inherited box");
+    });
+
+    const newBox = result.current.currentPage.items[1] as BoardTextBox;
+    expect(newBox.fontSize).toBe(56);
+    expect(newBox.bold).toBe(true);
+  });
+
+  it("CT14 / CA13: loads legacy board saved without bold property without error", () => {
+    const legacyJson = JSON.stringify({
+      pages: [
+        {
+          id: "p1",
+          background: "white",
+          items: [
+            {
+              id: "legacy-1",
+              type: "text",
+              text: "Legacy text without bold",
+              x: 10,
+              y: 10,
+              width: 100,
+              height: 40,
+              fontSize: 24,
+              color: "ink",
+            },
+          ],
+        },
+      ],
+      currentPageIndex: 0,
+    });
+
+    localStorage.setItem("fun-english:whiteboard:legacy-session", legacyJson);
+
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "legacy-session" }),
+    );
+
+    expect(result.current.currentPage.items).toHaveLength(1);
+    const item = result.current.currentPage.items[0] as BoardTextBox;
+    expect(item.text).toBe("Legacy text without bold");
+    expect(item.bold).toBeUndefined();
+  });
+
+  it("CA15: does not create undo entry when stepping font size at the boundary", () => {
+    const text1: BoardTextBox = {
+      id: "t1",
+      type: "text",
+      text: "boundary test",
+      x: 50,
+      y: 50,
+      width: 200,
+      height: 50,
+      fontSize: 96, // Maximum scale value
+      color: "ink",
+    };
+
+    const { result } = renderHook(() =>
+      useWhiteboard({
+        sessionId: "boundary-font-test",
+        initialPages: [{ id: "p1", background: "white", items: [text1] }],
+      }),
+    );
+
+    act(() => {
+      result.current.setSelectedItemIds(["t1"]);
+    });
+
+    expect(result.current.canUndo).toBe(false);
+
+    // Try to increase font size beyond 96
+    act(() => {
+      result.current.stepSelectedFontSize(1);
+    });
+
+    // Should stay 96 and canUndo should still be false (no undo entry recorded)
+    expect((result.current.currentPage.items[0] as BoardTextBox).fontSize).toBe(96);
+    expect(result.current.canUndo).toBe(false);
   });
 });

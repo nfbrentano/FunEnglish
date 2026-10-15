@@ -85,7 +85,10 @@ describe("Eraser modes (RF06, CA20)", () => {
 
   it("CT20: area mode adds an eraser stroke and keeps the strokes", () => {
     const { result } = renderHook(() => useWhiteboard({ sessionId: "erase-area", initialPages }));
-    act(() => result.current.setActiveTool("eraser"));
+    act(() => {
+      result.current.setActiveTool("eraser");
+      result.current.setEraserMode("area");
+    });
     act(() => {
       result.current.startDrawing({ x: 250, y: 100 });
       result.current.continueDrawing({ x: 260, y: 100 });
