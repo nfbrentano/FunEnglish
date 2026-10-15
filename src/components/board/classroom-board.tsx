@@ -10,6 +10,7 @@ import {
   Download,
   Ellipsis,
   Eraser,
+  HelpCircle,
   Highlighter,
   LoaderCircle,
   Maximize2,
@@ -43,6 +44,7 @@ import type { BoardBackground, BoardPage } from "@/lib/board/types";
 import { useWhiteboard, type UseWhiteboardOptions } from "@/lib/board/use-whiteboard";
 import { strings } from "@/lib/strings";
 import { BoardCanvas } from "./board-canvas";
+import { BoardShortcutsDialog } from "./board-shortcuts-dialog";
 import {
   BoardButton,
   Divider,
@@ -151,6 +153,7 @@ export function ClassroomBoard({
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [showDeletePageConfirm, setShowDeletePageConfirm] = useState(false);
   const [showSendWordsModal, setShowSendWordsModal] = useState(false);
+  const [showShortcuts, setShowShortcuts] = useState(false);
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [wordsNotice, setWordsNotice] = useState<string | null>(null);
 
@@ -197,7 +200,12 @@ export function ClassroomBoard({
     const focused = document.activeElement;
     if (!root || e.defaultPrevented) return;
     if (focused && focused !== document.body && !root.contains(focused)) return;
-    if (document.querySelector("dialog[open]")) return;
+    if (document.querySelector("dialog[open]")) {
+      if (showShortcuts && e.key === "Escape") {
+        setShowShortcuts(false);
+      }
+      return;
+    }
     if ((e.target as HTMLElement).closest?.("input, textarea, select, [contenteditable='true']")) {
       return;
     }
@@ -241,8 +249,17 @@ export function ClassroomBoard({
     if (e.altKey) return;
 
     if (e.key === "Escape") {
+      if (showShortcuts) {
+        setShowShortcuts(false);
+        return;
+      }
       if (openPanel) closePanel();
       else if (isExpanded) toggleExpanded();
+      return;
+    }
+    if (e.key === "?" || (e.shiftKey && e.key === "/")) {
+      e.preventDefault();
+      setShowShortcuts((prev) => !prev);
       return;
     }
     if ((e.key === "Delete" || e.key === "Backspace") && selectedItemIds.length > 0) {
@@ -416,6 +433,14 @@ export function ClassroomBoard({
               onClick={handleOpenSendWords}
             />
             <MenuItem
+              icon={<HelpCircle aria-hidden="true" className={icon} />}
+              label={s.keyboardShortcuts}
+              onClick={() => {
+                closePanel();
+                setShowShortcuts(true);
+              }}
+            />
+            <MenuItem
               danger
               icon={<Trash2 aria-hidden="true" className={icon} />}
               label={s.clear}
@@ -426,6 +451,13 @@ export function ClassroomBoard({
             />
           </Popover>
         </div>
+        <BoardButton
+          label={s.keyboardShortcuts}
+          shortcut="?"
+          tooltip="below"
+          icon={<HelpCircle aria-hidden="true" className={icon} />}
+          onClick={() => setShowShortcuts(true)}
+        />
         <BoardButton
           label={isExpanded ? s.collapseBoard : s.expandBoard}
           icon={
@@ -743,6 +775,12 @@ export function ClassroomBoard({
       >
         <p>{s.deletePageConfirm}</p>
       </Dialog>
+
+      <BoardShortcutsDialog
+        open={showShortcuts}
+        onClose={() => setShowShortcuts(false)}
+        returnFocus={focusMoreButton}
+      />
 
       <Dialog
         returnFocus={focusMoreButton}

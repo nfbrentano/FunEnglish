@@ -1,6 +1,6 @@
 # [FEAT] Guia e modal de atalhos da lousa na aplicação
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** AI · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
