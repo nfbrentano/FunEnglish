@@ -1,6 +1,6 @@
 # [FEAT] Geração das Capas (Thumbnails) Faltantes das Atividades - Lote 3 (Final)
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
 
 ## Detalhes da Atividade
@@ -40,9 +40,9 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o conjunto de 6 atividades sem capa, quando as ilustrações forem geradas, então cada uma refletirá a descrição pedagógica do respectivo prompt.
-- [ ] **CA02:** Dado que as 6 capas foram salvas em `public/images/activities/<slug>/thumb.webp`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então todas passam com proporção 16:10 e tamanho <= 200 KB.
-- [ ] **CA03:** Dado o documento `content/prompts/fila-image-playground.md`, quando o processamento for finalizado, os itens correspondentes às capas são marcados como concluídos.
+- [x] **CA01:** Dado o conjunto de 6 atividades sem capa, quando as ilustrações forem geradas, então cada uma refletirá a descrição pedagógica do respectivo prompt.
+- [x] **CA02:** Dado que as 6 capas foram salvas em `public/images/activities/<slug>/thumb.webp`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então todas passam com proporção 16:10 e tamanho <= 200 KB.
+- [x] **CA03:** Dado o documento `content/prompts/fila-image-playground.md`, quando o processamento for finalizado, os itens correspondentes às capas são marcados como concluídos.
 
 ## O que a atividade não inclui
 
