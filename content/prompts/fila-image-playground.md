@@ -2117,7 +2117,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `conjunctions-in-context` (9 imagens)
 
-- [ ] **Arquivo:** `conjunctions-in-context--thumb.png`
+- [x] **Arquivo:** `conjunctions-in-context--thumb.png`
   - **Descrição / Conceito:** Two puzzle pieces interlocking seamlessly on a writer desk beside a glass inkwell and dip pen
   - **Prompt completo:** `Two puzzle pieces interlocking seamlessly on a writer desk beside a glass inkwell and dip pen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -2155,7 +2155,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `connecting-clauses-because-and-so` (1 imagens)
 
-- [ ] **Arquivo:** `connecting-clauses-because-and-so--thumb.png`
+- [x] **Arquivo:** `connecting-clauses-because-and-so--thumb.png`
   - **Descrição / Conceito:** Two interlocking wooden bridge puzzle pieces connecting two paper scrolls on a desk
   - **Prompt completo:** `Two interlocking wooden bridge puzzle pieces connecting two paper scrolls on a desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -2199,13 +2199,13 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `formal-email-sentences` (1 imagens)
 
-- [ ] **Arquivo:** `formal-email-sentences--thumb.png`
+- [x] **Arquivo:** `formal-email-sentences--thumb.png`
   - **Descrição / Conceito:** A sleek fountain pen resting beside a sealed correspondence envelope with a wax stamp on a desk
   - **Prompt completo:** `A sleek fountain pen resting beside a sealed correspondence envelope with a wax stamp on a desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
 ## Atividade: `giving-opinions-sentence-builder` (1 imagens)
 
-- [ ] **Arquivo:** `giving-opinions-sentence-builder--thumb.png`
+- [x] **Arquivo:** `giving-opinions-sentence-builder--thumb.png`
   - **Descrição / Conceito:** Two speech bubbles crafted from folded origami paper facing each other on a study desk
   - **Prompt completo:** `Two speech bubbles crafted from folded origami paper facing each other on a study desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
@@ -2245,7 +2245,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `opinion-essays-and-arguments` (7 imagens)
 
-- [ ] **Arquivo:** `opinion-essays-and-arguments--thumb.png`
+- [x] **Arquivo:** `opinion-essays-and-arguments--thumb.png`
   - **Descrição / Conceito:** A balance scale weighing a quill pen against a lightbulb symbolizing debate aspect ratio 16:10
   - **Prompt completo:** `A balance scale weighing a quill pen against a lightbulb symbolizing debate aspect ratio 16:10`
 
@@ -2301,7 +2301,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `writing-complaint-letters` (7 imagens)
 
-- [ ] **Arquivo:** `writing-complaint-letters--thumb.png`
+- [x] **Arquivo:** `writing-complaint-letters--thumb.png`
   - **Descrição / Conceito:** A formal sealed envelope resting beside a clean notepad and an elegant fountain pen
   - **Prompt completo:** `A formal sealed envelope resting beside a clean notepad and an elegant fountain pen. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
