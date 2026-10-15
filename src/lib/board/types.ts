@@ -33,6 +33,8 @@ export interface BoardTextBox {
   height: number;
   fontSize: number;
   color: string;
+  /** Optional so boards saved before text formatting still load (RNF01, CA13). */
+  bold?: boolean;
 }
 
 export interface BoardImage {
@@ -63,8 +65,22 @@ export interface BoardData {
 
 export type { BoardInk as BoardColor } from "./ink";
 
-/** "area" cuts through ink where it passes; "object" removes whole strokes, texts and images (RF06). */
+/** "area" cuts through ink where it passes; "object" removes whole strokes, texts and images (RF01, RF06). */
 export type BoardEraserMode = "area" | "object";
+export const DEFAULT_ERASER_MODE: BoardEraserMode = "object";
+
+export const BOARD_TEXT_SIZES = {
+  s: 18,
+  m: 24,
+  l: 36,
+  xl: 56,
+} as const;
+
+export type BoardTextSizeKey = keyof typeof BOARD_TEXT_SIZES;
+export const BOARD_TEXT_SIZE_KEYS: BoardTextSizeKey[] = ["s", "m", "l", "xl"];
+
+/** Scale of font sizes stepped by A− / A+ (RF06). */
+export const BOARD_FONT_SCALE = [12, 14, 16, 18, 20, 24, 28, 32, 36, 44, 56, 72, 96] as const;
 
 export const BOARD_PEN_WIDTHS = {
   thin: 3,

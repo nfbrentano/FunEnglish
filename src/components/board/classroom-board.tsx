@@ -49,11 +49,13 @@ import {
   Dock,
   DockDivider,
   DockPositionToggle,
+  EraserModePicker,
   InkPicker,
   Island,
   MenuItem,
   SegmentedOptions,
   StyleSwatch,
+  TextFormatBar,
   dockPopoverClasses,
 } from "./board-ui";
 
@@ -96,6 +98,7 @@ export function ClassroomBoard({
     activePenWidthKey,
     eraserMode,
     selectedItemIds,
+    selectedTexts,
     isSaving,
     isExpanded,
     errorMessage,
@@ -109,6 +112,10 @@ export function ClassroomBoard({
     setActivePenWidthKey,
     stepPenWidth,
     setEraserMode,
+    stepSelectedFontSize,
+    setSelectedTextSize,
+    setSelectedTextColor,
+    toggleSelectedTextBold,
     toggleExpanded,
     clearErrorMessage,
     switchPage,
@@ -211,6 +218,23 @@ export function ClassroomBoard({
       } else if (key === "d") {
         e.preventDefault();
         duplicateSelectedItems();
+      } else if (key === "b" && selectedTexts.length > 0) {
+        e.preventDefault();
+        toggleSelectedTextBold();
+      } else if (
+        e.shiftKey &&
+        (e.key === ">" || e.key === "." || key === ">") &&
+        selectedTexts.length > 0
+      ) {
+        e.preventDefault();
+        stepSelectedFontSize(1);
+      } else if (
+        e.shiftKey &&
+        (e.key === "<" || e.key === "," || key === "<") &&
+        selectedTexts.length > 0
+      ) {
+        e.preventDefault();
+        stepSelectedFontSize(-1);
       }
       return;
     }
@@ -270,6 +294,17 @@ export function ClassroomBoard({
       }`}
     >
       <BoardCanvas board={board} surface={surface} />
+
+      {/* Text Format Bar (RF05-RF11) */}
+      <TextFormatBar
+        selectedTexts={selectedTexts}
+        surface={surface}
+        dockPosition={dockPosition}
+        onStepFontSize={stepSelectedFontSize}
+        onSetTextSize={setSelectedTextSize}
+        onToggleBold={toggleSelectedTextBold}
+        onSetColor={setSelectedTextColor}
+      />
 
       {/* Top-left: page context and save status (RF10, RF13) */}
       <div className="pointer-events-none absolute top-3 left-3 z-30 flex max-w-[calc(100%-13rem)] items-center gap-2">
@@ -465,41 +500,13 @@ export function ClassroomBoard({
             label={s.eraserModes}
             className={`w-56 ${besideDock}`}
           >
-            <div role="radiogroup" aria-label={s.eraserModes} className="space-y-0.5">
-              {(
-                [
-                  ["area", s.eraseArea, <Eraser key="a" aria-hidden="true" className={icon} />],
-                  [
-                    "object",
-                    s.eraseObjects,
-                    <Spline key="o" aria-hidden="true" className={icon} />,
-                  ],
-                ] as const
-              ).map(([mode, label, modeIcon]) => (
-                <button
-                  key={mode}
-                  type="button"
-                  role="radio"
-                  aria-checked={eraserMode === mode}
-                  onClick={() => {
-                    setEraserMode(mode);
-                    closePanel();
-                  }}
-                  className={`flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-sm transition-colors focus-visible:outline-2 focus-visible:outline-accent pointer-coarse:min-h-11 ${
-                    eraserMode === mode
-                      ? "bg-accent-muted text-fg"
-                      : "text-fg-secondary hover:bg-accent-muted hover:text-fg"
-                  }`}
-                >
-                  {modeIcon}
-                  <span className="flex-1">{label}</span>
-                  {eraserMode === mode && (
-                    <Check aria-hidden="true" className="size-4 text-accent" />
-                  )}
-                </button>
-              ))}
-            </div>
-            <p className="px-3 pt-1.5 pb-1 text-[11px] text-muted">⇧E</p>
+            <EraserModePicker
+              mode={eraserMode}
+              onChange={(mode) => {
+                setEraserMode(mode);
+                closePanel();
+              }}
+            />
           </Popover>
         </div>
         <BoardButton

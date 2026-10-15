@@ -219,4 +219,66 @@ describe("ClassroomBoard Component (SDD/2026-10-03_07-lousa-virtual.md)", () => 
       expect(undoBtn).not.toBeDisabled();
     });
   });
+
+  it("CT11 / CA10: TextFormatBar is hidden when no text is selected, and appears when text is selected", async () => {
+    const pageWithText: BoardPage = {
+      id: "p1",
+      background: "white",
+      items: [
+        {
+          id: "t1",
+          type: "text",
+          text: "Click me",
+          x: 100,
+          y: 100,
+          width: 200,
+          height: 60,
+          fontSize: 24,
+          color: "ink",
+        },
+      ],
+    };
+
+    render(<ClassroomBoard sessionId="format-bar-test" initialPages={[pageWithText]} />);
+
+    // Initially, no item is selected -> TextFormatBar should not be rendered
+    expect(screen.queryByRole("toolbar", { name: "Text formatting" })).not.toBeInTheDocument();
+
+    // Click on the text box
+    const textElement = screen.getByText("Click me");
+    await userEvent.click(textElement);
+
+    // Now TextFormatBar should appear
+    const formatBar = await screen.findByRole("toolbar", { name: "Text formatting" });
+    expect(formatBar).toBeInTheDocument();
+
+    // Controls should exist
+    expect(within(formatBar).getByRole("button", { name: "Decrease font size" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Increase font size" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Small font" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Medium font" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Large font" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Extra large font" })).toBeInTheDocument();
+    expect(within(formatBar).getByRole("button", { name: "Bold" })).toBeInTheDocument();
+
+    // Medium font (24px) should be selected (pressed)
+    expect(within(formatBar).getByRole("button", { name: "Medium font" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+
+    // Click Large font (36px)
+    await userEvent.click(within(formatBar).getByRole("button", { name: "Large font" }));
+    expect(within(formatBar).getByRole("button", { name: "Large font" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+
+    // Click Bold
+    await userEvent.click(within(formatBar).getByRole("button", { name: "Bold" }));
+    expect(within(formatBar).getByRole("button", { name: "Bold" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
 });

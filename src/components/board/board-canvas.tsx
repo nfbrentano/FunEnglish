@@ -81,6 +81,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     updateItemDimensions,
     deleteItem,
     pasteOrDropFile,
+    stepSelectedFontSize,
+    toggleSelectedTextBold,
   } = board;
 
   // Fit the page into the available area, keeping 16:9.
@@ -403,6 +405,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
                 onChangeText={(text) => updateTextBox(item.id, text)}
                 onStartMove={(e) => startDrag(e, item, "move")}
                 onStartResize={(e) => startDrag(e, item, "resize")}
+                onToggleBold={toggleSelectedTextBold}
+                onStepFontSize={stepSelectedFontSize}
               />
             );
           }
@@ -469,6 +473,8 @@ interface TextBoxOverlayProps {
   onChangeText: (text: string) => void;
   onStartMove: (e: ReactPointerEvent) => void;
   onStartResize: (e: ReactPointerEvent) => void;
+  onToggleBold?: () => void;
+  onStepFontSize?: (direction: 1 | -1) => void;
 }
 
 function TextBoxOverlay({
@@ -485,12 +491,15 @@ function TextBoxOverlay({
   onChangeText,
   onStartMove,
   onStartResize,
+  onToggleBold,
+  onStepFontSize,
 }: TextBoxOverlayProps) {
   // Same font metrics as the PNG export, so what you see is what gets exported.
   const textStyle = {
     color,
     fontSize: item.fontSize * pageScale,
     lineHeight: BOARD_TEXT_LINE_HEIGHT,
+    fontWeight: item.bold ? 700 : 400,
   };
 
   return (
@@ -539,7 +548,31 @@ function TextBoxOverlay({
           onChange={(e) => onChangeText(e.target.value)}
           onBlur={onFinishEdit}
           onKeyDown={(e) => {
-            if (e.key === "Escape") e.currentTarget.blur();
+            if (e.key === "Escape") {
+              e.currentTarget.blur();
+              return;
+            }
+            if (e.ctrlKey || e.metaKey) {
+              const key = e.key.toLowerCase();
+              if (key === "b" && onToggleBold) {
+                e.preventDefault();
+                onToggleBold();
+              } else if (
+                e.shiftKey &&
+                (e.key === ">" || e.key === "." || key === ">") &&
+                onStepFontSize
+              ) {
+                e.preventDefault();
+                onStepFontSize(1);
+              } else if (
+                e.shiftKey &&
+                (e.key === "<" || e.key === "," || key === "<") &&
+                onStepFontSize
+              ) {
+                e.preventDefault();
+                onStepFontSize(-1);
+              }
+            }
           }}
           placeholder={s.typeTextHere}
           style={textStyle}

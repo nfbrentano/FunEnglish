@@ -246,7 +246,7 @@ function drawText(
 ): void {
   ctx.save();
   ctx.fillStyle = resolveInk(textItem.color, surface);
-  ctx.font = `${Math.round(textItem.fontSize * scale)}px ${BOARD_TEXT_FONT}`;
+  ctx.font = `${textItem.bold ? "700 " : ""}${Math.round(textItem.fontSize * scale)}px ${BOARD_TEXT_FONT}`;
   ctx.textBaseline = "top";
 
   const lineHeight = textItem.fontSize * BOARD_TEXT_LINE_HEIGHT * scale;

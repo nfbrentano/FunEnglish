@@ -8,6 +8,7 @@ import {
   type BoardSurface,
   type BoardSurfacePreference,
 } from "./ink";
+import { DEFAULT_ERASER_MODE, type BoardEraserMode } from "./types";
 
 /**
  * Teacher preferences for the board, kept in this browser only (RF04, RF17).
@@ -18,8 +19,11 @@ import {
 export const BOARD_DOCK_POSITIONS = ["left", "top"] as const;
 export type BoardDockPosition = (typeof BOARD_DOCK_POSITIONS)[number];
 
+export const BOARD_ERASER_MODES = ["object", "area"] as const;
+
 const SURFACE_KEY = "fun-english:board-surface";
 const DOCK_KEY = "fun-english:board-dock";
+const ERASER_MODE_KEY = "fun-english:board-eraser-mode";
 const CHANGE_EVENT = "fun-english-board-preferences";
 
 const memory: Record<string, string> = {};
@@ -46,7 +50,9 @@ function write(key: string, value: string): void {
 
 function subscribe(onChange: () => void): () => void {
   const onStorage = (event: StorageEvent) => {
-    if (event.key === SURFACE_KEY || event.key === DOCK_KEY) onChange();
+    if (event.key === SURFACE_KEY || event.key === DOCK_KEY || event.key === ERASER_MODE_KEY) {
+      onChange();
+    }
   };
   window.addEventListener(CHANGE_EVENT, onChange);
   window.addEventListener("storage", onStorage);
@@ -63,6 +69,14 @@ export const setSurfacePreference = (value: BoardSurfacePreference) => write(SUR
 export const readDockPosition = () =>
   read<BoardDockPosition>(DOCK_KEY, BOARD_DOCK_POSITIONS, "left");
 export const setDockPosition = (value: BoardDockPosition) => write(DOCK_KEY, value);
+
+export const readEraserModePreference = () =>
+  read<BoardEraserMode>(ERASER_MODE_KEY, BOARD_ERASER_MODES, DEFAULT_ERASER_MODE);
+export const setEraserModePreference = (value: BoardEraserMode) => write(ERASER_MODE_KEY, value);
+
+export function useEraserMode(): BoardEraserMode {
+  return useSyncExternalStore(subscribe, readEraserModePreference, () => DEFAULT_ERASER_MODE);
+}
 
 const readSiteTheme = () => document.documentElement.dataset.theme ?? "dark";
 

@@ -5,13 +5,14 @@ import { Stage, Layer, Line } from "react-konva";
 import type Konva from "konva";
 import type { KonvaEventObject } from "konva/lib/Node";
 import { getDatabaseInstance } from "@/lib/firebase";
-import { ref, onValue, set, remove } from "firebase/database";
-import { Eraser, Pencil, Radio, Trash2, X } from "lucide-react";
+import { ref, onValue, set, remove, update } from "firebase/database";
+import { Eraser, Pencil, Radio, Spline, Trash2, X } from "lucide-react";
 import {
   BoardButton,
   Dock,
   DockDivider,
   DockPositionToggle,
+  EraserModePicker,
   InkPicker,
   Island,
   StyleSwatch,
@@ -19,8 +20,9 @@ import {
 } from "@/components/board/board-ui";
 import { Popover } from "@/components/ui/popover";
 import { BOARD_SURFACES, resolveInk, type BoardInk } from "@/lib/board/ink";
-import { useBoardSurface, useDockPosition } from "@/lib/board/preferences";
+import { setEraserModePreference, useBoardSurface, useDockPosition, useEraserMode } from "@/lib/board/preferences";
 import { BOARD_PEN_WIDTHS, type BoardPenWidthKey } from "@/lib/board/types";
+import { findLiveStrokesAt } from "@/lib/live/whiteboard-hit-test";
 import { strings } from "@/lib/strings";
 
 const s = strings.whiteboard;
@@ -54,6 +56,11 @@ export function InteractiveWhiteboard({
   const [color, setColor] = useState<BoardInk>("ink");
   const [widthKey, setWidthKey] = useState<BoardPenWidthKey>("thin");
   const [showStyle, setShowStyle] = useState(false);
+  const eraserMode = useEraserMode();
+  const [showEraserMenu, setShowEraserMenu] = useState(false);
+  const [pendingEraseIds, setPendingEraseIds] = useState<ReadonlySet<string>>(new Set());
+  const pendingEraseRef = useRef<Set<string> | null>(null);
+
   const surface = useBoardSurface();
   const dockPosition = useDockPosition();
   const palette = BOARD_SURFACES[surface];
@@ -88,11 +95,41 @@ export function InteractiveWhiteboard({
     };
   }, [roomCode]);
 
+  // Keyboard shortcuts for teacher (E, Shift+E, P)
+  useEffect(() => {
+    if (!isTeacher) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      const key = e.key.toLowerCase();
+      if (key === "e") {
+        if (e.shiftKey) {
+          setEraserModePreference(eraserMode === "area" ? "object" : "area");
+        }
+        setTool("eraser");
+      } else if (key === "p") {
+        setTool("pen");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isTeacher, eraserMode]);
+
   const handlePointerDown = (e: KonvaEventObject<PointerEvent>) => {
     if (!isTeacher) return;
     const pos = e.target.getStage()?.getPointerPosition();
     if (!pos) return;
     setIsDrawing(true);
+
+    if (tool === "eraser" && eraserMode === "object") {
+      pendingEraseRef.current = new Set();
+      const hits = findLiveStrokesAt(strokes, { x: pos.x, y: pos.y }, ERASER_SIZE / 2);
+      if (hits.length > 0) {
+        hits.forEach((id) => pendingEraseRef.current?.add(id));
+        setPendingEraseIds(new Set(pendingEraseRef.current));
+      }
+      return;
+    }
+
     const newStrokeId = `stroke_${Date.now().toString().padStart(15, "0")}_${Math.floor(Math.random() * 1000)}`;
     currentStrokeIdRef.current = newStrokeId;
 
@@ -109,10 +146,22 @@ export function InteractiveWhiteboard({
   };
 
   const handlePointerMove = (e: KonvaEventObject<PointerEvent>) => {
-    if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
+    if (!isTeacher || !isDrawing) return;
     const point = e.target.getStage()?.getPointerPosition();
     if (!point) return;
 
+    if (tool === "eraser" && eraserMode === "object") {
+      const pending = pendingEraseRef.current;
+      if (!pending) return;
+      const hits = findLiveStrokesAt(strokes, { x: point.x, y: point.y }, ERASER_SIZE / 2);
+      if (hits.some((id) => !pending.has(id))) {
+        hits.forEach((id) => pending.add(id));
+        setPendingEraseIds(new Set(pending));
+      }
+      return;
+    }
+
+    if (!currentStrokeIdRef.current) return;
     setStrokes((prev) => {
       const lastStroke = prev[prev.length - 1];
       if (!lastStroke || lastStroke.id !== currentStrokeIdRef.current) return prev;
@@ -127,19 +176,34 @@ export function InteractiveWhiteboard({
   };
 
   const handlePointerUp = () => {
-    if (!isTeacher || !isDrawing || !currentStrokeIdRef.current) return;
+    if (!isTeacher || !isDrawing) return;
     setIsDrawing(false);
+
+    if (tool === "eraser" && eraserMode === "object") {
+      const erased = pendingEraseRef.current;
+      pendingEraseRef.current = null;
+      setPendingEraseIds(new Set());
+      if (erased && erased.size > 0) {
+        setStrokes((prev) => prev.filter((s) => !erased.has(s.id)));
+        const db = getDatabaseInstance();
+        const updates: Record<string, null> = {};
+        erased.forEach((id) => {
+          updates[id] = null;
+        });
+        update(ref(db, `liveRooms/${roomCode}/drawings`), updates).catch((err) =>
+          console.error("Failed to delete strokes:", err),
+        );
+      }
+      return;
+    }
+
+    if (!currentStrokeIdRef.current) return;
 
     // Sync to Firebase
     const lastStroke = strokes.find((s) => s.id === currentStrokeIdRef.current);
     if (lastStroke) {
       const db = getDatabaseInstance();
       const strokeRef = ref(db, `liveRooms/${roomCode}/drawings/${lastStroke.id}`);
-      // Throttling or batching could be added here for RNF01,
-      // but sending on mouse up guarantees final state synchronization.
-      // Sending during mousemove would require careful debouncing/throttling.
-      // To satisfy CA04 ("traço aparece ... quase instantaneamente"):
-      // Let's just save on mouseup for simplicity or write points in smaller batches.
       set(strokeRef, {
         points: lastStroke.points,
         color: lastStroke.color,
@@ -191,14 +255,44 @@ export function InteractiveWhiteboard({
               active={tool === "pen"}
               pressed={tool === "pen"}
             />
-            <BoardButton
-              label={s.eraser}
-              tooltip={dockPosition}
-              icon={<Eraser aria-hidden="true" className="size-4" />}
-              onClick={() => setTool("eraser")}
-              active={tool === "eraser"}
-              pressed={tool === "eraser"}
-            />
+            <div className="relative">
+              <BoardButton
+                label={s.eraser}
+                shortcut="E"
+                tooltip={dockPosition}
+                icon={
+                  eraserMode === "area" ? (
+                    <Eraser aria-hidden="true" className="size-4" />
+                  ) : (
+                    <Spline aria-hidden="true" className="size-4" />
+                  )
+                }
+                onClick={() => {
+                  if (tool === "eraser") setShowEraserMenu((open) => !open);
+                  else {
+                    setTool("eraser");
+                    setShowEraserMenu(false);
+                  }
+                }}
+                active={tool === "eraser"}
+                pressed={tool === "eraser"}
+                expanded={showEraserMenu}
+              />
+              <Popover
+                open={showEraserMenu}
+                onClose={() => setShowEraserMenu(false)}
+                label={s.eraserModes}
+                className={`w-56 ${dockPopoverClasses(dockPosition)}`}
+              >
+                <EraserModePicker
+                  mode={eraserMode}
+                  onChange={(mode) => {
+                    setEraserModePreference(mode);
+                    setShowEraserMenu(false);
+                  }}
+                />
+              </Popover>
+            </div>
             <DockDivider position={dockPosition} />
             <div className="relative">
               <BoardButton
@@ -281,6 +375,7 @@ export function InteractiveWhiteboard({
                 tension={0.5}
                 lineCap="round"
                 lineJoin="round"
+                opacity={pendingEraseIds.has(stroke.id) ? 0.25 : 1}
                 globalCompositeOperation={
                   stroke.tool === "eraser" ? "destination-out" : "source-over"
                 }
