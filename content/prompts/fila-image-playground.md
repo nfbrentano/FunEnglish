@@ -17,7 +17,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `crazy-world-facts-and-riddles` (8 imagens)
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-1.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-1.png`
   - **Descrição / Conceito:** Riddle: What has keys but cannot open a single door, and has space but no rooms?
   - **Prompt completo:** `Riddle: What has keys but cannot open a single door, and has space but no rooms?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -97,15 +97,15 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** A person standing outdoors under a small gray rain cloud that follows only them
   - **Prompt completo:** `A person standing outdoors under a small gray rain cloud that follows only them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-6.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-6.png`
   - **Descrição / Conceito:** A big glowing blue moon over a quiet town with dark rooftops at night
   - **Prompt completo:** `A big glowing blue moon over a quiet town with dark rooftops at night. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-7.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-7.png`
   - **Descrição / Conceito:** A person accidentally knocking over a jar of beans on a kitchen table, a friend gasping
   - **Prompt completo:** `A person accidentally knocking over a jar of beans on a kitchen table, a friend gasping. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-8.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-8.png`
   - **Descrição / Conceito:** A wooden toy mannequin missing an arm and a leg beside a shiny shop gadget
   - **Prompt completo:** `A wooden toy mannequin missing an arm and a leg beside a shiny shop gadget. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -1519,25 +1519,25 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `this-or-that-1` (3 imagens)
 
-- [ ] **Arquivo:** `this-or-that-1--card-1.png`
+- [x] **Arquivo:** `this-or-that-1--card-1.png`
   - **Descrição / Conceito:** A sunny beach with waves on the left and snowy green mountains on the right
   - **Prompt completo:** `A sunny beach with waves on the left and snowy green mountains on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `this-or-that-1--card-2.png`
+- [x] **Arquivo:** `this-or-that-1--card-2.png`
   - **Descrição / Conceito:** A stack of colorful books on the left and a movie screen with popcorn on the right
   - **Prompt completo:** `A stack of colorful books on the left and a movie screen with popcorn on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `this-or-that-1--card-3.png`
+- [x] **Arquivo:** `this-or-that-1--card-3.png`
   - **Descrição / Conceito:** A home kitchen with someone cooking on the left, friends dining at a restaurant on the right
   - **Prompt completo:** `A home kitchen with someone cooking on the left, friends dining at a restaurant on the right. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
 ## Atividade: `whats-the-best-reply` (2 imagens)
 
-- [ ] **Arquivo:** `whats-the-best-reply--question-7.png`
+- [x] **Arquivo:** `whats-the-best-reply--question-7.png`
   - **Descrição / Conceito:** Two coworkers wave goodbye to each other at the office door on a Friday afternoon
   - **Prompt completo:** `Two coworkers wave goodbye to each other at the office door on a Friday afternoon. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `whats-the-best-reply--question-8.png`
+- [x] **Arquivo:** `whats-the-best-reply--question-8.png`
   - **Descrição / Conceito:** A friendly waiter with a notepad stands beside a table where a customer holds a menu
   - **Prompt completo:** `A friendly waiter with a notepad stands beside a table where a customer holds a menu. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -1645,17 +1645,17 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `sintel-watch-and-answer` (1 imagens)
 
-- [ ] **Arquivo:** `sintel-watch-and-answer--question-6.png`
+- [x] **Arquivo:** `sintel-watch-and-answer--question-6.png`
   - **Descrição / Conceito:** How would you describe the ending?
   - **Prompt completo:** `How would you describe the ending?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
 ## Atividade: `ted-keep-your-goals-to-yourself` (2 imagens)
 
-- [ ] **Arquivo:** `ted-keep-your-goals-to-yourself--question-6.png`
+- [x] **Arquivo:** `ted-keep-your-goals-to-yourself--question-6.png`
   - **Descrição / Conceito:** What does the speaker suggest?
   - **Prompt completo:** `What does the speaker suggest?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ted-keep-your-goals-to-yourself--question-7.png`
+- [x] **Arquivo:** `ted-keep-your-goals-to-yourself--question-7.png`
   - **Descrição / Conceito:** In the talk, "resist the temptation" means…
   - **Prompt completo:** `In the talk, "resist the temptation" means…. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
