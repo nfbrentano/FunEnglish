@@ -1,7 +1,7 @@
 # [FEAT] Geração de Imagens Internas das Atividades - Lote 1
 
-> **Status:** Em andamento
-> **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-14
+> **Status:** Concluída
+> **Autor:** Antigravity · **Revisor:** Natanael Brentano · **Criada em:** 2026-10-14 · **Atualizada em:** 2026-10-16
 
 ## Detalhes da Atividade
 
@@ -40,9 +40,9 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o conjunto de 12 imagens internas faltantes para as 6 atividades, quando geradas, então cada imagem reflete a descrição pedagógica do prompt.
-- [ ] **CA02:** Dado que as 12 imagens foram salvas em `public/images/activities/<slug>/<name>.webp`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então todas passam com tamanho <= 100 KB e formato WebP.
-- [ ] **CA03:** Dado o documento `content/prompts/fila-image-playground.md`, os itens correspondentes a essas 12 imagens são marcados como concluídos.
+- [x] **CA01:** Dado o conjunto de 12 imagens internas faltantes para as 6 atividades, quando geradas, então cada imagem reflete a descrição pedagógica do prompt.
+- [x] **CA02:** Dado que as 12 imagens foram salvas em `public/images/activities/<slug>/<name>.webp`, quando executado `npx vitest run tests/unit/activities/images.test.ts`, então todas passam com tamanho <= 100 KB e formato WebP.
+- [x] **CA03:** Dado o documento `content/prompts/fila-image-playground.md`, os itens correspondentes a essas 12 imagens são marcados como concluídos.
 
 ## O que a atividade não inclui
 
