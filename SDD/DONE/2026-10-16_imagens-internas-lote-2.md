@@ -1,6 +1,6 @@
 # [FEAT] Imagens Internas das Atividades - Lote 2 (Storytelling Cards)
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Fernando Gatti Brentano · **Revisor:** Pair Programming Agent · **Criada em:** 2026-10-16 · **Atualizada em:** 2026-10-16
 
 ## Detalhes da Atividade
