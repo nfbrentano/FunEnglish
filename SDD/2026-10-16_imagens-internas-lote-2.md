@@ -43,11 +43,11 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o catálogo de atividades, quando inspecionada a pasta `public/images/activities/fun-creative-story-sparks/`, então devem existir os arquivos `card-1.webp` até `card-6.webp`.
-- [ ] **CA02:** Dado o catálogo de atividades, quando inspecionada a pasta `public/images/activities/story-starters-1/`, então devem existir os arquivos `card-1.webp` até `card-6.webp`.
-- [ ] **CA03:** Dado os arquivos WebP criados, quando medidos tamanho e dimensões, então nenhum arquivo deve exceder 100 KB e a largura máxima deve ser ≤ 960 px.
-- [ ] **CA04:** Dado o repositório do projeto, quando executado `npm test tests/unit/activities/images.test.ts`, então o teste deve passar com sucesso sem ultrapassar o limite global de 30 MB.
-- [ ] **CA05:** Dado o arquivo `content/prompts/fila-image-playground.md`, quando verificados os itens de `fun-creative-story-sparks` e `story-starters-1`, então todos devem estar marcados como concluídos `[x]`.
+- [x] **CA01:** Dado o catálogo de atividades, quando inspecionada a pasta `public/images/activities/fun-creative-story-sparks/`, então devem existir os arquivos `card-1.webp` até `card-6.webp` (100% concluído).
+- [ ] **CA02:** Dado o catálogo de atividades, quando inspecionada a pasta `public/images/activities/story-starters-1/`, então devem existir os arquivos `card-1.webp` até `card-6.webp` (5/6 concluído: card-1, card-2, card-3, card-4, card-6 presentes; card-5 aguardando reset de cota às 04:35 BRT).
+- [x] **CA03:** Dado os arquivos WebP criados, quando medidos tamanho e dimensões, então nenhum arquivo deve exceder 100 KB e a largura máxima deve ser ≤ 960 px (concluído: todas entre 14.8 KB e 39.7 KB).
+- [x] **CA04:** Dado o repositório do projeto, quando executado `npm test tests/unit/activities/images.test.ts`, então o teste deve passar com sucesso sem ultrapassar o limite global de 30 MB.
+- [ ] **CA05:** Dado o arquivo `content/prompts/fila-image-playground.md`, quando verificados os itens de `fun-creative-story-sparks` e `story-starters-1`, então todos devem estar marcados como concluídos `[x]` (11/12 marcados).
 
 ## O que a atividade não inclui
 
