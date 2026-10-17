@@ -51,27 +51,27 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `fun-creative-story-sparks` (6 imagens)
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-1.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-1.png`
   - **Descrição / Conceito:** The Midnight Museum Guard
   - **Prompt completo:** `The Midnight Museum Guard. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-2.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-2.png`
   - **Descrição / Conceito:** The Recipe That Changed the World
   - **Prompt completo:** `The Recipe That Changed the World. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-3.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-3.png`
   - **Descrição / Conceito:** The Time-Traveling Bicycle
   - **Prompt completo:** `The Time-Traveling Bicycle. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-4.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-4.png`
   - **Descrição / Conceito:** The Island of Lost Luggage
   - **Prompt completo:** `The Island of Lost Luggage. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-5.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-5.png`
   - **Descrição / Conceito:** The Weather Control Remote
   - **Prompt completo:** `The Weather Control Remote. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `fun-creative-story-sparks--card-6.png`
+- [x] **Arquivo:** `fun-creative-story-sparks--card-6.png`
   - **Descrição / Conceito:** The Pet Who Could Speak English
   - **Prompt completo:** `The Pet Who Could Speak English. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -2275,19 +2275,19 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `story-starters-1` (6 imagens)
 
-- [ ] **Arquivo:** `story-starters-1--card-1.png`
+- [x] **Arquivo:** `story-starters-1--card-1.png`
   - **Descrição / Conceito:** A shocked person opening a front door to a mysterious glowing light pouring in from outside
   - **Prompt completo:** `A shocked person opening a front door to a mysterious glowing light pouring in from outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `story-starters-1--card-2.png`
+- [x] **Arquivo:** `story-starters-1--card-2.png`
   - **Descrição / Conceito:** A beach at sunset on the last day of summer, with a strange glowing object in the sand
   - **Prompt completo:** `A beach at sunset on the last day of summer, with a strange glowing object in the sand. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `story-starters-1--card-3.png`
+- [x] **Arquivo:** `story-starters-1--card-3.png`
   - **Descrição / Conceito:** A person sitting up in bed in a dark room at night, holding a softly glowing phone
   - **Prompt completo:** `A person sitting up in bed in a dark room at night, holding a softly glowing phone. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `story-starters-1--card-4.png`
+- [x] **Arquivo:** `story-starters-1--card-4.png`
   - **Descrição / Conceito:** A child in a dusty attic unrolling an old treasure map beside an open wooden chest
   - **Prompt completo:** `A child in a dusty attic unrolling an old treasure map beside an open wooden chest. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -2295,7 +2295,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** A person looking out of a window over a sleeping town under a starry night sky
   - **Prompt completo:** `A person looking out of a window over a sleeping town under a starry night sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `story-starters-1--card-6.png`
+- [x] **Arquivo:** `story-starters-1--card-6.png`
   - **Descrição / Conceito:** A new student with a mysterious smile hiding a small glowing box under a classroom desk
   - **Prompt completo:** `A new student with a mysterious smile hiding a small glowing box under a classroom desk. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
