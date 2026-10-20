@@ -1423,27 +1423,27 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** An elegant vintage brass justice balance resting upon two thick philosophical tomes
   - **Prompt completo:** `An elegant vintage brass justice balance resting upon two thick philosophical tomes. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-1.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-1.png`
   - **Descrição / Conceito:** Autonomous Vehicles & Emergency Protocols
   - **Prompt completo:** `Autonomous Vehicles & Emergency Protocols. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-2.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-2.png`
   - **Descrição / Conceito:** Artificial Intelligence in Creative Arts
   - **Prompt completo:** `Artificial Intelligence in Creative Arts. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-3.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-3.png`
   - **Descrição / Conceito:** Genetic Enhancement & Longevity
   - **Prompt completo:** `Genetic Enhancement & Longevity. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-4.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-4.png`
   - **Descrição / Conceito:** Right to Privacy vs Public Security
   - **Prompt completo:** `Right to Privacy vs Public Security. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-5.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-5.png`
   - **Descrição / Conceito:** Universal Basic Income (UBI)
   - **Prompt completo:** `Universal Basic Income (UBI). Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `ethical-dilemmas-and-debates--card-6.png`
+- [x] **Arquivo:** `ethical-dilemmas-and-debates--card-6.png`
   - **Descrição / Conceito:** Historical Artifacts & Repatriation
   - **Prompt completo:** `Historical Artifacts & Repatriation. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -2291,7 +2291,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** A child in a dusty attic unrolling an old treasure map beside an open wooden chest
   - **Prompt completo:** `A child in a dusty attic unrolling an old treasure map beside an open wooden chest. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `story-starters-1--card-5.png`
+- [x] **Arquivo:** `story-starters-1--card-5.png`
   - **Descrição / Conceito:** A person looking out of a window over a sleeping town under a starry night sky
   - **Prompt completo:** `A person looking out of a window over a sleeping town under a starry night sky. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -2331,23 +2331,23 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `writing-emails-1` (5 imagens)
 
-- [ ] **Arquivo:** `writing-emails-1--card-1.png`
+- [x] **Arquivo:** `writing-emails-1--card-1.png`
   - **Descrição / Conceito:** A person looking sorry while writing on a laptop beside a blank party invitation card
   - **Prompt completo:** `A person looking sorry while writing on a laptop beside a blank party invitation card. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `writing-emails-1--card-2.png`
+- [x] **Arquivo:** `writing-emails-1--card-2.png`
   - **Descrição / Conceito:** A person typing on a laptop next to a picture of a used bicycle parked outside
   - **Prompt completo:** `A person typing on a laptop next to a picture of a used bicycle parked outside. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `writing-emails-1--card-3.png`
+- [x] **Arquivo:** `writing-emails-1--card-3.png`
   - **Descrição / Conceito:** Two coworkers smiling at a desk after finishing a big project together, with blank papers around them
   - **Prompt completo:** `Two coworkers smiling at a desk after finishing a big project together, with blank papers around them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `writing-emails-1--card-4.png`
+- [x] **Arquivo:** `writing-emails-1--card-4.png`
   - **Descrição / Conceito:** A person on a laptop at home with a blank calendar and a toothbrush on the table
   - **Prompt completo:** `A person on a laptop at home with a blank calendar and a toothbrush on the table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `writing-emails-1--card-5.png`
+- [x] **Arquivo:** `writing-emails-1--card-5.png`
   - **Descrição / Conceito:** A student writing on a laptop while dreaming of a class trip to the mountains
   - **Prompt completo:** `A student writing on a laptop while dreaming of a class trip to the mountains. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
