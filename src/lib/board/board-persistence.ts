@@ -5,6 +5,7 @@ import {
   type BoardData,
   type BoardItem,
   type BoardPage,
+  type BoardShape,
   type BoardStroke,
   type BoardTextBox,
 } from "./types";
@@ -166,6 +167,100 @@ export function renderBoardBackground(
       ctx.lineTo(width, y);
     }
     ctx.stroke();
+  } else if (background === "timeline") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 3 * scale;
+    ctx.beginPath();
+    const y = height / 2;
+    ctx.moveTo(80 * scale, y);
+    ctx.lineTo(width - 80 * scale, y);
+    // Arrow head
+    ctx.lineTo(width - 95 * scale, y - 10 * scale);
+    ctx.moveTo(width - 80 * scale, y);
+    ctx.lineTo(width - 95 * scale, y + 10 * scale);
+    ctx.stroke();
+
+    // Ticks
+    const ticks = [width * 0.25, width * 0.5, width * 0.75];
+    ctx.lineWidth = 2 * scale;
+    ctx.beginPath();
+    for (const x of ticks) {
+      ctx.moveTo(x, y - 18 * scale);
+      ctx.lineTo(x, y + 18 * scale);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = palette.rule;
+    ctx.font = `600 ${Math.round(15 * scale)}px sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillText("PAST", width * 0.25, y + 26 * scale);
+    ctx.fillText("PRESENT", width * 0.5, y + 26 * scale);
+    ctx.fillText("FUTURE", width * 0.75, y + 26 * scale);
+  } else if (background === "conjugation") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 2 * scale;
+    const startX = 80 * scale;
+    const endX = width - 80 * scale;
+    const startY = 80 * scale;
+    const endY = height - 80 * scale;
+    const colDividerX = startX + 220 * scale;
+
+    ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+    ctx.beginPath();
+    ctx.moveTo(colDividerX, startY);
+    ctx.lineTo(colDividerX, endY);
+
+    const rows = ["I", "You", "He / She / It", "We", "They"];
+    const rowH = (endY - startY) / rows.length;
+
+    for (let i = 1; i < rows.length; i++) {
+      ctx.moveTo(startX, startY + i * rowH);
+      ctx.lineTo(endX, startY + i * rowH);
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = palette.rule;
+    ctx.font = `600 ${Math.round(17 * scale)}px sans-serif`;
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    rows.forEach((label, i) => {
+      ctx.fillText(label, startX + 24 * scale, startY + i * rowH + rowH / 2);
+    });
+  } else if (background === "tchart") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 2 * scale;
+    const midX = width / 2;
+    const startX = 100 * scale;
+    const endX = width - 100 * scale;
+    const topY = 120 * scale;
+    const bottomY = height - 80 * scale;
+
+    ctx.beginPath();
+    ctx.moveTo(midX, topY);
+    ctx.lineTo(midX, bottomY);
+    ctx.moveTo(startX, topY);
+    ctx.lineTo(endX, topY);
+    ctx.stroke();
+  } else if (background === "calligraphy") {
+    ctx.strokeStyle = palette.rule;
+    ctx.lineWidth = 1 * scale;
+    const step = 110 * scale;
+    for (let y = 90 * scale; y < height - 90 * scale; y += step) {
+      ctx.beginPath();
+      ctx.moveTo(80 * scale, y);
+      ctx.lineTo(width - 80 * scale, y);
+      ctx.moveTo(80 * scale, y + 44 * scale);
+      ctx.lineTo(width - 80 * scale, y + 44 * scale);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.setLineDash([6 * scale, 6 * scale]);
+      ctx.moveTo(80 * scale, y + 22 * scale);
+      ctx.lineTo(width - 80 * scale, y + 22 * scale);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
   }
 }
 
@@ -183,6 +278,8 @@ export function renderBoardInk(
   for (const item of items) {
     if (item.type === "stroke") {
       drawBoardStroke(ctx, item, surface, scale, options.fadedIds?.has(item.id) ? 0.25 : 1);
+    } else if (item.type === "shape") {
+      drawShape(ctx, item, surface, scale);
     }
   }
 }
@@ -254,6 +351,44 @@ function drawText(
     ctx.fillText(line, textItem.x * scale, textItem.y * scale + index * lineHeight);
   });
 
+  ctx.restore();
+}
+
+export function drawShape(
+  ctx: CanvasRenderingContext2D,
+  shape: BoardShape,
+  surface: BoardSurface,
+  scale = 1,
+): void {
+  ctx.save();
+  ctx.strokeStyle = resolveInk(shape.color, surface);
+  ctx.lineWidth = shape.strokeWidth * scale;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  const x = shape.x * scale;
+  const y = shape.y * scale;
+  const w = shape.width * scale;
+  const h = shape.height * scale;
+
+  ctx.beginPath();
+  if (shape.shapeType === "rectangle") {
+    ctx.rect(x, y, w, h);
+  } else if (shape.shapeType === "ellipse") {
+    ctx.ellipse(x + w / 2, y + h / 2, Math.abs(w / 2), Math.abs(h / 2), 0, 0, 2 * Math.PI);
+  } else if (shape.shapeType === "line") {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + w, y + h);
+  } else if (shape.shapeType === "arrow") {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + w, y + h);
+    const angle = Math.atan2(h, w);
+    const headLen = Math.min(20 * scale, Math.hypot(w, h) * 0.4);
+    ctx.lineTo(x + w - headLen * Math.cos(angle - Math.PI / 6), y + h - headLen * Math.sin(angle - Math.PI / 6));
+    ctx.moveTo(x + w, y + h);
+    ctx.lineTo(x + w - headLen * Math.cos(angle + Math.PI / 6), y + h - headLen * Math.sin(angle + Math.PI / 6));
+  }
+  ctx.stroke();
   ctx.restore();
 }
 

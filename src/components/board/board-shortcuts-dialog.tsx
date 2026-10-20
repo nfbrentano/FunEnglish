@@ -144,6 +144,8 @@ export function BoardShortcutsDialog({
               />
               <ShortcutRow label={s.shortcutsItems.text} keys={<Kbd>T</Kbd>} />
               <ShortcutRow label={s.shortcutsItems.laser} keys={<Kbd>L</Kbd>} />
+              <ShortcutRow label="Shape" keys={<Kbd>S</Kbd>} />
+              <ShortcutRow label="Reveal Curtain" keys={<Kbd>C</Kbd>} />
             </div>
           </div>
 

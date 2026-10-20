@@ -623,3 +623,181 @@ describe("useWhiteboard Hook Actions & Logic (CA01, CA02, CA05)", () => {
     expect(result.current.canUndo).toBe(false);
   });
 });
+
+describe("Whiteboard Block C: Shapes, Language Templates & Reveal Curtain (RF10-RF13, CA11, CA12, CA15)", () => {
+  it("RF10 / CA11: draws a shape, resizes while dragging, and adds it to items upon finish", () => {
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "shape-test-1" }),
+    );
+
+    act(() => {
+      result.current.setActiveTool("shape");
+      result.current.setActiveShapeType("rectangle");
+    });
+
+    expect(result.current.activeTool).toBe("shape");
+    expect(result.current.activeShapeType).toBe("rectangle");
+
+    // Start drawing shape at (100, 100)
+    act(() => {
+      result.current.startDrawing({ x: 100, y: 100 });
+    });
+
+    expect(result.current.isDrawing).toBe(true);
+    expect(result.current.currentShape).toMatchObject({
+      type: "shape",
+      shapeType: "rectangle",
+      x: 100,
+      y: 100,
+      width: 0,
+      height: 0,
+    });
+
+    // Drag to (250, 200)
+    act(() => {
+      result.current.continueDrawing({ x: 250, y: 200 });
+    });
+
+    expect(result.current.currentShape).toMatchObject({
+      width: 150,
+      height: 100,
+    });
+
+    // Finish drawing
+    act(() => {
+      result.current.finishDrawing();
+    });
+
+    expect(result.current.isDrawing).toBe(false);
+    expect(result.current.currentShape).toBeNull();
+    expect(result.current.currentPage.items).toHaveLength(1);
+
+    const shape = result.current.currentPage.items[0];
+    expect(shape).toMatchObject({
+      type: "shape",
+      shapeType: "rectangle",
+      x: 100,
+      y: 100,
+      width: 150,
+      height: 100,
+    });
+  });
+
+  it("RF10: moves, duplicates, and deletes a shape", () => {
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "shape-test-2" }),
+    );
+
+    act(() => {
+      result.current.setActiveTool("shape");
+      result.current.setActiveShapeType("ellipse");
+    });
+
+    act(() => {
+      result.current.startDrawing({ x: 50, y: 50 });
+      result.current.continueDrawing({ x: 150, y: 150 });
+      result.current.finishDrawing();
+    });
+
+    const shapeId = result.current.currentPage.items[0].id;
+
+    // Move shape by (+30, +40)
+    act(() => {
+      result.current.setSelectedItemIds([shapeId]);
+    });
+    act(() => {
+      result.current.moveSelectedItems(30, 40);
+    });
+
+    expect(result.current.currentPage.items[0]).toMatchObject({
+      x: 80,
+      y: 90,
+    });
+
+    // Duplicate shape
+    act(() => {
+      result.current.duplicateSelectedItems();
+    });
+
+    expect(result.current.currentPage.items).toHaveLength(2);
+    expect(result.current.currentPage.items[1]).toMatchObject({
+      type: "shape",
+      x: 100,
+      y: 110,
+    });
+
+    // Delete selected shape
+    act(() => {
+      result.current.deleteSelectedItems();
+    });
+
+    expect(result.current.currentPage.items).toHaveLength(1);
+  });
+
+  it("RF11 / CA12: sets and persists language templates backgrounds", () => {
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "templates-test" }),
+    );
+
+    act(() => {
+      result.current.setBackground("timeline");
+    });
+    expect(result.current.currentPage.background).toBe("timeline");
+
+    act(() => {
+      result.current.setBackground("conjugation");
+    });
+    expect(result.current.currentPage.background).toBe("conjugation");
+
+    act(() => {
+      result.current.setBackground("tchart");
+    });
+    expect(result.current.currentPage.background).toBe("tchart");
+
+    act(() => {
+      result.current.setBackground("calligraphy");
+    });
+    expect(result.current.currentPage.background).toBe("calligraphy");
+  });
+
+  it("RF13 / CA15: handles reveal curtain tool and resets upon page switch or tool change", () => {
+    const { result } = renderHook(() =>
+      useWhiteboard({ sessionId: "curtain-test" }),
+    );
+
+    // Initial offset is 0
+    expect(result.current.curtainOffset).toBe(0);
+
+    // Activating reveal tool sets curtainOffset to 1 (full cover)
+    act(() => {
+      result.current.setActiveTool("reveal");
+    });
+
+    expect(result.current.activeTool).toBe("reveal");
+    expect(result.current.curtainOffset).toBe(1);
+
+    // Dragging curtain updates offset
+    act(() => {
+      result.current.setCurtainOffset(0.65);
+    });
+    expect(result.current.curtainOffset).toBe(0.65);
+
+    // Adding and switching page resets curtainOffset
+    act(() => {
+      result.current.addPage();
+    });
+
+    expect(result.current.curtainOffset).toBe(0);
+
+    // Switching tools away from reveal resets curtainOffset
+    act(() => {
+      result.current.setActiveTool("reveal");
+    });
+    expect(result.current.curtainOffset).toBe(1);
+
+    act(() => {
+      result.current.setActiveTool("pen");
+    });
+    expect(result.current.curtainOffset).toBe(0);
+  });
+});

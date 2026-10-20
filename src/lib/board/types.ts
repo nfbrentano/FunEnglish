@@ -4,9 +4,16 @@
  */
 
 /** "laser" points without drawing: its trail is never saved, exported or undone (RF05). */
-export type BoardTool = "pen" | "highlighter" | "eraser" | "text" | "select" | "laser";
+export type BoardTool = "pen" | "highlighter" | "eraser" | "text" | "select" | "laser" | "shape" | "reveal";
 
-export type BoardBackground = "white" | "grid" | "lines";
+export type BoardBackground =
+  | "white"
+  | "grid"
+  | "lines"
+  | "timeline"
+  | "conjugation"
+  | "tchart"
+  | "calligraphy";
 
 export interface Point {
   x: number;
@@ -37,6 +44,18 @@ export interface BoardTextBox {
   bold?: boolean;
 }
 
+export interface BoardShape {
+  id: string;
+  type: "shape";
+  shapeType: "line" | "arrow" | "rectangle" | "ellipse";
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  color: string;
+  strokeWidth: number;
+}
+
 export interface BoardImage {
   id: string;
   type: "image";
@@ -50,7 +69,7 @@ export interface BoardImage {
   naturalHeight: number;
 }
 
-export type BoardItem = BoardStroke | BoardTextBox | BoardImage;
+export type BoardItem = BoardStroke | BoardTextBox | BoardImage | BoardShape;
 
 export interface BoardPage {
   id: string;

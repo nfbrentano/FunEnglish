@@ -7,11 +7,13 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { Volume2 } from "lucide-react";
 import {
   BOARD_PAGE_HEIGHT,
   BOARD_PAGE_WIDTH,
   BOARD_TEXT_LINE_HEIGHT,
   drawBoardStroke,
+  drawShape,
   renderBoardBackground,
   renderBoardInk,
 } from "@/lib/board/board-persistence";
@@ -22,6 +24,7 @@ import {
   BOARD_PEN_WIDTHS,
   type BoardImage,
   type BoardItem,
+  type BoardShape,
   type BoardTextBox,
   type Point,
 } from "@/lib/board/types";
@@ -71,6 +74,9 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     selectedItemIds,
     isDrawing,
     currentStroke,
+    currentShape,
+    curtainOffset,
+    setCurtainOffset,
     startDrawing,
     continueDrawing,
     finishDrawing,
@@ -110,7 +116,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
   const palette = BOARD_SURFACES[surface];
 
   const [dragState, setDragState] = useState<{
-    type: "move" | "resize";
+    type: "move" | "resize" | "curtain";
     itemId: string;
     startX: number;
     startY: number;
@@ -140,7 +146,8 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     renderBoardInk(ctx, currentPage.items, surface, { scale, fadedIds: pendingEraseIds });
     if (currentStroke) drawBoardStroke(ctx, currentStroke, surface, scale);
-  }, [currentPage.items, currentStroke, pendingEraseIds, surface, pageWidth, pageHeight]);
+    if (currentShape) drawShape(ctx, currentShape, surface, scale);
+  }, [currentPage.items, currentStroke, currentShape, pendingEraseIds, surface, pageWidth, pageHeight]);
 
   /** Client position → page coordinates (1280×720). */
   const toPagePoint = useCallback((clientX: number, clientY: number): Point => {
@@ -153,7 +160,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     };
   }, []);
 
-  const drawsInk = activeTool === "pen" || activeTool === "highlighter" || activeTool === "eraser";
+  const drawsInk = activeTool === "pen" || activeTool === "highlighter" || activeTool === "eraser" || activeTool === "shape";
   const toolWidth =
     activeTool === "highlighter"
       ? BOARD_HIGHLIGHTER_WIDTH
@@ -228,12 +235,18 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
           Math.round(dragState.initialX + deltaX),
           Math.round(dragState.initialY + deltaY),
         );
-      } else {
+      } else if (dragState.type === "resize") {
         updateItemDimensions(
           dragState.itemId,
           Math.max(40, Math.round(dragState.initialWidth + deltaX)),
           Math.max(30, Math.round(dragState.initialHeight + deltaY)),
         );
+      } else if (dragState.type === "curtain") {
+        const deltaY = e.clientY - dragState.startY;
+        const rect = pageRef.current?.getBoundingClientRect();
+        const height = rect?.height || BOARD_PAGE_HEIGHT;
+        const newOffset = Math.max(0, Math.min(1, dragState.initialHeight + deltaY / height));
+        setCurtainOffset(newOffset);
       }
     }
   };
@@ -297,7 +310,7 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
     if (!selectedItemIds.includes(item.id)) {
       setSelectedItemIds([item.id]);
     }
-    if (item.type === "text" || item.type === "image") {
+    if (item.type === "text" || item.type === "image" || item.type === "shape") {
       setDragState({
         type,
         itemId: item.id,
@@ -423,6 +436,19 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
               />
             );
           }
+          if (item.type === "shape") {
+            return (
+              <ShapeOverlay
+                key={item.id}
+                item={item}
+                interactive={!drawsInk}
+                isSelected={selectedItemIds.includes(item.id)}
+                onSelect={() => setSelectedItemIds([item.id])}
+                onStartMove={(e) => startDrag(e, item, "move")}
+                onStartResize={(e) => startDrag(e, item, "resize")}
+              />
+            );
+          }
           return null;
         })}
 
@@ -436,6 +462,38 @@ export function BoardCanvas({ board, surface, className = "" }: BoardCanvasProps
               height: `${(Math.abs(lasso.end.y - lasso.start.y) / BOARD_PAGE_HEIGHT) * 100}%`,
             }}
           />
+        )}
+
+        {(activeTool === "reveal" || curtainOffset > 0) && (
+          <div
+            className="absolute top-0 inset-x-0 bg-fg z-40 transition-none select-none"
+            style={{
+              height: `${curtainOffset * 100}%`,
+              display: activeTool === "reveal" || curtainOffset > 0 ? "block" : "none",
+            }}
+          >
+            {activeTool === "reveal" && (
+              <div
+                className="absolute bottom-0 inset-x-0 h-5 bg-accent/90 cursor-ns-resize flex items-center justify-center pointer-events-auto shadow-md"
+                onPointerDown={(e) => {
+                  e.stopPropagation();
+                  (e.target as HTMLElement).setPointerCapture(e.pointerId);
+                  setDragState({
+                    type: "curtain",
+                    itemId: "curtain",
+                    startX: e.clientX,
+                    startY: e.clientY,
+                    initialX: 0,
+                    initialY: 0,
+                    initialWidth: 0,
+                    initialHeight: curtainOffset,
+                  });
+                }}
+              >
+                <div className="w-16 h-1 bg-elevated/70 rounded-full" />
+              </div>
+            )}
+          </div>
         )}
       </div>
 
@@ -529,14 +587,36 @@ function TextBoxOverlay({
       }}
     >
       {isSelected && !isEditing && (
-        <div
-          data-board-control="true"
-          onPointerDown={onStartMove}
-          title={s.dragToMove}
-          className="absolute -top-8 left-0 cursor-move rounded-md bg-accent px-2 py-0.5 text-[11px] font-semibold text-primary shadow-sm select-none"
-        >
-          {s.move}
-        </div>
+        <>
+          <div
+            data-board-control="true"
+            onPointerDown={onStartMove}
+            title={s.dragToMove}
+            className="absolute -top-8 left-0 cursor-move rounded-md bg-accent px-2 py-0.5 text-[11px] font-semibold text-primary shadow-sm select-none"
+          >
+            {s.move}
+          </div>
+          {typeof window !== "undefined" && "speechSynthesis" in window && (
+            <button
+              data-board-control="true"
+              type="button"
+              aria-label="Listen"
+              title="Listen"
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                if (!item.text.trim()) return;
+                try {
+                  const utterance = new SpeechSynthesisUtterance(item.text);
+                  utterance.lang = "en-US";
+                  window.speechSynthesis.speak(utterance);
+                } catch {}
+              }}
+              className="absolute -top-8 right-0 flex size-6 cursor-pointer items-center justify-center rounded-md bg-accent text-primary shadow-sm hover:bg-accent/80 focus-visible:outline-2 focus-visible:outline-accent"
+            >
+              <Volume2 aria-hidden="true" className="size-3.5" />
+            </button>
+          )}
+        </>
       )}
 
       {isEditing ? (
@@ -627,6 +707,70 @@ function ImageOverlay({
         top: `${(item.y / BOARD_PAGE_HEIGHT) * 100}%`,
         width: `${(item.width / BOARD_PAGE_WIDTH) * 100}%`,
         height: `${(item.height / BOARD_PAGE_HEIGHT) * 100}%`,
+      }}
+      className={`absolute z-10 rounded-sm ${interactive ? "" : "pointer-events-none"} ${
+        isSelected
+          ? "cursor-move outline-2 outline-offset-2 outline-accent"
+          : interactive
+            ? "cursor-pointer hover:outline-1 hover:outline-offset-2 hover:outline-accent/50"
+            : ""
+      }`}
+      onPointerDown={(e) => {
+        e.stopPropagation();
+        onSelect();
+        onStartMove(e);
+      }}
+    >
+      {isSelected && (
+        <div
+          data-board-control="true"
+          onPointerDown={onStartResize}
+          title={s.dragToResize}
+          className="absolute -right-2 -bottom-2 size-4 cursor-se-resize rounded-full bg-accent shadow ring-2 ring-elevated"
+        />
+      )}
+    </div>
+  );
+}
+
+// ----------------------------------------------------------------------
+// Shape Overlay: selection box and handles over drawn shapes.
+// ----------------------------------------------------------------------
+interface ShapeOverlayProps {
+  item: BoardShape;
+  interactive: boolean;
+  isSelected: boolean;
+  onSelect: () => void;
+  onStartMove: (e: ReactPointerEvent) => void;
+  onStartResize: (e: ReactPointerEvent) => void;
+}
+
+function ShapeOverlay({
+  item,
+  interactive,
+  isSelected,
+  onSelect,
+  onStartMove,
+  onStartResize,
+}: ShapeOverlayProps) {
+  let { x, y, width, height } = item;
+  if (width < 0) {
+    x += width;
+    width = Math.abs(width);
+  }
+  if (height < 0) {
+    y += height;
+    height = Math.abs(height);
+  }
+
+  return (
+    <div
+      data-board-control={interactive ? "true" : undefined}
+      style={{
+        left: `${(x / BOARD_PAGE_WIDTH) * 100}%`,
+        top: `${(y / BOARD_PAGE_HEIGHT) * 100}%`,
+        width: `${(Math.max(20, width) / BOARD_PAGE_WIDTH) * 100}%`,
+        height: `${(Math.max(20, height) / BOARD_PAGE_HEIGHT) * 100}%`,
       }}
       className={`absolute z-10 rounded-sm ${interactive ? "" : "pointer-events-none"} ${
         isSelected
