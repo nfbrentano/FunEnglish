@@ -21,31 +21,31 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** Riddle: What has keys but cannot open a single door, and has space but no rooms?
   - **Prompt completo:** `Riddle: What has keys but cannot open a single door, and has space but no rooms?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-2.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-2.png`
   - **Descrição / Conceito:** Fact: Honey found by archaeologists in ancient Egyptian tombs from 3,000 years ago is..
   - **Prompt completo:** `Fact: Honey found by archaeologists in ancient Egyptian tombs from 3,000 years ago is... Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-3.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-3.png`
   - **Descrição / Conceito:** Riddle: The more of this you take, the more you leave behind. What is it?
   - **Prompt completo:** `Riddle: The more of this you take, the more you leave behind. What is it?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-4.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-4.png`
   - **Descrição / Conceito:** Fact: An octopus has three hearts and their blood color is naturally..
   - **Prompt completo:** `Fact: An octopus has three hearts and their blood color is naturally... Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-5.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-5.png`
   - **Descrição / Conceito:** Riddle: What gets wetter and wetter the more it dries?
   - **Prompt completo:** `Riddle: What gets wetter and wetter the more it dries?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-6.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-6.png`
   - **Descrição / Conceito:** Fact: Which of these popular fruits is botanically classified as a single giant berry?
   - **Prompt completo:** `Fact: Which of these popular fruits is botanically classified as a single giant berry?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-7.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-7.png`
   - **Descrição / Conceito:** Riddle: What has a neck but no head, and wears a cap but has no hair?
   - **Prompt completo:** `Riddle: What has a neck but no head, and wears a cap but has no hair?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `crazy-world-facts-and-riddles--question-8.png`
+- [x] **Arquivo:** `crazy-world-facts-and-riddles--question-8.png`
   - **Descrição / Conceito:** Fact: How long can a garden snail sleep when environmental conditions are unfavorable?
   - **Prompt completo:** `Fact: How long can a garden snail sleep when environmental conditions are unfavorable?. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -77,23 +77,23 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
 
 ## Atividade: `guess-the-idiom-1` (8 imagens)
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-1.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-1.png`
   - **Descrição / Conceito:** A smiling student easily finishing a simple puzzle at a desk while friends watch, impressed
   - **Prompt completo:** `A smiling student easily finishing a simple puzzle at a desk while friends watch, impressed. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-2.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-2.png`
   - **Descrição / Conceito:** Two shy guests at a party, one tapping a big ice block with a tiny hammer
   - **Prompt completo:** `Two shy guests at a party, one tapping a big ice block with a tiny hammer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-3.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-3.png`
   - **Descrição / Conceito:** Cartoon cats and dogs gently falling from gray clouds onto people holding umbrellas on a street
   - **Prompt completo:** `Cartoon cats and dogs gently falling from gray clouds onto people holding umbrellas on a street. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-4.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-4.png`
   - **Descrição / Conceito:** A cheerful student playfully tapping a tall stack of books with a soft toy hammer
   - **Prompt completo:** `A cheerful student playfully tapping a tall stack of books with a soft toy hammer. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
-- [ ] **Arquivo:** `guess-the-idiom-1--question-5.png`
+- [x] **Arquivo:** `guess-the-idiom-1--question-5.png`
   - **Descrição / Conceito:** A person standing outdoors under a small gray rain cloud that follows only them
   - **Prompt completo:** `A person standing outdoors under a small gray rain cloud that follows only them. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
@@ -971,7 +971,7 @@ Guia passo a passo para gerar as imagens no **Image Playground** do Mac e import
   - **Descrição / Conceito:** A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table
   - **Prompt completo:** `A cozy sunny living room with an armchair, floor lamp, potted plant, and a wooden coffee table. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10`
 
-- [ ] **Arquivo:** `describe-the-room-and-objects--card-1.png`
+- [x] **Arquivo:** `describe-the-room-and-objects--card-1.png`
   - **Descrição / Conceito:** The Cozy Living Room
   - **Prompt completo:** `The Cozy Living Room. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image.`
 
