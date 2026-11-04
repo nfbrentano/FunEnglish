@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { getCategory } from "@/lib/activities/categories";
+import { withBasePath } from "@/lib/site";
 import { categoryImage, imageExists, siteImageExists } from "@/lib/site-images";
 
 /** What to show if the image doesn't load (spec: mais imagens nas atividades, RF05). */
@@ -72,7 +73,7 @@ export function ActivityImage({
     // eslint-disable-next-line @next/next/no-img-element -- static export; images are already sized assets
     <img
       ref={ref}
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       width={width}
       height={height}
@@ -123,7 +124,7 @@ export function CategoryArt({
     // eslint-disable-next-line @next/next/no-img-element -- static export; decorative
     <img
       ref={ref}
-      src={categoryImage(category)}
+      src={withBasePath(categoryImage(category))}
       alt=""
       width={1280}
       height={800}
