@@ -1,6 +1,6 @@
 # [FEAT] Acesso Público às Atividades e Cadastro Exclusivo pelo ADM
 
-> **Status:** Em revisão
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-11-04 · **Atualizada em:** 2026-11-04
 > **Contexto:** Revisão de política de acesso às atividades (revertendo o bloqueio obrigatório de login para jogar) e endurecimento do controle de autoria de conteúdo.
 
@@ -71,15 +71,15 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um usuário anônimo (não logado), quando ele navega diretamente para qualquer URL de atividade publicada (ex.: `/play/daily-routines-quiz`), então a página carrega de imediato, a introdução é exibida e nenhum redirecionamento para `/login` ocorre.
-- [ ] **CA02:** Dado um usuário não logado jogando uma atividade, quando ele clica em "Começar" (Start), joga as rodadas e conclui a atividade, então o jogo flui normalmente, a tela de resultados é exibida e 0 erros são registrados no console.
-- [ ] **CA03:** Dado um usuário não autenticado na tela de introdução de uma atividade, quando ele visualiza as opções, então botões exclusivos de gestão do professor (como "Enviar tarefa") não são exibidos ou solicitam login ao clicar.
-- [ ] **CA04:** Dado o usuário logado com o e-mail cadastrado como ADM (`nfgbrentano@gmail.com`) e com a claim de admin, quando ele acessa `/admin` ou `/admin/new`, então o painel de administração e o formulário de cadastro de atividades abrem com sucesso.
-- [ ] **CA05 (negativo):** Dado um usuário logado cujo e-mail **não** é o e-mail de administrador (ex.: `professor.teste@gmail.com`), quando ele tenta acessar `/admin` ou qualquer sub-rota (`/admin/new`, `/admin/edit`), então ele é bloqueado com a mensagem "Acesso não autorizado" e nenhuma ferramenta de criação/edição é exibida.
-- [ ] **CA06 (segurança backend):** Dado um usuário sem credenciais de administrador, quando uma tentativa de requisição de escrita (create, update, delete) é enviada para a coleção `/activities` no Firestore, então a operação é rejeitada pelas regras de segurança com erro de permissão negada (`PERMISSION_DENIED`).
-- [ ] **CA07:** Dado o usuário administrador autenticado, quando ele abre o menu de perfil no cabeçalho do site (`AccountMenu`), então uma opção "Painel Admin" (ou "Admin") é exibida; para usuários não-administradores, essa opção permanece oculta.
-- [ ] **CA08:** Dado o terminal do projeto, quando o comando `npm run set-admin -- nfgbrentano@gmail.com` é executado, então a claim `admin: true` é atribuída com sucesso ao usuário correspondente.
-- [ ] **CA09 (caso limite):** Dado um acesso à rota `/play-shell` (atividade publicada dinamicamente sem página estática pré-compilada) por um visitante anônimo, quando a página é carregada, então o player dinâmico funciona sem exigir login.
+- [x] **CA01:** Dado um usuário anônimo (não logado), quando ele navega diretamente para qualquer URL de atividade publicada (ex.: `/play/daily-routines-quiz`), então a página carrega de imediato, a introdução é exibida e nenhum redirecionamento para `/login` ocorre.
+- [x] **CA02:** Dado um usuário não logado jogando uma atividade, quando ele clica em "Começar" (Start), joga as rodadas e conclui a atividade, então o jogo flui normalmente, a tela de resultados é exibida e 0 erros são registrados no console.
+- [x] **CA03:** Dado um usuário não autenticado na tela de introdução de uma atividade, quando ele visualiza as opções, então botões exclusivos de gestão do professor (como "Enviar tarefa") não são exibidos ou solicitam login ao clicar.
+- [x] **CA04:** Dado o usuário logado com o e-mail cadastrado como ADM (`nfgbrentano@gmail.com`) e com a claim de admin, quando ele acessa `/admin` ou `/admin/new`, então o painel de administração e o formulário de cadastro de atividades abrem com sucesso.
+- [x] **CA05 (negativo):** Dado um usuário logado cujo e-mail **não** é o e-mail de administrador (ex.: `professor.teste@gmail.com`), quando ele tenta acessar `/admin` ou qualquer sub-rota (`/admin/new`, `/admin/edit`), então ele é bloqueado com a mensagem "Acesso não autorizado" e nenhuma ferramenta de criação/edição é exibida.
+- [x] **CA06 (segurança backend):** Dado um usuário sem credenciais de administrador, quando uma tentativa de requisição de escrita (create, update, delete) é enviada para a coleção `/activities` no Firestore, então a operação é rejeitada pelas regras de segurança com erro de permissão negada (`PERMISSION_DENIED`).
+- [x] **CA07:** Dado o usuário administrador autenticado, quando ele abre o menu de perfil no cabeçalho do site (`AccountMenu`), então uma opção "Painel Admin" (ou "Admin") é exibida; para usuários não-administradores, essa opção permanece oculta.
+- [x] **CA08:** Dado o terminal do projeto, quando o comando `npm run set-admin -- nfgbrentano@gmail.com` é executado, então a claim `admin: true` é atribuída com sucesso ao usuário correspondente.
+- [x] **CA09 (caso limite):** Dado um acesso à rota `/play-shell` (atividade publicada dinamicamente sem página estática pré-compilada) por um visitante anônimo, quando a página é carregada, então o player dinâmico funciona sem exigir login.
 
 ---
 
