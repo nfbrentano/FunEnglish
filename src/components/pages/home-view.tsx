@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useMemo } from "react";
 import { ActivityCard } from "@/components/catalog/activity-card";
@@ -120,6 +120,52 @@ export function HomeView({ initial, imagePaths }: { initial: CatalogIndex; image
             </li>
           ))}
         </ul>
+      </section>
+
+      <section
+        aria-labelledby="teacher-spotlight-title"
+        className="mx-auto w-full max-w-300 px-4 pb-16"
+      >
+        <div className="relative overflow-hidden rounded-3xl border border-border-subtle bg-elevated p-8 shadow-sm md:p-12">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl space-y-4 text-left">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-secondary px-3 py-1 text-xs font-medium text-accent">
+                  <Sparkles className="size-3.5" aria-hidden="true" />
+                  {t.teacherSpotlight.eyebrow}
+                </span>
+                <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs text-fg-secondary">
+                  {t.teacherSpotlight.badge}
+                </span>
+              </div>
+              <h2
+                id="teacher-spotlight-title"
+                className="font-display text-3xl font-medium text-fg sm:text-4xl"
+              >
+                {t.teacherSpotlight.title}
+              </h2>
+              <p className="text-sm font-semibold text-accent">
+                {t.teacherSpotlight.role}
+              </p>
+              <p className="text-base text-fg-secondary">
+                {t.teacherSpotlight.description}
+              </p>
+              <blockquote className="border-l-2 border-accent pl-4 text-sm italic text-muted">
+                &ldquo;{t.teacherSpotlight.quote}&rdquo;
+              </blockquote>
+            </div>
+            <div className="flex shrink-0 flex-col items-start gap-4 md:items-end">
+              <ButtonLink
+                href="/about#teacher-dani"
+                variant="secondary"
+                className="min-h-12 px-6 text-sm"
+              >
+                {t.teacherSpotlight.learnMore}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </ButtonLink>
+            </div>
+          </div>
+        </div>
       </section>
 
       {!user && (

@@ -474,6 +474,17 @@ export const strings = {
     featuredSubtitle: "A few favorites to start with",
     seeAll: "See all activities",
     categoriesTitle: "Explore by category",
+    teacherSpotlight: {
+      eyebrow: "Pedagogical Leadership",
+      title: "Created & curated by Teacher Dani",
+      role: "Pedagogical Coordinator & ESL Specialist",
+      badge: "Skylimit Idiomas",
+      description:
+        "Actively developing practical digital lessons with a strong focus on real-world speaking, natural pronunciation, and listening comprehension.",
+      quote:
+        "Language learning thrives when students connect practical vocabulary with everyday experiences and immersive listening practice.",
+      learnMore: "Meet Teacher Dani & explore her study tips",
+    },
     ctaTitle: "Save your favorites and build class lists",
     ctaText:
       "A free teacher account keeps your favorites, lists and recently played activities in one place.",
