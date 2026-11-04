@@ -8,6 +8,7 @@ import {
   promptCardsContentSchema,
   quizBoardContentSchema,
   quizContentSchema,
+  rollDiceContentSchema,
   sentenceOrderContentSchema,
 } from "./content";
 
@@ -20,6 +21,7 @@ export const ACTIVITY_TYPES = [
   "quiz-board",
   "prompt-cards",
   "sentence-order",
+  "roll-dice",
 ] as const;
 
 const levelSchema = z.enum(LEVELS);
@@ -65,6 +67,11 @@ export const activityInputSchema = z
       ...baseFields,
       type: z.literal("sentence-order"),
       content: sentenceOrderContentSchema,
+    }),
+    z.object({
+      ...baseFields,
+      type: z.literal("roll-dice"),
+      content: rollDiceContentSchema,
     }),
   ])
   .refine((a) => LEVELS.indexOf(a.levelMin) <= LEVELS.indexOf(a.levelMax), {

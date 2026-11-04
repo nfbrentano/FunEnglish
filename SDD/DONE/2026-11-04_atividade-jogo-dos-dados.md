@@ -1,6 +1,6 @@
 # [FEAT] Novo tipo de atividade: Jogo dos Dados 6x6 (Roll The Dice)
 
-> **Status:** Em revisão
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-11-04 · **Atualizada em:** 2026-11-04
 > **Referência original:** [Genially - A1-A2 My Life Everyday Verbs Roll The Dice](https://view.genially.com/684b2ec90b70e09e4a69b29f)
 
@@ -99,17 +99,17 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um arquivo JSON de atividade com `type: "roll-dice"` e uma grade de 36 perguntas válidas, quando rodo `npm run seed:check`, então a validação passa com sucesso sem erros de schema.
-- [ ] **CA02:** Dado que abro a atividade no player, quando clico no botão "Roll Dice" (ou clico em um dos dados), então vejo a animação dos dois dados girando, escuto o efeito sonoro de rolagem e os dados param exibindo dois números entre 1 e 6.
-- [ ] **CA03:** Dado que os dados pararam em `Linha 3` e `Coluna 4`, quando a animação encerra, então a célula $(3,4)$ no tabuleiro é destacada e o modal abre exibindo o texto *"Do you like drinking tea or coffee more? Why?"* em fonte grande legível.
-- [ ] **CA04:** Dado o tabuleiro exibido na tela, quando o usuário clica manualmente na célula $(1,2)$, então o modal abre diretamente com a pergunta *"What food do you eat when you're sad?"*, sem necessidade de rolar os dados.
-- [ ] **CA05:** Dado que a pergunta $(3,4)$ foi sorteada e fechada, quando retorno ao tabuleiro, então a célula $(3,4)$ exibe um indicador visual de "visitada" (ex.: badge ou cor esmaecida) e o contador do jogo indica o total de perguntas visitadas (ex.: "1 / 36 answered").
-- [ ] **CA06:** Dado que o cronômetro de fala está configurado para 60 segundos, quando o modal da pergunta se abre e o timer é iniciado, então a contagem regressiva é exibida em destaque e emite um alerta visual/sonoro discreto ao término do tempo.
-- [ ] **CA07:** Dado o modal da pergunta aberto, quando clico no botão de áudio/pronúncia, então o texto da pergunta em inglês é reproduzido via sintetizador de voz (TTS).
-- [ ] **CA08:** Dado um projetor ou monitor widescreen 1080p em modo tela cheia, quando a atividade é carregada, então o painel dos dados (à esquerda) e a grade 6×6 (à direita) cabem completamente na viewport sem necessitar de rolagem de página vertical.
-- [ ] **CA09 (negativo):** Dado um arquivo JSON de `roll-dice` que contenha apenas 35 perguntas (ou pergunta com texto em branco), quando o seed ou validador Zod executa, então a atividade é rejeitada com mensagem de erro clara indicando a ausência da grade completa 6×6.
-- [ ] **CA10 (acessibilidade):** Dado o uso exclusivo de teclado, quando pressiono a tecla `Space` ou `Enter` com foco no botão de rolagem, os dados rolam; quando pressiono `Esc` com o modal aberto, o modal fecha e o foco retorna à grade.
-- [ ] **CA11 (responsividade mobile):** Dado um dispositivo móvel com largura de tela de 375px, quando a atividade é aberta, então o layout se adapta adequadamente com área de toque mínima de 44px e os textos permanecem legíveis.
+- [x] **CA01:** Dado um arquivo JSON de atividade com `type: "roll-dice"` e uma grade de 36 perguntas válidas, quando rodo `npm run seed:check`, então a validação passa com sucesso sem erros de schema.
+- [x] **CA02:** Dado que abro a atividade no player, quando clico no botão "Roll Dice" (ou clico em um dos dados), então vejo a animação dos dois dados girando, escuto o efeito sonoro de rolagem e os dados param exibindo dois números entre 1 e 6.
+- [x] **CA03:** Dado que os dados pararam em `Linha 3` e `Coluna 4`, quando a animação encerra, então a célula $(3,4)$ no tabuleiro é destacada e o modal abre exibindo o texto *"Do you like drinking tea or coffee more? Why?"* em fonte grande legível.
+- [x] **CA04:** Dado o tabuleiro exibido na tela, quando o usuário clica manualmente na célula $(1,2)$, então o modal abre diretamente com a pergunta *"What food do you eat when you're sad?"*, sem necessidade de rolar os dados.
+- [x] **CA05:** Dado que a pergunta $(3,4)$ foi sorteada e fechada, quando retorno ao tabuleiro, então a célula $(3,4)$ exibe um indicador visual de "visitada" (ex.: badge ou cor esmaecida) e o contador do jogo indica o total de perguntas visitadas (ex.: "1 / 36 answered").
+- [x] **CA06:** Dado que o cronômetro de fala está configurado para 60 segundos, quando o modal da pergunta se abre e o timer é iniciado, então a contagem regressiva é exibida em destaque e emite um alerta visual/sonoro discreto ao término do tempo.
+- [x] **CA07:** Dado o modal da pergunta aberto, quando clico no botão de áudio/pronúncia, então o texto da pergunta em inglês é reproduzido via sintetizador de voz (TTS).
+- [x] **CA08:** Dado um projetor ou monitor widescreen 1080p em modo tela cheia, quando a atividade é carregada, então o painel dos dados (à esquerda) e a grade 6×6 (à direita) cabem completamente na viewport sem necessitar de rolagem de página vertical.
+- [x] **CA09 (negativo):** Dado um arquivo JSON de `roll-dice` que contenha apenas 35 perguntas (ou pergunta com texto em branco), quando o seed ou validador Zod executa, então a atividade é rejeitada com mensagem de erro clara indicando a ausência da grade completa 6×6.
+- [x] **CA10 (acessibilidade):** Dado o uso exclusivo de teclado, quando pressiono a tecla `Space` ou `Enter` com foco no botão de rolagem, os dados rolam; quando pressiono `Esc` com o modal aberto, o modal fecha e o foco retorna à grade.
+- [x] **CA11 (responsividade mobile):** Dado um dispositivo móvel com largura de tela de 375px, quando a atividade é aberta, então o layout se adapta adequadamente com área de toque mínima de 44px e os textos permanecem legíveis.
 
 ---
 

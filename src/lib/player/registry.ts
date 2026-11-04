@@ -5,6 +5,7 @@ import {
   promptCardsContentSchema,
   quizBoardContentSchema,
   quizContentSchema,
+  rollDiceContentSchema,
   sentenceOrderContentSchema,
 } from "../activities/schema/content";
 import { strings } from "../strings";
@@ -123,6 +124,17 @@ export const PLUGINS = {
     ],
     Component: dynamic(
       () => import("@/components/player/plugins/sentence-order/sentence-order-player"),
+      { ssr: false },
+    ),
+  }),
+  "roll-dice": definePlugin({
+    label: "Roll the Dice",
+    instructions:
+      "Roll both dice to choose a question from the 6x6 board, or tap any square to answer. Speak for up to 1 minute!",
+    schema: rollDiceContentSchema,
+    supports: { scoring: false, teams: false, timer: false, shuffle: false },
+    Component: dynamic(
+      () => import("@/components/player/plugins/roll-dice/roll-dice-player"),
       { ssr: false },
     ),
   }),

@@ -8,6 +8,7 @@ import type { Path } from "./form-context";
 import { PromptCardsEditor } from "./prompt-cards-editor";
 import { QuizBoardEditor } from "./quiz-board-editor";
 import { QuizEditor } from "./quiz-editor";
+import { RollDiceEditor } from "./roll-dice-editor";
 import { SentenceOrderEditor } from "./sentence-order-editor";
 
 type ContentEditor = (props: {
@@ -27,6 +28,7 @@ export const CONTENT_EDITORS: Record<ActivityType, ContentEditor> = {
   "quiz-board": QuizBoardEditor,
   "prompt-cards": PromptCardsEditor,
   "sentence-order": SentenceOrderEditor,
+  "roll-dice": RollDiceEditor,
 };
 
 export function StructuredEditor({

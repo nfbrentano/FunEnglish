@@ -47,6 +47,16 @@ export const CONTENT_TEMPLATES: Record<ActivityType, unknown> = {
       },
     ],
   },
+  "roll-dice": {
+    instructions: "Roll both dice to choose a question from the board.",
+    grid: Array.from({ length: 6 }, (_, r) =>
+      Array.from({ length: 6 }, (_, c) => ({
+        row: r + 1,
+        col: c + 1,
+        question: `Question for row ${r + 1}, col ${c + 1}?`,
+      })),
+    ).flat(),
+  },
 };
 
 /** Empty but structured `content` per type, for "Start blank" (spec: gestão completa, RF08). */
@@ -64,4 +74,14 @@ export const BLANK_CONTENT: Record<ActivityType, unknown> = {
   },
   "prompt-cards": { writing: false, cards: [{ prompt: "" }] },
   "sentence-order": { items: [{ sentence: "" }] },
+  "roll-dice": {
+    instructions: "",
+    grid: Array.from({ length: 6 }, (_, r) =>
+      Array.from({ length: 6 }, (_, c) => ({
+        row: r + 1,
+        col: c + 1,
+        question: "",
+      })),
+    ).flat(),
+  },
 };
