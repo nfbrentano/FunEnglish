@@ -1,9 +1,10 @@
 "use client";
 
-import { LayoutDashboard, LogOut, Pencil } from "lucide-react";
+import { LayoutDashboard, LogOut, Pencil, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/button";
+import { useIsAdmin } from "@/lib/admin/use-is-admin";
 import type { AuthUser } from "@/lib/auth/use-auth";
 import { strings } from "@/lib/strings";
 
@@ -54,6 +55,7 @@ function AccountMenu({
   const menuId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isAdmin = useIsAdmin();
 
   useEffect(() => {
     if (!open) return;
@@ -119,6 +121,16 @@ function AccountMenu({
               onClick={() => setOpen(false)}
             >
               <Pencil aria-hidden="true" className="size-4" /> Lousa
+            </Link>
+          )}
+          {isAdmin && (
+            <Link
+              role="menuitem"
+              href="/admin"
+              className={itemClasses}
+              onClick={() => setOpen(false)}
+            >
+              <ShieldCheck aria-hidden="true" className="size-4" /> Admin panel
             </Link>
           )}
           <button

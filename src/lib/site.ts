@@ -3,6 +3,9 @@ export const SITE_NAME = "Fun English";
 /** Public contact (Contact page, Privacy Policy). Also written in content/pages/*.md. */
 export const CONTACT_EMAIL = "nfgbrentano@gmail.com";
 
+/** Admin email authorized to manage, create and edit activities in /admin. */
+export const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || CONTACT_EMAIL;
+
 /** Base URL used for canonical links, the sitemap and share links (set as a GitHub Actions variable for deploys). */
 export function resolveSiteUrl(explicitUrl?: string): string {
   return (explicitUrl || "http://localhost:3000").replace(/\/+$/, "");
