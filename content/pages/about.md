@@ -18,23 +18,21 @@ Known to her students as **Teacher Dani**, she actively leads the creation and p
 
 ### Background and Pedagogical Coordination
 
-Teacher Dani is part of the leadership team at **Skylimit Idiomas**, participating in international technical visits and educational exchanges to enhance and refine the institution's [award-winning learning materials](https://skylimitidiomas.com.br/material-didatico-da-skylimit-e-premiado/).
+Teacher Dani is part of the leadership team at **Skylimit Idiomas**, participating in international technical visits and educational exchanges to enhance and refine the institution's award-winning learning materials.
 
 ### Practical Learning Approach
 
 Her teaching philosophy emphasizes real-world communication over rote memorization. She creates practical lessons centered on everyday expressions, adjectives, and specialized vocabulary tailored to daily scenarios:
 
-- [Adjectives in English to describe personality](https://skylimitidiomas.com.br/adjetivos-em-ingles-para-descrever-a-personalidade/)
-- [Practical vocabulary for everyday topics](https://www.facebook.com/skylimtidiomas/photos/-voc%C3%AA-%C3%A9-ciclista-ou-anda-de-bicicleta-de-vez-em-quando-ent%C3%A3o-salve-este-post-par/4747307878707120/?locale=zh_CN)
+- Adjectives in English to describe personality
+- Practical vocabulary for everyday topics
 
 ### Listening & Autonomous Study Tips
 
-Teacher Dani strongly encourages autonomous language practice ([tips for studying English on your own](https://skylimitidiomas.com.br/dicas-para-estudar-ingles-sozinho/)). She recommends:
+Teacher Dani strongly encourages autonomous language practice. She recommends:
 
 - **Media Immersion:** Watching movies and TV series with original English audio and English subtitles for beginners to train auditory comprehension and natural cadence.
-- **Dedicated Listening Tools:** Exploring specialized platforms for self-paced listening development:
-  - [ESL English Listening / Cyber Listening Lab](https://www.esl-lab.com)
-  - [TalkEnglish.com](https://www.talkenglish.com)
+- **Dedicated Listening Tools:** Exploring specialized platforms for self-paced listening development, such as ESL English Listening (Cyber Listening Lab) and TalkEnglish.com.
 
 ## How the activities are made
 
