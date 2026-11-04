@@ -1,6 +1,6 @@
 # [CHORE] Migração da hospedagem web para GitHub Pages
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-11-04 · **Atualizada em:** 2026-11-04
 > **Contexto:** Migração da hospedagem dos arquivos estáticos da web (frontend) do Firebase Hosting para o GitHub Pages (URL: `https://nfbrentano.github.io/FunEnglish`).
 
@@ -44,10 +44,10 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que o build é executado com `GITHUB_PAGES=true`, quando o Next.js gera os arquivos estáticos, então as tags `<link>` e scripts possuem o prefixo `/FunEnglish/_next/...` e links internos apontam para `/FunEnglish/...`.
-- [ ] **CA02:** Dado que o comando `npm run build` é executado, quando a pasta `out/` é inspecionada, então o arquivo `out/.nojekyll` existe na raiz.
-- [ ] **CA03:** Dado o arquivo `.github/workflows/deploy.yml`, quando inspecionado, então ele contém o ambiente `github-pages`, permissões `pages: write`, `id-token: write` e o step `actions/deploy-pages@v4`.
-- [ ] **CA04:** Dado o ambiente de desenvolvimento local (`npm run test` e `npm run typecheck`), quando os comandos são executados sem `GITHUB_PAGES`, então 100% dos testes passam e nenhum caminho é quebrado.
+- [x] **CA01:** Dado que o build é executado com `GITHUB_PAGES=true`, quando o Next.js gera os arquivos estáticos, então as tags `<link>` e scripts possuem o prefixo `/FunEnglish/_next/...` e links internos apontam para `/FunEnglish/...`.
+- [x] **CA02:** Dado que o comando `npm run build` é executado, quando a pasta `out/` é inspecionada, então o arquivo `out/.nojekyll` existe na raiz.
+- [x] **CA03:** Dado o arquivo `.github/workflows/deploy.yml`, quando inspecionado, então ele contém o ambiente `github-pages`, permissões `pages: write`, `id-token: write` e o step `actions/deploy-pages@v4`.
+- [x] **CA04:** Dado o ambiente de desenvolvimento local (`npm run test` e `npm run typecheck`), quando os comandos são executados sem `GITHUB_PAGES`, então 100% dos testes passam e nenhum caminho é quebrado.
 
 ## O que a atividade não inclui
 

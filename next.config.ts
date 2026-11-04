@@ -3,6 +3,9 @@ import { join } from "node:path";
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
+const isGithubPages =
+  process.env.GITHUB_PAGES === "true" || Boolean(process.env.NEXT_PUBLIC_BASE_PATH);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (isGithubPages ? "/FunEnglish" : "");
 
 /**
  * Every image in public/images at build time. The player requests only those: a picture that is
@@ -23,10 +26,15 @@ function builtImages(): string {
 // No server at runtime, so no ISR, route handlers with Request, proxy or default image optimization.
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: basePath || undefined,
+  assetPrefix: basePath ? `${basePath}/` : undefined,
   images: { unoptimized: true },
   // `*.dev.tsx` routes (e.g. the /dev/ui component gallery) exist only in `next dev`.
   pageExtensions: isDev ? ["dev.tsx", "tsx", "ts"] : ["tsx", "ts"],
-  env: { NEXT_PUBLIC_IMAGES: builtImages() },
+  env: {
+    NEXT_PUBLIC_IMAGES: builtImages(),
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;
