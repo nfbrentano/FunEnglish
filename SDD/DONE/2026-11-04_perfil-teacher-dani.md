@@ -1,6 +1,6 @@
 # [FEAT] Destaque da Professora Teacher Dani (Home e About)
 
-> **Status:** Em revisão
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** · **Criada em:** 2026-11-04 · **Atualizada em:** 2026-11-04
 > **Contexto:** Apresentação institucional da liderança pedagógica e curadoria de conteúdo educativo da plataforma Fun English.
 
@@ -57,11 +57,11 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado que um usuário acessa `/about`, quando a página carrega, então ele visualiza a seção dedicada à Teacher Dani detalhando sua biografia, atuação como coordenadora pedagógica e dicas de estudo.
-- [ ] **CA02:** Dado que um visitante acessa a Home Page (`/`), quando navega pela página, então encontra uma seção de destaque ("Pedagogical Leadership / Meet Teacher Dani") com resumo de sua abordagem prática e um botão/link que direciona para `/about`.
-- [ ] **CA03:** Dado os links de artigos e recursos da Teacher Dani na página `/about`, quando o usuário clica em qualquer um dos links, então a página de destino abre em nova aba sem comprometer a navegação do site (`target="_blank"` e `rel="noopener noreferrer"`).
-- [ ] **CA04:** Dado o arquivo `src/lib/strings.ts`, quando a aplicação compila, então todos os textos da nova seção na Home Page estão devidamente declarados no objeto de strings sem strings mágicas hardcoded no componente.
-- [ ] **CA05 (responsividade):** Dado um smartphone com tela de 375px de largura, quando o usuário visualiza a seção da professora na Home e no About, então não há overflow horizontal e os textos e links possuem espaçamento e toque confortáveis (mín. 44px para botões).
+- [x] **CA01:** Dado que um usuário acessa `/about`, quando a página carrega, então ele visualiza a seção dedicada à Teacher Dani detalhando sua biografia, atuação como coordenadora pedagógica e dicas de estudo.
+- [x] **CA02:** Dado que um visitante acessa a Home Page (`/`), quando navega pela página, então encontra uma seção de destaque ("Pedagogical Leadership / Meet Teacher Dani") com resumo de sua abordagem prática e um botão/link que direciona para `/about`.
+- [x] **CA03:** Dado os links de artigos e recursos da Teacher Dani na página `/about`, quando o usuário clica em qualquer um dos links, então a página de destino abre em nova aba sem comprometer a navegação do site (`target="_blank"` e `rel="noopener noreferrer"`).
+- [x] **CA04:** Dado o arquivo `src/lib/strings.ts`, quando a aplicação compila, então todos os textos da nova seção na Home Page estão devidamente declarados no objeto de strings sem strings mágicas hardcoded no componente.
+- [x] **CA05 (responsividade):** Dado um smartphone com tela de 375px de largura, quando o usuário visualiza a seção da professora na Home e no About, então não há overflow horizontal e os textos e links possuem espaçamento e toque confortáveis (mín. 44px para botões).
 
 ---
 
