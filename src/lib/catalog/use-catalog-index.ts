@@ -19,7 +19,11 @@ export function useCatalogIndex(initial: CatalogIndex = FALLBACK_CATALOG) {
     let active = true;
     fetchCatalogIndexOnce()
       .then((fresh) => {
-        if (active && fresh.updatedAt >= initial.updatedAt) setIndex(fresh);
+        if (active && fresh.updatedAt >= initial.updatedAt) {
+          const freshSlugs = new Set(fresh.items.map((i) => i.slug));
+          const missing = initial.items.filter((i) => !freshSlugs.has(i.slug));
+          setIndex(missing.length > 0 ? { ...fresh, items: [...fresh.items, ...missing] } : fresh);
+        }
       })
       .catch((error: unknown) => console.warn("Could not refresh the catalog", error))
       .finally(() => active && setLoaded(true));

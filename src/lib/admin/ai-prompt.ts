@@ -63,6 +63,7 @@ const PICTURE_RULE: Record<ActivityType, string> = {
   "prompt-cards": 'Give every card a picture: "image": {"alt": "what the picture shows"}.',
   "sentence-order":
     'Give items a picture when it helps: "media": {"kind": "image", "alt": "what the picture shows"}.',
+  "roll-dice": "Dice games do not require pictures for individual grid questions.",
 };
 
 const COUNT_NOUN: Record<ActivityType, string> = {
@@ -72,6 +73,7 @@ const COUNT_NOUN: Record<ActivityType, string> = {
   "quiz-board": "clues per category",
   "prompt-cards": "cards",
   "sentence-order": "sentences",
+  "roll-dice": "questions (exactly 36 in 6x6 grid)",
 };
 
 /** The JSON template for any type: the quiz wrapper with this type's content. */

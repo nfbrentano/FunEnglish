@@ -157,3 +157,32 @@ export const sentenceOrderContentSchema = z.object({
     .min(1)
     .max(30),
 });
+
+/** Roll the Dice 6x6 Board Game (SDD/2026-11-04_atividade-jogo-dos-dados.md, RF01). */
+export const rollDiceContentSchema = z.object({
+  instructions: nonEmptyText.optional(),
+  grid: z
+    .array(
+      z.object({
+        row: z.number().int().min(1).max(6),
+        col: z.number().int().min(1).max(6),
+        question: nonEmptyText,
+        hint: nonEmptyText.optional(),
+      }),
+    )
+    .length(36, "A 6x6 dice board must have exactly 36 questions")
+    .refine(
+      (items) => {
+        const coords = new Set(items.map((i) => `${i.row}:${i.col}`));
+        return coords.size === 36;
+      },
+      { message: "The grid must contain unique coordinates from (1,1) to (6,6)" },
+    ),
+  options: z
+    .object({
+      timerSeconds: z.number().int().nonnegative().optional(),
+      allowManualSelect: z.boolean().optional(),
+    })
+    .optional(),
+});
+

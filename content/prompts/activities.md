@@ -213,6 +213,61 @@ frequency and time phrases. Use `translation` (Portuguese) for beginners.
 
 Optional per item: `hint`, `translation` and `media` (same kinds as the quiz).
 
+### roll-dice
+
+A 6x6 board game with 36 conversational questions. Exactly 36 items covering all coordinates `row`: 1..6 and `col`: 1..6.
+
+`"type": "roll-dice"` and this `content`:
+
+```json
+{
+  "instructions": "Roll both dice to choose a question from the board.",
+  "grid": [
+    { "row": 1, "col": 1, "question": "What do you always forget to buy at the shop?" },
+    { "row": 1, "col": 2, "question": "What food do you eat when you're sad?" },
+    { "row": 1, "col": 3, "question": "Name 3 things people like to watch, but you don’t." },
+    { "row": 1, "col": 4, "question": "Do you listen to music while you study or work?" },
+    { "row": 1, "col": 5, "question": "What do you like more: listening or talking?" },
+    { "row": 1, "col": 6, "question": "Do you need music to be happy?" },
+
+    { "row": 2, "col": 1, "question": "What time do you usually get up on Sundays?" },
+    { "row": 2, "col": 2, "question": "Do you like buying things online or in a shop? Why?" },
+    { "row": 2, "col": 3, "question": "Mention 3 things people eat that you think are strange." },
+    { "row": 2, "col": 4, "question": "What do you listen to when you're cleaning?" },
+    { "row": 2, "col": 5, "question": "Mention 3 things you do every day, even if you don’t want to." },
+    { "row": 2, "col": 6, "question": "Do you sleep better in winter or summer?" },
+
+    { "row": 3, "col": 1, "question": "What do you like to listen to on a long trip?" },
+    { "row": 3, "col": 2, "question": "Do you wake up with an alarm or by yourself?" },
+    { "row": 3, "col": 3, "question": "Mention 3 things you can buy with £1." },
+    { "row": 3, "col": 4, "question": "Do you like drinking tea or coffee more? Why?" },
+    { "row": 3, "col": 5, "question": "Do you like watching films with friends or alone?" },
+    { "row": 3, "col": 6, "question": "Mention 3 people you talk to every week." },
+
+    { "row": 4, "col": 1, "question": "Name 3 ways to help someone at school/work." },
+    { "row": 4, "col": 2, "question": "Do you like talking on the phone? Why or why not?" },
+    { "row": 4, "col": 3, "question": "Do you get up early on holidays? Why or why not?" },
+    { "row": 4, "col": 4, "question": "What do you usually buy for your friends?" },
+    { "row": 4, "col": 5, "question": "What food do you eat too much of?" },
+    { "row": 4, "col": 6, "question": "What do you love to watch again and again?" },
+
+    { "row": 5, "col": 1, "question": "Name 3 things you need to sleep well." },
+    { "row": 5, "col": 2, "question": "What do you want to do, but never have time for?" },
+    { "row": 5, "col": 3, "question": "What do you usually watch before going to bed?" },
+    { "row": 5, "col": 4, "question": "What do you usually drink when you're very tired?" },
+    { "row": 5, "col": 5, "question": "What do people often buy but don’t really need?" },
+    { "row": 5, "col": 6, "question": "What do you drink when you're happy?" },
+
+    { "row": 6, "col": 1, "question": "What do you want to learn this year?" },
+    { "row": 6, "col": 2, "question": "What do you do when you can’t sleep?" },
+    { "row": 6, "col": 3, "question": "Do you talk to yourself? When?" },
+    { "row": 6, "col": 4, "question": "Mention 3 sounds you like listening to." },
+    { "row": 6, "col": 5, "question": "Name 3 things you never want to eat again." },
+    { "row": 6, "col": 6, "question": "What do you always need in your fridge?" }
+  ]
+}
+```
+
 ## After generating
 
 1. `npm run seed:check` — fix anything it reports.

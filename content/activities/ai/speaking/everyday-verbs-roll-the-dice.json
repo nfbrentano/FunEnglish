@@ -1,0 +1,66 @@
+{
+  "slug": "everyday-verbs-roll-the-dice",
+  "title": "Everyday Verbs: Roll The Dice",
+  "description": "Roll the dice, find the question on the 6x6 board and practice real-life conversational English with everyday verbs.",
+  "category": "speaking",
+  "type": "roll-dice",
+  "levelMin": "beginner",
+  "levelMax": "intermediate",
+  "tags": ["speaking", "conversation", "board game", "routine", "everyday verbs"],
+  "status": "published",
+  "featured": true,
+  "origin": "ai",
+  "reviewStatus": "pending",
+  "thumbnail": {
+    "src": "/images/activities/everyday-verbs-roll-the-dice/thumb.webp",
+    "alt": "Two colorful dice on a classroom conversation board",
+    "source": "ai",
+    "prompt": "Two colorful wooden dice showing dots on a conversation game board with speech bubbles. Flat vector illustration, soft warm earthy palette (terracotta, sage green, ochre, muted blue, cream) with a small touch of muted gold, very subtle, even paper grain, simple rounded shapes, gentle soft lighting, centered composition with generous empty space around the subject, mid-tone background that works on both dark and light pages. No text, no letters, no numbers, no logos, no brand names, no real or famous people, no watermark. Full-bleed flat background color from edge to edge: no frame, no border, no round or oval vignette, no wreath, no mandala or ornament in the middle of the image. aspect ratio 16:10"
+  },
+  "content": {
+    "instructions": "Roll both dice to choose a question from the board, or click any square to answer. Speak for up to 1 minute!",
+    "grid": [
+      { "row": 1, "col": 1, "question": "What do you always forget to buy at the shop?" },
+      { "row": 1, "col": 2, "question": "What food do you eat when you're sad?" },
+      { "row": 1, "col": 3, "question": "Name 3 things people like to watch, but you don’t." },
+      { "row": 1, "col": 4, "question": "Do you listen to music while you study or work?" },
+      { "row": 1, "col": 5, "question": "What do you like more: listening or talking?" },
+      { "row": 1, "col": 6, "question": "Do you need music to be happy?" },
+
+      { "row": 2, "col": 1, "question": "What time do you usually get up on Sundays?" },
+      { "row": 2, "col": 2, "question": "Do you like buying things online or in a shop? Why?" },
+      { "row": 2, "col": 3, "question": "Mention 3 things people eat that you think are strange." },
+      { "row": 2, "col": 4, "question": "What do you listen to when you're cleaning?" },
+      { "row": 2, "col": 5, "question": "Mention 3 things you do every day, even if you don’t want to." },
+      { "row": 2, "col": 6, "question": "Do you sleep better in winter or summer?" },
+
+      { "row": 3, "col": 1, "question": "What do you like to listen to on a long trip?" },
+      { "row": 3, "col": 2, "question": "Do you wake up with an alarm or by yourself?" },
+      { "row": 3, "col": 3, "question": "Mention 3 things you can buy with £1." },
+      { "row": 3, "col": 4, "question": "Do you like drinking tea or coffee more? Why?" },
+      { "row": 3, "col": 5, "question": "Do you like watching films with friends or alone?" },
+      { "row": 3, "col": 6, "question": "Mention 3 people you talk to every week." },
+
+      { "row": 4, "col": 1, "question": "Name 3 ways to help someone at school/work." },
+      { "row": 4, "col": 2, "question": "Do you like talking on the phone? Why or why not?" },
+      { "row": 4, "col": 3, "question": "Do you get up early on holidays? Why or why not?" },
+      { "row": 4, "col": 4, "question": "What do you usually buy for your friends?" },
+      { "row": 4, "col": 5, "question": "What food do you eat too much of?" },
+      { "row": 4, "col": 6, "question": "What do you love to watch again and again?" },
+
+      { "row": 5, "col": 1, "question": "Name 3 things you need to sleep well." },
+      { "row": 5, "col": 2, "question": "What do you want to do, but never have time for?" },
+      { "row": 5, "col": 3, "question": "What do you usually watch before going to bed?" },
+      { "row": 5, "col": 4, "question": "What do you usually drink when you're very tired?" },
+      { "row": 5, "col": 5, "question": "What do people often buy but don’t really need?" },
+      { "row": 5, "col": 6, "question": "What do you drink when you're happy?" },
+
+      { "row": 6, "col": 1, "question": "What do you want to learn this year?" },
+      { "row": 6, "col": 2, "question": "What do you do when you can’t sleep?" },
+      { "row": 6, "col": 3, "question": "Do you talk to yourself? When?" },
+      { "row": 6, "col": 4, "question": "Mention 3 sounds you like listening to." },
+      { "row": 6, "col": 5, "question": "Name 3 things you never want to eat again." },
+      { "row": 6, "col": 6, "question": "What do you always need in your fridge?" }
+    ]
+  }
+}
