@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CategoryIcon } from "@/components/ui/category-icon";
 import { getCategory } from "@/lib/activities/categories";
 import type { CatalogItem } from "@/lib/catalog/schema";
+import { withBasePath } from "@/lib/site";
 
 /**
  * 16:10 thumbnail. Images that don't exist yet (known at build time) show a tinted placeholder
@@ -22,7 +23,7 @@ export function ActivityThumbnail({
     <div className="relative aspect-16/10 overflow-hidden bg-secondary">
       {available ? (
         <Image
-          src={item.thumbnail.src}
+          src={withBasePath(item.thumbnail.src)}
           alt={item.thumbnail.alt}
           fill
           priority={priority}

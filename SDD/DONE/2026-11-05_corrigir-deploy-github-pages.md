@@ -1,6 +1,6 @@
 # [FIX] Correção do pipeline de CI/CD e suporte a basePath do GitHub Pages
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** Equipe · **Criada em:** 2026-11-05 · **Atualizada em:** 2026-11-05
 
 ## Detalhes da Atividade
@@ -45,10 +45,10 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o arquivo `.github/workflows/deploy.yml`, quando inspecionado, então as variáveis `GITHUB_PAGES`, `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` estão associadas ao step `npm run build` e não ao job `deploy`.
-- [ ] **CA02:** Dado o repositório, quando a pasta `.github/workflows/` é verificada, então o arquivo `nextjs.yml` foi excluído.
-- [ ] **CA03:** Dado o build estático gerado com `GITHUB_PAGES=true`, quando as tags de imagem em `out/` são inspecionadas, então as miniaturas das atividades possuem o prefixo `/FunEnglish/images/...`.
-- [ ] **CA04:** Dado o comando `npm test`, quando executado em ambiente padrão, então 100% dos testes unitários passam sem falhas.
+- [x] **CA01:** Dado o arquivo `.github/workflows/deploy.yml`, quando inspecionado, então as variáveis `GITHUB_PAGES`, `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` estão associadas ao step `npm run build` e não ao job `deploy`.
+- [x] **CA02:** Dado o repositório, quando a pasta `.github/workflows/` é verificada, então o arquivo `nextjs.yml` foi excluído.
+- [x] **CA03:** Dado o build estático gerado com `GITHUB_PAGES=true`, quando as tags de imagem em `out/` são inspecionadas, então as miniaturas das atividades possuem o prefixo `/FunEnglish/images/...`.
+- [x] **CA04:** Dado o comando `npm test`, quando executado em ambiente padrão, então 100% dos testes unitários passam sem falhas.
 
 ## O que a atividade não inclui
 
