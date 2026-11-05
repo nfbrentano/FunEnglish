@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { slugify } from "@/lib/admin/content-fields";
 import { ACTIONS_URL } from "@/lib/admin/github";
 import { useImageUpload } from "@/lib/admin/use-image-upload";
+import { withBasePath } from "@/lib/site";
 import { strings } from "@/lib/strings";
 import { asText, Field, TextField, withOptional, type Json } from "./fields";
 import { ImagePathsContext, promptFromAlt, useImageTools } from "./image-paths";
@@ -51,7 +52,7 @@ export function ImageFields({
   const alt = asText(value.alt);
   const prompt = asText(value.prompt);
   const isThumbnail = path.length === 1 && path[0] === "thumbnail";
-  const preview = tools.previews.get(src) ?? src;
+  const preview = tools.previews.get(src) ?? (src ? withBasePath(src) : "");
 
   async function onFile(file: File) {
     const target = uploadSrcFor(tools.slug, src, alt, isThumbnail);
