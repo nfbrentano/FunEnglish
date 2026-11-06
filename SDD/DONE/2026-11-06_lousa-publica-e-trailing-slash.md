@@ -1,6 +1,6 @@
 # [FEAT] Acesso público à lousa digital e suporte a trailingSlash no GitHub Pages
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Natanael Brentano · **Revisor:** Equipe · **Criada em:** 2026-11-06 · **Atualizada em:** 2026-11-06
 
 ## Detalhes da Atividade
@@ -46,11 +46,11 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado um usuário não autenticado, quando acessa `/lousa`, então a lousa digital é carregada diretamente com ferramentas de desenho, sem redirecionar para `/login`.
-- [ ] **CA02:** Dado o cabeçalho do site (`SiteHeader`), quando visualizado por visitante ou professor, então o item "Lousa" está visível no menu de navegação; quando visualizado por aluno, o item não é exibido.
-- [ ] **CA03:** Dado o build estático exportado (`out/`), quando inspecionado, então as páginas possuem a estrutura de pastas `out/lousa/index.html` e respondem com 200 OK tanto para `/lousa` quanto para `/lousa/`.
-- [ ] **CA04:** Dado o modal de sala ao vivo (`LiveRoomModal`), quando aberto, então o link gerado inclui o subcaminho `NEXT_PUBLIC_BASE_PATH` quando este estiver configurado.
-- [ ] **CA05:** Dado o comando `npm test`, quando executado, então 100% dos testes passam sem falhas.
+- [x] **CA01:** Dado um usuário não autenticado, quando acessa `/lousa`, então a lousa digital é carregada diretamente com ferramentas de desenho, sem redirecionar para `/login`.
+- [x] **CA02:** Dado o cabeçalho do site (`SiteHeader`), quando visualizado por visitante ou professor, então o item "Lousa" está visível no menu de navegação; quando visualizado por aluno, o item não é exibido.
+- [x] **CA03:** Dado o build estático exportado (`out/`), quando inspecionado, então as páginas possuem a estrutura de pastas `out/lousa/index.html` e respondem com 200 OK tanto para `/lousa` quanto para `/lousa/`.
+- [x] **CA04:** Dado o modal de sala ao vivo (`LiveRoomModal`), quando aberto, então o link gerado inclui o subcaminho `NEXT_PUBLIC_BASE_PATH` quando este estiver configurado.
+- [x] **CA05:** Dado o comando `npm test`, quando executado, então 100% dos testes passam sem falhas.
 
 ## O que a atividade não inclui
 

@@ -8,6 +8,7 @@ import { generateInviteText } from "@/lib/live/code";
 import { useLiveRoom } from "@/lib/live/live-context";
 import { useClasses } from "@/lib/classes/use-classes";
 import { useSessionContext } from "@/lib/session/session-context";
+import { withBasePath } from "@/lib/site";
 
 export function LiveRoomModal() {
   const live = useLiveRoom();
@@ -26,7 +27,7 @@ export function LiveRoomModal() {
   const isOpen = live?.isModalOpen;
 
   const origin = typeof window !== "undefined" ? window.location.origin : "";
-  const roomUrl = room ? `${origin}/live?code=${room.code}` : "";
+  const roomUrl = room ? `${origin}${withBasePath("/live")}?code=${room.code}` : "";
 
   // Generate QR Code data URL when room code is available
   useEffect(() => {

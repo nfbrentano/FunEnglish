@@ -26,6 +26,7 @@ function builtImages(): string {
 // No server at runtime, so no ISR, route handlers with Request, proxy or default image optimization.
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: true,
   basePath: basePath || undefined,
   assetPrefix: basePath ? `${basePath}/` : undefined,
   images: { unoptimized: true },
