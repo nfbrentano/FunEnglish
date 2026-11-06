@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { RequireAuth } from "@/components/auth/require-auth";
 import { WhiteboardPageView } from "@/components/board/whiteboard-page-view";
 
 export const metadata: Metadata = {
@@ -9,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function LousaPage() {
-  return (
-    <RequireAuth allowedRoles={["teacher"]}>
-      <WhiteboardPageView />
-    </RequireAuth>
-  );
+  return <WhiteboardPageView />;
 }

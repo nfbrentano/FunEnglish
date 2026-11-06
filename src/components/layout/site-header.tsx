@@ -42,7 +42,7 @@ export function SiteHeader() {
                 </li>
               );
             })}
-            {user && user.role !== "student" && (
+            {(!user || user.role !== "student") && (
               <li>
                 <Link
                   href="/lousa"

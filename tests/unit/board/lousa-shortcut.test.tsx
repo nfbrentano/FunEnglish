@@ -74,25 +74,27 @@ describe("Whiteboard Shortcut and Page (SDD/2026-10-06_atalho-lousa.md)", () => 
     expect(lousaLink).toHaveAttribute("href", "/lousa");
   });
 
-  it("does not render Lousa link in SiteHeader when user is anonymous or student", () => {
-    // Anonymous
+  it("renders Lousa link in SiteHeader for anonymous visitors", () => {
     vi.mocked(useAuth).mockReturnValue({
       user: null,
       loading: false,
       signOut: vi.fn(),
     });
 
-    const { rerender } = render(<SiteHeader />);
-    expect(screen.queryByRole("link", { name: "Lousa" })).not.toBeInTheDocument();
+    render(<SiteHeader />);
+    const lousaLink = screen.getByRole("link", { name: "Lousa" });
+    expect(lousaLink).toBeInTheDocument();
+    expect(lousaLink).toHaveAttribute("href", "/lousa");
+  });
 
-    // Student
+  it("does not render Lousa link in SiteHeader when user is a student", () => {
     vi.mocked(useAuth).mockReturnValue({
       user: { uid: "student-123", email: "student@test.com", role: "student", displayName: "Student", photoURL: null },
       loading: false,
       signOut: vi.fn(),
     });
 
-    rerender(<SiteHeader />);
+    render(<SiteHeader />);
     expect(screen.queryByRole("link", { name: "Lousa" })).not.toBeInTheDocument();
   });
 });
