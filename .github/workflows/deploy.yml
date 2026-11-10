@@ -38,8 +38,6 @@ jobs:
       - run: npm run build:functions
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
