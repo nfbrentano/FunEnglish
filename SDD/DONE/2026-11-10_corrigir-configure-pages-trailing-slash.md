@@ -1,6 +1,6 @@
 # [FIX] Remover injeção conflitante de next.config pelo actions/configure-pages no GitHub Actions
 
-> **Status:** Em andamento
+> **Status:** Concluída
 > **Autor:** Antigravity · **Revisor:** Natanael Fernando Gatti Brentano · **Criada em:** 2026-11-10 · **Atualizada em:** 2026-11-10
 
 ## Detalhes da Atividade
@@ -39,8 +39,8 @@
 
 ## Critérios de Aceitação / Entregas
 
-- [ ] **CA01:** Dado o workflow `.github/workflows/deploy.yml`, quando o step `Setup Pages` for executado, então ele não deve injetar nem criar um arquivo `next.config.js` conflitante na raiz do workspace.
-- [ ] **CA02:** Dado que o `npm run build` é disparado no CI com `GITHUB_PAGES=true`, quando a exportação for concluída, então os artefatos devem ser gerados em diretórios com `index.html` em conformidade com `trailingSlash: true` de `next.config.ts`.
+- [x] **CA01:** Dado o workflow `.github/workflows/deploy.yml`, quando o step `Setup Pages` for executado, então ele não deve injetar nem criar um arquivo `next.config.js` conflitante na raiz do workspace.
+- [x] **CA02:** Dado que o `npm run build` é disparado no CI com `GITHUB_PAGES=true`, quando a exportação for concluída, então os artefatos devem ser gerados em diretórios com `index.html` em conformidade com `trailingSlash: true` de `next.config.ts`.
 
 ## O que a atividade não inclui
 
